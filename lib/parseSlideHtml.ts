@@ -13,11 +13,23 @@ function scopeSlideStyles(styles: string): string {
     "g",
   );
 
-  scoped = scoped.replace(contentRulePattern, (block) =>
-    block
-      .replace(/background-color\s*:\s*#000\s*;?/gi, "")
-      .replace(/background\s*:\s*#000\s*;?/gi, ""),
+  scoped = scoped.replace(
+    contentRulePattern,
+    () => `${SLIDE_CONTENT_SELECTOR} {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: var(--ppt-bg, #0a0e1a);
+}`,
   );
+
+  scoped = scoped
+    .replace(/background-color\s*:\s*#000000\s*;?/gi, "background-color: var(--ppt-bg);")
+    .replace(/background-color\s*:\s*#000\s*;?/gi, "background-color: var(--ppt-bg);")
+    .replace(/background\s*:\s*#000000\s*;?/gi, "background: var(--ppt-bg);")
+    .replace(/background\s*:\s*#000\s*;?/gi, "background: var(--ppt-bg);");
 
   return scoped;
 }
