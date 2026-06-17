@@ -13,6 +13,7 @@ type SlideStageProps = {
 };
 
 export default function SlideStage({ slide, scale, direction }: SlideStageProps) {
+  const safeScale = Number.isFinite(scale) && scale > 0 ? scale : 1;
   const animationClass =
     direction === "forward"
       ? "slide-stage--enter-forward"
@@ -21,13 +22,13 @@ export default function SlideStage({ slide, scale, direction }: SlideStageProps)
         : "";
 
   return (
-    <div className={`slide-stage ${animationClass}`}>
+    <div className={`slide-stage slide-stage--projector ${animationClass}`}>
       <div
         className="slide-stage__canvas"
         style={{
           width: SLIDE_WIDTH,
           height: SLIDE_HEIGHT,
-          transform: `translate(-50%, -50%) scale(${scale})`,
+          transform: `scale(${safeScale})`,
         }}
       >
         {slide.styles ? <style dangerouslySetInnerHTML={{ __html: slide.styles }} /> : null}

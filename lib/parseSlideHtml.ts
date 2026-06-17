@@ -3,6 +3,7 @@ export type ParsedSlide = {
   bodyHtml: string;
 };
 
+const SLIDE_CANVAS_SELECTOR = ".slide-stage__canvas";
 const SLIDE_CONTENT_SELECTOR = ".slide-stage__content";
 
 function scopeSlideStyles(styles: string): string {
@@ -26,6 +27,9 @@ function scopeSlideStyles(styles: string): string {
   );
 
   scoped = scoped
+    .replace(/:root\s*\{/g, `${SLIDE_CANVAS_SELECTOR} {`)
+    .replace(/(^|\n)\s*html\s*\{[\s\S]*?\}/g, "")
+    .replace(/(^|[{};\n])\s*\*\s*\{/g, `$1${SLIDE_CANVAS_SELECTOR} * {`)
     .replace(/background-color\s*:\s*#000000\s*;?/gi, "background-color: var(--ppt-bg);")
     .replace(/background-color\s*:\s*#000\s*;?/gi, "background-color: var(--ppt-bg);")
     .replace(/background\s*:\s*#000000\s*;?/gi, "background: var(--ppt-bg);")

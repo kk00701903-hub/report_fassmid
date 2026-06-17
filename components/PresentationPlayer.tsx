@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import SlideDetailButtons from "@/components/SlideDetailButtons";
 import SlideOptionsPanel from "@/components/SlideOptionsPanel";
 import { usePresentationConfigState } from "@/hooks/usePresentationConfig";
@@ -164,17 +164,14 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     void loadSlideAt(currentIndex, config);
   }, [config, currentIndex, isReady, loadSlideAt]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
 
     const syncScale = () => updateScale();
 
     syncScale();
-    const rafId = requestAnimationFrame(() => {
-      syncScale();
-      requestAnimationFrame(syncScale);
-    });
+    const rafId = requestAnimationFrame(syncScale);
 
     const observer = new ResizeObserver(() => syncScale());
     observer.observe(viewport);
