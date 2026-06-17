@@ -135,6 +135,8 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     if (!viewportRef.current) return;
 
     const { clientWidth, clientHeight } = viewportRef.current;
+    if (clientWidth <= 0 || clientHeight <= 0) return;
+
     const widthScale = clientWidth / SLIDE_WIDTH;
     const heightScale = clientHeight / SLIDE_HEIGHT;
     setScale(Math.min(widthScale, heightScale));
@@ -166,17 +168,24 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     const viewport = viewportRef.current;
     if (!viewport) return;
 
-    updateScale();
+    const syncScale = () => updateScale();
 
-    const observer = new ResizeObserver(() => updateScale());
+    syncScale();
+    const rafId = requestAnimationFrame(() => {
+      syncScale();
+      requestAnimationFrame(syncScale);
+    });
+
+    const observer = new ResizeObserver(() => syncScale());
     observer.observe(viewport);
 
-    window.addEventListener("resize", updateScale);
+    window.addEventListener("resize", syncScale);
     return () => {
+      cancelAnimationFrame(rafId);
       observer.disconnect();
-      window.removeEventListener("resize", updateScale);
+      window.removeEventListener("resize", syncScale);
     };
-  }, [updateScale, loading, sidebarOpen]);
+  }, [updateScale, loading, sidebarOpen, slide]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
