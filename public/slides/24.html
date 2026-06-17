@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>FaSS 플랫폼 구축 보고 - Slide 18</title>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+:root {
+    --ppt-bg: #0A0E1A;
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    --ppt-accent-2: #FACC15;
+    --ppt-good: #22C55E;
+    --ppt-warn: #F59E0B;
+    --ppt-bad: #EF4444;
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    margin: 0 0;
+    padding: 0 0
+    }
+body {width: 960px; height: 720px; overflow: hidden; background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.slide-root-container {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ppt-font-body);
+    color: var(--ppt-text-1)
+    }
+/* Title Region */
+.title-region-wrapper {
+    padding: 22px 40px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.title-main-row {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-accent-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-text-heading {
+    font-family: var(--ppt-font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-underline-gradient {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+.subtitle-text-content {
+    font-size: 14px;
+    color: var(--ppt-text-2);
+    margin-top: 4px;
+    font-weight: 400
+    }
+/* Content Layout */
+.mm-reduction-main-content {
+    padding: 6px 40px 12px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1
+    }
+.mm-reduction-top-quote-box {
+    background: var(--ppt-surface);
+    border-left: 4px solid var(--ppt-accent-2);
+    padding: 10px 24px;
+    border-radius: var(--ppt-radius-md)
+    }
+.mm-reduction-quote-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ppt-accent-2);
+    display: flex;
+    align-items: center;
+    gap: 7px 12px
+    }
+.mm-reduction-columns-container {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    align-items: stretch
+    }
+.mm-reduction-left-investment-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+    }
+.mm-reduction-right-impact-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+    }
+.mm-reduction-card-item {
+    background: var(--ppt-bg-soft);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 10px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1
+    }
+.mm-reduction-card-header {
+    display: flex;
+    align-items: center;
+    gap: 7px 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--ppt-border)
+    }
+.mm-reduction-header-icon {
+    font-size: 24px;
+    color: var(--ppt-accent)
+    }
+.mm-reduction-header-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.mm-reduction-tool-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px
+    }
+.mm-reduction-tool-item {
+    display: block
+    }
+.mm-reduction-item-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2px
+    }
+.mm-reduction-item-badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase
+    }
+.badge-primary {
+    background: var(--ppt-accent);
+    color: var(--ppt-bg)
+    }
+.badge-secondary {
+    background: var(--ppt-surface-2);
+    color: var(--ppt-text-1)
+    }
+.mm-reduction-item-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.mm-reduction-item-desc {
+    font-size: 13px;
+    color: var(--ppt-text-2);
+    line-height: 1.5;
+    padding-left: 0
+    }
+.mm-reduction-impact-summary {
+    background: rgba(0, 240, 255, 0.05);
+    border: 1px dashed var(--ppt-accent);
+    border-radius: var(--ppt-radius-md);
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px 12px
+    }
+.mm-reduction-impact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+    }
+.mm-reduction-impact-label {
+    font-size: 14px;
+    color: var(--ppt-text-2)
+    }
+.mm-reduction-impact-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ppt-accent)
+    }
+.mm-reduction-impact-value.highlight {
+    color: var(--ppt-accent-2);
+    font-size: 18px
+    }
+.mm-reduction-footer-note {
+    margin-top: 7px;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px 8px
+    }
+.mm-reduction-note-icon {
+    color: var(--ppt-accent-2);
+    font-size: 14px;
+    margin-top: 2px
+    }
+.mm-reduction-note-text {
+    font-size: 15px;
+    color: var(--ppt-text-3);
+    line-height: 1.4
+    }
+html { overflow: hidden; }
+</style></head>
+<body>
+<div class="slide-root-container" style="overflow: hidden;">
+<!-- Non-Cover-Page Title Region -->
+<div class="title-region-wrapper">
+<div class="title-main-row">
+<div class="title-accent-bar"></div>
+<h1 class="title-text-heading">
+          개발자 툴 투자를 통한 전체 인건비(M/M) 단축
+        </h1>
+</div>
+<div class="title-underline-gradient"></div>
+<div class="subtitle-text-content">
+        핵심 개발자에게 최적의 AI 코딩 도구를 지원함으로써 개발 효율을 높이고, 결과적으로 수억 원 단위의 인건비 지연 손실을 선제적으로 방어합니다.
+      </div>
+</div>
+<!-- Main Content Body -->
+<div class="mm-reduction-main-content">
+<!-- Top Insight Quote -->
+<div class="mm-reduction-top-quote-box">
+<div class="mm-reduction-quote-text">
+<i class="fa-solid fa-scale-balanced" style="color:var(--ppt-accent-2);"></i>
+          <span style="color:var(--ppt-text-2);font-weight:400;">삼성E&A(삼성엔지니어링) — 유사 범위:</span>
+          <span style="color:var(--ppt-accent-2);font-weight:700;"> 개발자 60명 + 디자이너 12명</span>
+          <span style="color:var(--ppt-text-3);font-size:14px;">&nbsp;vs&nbsp;</span>
+          <span style="color:var(--ppt-accent);font-weight:700;">(주)제때 AI 증강 소수 정예 전략</span>
+        </div>
+</div>
+<!-- Two-Column Layout -->
+<div class="mm-reduction-columns-container">
+<!-- Left: Investment Details -->
+<div class="mm-reduction-left-investment-column">
+<div class="mm-reduction-card-item">
+<div class="mm-reduction-card-header">
+<i class="fa-solid fa-screwdriver-wrench mm-reduction-header-icon"></i>
+<span class="mm-reduction-header-title">전략적 개발 도구 투자</span>
+</div>
+<ul class="mm-reduction-tool-list">
+<li class="mm-reduction-tool-item">
+<div class="mm-reduction-item-title-row">
+<span class="mm-reduction-item-badge badge-primary">IDE</span>
+<span class="mm-reduction-item-name">IntelliJ IDEA Ultimate</span>
+</div>
+<div class="mm-reduction-item-desc">
+                  Java 17 환경의 완벽한 정적 분석 및 디버깅을 지원하여 로직 검증 리드타임 30% 단축.
+                </div>
+</li>
+<li class="mm-reduction-tool-item">
+<div class="mm-reduction-item-title-row">
+<span class="mm-reduction-item-badge badge-primary">AI PAIR</span>
+<span class="mm-reduction-item-name">Claude Code + GitLab AI Agent</span>
+</div>
+<div class="mm-reduction-item-desc">
+                  GitLab CI/CD + Claude Code AI 에이전트로 보일러플레이트 자동 생성·테스트 자동화 및 생산성 극대화.
+                </div>
+</li>
+<li class="mm-reduction-tool-item">
+<div class="mm-reduction-item-title-row">
+<span class="mm-reduction-item-badge badge-secondary">ENV</span>
+<span class="mm-reduction-item-name">High-Performance Workstation</span>
+</div>
+<div class="mm-reduction-item-desc">
+                  빌드 및 컨테이너 기동 속도 최적화로 개발자의 불필요한 대기 시간(Idle Time) 제거.
+                </div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Right: Economic Impact -->
+<div class="mm-reduction-right-impact-column">
+<div class="mm-reduction-card-item">
+<div class="mm-reduction-card-header">
+<i class="fa-solid fa-chart-line mm-reduction-header-icon"></i>
+<span class="mm-reduction-header-title">경영적 가치 및 비용 방어</span>
+</div>
+<div class="mm-reduction-impact-summary">
+<div class="mm-reduction-impact-row">
+<span class="mm-reduction-impact-label">도구 투자 비용 (연간)</span>
+<span class="mm-reduction-impact-value">수천만 원 수준</span>
+</div>
+<div class="mm-reduction-impact-row">
+<span class="mm-reduction-impact-label">일정 지연 방어 효과</span>
+<span class="mm-reduction-impact-value">약 2~3개월 단축</span>
+</div>
+<div style="height: 1px;background: var(--ppt-border);margin: 2px 0;"></div>
+<div class="mm-reduction-impact-row">
+<span class="mm-reduction-impact-label">최종 M/M 손실 방어액</span>
+<span class="mm-reduction-impact-value highlight">수억 원 단위 (ROI 극대화)</span>
+</div>
+</div>
+<div class="mm-reduction-tool-list">
+<li class="mm-reduction-tool-item">
+<div class="mm-reduction-item-title-row">
+<i class="fa-solid fa-circle-check" style="color:var(--ppt-good)"></i>
+<span class="mm-reduction-item-name" style="font-size: 17px;">휴먼 에러 원천 차단</span>
+</div>
+<div class="mm-reduction-item-desc">
+                  도구 기반의 실시간 코드 품질 검사로 후반부 버그 수정 비용(Bug-fix Cost) 기하급수적 절감.
+                </div>
+</li>
+<li class="mm-reduction-tool-item">
+<div class="mm-reduction-item-title-row">
+<i class="fa-solid fa-check" style="color:var(--ppt-good)"></i>
+<span class="mm-reduction-item-name" style="font-size: 17px;">핵심 인력 이탈 방지</span>
+</div>
+<div class="mm-reduction-item-desc">
+                  최고 수준의 개발 환경 제공을 통한 개발자 몰입도 향상 및 직무 만족도 고취.
+                </div>
+</li>
+</div>
+<div class="mm-reduction-footer-note">
+<i class="fa-solid fa-circle-exclamation mm-reduction-note-icon"></i>
+<div class="mm-reduction-note-text">
+                단순 하급 외주 인력 추가 투입보다, 소수 정예 인원에게 고성능 도구를 지원하는 것이 전체 프로젝트 리스크 관리 면에서 압도적으로 유리합니다.
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

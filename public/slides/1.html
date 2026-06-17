@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>(주)제때 차세대 FaSS 플랫폼 구축 6월 중간 보고</title>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+:root {
+    --ppt-bg: #0A0E1A;
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    --ppt-accent-2: #FACC15;
+    --ppt-chart-1: #00F0FF;
+    --ppt-chart-2: #3B82F6;
+    --ppt-chart-3: #8B5CF6;
+    --ppt-chart-4: #FACC15;
+    --ppt-good: #22C55E;
+    --ppt-warn: #F59E0B;
+    --ppt-bad: #EF4444;
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+    }
+body {width: 960px; height: 720px; overflow: hidden; background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.fass-report-slide-root {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    font-family: var(--ppt-font-body)
+    }
+.fass-background-image-container {
+    grid-area: 1/1/2/2;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 720px
+    }
+.fass-background-image-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6
+    }
+.fass-content-overlay-layer {
+    grid-area: 1/1/2/2;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0.7) 40%, transparent 100%);
+    padding: 60px 56px;
+    display: flex;
+    flex-direction: column
+    }
+.fass-top-header-section {
+    margin-bottom: 80px
+    }
+.fass-company-brand-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.fass-brand-accent-bar {
+    width: 4px;
+    height: 24px;
+    background-color: var(--ppt-accent)
+    }
+.fass-title-content-wrapper {
+    flex-direction: column;
+    display: flex;
+    gap: 24px
+    }
+.fass-title-main-heading {
+    font-family: var(--ppt-font-display);
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.fass-title-main-heading span {
+    color: var(--ppt-accent)
+    }
+.fass-subtitle-description-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ppt-accent-2);
+    line-height: 1.4;
+    max-width: 800px
+    }
+.fass-vision-statement-container {
+    margin-top: 60px;
+    padding: 24px;
+    background-color: rgba(30, 38, 56, 0.6);
+    border-left: 4px solid var(--ppt-accent);
+    border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
+    max-width: 720px
+    }
+.fass-vision-slogan-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ppt-text-2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px
+    }
+.fass-vision-content-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ppt-text-1);
+    line-height: 1.6
+    }
+.fass-footer-info-group {
+    margin-top: auto;
+    display: flex;
+    gap: 40px;
+    align-items: flex-end
+    }
+.fass-info-item-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+    }
+.fass-info-label-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ppt-text-3);
+    text-transform: uppercase
+    }
+.fass-info-value-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+html { overflow: hidden; }
+</style></head>
+<body>
+<div class="fass-report-slide-root" style="overflow: hidden;">
+<!-- Background Image Layer -->
+<div class="fass-background-image-container">
+<img alt="FaSS Platform Background" class="fass-background-image-element" src="https://agents-download.skywork.ai/image/ppt/7467390590712455169/03c74e0b26cc32ff7c809ac5088e2e3b.png"/>
+</div>
+<!-- Foreground Content Layer -->
+<div class="fass-content-overlay-layer">
+<!-- Top Section: Company Branding -->
+<div class="fass-top-header-section">
+<div class="fass-company-brand-label">
+<div class="fass-brand-accent-bar"></div>
+          (주)제때
+        </div>
+</div>
+<!-- Main Title Section -->
+<div class="fass-title-content-wrapper">
+<h1 class="fass-title-main-heading">
+          차세대 <span>FaSS 플랫폼</span> 구축<br/>6월 중간 보고
+        </h1>
+<p class="fass-subtitle-description-text">
+          "AI와 결합된 디지털 물류의 표준, IT를 넘어 회사의 새로운 수익을 창출하다"
+        </p>
+</div>
+<!-- Vision Statement Section -->
+<div class="fass-vision-statement-container">
+<div class="fass-vision-slogan-label">Vision Slogan</div>
+<div class="fass-vision-content-text">
+          상용 솔루션의 종속을 끊고, AI와 글로벌 웹 표준으로 무장한 독자적 비즈니스 엔진의 성공적 안착
+        </div>
+</div>
+<!-- Footer Info Section -->
+<div class="fass-footer-info-group">
+<div class="fass-info-item-box">
+<div class="fass-info-label-text">Department</div>
+<div class="fass-info-value-text">차세대 웹프레임워크 TFT</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

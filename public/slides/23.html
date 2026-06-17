@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FinOps 관점의 철저한 클라우드 예산 절감 훈련</title>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+:root {
+    --ppt-bg: #0A0E1A;
+    /* Deep Midnight Navy */
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    /* Electric Cyan for Tech */
+    --ppt-accent-2: #FACC15;
+    /* Gold for Value/ROI */
+    --ppt-good: #22C55E;
+    --ppt-warn: #F59E0B;
+    --ppt-bad: #EF4444;
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    margin: 0 0;
+    padding: 0 0
+    }
+body {width: 960px; height: 720px; overflow: hidden; background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.slide-root-container {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
+    position: relative;
+    display: flex;
+    flex-direction: column
+    }
+/* Title Region from <DESIGN> */
+.title-region-wrapper {
+    padding: 40px 40px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.title-main-container {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-accent-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-text-main {
+    font-family: var(--ppt-font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-bottom-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+.subtitle-text-content {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ppt-text-2);
+    margin-top: 4px;
+    line-height: 1.6
+    }
+/* Content Layout */
+.finops-main-content-layout {
+    flex: 1;
+    display: flex;
+    gap: 19px 24px;
+    padding: 16px 40px 32px 40px;
+    align-items: stretch
+    }
+.finops-column-item-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+    }
+.finops-content-card-box {
+    flex: 1;
+    background-color: var(--ppt-bg-soft);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px 20px;
+    transition: border-color 0.3s ease
+    }
+.finops-content-card-box:hover {
+    border-color: var(--ppt-accent)
+    }
+.finops-card-header-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 12px
+    }
+.finops-card-icon-circle {
+    width: 56px;
+    height: 56px;
+    background-color: var(--ppt-surface);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: var(--ppt-accent);
+    border: 1px solid var(--ppt-border)
+    }
+.finops-card-title-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.finops-card-divider-line {
+    height: 2px;
+    width: 40px;
+    background-color: var(--ppt-accent)
+    }
+.finops-card-body-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ppt-text-2)
+    }
+.finops-list-container-group {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 12px;
+    margin-top: 6px
+    }
+.finops-list-item-row {
+    display: block;
+    padding-left: 28px;
+    position: relative;
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    line-height: 1.5
+    }
+.finops-list-item-row::before {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--ppt-accent);
+    font-size: 14px
+    }
+.finops-highlight-badge-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    background-color: rgba(250, 204, 21, 0.1);
+    border: 1px solid var(--ppt-accent-2);
+    color: var(--ppt-accent-2);
+    border-radius: var(--ppt-radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: auto;
+    text-align: center
+    }
+.finops-policy-visual-item {
+    background: var(--ppt-surface);
+    padding: 13px 16px;
+    border-radius: var(--ppt-radius-md);
+    display: flex;
+    align-items: center;
+    gap: 13px 16px
+    }
+.finops-policy-time-label {
+    font-size: 14px;
+    color: var(--ppt-accent);
+    font-weight: 700;
+    white-space: nowrap
+    }
+.finops-policy-desc-text {
+    font-size: 15px;
+    color: var(--ppt-text-1)
+    }
+html { overflow: hidden; }
+</style></head>
+<body>
+<div class="slide-root-container" style="overflow: hidden;">
+<!-- Title Region -->
+<div class="title-region-wrapper">
+<div class="title-main-container">
+<div class="title-accent-bar"></div>
+<h1 class="title-text-main">FinOps 관점의 철저한 클라우드 예산 절감 훈련</h1>
+</div>
+<div class="title-bottom-line"></div>
+<p class="subtitle-text-content">
+        유휴 자원 자동 셧다운 등 인프라 비용 최적화 습관을 자산화하여, 향후 외부 서비스 제공 시 수익성을 극대화할 수 있는 노하우를 확보합니다.
+      </p>
+</div>
+<!-- Main Content -->
+<div class="finops-main-content-layout">
+<!-- Column 1: Strategy -->
+<div class="finops-column-item-wrapper">
+<div class="finops-content-card-box">
+<div class="finops-card-header-group">
+<div class="finops-card-icon-circle">
+<i class="fas fa-bullseye"></i>
+</div>
+<h2 class="finops-card-title-text">미래 ASP 수익성 기반</h2>
+<div class="finops-card-divider-line"></div>
+</div>
+<p class="finops-card-body-text">
+            개발 단계부터 비용 효율적인 인프라 운영 습관을 내재화하여 향후 솔루션 패키지화 시 가격 경쟁력을 확보합니다.
+          </p>
+<ul class="finops-list-container-group">
+<li class="finops-list-item-row">인프라 비용의 변동비화 (FinOps)</li>
+<li class="finops-list-item-row">리소스 사용량 실시간 가시성 확보</li>
+<li class="finops-list-item-row">수익 창출 부서(Profit Center) 전환 대비</li>
+</ul>
+<div class="finops-highlight-badge-tag">비용 관리 체계 자산화</div>
+</div>
+</div>
+<!-- Column 2: Action -->
+<div class="finops-column-item-wrapper">
+<div class="finops-content-card-box">
+<div class="finops-card-header-group">
+<div class="finops-card-icon-circle">
+<i class="fas fa-toggle-off"></i>
+</div>
+<h2 class="finops-card-title-text">인프라 최적화 실행</h2>
+<div class="finops-card-divider-line"></div>
+</div>
+<div class="finops-policy-visual-item">
+<span class="finops-policy-time-label">야간/주말</span>
+<span class="finops-policy-desc-text">Cloud Run 등 테스트 서버 자동 셧다운(Shut-down) 강제 적용</span>
+</div>
+<div class="finops-policy-visual-item">
+<span class="finops-policy-time-label">상시 모니터링</span>
+<span class="finops-policy-desc-text">유휴 인스턴스 및 미사용 스토리지 자동 탐지 및 즉각 삭제</span>
+</div>
+<ul class="finops-list-container-group">
+<li class="finops-list-item-row">불필요한 클라우드 낭비 요소 원천 차단</li>
+<li class="finops-list-item-row">자동화 스크립트를 통한 운영 리소스 최소화</li>
+</ul>
+<div class="finops-highlight-badge-tag" style="background-color: rgba(0, 240, 255, 0.1);border-color: var(--ppt-accent);color: var(--ppt-accent);">자동화 기반 비용 절감</div>
+</div>
+</div>
+<!-- Column 3: Impact -->
+<div class="finops-column-item-wrapper">
+<div class="finops-content-card-box">
+<div class="finops-card-header-group">
+<div class="finops-card-icon-circle">
+<i class="fas fa-coins"></i>
+</div>
+<h2 class="finops-card-title-text">경영적 기대 효과</h2>
+<div class="finops-card-divider-line"></div>
+</div>
+<p class="finops-card-body-text">
+            절감된 인프라 유지 비용은 그대로 회사의 이익으로 직결되며, 외부 고객사 공급 시 강력한 운영 노하우로 작용합니다.
+          </p>
+<ul class="finops-list-container-group">
+<li class="finops-list-item-row">SaaS/ASP 서비스 마진율 극대화</li>
+<li class="finops-list-item-row">오픈 소스 DB 전환과 결합된 시너지</li>
+<li class="finops-list-item-row">연간 수억 원 단위의 클라우드 비용 방어</li>
+</ul>
+<div class="finops-highlight-badge-tag">핵심 운영 노하우 자산화</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

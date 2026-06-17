@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>(주)제때 차세대 FaSS 플랫폼 구축 중간 보고 - Slide 7</title>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+:root {
+    --ppt-bg: #0A0E1A;
+    /* Deep Midnight Navy */
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    /* Electric Cyan for Tech */
+    --ppt-accent-2: #FACC15;
+    /* Gold for Value/ROI */
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+    }
+body {width: 960px; height: 720px; overflow: hidden; background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.fass-slide-root-container {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
+    position: relative;
+    display: flex;
+    flex-direction: column
+    }
+/* Title Region */
+.title-region-wrapper {
+    padding: 40px 40px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.title-main-header-group {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-accent-vertical-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-main-text-content {
+    font-family: var(--ppt-font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-bottom-gradient-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+/* Content Area */
+.ps-prototype-main-content-layout {
+    flex: 1;
+    padding: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px
+    }
+.ps-prototype-columns-flex-container {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    flex: 1
+    }
+.ps-prototype-left-selection-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px
+    }
+.ps-prototype-right-significance-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px
+    }
+/* Cards */
+.ps-prototype-section-header-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px
+    }
+.ps-prototype-badge-icon {
+    color: var(--ppt-accent);
+    font-size: 20px
+    }
+.ps-prototype-badge-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    letter-spacing: -0.5px
+    }
+.ps-prototype-info-card-block {
+    background-color: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--ppt-shadow-soft)
+    }
+.ps-prototype-sub-item-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start
+    }
+.ps-prototype-item-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    background-color: var(--ppt-surface-2);
+    border-radius: var(--ppt-radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ppt-accent);
+    font-size: 18px;
+    flex-shrink: 0
+    }
+.ps-prototype-item-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+    }
+.ps-prototype-item-heading-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.ps-prototype-item-description-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ppt-text-2);
+    line-height: 1.5
+    }
+/* Milestone Highlight */
+.ps-prototype-milestone-summary-bar {
+    background: linear-gradient(90deg, var(--ppt-surface-2) 0%, var(--ppt-surface) 100%);
+    border-left: 4px solid var(--ppt-accent-2);
+    padding: 20px 32px;
+    border-radius: var(--ppt-radius-md);
+    display: flex;
+    align-items: center;
+    gap: 24px
+    }
+.ps-prototype-milestone-date-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ppt-accent-2);
+    white-space: nowrap
+    }
+.ps-prototype-milestone-description-content {
+    font-size: 18px;
+    color: var(--ppt-text-1);
+    line-height: 1.4
+    }
+.ps-prototype-milestone-description-content span {
+    color: var(--ppt-accent);
+    font-weight: 600
+    }
+/* List styling override */
+ul.ps-prototype-bullet-list-none {
+    list-style: none
+    }
+html { overflow: hidden; }
+</style></head>
+<body>
+<div class="fass-slide-root-container" style="overflow: hidden;">
+<!-- Title Region -->
+<div class="title-region-wrapper">
+<div class="title-main-header-group">
+<div class="title-accent-vertical-bar"></div>
+<h1 class="title-main-text-content">
+          통합 프로토타입 런칭: 주유소(JTGS) 관리 시스템 (10월 예정)
+        </h1>
+</div>
+<div class="title-bottom-gradient-divider"></div>
+</div>
+<!-- Main Content Area -->
+<div class="ps-prototype-main-content-layout">
+<!-- Columns Section -->
+<div class="ps-prototype-columns-flex-container">
+<!-- Left Column: Selection Strategy -->
+<div class="ps-prototype-left-selection-column">
+<div class="ps-prototype-section-header-badge">
+<i class="fa-solid fa-bullseye ps-prototype-badge-icon"></i>
+<span class="ps-prototype-badge-text">전략적 선정 배경</span>
+</div>
+<div class="ps-prototype-info-card-block">
+<div class="ps-prototype-sub-item-row">
+<div class="ps-prototype-item-icon-wrapper">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<div class="ps-prototype-item-text-group">
+<div class="ps-prototype-item-heading-text">비즈니스 리스크 격리 (Low Risk)</div>
+<p class="ps-prototype-item-description-text">
+                  메인 물류/유통망에 미치는 파급 영향도가 매우 적은 제한된 환경으로, 장애 발생 시에도 전사 핵심 비즈니스 타격이 전무함.
+                </p>
+</div>
+</div>
+<div class="ps-prototype-sub-item-row">
+<div class="ps-prototype-item-icon-wrapper">
+<i class="fa-solid fa-gears"></i>
+</div>
+<div class="ps-prototype-item-text-group">
+<div class="ps-prototype-item-heading-text">높은 기능 복잡도 보유 (High Complexity)</div>
+<p class="ps-prototype-item-description-text">
+                  정산, 재고 관리, 외부 인터페이스 연동 등 차세대 프레임워크의 핵심 기능을 모두 포함하여 기술적 검증 가치가 매우 높음.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Strategic Significance -->
+<div class="ps-prototype-right-significance-column">
+<div class="ps-prototype-section-header-badge">
+<i class="fa-solid fa-vial ps-prototype-badge-icon"></i>
+<span class="ps-prototype-badge-text">핵심 목표 및 의의</span>
+</div>
+<div class="ps-prototype-info-card-block">
+<div class="ps-prototype-sub-item-row">
+<div class="ps-prototype-item-icon-wrapper">
+<i class="fa-solid fa-gauge-high"></i>
+</div>
+<div class="ps-prototype-item-text-group">
+<div class="ps-prototype-item-heading-text">FaSS V1.0 성능 및 안정성 증명</div>
+<p class="ps-prototype-item-description-text">
+                  신규 아키텍처 기반의 압도적인 화면 응답 속도와 대용량 데이터 처리 성능을 실제 운영 환경 수준에서 완벽히 검증.
+                </p>
+</div>
+</div>
+<div class="ps-prototype-sub-item-row">
+<div class="ps-prototype-item-icon-wrapper">
+<i class="fa-solid fa-display"></i>
+</div>
+<div class="ps-prototype-item-text-group">
+<div class="ps-prototype-item-heading-text">디자인·기능 스토리보드 표본</div>
+<p class="ps-prototype-item-description-text">
+                  전체 시스템 개발의 UI·기능 설계 지침서가 되는 스토리보드 표본을 완성, 향후 개발 방향성의 기준점으로 삼습니다.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Milestone Summary Bar -->
+<div class="ps-prototype-milestone-summary-bar">
+<div class="ps-prototype-milestone-date-label">
+<i class="fa-solid fa-calendar-check" style="margin-right: 12px;"></i>2026. 10.
+        </div>
+<div class="ps-prototype-milestone-description-content">
+          차세대 <span>FaSS V1.0 통합 프로토타입 라이브 가동</span> 및 디자인·기능 스토리보드 표본 완성으로 <br/>
+          향후 全 시스템 개발의 UI/UX 기준과 기능 설계 지침을 확정합니다.
+        </div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>FaSS 차세대 플랫폼 중간 보고 - 대용량 데이터 처리</title>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+:root {
+    --ppt-bg: #0A0E1A;
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    --ppt-accent-2: #FACC15;
+    --ppt-good: #22C55E;
+    --ppt-warn: #F59E0B;
+    --ppt-bad: #EF4444;
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased
+    }
+body {width: 960px; height: 720px; overflow: hidden; background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.slide-root-container {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ppt-font-body);
+    color: var(--ppt-text-1)
+    }
+/* Title Region */
+.title-region-wrapper {
+    padding: 40px 40px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.title-main-header {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-accent-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-text-content {
+    font-family: var(--ppt-font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-bottom-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+/* Content Layout */
+.content-main-layout {
+    flex: 1;
+    padding: 0 40px 40px 40px;
+    display: flex;
+    gap: 24px;
+    align-items: stretch
+    }
+/* Left Column: Technology & UX */
+.left-tech-feature-column {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px
+    }
+.grid-architecture-card-box {
+    flex: 1;
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+    }
+.grid-card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.grid-card-title-icon {
+    font-size: 24px;
+    color: var(--ppt-accent)
+    }
+.grid-card-title-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.grid-feature-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none
+    }
+.grid-feature-item-row {
+    display: block;
+    padding: 12px;
+    background: var(--ppt-surface-2);
+    border-radius: var(--ppt-radius-md);
+    border-left: 3px solid var(--ppt-accent)
+    }
+.grid-item-main-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-text-1);
+    margin-bottom: 4px;
+    display: block
+    }
+.grid-item-sub-desc {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    display: block
+    }
+/* Right Column: Business Impact */
+.right-impact-result-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px
+    }
+.productivity-impact-card-box {
+    flex: 1;
+    background: linear-gradient(135deg, var(--ppt-surface) 0%, var(--ppt-bg-soft) 100%);
+    border: 1px solid var(--ppt-accent);
+    border-radius: var(--ppt-radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--ppt-shadow-strong)
+    }
+.impact-metric-label {
+    font-size: 20px;
+    color: var(--ppt-text-2);
+    margin-bottom: 16px;
+    font-weight: 600
+    }
+.impact-value-highlight-group {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 24px
+    }
+.impact-value-number {
+    font-size: 84px;
+    font-weight: 700;
+    color: var(--ppt-accent-2);
+    line-height: 1
+    }
+.impact-value-unit {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--ppt-accent-2)
+    }
+.impact-summary-text-block {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--ppt-text-1);
+    word-break: keep-all
+    }
+.impact-badge-container {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    justify-content: center
+    }
+.impact-status-tag {
+    padding: 8px 16px;
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--ppt-accent);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ppt-accent)
+    }
+html { overflow: hidden; }
+</style></head>
+<body>
+<div class="slide-root-container" style="overflow: hidden;">
+<!-- Non-Cover-Page Title Region -->
+<div class="title-region-wrapper">
+<div class="title-main-header">
+<div class="title-accent-bar"></div>
+<h1 class="title-text-content">
+          엑셀을 능가하는 대용량 데이터 처리 (Faster 실무 생산성)
+        </h1>
+</div>
+<div class="title-bottom-divider"></div>
+</div>
+<!-- Main Content -->
+<div class="content-main-layout">
+<!-- Left: Technology & UX Features -->
+<div class="left-tech-feature-column">
+<div class="grid-architecture-card-box">
+<div class="grid-card-title-group">
+<i class="fa-solid fa-table-cells grid-card-title-icon"></i>
+<span class="grid-card-title-text">엔터프라이즈 RealGrid (1.0 → 2.0) 아키텍처</span>
+</div>
+<div class="grid-feature-list-container">
+<div class="grid-feature-item-row">
+<span class="grid-item-main-label">초고속 렌더링 및 가상 스크롤</span>
+<span class="grid-item-sub-desc">수십만 건의 입출고 데이터를 지연 없이 즉각적으로 로딩 및 필터링</span>
+</div>
+<div class="grid-feature-item-row">
+<span class="grid-item-main-label">완벽한 엑셀(Excel) UX 계승</span>
+<span class="grid-item-sub-desc">동일한 단축키, 복사/붙여넣기, 다중 선택 및 드래그 앤 드롭 지원</span>
+</div>
+<div class="grid-feature-item-row">
+<span class="grid-item-main-label">사용자 개인화 레이아웃</span>
+<span class="grid-item-sub-desc">담당자별 컬럼 순서, 너비, 고정 영역을 서버에 저장하여 최적화된 업무 환경 제공</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Business Impact -->
+<div class="right-impact-result-column">
+<div class="productivity-impact-card-box">
+<span class="impact-metric-label">일일 업무 처리 리드타임</span>
+<div class="impact-value-highlight-group">
+<span class="impact-value-number">50</span>
+<span class="impact-value-unit">% 단축</span>
+</div>
+<div class="impact-summary-text-block">
+            수작업 문서 가공 시간을 획기적으로 감축하고<br/>
+            데이터 기반의 실무 의사결정 속도를 가속화합니다.
+          </div>
+<div class="impact-badge-container">
+<div class="impact-status-tag"><i class="fa-solid fa-bolt"></i> 응답 속도 혁신</div>
+<div class="impact-status-tag"><i class="fa-solid fa-user-check"></i> 실무 만족도 극대화</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>FaSS 차세대 플랫폼 중간 보고 - 슬라이드 13</title>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+:root {
+    --ppt-bg: #0A0E1A;
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    --ppt-accent-2: #FACC15;
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased
+    }
+body {width: 960px; height: 720px; overflow: hidden; background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.ux-innovation-slide-root {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
+    display: flex;
+    flex-direction: column;
+    position: relative
+    }
+/* Title Region */
+.ux-innovation-title-region {
+    padding: 40px 40px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.ux-innovation-title-header {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.ux-innovation-title-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.ux-innovation-title-text {
+    font-family: var(--ppt-font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.ux-innovation-title-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+/* Content Layout */
+.ux-innovation-main-content {
+    flex: 1;
+    padding: 0 40px 40px 40px;
+    display: flex;
+    gap: 24px;
+    align-items: stretch
+    }
+.ux-innovation-left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px
+    }
+.ux-innovation-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px
+    }
+/* Card Components */
+.ux-innovation-card-container {
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    box-shadow: var(--ppt-shadow-soft)
+    }
+.ux-innovation-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.ux-innovation-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 240, 255, 0.1);
+    border-radius: var(--ppt-radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: var(--ppt-accent)
+    }
+.ux-innovation-icon-wrapper.gold {
+    background: rgba(250, 204, 21, 0.1);
+    color: var(--ppt-accent-2)
+    }
+.ux-innovation-card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.ux-innovation-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+    }
+.ux-innovation-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px
+    }
+.ux-innovation-feature-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--ppt-accent);
+    border-radius: 50%;
+    margin-top: 10px
+    }
+.ux-innovation-feature-dot.gold {
+    background: var(--ppt-accent-2)
+    }
+.ux-innovation-feature-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ppt-text-2)
+    }
+.ux-innovation-feature-text b {
+    color: var(--ppt-text-1);
+    font-weight: 600
+    }
+.ux-innovation-highlight-box {
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--ppt-accent);
+    border-radius: 0 var(--ppt-radius-sm) var(--ppt-radius-sm) 0
+    }
+.ux-innovation-highlight-box.gold {
+    border-left-color: var(--ppt-accent-2)
+    }
+.ux-innovation-highlight-text {
+    font-size: 16px;
+    color: var(--ppt-accent);
+    font-weight: 600
+    }
+.ux-innovation-highlight-text.gold {
+    color: var(--ppt-accent-2)
+    }
+/* Footer / Summary Tag */
+.ux-innovation-summary-tag {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: var(--ppt-surface-2);
+    border-radius: var(--ppt-radius-md);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-start
+    }
+.ux-innovation-tag-label {
+    font-size: 14px;
+    color: var(--ppt-text-3);
+    text-transform: uppercase;
+    letter-spacing: 1px
+    }
+.ux-innovation-tag-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-accent)
+    }
+html { overflow: hidden; }
+</style></head>
+<body>
+<div class="ux-innovation-slide-root" style="overflow: hidden;">
+<!-- Title Region -->
+<div class="ux-innovation-title-region">
+<div class="ux-innovation-title-header">
+<div class="ux-innovation-title-bar"></div>
+<h1 class="ux-innovation-title-text">
+          차세대 웹 프론트엔드 표준을 통한 고객 경험(UX) 혁신
+        </h1>
+</div>
+<div class="ux-innovation-title-line"></div>
+</div>
+<!-- Main Content -->
+<div class="ux-innovation-main-content">
+<!-- Left Column: Tech Stack & Performance -->
+<div class="ux-innovation-left-column">
+<div class="ux-innovation-card-container">
+<div class="ux-innovation-card-header">
+<div class="ux-innovation-icon-wrapper">
+<i class="fas fa-bolt"></i>
+</div>
+<h2 class="ux-innovation-card-title">글로벌 표준 기술 및 성능 혁신</h2>
+</div>
+<div class="ux-innovation-card-body">
+<div class="ux-innovation-feature-item">
+<div class="ux-innovation-feature-dot"></div>
+<div class="ux-innovation-feature-text">
+<b>최신 React &amp; Next.js 도입:</b> 컴포넌트 기반의 고효율 개발 및 유지보수 환경 확립
+              </div>
+</div>
+<div class="ux-innovation-feature-item">
+<div class="ux-innovation-feature-dot"></div>
+<div class="ux-innovation-feature-text">
+<b>Next.js SSR (Server Side Rendering):</b> 초기 화면 렌더링 속도 획기적 개선으로 사용자 체감 성능 극대화
+              </div>
+</div>
+<div class="ux-innovation-feature-item">
+<div class="ux-innovation-feature-dot"></div>
+<div class="ux-innovation-feature-text">
+<b>Seamless Experience:</b> 화면 전환 시 깜빡임 없는 매끄러운 동작을 통한 대고객 신뢰도 확보
+              </div>
+</div>
+<div class="ux-innovation-highlight-box">
+<div class="ux-innovation-highlight-text">
+<i class="fa-solid fa-circle-info" style="margin-right: 8px;"></i>
+                기존 레거시 대비 화면 렌더링 속도 200% 이상 개선
+              </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Personalization & Business Strategy -->
+<div class="ux-innovation-right-column">
+<div class="ux-innovation-card-container">
+<div class="ux-innovation-card-header">
+<div class="ux-innovation-icon-wrapper gold">
+<i class="fas fa-palette"></i>
+</div>
+<h2 class="ux-innovation-card-title">멀티 테넌시 &amp; 수익화 전략</h2>
+</div>
+<div class="ux-innovation-card-body">
+<div class="ux-innovation-feature-item">
+<div class="ux-innovation-feature-dot gold"></div>
+<div class="ux-innovation-feature-text">
+<b>Dynamic Theme Engine:</b> 단일 플랫폼 소스로 화주사별 전용 로고 및 테마 컬러 즉시 적용
+              </div>
+</div>
+<div class="ux-innovation-feature-item">
+<div class="ux-innovation-feature-dot gold"></div>
+<div class="ux-innovation-feature-text">
+<b>맞춤형 대시보드:</b> 대형 화주사별 요구사항을 반영한 데이터 시각화 및 UI 컴포넌트 유연 제공
+              </div>
+</div>
+<div class="ux-innovation-feature-item">
+<div class="ux-innovation-feature-dot gold"></div>
+<div class="ux-innovation-feature-text">
+<b>ASP 비즈니스 경쟁력:</b> 외부 솔루션 공급 시 고객사 브랜딩 최적화를 통한 강력한 영업 가치 창출
+              </div>
+</div>
+<div class="ux-innovation-highlight-box gold">
+<div class="ux-innovation-highlight-text gold">
+<i class="fas fa-gem" style="margin-right: 8px;"></i>
+                IT 비용 부서에서 수익 창출 부서(Profit Center)로의 전환
+              </div>
+</div>
+</div>
+</div>
+<!-- Summary Info Tag -->
+<div class="ux-innovation-summary-tag">
+<span class="ux-innovation-tag-label">핵심 가치</span>
+<span class="ux-innovation-tag-value">"IT 서비스의 자산화 및 영업 경쟁력 강화"</span>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
