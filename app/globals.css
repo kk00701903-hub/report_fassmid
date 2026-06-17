@@ -1049,3 +1049,317 @@ button {
 .detail-page__sidebar a:hover {
   color: var(--accent);
 }
+
+/* ── 4:3 Projector layout ── */
+.presentation-shell--projector {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.slide-sidebar__toggle {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border: 1px solid var(--border);
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  background: rgba(10, 14, 26, 0.95);
+  color: var(--accent);
+  cursor: pointer;
+  transition: left 0.25s ease;
+}
+
+.presentation-shell--sidebar-open .slide-sidebar__toggle {
+  left: 280px;
+}
+
+.slide-sidebar__toggle-label {
+  font-size: 10px;
+  font-weight: 600;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 1px;
+}
+
+.slide-sidebar {
+  flex-shrink: 0;
+  width: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: rgba(10, 14, 26, 0.98);
+  border-right: 1px solid transparent;
+  transition: width 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  z-index: 150;
+}
+
+.slide-sidebar.is-open {
+  width: 280px;
+  border-right-color: var(--border);
+}
+
+.slide-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.slide-sidebar__header h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.slide-sidebar__count {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.slide-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.slide-sidebar__list li {
+  margin-bottom: 6px;
+}
+
+.slide-sidebar__list button {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 9px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(30, 38, 56, 0.5);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.slide-sidebar__list button:hover,
+.slide-sidebar__list button.is-active {
+  border-color: var(--accent);
+  background: rgba(0, 240, 255, 0.08);
+}
+
+.slide-sidebar__number {
+  flex-shrink: 0;
+  width: 24px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.slide-sidebar__title {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.slide-sidebar__list button.is-active .slide-sidebar__title {
+  color: var(--text);
+}
+
+.slide-sidebar__footer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.slide-sidebar__footer-btn {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.slide-sidebar__footer-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.projector-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.projector-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  min-height: 0;
+}
+
+.projector-viewport {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: min(100%, calc((100dvh - 48px) * 4 / 3));
+  max-height: calc(100dvh - 48px);
+  background: transparent;
+  overflow: hidden;
+}
+
+.presentation-shell--sidebar-open .projector-viewport {
+  width: min(calc(100vw - 300px), calc((100dvh - 48px) * 4 / 3));
+}
+
+.projector-viewport .slide-stage {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+}
+
+.projector-viewport .slide-stage__canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+}
+
+.projector-viewport .slide-viewer {
+  min-height: 0;
+}
+
+.projector-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 44px;
+  height: 72px;
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  background: rgba(10, 14, 26, 0.75);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.projector-nav:hover:not(:disabled) {
+  opacity: 1;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0, 240, 255, 0.1);
+}
+
+.projector-nav:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.projector-nav--prev {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+
+.projector-nav--next {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+
+.projector-footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 16px;
+  min-height: 44px;
+  border-top: 1px solid var(--border);
+  background: rgba(10, 14, 26, 0.95);
+}
+
+.projector-footer__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 88px;
+  justify-content: center;
+}
+
+.projector-footer__btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.projector-footer__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.projector-footer__info {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.projector-footer__counter {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.projector-footer__title {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.presentation-shell--projector .slide-detail-buttons--compact {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  z-index: 100;
+}
+
+html:has(.presentation-shell--projector),
+body:has(.presentation-shell--projector) {
+  overflow: hidden;
+  height: 100%;
+}
