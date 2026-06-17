@@ -38,7 +38,10 @@
     margin: 0;
     padding: 0
     }
-body {width: 960px; height: 720px; overflow: hidden; background-color: var(--ppt-bg);}
+body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+    display: flex;
+    justify-content: center;
+    align-items: center}
 .fass-report-slide-root {
     width: 960px;
     height: 720px;
@@ -157,7 +160,7 @@ body {width: 960px; height: 720px; overflow: hidden; background-color: var(--ppt
     font-weight: 600;
     color: var(--ppt-text-1)
     }
-html { overflow: hidden; }
+html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
 <div class="fass-report-slide-root" style="overflow: hidden;">
@@ -193,11 +196,36 @@ html { overflow: hidden; }
 <!-- Footer Info Section -->
 <div class="fass-footer-info-group">
 <div class="fass-info-item-box">
+<div class="fass-info-label-text">Report To</div>
+<div class="fass-info-value-text">대표이사</div>
+</div>
+<div class="fass-info-item-box">
 <div class="fass-info-label-text">Department</div>
-<div class="fass-info-value-text">차세대 웹프레임워크 TFT</div>
+<div class="fass-info-value-text">차세대 FaSS TFT</div>
+</div>
+<div class="fass-info-item-box">
+<div class="fass-info-label-text">Date</div>
+<div class="fass-info-value-text">2026. 06. 02</div>
 </div>
 </div>
 </div>
 </div>
+<script>
+(function(){
+  function applyScale(){
+    var el=document.querySelector('body>div');
+    if(!el)return;
+    var sw=window.innerWidth,sh=window.innerHeight;
+    var scale=Math.min(sw/960,sh/720);
+    el.style.transform='scale('+scale+')';
+    el.style.transformOrigin='top left';
+    el.style.position='absolute';
+    el.style.left=Math.round((sw-960*scale)/2)+'px';
+    el.style.top=Math.round((sh-720*scale)/2)+'px';
+  }
+  applyScale();
+  window.addEventListener('resize',applyScale);
+})();
+</script>
 </body>
 </html>

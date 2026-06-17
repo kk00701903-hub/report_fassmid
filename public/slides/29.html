@@ -33,7 +33,7 @@
     padding: 0 0;
     box-sizing: border-box
     }
-body {width: 960px; height: 720px; overflow: hidden; background-color: var(--ppt-bg);
+body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-bg);
     color: var(--ppt-text-1);
     font-family: var(--ppt-font-body)}
 .roadmap-slide-root {
@@ -242,7 +242,7 @@ body {width: 960px; height: 720px; overflow: hidden; background-color: var(--ppt
 .roadmap-content-item.highlight::before {
     color: var(--ppt-accent-2)
     }
-html { overflow: hidden; }
+html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
 <div class="roadmap-slide-root" style="overflow: hidden;">
@@ -361,5 +361,22 @@ html { overflow: hidden; }
 </div>
 </div>
 </div>
+<script>
+(function(){
+  function applyScale(){
+    var el=document.querySelector('body>div');
+    if(!el)return;
+    var sw=window.innerWidth,sh=window.innerHeight;
+    var scale=Math.min(sw/960,sh/720);
+    el.style.transform='scale('+scale+')';
+    el.style.transformOrigin='top left';
+    el.style.position='absolute';
+    el.style.left=Math.round((sw-960*scale)/2)+'px';
+    el.style.top=Math.round((sh-720*scale)/2)+'px';
+  }
+  applyScale();
+  window.addEventListener('resize',applyScale);
+})();
+</script>
 </body>
 </html>

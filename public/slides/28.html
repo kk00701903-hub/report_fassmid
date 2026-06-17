@@ -15,7 +15,7 @@
   --ppt-font: "IBM Plex Sans KR", sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { width: 960px; height: 720px; overflow: hidden; background-color: var(--ppt-bg); }
+body { width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A; display: flex; justify-content: center; align-items: center; }
 .section-slide-root {
   width: 960px; height: 720px; background-color: var(--ppt-bg);
   font-family: var(--ppt-font); position: relative; display: flex;
@@ -35,7 +35,7 @@ body { width: 960px; height: 720px; overflow: hidden; background-color: var(--pp
 .section-topic-item { display: flex; align-items: center; gap: 14px; }
 .topic-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ppt-accent); flex-shrink: 0; box-shadow: 0 0 8px var(--ppt-accent); }
 .topic-text { font-size: 17px; color: var(--ppt-text-2); font-weight: 400; line-height: 1.4; }
-html { overflow: hidden; }
+html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
 <div class="section-slide-root">
@@ -62,5 +62,22 @@ html { overflow: hidden; }
     </div>
   </div>
 </div>
+<script>
+(function(){
+  function applyScale(){
+    var el=document.querySelector('body>div');
+    if(!el)return;
+    var sw=window.innerWidth,sh=window.innerHeight;
+    var scale=Math.min(sw/960,sh/720);
+    el.style.transform='scale('+scale+')';
+    el.style.transformOrigin='top left';
+    el.style.position='absolute';
+    el.style.left=Math.round((sw-960*scale)/2)+'px';
+    el.style.top=Math.round((sh-720*scale)/2)+'px';
+  }
+  applyScale();
+  window.addEventListener('resize',applyScale);
+})();
+</script>
 </body>
 </html>
