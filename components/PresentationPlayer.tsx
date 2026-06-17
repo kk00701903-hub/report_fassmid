@@ -5,10 +5,9 @@ import SlideDetailButtons from "@/components/SlideDetailButtons";
 import SlideOptionsPanel from "@/components/SlideOptionsPanel";
 import { usePresentationConfigState } from "@/hooks/usePresentationConfig";
 import SlideStage, { SLIDE_ASPECT, SLIDE_HEIGHT, SLIDE_WIDTH } from "@/components/SlideStage";
-import { getBasePath } from "@/lib/basePath";
-import type { ParsedSlide } from "@/lib/parseSlideHtml";
-import type { PresentationConfig } from "@/lib/presentationConfig";
-import { getSlideContent, prefetchSlides } from "@/lib/slideCache";
+import { getBasePath, getSlideHtmlUrl } from "@/lib/basePath";
+import type { PresentationConfig, SlideManifestItem } from "@/lib/presentationConfig";
+import { prefetchSlides } from "@/lib/slideCache";
 
 type PresentationPlayerProps = {
   initialSlideId: number;
@@ -16,17 +15,23 @@ type PresentationPlayerProps = {
 
 type TransitionDirection = "forward" | "back" | "none";
 
+function getSlideSource(item: SlideManifestItem | undefined): { src?: string; srcDoc?: string } {
+  if (!item) return {};
+  if (item.type === "builtin") {
+    return { src: getSlideHtmlUrl(item.fileName) };
+  }
+  return { srcDoc: item.html };
+}
+
 export default function PresentationPlayer({ initialSlideId }: PresentationPlayerProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
-  const loadVersionRef = useRef(0);
   const hasInitializedRef = useRef(false);
 
   const { config, applyConfig, isReady } = usePresentationConfigState();
 
   const [currentIndex, setCurrentIndex] = useState(Math.max(0, initialSlideId - 1));
   const [direction, setDirection] = useState<TransitionDirection>("none");
-  const [slide, setSlide] = useState<ParsedSlide | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [iframeLoading, setIframeLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [scale, setScale] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -37,6 +42,8 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   const currentNumber = currentIndex + 1;
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < slideCount - 1;
+  const slideSource = getSlideSource(currentItem);
+  const hasSlideSource = Boolean(slideSource.src || slideSource.srcDoc);
 
   const clampIndex = useCallback(
     (index: number) => Math.max(0, Math.min(index, Math.max(0, slideCount - 1))),
@@ -53,37 +60,6 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     const match = window.location.pathname.match(/\/slides\/(\d+)\/?$/);
     if (!match) return null;
     return Number(match[1]) - 1;
-  }, []);
-
-  const loadSlideAt = useCallback(async (index: number, activeConfig: PresentationConfig) => {
-    const item = activeConfig.slides[index];
-    const version = ++loadVersionRef.current;
-
-    if (!item) {
-      setError("표시할 슬라이드가 없습니다. 옵션에서 HTML을 추가해 주세요.");
-      setSlide(null);
-      setLoading(false);
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const parsed = await getSlideContent(item);
-      if (version !== loadVersionRef.current) return;
-      setSlide(parsed);
-      prefetchSlides(activeConfig.slides, index);
-    } catch (loadError) {
-      if (version !== loadVersionRef.current) return;
-      const message = loadError instanceof Error ? loadError.message : "알 수 없는 오류";
-      setError(`슬라이드를 불러오지 못했습니다. (${message})`);
-      setSlide(null);
-    } finally {
-      if (version === loadVersionRef.current) {
-        setLoading(false);
-      }
-    }
   }, []);
 
   const goToIndex = useCallback(
@@ -142,6 +118,11 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     setScale(Math.min(widthScale, heightScale));
   }, []);
 
+  const handleIframeLoad = useCallback(() => {
+    setIframeLoading(false);
+    setError(null);
+  }, []);
+
   useEffect(() => {
     if (!isReady || !config || hasInitializedRef.current) return;
     hasInitializedRef.current = true;
@@ -160,9 +141,18 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   }, [clampIndex, readIndexFromUrl]);
 
   useEffect(() => {
-    if (!isReady || !config) return;
-    void loadSlideAt(currentIndex, config);
-  }, [config, currentIndex, isReady, loadSlideAt]);
+    if (!config) return;
+
+    if (!currentItem) {
+      setError("표시할 슬라이드가 없습니다. 옵션에서 HTML을 추가해 주세요.");
+      setIframeLoading(false);
+      return;
+    }
+
+    setError(null);
+    setIframeLoading(true);
+    prefetchSlides(config.slides, currentIndex);
+  }, [config, currentIndex, currentItem]);
 
   useLayoutEffect(() => {
     const viewport = viewportRef.current;
@@ -182,7 +172,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       observer.disconnect();
       window.removeEventListener("resize", syncScale);
     };
-  }, [updateScale, loading, sidebarOpen, slide]);
+  }, [updateScale, iframeLoading, sidebarOpen, currentIndex]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -321,21 +311,27 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       <div className="projector-layout">
         <div className="projector-stage">
           <div ref={viewportRef} className="projector-viewport" style={{ aspectRatio: `${SLIDE_ASPECT}` }}>
-            {loading && !slide ? (
-              <div className="slide-viewer slide-viewer--loading">
-                <p>슬라이드를 불러오는 중...</p>
-              </div>
-            ) : error && !slide ? (
+            {error ? (
               <div className="slide-viewer slide-viewer--error">
                 <p>{error}</p>
               </div>
-            ) : slide ? (
-              <SlideStage
-                key={`${currentItem?.key ?? currentIndex}-${currentIndex}`}
-                slide={slide}
-                scale={scale}
-                direction={direction}
-              />
+            ) : hasSlideSource ? (
+              <>
+                <SlideStage
+                  key={currentItem?.key ?? currentIndex}
+                  src={slideSource.src}
+                  srcDoc={slideSource.srcDoc}
+                  scale={scale}
+                  direction={direction}
+                  title={currentItem?.title}
+                  onLoad={handleIframeLoad}
+                />
+                {iframeLoading ? (
+                  <div className="slide-viewer slide-viewer--loading slide-viewer--overlay">
+                    <p>슬라이드를 불러오는 중...</p>
+                  </div>
+                ) : null}
+              </>
             ) : null}
 
             <button
