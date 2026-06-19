@@ -32,7 +32,10 @@
     }
 body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-bg);
     color: var(--ppt-text-1);
-    font-family: var(--ppt-font-body)}
+    font-family: var(--ppt-font-body);
+    display: flex;
+    justify-content: center;
+    align-items: center}
 .fass-slide-root {
     width: 960px;
     height: 720px;
@@ -42,7 +45,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
     }
 /* Title Region */
 .title-region-container {
-    padding: 40px 40px 20px 40px;
+    padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
@@ -75,9 +78,9 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
 /* Content Layout */
 .fass-smart-logistics-content-wrapper {
     flex: 1;
-    padding: 16px 40px 32px 40px;
+    padding: 12px 40px 20px 40px;
     display: flex;
-    gap: 32px 40px;
+    gap: 20px 28px;
     align-items: stretch
     }
 /* Left Column: Concept */
@@ -101,7 +104,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
     letter-spacing: 1px
     }
 .fass-smart-logistics-concept-description {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 600;
     line-height: 1.4;
     color: var(--ppt-text-1)
@@ -110,7 +113,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
     color: var(--ppt-accent-2)
     }
 .fass-smart-logistics-visual-image-box {
-    height: 360px;
+    height: 260px;
     border-radius: var(--ppt-radius-lg);
     overflow: hidden;
     box-shadow: var(--ppt-shadow-strong);
@@ -131,7 +134,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
     }
 .fass-smart-logistics-action-item-card {
     background: var(--ppt-surface);
-    padding: 19px 24px;
+    padding: 14px 18px;
     border-radius: var(--ppt-radius-lg);
     border: 1px solid var(--ppt-border);
     display: flex;
@@ -162,8 +165,8 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
     color: var(--ppt-text-1)
     }
 .fass-smart-logistics-card-body {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.45;
     color: var(--ppt-text-2)
     }
 .fass-smart-logistics-impact-badge {

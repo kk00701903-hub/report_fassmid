@@ -36,6 +36,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   const [scale, setScale] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const slideCount = config?.slides.length ?? 0;
   const currentItem = config?.slides[currentIndex];
@@ -89,12 +90,24 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     const shell = document.getElementById("presentation-shell");
     if (!shell) return;
 
-    if (!document.fullscreenElement) {
-      await shell.requestFullscreen();
-      return;
+    try {
+      if (!document.fullscreenElement) {
+        await shell.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch {
+      // Fullscreen may be blocked by browser policy.
+    }
+  }, []);
+
+  useEffect(() => {
+    function handleFullscreenChange() {
+      setIsFullscreen(document.fullscreenElement?.id === "presentation-shell");
     }
 
-    await document.exitFullscreen();
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
   const handleConfigApply = useCallback(
@@ -172,7 +185,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       observer.disconnect();
       window.removeEventListener("resize", syncScale);
     };
-  }, [updateScale, iframeLoading, sidebarOpen, currentIndex]);
+  }, [updateScale, iframeLoading, sidebarOpen, currentIndex, isFullscreen]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -265,7 +278,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   return (
     <div
       id="presentation-shell"
-      className={`presentation-shell presentation-shell--projector ${sidebarOpen ? "presentation-shell--sidebar-open" : ""}`}
+      className={`presentation-shell presentation-shell--projector ${sidebarOpen ? "presentation-shell--sidebar-open" : ""} ${isFullscreen ? "presentation-shell--fullscreen" : ""}`}
     >
       <button
         type="button"
@@ -331,6 +344,27 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
                     <p>슬라이드를 불러오는 중...</p>
                   </div>
                 ) : null}
+
+                {!iframeLoading && !error ? (
+                  <div className="projector-click-layer" aria-hidden="true">
+                    <button
+                      type="button"
+                      className="projector-click-zone projector-click-zone--prev"
+                      onClick={goPrev}
+                      disabled={!canGoPrev}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    />
+                    <button
+                      type="button"
+                      className="projector-click-zone projector-click-zone--next"
+                      onClick={goNext}
+                      disabled={!canGoNext}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    />
+                  </div>
+                ) : null}
               </>
             ) : null}
 
@@ -373,6 +407,17 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
             </span>
           </div>
 
+          <button
+            type="button"
+            className="projector-footer__btn projector-footer__btn--fullscreen"
+            onClick={() => void toggleFullscreen()}
+            title={isFullscreen ? "전체화면 종료 (F)" : "전체화면 (F)"}
+            aria-label={isFullscreen ? "전체화면 종료" : "전체화면"}
+          >
+            <i className={`fa-solid ${isFullscreen ? "fa-compress" : "fa-expand"}`} aria-hidden="true" />
+            <span>{isFullscreen ? "종료" : "전체화면"}</span>
+          </button>
+
           <button type="button" className="projector-footer__btn" onClick={goNext} disabled={!canGoNext}>
             <span>다음</span>
             <i className="fa-solid fa-chevron-right" aria-hidden="true" />
@@ -381,6 +426,19 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       </div>
 
       <SlideDetailButtons slideIndex={currentIndex} manifestItem={currentItem} />
+
+      {isFullscreen ? (
+        <button
+          type="button"
+          className="projector-fullscreen-exit"
+          onClick={() => void toggleFullscreen()}
+          title="전체화면 종료 (F)"
+          aria-label="전체화면 종료"
+        >
+          <i className="fa-solid fa-compress" aria-hidden="true" />
+          <span>전체화면 종료</span>
+        </button>
+      ) : null}
 
       {showOptions ? (
         <SlideOptionsPanel config={config} onClose={() => setShowOptions(false)} onApply={handleConfigApply} />

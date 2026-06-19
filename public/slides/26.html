@@ -41,6 +41,7 @@ body {
   position: relative;
   display: flex; flex-direction: column;
   border: 1px solid var(--ppt-border);
+  overflow: hidden;
 }
 /* Decorative background glow */
 .slide-root::before {
@@ -53,7 +54,7 @@ body {
 }
 /* Title */
 .title-region {
-  padding: 26px 60px 10px 60px;
+  padding: 22px 40px 8px 40px;
   display: flex; flex-direction: column; gap: 6px;
 }
 .title-header { display: flex; align-items: center; gap: 12px; }
@@ -67,7 +68,7 @@ body {
 }
 .title-text {
   font-family: var(--ppt-font-display);
-  font-size: 30px; font-weight: 700; color: var(--ppt-text-1); margin: 0;
+  font-size: 26px; font-weight: 700; color: var(--ppt-text-1); margin: 0;
 }
 .title-sub {
   font-size: 15px; color: var(--ppt-text-2); padding-left: 16px;
@@ -80,7 +81,7 @@ body {
 /* Main 3-column grid */
 .main-container {
   flex: 1;
-  padding: 10px 50px 10px 50px;
+  padding: 8px 40px 8px 40px;
   display: flex; gap: 16px; align-items: stretch;
 }
 .pillar-card {
@@ -131,7 +132,7 @@ body {
 .pillar-item-icon.green { color: var(--ppt-good); }
 .pillar-item-text { display: flex; flex-direction: column; gap: 2px; }
 .pillar-item-title { font-size: 13px; font-weight: 700; color: var(--ppt-text-1); }
-.pillar-item-desc  { font-size: 12px; color: var(--ppt-text-2); line-height: 1.4; }
+.pillar-item-desc  { font-size: 11px; color: var(--ppt-text-2); line-height: 1.35; }
 
 /* VS comparison row */
 .vs-bridge {

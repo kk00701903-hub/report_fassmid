@@ -165,36 +165,37 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-bg-soft);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 32px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     box-shadow: var(--ppt-shadow-strong)
     }
-.fass-identity-logo-header {
-    display: flex;
-    align-items: center;
-    gap: 16px
-    }
-.fass-identity-logo-icon-box {
-    width: 64px;
-    height: 64px;
-    background: var(--ppt-surface-2);
-    border-radius: var(--ppt-radius-md);
+.fass-identity-logo-visual-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--ppt-accent-2);
-    font-size: 32px
+    background: #000;
+    border-radius: var(--ppt-radius-md);
+    padding: 20px 16px;
+    border: 1px solid var(--ppt-border)
+    }
+.fass-identity-logo-image {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain
     }
 .fass-identity-logo-title {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
-    color: var(--ppt-accent-2)
+    color: var(--ppt-accent-2);
+    text-align: center
     }
 .fass-identity-logo-body-text {
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--ppt-text-1)
     }
 .fass-identity-logo-keyword-tag {
@@ -297,16 +298,14 @@ html { overflow: hidden;  margin:0; padding:0; }
 <!-- Right Vision Section -->
 <div class="fass-identity-right-vision-section">
 <div class="fass-identity-logo-info-card">
-<div class="fass-identity-logo-header">
-<div class="fass-identity-logo-icon-box">
-<i class="fas fa-infinity"></i>
+<div class="fass-identity-logo-visual-wrap">
+<img alt="FASS 로고" class="fass-identity-logo-image" src="assets/fass-logo.png"/>
 </div>
 <h2 class="fass-identity-logo-title">FaSS 로고 디자인 의미</h2>
-</div>
 <div class="fass-identity-logo-body-text">
-            4개의 유연한 블록(모듈)이 하나로 결합되어 무한히 회전하는 <span class="fass-identity-highlight-text">궤도(Infinity)</span> 형상을 상징합니다. 
+            클라우드와 무한 궤도(Infinity), 상승 화살표가 결합된 형상으로 <span class="fass-identity-highlight-text">지속적 성장</span>과 <span class="fass-identity-highlight-text">클라우드 확장성</span>을 상징합니다.
             <br/><br/>
-            이는 멈추지 않는 (주)제때의 <span class="fass-identity-highlight-text">물류 비즈니스 연속성</span>과 한계 없는 <span class="fass-identity-highlight-text">외부 확장성</span>을 시각적으로 표현합니다.
+            (주)제때의 <span class="fass-identity-highlight-text">물류 비즈니스 연속성</span>과 한계 없는 <span class="fass-identity-highlight-text">외부 확장성</span>을 시각적으로 표현합니다.
           </div>
 <div class="fass-identity-logo-keyword-tag">
 <i class="fas fa-link" style="margin-right: 8px;"></i> 비즈니스 무한 확장

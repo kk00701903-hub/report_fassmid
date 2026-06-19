@@ -1265,6 +1265,36 @@ button {
   min-height: 0;
 }
 
+.projector-click-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  pointer-events: none;
+}
+
+.projector-click-zone {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.projector-click-zone--prev {
+  width: 20%;
+  flex-shrink: 0;
+}
+
+.projector-click-zone--next {
+  flex: 1;
+}
+
+.projector-click-zone:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
 .projector-nav {
   position: absolute;
   top: 50%;
@@ -1342,6 +1372,10 @@ button {
   cursor: not-allowed;
 }
 
+.projector-footer__btn--fullscreen {
+  min-width: auto;
+}
+
 .projector-footer__info {
   flex: 1;
   text-align: center;
@@ -1370,6 +1404,60 @@ button {
   top: 8px;
   right: 8px;
   z-index: 100;
+}
+
+.presentation-shell--fullscreen .projector-stage {
+  padding: 0;
+}
+
+.presentation-shell--fullscreen .projector-viewport {
+  width: min(100vw, calc(100dvh * 4 / 3));
+  max-height: 100dvh;
+}
+
+.presentation-shell--fullscreen .projector-footer {
+  display: none;
+}
+
+.presentation-shell--fullscreen .slide-sidebar__toggle {
+  opacity: 0.4;
+}
+
+.presentation-shell--fullscreen .slide-sidebar__toggle:hover {
+  opacity: 1;
+}
+
+.presentation-shell--fullscreen .slide-detail-buttons--compact {
+  opacity: 0.4;
+}
+
+.presentation-shell--fullscreen .slide-detail-buttons--compact:hover {
+  opacity: 1;
+}
+
+.projector-fullscreen-exit {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 250;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(10, 14, 26, 0.9);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.projector-fullscreen-exit:hover {
+  opacity: 1;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 html:has(.presentation-shell--projector),
