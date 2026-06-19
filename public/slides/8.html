@@ -49,7 +49,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 /* Title Region */
 .title-region-container {
-    padding: 32px 40px 12px 40px;
+    padding: 28px 40px 8px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
@@ -82,9 +82,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 /* Body Layout */
 .war-room-content-wrapper {
     flex: 1;
+    min-height: 0;
     display: flex;
-    padding: 13px 40px 26px 40px;
-    gap: 19px 30px;
+    padding: 8px 40px 8px 40px;
+    gap: 14px;
     align-items: stretch
     }
 .war-room-left-column {
@@ -106,10 +107,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-surface);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 19px 24px;
+    padding: 14px 16px;
     display: flex;
     flex-direction: column;
-    gap: 13px 16px;
+    gap: 10px;
     flex: 1
     }
 .war-room-card-header {
@@ -134,8 +135,8 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     color: var(--ppt-text-1)
     }
 .war-room-card-body {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.45;
     color: var(--ppt-text-2)
     }
 .war-room-highlight-item {
@@ -197,7 +198,70 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     font-weight: 700;
     color: var(--ppt-accent)
     }
-html { overflow: hidden;  margin:0; padding:0; }
+.war-room-dailyscrum-banner {
+    margin: 0 40px 12px 40px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, rgba(0,240,255,0.08) 0%, rgba(167,139,250,0.06) 100%);
+    border: 1px solid rgba(0,240,255,0.35);
+    border-radius: var(--ppt-radius-lg);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    }
+.war-room-dailyscrum-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--ppt-radius-md);
+    background: rgba(0,240,255,0.12);
+    color: var(--ppt-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    }
+.war-room-dailyscrum-body {
+    flex: 1;
+    min-width: 0;
+    }
+.war-room-dailyscrum-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin-bottom: 3px;
+    }
+.war-room-dailyscrum-desc {
+    font-size: 12px;
+    color: var(--ppt-text-2);
+    line-height: 1.4;
+    }
+.war-room-dailyscrum-desc a {
+    color: var(--ppt-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    }
+.war-room-dailyscrum-link {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: var(--ppt-radius-md);
+    background: rgba(0,240,255,0.12);
+    border: 1px solid var(--ppt-accent);
+    color: var(--ppt-accent);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+    }
+.war-room-dailyscrum-link:hover {
+    background: var(--ppt-accent);
+    color: var(--ppt-bg);
+    }
+html { overflow: hidden; margin:0; padding:0; }
 </style></head>
 <body>
 <div class="war-room-slide-root" style="overflow: hidden;">
@@ -224,7 +288,7 @@ html { overflow: hidden;  margin:0; padding:0; }
 <span class="war-room-location-tag"><i class="fas fa-location-dot"></i> 남양주 1공장 2층 프로젝트룸</span>
 <div class="war-room-highlight-item">
 <i class="fas fa-check war-room-highlight-bullet"></i>
-<span>기획-디자인-개발-PMO 인력을 물리적 단일 공간에 배치하여 커뮤니케이션 사일로(Silo) 제거</span>
+<span>단독 프로젝트 룸 운영을 통한 커뮤니케이션 사일로(silo) 제거</span>
 </div>
 <div class="war-room-highlight-item">
 <i class="fas fa-check war-room-highlight-bullet"></i>
@@ -273,21 +337,21 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="war-room-card-body">
 <div class="war-room-highlight-item">
 <i class="fas fa-chart-line war-room-highlight-bullet"></i>
-<span>대시보드 화면 (FASS 데일리 스크럼) 을 통해 일단위 업무 진척도 점검 및 공유</span>
+<span><a href="https://kk00701903-hub.github.io/fass-dailyscrum/#/analytics" target="_blank" rel="noopener noreferrer" style="color:var(--ppt-accent);font-weight:600;">FASS 데일리 스크럼 Analytics</a>으로 일단위 업무·스프린트 진척도를 점검하고 워룸에서 공유</span>
 </div>
 <div class="war-room-highlight-item">
 <i class="fas fa-bug war-room-highlight-bullet"></i>
-<span>스프린트 진척도 및 버그 발생률 시각화를 통해 품질 리스크 상시 모니터링</span>
+<span>태스크 완료율·블로커·버그 지표 시각화로 품질 리스크 상시 모니터링</span>
 </div>
 </div>
 <div class="war-room-dashboard-preview">
-<div class="war-room-dashboard-box" style="border-color: var(--ppt-accent);">
-<span class="war-room-dashboard-label">Grafana</span>
-<span class="war-room-dashboard-value">Live Trace</span>
-</div>
+<a class="war-room-dashboard-box" href="https://kk00701903-hub.github.io/fass-dailyscrum/#/analytics" target="_blank" rel="noopener noreferrer" style="border-color:var(--ppt-accent);text-decoration:none;cursor:pointer;">
+<span class="war-room-dashboard-label">Daily Scrum</span>
+<span class="war-room-dashboard-value">Analytics</span>
+</a>
 <div class="war-room-dashboard-box" style="border-color: var(--ppt-good);">
-<span class="war-room-dashboard-label">Jenkins</span>
-<span class="war-room-dashboard-value">CI Status</span>
+<span class="war-room-dashboard-label">Sprint</span>
+<span class="war-room-dashboard-value">Progress</span>
 </div>
 </div>
 </div>
@@ -312,6 +376,17 @@ html { overflow: hidden;  margin:0; padding:0; }
 </div>
 </div>
 </div>
+</div>
+<!-- FASS Daily Scrum -->
+<div class="war-room-dailyscrum-banner">
+<div class="war-room-dailyscrum-icon"><i class="fas fa-clipboard-list"></i></div>
+<div class="war-room-dailyscrum-body">
+<div class="war-room-dailyscrum-title">FASS 데일리 스크럼 — TFT 애자일 운영 허브</div>
+<p class="war-room-dailyscrum-desc">차세대 FaSS TFT의 일일 스크럼·태스크·스프린트 데이터를 웹에서 기록하고, Analytics 대시보드로 진척·블로커·완료율을 한눈에 확인합니다. 워룸 대형 화면과 연동해 전 팀이 동일 지표를 공유합니다.</p>
+</div>
+<a class="war-room-dailyscrum-link" href="https://kk00701903-hub.github.io/fass-dailyscrum/#/analytics" target="_blank" rel="noopener noreferrer">
+<i class="fas fa-arrow-up-right-from-square"></i> Analytics 열기
+</a>
 </div>
 </div>
 <script>

@@ -5,6 +5,8 @@ export type BuiltinSlideItem = {
   title: string;
   type: "builtin";
   fileName: string;
+  /** false이면 발표 시 이전/다음 탐색에서 제외 (기본 true) */
+  visible?: boolean;
 };
 
 export type CustomSlideItem = {
@@ -12,6 +14,7 @@ export type CustomSlideItem = {
   title: string;
   type: "custom";
   html: string;
+  visible?: boolean;
 };
 
 export type SlideManifestItem = BuiltinSlideItem | CustomSlideItem;
@@ -22,6 +25,23 @@ export type PresentationConfig = {
 
 const STORAGE_KEY = "fass-presentation-config";
 
+export function isSlideVisible(slide: SlideManifestItem): boolean {
+  return slide.visible !== false;
+}
+
+export function normalizePresentationConfig(config: PresentationConfig): PresentationConfig {
+  return {
+    slides: config.slides.map((slide) => ({
+      ...slide,
+      visible: slide.visible !== false,
+    })),
+  };
+}
+
+export function getVisibleSlides(config: PresentationConfig): SlideManifestItem[] {
+  return config.slides.filter(isSlideVisible);
+}
+
 export function createDefaultConfig(): PresentationConfig {
   return {
     slides: SLIDES.map((slide) => ({
@@ -29,6 +49,7 @@ export function createDefaultConfig(): PresentationConfig {
       title: slide.title,
       type: "builtin" as const,
       fileName: `${slide.id}.html`,
+      visible: true,
     })),
   };
 }
@@ -44,7 +65,7 @@ export function loadPresentationConfig(): PresentationConfig {
 
     const parsed = JSON.parse(raw) as PresentationConfig;
     if (!parsed.slides?.length) return createDefaultConfig();
-    return parsed;
+    return normalizePresentationConfig(parsed);
   } catch {
     return createDefaultConfig();
   }

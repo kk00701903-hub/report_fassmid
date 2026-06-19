@@ -46,7 +46,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 /* Title Region from Design */
 .title-region-wrapper {
-    padding: 40px 40px 20px 40px;
+    padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
@@ -64,7 +64,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 .title-region-text {
     font-family: var(--ppt-font-display);
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
@@ -79,9 +79,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 /* Main Layout */
 .fass-identity-main-container {
     flex: 1;
+    min-height: 0;
     display: flex;
-    padding: 20px 40px 40px 40px;
-    gap: 40px
+    padding: 12px 40px 16px 40px;
+    gap: 28px
     }
 /* Left Side: 4 Core Values Flow */
 .fass-identity-left-flow-section {
@@ -103,14 +104,14 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 .fass-identity-value-item-row {
     display: flex;
     align-items: flex-start;
-    gap: 24px;
-    padding: 16px 0;
+    gap: 20px;
+    padding: 12px 0;
     position: relative;
     z-index: 1
     }
 .fass-identity-value-marker {
-    width: 58px;
-    height: 58px;
+    width: 50px;
+    height: 50px;
     background: var(--ppt-surface);
     border: 2px solid var(--ppt-accent);
     border-radius: 50%;
@@ -122,7 +123,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 .fass-identity-value-marker-letter {
     font-family: var(--ppt-font-display);
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--ppt-accent)
     }
@@ -137,20 +138,20 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     gap: 12px
     }
 .fass-identity-value-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--ppt-text-1)
     }
 .fass-identity-value-subtitle {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--ppt-accent);
     opacity: 0.9
     }
 .fass-identity-value-description {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.45;
     color: var(--ppt-text-2);
     max-width: 650px
     }
@@ -165,10 +166,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-bg-soft);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     box-shadow: var(--ppt-shadow-strong)
     }
 .fass-identity-logo-visual-wrap {
@@ -177,7 +178,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     align-items: center;
     background: #000;
     border-radius: var(--ppt-radius-md);
-    padding: 20px 16px;
+    padding: 12px 12px;
     border: 1px solid var(--ppt-border)
     }
 .fass-identity-logo-image {
@@ -188,14 +189,14 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     object-fit: contain
     }
 .fass-identity-logo-title {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--ppt-accent-2);
     text-align: center
     }
 .fass-identity-logo-body-text {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.45;
     color: var(--ppt-text-1)
     }
 .fass-identity-logo-keyword-tag {

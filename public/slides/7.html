@@ -79,9 +79,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 /* Layout Structure */
 .tft-org-main-content-wrapper {
     flex: 1;
+    min-height: 0;
     display: flex;
-    padding: 12px 40px 24px 40px;
-    gap: 24px;
+    padding: 10px 40px 16px 40px;
+    gap: 20px;
     align-items: stretch
     }
 .tft-org-left-strategy-column {
@@ -89,7 +90,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 24px
+    gap: 16px
     }
 .tft-org-right-table-column {
     flex: 1.6;
@@ -102,10 +103,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-bg-soft);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 20px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
-    gap: 12px
+    gap: 8px
     }
 .tft-org-metric-highlight-row {
     display: flex;
@@ -185,9 +186,9 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     border-bottom: 2px solid var(--ppt-border)
     }
 .tft-org-table-header-cell {
-    padding: 10px 12px;
+    padding: 8px 10px;
     text-align: left;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--ppt-accent);
     font-family: var(--ppt-font-display)
@@ -199,8 +200,8 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     border-bottom: none
     }
 .tft-org-table-body-cell {
-    padding: 10px 12px;
-    font-size: 15px;
+    padding: 8px 10px;
+    font-size: 14px;
     color: var(--ppt-text-1);
     vertical-align: middle;
     line-height: 1.4
@@ -217,6 +218,11 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 .tft-org-name-text-span {
     font-weight: 600;
     color: var(--ppt-text-1)
+    }
+.tft-org-name-text-span--multi {
+    font-size: 12px;
+    line-height: 1.35;
+    display: inline-block
     }
 .tft-org-task-list-container {
     list-style: none
@@ -371,7 +377,7 @@ html { overflow: hidden;  margin:0; padding:0; }
 <span class="tft-org-role-badge-span">FE 엔지니어</span>
 </td>
 <td class="tft-org-table-body-cell">
-<span class="tft-org-name-text-span">심지훈 외 2명</span>
+<span class="tft-org-name-text-span tft-org-name-text-span--multi">심지훈 오준열 이지상</span>
 </td>
 <td class="tft-org-table-body-cell">
 <ul class="tft-org-task-list-container">

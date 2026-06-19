@@ -53,7 +53,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 /* Non-Cover-Page Title Region */
 .title-region-container {
-    padding: 40px 40px 20px 40px;
+    padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
@@ -71,7 +71,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 .title-region-text {
     font-family: var(--ppt-font-display);
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
@@ -85,15 +85,19 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 /* Main Content */
 .summary-content-wrapper {
-    padding: 16px 40px 32px 40px;
+    flex: 1;
+    min-height: 0;
+    padding: 10px 40px 16px 40px;
     display: flex;
     flex-direction: column;
-    gap: 19px 24px
+    gap: 12px
     }
 .summary-grid-container {
     display: flex;
     align-items: stretch;
-    gap: 19px 24px
+    gap: 12px;
+    flex: 1;
+    min-height: 0
     }
 .summary-column-item {
     flex: 1;
@@ -102,8 +106,8 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-surface);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 19px 24px;
-    gap: 13px 16px;
+    padding: 14px 16px;
+    gap: 8px;
     box-shadow: var(--ppt-shadow-soft)
     }
 .summary-column-header {
@@ -112,10 +116,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     gap: 10px 12px
     }
 .summary-column-icon {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--ppt-accent);
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: rgba(0, 240, 255, 0.1);
     display: flex;
     align-items: center;
@@ -123,7 +127,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     border-radius: var(--ppt-radius-md)
     }
 .summary-column-title {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--ppt-text-1)
     }
@@ -133,11 +137,11 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     margin: 0 0;
     display: flex;
     flex-direction: column;
-    gap: 10px 12px
+    gap: 6px
     }
 .summary-list-item {
     display: block;
-    padding: 10px 12px;
+    padding: 6px 10px;
     background: var(--ppt-surface-2);
     border-radius: var(--ppt-radius-md)
     }
@@ -163,23 +167,23 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     color: #000
     }
 .summary-item-text {
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.45;
     color: var(--ppt-text-1)
     }
 .summary-item-subtext {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--ppt-text-2);
     margin-top: 3px
     }
 .summary-highlight-box {
     margin-top: auto;
-    padding: 10px 12px;
+    padding: 6px 10px;
     border-left: 3px solid var(--ppt-accent-2);
     background: rgba(250, 204, 21, 0.05)
     }
 .summary-highlight-text {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--ppt-accent-2)
     }
@@ -235,12 +239,12 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="summary-list-item">
 <span class="summary-item-tag tag-completed">검증 완료</span>
 <div class="summary-item-text">PoC 및 프로토타입 격리 검증</div>
-<div class="summary-item-subtext">AI 스파크 및 주유소 관리 시스템 무결점 테스트</div>
+<div class="summary-item-subtext">AI 아이디어 스파크 PoC 데이터 무결성 검증 완료</div>
 </div>
 <div class="summary-list-item">
 <span class="summary-item-tag tag-planned">26년 10월</span>
-<div class="summary-item-text">주유소(JTGS) 시스템 프로토타입 구축</div>
-<div class="summary-item-subtext">차세대 플랫폼 최초 실운영 환경 검증 및 스토리보드 표본 완성</div>
+<div class="summary-item-text">주유소(JTGS) 프로토타입 개발 착수</div>
+<div class="summary-item-subtext">2026.10 차세대 서버에서 개발 Start — 완성형 기술스택 최초 적용 (2027.03 완성 목표, 10월 런칭 아님)</div>
 </div>
 <div class="summary-list-item">
 <span class="summary-item-tag tag-planned">최종 단계</span>

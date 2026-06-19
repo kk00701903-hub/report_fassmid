@@ -3,13 +3,13 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>(주)제때 차세대 FaSS 플랫폼 구축 중간 보고 - Slide 6</title>
+<meta content="width=960, height=720, initial-scale=1.0" name="viewport"/>
+<title>AI 기반 디자이너·외주 개발 인력 대체</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
     --ppt-bg: #0A0E1A;
-    /* Deep Midnight Navy */
     --ppt-bg-soft: #141B2D;
     --ppt-surface: #1E2638;
     --ppt-surface-2: #2A344A;
@@ -18,346 +18,286 @@
     --ppt-text-2: #94A3B8;
     --ppt-text-3: #64748B;
     --ppt-accent: #00F0FF;
-    /* Electric Cyan for Tech */
     --ppt-accent-2: #FACC15;
-    /* Gold for Value/ROI */
+    --ppt-chart-3: #8B5CF6;
     --ppt-good: #22C55E;
-    --ppt-warn: #F59E0B;
-    --ppt-bad: #EF4444;
     --ppt-radius-sm: 4px;
     --ppt-radius-md: 8px;
     --ppt-radius-lg: 16px;
     --ppt-font-display: "IBM Plex Sans KR", sans-serif;
     --ppt-font-body: "IBM Plex Sans KR", sans-serif
     }
-* {
-    box-sizing: border-box;
-    margin: 0 0;
-    padding: 0 0
-    }
+* { box-sizing: border-box; margin: 0; padding: 0 }
 body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
-    display: flex;
-    justify-content: center;
-    align-items: center}
-.poc-slide-root {
-    width: 960px;
-    height: 720px;
+    display: flex; justify-content: center; align-items: center;
+    font-family: var(--ppt-font-body)}
+.ai-workforce-slide-root {
+    width: 960px; height: 720px;
     background-color: var(--ppt-bg);
-    font-family: var(--ppt-font-body);
     color: var(--ppt-text-1);
-    display: flex;
-    flex-direction: column;
-    position: relative
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden
     }
-/* Non-Cover-Page Title Region */
 .title-region-wrapper {
     padding: 32px 40px 12px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
+    display: flex; flex-direction: column; gap: 8px
     }
-.title-region-header {
-    display: flex;
-    align-items: center;
-    gap: 12px
+.title-main-header-group {
+    display: flex; align-items: center; gap: 12px
     }
-.title-region-bar {
-    width: 4px;
-    height: 32px;
-    background: var(--ppt-accent);
-    border-radius: 2px
+.title-accent-vertical-bar {
+    width: 4px; height: 32px;
+    background: var(--ppt-accent); border-radius: 2px
     }
-.title-region-text {
+.title-text-main-heading {
     font-family: var(--ppt-font-display);
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    margin: 0
+    font-size: 28px; font-weight: 700;
+    color: var(--ppt-text-1); margin: 0
     }
-.title-region-line {
-    height: 1px;
-    width: 100%;
+.title-gradient-divider-line {
+    height: 1px; width: 100%;
     background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-    opacity: 0.3;
-    margin-top: 8px
+    opacity: 0.3; margin-top: 8px
     }
-/* Main Content Area */
-.poc-content-main-layout {
-    padding: 8px 40px 16px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px 24px;
-    flex: 1
+.ai-workforce-main-layout {
+    flex: 1; min-height: 0;
+    padding: 8px 40px 12px 40px;
+    display: flex; gap: 20px; align-items: stretch
     }
-.poc-top-grid-wrapper {
-    display: flex;
-    gap: 14px 24px;
-    align-items: stretch
+/* Left: LangGraph flow */
+.ai-orchestration-column {
+    flex: 1.15;
+    display: flex; flex-direction: column; gap: 10px
     }
-/* Left Column: Target System Info */
-.poc-left-target-card {
+.ai-orchestration-card {
     flex: 1;
     background: var(--ppt-bg-soft);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px
+    padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 10px
     }
-.poc-target-header {
-    display: flex;
-    align-items: center;
-    gap: 16px
+.ai-orchestration-label {
+    font-size: 13px; font-weight: 700; color: var(--ppt-chart-3);
+    display: flex; align-items: center; gap: 8px
     }
-.poc-target-icon {
-    width: 56px;
-    height: 56px;
-    background: rgba(0, 240, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--ppt-accent);
-    font-size: 24px
+.ai-flow-stack {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; gap: 8px
     }
-.poc-target-label {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--ppt-accent);
-    text-transform: uppercase;
-    letter-spacing: 1px
-    }
-.poc-target-title {
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    line-height: 1.3
-    }
-.poc-target-description {
-    font-size: 18px;
-    color: var(--ppt-text-2);
-    line-height: 1.6
-    }
-/* Right Column: Technical Flow */
-.poc-right-tech-card {
-    flex: 1.2;
-    background: var(--ppt-surface);
-    border-radius: var(--ppt-radius-lg);
-    padding: 19px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px 24px
-    }
-.poc-tech-section-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--ppt-text-1);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 5px
-    }
-.poc-tech-section-title i {
-    color: var(--ppt-accent-2)
-    }
-.poc-migration-flow-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px 16px
-    }
-.poc-flow-item {
-    display: flex;
-    align-items: center;
-    gap: 12px 20px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 10px 16px;
+.ai-flow-hub {
+    align-self: center;
+    background: linear-gradient(135deg, var(--ppt-surface-2), var(--ppt-surface));
+    border: 2px solid var(--ppt-chart-3);
     border-radius: var(--ppt-radius-md);
-    border-left: 3px solid var(--ppt-accent)
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.25)
     }
-.poc-flow-icon {
-    font-size: 20px;
-    color: var(--ppt-accent);
-    width: 30px;
-    text-align: center
+.ai-flow-hub-title {
+    font-size: 16px; font-weight: 700; color: var(--ppt-chart-3)
     }
-.poc-flow-text-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2px 4px
+.ai-flow-hub-sub { font-size: 11px; color: var(--ppt-text-3); margin-top: 2px }
+.ai-flow-arrow {
+    align-self: center; color: var(--ppt-accent);
+    font-size: 14px; line-height: 1
     }
-.poc-flow-main-text {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
+.ai-flow-agents-row {
+    display: flex; gap: 10px; justify-content: center
     }
-.poc-flow-sub-text {
-    font-size: 14px;
+.ai-flow-agent-box {
+    flex: 1; max-width: 140px;
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-md);
+    padding: 10px 8px;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 4px
+    }
+.ai-flow-agent-box.is-gpu { border-color: var(--ppt-accent-2) }
+.ai-flow-agent-box.is-code { border-color: var(--ppt-good) }
+.ai-flow-agent-box i { font-size: 18px }
+.ai-flow-agent-box.is-gpu i { color: var(--ppt-accent-2) }
+.ai-flow-agent-box.is-code i { color: var(--ppt-good) }
+.ai-flow-agent-name {
+    font-size: 12px; font-weight: 700; color: var(--ppt-text-1); line-height: 1.3
+    }
+.ai-flow-agent-task {
+    font-size: 10px; color: var(--ppt-text-2); line-height: 1.35
+    }
+.ai-flow-caption {
+    font-size: 12px; color: var(--ppt-text-2); line-height: 1.45;
+    padding-top: 4px; border-top: 1px solid var(--ppt-border)
+    }
+/* Right: replacement roles */
+.ai-replacement-column {
+    flex: 1;
+    display: flex; flex-direction: column; gap: 10px
+    }
+.ai-replacement-card {
+    flex: 1;
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 12px 14px;
+    display: flex; gap: 12px; align-items: flex-start
+    }
+.ai-replacement-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border-radius: var(--ppt-radius-md);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px
+    }
+.ai-replacement-icon.design {
+    background: rgba(250, 204, 21, 0.12); color: var(--ppt-accent-2);
+    border: 1px solid rgba(250, 204, 21, 0.3)
+    }
+.ai-replacement-icon.dev {
+    background: rgba(0, 240, 255, 0.12); color: var(--ppt-accent);
+    border: 1px solid rgba(0, 240, 255, 0.3)
+    }
+.ai-replacement-icon.docs {
+    background: rgba(34, 197, 94, 0.12); color: var(--ppt-good);
+    border: 1px solid rgba(34, 197, 94, 0.3)
+    }
+.ai-replacement-body { display: flex; flex-direction: column; gap: 4px }
+.ai-replacement-title {
+    font-size: 15px; font-weight: 700; color: var(--ppt-text-1)
+    }
+.ai-replacement-desc {
+    font-size: 13px; color: var(--ppt-text-2); line-height: 1.45
+    }
+.ai-replacement-desc b { color: var(--ppt-text-1); font-weight: 600 }
+.ai-replacement-tags {
+    display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px
+    }
+.ai-replacement-tag {
+    font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 12px;
+    border: 1px solid var(--ppt-border);
     color: var(--ppt-text-3)
     }
-/* Bottom: Risk Mitigation Banner */
-.poc-risk-impact-banner {
-    background: linear-gradient(90deg, #1E2638 0%, #0A0E1A 100%);
+/* Bottom banner */
+.ai-workforce-footer-banner {
+    flex-shrink: 0;
+    margin: 0 40px 14px 40px;
+    background: linear-gradient(90deg, rgba(250, 204, 21, 0.1) 0%, rgba(0, 240, 255, 0.06) 100%);
     border: 1px solid var(--ppt-border);
-    border-left: 6px solid var(--ppt-good);
+    border-left: 4px solid var(--ppt-accent-2);
     border-radius: var(--ppt-radius-md);
-    padding: 14px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between
+    padding: 10px 18px;
+    display: flex; align-items: center; gap: 14px
     }
-.poc-impact-label-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2px 4px
+.ai-workforce-footer-icon {
+    font-size: 22px; color: var(--ppt-accent-2); flex-shrink: 0
     }
-.poc-impact-main-msg {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
+.ai-workforce-footer-text {
+    font-size: 14px; color: var(--ppt-text-2); line-height: 1.45
     }
-.poc-impact-sub-msg {
-    font-size: 16px;
-    color: var(--ppt-text-2)
+.ai-workforce-footer-text b { color: var(--ppt-accent-2) }
+.ai-workforce-footer-text em {
+    color: var(--ppt-accent); font-style: normal; font-weight: 600
     }
-.poc-metrics-container {
-    display: flex;
-    gap: 29px 48px
-    }
-.poc-metric-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center
-    }
-.poc-metric-value {
-    font-size: 34px;
-    font-weight: 700;
-    color: var(--ppt-accent);
-    line-height: 1
-    }
-.poc-metric-unit {
-    font-size: 24px;
-    margin-left: 2px
-    }
-.poc-metric-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ppt-text-3);
-    margin-top: 2px;
-    text-transform: uppercase
-    }
-ul.poc-feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0
-    }
-li.poc-feature-item {
-    font-size: 16px;
-    color: var(--ppt-text-2);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px
-    }
-li.poc-feature-item::before {
-    content: "•";
-    color: var(--ppt-accent);
-    font-weight: bold
-    }
-html { overflow: hidden;  margin:0; padding:0; }
+html { overflow: hidden; margin:0; padding:0; }
 </style></head>
 <body>
-<div class="poc-slide-root" style="overflow: hidden;">
-<!-- Title Region -->
+<div class="ai-workforce-slide-root">
 <div class="title-region-wrapper">
-<div class="title-region-header">
-<div class="title-region-bar"></div>
-<h1 class="title-region-text">최적의 안전성 검증: PoC 타겟 선정 및 완료</h1>
+<div class="title-main-header-group">
+<div class="title-accent-vertical-bar"></div>
+<h1 class="title-text-main-heading">[혁신] AI로 디자이너·외주 개발 역량을 대체하다</h1>
 </div>
-<div class="title-region-line"></div>
+<div class="title-gradient-divider-line"></div>
 </div>
-<!-- Main Content -->
-<div class="poc-content-main-layout">
-<div class="poc-top-grid-wrapper">
-<!-- PoC Target Details -->
-<div class="poc-left-target-card">
-<div class="poc-target-header">
-<div class="poc-target-icon">
-<i class="fas fa-flask"></i>
+<div class="ai-workforce-main-layout">
+<!-- Left: LangGraph orchestration -->
+<div class="ai-orchestration-column">
+<div class="ai-orchestration-card">
+<div class="ai-orchestration-label">
+<i class="fas fa-diagram-project"></i> LangGraph 멀티에이전트 업무 분담
 </div>
-<span class="poc-target-label">Phase 1: Proof of Concept</span>
+<div class="ai-flow-stack">
+<div class="ai-flow-hub">
+<div class="ai-flow-hub-title">LangGraph Orchestrator</div>
+<div class="ai-flow-hub-sub">기획 · 설계 · 코딩 · QA · 문서 태스크 동적 할당</div>
 </div>
-<h2 class="poc-target-title">
-            AI 아이디어 스파크<br/>포인트 관리 시스템
-          </h2>
-<p class="poc-target-description">
-            가장 치명적인 리스크 요소인 '데이터 마이그레이션' 기술을 선제적으로 검증하기 위해 선정된 핵심 PoC 과제입니다.
-          </p>
-<ul class="poc-feature-list">
-<li class="poc-feature-item">이기종 DB(MSSQL → Oracle/PostgreSQL) 간 데이터 무결성 검증</li>
-<li class="poc-feature-item">실시간 트랜잭션 복제 성능 및 부하 테스트 완료</li>
-<li class="poc-feature-item">차세대 데이터 모델 아키텍처 적합성 확인</li>
-</ul>
-</div>
-<!-- Technical Achievement -->
-<div class="poc-right-tech-card">
-<div class="poc-tech-section-title">
+<div class="ai-flow-arrow"><i class="fas fa-arrows-down-to-line"></i></div>
+<div class="ai-flow-agents-row">
+<div class="ai-flow-agent-box is-gpu">
 <i class="fas fa-microchip"></i>
-            기술적 성취: 실시간 CDC 파이프라인 구축
-          </div>
-<div class="poc-migration-flow-container">
-<div class="poc-flow-item">
-<div class="poc-flow-icon"><i class="fas fa-database"></i></div>
-<div class="poc-flow-text-group">
-<div class="poc-flow-main-text">Legacy Source Data (MSSQL)</div>
-<div class="poc-flow-sub-text">기존 그룹웨어 및 포인트 데이터 트랜잭션 감지</div>
+<div class="ai-flow-agent-name">DGX Spark</div>
+<div class="ai-flow-agent-task">RAG 추론<br/>레거시 분석</div>
+</div>
+<div class="ai-flow-agent-box is-code">
+<i class="fas fa-robot"></i>
+<div class="ai-flow-agent-name">Claude Code</div>
+<div class="ai-flow-agent-task">코드 생성<br/>리뷰·리팩토링</div>
+</div>
+<div class="ai-flow-agent-box">
+<i class="fas fa-palette"></i>
+<div class="ai-flow-agent-name">Design Agent</div>
+<div class="ai-flow-agent-task">UI/UX 초안<br/>컴포넌트 스펙</div>
 </div>
 </div>
-<div class="poc-flow-item">
-<div class="poc-flow-icon"><i class="fa-solid fa-circle-question"></i></div>
-<div class="poc-flow-text-group">
-<div class="poc-flow-main-text">Debezium &amp; Kafka Streaming</div>
-<div class="poc-flow-sub-text">변경 데이터 캡처(CDC) 및 실시간 메시지 브로커링</div>
-</div>
-</div>
-<div class="poc-flow-item" style="border-left-color: var(--ppt-good);">
-<div class="poc-flow-icon"><i class="fas fa-server"></i></div>
-<div class="poc-flow-text-group">
-<div class="poc-flow-main-text">Target Next-Gen DB (PostgreSQL)</div>
-<div class="poc-flow-sub-text">0.1초 내 실시간 동기화 및 데이터 적재 완료</div>
+<p class="ai-flow-caption">
+            LangGraph가 에이전트별 역할을 조율하여 <b>외주 개발·디자인 산출물</b>을 AI 파이프라인으로 대체합니다.
+          </p>
 </div>
 </div>
 </div>
-<div style="margin-top: 5px;padding: 10px 16px;background: rgba(0, 240, 255, 0.05);border-radius: var(--ppt-radius-md);border: 1px dashed var(--ppt-accent);">
-<div style="font-size: 15px;color: var(--ppt-text-1);font-weight: 600;margin-bottom: 2px;">기술적 의의</div>
-<div style="font-size: 14px;color: var(--ppt-text-2);line-height: 1.5;">
-              이기종 DB 간의 제약을 극복하고 실시간 스트리밍 아키텍처를 완벽히 구현함으로써, 향후 대규모 시스템 이관 시 발생할 수 있는 데이터 정합성 이슈를 원천 차단했습니다.
-            </div>
+<!-- Right: role replacement -->
+<div class="ai-replacement-column">
+<div class="ai-replacement-card">
+<div class="ai-replacement-icon dev"><i class="fas fa-code"></i></div>
+<div class="ai-replacement-body">
+<div class="ai-replacement-title">외주 개발 인력 대체</div>
+<p class="ai-replacement-desc">
+              <b>DGX Spark</b>가 레거시·도메인 컨텍스트를 제공하고, <b>Claude Code</b>가 표준 코드 초안·테스트·리팩토링을 수행합니다.
+              하급 외주 M/M 투입 없이 반복 개발 업무를 자동화합니다.
+            </p>
+<div class="ai-replacement-tags">
+<span class="ai-replacement-tag">C# → Java/React</span>
+<span class="ai-replacement-tag">0 M/M 외주</span>
 </div>
 </div>
 </div>
-<!-- Business Impact Banner -->
-<div class="poc-risk-impact-banner">
-<div class="poc-impact-label-group">
-<div class="poc-impact-main-msg">무결점 비즈니스 전환을 위한 안전망 확보</div>
-<div class="poc-impact-sub-msg">PoC 성공을 통해 오픈 당일 시스템 중단 및 데이터 유실 리스크를 혁신적으로 제거</div>
-</div>
-<div class="poc-metrics-container">
-<div class="poc-metric-item">
-<div class="poc-metric-value">0<span class="poc-metric-unit">%</span></div>
-<div class="poc-metric-label">Downtime Risk</div>
-</div>
-<div class="poc-metric-item">
-<div class="poc-metric-value">100<span class="poc-metric-unit">%</span></div>
-<div class="poc-metric-label">Data Consistency</div>
-</div>
-<div class="poc-metric-item">
-<div class="poc-metric-value">0.1<span class="poc-metric-unit">s</span></div>
-<div class="poc-metric-label">Sync Latency</div>
+<div class="ai-replacement-card">
+<div class="ai-replacement-icon design"><i class="fas fa-pen-ruler"></i></div>
+<div class="ai-replacement-body">
+<div class="ai-replacement-title">디자이너 역량 AI 대체</div>
+<p class="ai-replacement-desc">
+              Design Agent가 와이어프레임·UI 스펙·컴포넌트 가이드를 생성하고, 개발 파이프라인과 즉시 연동됩니다.
+              전담 디자이너 없이도 화면 설계부터 구현까지 일관된 흐름을 유지합니다.
+            </p>
+<div class="ai-replacement-tags">
+<span class="ai-replacement-tag">UI/UX 초안</span>
+<span class="ai-replacement-tag">컴포넌트 스펙</span>
 </div>
 </div>
 </div>
+<div class="ai-replacement-card">
+<div class="ai-replacement-icon docs"><i class="fas fa-book"></i></div>
+<div class="ai-replacement-body">
+<div class="ai-replacement-title">README 위키형 문서 자동 작성</div>
+<p class="ai-replacement-desc">
+              코드·API·아키텍처 변경 시 AI가 <b>README·기술문서</b>를 위키 형태로 자동 갱신합니다.
+              수작업 문서화 인력 없이 지식이 코드베이스에 실시간 축적됩니다.
+            </p>
+<div class="ai-replacement-tags">
+<span class="ai-replacement-tag">README.md</span>
+<span class="ai-replacement-tag">Wiki Auto-sync</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ai-workforce-footer-banner">
+<div class="ai-workforce-footer-icon"><i class="fas fa-piggy-bank"></i></div>
+<p class="ai-workforce-footer-text">
+<b>향후 비용 절감 전략:</b>
+      디자인은 <em>Figma 스토리북</em> 정도의 최소 검수·브랜드 가이드 작업에만 디자이너를 투입하고,
+      나머지 UI 산출·개발·문서화는 AI 에이전트가 담당하여 <b>인건비를 구조적으로 절감</b>할 예정입니다.
+    </p>
 </div>
 </div>
 <script>

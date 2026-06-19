@@ -3,10 +3,9 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>(주)제때 차세대 FaSS 플랫폼 구축 중간 보고 - Slide 15</title>
+<title>FaSS 차세대 플랫폼 중간 보고 - 대용량 데이터 처리</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
     --ppt-bg: #0A0E1A;
@@ -19,18 +18,12 @@
     --ppt-text-3: #64748B;
     --ppt-accent: #00F0FF;
     --ppt-accent-2: #FACC15;
-    --ppt-chart-1: #00F0FF;
-    --ppt-chart-2: #3B82F6;
-    --ppt-chart-3: #8B5CF6;
-    --ppt-chart-4: #FACC15;
     --ppt-good: #22C55E;
     --ppt-warn: #F59E0B;
     --ppt-bad: #EF4444;
     --ppt-radius-sm: 4px;
     --ppt-radius-md: 8px;
     --ppt-radius-lg: 16px;
-    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
     --ppt-font-display: "IBM Plex Sans KR", sans-serif;
     --ppt-font-body: "IBM Plex Sans KR", sans-serif
     }
@@ -52,14 +45,14 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     font-family: var(--ppt-font-body);
     color: var(--ppt-text-1)
     }
-/* Title Region from DESIGN */
+/* Title Region */
 .title-region-wrapper {
-    padding: 30px 40px 10px 40px;
+    padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
     }
-.title-header-group {
+.title-main-header {
     display: flex;
     align-items: center;
     gap: 12px
@@ -70,254 +63,207 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-accent);
     border-radius: 2px
     }
-.title-main-text {
+.title-text-content {
     font-family: var(--ppt-font-display);
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
     }
-.title-underline-gradient {
+.title-bottom-divider {
     height: 1px;
     width: 100%;
     background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px
     }
-.subtitle-text-block {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--ppt-text-2);
-    margin-top: 4px;
-    line-height: 1.4
-    }
-/* Main Content Layout */
-.quality-content-main-wrapper {
+/* Content Layout */
+.content-main-layout {
     flex: 1;
-    padding: 8px 40px 16px 40px;
+    min-height: 0;
+    padding: 0 40px 16px 40px;
     display: flex;
-    gap: 12px 30px;
+    gap: 16px;
     align-items: stretch
     }
-/* Left Column: Pipeline Flow */
-.quality-left-pipeline-column {
+/* Left Column: Technology & UX */
+.left-tech-feature-column {
     flex: 3;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px
     }
-.quality-pipeline-step-card {
-    flex: 1 1 0;
-    background: var(--ppt-bg-soft);
+.grid-architecture-card-box {
+    flex: 1;
+    background: var(--ppt-surface);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    box-shadow: var(--ppt-shadow-soft)
+    gap: 10px
     }
-.quality-step-header-group {
+.grid-card-title-group {
     display: flex;
     align-items: center;
     gap: 12px
     }
-.quality-step-icon-box {
-    width: 48px;
-    height: 48px;
-    background: rgba(0, 240, 255, 0.1);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--ppt-accent);
-    font-size: 24px
+.grid-card-title-icon {
+    font-size: 24px;
+    color: var(--ppt-accent)
     }
-.quality-step-title-text {
-    font-size: 22px;
+.grid-card-title-text {
+    font-size: 18px;
     font-weight: 600;
     color: var(--ppt-text-1)
     }
-.quality-step-description-list {
-    list-style: none;
+.grid-feature-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
     padding: 0;
-    margin: 0
+    list-style: none
     }
-.quality-step-description-item {
-    font-size: 15px;
-    color: var(--ppt-text-2);
+.grid-feature-item-row {
+    display: block;
+    padding: 12px;
+    background: var(--ppt-surface-2);
+    border-radius: var(--ppt-radius-md);
+    border-left: 3px solid var(--ppt-accent)
+    }
+.grid-item-main-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-text-1);
     margin-bottom: 4px;
-    padding-left: 20px;
-    position: relative
+    display: block
     }
-.quality-step-description-item::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--ppt-accent)
+.grid-item-sub-desc {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    display: block
     }
-/* Right Column: Quality Gates */
-.quality-right-gate-column {
+/* Right Column: Business Impact */
+.right-impact-result-column {
     flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 13px 20px
+    gap: 20px
     }
-.quality-gate-summary-container {
-    flex: 1 1 0;
+.productivity-impact-card-box {
+    flex: 1;
     background: linear-gradient(135deg, var(--ppt-surface) 0%, var(--ppt-bg-soft) 100%);
     border: 1px solid var(--ppt-accent);
     border-radius: var(--ppt-radius-lg);
-    padding: 15px 24px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 13px 20px
-    }
-.quality-gate-title-badge {
-    align-self: flex-start;
-    background: var(--ppt-accent);
-    color: var(--ppt-bg);
-    padding: 4px 12px;
-    border-radius: var(--ppt-radius-sm);
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase
-    }
-.quality-gate-heading-text {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--ppt-text-1)
-    }
-.quality-gate-metrics-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px 16px
-    }
-.quality-metric-item-box {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--ppt-radius-md);
-    padding: 10px 16px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-left: 4px solid var(--ppt-bad)
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--ppt-shadow-strong)
     }
-.quality-metric-item-box.safe {
-    border-left-color: var(--ppt-good)
+.impact-metric-label {
+    font-size: 20px;
+    color: var(--ppt-text-2);
+    margin-bottom: 16px;
+    font-weight: 600
     }
-.quality-metric-label-group {
+.impact-value-highlight-group {
     display: flex;
-    flex-direction: column
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 24px
     }
-.quality-metric-name-text {
-    font-size: 16px;
-    color: var(--ppt-text-2)
-    }
-.quality-metric-value-text {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.quality-gate-status-indicator {
-    font-size: 14px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: var(--ppt-radius-sm)
-    }
-.status-strict {
-    background: rgba(239, 68, 68, 0.1);
-    color: var(--ppt-bad)
-    }
-.status-standard {
-    background: rgba(34, 197, 94, 0.1);
-    color: var(--ppt-good)
-    }
-.quality-impact-footer-note {
-    margin-top: auto;
-    font-size: 16px;
+.impact-value-number {
+    font-size: 72px;
+    font-weight: 700;
     color: var(--ppt-accent-2);
+    line-height: 1
+    }
+.impact-value-unit {
+    font-size: 24px;
     font-weight: 600;
+    color: var(--ppt-accent-2)
+    }
+.impact-summary-text-block {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--ppt-text-1);
+    word-break: keep-all
+    }
+.impact-badge-container {
+    margin-top: 32px;
     display: flex;
-    align-items: center;
-    gap: 5px 8px
+    gap: 12px;
+    justify-content: center
+    }
+.impact-status-tag {
+    padding: 8px 16px;
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--ppt-accent);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ppt-accent)
     }
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
 <div class="slide-root-container" style="overflow: hidden;">
-<!-- Title Region -->
+<!-- Non-Cover-Page Title Region -->
 <div class="title-region-wrapper">
-<div class="title-header-group">
+<div class="title-main-header">
 <div class="title-accent-bar"></div>
-<h1 class="title-main-text">무결점(Zero-Defect) 코드 품질 통제 체계</h1>
+<h1 class="title-text-content">
+          엑셀을 능가하는 대용량 데이터 처리 (Faster 실무 생산성)
+        </h1>
 </div>
-<div class="title-underline-gradient"></div>
-<p class="subtitle-text-block">자동화된 품질 검증 파이프라인을 연동하여 보안 취약점과 구조적 결함을 실시간으로 감시하고, 품질 기준 미달 시 배포를 원천 차단합니다.</p>
+<div class="title-bottom-divider"></div>
 </div>
-<!-- Content Area -->
-<div class="quality-content-main-wrapper">
-<!-- Left Column: Pipeline -->
-<div class="quality-left-pipeline-column">
-<div class="quality-pipeline-step-card">
-<div class="quality-step-header-group">
-<div class="quality-step-icon-box">
-<i class="fa-solid fa-code-merge"></i>
+<!-- Main Content -->
+<div class="content-main-layout">
+<!-- Left: Technology & UX Features -->
+<div class="left-tech-feature-column">
+<div class="grid-architecture-card-box">
+<div class="grid-card-title-group">
+<i class="fa-solid fa-table-cells grid-card-title-icon"></i>
+<span class="grid-card-title-text">엔터프라이즈 RealGrid (1.0 → 2.0) 아키텍처</span>
 </div>
-<div class="quality-step-title-text">AI 가속화 기반 CI/CD 파이프라인 연동</div>
+<div class="grid-feature-list-container">
+<div class="grid-feature-item-row">
+<span class="grid-item-main-label">초고속 렌더링 및 가상 스크롤</span>
+<span class="grid-item-sub-desc">수십만 건의 입출고 데이터를 지연 없이 즉각적으로 로딩 및 필터링</span>
 </div>
-<div class="quality-step-description-list">
-<div class="quality-step-description-item">AI가 생성한 대량의 코드를 SonarQube 정적 분석 도구로 즉시 정밀 검사</div>
-<div class="quality-step-description-item">개발자의 코드 병합(Merge) 요청 시 보안 취약점 및 구조적 결함 자동 탐지</div>
-<div class="quality-step-description-item">사람의 눈으로 놓치기 쉬운 런타임 잠재 에러를 사전에 100% 필터링</div>
+<div class="grid-feature-item-row">
+<span class="grid-item-main-label">완벽한 엑셀(Excel) UX 계승</span>
+<span class="grid-item-sub-desc">동일한 단축키, 복사/붙여넣기, 다중 선택 및 드래그 앤 드롭 지원</span>
 </div>
-</div>
-<div class="quality-pipeline-step-card">
-<div class="quality-step-header-group">
-<div class="quality-step-icon-box">
-<i class="fa-solid fa-magnifying-glass-chart"></i>
-</div>
-<div class="quality-step-title-text">실시간 품질 모니터링 및 시각화</div>
-</div>
-<div class="quality-step-description-list">
-<div class="quality-step-description-item">코드 복잡도(Complexity) 및 중복도(Duplication) 실시간 지표화</div>
-<div class="quality-step-description-item">기술 부채(Technical Debt) 발생 구간을 추적하여 리팩토링 우선순위 자동 할당</div>
-<div class="quality-step-description-item">워룸(War-Room) 내 대시보드를 통해 팀 전체의 코드 건강도 상시 공유</div>
+<div class="grid-feature-item-row">
+<span class="grid-item-main-label">사용자 개인화 레이아웃</span>
+<span class="grid-item-sub-desc">담당자별 컬럼 순서, 너비, 고정 영역을 서버에 저장하여 최적화된 업무 환경 제공</span>
 </div>
 </div>
 </div>
-<!-- Right Column: Quality Gates -->
-<div class="quality-right-gate-column">
-<div class="quality-gate-summary-container">
-<div class="quality-gate-title-badge">Pass/Fail Standard</div>
-<div class="quality-gate-heading-text">배포 자동 차단 품질 게이트 (Quality Gate)</div>
-<div class="quality-gate-metrics-grid">
-<div class="quality-metric-item-box">
-<div class="quality-metric-label-group">
-<span class="quality-metric-name-text">Critical &amp; Blocker Bugs</span>
-<span class="quality-metric-value-text">0 Items</span>
 </div>
-<span class="quality-gate-status-indicator status-strict">Strict Block</span>
+<!-- Right: Business Impact -->
+<div class="right-impact-result-column">
+<div class="productivity-impact-card-box">
+<span class="impact-metric-label">일일 업무 처리 리드타임</span>
+<div class="impact-value-highlight-group">
+<span class="impact-value-number">50</span>
+<span class="impact-value-unit">% 단축</span>
 </div>
-<div class="quality-metric-item-box safe">
-<div class="quality-metric-label-group">
-<span class="quality-metric-name-text">Unit Test Coverage</span>
-<span class="quality-metric-value-text">Min 80% Over</span>
-</div>
-<span class="quality-gate-status-indicator status-standard">Mandatory</span>
-</div>
-<div class="quality-metric-item-box">
-<div class="quality-metric-label-group">
-<span class="quality-metric-name-text">Security Vulnerabilities</span>
-<span class="quality-metric-value-text">Zero Tolerance</span>
-</div>
-<span class="quality-gate-status-indicator status-strict">Strict Block</span>
-</div>
-</div>
-<div class="quality-impact-footer-note">
-<i class="fa-solid fa-circle-check"></i>
-<span>품질 기준 미달 시 운영 환경 배포 원천 차단으로 무결점 보장</span>
+<div class="impact-summary-text-block">
+            수작업 문서 가공 시간을 획기적으로 감축하고<br/>
+            데이터 기반의 실무 의사결정 속도를 가속화합니다.
+          </div>
+<div class="impact-badge-container">
+<div class="impact-status-tag"><i class="fa-solid fa-bolt"></i> 응답 속도 혁신</div>
+<div class="impact-status-tag"><i class="fa-solid fa-user-check"></i> 실무 만족도 극대화</div>
 </div>
 </div>
 </div>

@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>(주)제때 차세대 FaSS 플랫폼 구축 6월 중간 보고 - 맺음말</title>
+<title>AI 시대의 IT 인재상 — 빌더형 인재 육성</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
@@ -19,6 +19,7 @@
   --ppt-accent: #00F0FF;
   --ppt-accent-2: #FACC15;
   --ppt-good: #22C55E;
+  --ppt-purple: #A78BFA;
   --ppt-radius-sm: 4px;
   --ppt-radius-md: 8px;
   --ppt-radius-lg: 16px;
@@ -42,179 +43,290 @@ body {
   border: 1px solid var(--ppt-border);
   overflow: hidden;
 }
-/* Glow effects */
+/* Subtle background accent */
 .slide-root::before {
   content: '';
-  position: absolute; top: -60px; left: -60px;
-  width: 500px; height: 500px;
-  background: radial-gradient(ellipse, rgba(0,240,255,0.06) 0%, transparent 65%);
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 85% 85%, rgba(167,139,250,0.06) 0%, transparent 55%);
   pointer-events: none;
 }
-.slide-root::after {
-  content: '';
-  position: absolute; bottom: -60px; right: -40px;
-  width: 400px; height: 400px;
-  background: radial-gradient(ellipse, rgba(250,204,21,0.05) 0%, transparent 65%);
-  pointer-events: none;
-}
-/* Title */
+/* ── Title ── */
 .title-region {
-  padding: 28px 40px 14px 40px;
-  display: flex; flex-direction: column; gap: 6px;
+  padding: 16px 40px 4px 40px;
+  display: flex; flex-direction: column; gap: 4px;
 }
 .title-header { display: flex; align-items: center; gap: 12px; }
-.title-bar { width: 4px; height: 32px; background: var(--ppt-accent-2); border-radius: 2px; }
+.title-bar { width: 4px; height: 32px; background: var(--ppt-purple); border-radius: 2px; }
+.title-badge {
+  background: rgba(167,139,250,0.12); color: var(--ppt-purple);
+  padding: 3px 12px; border-radius: var(--ppt-radius-sm);
+  font-size: 13px; font-weight: 600;
+  border: 1px solid rgba(167,139,250,0.3);
+  white-space: nowrap;
+}
 .title-text {
   font-family: var(--ppt-font-display);
-  font-size: 36px; font-weight: 700; color: var(--ppt-text-1); margin: 0;
+  font-size: 26px; font-weight: 700; color: var(--ppt-text-1); margin: 0;
 }
+.title-sub { font-size: 12px; color: var(--ppt-text-2); padding-left: 16px; line-height: 1.35; }
 .title-line {
   height: 1px; width: 100%;
-  background: linear-gradient(90deg, var(--ppt-accent-2) 0%, transparent 100%);
-  opacity: 0.3; margin-top: 4px;
+  background: linear-gradient(90deg, var(--ppt-purple) 0%, transparent 100%);
+  opacity: 0.35; margin-top: 4px;
 }
-/* Main body */
-.main-body {
+
+/* ── Main layout ── */
+.main-wrap {
   flex: 1;
-  padding: 16px 40px 36px 40px;
-  display: flex; gap: 40px; align-items: stretch;
+  min-height: 0;
+  overflow: hidden;
+  padding: 6px 40px 4px 40px;
+  display: flex; gap: 10px; align-items: stretch;
 }
-/* Left: quote + commitment */
-.left-col {
-  flex: 3;
-  display: flex; flex-direction: column;
-  justify-content: center; gap: 28px;
+
+/* ── Center: T-Shape talent model ── */
+.center-model {
+  flex: 1.05;
+  display: flex; flex-direction: column; gap: 6px;
+  min-height: 0;
 }
-.quote-box {
+.model-card {
+  flex: 1;
   background: var(--ppt-bg-soft);
-  border-left: 4px solid var(--ppt-accent-2);
-  border-radius: var(--ppt-radius-md);
-  padding: 28px 32px;
-}
-.quote-icon {
-  font-size: 28px; color: var(--ppt-accent-2);
-  margin-bottom: 14px; display: block;
-}
-.quote-text {
-  font-size: 22px; font-weight: 700;
-  color: var(--ppt-text-1);
-  line-height: 1.6; font-style: italic;
-}
-.quote-text span { color: var(--ppt-accent-2); }
-.quote-sub {
-  margin-top: 14px;
-  font-size: 17px; color: var(--ppt-text-2);
-  line-height: 1.5;
-}
-.commitment-box {
-  display: flex; flex-direction: column; gap: 10px;
-}
-.commitment-row {
-  display: flex; gap: 12px; align-items: flex-start;
-  padding: 11px 16px;
-  background: var(--ppt-surface);
-  border-radius: var(--ppt-radius-md);
   border: 1px solid var(--ppt-border);
-}
-.commitment-icon { color: var(--ppt-good); font-size: 16px; flex-shrink: 0; }
-.commitment-text { font-size: 16px; color: var(--ppt-text-2); line-height: 1.4; }
-.commitment-text strong { color: var(--ppt-text-1); }
-/* Right: PROFIT CENTER visual */
-.right-col {
-  flex: 2;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  background: radial-gradient(circle at center, rgba(0,240,255,0.05) 0%, transparent 70%);
-  border: 1px solid rgba(0,240,255,0.1);
   border-radius: var(--ppt-radius-lg);
-  padding: 24px;
+  padding: 10px 14px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.model-label {
+  font-size: 12px; font-weight: 700; color: var(--ppt-purple);
+  text-transform: uppercase; letter-spacing: 1px;
+  display: flex; align-items: center; gap: 6px;
+}
+/* T-shape diagram */
+.t-shape-wrap {
+  flex: 1; width: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 0;
 }
-.anchor-top-label {
-  font-size: 14px; font-weight: 700;
-  color: var(--ppt-accent); letter-spacing: 4px; text-transform: uppercase;
-  margin-bottom: 8px;
+.t-top-bar {
+  width: 92%;
+  background: linear-gradient(90deg, rgba(0,240,255,0.15), rgba(167,139,250,0.15));
+  border: 1px solid rgba(167,139,250,0.35);
+  border-radius: var(--ppt-radius-sm) var(--ppt-radius-sm) 0 0;
+  padding: 7px 12px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px;
+  position: relative;
 }
-.anchor-main {
-  font-size: 72px; font-weight: 700;
-  color: var(--ppt-text-1); line-height: 1;
-  text-shadow: 0 0 30px rgba(0,240,255,0.3);
-  margin: 6px 0;
+.t-top-label {
+  font-size: 13px; font-weight: 700; color: var(--ppt-purple);
+  text-align: center;
 }
-.anchor-accent {
-  font-size: 42px; font-weight: 700;
-  color: var(--ppt-accent-2); line-height: 1;
+.t-domain-tags {
+  display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-top: 4px;
 }
-.anchor-divider {
-  width: 50px; height: 4px;
-  background: var(--ppt-accent);
-  border-radius: 2px; margin: 20px auto;
+.t-tag {
+  background: rgba(167,139,250,0.1);
+  border: 1px solid rgba(167,139,250,0.25);
+  border-radius: 20px;
+  padding: 2px 8px; font-size: 11px; color: var(--ppt-purple);
 }
-.stat-group { display: flex; flex-direction: column; gap: 3px; }
-.stat-value { font-size: 28px; font-weight: 700; color: var(--ppt-text-1); }
-.stat-label { font-size: 14px; color: var(--ppt-text-3); }
-.stat-group2 { display: flex; flex-direction: column; gap: 3px; margin-top: 18px; }
-.stat-value2 { font-size: 26px; font-weight: 700; color: var(--ppt-accent); }
-.stat-label2 { font-size: 13px; color: var(--ppt-text-3); }
+.t-stem {
+  width: 38%;
+  background: linear-gradient(180deg, rgba(0,240,255,0.18), rgba(0,240,255,0.06));
+  border-left: 1px solid rgba(0,240,255,0.3);
+  border-right: 1px solid rgba(0,240,255,0.3);
+  border-bottom: 1px solid rgba(0,240,255,0.3);
+  border-radius: 0 0 var(--ppt-radius-sm) var(--ppt-radius-sm);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; padding: 8px 6px;
+  min-height: 68px;
+}
+.t-stem-label {
+  font-size: 13px; font-weight: 700; color: var(--ppt-accent);
+  text-align: center;
+}
+.t-stem-sub {
+  font-size: 11px; color: var(--ppt-text-2); text-align: center; line-height: 1.4;
+}
+.t-shape-note {
+  font-size: 11px; color: var(--ppt-text-3); text-align: center; margin-top: 4px;
+}
+
+/* ── Right: Two role pillars ── */
+.right-col {
+  flex: 1.3;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.right-section-title {
+  font-size: 14px; font-weight: 700; color: var(--ppt-accent-2);
+  display: flex; align-items: center; gap: 8px; padding-left: 2px;
+}
+.role-card {
+  flex: 1;
+  background: var(--ppt-surface);
+  border: 1px solid var(--ppt-border);
+  border-radius: var(--ppt-radius-lg);
+  padding: 8px 12px;
+  display: flex; gap: 14px; align-items: flex-start;
+  position: relative; overflow: hidden;
+}
+.role-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+  border-radius: var(--ppt-radius-lg) 0 0 var(--ppt-radius-lg);
+}
+.role-card.monitor::before { background: var(--ppt-accent); }
+.role-card.builder::before { background: var(--ppt-good); }
+.role-icon {
+  width: 44px; height: 44px; border-radius: var(--ppt-radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.role-icon.monitor { background: rgba(0,240,255,0.1); color: var(--ppt-accent); }
+.role-icon.builder { background: rgba(34,197,94,0.1); color: var(--ppt-good); }
+.role-content { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.role-title { font-size: 15px; font-weight: 700; color: var(--ppt-text-1); }
+.role-desc  { font-size: 11px; color: var(--ppt-text-2); line-height: 1.3; }
+.role-tags  { display: flex; gap: 6px; flex-wrap: wrap; }
+.role-tag {
+  font-size: 11px; font-weight: 600; padding: 2px 8px;
+  border-radius: 20px;
+}
+.role-tag.cyan  { background: rgba(0,240,255,0.1);  color: var(--ppt-accent);  border: 1px solid rgba(0,240,255,0.2); }
+.role-tag.green { background: rgba(34,197,94,0.1);  color: var(--ppt-good);   border: 1px solid rgba(34,197,94,0.2); }
+
+/* ── Bottom cultivation banner ── */
+.bottom-banner {
+  flex-shrink: 0;
+  margin: 0 40px 6px 40px;
+  background: linear-gradient(90deg, rgba(167,139,250,0.1) 0%, rgba(0,240,255,0.06) 60%, transparent 100%);
+  border: 1px solid rgba(167,139,250,0.25);
+  border-radius: var(--ppt-radius-md);
+  padding: 8px 16px;
+  display: flex; align-items: center; gap: 16px;
+}
+.banner-icon { font-size: 20px; color: var(--ppt-purple); flex-shrink: 0; }
+.banner-content { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.banner-title { font-size: 14px; font-weight: 700; color: var(--ppt-purple); }
+.banner-desc  { font-size: 13px; color: var(--ppt-text-2); line-height: 1.5; }
+.banner-desc strong { color: var(--ppt-text-1); }
+.banner-stat-group {
+  display: flex; gap: 10px; align-items: center; flex-shrink: 0;
+}
+.stat-chip {
+  display: flex; flex-direction: column; align-items: center;
+  background: var(--ppt-surface-2); border: 1px solid var(--ppt-border);
+  border-radius: var(--ppt-radius-md); padding: 4px 10px;
+  min-width: 70px;
+}
+.stat-num  { font-size: 16px; font-weight: 700; color: var(--ppt-purple); }
+.stat-desc { font-size: 10px; color: var(--ppt-text-3); text-align: center; }
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
 <div class="slide-root">
+
   <!-- Title -->
   <div class="title-region">
     <div class="title-header">
       <div class="title-bar"></div>
-      <h1 class="title-text">맺음말</h1>
+      <span class="title-badge">TALENT STRATEGY</span>
+      <h1 class="title-text">AI 시대 IT 인재상 — '빌더형 인재' 육성</h1>
     </div>
+    <div class="title-sub">AI를 설계·구축·관제하는 복합형 인재가 미래 IT 조직의 핵심입니다</div>
     <div class="title-line"></div>
   </div>
 
-  <div class="main-body">
-    <!-- Left -->
-    <div class="left-col">
-      <div class="quote-box">
-        <i class="fas fa-quote-left quote-icon"></i>
-        <div class="quote-text">
-          "기술 내재화를 넘어,<br/>
-          <span>(주)제때의 미래 수익을 코딩합니다.</span>"
-        </div>
-        <div class="quote-sub">
-          TFT 전원은 한 치의 오차 없이 대표이사님의 비즈니스 혁신 비전을 현실로 구현해 내겠습니다.
-        </div>
-      </div>
-      <div class="commitment-box">
-        <div class="commitment-row">
-          <i class="fas fa-check-circle commitment-icon"></i>
-          <div class="commitment-text"><strong>기술 자산화:</strong> 자체 프레임워크로 외부 SI 비용 80억 방어 및 100억+ 기술 자산 내재화</div>
-        </div>
-        <div class="commitment-row">
-          <i class="fas fa-check-circle commitment-icon"></i>
-          <div class="commitment-text"><strong>수익 센터화:</strong> ASP 패키지 공급을 통한 IT 부서의 비용 센터 → 수익 파이프라인 전환</div>
-        </div>
-        <div class="commitment-row">
-          <i class="fas fa-check-circle commitment-icon"></i>
-          <div class="commitment-text"><strong>미래 준비:</strong> AI 디지털 워커 조직 체계로 진화, 지속적 경쟁력 확보</div>
+  <!-- Main -->
+  <div class="main-wrap">
+
+    <!-- Center: T-shape model -->
+    <div class="center-model">
+      <div class="model-card">
+        <div class="model-label"><i class="fas fa-user-cog"></i> 빌더형 인재의 역량 모델</div>
+        <div class="t-shape-wrap">
+          <!-- Top bar: broad domain knowledge -->
+          <div style="width:92%; display:flex; flex-direction:column; gap:4px;">
+            <div class="t-top-bar">
+              <i class="fas fa-layer-group" style="color:var(--ppt-purple); font-size:14px;"></i>
+              <div>
+                <div class="t-top-label">폭넓은 도메인 지식 (Broad Domain Knowledge)</div>
+                <div class="t-domain-tags">
+                  <span class="t-tag">물류 운영</span>
+                  <span class="t-tag">정산·회계</span>
+                  <span class="t-tag">3PL 계약</span>
+                  <span class="t-tag">공급망 리스크</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Stem: deep tech -->
+          <div class="t-stem">
+            <i class="fas fa-microchip" style="color:var(--ppt-accent); font-size:18px;"></i>
+            <div class="t-stem-label">깊은 기술 역량</div>
+            <div class="t-stem-sub">AI / 아키텍처 · 설계 / 데이터</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Right: visual anchor -->
+    <!-- Right: two role pillars -->
     <div class="right-col">
-      <div class="anchor-top-label">Strategic Vision</div>
-      <div class="anchor-main">PROFIT</div>
-      <div class="anchor-accent">CENTER</div>
-      <div class="anchor-divider"></div>
-      <div class="stat-group">
-        <div class="stat-value">100억+</div>
-        <div class="stat-label">자체 기술 자산 가치 내재화</div>
+      <div class="right-section-title">
+        <i class="fas fa-tasks"></i> 빌더형 인재의 두 가지 핵심 역할
       </div>
-      <div class="stat-group2">
-        <div class="stat-value2">FUTURE</div>
-        <div class="stat-label2">REVENUE ENGINE</div>
+
+      <!-- Role 1: Monitor -->
+      <div class="role-card monitor">
+        <div class="role-icon monitor"><i class="fas fa-satellite-dish"></i></div>
+        <div class="role-content">
+          <div class="role-title">① AI 시스템 관제 (Monitor)</div>
+          <div class="role-desc">
+            AI 워커 상태·이상 징후를 실시간 모니터링하고 예외 상황에 개입합니다.
+            <span style="color:var(--ppt-accent); font-weight:700;">도메인 이해가 관제의 핵심</span>입니다.
+          </div>
+          <div class="role-tags">
+            <span class="role-tag cyan">AI 워커 대시보드</span>
+            <span class="role-tag cyan">이상 감지 대응</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 2: Builder -->
+      <div class="role-card builder">
+        <div class="role-icon builder"><i class="fas fa-hammer"></i></div>
+        <div class="role-content">
+          <div class="role-title">② 비즈니스 시스템 구축 (Build)</div>
+          <div class="role-desc">
+            도메인 요구를 이해하고 AI 파이프라인·모듈을 설계·구현합니다.
+            <span style="color:var(--ppt-good); font-weight:700;">문제 정의부터 배포까지 주도</span>하는 풀스택 빌더입니다.
+          </div>
+          <div class="role-tags">
+            <span class="role-tag green">AI 파이프라인 설계</span>
+            <span class="role-tag green">요구사항 → 배포</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Bottom: cultivation statement -->
+  <div class="bottom-banner">
+    <div class="banner-icon"><i class="fas fa-seedling"></i></div>
+    <div class="banner-content">
+      <div class="banner-title">(주)제때 IT 인재 육성 방향성</div>
+      <div class="banner-desc">
+        28–29p의 <strong>웹프레임워크 실전 훈련 + 사내 AI 육성 활동</strong>을 통해
+        <strong>물류 도메인 × AI·아키텍처 설계</strong> 빌더형 인재를 키웁니다.
+        이들이 AI 디지털 워커 조직을 관제하는 <strong>IT 리더</strong>로 성장하는 것이 중장기 비전입니다.
+      </div>
+    </div>
+  </div>
+
 </div>
 <script>
 (function(){

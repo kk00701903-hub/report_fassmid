@@ -48,23 +48,23 @@ body {
 .slide-root::before {
   content: '';
   position: absolute;
-  top: -120px; left: -80px;
-  width: 600px; height: 600px;
-  background: radial-gradient(ellipse, rgba(0,240,255,0.045) 0%, transparent 65%);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 10% 10%, rgba(0,240,255,0.045) 0%, transparent 55%);
   pointer-events: none;
 }
 .slide-root::after {
   content: '';
   position: absolute;
-  bottom: -80px; right: -60px;
-  width: 500px; height: 400px;
-  background: radial-gradient(ellipse, rgba(250,204,21,0.04) 0%, transparent 65%);
+  bottom: 0; right: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 90% 90%, rgba(250,204,21,0.04) 0%, transparent 55%);
   pointer-events: none;
 }
 
 /* ── Top label bar ── */
 .top-label-bar {
-  padding: 18px 40px 0 40px;
+  padding: 12px 40px 0 40px;
   display: flex; align-items: center; gap: 14px;
 }
 .alert-badge {
@@ -80,19 +80,19 @@ body {
 
 /* ── Main headline ── */
 .headline-region {
-  padding: 12px 40px 10px 40px;
-  display: flex; flex-direction: column; gap: 4px;
+  padding: 8px 40px 6px 40px;
+  display: flex; flex-direction: column; gap: 2px;
 }
 .headline-main {
   font-family: var(--ppt-font-display);
-  font-size: 34px; font-weight: 700;
+  font-size: 26px; font-weight: 700;
   color: var(--ppt-text-1);
   line-height: 1.2;
 }
 .headline-main em { color: var(--ppt-orange); font-style: normal; }
 .headline-sub {
-  font-size: 15px; color: var(--ppt-text-2);
-  padding-left: 4px; line-height: 1.5;
+  font-size: 13px; color: var(--ppt-text-2);
+  padding-left: 4px; line-height: 1.4;
 }
 .headline-line {
   margin-top: 6px; height: 1px; width: 100%;
@@ -103,14 +103,16 @@ body {
 /* ── Three pillars ── */
 .pillars-wrap {
   flex: 1;
-  padding: 8px 32px 10px 32px;
-  display: flex; gap: 16px; align-items: stretch;
+  min-height: 0;
+  overflow: hidden;
+  padding: 4px 32px 6px 32px;
+  display: flex; gap: 10px; align-items: stretch;
 }
 .pillar {
   flex: 1;
   border-radius: var(--ppt-radius-lg);
-  padding: 16px 18px;
-  display: flex; flex-direction: column; gap: 10px;
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 6px;
   position: relative; overflow: hidden;
 }
 .pillar::before {
@@ -136,22 +138,22 @@ body {
 
 .pillar-icon-row { display: flex; align-items: center; gap: 10px; }
 .pillar-icon {
-  width: 40px; height: 40px; border-radius: var(--ppt-radius-md);
+  width: 34px; height: 34px; border-radius: var(--ppt-radius-md);
   display: flex; align-items: center; justify-content: center;
-  font-size: 18px; flex-shrink: 0;
+  font-size: 16px; flex-shrink: 0;
 }
 .pillar-icon.blue   { background: rgba(0,240,255,0.12); color: var(--ppt-accent); }
 .pillar-icon.amber  { background: rgba(167,139,250,0.12); color: var(--ppt-purple); }
 .pillar-icon.green  { background: rgba(34,197,94,0.12);  color: var(--ppt-good); }
 .pillar-title-group { display: flex; flex-direction: column; gap: 2px; }
-.pillar-title { font-size: 15px; font-weight: 700; color: var(--ppt-text-1); line-height: 1.3; }
-.pillar-en    { font-size: 11px; color: var(--ppt-text-3); }
+.pillar-title { font-size: 14px; font-weight: 700; color: var(--ppt-text-1); line-height: 1.25; }
+.pillar-en    { font-size: 10px; color: var(--ppt-text-3); }
 .pillar-divider { height: 1px; background: var(--ppt-border); }
-.pillar-body  { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.pillar-body  { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 5px; }
 
 .point-row {
-  display: flex; gap: 8px; align-items: flex-start;
-  padding: 7px 10px;
+  display: flex; gap: 6px; align-items: flex-start;
+  padding: 5px 8px;
   background: rgba(255,255,255,0.03);
   border-radius: var(--ppt-radius-md);
 }
@@ -162,7 +164,7 @@ body {
 .point-dot.blue   { background: var(--ppt-accent); }
 .point-dot.amber  { background: var(--ppt-purple); }
 .point-dot.green  { background: var(--ppt-good); }
-.point-text { font-size: 13px; color: var(--ppt-text-2); line-height: 1.5; }
+.point-text { font-size: 12px; color: var(--ppt-text-2); line-height: 1.4; }
 .point-text strong { color: var(--ppt-text-1); }
 .point-text em     { color: var(--ppt-accent); font-style: normal; }
 .point-text .hl-purple { color: var(--ppt-purple); font-weight: 600; }
@@ -179,15 +181,16 @@ body {
 
 /* ── Bottom conclusion banner ── */
 .conclusion-bar {
-  margin: 0 32px 12px 32px;
+  flex-shrink: 0;
+  margin: 0 32px 8px 32px;
   background: linear-gradient(90deg, rgba(251,146,60,0.1) 0%, rgba(0,240,255,0.06) 50%, transparent 100%);
   border: 1px solid rgba(251,146,60,0.25);
   border-radius: var(--ppt-radius-md);
-  padding: 10px 22px;
-  display: flex; align-items: center; gap: 14px;
+  padding: 6px 16px;
+  display: flex; align-items: center; gap: 12px;
 }
-.conclusion-icon { font-size: 18px; color: var(--ppt-orange); flex-shrink: 0; }
-.conclusion-text { font-size: 14px; color: var(--ppt-text-2); line-height: 1.5; flex: 1; }
+.conclusion-text { font-size: 13px; color: var(--ppt-text-2); line-height: 1.4; flex: 1; }
+.conclusion-icon { font-size: 16px; color: var(--ppt-orange); flex-shrink: 0; }
 .conclusion-text strong { color: var(--ppt-orange); }
 .conclusion-text em     { color: var(--ppt-accent); font-style: normal; font-weight: 600; }
 html { overflow: hidden;  margin:0; padding:0; }
@@ -212,7 +215,7 @@ html { overflow: hidden;  margin:0; padding:0; }
       <em>지금 세상은 바뀌고 있습니다.</em>&nbsp; 공공·금융·글로벌 모두 같은 방향을 향하고 있습니다
     </div>
     <div class="headline-sub">
-      공공·금융도 MSA로 전환 중이며, 정부는 보안 자율권을 각 기관에 부여하고 있습니다. 오픈소스가 글로벌 인프라 표준이 되고 있습니다.
+      공공·금융 MSA 전환, 기관별 보안 자율권, 오픈소스 인프라 표준화가 동시에 진행 중입니다.
     </div>
     <div class="headline-line"></div>
   </div>
@@ -226,34 +229,14 @@ html { overflow: hidden;  margin:0; padding:0; }
         <div class="pillar-icon blue"><i class="fas fa-landmark"></i></div>
         <div class="pillar-title-group">
           <div class="pillar-title">공무원·금융기관도 MSA를 준비 중</div>
-          <div class="pillar-en">Government &amp; Finance → MSA Transition</div>
         </div>
       </div>
-      <div class="pillar-divider"></div>
       <div class="pillar-body">
         <div class="point-row">
           <div class="point-dot blue"></div>
           <div class="point-text">
-            <strong>행정안전부·금융결제원 등</strong> 대형 공공·금융 기관들이 레거시 시스템을 단계적으로 MSA로 전환하는 계획을 수립 중입니다.
+            <strong>은행·보험·카드사</strong> 차세대 사업에서 MSA가 <em>표준 RFP 항목</em>으로 자리 잡고 있습니다.
           </div>
-        </div>
-        <div class="point-row">
-          <div class="point-dot blue"></div>
-          <div class="point-text">
-            <strong>은행·보험·카드사</strong>의 차세대 시스템 사업에서 MSA 요건이 <em>표준 RFP 항목</em>으로 자리 잡고 있습니다.
-          </div>
-        </div>
-        <div class="point-row">
-          <div class="point-dot blue"></div>
-          <div class="point-text">
-            <strong>(주)제때가 나아가는 방향이 이미 글로벌 표준임</strong>을 증명하는 거대한 흐름입니다.
-          </div>
-        </div>
-        <div class="pillar-tag-row">
-          <span class="ptag blue">행정안전부</span>
-          <span class="ptag blue">금융결제원</span>
-          <span class="ptag blue">차세대 뱅킹</span>
-          <span class="ptag blue">MSA 표준 RFP</span>
         </div>
       </div>
     </div>
@@ -264,34 +247,14 @@ html { overflow: hidden;  margin:0; padding:0; }
         <div class="pillar-icon amber"><i class="fas fa-shield-halved"></i></div>
         <div class="pillar-title-group">
           <div class="pillar-title">제로트러스트 보안 — 정부가 각 기관에 자율권 부여</div>
-          <div class="pillar-en">Zero Trust Security — Institutional Autonomy</div>
         </div>
       </div>
-      <div class="pillar-divider"></div>
       <div class="pillar-body">
         <div class="point-row">
           <div class="point-dot amber"></div>
           <div class="point-text">
-            과기정통부는 <strong>「제로트러스트 가이드라인」</strong>을 발표하며 각 기관이 보안 아키텍처를 자율 설계하도록 권고하고 있습니다.
+            <span class="hl-purple">"Never Trust, Always Verify"</span> 원칙 아래 <strong>보안 재량권 확대</strong>가 공식화되었습니다.
           </div>
-        </div>
-        <div class="point-row">
-          <div class="point-dot amber"></div>
-          <div class="point-text">
-            <span class="hl-purple">"Never Trust, Always Verify"</span> 원칙 아래 기관별 <strong>보안 재량권 확대</strong>가 공식화되었습니다.
-          </div>
-        </div>
-        <div class="point-row">
-          <div class="point-dot amber"></div>
-          <div class="point-text">
-            <strong>FaSS의 Stateless JWT·API-First 보안 설계</strong>가 정부 방향성과 완벽히 부합합니다.
-          </div>
-        </div>
-        <div class="pillar-tag-row">
-          <span class="ptag amber">Zero Trust</span>
-          <span class="ptag amber">과기정통부 가이드라인</span>
-          <span class="ptag amber">Stateless JWT</span>
-          <span class="ptag amber">API-First 보안</span>
         </div>
       </div>
     </div>
@@ -302,34 +265,14 @@ html { overflow: hidden;  margin:0; padding:0; }
         <div class="pillar-icon green"><i class="fab fa-github"></i></div>
         <div class="pillar-title-group">
           <div class="pillar-title">비영리·오픈소스가 세상의 인프라를 바꾸고 있다</div>
-          <div class="pillar-en">Global Open Source Revolution via Nonprofits</div>
         </div>
       </div>
-      <div class="pillar-divider"></div>
       <div class="pillar-body">
         <div class="point-row">
           <div class="point-dot green"></div>
           <div class="point-text">
-            <strong>Linux Foundation·CNCF</strong> 등이 주도하는 Kubernetes·Kafka·PostgreSQL이 전세계 기업 인프라의 사실상 표준이 되었습니다.
+            <span class="hl-green">벤더 종속 없는</span> PostgreSQL·Kafka·Docker 전환이 글로벌 표준에 부합합니다.
           </div>
-        </div>
-        <div class="point-row">
-          <div class="point-dot green"></div>
-          <div class="point-text">
-            <span class="hl-green">상용 소프트웨어 독점 구조가 무너지며</span> 벤더 종속 없는 기술 선택의 시대가 열렸습니다.
-          </div>
-        </div>
-        <div class="point-row">
-          <div class="point-dot green"></div>
-          <div class="point-text">
-            FaSS의 <strong>PostgreSQL·Kafka·Docker</strong> 전환은 글로벌 오픈소스 혁명에 올라타는 <em>미래 지향적 선택</em>입니다.
-          </div>
-        </div>
-        <div class="pillar-tag-row">
-          <span class="ptag green">Linux Foundation</span>
-          <span class="ptag green">CNCF / Kubernetes</span>
-          <span class="ptag green">PostgreSQL</span>
-          <span class="ptag green">오라클 종속 탈피</span>
         </div>
       </div>
     </div>
@@ -341,8 +284,8 @@ html { overflow: hidden;  margin:0; padding:0; }
     <div class="conclusion-icon"><i class="fas fa-arrow-trend-up"></i></div>
     <div class="conclusion-text">
       <strong>결론:</strong>&nbsp;
-      MSA 전환 · 제로트러스트 보안 자율화 · 오픈소스 글로벌 표준화 — 세 흐름은 하나의 방향을 가리킵니다.
-      <em>FaSS 플랫폼은 이미 그 중심에서 달리고 있습니다.</em>
+      MSA · 제로트러스트 · 오픈소스 — 세 흐름이 하나의 방향을 가리킵니다.
+      <em>FaSS는 이미 그 중심에서 달리고 있습니다.</em>
     </div>
   </div>
 

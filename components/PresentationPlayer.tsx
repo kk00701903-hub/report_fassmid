@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import SlideDetailButtons from "@/components/SlideDetailButtons";
+import SlidePartIndicator from "@/components/SlidePartIndicator";
 import SlideOptionsPanel from "@/components/SlideOptionsPanel";
 import { usePresentationConfigState } from "@/hooks/usePresentationConfig";
 import SlideStage, { SLIDE_ASPECT, SLIDE_HEIGHT, SLIDE_WIDTH } from "@/components/SlideStage";
 import { getBasePath, getSlideHtmlUrl } from "@/lib/basePath";
-import type { PresentationConfig, SlideManifestItem } from "@/lib/presentationConfig";
+import { isSlideVisible, type PresentationConfig, type SlideManifestItem } from "@/lib/presentationConfig";
 import { prefetchSlides } from "@/lib/slideCache";
 
 type PresentationPlayerProps = {
@@ -21,6 +22,27 @@ function getSlideSource(item: SlideManifestItem | undefined): { src?: string; sr
     return { src: getSlideHtmlUrl(item.fileName) };
   }
   return { srcDoc: item.html };
+}
+
+function findAdjacentVisibleIndex(slides: SlideManifestItem[], from: number, delta: 1 | -1): number {
+  let index = from + delta;
+  while (index >= 0 && index < slides.length) {
+    if (isSlideVisible(slides[index])) return index;
+    index += delta;
+  }
+  return from;
+}
+
+function findFirstVisibleIndex(slides: SlideManifestItem[]): number {
+  const index = slides.findIndex(isSlideVisible);
+  return index >= 0 ? index : 0;
+}
+
+function findLastVisibleIndex(slides: SlideManifestItem[]): number {
+  for (let i = slides.length - 1; i >= 0; i--) {
+    if (isSlideVisible(slides[i])) return i;
+  }
+  return Math.max(0, slides.length - 1);
 }
 
 export default function PresentationPlayer({ initialSlideId }: PresentationPlayerProps) {
@@ -41,10 +63,30 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   const slideCount = config?.slides.length ?? 0;
   const currentItem = config?.slides[currentIndex];
   const currentNumber = currentIndex + 1;
-  const canGoPrev = currentIndex > 0;
-  const canGoNext = currentIndex < slideCount - 1;
   const slideSource = getSlideSource(currentItem);
   const hasSlideSource = Boolean(slideSource.src || slideSource.srcDoc);
+
+  const visibleCount = useMemo(
+    () => (config ? config.slides.filter(isSlideVisible).length : 0),
+    [config],
+  );
+
+  const visiblePosition = useMemo(() => {
+    if (!config) return 0;
+    return config.slides.slice(0, currentIndex + 1).filter(isSlideVisible).length;
+  }, [config, currentIndex]);
+
+  const canGoPrev = useMemo(() => {
+    if (!config) return false;
+    return findAdjacentVisibleIndex(config.slides, currentIndex, -1) !== currentIndex;
+  }, [config, currentIndex]);
+
+  const canGoNext = useMemo(() => {
+    if (!config) return false;
+    return findAdjacentVisibleIndex(config.slides, currentIndex, 1) !== currentIndex;
+  }, [config, currentIndex]);
+
+  const currentIsHidden = currentItem ? !isSlideVisible(currentItem) : false;
 
   const clampIndex = useCallback(
     (index: number) => Math.max(0, Math.min(index, Math.max(0, slideCount - 1))),
@@ -77,14 +119,16 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   );
 
   const goNext = useCallback(() => {
-    if (!canGoNext) return;
-    goToIndex(currentIndex + 1, "forward");
-  }, [canGoNext, currentIndex, goToIndex]);
+    if (!config || !canGoNext) return;
+    const nextIndex = findAdjacentVisibleIndex(config.slides, currentIndex, 1);
+    goToIndex(nextIndex, "forward");
+  }, [canGoNext, config, currentIndex, goToIndex]);
 
   const goPrev = useCallback(() => {
-    if (!canGoPrev) return;
-    goToIndex(currentIndex - 1, "back");
-  }, [canGoPrev, currentIndex, goToIndex]);
+    if (!config || !canGoPrev) return;
+    const prevIndex = findAdjacentVisibleIndex(config.slides, currentIndex, -1);
+    goToIndex(prevIndex, "back");
+  }, [canGoPrev, config, currentIndex, goToIndex]);
 
   const toggleFullscreen = useCallback(async () => {
     const shell = document.getElementById("presentation-shell");
@@ -97,7 +141,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
         await document.exitFullscreen();
       }
     } catch {
-      // Fullscreen may be blocked by browser policy.
+      /* fullscreen blocked */
     }
   }, []);
 
@@ -113,7 +157,11 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   const handleConfigApply = useCallback(
     (nextConfig: PresentationConfig) => {
       applyConfig(nextConfig);
-      const nextIndex = clampIndex(currentIndex);
+      let nextIndex = clampIndex(currentIndex);
+      const slide = nextConfig.slides[nextIndex];
+      if (!slide || !isSlideVisible(slide)) {
+        nextIndex = findFirstVisibleIndex(nextConfig.slides);
+      }
       setCurrentIndex(nextIndex);
       syncRoute(nextIndex);
     },
@@ -139,7 +187,9 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   useEffect(() => {
     if (!isReady || !config || hasInitializedRef.current) return;
     hasInitializedRef.current = true;
-    setCurrentIndex(clampIndex(initialSlideId - 1));
+    const initial = clampIndex(initialSlideId - 1);
+    const slide = config.slides[initial];
+    setCurrentIndex(slide && isSlideVisible(slide) ? initial : findFirstVisibleIndex(config.slides));
   }, [clampIndex, config, initialSlideId, isReady]);
 
   useEffect(() => {
@@ -157,7 +207,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     if (!config) return;
 
     if (!currentItem) {
-      setError("표시할 슬라이드가 없습니다. 옵션에서 HTML을 추가해 주세요.");
+      setError("표시할 슬라이드가 없습니다. 설정에서 슬라이드를 추가해 주세요.");
       setIframeLoading(false);
       return;
     }
@@ -209,12 +259,12 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
       if (event.key === "Home") {
         event.preventDefault();
-        goToIndex(0, "back");
+        if (config) goToIndex(findFirstVisibleIndex(config.slides), "back");
       }
 
       if (event.key === "End") {
         event.preventDefault();
-        goToIndex(slideCount - 1, "forward");
+        if (config) goToIndex(findLastVisibleIndex(config.slides), "forward");
       }
 
       if (event.key.toLowerCase() === "f") {
@@ -235,7 +285,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [goNext, goPrev, goToIndex, showOptions, slideCount, toggleFullscreen]);
+  }, [config, goNext, goPrev, goToIndex, showOptions, toggleFullscreen]);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -295,26 +345,30 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       <aside className={`slide-sidebar ${sidebarOpen ? "is-open" : ""}`} aria-label="슬라이드 목차">
         <div className="slide-sidebar__header">
           <h2>슬라이드 목차</h2>
-          <span className="slide-sidebar__count">{slideCount}페이지</span>
+          <span className="slide-sidebar__count">
+            {visibleCount}/{slideCount} 표시
+          </span>
         </div>
         <ol className="slide-sidebar__list">
           {config.slides.map((item, index) => (
             <li key={item.key}>
               <button
                 type="button"
-                className={index === currentIndex ? "is-active" : undefined}
+                className={`${index === currentIndex ? "is-active" : ""}${!isSlideVisible(item) ? " is-hidden-slide" : ""}`}
                 onClick={() => goToIndex(index, index > currentIndex ? "forward" : "back")}
               >
                 <span className="slide-sidebar__number">{index + 1}</span>
-                <span className="slide-sidebar__title">{item.title}</span>
+                <span className="slide-sidebar__title">
+                  {!isSlideVisible(item) ? (
+                    <i className="fa-solid fa-eye-slash slide-sidebar__hidden-icon" aria-hidden="true" />
+                  ) : null}
+                  {item.title}
+                </span>
               </button>
             </li>
           ))}
         </ol>
         <div className="slide-sidebar__footer">
-          <button type="button" className="slide-sidebar__footer-btn" onClick={() => setShowOptions(true)} title="옵션 (O)">
-            <i className="fa-solid fa-gear" aria-hidden="true" />
-          </button>
           <button type="button" className="slide-sidebar__footer-btn" onClick={() => void toggleFullscreen()} title="전체화면 (F)">
             <i className="fa-solid fa-expand" aria-hidden="true" />
           </button>
@@ -368,31 +422,22 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
               </>
             ) : null}
 
-            <button
-              type="button"
-              className="projector-nav projector-nav--prev"
-              onClick={goPrev}
-              disabled={!canGoPrev}
-              aria-label="이전 슬라이드"
-              title="이전 (←)"
-            >
-              <i className="fa-solid fa-chevron-left" aria-hidden="true" />
-            </button>
-
-            <button
-              type="button"
-              className="projector-nav projector-nav--next"
-              onClick={goNext}
-              disabled={!canGoNext}
-              aria-label="다음 슬라이드"
-              title="다음 (→)"
-            >
-              <i className="fa-solid fa-chevron-right" aria-hidden="true" />
-            </button>
+            <SlidePartIndicator manifestItem={currentItem} />
           </div>
         </div>
 
         <footer className="projector-footer">
+          <button
+            type="button"
+            className="projector-footer__btn projector-footer__btn--settings"
+            onClick={() => setShowOptions(true)}
+            title="발표 설정 (O)"
+            aria-label="발표 설정"
+          >
+            <i className="fa-solid fa-gear" aria-hidden="true" />
+            <span>설정</span>
+          </button>
+
           <button type="button" className="projector-footer__btn" onClick={goPrev} disabled={!canGoPrev}>
             <i className="fa-solid fa-chevron-left" aria-hidden="true" />
             <span>이전</span>
@@ -400,7 +445,16 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
           <div className="projector-footer__info">
             <span className="projector-footer__counter">
-              {currentNumber} / {slideCount}
+              {currentIsHidden ? (
+                <>
+                  {currentNumber} / {slideCount}
+                  <span className="projector-footer__hidden-badge">숨김</span>
+                </>
+              ) : (
+                <>
+                  {visiblePosition} / {visibleCount}
+                </>
+              )}
             </span>
             <span className="projector-footer__title" title={currentItem?.title}>
               {currentItem?.title}

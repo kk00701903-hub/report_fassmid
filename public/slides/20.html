@@ -3,7 +3,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>FaSS 차세대 플랫폼 중간 보고 - 대용량 데이터 처리</title>
+<title>AI 기반 스마트 물류 최적화</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
@@ -19,8 +19,6 @@
     --ppt-accent: #00F0FF;
     --ppt-accent-2: #FACC15;
     --ppt-good: #22C55E;
-    --ppt-warn: #F59E0B;
-    --ppt-bad: #EF4444;
     --ppt-radius-sm: 4px;
     --ppt-radius-md: 8px;
     --ppt-radius-lg: 16px;
@@ -28,31 +26,31 @@
     --ppt-font-body: "IBM Plex Sans KR", sans-serif
     }
 * {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased
+    margin: 0 0;
+    padding: 0 0;
+    box-sizing: border-box
     }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
     display: flex;
     justify-content: center;
     align-items: center}
-.slide-root-container {
+.fass-slide-root {
     width: 960px;
     height: 720px;
-    background-color: var(--ppt-bg);
-    position: relative;
     display: flex;
     flex-direction: column;
-    font-family: var(--ppt-font-body);
-    color: var(--ppt-text-1)
+    background-color: var(--ppt-bg)
     }
 /* Title Region */
-.title-region-wrapper {
-    padding: 40px 40px 20px 40px;
+.title-region-container {
+    padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
     }
-.title-main-header {
+.title-header-wrapper {
     display: flex;
     align-items: center;
     gap: 12px
@@ -63,14 +61,14 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-accent);
     border-radius: 2px
     }
-.title-text-content {
+.title-main-text {
     font-family: var(--ppt-font-display);
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
     }
-.title-bottom-divider {
+.title-gradient-line {
     height: 1px;
     width: 100%;
     background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
@@ -78,191 +76,174 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     margin-top: 8px
     }
 /* Content Layout */
-.content-main-layout {
+.fass-smart-logistics-content-wrapper {
     flex: 1;
-    padding: 0 40px 40px 40px;
+    padding: 12px 40px 20px 40px;
     display: flex;
-    gap: 24px;
+    gap: 20px 28px;
     align-items: stretch
     }
-/* Left Column: Technology & UX */
-.left-tech-feature-column {
-    flex: 3;
+/* Left Column: Concept */
+.fass-smart-logistics-left-concept-block {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px
+    gap: 24px
     }
-.grid-architecture-card-box {
-    flex: 1;
-    background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 24px;
+.fass-smart-logistics-paradigm-text-box {
     display: flex;
     flex-direction: column;
-    gap: 16px
-    }
-.grid-card-title-group {
-    display: flex;
-    align-items: center;
     gap: 12px
     }
-.grid-card-title-icon {
-    font-size: 24px;
-    color: var(--ppt-accent)
+.fass-smart-logistics-concept-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px
     }
-.grid-card-title-text {
+.fass-smart-logistics-concept-description {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ppt-text-1)
+    }
+.fass-smart-logistics-concept-highlight {
+    color: var(--ppt-accent-2)
+    }
+.fass-smart-logistics-visual-image-box {
+    height: 200px;
+    border-radius: var(--ppt-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--ppt-shadow-strong);
+    border: 1px solid var(--ppt-border)
+    }
+.fass-smart-logistics-visual-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+    }
+/* Right Column: Action */
+.fass-smart-logistics-right-action-block {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px 20px
+    }
+.fass-smart-logistics-action-item-card {
+    background: var(--ppt-surface);
+    padding: 14px 18px;
+    border-radius: var(--ppt-radius-lg);
+    border: 1px solid var(--ppt-border);
+    display: flex;
+    flex-direction: column;
+    gap: 13px 16px;
+    flex: 1
+    }
+.fass-smart-logistics-card-header {
+    display: flex;
+    align-items: center;
+    gap: 13px 16px
+    }
+.fass-smart-logistics-card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--ppt-bg-soft);
+    border-radius: var(--ppt-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 24px;
+    color: var(--ppt-accent);
+    border: 1px solid var(--ppt-accent)
+    }
+.fass-smart-logistics-card-title {
+    font-size: 22px;
     font-weight: 600;
     color: var(--ppt-text-1)
     }
-.grid-feature-list-container {
+.fass-smart-logistics-card-body {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ppt-text-2)
+    }
+.fass-smart-logistics-impact-badge {
+    margin-top: auto;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
-    list-style: none
-    }
-.grid-feature-item-row {
-    display: block;
-    padding: 12px;
-    background: var(--ppt-surface-2);
-    border-radius: var(--ppt-radius-md);
-    border-left: 3px solid var(--ppt-accent)
-    }
-.grid-item-main-label {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ppt-text-1);
-    margin-bottom: 4px;
-    display: block
-    }
-.grid-item-sub-desc {
-    font-size: 16px;
-    color: var(--ppt-text-2);
-    display: block
-    }
-/* Right Column: Business Impact */
-.right-impact-result-column {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px
-    }
-.productivity-impact-card-box {
-    flex: 1;
-    background: linear-gradient(135deg, var(--ppt-surface) 0%, var(--ppt-bg-soft) 100%);
-    border: 1px solid var(--ppt-accent);
-    border-radius: var(--ppt-radius-lg);
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: var(--ppt-shadow-strong)
+    gap: 6px 8px;
+    padding: 6px 16px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid var(--ppt-good);
+    border-radius: var(--ppt-radius-sm);
+    width: fit-content
     }
-.impact-metric-label {
-    font-size: 20px;
-    color: var(--ppt-text-2);
-    margin-bottom: 16px;
-    font-weight: 600
-    }
-.impact-value-highlight-group {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 24px
-    }
-.impact-value-number {
-    font-size: 84px;
-    font-weight: 700;
-    color: var(--ppt-accent-2);
-    line-height: 1
-    }
-.impact-value-unit {
-    font-size: 32px;
+.fass-smart-logistics-impact-text {
+    font-size: 16px;
     font-weight: 600;
-    color: var(--ppt-accent-2)
-    }
-.impact-summary-text-block {
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--ppt-text-1);
-    word-break: keep-all
-    }
-.impact-badge-container {
-    margin-top: 32px;
-    display: flex;
-    gap: 12px;
-    justify-content: center
-    }
-.impact-status-tag {
-    padding: 8px 16px;
-    background: rgba(0, 240, 255, 0.1);
-    border: 1px solid var(--ppt-accent);
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ppt-accent)
+    color: var(--ppt-good)
     }
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="slide-root-container" style="overflow: hidden;">
+<div class="fass-slide-root" style="overflow: hidden;">
 <!-- Non-Cover-Page Title Region -->
-<div class="title-region-wrapper">
-<div class="title-main-header">
+<div class="title-region-container">
+<div class="title-header-wrapper">
 <div class="title-accent-bar"></div>
-<h1 class="title-text-content">
-          엑셀을 능가하는 대용량 데이터 처리 (Faster 실무 생산성)
-        </h1>
+<h1 class="title-main-text">AI 기반 스마트 물류 최적화 (Smarter 운영)</h1>
 </div>
-<div class="title-bottom-divider"></div>
+<div class="title-gradient-line"></div>
 </div>
-<!-- Main Content -->
-<div class="content-main-layout">
-<!-- Left: Technology & UX Features -->
-<div class="left-tech-feature-column">
-<div class="grid-architecture-card-box">
-<div class="grid-card-title-group">
-<i class="fa-solid fa-table-cells grid-card-title-icon"></i>
-<span class="grid-card-title-text">엔터프라이즈 RealGrid (1.0 → 2.0) 아키텍처</span>
+<!-- Main Content Wrapper -->
+<div class="fass-smart-logistics-content-wrapper">
+<!-- Left: Concept Section -->
+<div class="fass-smart-logistics-left-concept-block">
+<div class="fass-smart-logistics-paradigm-text-box">
+<span class="fass-smart-logistics-concept-label">Paradigm Shift</span>
+<p class="fass-smart-logistics-concept-description">
+                        단순 기록/조회 시스템에서<br/>
+                        데이터 기반 <span class="fass-smart-logistics-concept-highlight">예측 및 자동화 시스템</span>으로의 전환
+                    </p>
 </div>
-<div class="grid-feature-list-container">
-<div class="grid-feature-item-row">
-<span class="grid-item-main-label">초고속 렌더링 및 가상 스크롤</span>
-<span class="grid-item-sub-desc">수십만 건의 입출고 데이터를 지연 없이 즉각적으로 로딩 및 필터링</span>
-</div>
-<div class="grid-feature-item-row">
-<span class="grid-item-main-label">완벽한 엑셀(Excel) UX 계승</span>
-<span class="grid-item-sub-desc">동일한 단축키, 복사/붙여넣기, 다중 선택 및 드래그 앤 드롭 지원</span>
-</div>
-<div class="grid-feature-item-row">
-<span class="grid-item-main-label">사용자 개인화 레이아웃</span>
-<span class="grid-item-sub-desc">담당자별 컬럼 순서, 너비, 고정 영역을 서버에 저장하여 최적화된 업무 환경 제공</span>
+<div class="fass-smart-logistics-visual-image-box">
+<img alt="Smart Logistics Visual" src="https://agents-download.skywork.ai/image/rt/d6fd321f922784da7bb75669ba52eb67.jpg"/>
 </div>
 </div>
+<!-- Right: Action Section -->
+<div class="fass-smart-logistics-right-action-block">
+<!-- Action Item 1: Demand Forecasting -->
+<div class="fass-smart-logistics-action-item-card">
+<div class="fass-smart-logistics-card-header">
+<div class="fass-smart-logistics-card-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+<h2 class="fass-smart-logistics-card-title">지능형 수요 예측</h2>
+</div>
+<div class="fass-smart-logistics-card-body">
+                        날씨, 시즌, 프로모션 등 외부 변수와 과거 빅데이터를 딥러닝하여 물류 창고별 적정 재고량을 AI가 선제적으로 산출합니다.
+                    </div>
+<div class="fass-smart-logistics-impact-badge">
+<i class="fas fa-arrow-down" style="color: var(--ppt-good);font-size: 14px;"></i>
+<span class="fass-smart-logistics-impact-text">악성 재고 보관 비용의 획기적 절감</span>
 </div>
 </div>
-<!-- Right: Business Impact -->
-<div class="right-impact-result-column">
-<div class="productivity-impact-card-box">
-<span class="impact-metric-label">일일 업무 처리 리드타임</span>
-<div class="impact-value-highlight-group">
-<span class="impact-value-number">50</span>
-<span class="impact-value-unit">% 단축</span>
+<!-- Action Item 2: AI Business Assistant -->
+<div class="fass-smart-logistics-action-item-card">
+<div class="fass-smart-logistics-card-header">
+<div class="fass-smart-logistics-card-icon">
+<i class="fas fa-brain"></i>
 </div>
-<div class="impact-summary-text-block">
-            수작업 문서 가공 시간을 획기적으로 감축하고<br/>
-            데이터 기반의 실무 의사결정 속도를 가속화합니다.
-          </div>
-<div class="impact-badge-container">
-<div class="impact-status-tag"><i class="fa-solid fa-bolt"></i> 응답 속도 혁신</div>
-<div class="impact-status-tag"><i class="fa-solid fa-user-check"></i> 실무 만족도 극대화</div>
+<h2 class="fass-smart-logistics-card-title">AI 업무 어시스턴트 (RAG)</h2>
+</div>
+<div class="fass-smart-logistics-card-body">
+                        복잡한 3PL 계약서 및 무역 규정을 AI가 자동 검증하여 실무진의 서류 검토 리드타임을 극강으로 단축합니다.
+                    </div>
+<div class="fass-smart-logistics-impact-badge">
+<i class="fas fa-bolt" style="color: var(--ppt-good);font-size: 14px;"></i>
+<span class="fass-smart-logistics-impact-text">검토 리드타임 60% 이상 단축 예상</span>
 </div>
 </div>
 </div>
