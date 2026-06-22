@@ -10,140 +10,136 @@
 :root {
   --ppt-bg:#0A0E1A; --ppt-bg-soft:#141B2D; --ppt-surface:#1E2638; --ppt-border:#334155;
   --ppt-text-1:#FFF; --ppt-text-2:#94A3B8; --ppt-text-3:#64748B;
-  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-radius-md:10px;
-  --c-infra:#38BDF8; --c-fw:#FACC15; --c-int:#A78BFA; --c-bi:#34D399;
+  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15;
   --ppt-font:"IBM Plex Sans KR",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{width:100vw;height:100vh;overflow:hidden;background:#0A0E1A;display:flex;justify-content:center;align-items:center;font-family:var(--ppt-font)}
+body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:flex;justify-content:center;align-items:center;font-family:var(--ppt-font)}
 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden}
-.title-r{padding:22px 36px 8px;flex-shrink:0}
-.title-row{display:flex;align-items:center;gap:10px}
-.bar{width:4px;height:28px;background:var(--ppt-accent);border-radius:2px}
+.title-r{flex-shrink:0;padding:18px 32px 6px}
+.title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bar{width:4px;height:26px;background:var(--ppt-accent);border-radius:2px}
 .badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.3);color:var(--ppt-accent)}
-h1{font-size:24px;font-weight:700;line-height:1.3}
-.sub{font-size:13px;color:var(--ppt-text-2);margin-top:5px;padding-left:14px}
-.line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
-.body{flex:1;min-height:0;padding:8px 32px 6px;display:flex;flex-direction:column}
-.grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px}
-.cat-card{
-  background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-md);
-  padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden;
-  border-top:3px solid var(--cat-color,var(--ppt-border));
-}
-.cat-card.core{
-  border-color:rgba(250,204,21,.45);background:linear-gradient(180deg,rgba(250,204,21,.1),var(--ppt-bg-soft));
-  box-shadow:0 0 24px rgba(250,204,21,.08);
-}
-.cat-head{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.cat-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(255,255,255,.06);color:var(--cat-color)}
-.cat-title{font-size:14px;font-weight:700;color:var(--ppt-text-1)}
-.cat-core-tag{margin-left:auto;font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;background:rgba(250,204,21,.2);color:var(--ppt-accent-2)}
-.cat-rows{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;justify-content:center}
-.row{display:grid;grid-template-columns:88px 1fr;gap:8px;align-items:start}
-.row-label{font-size:11px;font-weight:700;color:var(--cat-color);line-height:1.35;padding-top:2px}
-.row-tech{font-size:12px;color:var(--ppt-text-2);line-height:1.45}
-.row-tech strong{color:var(--ppt-text-1);font-weight:600}
-.cat-card.core .row-tech strong{color:#FDE68A}
-.footer-note{
-  flex-shrink:0;margin:8px 32px 12px;padding:8px 12px;font-size:12px;color:var(--ppt-text-2);line-height:1.4;
-  border-left:3px solid var(--ppt-accent-2);background:rgba(250,204,21,.05);border-radius:0 8px 8px 0;
-}
-.footer-note strong{color:var(--ppt-accent-2)}
+h1{font-size:22px;font-weight:700;line-height:1.3}
+.sub{font-size:11px;color:var(--ppt-text-2);margin-top:3px;padding-left:14px}
+.line{height:1px;margin-top:5px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.body{flex:1;min-height:0;padding:4px 28px 8px;display:grid;grid-template-columns:0.38fr 0.62fr;gap:10px}
+.left-col{display:flex;flex-direction:column;gap:7px;min-height:0}
+.left-head{font-size:11px;font-weight:700;color:var(--ppt-accent);padding:5px 8px;border-radius:8px;background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.25);display:flex;align-items:center;gap:6px}
+.lcard{background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:10px;padding:8px 10px;border-left:3px solid var(--cc);flex:1;min-height:0;display:flex;flex-direction:column;gap:5px}
+.lcard-head{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--cc)}
+.lcard-head i{font-size:12px;opacity:.9}
+.lchips{display:flex;flex-wrap:wrap;gap:3px}
+.lchip{font-size:8px;font-weight:600;padding:2px 6px;border-radius:6px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);line-height:1.25}
+.left-foot{font-size:9px;color:var(--ppt-text-3);padding:6px 8px;border-left:2px solid var(--ppt-accent-2);background:rgba(250,204,21,.05);border-radius:0 6px 6px 0;line-height:1.4}
+.left-foot strong{color:var(--ppt-accent-2)}
+.right-col{display:flex;flex-direction:column;min-height:0;background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:10px;overflow:hidden}
+.right-head{flex-shrink:0;padding:6px 10px;font-size:11px;font-weight:700;color:var(--ppt-accent-2);background:rgba(250,204,21,.08);border-bottom:1px solid var(--ppt-border);display:flex;align-items:center;justify-content:space-between}
+.right-head span{font-size:9px;font-weight:600;color:var(--ppt-text-3)}
+.map-wrap{flex:1;min-height:0;overflow:hidden;padding:2px 4px 4px}
+.map-table{width:100%;border-collapse:collapse;table-layout:fixed}
+.map-table thead th{font-size:8px;font-weight:700;color:var(--ppt-text-3);padding:4px 3px;text-align:left;border-bottom:1px solid var(--ppt-border);background:rgba(10,14,26,.6);position:sticky;top:0}
+.map-table tbody td{font-size:7.5px;padding:2px 3px;vertical-align:top;border-bottom:1px solid rgba(51,65,85,.45);line-height:1.25}
+.td-phase{width:28px;font-size:7px;font-weight:800;color:var(--ph);text-align:center;vertical-align:middle;background:rgba(255,255,255,.02);border-right:1px solid var(--ppt-border)}
+.td-sprint{width:26px;font-size:7px;font-weight:700;color:var(--ppt-accent);white-space:nowrap}
+.td-task{width:88px;font-size:7.5px;font-weight:600;color:var(--ppt-text-1)}
+.td-person{width:34px;font-size:7px;color:var(--ppt-accent-2);white-space:nowrap}
+.td-tech{width:auto}
+.tech-chips{display:flex;flex-wrap:wrap;gap:2px}
+.tech-chip{font-size:6.5px;font-weight:600;padding:1px 4px;border-radius:4px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);line-height:1.2}
+.footer{flex-shrink:0;margin:0 28px 8px;padding:6px 10px;font-size:10px;color:var(--ppt-text-2);border-left:3px solid var(--ppt-accent);background:rgba(0,240,255,.05);border-radius:0 6px 6px 0;display:flex;justify-content:space-between;gap:12px}
+.footer strong{color:var(--ppt-accent)}
+.footer-stats{display:flex;gap:8px;flex-shrink:0}
+.fstat{text-align:center;padding:3px 10px;border-radius:6px;background:var(--ppt-surface);border:1px solid var(--ppt-border)}
+.fstat b{display:block;font-size:14px;color:var(--ppt-accent);line-height:1}
+.fstat span{font-size:8px;color:var(--ppt-text-3)}
 html{overflow:hidden;margin:0;padding:0}
 </style>
 </head>
 <body>
 <div class="slide">
   <div class="title-r">
-    <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack</span></div>
-    <h1>핵심 기술 스택 — 주요 과제별 매핑</h1>
-    <p class="sub">4개 영역 · 10개 핵심 과제 · 선정 기술 스택</p>
+    <div class="title-row">
+      <div class="bar"></div>
+      <span class="badge">Tech Stack</span>
+      <h1>핵심 기술 스택 — 주요 과제별 매핑</h1>
+    </div>
+    <p class="sub">260622 sprint-backlog 기준 · S01–S23 · 48개 기술 · 메인담당: 기충영 · 김희찬 · 송민준 · 심지훈</p>
     <div class="line"></div>
   </div>
 
   <div class="body">
-    <div class="grid">
-      <div class="cat-card" style="--cat-color:var(--c-infra)">
-        <div class="cat-head">
-          <div class="cat-icon"><i class="fas fa-server"></i></div>
-          <span class="cat-title">DevOps · 인프라</span>
-        </div>
-        <div class="cat-rows">
-          <div class="row">
-            <span class="row-label">개발 환경</span>
-            <p class="row-tech"><strong>Docker</strong> · Docker Compose · GitLab CI · Nexus · SonarQube · ArgoCD</p>
-          </div>
-          <div class="row">
-            <span class="row-label">플랫폼</span>
-            <p class="row-tech"><strong>Spring Cloud Config</strong> · Redis</p>
-          </div>
-        </div>
-      </div>
+    <div class="left-col">
+      <div class="left-head"><i class="fas fa-cubes"></i> 4개 영역 핵심 기술 스택</div>
+      <div class="lcard" style="--cc:#38BDF8">
+  <div class="lcard-head"><i class="fas fa-server"></i><span>DevOps · 인프라</span></div>
+  <div class="lchips"><span class="lchip">Docker</span><span class="lchip">K8s</span><span class="lchip">GitLab CI</span><span class="lchip">ArgoCD</span><span class="lchip">SonarQube</span><span class="lchip">Nexus</span><span class="lchip">Spring Cloud Config</span><span class="lchip">Redis</span></div>
+</div>
+<div class="lcard" style="--cc:#FACC15">
+  <div class="lcard-head"><i class="fas fa-layer-group"></i><span>프레임워크 · UI</span></div>
+  <div class="lchips"><span class="lchip">Next.js</span><span class="lchip">React 19</span><span class="lchip">Tailwind CSS</span><span class="lchip">RealGrid</span><span class="lchip">Atomic Design</span><span class="lchip">Spring Batch</span></div>
+</div>
+<div class="lcard" style="--cc:#A78BFA">
+  <div class="lcard-head"><i class="fas fa-shield-halved"></i><span>보안 · 연동</span></div>
+  <div class="lchips"><span class="lchip">Keycloak</span><span class="lchip">JWT</span><span class="lchip">Spring Security</span><span class="lchip">API Gateway</span><span class="lchip">REST/gRPC</span><span class="lchip">Multi-tenancy</span></div>
+</div>
+<div class="lcard" style="--cc:#34D399">
+  <div class="lcard-head"><i class="fas fa-chart-pie"></i><span>데이터 · BI · AI</span></div>
+  <div class="lchips"><span class="lchip">Debezium</span><span class="lchip">Kafka</span><span class="lchip">ClipReport</span><span class="lchip">Superset</span><span class="lchip">Grafana</span><span class="lchip">LangChain</span></div>
+</div>
+      <div class="left-foot"><strong>핵심 축</strong> Next.js · React 19 — DevOps 안정화 → UI 표준화 → 연동·보안 → BI·AI 순 구축</div>
+    </div>
 
-      <div class="cat-card core" style="--cat-color:var(--c-fw)">
-        <div class="cat-head">
-          <div class="cat-icon"><i class="fas fa-layer-group"></i></div>
-          <span class="cat-title">프레임워크 · UI</span>
-          <span class="cat-core-tag">핵심 축</span>
-        </div>
-        <div class="cat-rows">
-          <div class="row">
-            <span class="row-label">공통 FW</span>
-            <p class="row-tech"><strong>Next.js</strong> · React 19 · Tailwind CSS · RealGrid</p>
-          </div>
-          <div class="row">
-            <span class="row-label">UI 라이브러리</span>
-            <p class="row-tech">Atomic Design · <strong>RealGrid 2.0</strong></p>
-          </div>
-          <div class="row">
-            <span class="row-label">배치</span>
-            <p class="row-tech"><strong>Spring Batch</strong></p>
-          </div>
-        </div>
+    <div class="right-col">
+      <div class="right-head">
+        <span><i class="fas fa-list-check"></i> 주요 과제별 매핑</span>
+        <span>23개 과제 · 48종 기술</span>
       </div>
-
-      <div class="cat-card" style="--cat-color:var(--c-int)">
-        <div class="cat-head">
-          <div class="cat-icon"><i class="fas fa-plug"></i></div>
-          <span class="cat-title">연동 · 확장</span>
-        </div>
-        <div class="cat-rows">
-          <div class="row">
-            <span class="row-label">멀티 컴퍼니</span>
-            <p class="row-tech"><strong>Multi-tenancy</strong></p>
-          </div>
-          <div class="row">
-            <span class="row-label">외부 IF</span>
-            <p class="row-tech"><strong>API Gateway</strong></p>
-          </div>
-          <div class="row">
-            <span class="row-label">AI 연동</span>
-            <p class="row-tech"><strong>REST</strong> · gRPC</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cat-card" style="--cat-color:var(--c-bi)">
-        <div class="cat-head">
-          <div class="cat-icon"><i class="fas fa-chart-pie"></i></div>
-          <span class="cat-title">리포팅 · BI</span>
-        </div>
-        <div class="cat-rows">
-          <div class="row">
-            <span class="row-label">리포트</span>
-            <p class="row-tech"><strong>ClipReport</strong> · Browser Print / PDF</p>
-          </div>
-          <div class="row">
-            <span class="row-label">대시보드</span>
-            <p class="row-tech"><strong>Apache Superset</strong> · Grafana</p>
-          </div>
-        </div>
+      <div class="map-wrap">
+        <table class="map-table">
+          <thead>
+            <tr>
+              <th>단계</th><th>ID</th><th>주요 과제명</th><th>담당</th><th>기술 스택</th>
+            </tr>
+          </thead>
+          <tbody>
+<tr><td class="td-phase" rowspan="4" style="--ph:#38BDF8">1단계</td><td class="td-sprint">S01</td><td class="td-task">개발 명명 규칙 표준화</td><td class="td-person">기충영</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">네이밍 룰</span></div></td></tr>
+<tr><td class="td-sprint">S02</td><td class="td-task">개발 환경 및 인프라 기반 구축</td><td class="td-person">송민준</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Docker</span><span class="tech-chip">Docker Compose</span><span class="tech-chip">Kubernetes (K8s)</span><span class="tech-chip">GitLab CI</span><span class="tech-chip">Nexus Repository</span><span class="tech-chip">SonarQube</span><span class="tech-chip">ArgoCD</span></div></td></tr>
+<tr><td class="td-sprint">S03</td><td class="td-task">공통 플랫폼 인프라</td><td class="td-person">기충영</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Spring Cloud Config</span><span class="tech-chip">Eureka (Discovery)</span><span class="tech-chip">HashiCorp Vault</span><span class="tech-chip">Redis</span></div></td></tr>
+<tr><td class="td-sprint">S04</td><td class="td-task">공통 프레임워크 아키텍처</td><td class="td-person">심지훈</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Next.js</span><span class="tech-chip">React 19</span><span class="tech-chip">Tailwind CSS</span><span class="tech-chip">RealGrid</span><span class="tech-chip">공통 UI 컴포넌트 라이브러리</span></div></td></tr>
+<tr><td class="td-phase" rowspan="4" style="--ph:#A78BFA">2단계</td><td class="td-sprint">S05</td><td class="td-task">SSO 연동 구축</td><td class="td-person">기충영</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Keycloak</span><span class="tech-chip">LDAP</span><span class="tech-chip">OIDC</span></div></td></tr>
+<tr><td class="td-sprint">S06</td><td class="td-task">인증 및 보안</td><td class="td-person">—</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">JWT</span><span class="tech-chip">Spring Security 6.x</span></div></td></tr>
+<tr><td class="td-sprint">S07</td><td class="td-task">권한 관리</td><td class="td-person">—</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">RBAC/ABAC</span><span class="tech-chip">AOP</span></div></td></tr>
+<tr><td class="td-sprint">S08</td><td class="td-task">상태관리 및 API 통신 공통 모듈</td><td class="td-person">송민준</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Axios / React Query</span></div></td></tr>
+<tr><td class="td-phase" rowspan="3" style="--ph:#FACC15">3단계</td><td class="td-sprint">S09</td><td class="td-task">공통 UI 컴포넌트 라이브러리 개발</td><td class="td-person">심지훈</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Atomic Design</span><span class="tech-chip">RealGrid</span><span class="tech-chip">Modal</span><span class="tech-chip">Suspense</span></div></td></tr>
+<tr><td class="td-sprint">S10</td><td class="td-task">비즈니스 컴포넌트 개발 가이드</td><td class="td-person">기충영</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">DTO / MapStruct</span><span class="tech-chip">Spring Batch</span></div></td></tr>
+<tr><td class="td-sprint">S11</td><td class="td-task">멀티 컴퍼니 지원</td><td class="td-person">—</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Multi-tenancy</span></div></td></tr>
+<tr><td class="td-phase" rowspan="2" style="--ph:#34D399">4단계</td><td class="td-sprint">S12</td><td class="td-task">외부 인터페이스</td><td class="td-person">—</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">API Gateway</span></div></td></tr>
+<tr><td class="td-sprint">S14</td><td class="td-task">AI 연동 모듈 개발</td><td class="td-person">송민준</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">REST / gRPC</span></div></td></tr>
+<tr><td class="td-phase" rowspan="4" style="--ph:#F87171">5단계</td><td class="td-sprint">S15</td><td class="td-task">데이터 보안</td><td class="td-person">기충영</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">API 마스킹 / DB 암호화</span></div></td></tr>
+<tr><td class="td-sprint">S16</td><td class="td-task">SSR·RSC 최적화 및 Web Vitals</td><td class="td-person">심지훈</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Next.js (SSR/RSC)</span><span class="tech-chip">Web Vitals</span></div></td></tr>
+<tr><td class="td-sprint">S17</td><td class="td-task">CDC 데이터 동기화 파이프라인 구축</td><td class="td-person">송민준</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Debezium</span><span class="tech-chip">Kafka</span></div></td></tr>
+<tr><td class="td-sprint">S23</td><td class="td-task">리포트 Tool 도입</td><td class="td-person">김희찬</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">ClipReport</span><span class="tech-chip">Browser Print / PDF</span></div></td></tr>
+<tr><td class="td-phase" rowspan="6" style="--ph:#FB923C">추가</td><td class="td-sprint">S13</td><td class="td-task">APIM</td><td class="td-person">—</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">API Management</span></div></td></tr>
+<tr><td class="td-sprint">S18</td><td class="td-task">AI Agent 역할·프로파일 관리</td><td class="td-person">기충영</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">LLM / LangChain (예상)</span></div></td></tr>
+<tr><td class="td-sprint">S19</td><td class="td-task">MSA 전환 로드맵 실행</td><td class="td-person">—</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Spring Cloud</span></div></td></tr>
+<tr><td class="td-sprint">S20</td><td class="td-task">표준 라이브러리 골든셋</td><td class="td-person">심지훈</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Golden Set</span></div></td></tr>
+<tr><td class="td-sprint">S21</td><td class="td-task">SCA 도입</td><td class="td-person">기충영</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Nexus IQ</span></div></td></tr>
+<tr><td class="td-sprint">S22</td><td class="td-task">BI 대시보드</td><td class="td-person">심지훈</td><td class="td-tech"><div class="tech-chips"><span class="tech-chip">Apache Superset</span><span class="tech-chip">Grafana</span></div></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
-  <div class="footer-note"><strong>핵심 축</strong> Next.js · React 19 기반 프레임워크를 중심으로 DevOps → UI → 연동 → BI 순으로 단계적 구축</div>
+  <div class="footer">
+    <span><strong>출처</strong> 260622_FaSS_TechStack_With_Assignees — sprint-backlog 연동</span>
+    <div class="footer-stats">
+      <div class="fstat"><b>6</b><span>단계</span></div>
+      <div class="fstat"><b>23</b><span>과제</span></div>
+      <div class="fstat"><b>48</b><span>기술</span></div>
+    </div>
+  </div>
 </div>
 <script>
 (function(){

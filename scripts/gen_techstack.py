@@ -15,18 +15,26 @@ LAYER_MAP = {
     "SonarQube": "infra",
     "ArgoCD": "infra",
     "Spring Cloud Config": "infra",
+    "Eureka (Discovery)": "infra",
+    "HashiCorp Vault": "security",
     "Redis": "data",
     "Spring Boot": "backend",
+    "Next.js": "frontend",
+    "React 19": "frontend",
+    "Tailwind CSS": "frontend",
+    "공통 UI 컴포넌트 라이브러리": "frontend",
     "Keycloak": "security",
     "LDAP": "security",
     "OIDC": "security",
     "JWT": "backend",
     "Spring Security 6.x": "backend",
     "RBAC/ABAC": "backend",
+    "AOP": "backend",
     "Axios / React Query": "frontend",
     "Atomic Design": "frontend",
     "RealGrid": "frontend",
     "Modal": "frontend",
+    "Suspense": "frontend",
     "DTO / MapStruct": "backend",
     "Spring Batch": "backend",
     "Multi-tenancy": "data",
@@ -34,9 +42,11 @@ LAYER_MAP = {
     "REST / gRPC": "backend",
     "API 마스킹 / DB 암호화": "security",
     "Next.js (SSR/RSC)": "frontend",
+    "Web Vitals": "frontend",
     "Debezium": "data",
     "Kafka": "data",
     "ClipReport": "infra",
+    "Browser Print / PDF": "infra",
     "API Management": "infra",
     "LLM / LangChain (예상)": "ai",
     "Spring Cloud": "backend",
@@ -70,8 +80,12 @@ for row in data["rows"]:
     items_by_layer[layer].append(item)
 
 
+def esc_str(s: str) -> str:
+    return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n").replace("\r", "")
+
+
 def fmt_item(item: dict) -> str:
-    parts = [f'      {{ name: "{item["name"]}", detail: "{item["detail"]}"']
+    parts = [f'      {{ name: "{esc_str(item["name"])}", detail: "{esc_str(item["detail"])}"']
     if item.get("sprintId"):
         parts.append(f', sprintId: "{item["sprintId"]}"')
     if item.get("assignee"):

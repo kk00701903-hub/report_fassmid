@@ -348,12 +348,13 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         id: "tech-stack-overview",
         title: "핵심 기술 스택 — 주요 과제별 매핑",
         category: "architecture",
+        techLayers: "fass-full",
         summary:
-          "10개 핵심 과제를 DevOps·인프라 / 프레임워크·UI / 연동·확장 / 리포팅·BI 4개 영역으로 정리한 기술 스택입니다. Next.js·React 19 프레임워크가 핵심 축입니다.",
+          "260622 sprint-backlog 기준 S01–S23 전체 23개 과제·48종 기술 스택 매핑. 좌측 4개 영역 핵심 기술, 우측 과제별 담당·기술 전체 반영.",
         process: [
-          { step: 1, title: "DevOps·인프라", description: "Docker·GitLab CI·ArgoCD·Spring Cloud Config·Redis" },
-          { step: 2, title: "프레임워크·UI", description: "Next.js·React 19·Tailwind·RealGrid·Atomic Design·Spring Batch" },
-          { step: 3, title: "연동·BI", description: "Multi-tenancy·API Gateway·REST/gRPC·ClipReport·Superset·Grafana" },
+          { step: 1, title: "1–2단계", description: "S01–S08 인프라·표준·보안·공통 (Docker/K8s, Keycloak, JWT 등)" },
+          { step: 2, title: "3–4단계", description: "S09–S14 UI 표준·연동 (Atomic Design, API Gateway, REST/gRPC)" },
+          { step: 3, title: "5단계·추가", description: "S15–S23 보안·CDC·리포트 + S13·S18–S22 차세대 로드맵" },
         ],
       },
     ],

@@ -21,7 +21,7 @@ export const SLIDES: Slide[] = [
   { id: 13, title: "핵심 기술 스택 — 주요 과제별 매핑" },
   { id: 14, title: "아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)" },
   { id: 15, title: "FaSS 최종 목표: MSA 전환 전략" },
-  { id: 16, title: "중장기 아키텍처 원칙 3: Kubernetes (컨테이너 오케스트레이션)" },
+  { id: 16, title: "중장기 아키텍처 원칙 2: Kubernetes (컨테이너 오케스트레이션)" },
   { id: 17, title: "CI/CD 자동화 아키텍처 - FaSS 플랫폼" },
   { id: 18, title: "무중단 데이터 동기화 - FaSS 플랫폼" },
   { id: 19, title: "PART 4 - 혁신 및 검증" },

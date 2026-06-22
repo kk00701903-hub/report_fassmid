@@ -30,6 +30,7 @@ body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:f
   background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:12px;
   padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:0;
   border-top:3px solid var(--phase-color,var(--ppt-border));
+  position:relative;
 }
 .milestone-card.p1{--phase-color:var(--p1)}
 .milestone-card.p2{--phase-color:var(--p2)}
@@ -38,17 +39,46 @@ body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:f
 .milestone-card.p5{--phase-color:var(--p5)}
 .milestone-card.p6{--phase-color:var(--p6)}
 .milestone-card.p7{--phase-color:var(--p7)}
-.milestone-card.current{border-color:rgba(0,240,255,.5);background:linear-gradient(180deg,rgba(0,240,255,.08),var(--ppt-bg-soft));box-shadow:0 0 20px rgba(0,240,255,.1)}
+.milestone-card.current{
+  border-color:rgba(255,192,0,.75);
+  background:linear-gradient(180deg,rgba(255,192,0,.18),rgba(255,192,0,.06));
+  box-shadow:0 0 0 1px rgba(255,192,0,.35),0 0 28px rgba(255,192,0,.22),inset 0 0 24px rgba(255,192,0,.06);
+  z-index:1;
+}
+.current-pill{
+  font-size:9px;font-weight:800;letter-spacing:.06em;
+  padding:3px 8px;border-radius:10px;
+  background:var(--p3);color:#1a1a2e;
+  box-shadow:0 0 12px rgba(255,192,0,.45);
+  margin-left:6px;
+}
+.milestone-card.current .phase-badge{color:#FDE68A}
+.milestone-card.current .card-title{color:#FFF}
+.milestone-card.current .period{background:rgba(255,192,0,.15);border-color:rgba(255,192,0,.45)}
+.milestone-card.current .period-y,.milestone-card.current .period-m{color:#FDE68A}
 .milestone-card.span2{grid-column:span 2}
-.card-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;flex-wrap:wrap}
+.card-head-left{display:flex;align-items:center;gap:4px}
 .phase-badge{font-size:11px;font-weight:700;color:var(--phase-color);letter-spacing:.02em}
-.period{font-size:11px;color:var(--ppt-text-3);padding:2px 8px;border-radius:10px;background:var(--ppt-surface);border:1px solid var(--ppt-border)}
+.period{
+  display:inline-flex;align-items:center;gap:3px;
+  padding:4px 9px;border-radius:10px;
+  background:var(--ppt-surface);border:1px solid var(--ppt-border);
+  font-variant-numeric:tabular-nums;
+  margin-left:auto;
+}
+.period-y{font-size:12px;font-weight:800;color:var(--ppt-accent-2);letter-spacing:.02em}
+.period-dot{font-size:11px;font-weight:700;color:var(--ppt-text-3)}
+.period-m{font-size:13px;font-weight:800;color:var(--ppt-text-1);letter-spacing:.03em}
+.period-sep{font-size:10px;font-weight:600;color:var(--ppt-text-3);margin:0 2px}
+.period-end .period-y{font-size:11px}
+.period-end .period-m{font-size:12px}
 .card-title{font-size:14px;font-weight:700;line-height:1.35;color:var(--ppt-text-1)}
 .card-desc{font-size:12px;color:var(--ppt-text-2);line-height:1.45;flex:1}
 .card-foot{display:flex;justify-content:flex-end;margin-top:auto}
 .status-tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px}
 .status-done{background:rgba(34,197,94,.15);color:var(--ppt-good)}
-.status-now{background:rgba(0,240,255,.15);color:var(--ppt-accent)}
+.status-now{background:rgba(255,192,0,.25);color:#FDE68A;border:1px solid rgba(255,192,0,.5)}
 .status-next{background:rgba(100,116,139,.2);color:var(--ppt-text-3)}
 .bottom-bar{
   flex-shrink:0;margin:10px 36px 14px;padding:10px 14px;
@@ -74,8 +104,8 @@ html{overflow:hidden;margin:0;padding:0}
     <div class="milestone-grid">
       <div class="milestone-card p1">
         <div class="card-head">
-          <span class="phase-badge">1단계</span>
-          <span class="period">26.01 ~ 02</span>
+          <div class="card-head-left"><span class="phase-badge">1단계</span></div>
+          <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">01</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">02</span></span></span>
         </div>
         <div class="card-title">AS-IS 분석 · AI 에이전트 기반</div>
         <p class="card-desc">시스템 아키텍처·비즈니스 프레임워크 분석, AI 모델·서브에이전트 구축</p>
@@ -84,8 +114,8 @@ html{overflow:hidden;margin:0;padding:0}
 
       <div class="milestone-card p2">
         <div class="card-head">
-          <span class="phase-badge">2단계</span>
-          <span class="period">26.03 ~ 05</span>
+          <div class="card-head-left"><span class="phase-badge">2단계</span></div>
+          <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">03</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">05</span></span></span>
         </div>
         <div class="card-title">TO-BE 모델 · 표준 프레임워크</div>
         <p class="card-desc">요구사항 정의 및 차세대 표준 프레임워크 모델 정립</p>
@@ -94,8 +124,8 @@ html{overflow:hidden;margin:0;padding:0}
 
       <div class="milestone-card p3 current">
         <div class="card-head">
-          <span class="phase-badge">3단계</span>
-          <span class="period">26.05 ~ 09</span>
+          <div class="card-head-left"><span class="phase-badge">3단계</span><span class="current-pill">현재</span></div>
+          <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">05</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">09</span></span></span>
         </div>
         <div class="card-title">공통 아키텍처 · 프레임워크 PoC</div>
         <p class="card-desc">공통 아키텍처 설계 및 프레임워크 기술 타당성 검증(PoC)</p>
@@ -104,8 +134,8 @@ html{overflow:hidden;margin:0;padding:0}
 
       <div class="milestone-card p4">
         <div class="card-head">
-          <span class="phase-badge">4단계</span>
-          <span class="period">26.10 ~ 27.03</span>
+          <div class="card-head-left"><span class="phase-badge">4단계</span></div>
+          <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">10</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">03</span></span></span>
         </div>
         <div class="card-title">JTGS 프로토타입 개발</div>
         <p class="card-desc">주요소관리시스템 프로토타입, 템플릿·스토리보드 완성</p>
@@ -114,8 +144,8 @@ html{overflow:hidden;margin:0;padding:0}
 
       <div class="milestone-card p5">
         <div class="card-head">
-          <span class="phase-badge">5단계</span>
-          <span class="period">27.04 ~ 06</span>
+          <div class="card-head-left"><span class="phase-badge">5단계</span></div>
+          <span class="period"><span class="period-ym"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">04</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">06</span></span></span>
         </div>
         <div class="card-title">시스템 안정화</div>
         <p class="card-desc">프로토타입 운영 안정화 및 품질·성능 검증</p>
@@ -124,8 +154,8 @@ html{overflow:hidden;margin:0;padding:0}
 
       <div class="milestone-card p6">
         <div class="card-head">
-          <span class="phase-badge">6단계</span>
-          <span class="period">27.07 ~ 08</span>
+          <div class="card-head-left"><span class="phase-badge">6단계</span></div>
+          <span class="period"><span class="period-ym"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">07</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">08</span></span></span>
         </div>
         <div class="card-title">3PL · 유통물류 전환 준비</div>
         <p class="card-desc">3PL/유통물류 전환 준비 및 현업 요구사항 반영</p>
@@ -134,8 +164,8 @@ html{overflow:hidden;margin:0;padding:0}
 
       <div class="milestone-card p7 span2">
         <div class="card-head">
-          <span class="phase-badge">7단계</span>
-          <span class="period">27.09 ~</span>
+          <div class="card-head-left"><span class="phase-badge">7단계</span></div>
+          <span class="period"><span class="period-ym"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">09</span></span><span class="period-sep">~</span></span>
         </div>
         <div class="card-title">3PL · 유통물류 본 전환</div>
         <p class="card-desc">3PL 전환 및 유통물류 전환 본격 개발 — 차세대 FaSS 플랫폼 단계적 롤아웃 완료</p>
