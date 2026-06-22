@@ -248,10 +248,10 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "project-schedule",
-        title: "최적화 방안 1. 워룸 운영",
+        title: "프로젝트 진행경과 마일스톤",
         category: "process",
         summary:
-          "2026년 1월부터 2027년 하반기까지 7단계 마일스톤으로 진행되는 FaSS 차세대 플랫폼 구축 일정입니다.",
+          "7단계 마일스톤으로 요약한 FaSS 차세대 플랫폼 구축 로드맵입니다. 현재 3단계(공통 아키텍처·프레임워크 PoC) 진행 중이며, JTGS → 프로토타입 → 3PL·유통물류로 단계적 전환합니다.",
         process: [
           { step: 1, title: "1~2단계", description: "AS-IS 분석·TO-BE 모델 정립 (26.01~05)" },
           { step: 2, title: "3단계", description: "공통 아키텍처·프레임워크 PoC (26.05~09)" },
@@ -266,7 +266,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "war-room",
-        title: "최적화 방안 2. AI 디지털 워커 활용",
+        title: "최적화 방안 1. AI 디지털 워커 활용",
         category: "process",
         summary: "집중 개발 기간 워룸 운영 방식과 일일 루틴입니다.",
         process: [
@@ -282,7 +282,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "fass-daily-scrum",
-        title: "최적화 방안 3. 사전 POC 운영",
+        title: "최적화 방안 2. 프로젝트 워룸 (War Room) 운영",
         category: "process",
         summary:
           "차세대 FaSS TFT 애자일 운영 허브. 일일 스크럼·태스크 기록과 Analytics 대시보드로 워룸에서 진척·블로커·완료율을 실시간 공유합니다.",
@@ -330,7 +330,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "milestone-plan",
-        title: "마일스톤 계획 프로세스",
+        title: "최적화 방안 3. 사전 POC 운영",
         category: "process",
         summary: "6월~10월 핵심 마일스톤 달성을 위한 단계별 점검 흐름입니다.",
         process: [
