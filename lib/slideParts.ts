@@ -34,7 +34,7 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
     partNumber: 5,
     title: "로드맵 및 미래 비전",
     startSlideId: 29,
-    endSlideId: 33,
+    endSlideId: 34,
   },
 ];
 

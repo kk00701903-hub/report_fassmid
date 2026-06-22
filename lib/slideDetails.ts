@@ -138,6 +138,9 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
       {
         id: "market-context",
         title: "디지털 트렌드 — MSA · Cloud · Open Source · AI",
+        category: "process",
+        summary:
+          "MSA·Cloud Native·Open Source·AI Native 네 축이 글로벌 빅테크·금융·물류 선도 기업에서 동시에 표준으로 자리잡고 있습니다.",
         process: [
           { step: 1, title: "MSA", description: "Modular Monolith → MSA 점진 전환, DDD·API-First" },
           { step: 2, title: "Cloud", description: "Kubernetes·GitOps·FinOps 기반 Cloud-Ready 운영" },
@@ -153,6 +156,8 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
       {
         id: "digital-worker",
         title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)",
+        category: "process",
+        summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
         process: [
           { step: 1, title: "자동 구간", description: "반복 코드 생성·테스트·문서화" },
           { step: 2, title: "휴먼 구간", description: "아키텍처·보안·비즈니스 판단" },
@@ -1051,6 +1056,25 @@ deploy_prod:
           { step: 2, title: "Phase 1", description: "S03~S05 인증·SSO·권한 · S15 데이터 보안" },
           { step: 3, title: "Phase 2", description: "S06~S16 SiteFramework·UI·APIM 등 8개 아키텍처 스프린트" },
           { step: 4, title: "Phase 3 + 추가", description: "S11~S17 데이터·AI · S18~S21 MSA·Golden Set·SCA·BI" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 34,
+    topics: [
+      {
+        id: "business-innovation-engine",
+        title: "차세대 영업 핵심 IT 엔진 5대 전략",
+        category: "process",
+        summary:
+          "민첩성·기술 부채 해소·데이터 의사결정·Zero-Defect 안정성·FinOps를 통한 비즈니스 혁신 전략입니다.",
+        process: [
+          { step: 1, title: "민첩성", description: "모듈화 배포로 시장·고객 요구 즉각 대응" },
+          { step: 2, title: "업무 효율", description: "최신 웹 프레임워크로 응답 속도·생산성 향상" },
+          { step: 3, title: "데이터 의사결정", description: "API 통합·실시간 데이터 가시화" },
+          { step: 4, title: "안정성", description: "Zero-Defect 품질 통제로 장애 사전 차단" },
+          { step: 5, title: "FinOps", description: "클라우드 예산 최적화·경영 성과 연계" },
         ],
       },
     ],
