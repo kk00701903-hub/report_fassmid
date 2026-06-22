@@ -509,36 +509,22 @@ public class OrderController {
     slideId: 15,
     topics: [
       {
-        id: "prototype-dev-kickoff",
-        title: "JTGS 프로토타입 개발 착수 체크리스트",
+        id: "jtgs-prototype-start",
+        title: "통합 프로토타입을 통한 아키텍쳐 내재화",
         category: "process",
-        summary: "2026.10 주유소(JTGS) 프로토타입 개발 착수 전·후 점검 항목입니다. 런칭·경영 시연이 아닌 개발 Start 기준입니다.",
+        summary:
+          "JTGS 통합 프로토타입을 통해 차세대 기술 스택을 검증·내재화하고, 본격 확산 전 시행착오를 줄이며 당사 기술 업그레이드를 가속합니다.",
         process: [
-          { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
-          { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
-          { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
+          { step: 1, title: "2026.10 Start", description: "주유소(JTGS) 기반 프로토타입 개발 착수 — 차세대 서버·완성형 스택 적용" },
+          { step: 2, title: "2027.03 완성", description: "FaSS V1.0 아키텍처·AI 파이프라인 1차 완성" },
+          { step: 3, title: "~2027.06", description: "안정화·고도화, UI/UX 스토리보드 표본 확정" },
+          { step: 4, title: "이후", description: "3PL·유통물류 대규모 이관 준비 단계로 연결" },
         ],
       },
     ],
   },
   {
     slideId: 16,
-    topics: [
-      {
-        id: "innovation-validation",
-        title: "혁신 과제 검증 프로세스",
-        category: "process",
-        summary: "PART 4 혁신 항목의 PoC → 프로토타입 개발 → 운영 반영 흐름입니다. JTGS는 2026.10 개발 착수(런칭 아님)입니다.",
-        process: [
-          { step: 1, title: "PoC", description: "2주 내 기술 타당성 검증 (예: AI 스파크 데이터 무결성)" },
-          { step: 2, title: "프로토타입 개발", description: "2026.10 JTGS 착수 — 차세대 서버·완성형 스택으로 본격 개발" },
-          { step: 3, title: "완성·안정화", description: "2027.03 프로토타입 완성, 6월까지 고도화 후 본격 이관 준비" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 17,
     topics: [
       {
         id: "realgrid-ui",
@@ -600,25 +586,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 18,
-    topics: [
-      {
-        id: "jtgs-prototype-start",
-        title: "통합 프로토타입을 통한 아키텍쳐 내재화",
-        category: "process",
-        summary:
-          "JTGS 통합 프로토타입을 통해 차세대 기술 스택을 검증·내재화하고, 본격 확산 전 시행착오를 줄이며 당사 기술 업그레이드를 가속합니다.",
-        process: [
-          { step: 1, title: "2026.10 Start", description: "주유소(JTGS) 기반 프로토타입 개발 착수 — 차세대 서버·완성형 스택 적용" },
-          { step: 2, title: "2027.03 완성", description: "FaSS V1.0 아키텍처·AI 파이프라인 1차 완성" },
-          { step: 3, title: "~2027.06", description: "안정화·고도화, UI/UX 스토리보드 표본 확정" },
-          { step: 4, title: "이후", description: "3PL·유통물류 대규모 이관 준비 단계로 연결" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 19,
+    slideId: 17,
     topics: [
       {
         id: "finops",
@@ -648,24 +616,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 20,
-    topics: [
-      {
-        id: "peer-benchmark",
-        title: "타사 프로젝트 규모 벤치마크",
-        category: "process",
-        summary:
-          "삼성E&A 등 유사 범위 사례(70명·2년, 1,680 M/M)의 인력 규모를 참고 지표로만 활용합니다.",
-        process: [
-          { step: 1, title: "참고 범위", description: "70명이 2년간 진행한 유사 산출물 범위의 엔터프라이즈 플랫폼 구축 사례" },
-          { step: 2, title: "비교 항목", description: "총 투입 인력(70명), 기간(2년), M/M(1,680) 감각" },
-          { step: 3, title: "활용 방식", description: "일정·비용 리스크 산정용 벤치마크 (기술 내용과 분리)" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 21,
+    slideId: 18,
     topics: [
       {
         id: "mm-tool-investment",
@@ -781,7 +732,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 22,
+    slideId: 19,
     topics: [
       {
         id: "framework-builder-role",
@@ -823,7 +774,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 24,
+    slideId: 21,
     topics: [
       {
         id: "builder-talent",
@@ -839,7 +790,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 25,
+    slideId: 22,
     topics: [
       {
         id: "roadmap-vision",
@@ -855,23 +806,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 26,
-    topics: [
-      {
-        id: "risk-management",
-        title: "리스크 관리 프로세스",
-        category: "process",
-        summary: "기술·일정·비용 리스크 식별 및 대응 절차입니다.",
-        process: [
-          { step: 1, title: "식별", description: "주간 리스크 레지스터 업데이트" },
-          { step: 2, title: "평가", description: "영향도×발생확률 매트릭스" },
-          { step: 3, title: "대응", description: "회피·완화·수용·전가 전략 선택" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 28,
+    slideId: 24,
     topics: [
       {
         id: "sonarqube-gate",
@@ -907,7 +842,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 29,
+    slideId: 25,
     topics: [
       {
         id: "msa-migration",
@@ -949,7 +884,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 30,
+    slideId: 26,
     topics: [
       {
         id: "cdc-sync",
@@ -999,6 +934,71 @@ deploy_prod:
   "ts_ms": 1718000000000
 }`,
           },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 27,
+    topics: [
+      {
+        id: "risk-management",
+        title: "리스크 관리 프로세스",
+        category: "process",
+        summary: "기술·일정·비용 리스크 식별 및 대응 절차입니다.",
+        process: [
+          { step: 1, title: "식별", description: "주간 리스크 레지스터 업데이트" },
+          { step: 2, title: "평가", description: "영향도×발생확률 매트릭스" },
+          { step: 3, title: "대응", description: "회피·완화·수용·전가 전략 선택" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 28,
+    topics: [
+      {
+        id: "peer-benchmark",
+        title: "타사 프로젝트 규모 벤치마크",
+        category: "process",
+        summary:
+          "삼성E&A 등 유사 범위 사례(70명·2년, 1,680 M/M)의 인력 규모를 참고 지표로만 활용합니다.",
+        process: [
+          { step: 1, title: "참고 범위", description: "70명이 2년간 진행한 유사 산출물 범위의 엔터프라이즈 플랫폼 구축 사례" },
+          { step: 2, title: "비교 항목", description: "총 투입 인력(70명), 기간(2년), M/M(1,680) 감각" },
+          { step: 3, title: "활용 방식", description: "일정·비용 리스크 산정용 벤치마크 (기술 내용과 분리)" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 29,
+    topics: [
+      {
+        id: "prototype-dev-kickoff",
+        title: "JTGS 프로토타입 개발 착수 체크리스트",
+        category: "process",
+        summary: "2026.10 주유소(JTGS) 프로토타입 개발 착수 전·후 점검 항목입니다. 런칭·경영 시연이 아닌 개발 Start 기준입니다.",
+        process: [
+          { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
+          { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
+          { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 30,
+    topics: [
+      {
+        id: "innovation-validation",
+        title: "혁신 과제 검증 프로세스",
+        category: "process",
+        summary: "PART 4 혁신 항목의 PoC → 프로토타입 개발 → 운영 반영 흐름입니다. JTGS는 2026.10 개발 착수(런칭 아님)입니다.",
+        process: [
+          { step: 1, title: "PoC", description: "2주 내 기술 타당성 검증 (예: AI 스파크 데이터 무결성)" },
+          { step: 2, title: "프로토타입 개발", description: "2026.10 JTGS 착수 — 차세대 서버·완성형 스택으로 본격 개발" },
+          { step: 3, title: "완성·안정화", description: "2027.03 프로토타입 완성, 6월까지 고도화 후 본격 이관 준비" },
         ],
       },
     ],
