@@ -3,9 +3,11 @@
  * 북마크·공유 URL 호환용.
  */
 export const LEGACY_SLIDE_REDIRECTS: Record<number, number> = {
-  19: 17, // PART 4 간지 (구 19p)
-  30: 26, // PART 5 간지 (구 30p)
-  34: 26, // PART 5 간지 (36장 덱 시절 34p)
+  16: 18, // PART 4 간지 (구 16p)
+  19: 18, // PART 4 간지 (구 19p)
+  27: 29, // PART 5 간지 (구 27p)
+  30: 29, // PART 5 간지 (구 30p)
+  34: 29, // PART 5 간지 (36장 덱 시절 34p)
   35: 31, // 롤아웃 로드맵
   36: 32, // 맺음말
 };

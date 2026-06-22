@@ -2,69 +2,250 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>PART 4 - 혁신 및 검증</title>
+<title>아키텍처 원칙3: CI/CD 자동화 아키텍처</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-  --ppt-bg: #0A0E1A; --ppt-accent: #00F0FF; --ppt-accent-2: #FACC15;
-  --ppt-text-1: #FFF; --ppt-text-2: #94A3B8; --ppt-font: "IBM Plex Sans KR", sans-serif;
+  --ppt-bg:#0A0E1A; --ppt-bg-soft:#141B2D; --ppt-surface:#1E2638; --ppt-border:#334155;
+  --ppt-text-1:#FFF; --ppt-text-2:#94A3B8; --ppt-text-3:#64748B;
+  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-good:#22C55E;
+  --c-gitlab:#FC6D26; --c-jenkins:#D33833; --c-nexus:#36B37E;
+  --c-docker:#2496ED; --c-argo:#EF7B4D; --c-sonar:#4E9BCD;
+  --ppt-font:"IBM Plex Sans KR",sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { width:100vw; height:100vh; overflow:hidden; background:#0A0E1A; display:flex; justify-content:center; align-items:center; }
-.section-slide-root {
-  width:960px; height:720px; background:var(--ppt-bg); font-family:var(--ppt-font);
-  position:relative; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
-  padding:0 80px; overflow:hidden;
-}
-.bg-grid-overlay { position:absolute; inset:0; background-image:linear-gradient(rgba(0,240,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; }
-.bg-glow-circle { position:absolute; right:-120px; top:50%; transform:translateY(-50%); width:500px; height:500px; background:radial-gradient(circle,rgba(0,240,255,0.07) 0%,transparent 70%); border-radius:50%; pointer-events:none; }
-.bg-left-bar { position:absolute; left:0; top:0; bottom:0; width:6px; background:linear-gradient(180deg,transparent 0%,var(--ppt-accent) 40%,var(--ppt-accent) 60%,transparent 100%); }
-.section-part-number { font-size:120px; font-weight:700; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(0,240,255,0.2); position:absolute; right:60px; bottom:40px; }
-.section-part-label { font-size:14px; font-weight:700; color:var(--ppt-accent); letter-spacing:4px; text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:12px; }
-.section-part-label::after { content:''; display:block; width:60px; height:1px; background:var(--ppt-accent); opacity:0.5; }
-.section-title-ko { font-size:48px; font-weight:700; color:var(--ppt-text-1); line-height:1.2; margin-bottom:8px; }
-.section-title-en { font-size:18px; color:var(--ppt-accent-2); letter-spacing:1px; margin-bottom:40px; }
-.section-divider-line { width:80px; height:3px; background:linear-gradient(90deg,var(--ppt-accent),transparent); margin-bottom:36px; border-radius:2px; }
-.section-topics-list { display:flex; flex-direction:column; gap:14px; }
-.section-topic-item { display:flex; align-items:center; gap:14px; }
-.topic-dot { width:8px; height:8px; border-radius:50%; background:var(--ppt-accent); flex-shrink:0; box-shadow:0 0 8px var(--ppt-accent); }
-.topic-text { font-size:17px; color:var(--ppt-text-2); line-height:1.4; }
-</style></head>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:flex;justify-content:center;align-items:center;font-family:var(--ppt-font)}
+.slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse at 20% 10%,rgba(0,240,255,.07) 0%,transparent 45%),
+  radial-gradient(ellipse at 80% 90%,rgba(252,109,38,.06) 0%,transparent 40%)}
+.title-r{flex-shrink:0;padding:22px 36px 6px;position:relative;z-index:1}
+.title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bar{width:4px;height:28px;background:var(--ppt-accent);border-radius:2px}
+.badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.3);color:var(--ppt-accent)}
+h1{font-size:24px;font-weight:700;line-height:1.3}
+.sub{font-size:12px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
+.line{height:1px;margin-top:6px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.body{flex:1;min-height:0;padding:8px 32px 12px;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:10px;font-weight:600;padding:4px 10px;border-radius:14px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);display:inline-flex;align-items:center;gap:5px}
+.pill i{font-size:9px}
+.pipeline{flex:1;min-height:0;display:grid;grid-template-columns:1fr 52px 1fr 52px 1fr;gap:0;align-items:stretch}
+.phase{background:linear-gradient(160deg,rgba(30,38,56,.95),var(--ppt-bg-soft));border:1px solid var(--ppt-border);border-radius:14px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:8px;min-height:0;position:relative;overflow:hidden}
+.phase::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ph);border-radius:14px 14px 0 0}
+.phase-head{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.phase-num{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--ph);color:var(--ph);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.phase-title{font-size:12px;font-weight:700;color:var(--ppt-text-1)}
+.phase-desc{font-size:9px;color:var(--ppt-text-3);margin-top:1px}
+.phase-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;justify-content:center}
+.node{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(10,14,26,.55);border:1px solid var(--ppt-border);border-radius:10px;border-left:3px solid var(--nc)}
+.node.aux{opacity:.78;border-style:dashed}
+.node-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;background:rgba(255,255,255,.06);color:var(--nc);flex-shrink:0}
+.node-text{min-width:0}
+.node-name{font-size:11px;font-weight:700;line-height:1.25}
+.node-sub{font-size:9px;color:var(--ppt-text-3);line-height:1.3;margin-top:1px}
+.node-flow{display:flex;align-items:center;justify-content:center;color:var(--ppt-text-3);font-size:10px;gap:4px;padding:0 2px}
+.node-flow i{color:var(--ppt-accent);font-size:9px}
+.connector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--ppt-text-3)}
+.connector-line{width:2px;flex:1;min-height:20px;background:linear-gradient(180deg,var(--ppt-border),var(--ppt-accent),var(--ppt-border));border-radius:2px;opacity:.6}
+.connector i{font-size:16px;color:var(--ppt-accent)}
+.connector span{font-size:8px;font-weight:700;text-align:center;line-height:1.2;max-width:48px}
+.gitops-strip{flex-shrink:0;padding:10px 14px;border-radius:12px;border:1px dashed rgba(239,123,77,.4);background:rgba(239,123,77,.06);display:flex;align-items:center;gap:12px}
+.gitops-icon{width:36px;height:36px;border-radius:10px;background:rgba(239,123,77,.15);color:var(--c-argo);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.gitops-text{flex:1}
+.gitops-text strong{display:block;font-size:12px;color:var(--c-argo);margin-bottom:3px}
+.gitops-text p{font-size:10px;color:var(--ppt-text-2);line-height:1.45}
+.gitops-flow{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.gf-item{font-size:9px;font-weight:700;padding:5px 9px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);white-space:nowrap}
+.gf-arrow{color:var(--ppt-accent);font-size:10px}
+.footer{flex-shrink:0;margin:0 32px 10px;padding:8px 12px;font-size:11px;color:var(--ppt-text-2);border-left:3px solid var(--ppt-accent-2);background:rgba(250,204,21,.05);border-radius:0 8px 8px 0;line-height:1.45;position:relative;z-index:1}
+.footer strong{color:var(--ppt-accent-2)}
+html{overflow:hidden;margin:0;padding:0}
+</style>
+</head>
 <body>
-<div class="section-slide-root">
-  <div class="bg-grid-overlay"></div>
-  <div class="bg-glow-circle"></div>
-  <div class="bg-left-bar"></div>
-  <div class="section-part-number">04</div>
-  <div class="section-part-label">PART 04</div>
-  <div class="section-title-ko">혁신 및 검증</div>
-  <div class="section-title-en">Innovation &amp; Validation</div>
-  <div class="section-divider-line"></div>
-  <div class="section-topics-list" style="gap:10px;">
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">100억 원의 자산 창출과 ASP 비즈니스 대전환</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">통합 프로토타입을 통한 아키텍쳐 내재화</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">AI 기반 스마트 물류 최적화</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">FaSS 차세대 플랫폼 — 대용량 데이터 처리</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">무결점(Zero-Defect) 코드 품질 통제 체계</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">FinOps 관점의 철저한 클라우드 예산 절감 훈련</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">타사 프로젝트 규모 비교 참고</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">지능형 코드 변환 아키텍처 (RAG)</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">AI 개발 혁신 — 도구 투자 · 오케스트레이션 · 인재육성</span></div>
-    <div class="section-topic-item"><div class="topic-dot"></div><span class="topic-text" style="font-size:15px;">차세대 웹프레임워크 × 빌더형 인재 육성</span></div>
+<div class="slide">
+  <div class="title-r">
+    <div class="title-row">
+      <div class="bar"></div>
+      <span class="badge">PART 3 · DevOps</span>
+      <h1>아키텍처 원칙3: CI/CD 자동화 아키텍처</h1>
+    </div>
+    <p class="sub">GitLab CI 중심 파이프라인 — 소스 푸시부터 빌드·품질 검증·이미지 배포까지 자동화</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="body">
+    <div class="pills">
+      <span class="pill"><i class="fas fa-circle" style="color:var(--c-gitlab)"></i> GitLab CI — 주 파이프라인</span>
+      <span class="pill"><i class="fas fa-circle" style="color:var(--c-jenkins)"></i> Jenkins — 보조·레거시 연동</span>
+      <span class="pill"><i class="fas fa-circle" style="color:var(--c-argo)"></i> Argo CD — GitOps 배포</span>
+      <span class="pill"><i class="fas fa-bolt" style="color:var(--ppt-accent)"></i> Webhook 트리거</span>
+      <span class="pill"><i class="fas fa-shield-halved" style="color:var(--c-sonar)"></i> SonarQube Quality Gate</span>
+    </div>
+
+    <div class="pipeline">
+      <!-- Phase 1: Source -->
+      <div class="phase" style="--ph:var(--ppt-accent-2)">
+        <div class="phase-head">
+          <div class="phase-num">1</div>
+          <div>
+            <div class="phase-title">Source & Trigger</div>
+            <div class="phase-desc">소스 변경 감지 · MR 기반 협업</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <div class="node" style="--nc:var(--ppt-accent-2)">
+            <div class="node-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="node-text">
+              <div class="node-name">Developer</div>
+              <div class="node-sub">Git Push · Merge Request</div>
+            </div>
+          </div>
+          <div class="node-flow"><i class="fas fa-arrow-down"></i> push / webhook</div>
+          <div class="node" style="--nc:var(--c-gitlab)">
+            <div class="node-icon"><i class="fab fa-gitlab"></i></div>
+            <div class="node-text">
+              <div class="node-name">GitLab</div>
+              <div class="node-sub">소스 저장소 · 파이프라인 트리거</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line"></div>
+        <i class="fas fa-chevron-right"></i>
+        <span>CI<br>시작</span>
+        <div class="connector-line"></div>
+      </div>
+
+      <!-- Phase 2: CI -->
+      <div class="phase" style="--ph:var(--c-gitlab)">
+        <div class="phase-head">
+          <div class="phase-num">2</div>
+          <div>
+            <div class="phase-title">Build & Quality</div>
+            <div class="phase-desc">빌드 · 테스트 · 정적 분석 · 이미지 생성</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <div class="node" style="--nc:var(--c-gitlab)">
+            <div class="node-icon"><i class="fas fa-gears"></i></div>
+            <div class="node-text">
+              <div class="node-name">GitLab CI</div>
+              <div class="node-sub">Build · Unit Test · Runner</div>
+            </div>
+          </div>
+          <div class="node" style="--nc:var(--c-sonar)">
+            <div class="node-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+            <div class="node-text">
+              <div class="node-name">SonarQube</div>
+              <div class="node-sub">정적 분석 · Quality Gate</div>
+            </div>
+          </div>
+          <div class="node aux" style="--nc:var(--c-jenkins)">
+            <div class="node-icon"><i class="fab fa-jenkins"></i></div>
+            <div class="node-text">
+              <div class="node-name">Jenkins</div>
+              <div class="node-sub">보조 Job · 레거시 연동</div>
+            </div>
+          </div>
+          <div class="node-flow"><i class="fas fa-arrow-down"></i> image push</div>
+          <div class="node" style="--nc:var(--c-docker)">
+            <div class="node-icon"><i class="fab fa-docker"></i></div>
+            <div class="node-text">
+              <div class="node-name">Docker Build</div>
+              <div class="node-sub">컨테이너 이미지 패키징</div>
+            </div>
+          </div>
+          <div class="node" style="--nc:var(--c-nexus)">
+            <div class="node-icon"><i class="fas fa-warehouse"></i></div>
+            <div class="node-text">
+              <div class="node-name">Nexus Registry</div>
+              <div class="node-sub">아티팩트 · 이미지 중앙 저장</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line"></div>
+        <i class="fas fa-chevron-right"></i>
+        <span>CD<br>배포</span>
+        <div class="connector-line"></div>
+      </div>
+
+      <!-- Phase 3: CD -->
+      <div class="phase" style="--ph:var(--c-argo)">
+        <div class="phase-head">
+          <div class="phase-num">3</div>
+          <div>
+            <div class="phase-title">Deploy · GitOps</div>
+            <div class="phase-desc">선언적 배포 · 환경 동기화</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <div class="node" style="--nc:var(--c-argo)">
+            <div class="node-icon"><i class="fas fa-ship"></i></div>
+            <div class="node-text">
+              <div class="node-name">Argo CD</div>
+              <div class="node-sub">GitOps Sync · 자동 배포</div>
+            </div>
+          </div>
+          <div class="node-flow"><i class="fas fa-arrow-down"></i> rolling deploy</div>
+          <div class="node" style="--nc:var(--ppt-good)">
+            <div class="node-icon"><i class="fas fa-server"></i></div>
+            <div class="node-text">
+              <div class="node-name">FaSS Runtime</div>
+              <div class="node-sub">On-Prem · Docker 환경 운영</div>
+            </div>
+          </div>
+          <div class="node" style="--nc:var(--ppt-accent)">
+            <div class="node-icon"><i class="fas fa-rotate"></i></div>
+            <div class="node-text">
+              <div class="node-name">무중단 롤아웃</div>
+              <div class="node-sub">Blue-Green · Canary 전략</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gitops-strip">
+      <div class="gitops-icon"><i class="fas fa-arrows-rotate"></i></div>
+      <div class="gitops-text">
+        <strong>GitOps 배포 흐름</strong>
+        <p>GitLab 파이프라인이 검증된 이미지를 Nexus에 등록하면, Argo CD가 선언적 매니페스트를 감시하여 FaSS 운영 환경에 자동 동기화합니다.</p>
+      </div>
+      <div class="gitops-flow">
+        <span class="gf-item">Nexus Image</span>
+        <i class="fas fa-arrow-right gf-arrow"></i>
+        <span class="gf-item">Argo CD</span>
+        <i class="fas fa-arrow-right gf-arrow"></i>
+        <span class="gf-item">FaSS Runtime</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>핵심 원칙</strong> GitLab CI 단일 파이프라인 + Jenkins 보조 연동 — Quality Gate 통과 후에만 배포, 전 구간 Webhook·감사 로그 추적
   </div>
 </div>
 <script>
 (function(){
   function applyScale(){
-    var el=document.querySelector('body>div'); if(!el)return;
-    var sw=window.innerWidth,sh=window.innerHeight,scale=Math.min(sw/960,sh/720);
-    el.style.transform='scale('+scale+')'; el.style.transformOrigin='top left';
-    el.style.position='absolute'; el.style.left=Math.round((sw-960*scale)/2)+'px';
+    var el=document.querySelector('body>div');if(!el)return;
+    var sw=window.innerWidth,sh=window.innerHeight;
+    var scale=Math.min(sw/960,sh/720);
+    el.style.transform='scale('+scale+')';el.style.transformOrigin='top left';
+    el.style.position='absolute';
+    el.style.left=Math.round((sw-960*scale)/2)+'px';
     el.style.top=Math.round((sh-720*scale)/2)+'px';
   }
-  applyScale(); window.addEventListener('resize',applyScale);
+  applyScale();window.addEventListener('resize',applyScale);
 })();
 </script>
 </body>

@@ -509,6 +509,38 @@ public class OrderController {
     slideId: 15,
     topics: [
       {
+        id: "prototype-dev-kickoff",
+        title: "JTGS 프로토타입 개발 착수 체크리스트",
+        category: "process",
+        summary: "2026.10 주유소(JTGS) 프로토타입 개발 착수 전·후 점검 항목입니다. 런칭·경영 시연이 아닌 개발 Start 기준입니다.",
+        process: [
+          { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
+          { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
+          { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 16,
+    topics: [
+      {
+        id: "innovation-validation",
+        title: "혁신 과제 검증 프로세스",
+        category: "process",
+        summary: "PART 4 혁신 항목의 PoC → 프로토타입 개발 → 운영 반영 흐름입니다. JTGS는 2026.10 개발 착수(런칭 아님)입니다.",
+        process: [
+          { step: 1, title: "PoC", description: "2주 내 기술 타당성 검증 (예: AI 스파크 데이터 무결성)" },
+          { step: 2, title: "프로토타입 개발", description: "2026.10 JTGS 착수 — 차세대 서버·완성형 스택으로 본격 개발" },
+          { step: 3, title: "완성·안정화", description: "2027.03 프로토타입 완성, 6월까지 고도화 후 본격 이관 준비" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 17,
+    topics: [
+      {
         id: "jtgs-prototype-start",
         title: "통합 프로토타입을 통한 아키텍쳐 내재화",
         category: "process",
@@ -524,7 +556,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 16,
+    slideId: 18,
     topics: [
       {
         id: "realgrid-ui",
@@ -586,7 +618,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 17,
+    slideId: 19,
     topics: [
       {
         id: "finops",
@@ -616,7 +648,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 18,
+    slideId: 20,
     topics: [
       {
         id: "mm-tool-investment",
@@ -732,7 +764,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 19,
+    slideId: 21,
     topics: [
       {
         id: "framework-builder-role",
@@ -774,7 +806,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 21,
+    slideId: 23,
     topics: [
       {
         id: "builder-talent",
@@ -790,7 +822,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 22,
+    slideId: 24,
     topics: [
       {
         id: "roadmap-vision",
@@ -806,7 +838,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 24,
+    slideId: 26,
     topics: [
       {
         id: "sonarqube-gate",
@@ -842,7 +874,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 25,
+    slideId: 27,
     topics: [
       {
         id: "msa-migration",
@@ -884,7 +916,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 26,
+    slideId: 28,
     topics: [
       {
         id: "cdc-sync",
@@ -939,7 +971,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 27,
+    slideId: 29,
     topics: [
       {
         id: "risk-management",
@@ -955,7 +987,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 28,
+    slideId: 30,
     topics: [
       {
         id: "peer-benchmark",
@@ -967,38 +999,6 @@ deploy_prod:
           { step: 1, title: "참고 범위", description: "70명이 2년간 진행한 유사 산출물 범위의 엔터프라이즈 플랫폼 구축 사례" },
           { step: 2, title: "비교 항목", description: "총 투입 인력(70명), 기간(2년), M/M(1,680) 감각" },
           { step: 3, title: "활용 방식", description: "일정·비용 리스크 산정용 벤치마크 (기술 내용과 분리)" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 29,
-    topics: [
-      {
-        id: "prototype-dev-kickoff",
-        title: "JTGS 프로토타입 개발 착수 체크리스트",
-        category: "process",
-        summary: "2026.10 주유소(JTGS) 프로토타입 개발 착수 전·후 점검 항목입니다. 런칭·경영 시연이 아닌 개발 Start 기준입니다.",
-        process: [
-          { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
-          { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
-          { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 30,
-    topics: [
-      {
-        id: "innovation-validation",
-        title: "혁신 과제 검증 프로세스",
-        category: "process",
-        summary: "PART 4 혁신 항목의 PoC → 프로토타입 개발 → 운영 반영 흐름입니다. JTGS는 2026.10 개발 착수(런칭 아님)입니다.",
-        process: [
-          { step: 1, title: "PoC", description: "2주 내 기술 타당성 검증 (예: AI 스파크 데이터 무결성)" },
-          { step: 2, title: "프로토타입 개발", description: "2026.10 JTGS 착수 — 차세대 서버·완성형 스택으로 본격 개발" },
-          { step: 3, title: "완성·안정화", description: "2027.03 프로토타입 완성, 6월까지 고도화 후 본격 이관 준비" },
         ],
       },
     ],
