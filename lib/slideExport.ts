@@ -36,18 +36,46 @@ function getSlideSource(item: SlideManifestItem): { src?: string; srcDoc?: strin
   return { srcDoc: item.html };
 }
 
-function waitForIframeLoad(iframe: HTMLIFrameElement): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const timeout = window.setTimeout(() => reject(new Error("슬라이드 로드 시간 초과")), 30000);
-    iframe.addEventListener(
-      "load",
-      () => {
-        window.clearTimeout(timeout);
-        resolve();
-      },
-      { once: true },
-    );
-  });
+const SLIDE_ROOT_SELECTORS = [
+  "body > div.fass-report-slide-root",
+  "body > div.section-slide-root",
+  "body > div.slide-root",
+  "body > div[class*='slide-root']",
+  "body > div:not([hidden])",
+  "body > div",
+] as const;
+
+function findSlideRoot(doc: Document): HTMLElement | null {
+  for (const selector of SLIDE_ROOT_SELECTORS) {
+    const candidate = doc.querySelector(selector);
+    if (!candidate || candidate.nodeType !== Node.ELEMENT_NODE) continue;
+    const el = candidate as HTMLElement;
+    if (el.hasAttribute("hidden") && !el.className.includes("slide")) continue;
+    return el;
+  }
+  return null;
+}
+
+async function waitForSlideDocument(
+  iframe: HTMLIFrameElement,
+  slideLabel: string,
+): Promise<Document> {
+  const deadline = Date.now() + 30000;
+
+  while (Date.now() < deadline) {
+    const doc = iframe.contentDocument;
+    if (doc?.body) {
+      if (findSlideRoot(doc)) return doc;
+
+      const bodyText = doc.body.textContent?.trim() ?? "";
+      if (bodyText.includes("not found") || bodyText.startsWith("404")) {
+        throw new Error(`슬라이드 파일을 찾을 수 없습니다 (${slideLabel})`);
+      }
+    }
+    await new Promise((r) => window.setTimeout(r, 50));
+  }
+
+  throw new Error(`슬라이드 로드 시간 초과 (${slideLabel})`);
 }
 
 async function waitForSlideRender(doc: Document): Promise<void> {
@@ -73,10 +101,10 @@ async function waitForSlideRender(doc: Document): Promise<void> {
   ]);
 }
 
-function getSlideRoot(doc: Document): HTMLElement {
-  const root = doc.querySelector("body > div");
-  if (!(root instanceof HTMLElement)) {
-    throw new Error("슬라이드 루트를 찾을 수 없습니다");
+function getSlideRoot(doc: Document, slideLabel: string): HTMLElement {
+  const root = findSlideRoot(doc);
+  if (!root) {
+    throw new Error(`슬라이드 루트를 찾을 수 없습니다 (${slideLabel})`);
   }
   return root;
 }
@@ -145,13 +173,10 @@ async function captureSlideAsDataUrl(item: SlideManifestItem): Promise<string> {
   document.body.appendChild(iframe);
 
   try {
-    await waitForIframeLoad(iframe);
-    const doc = iframe.contentDocument;
-    if (!doc?.body) throw new Error("슬라이드 문서를 읽을 수 없습니다");
-
+    const doc = await waitForSlideDocument(iframe, slideLabel);
     await waitForSlideRender(doc);
     const pageOrigin = iframe.contentWindow?.location.origin ?? window.location.origin;
-    const root = getSlideRoot(doc);
+    const root = getSlideRoot(doc, slideLabel);
     normalizeSlideLayout(doc, root);
 
     const imageAudit = auditImages(doc, pageOrigin);
@@ -186,8 +211,8 @@ async function captureSlideAsDataUrl(item: SlideManifestItem): Promise<string> {
       logging: false,
       backgroundColor: "#0a0e1a",
       onclone: (clonedDoc) => {
-        const clonedRoot = clonedDoc.querySelector("body > div");
-        if (clonedRoot instanceof HTMLElement) {
+        const clonedRoot = findSlideRoot(clonedDoc);
+        if (clonedRoot) {
           normalizeSlideLayout(clonedDoc, clonedRoot);
         }
         const removed = sanitizeImagesInClone(clonedDoc, pageOrigin);

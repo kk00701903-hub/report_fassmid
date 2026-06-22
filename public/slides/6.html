@@ -1,313 +1,306 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>AI 디지털 워커 (AI Digital Worker)</title>
+<title>Executive Summary - FaSS 플랫폼 구축</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<style>
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-  --ppt-bg: #0A0E1A;
-  --ppt-bg-soft: #141B2D;
-  --ppt-surface: #1E2638;
-  --ppt-surface-2: #2A344A;
-  --ppt-border: #334155;
-  --ppt-text-1: #FFF;
-  --ppt-text-2: #94A3B8;
-  --ppt-text-3: #64748B;
-  --ppt-accent: #00F0FF;
-  --ppt-accent-2: #FACC15;
-  --ppt-good: #22C55E;
-  --ppt-warn: #F59E0B;
-  --ppt-radius-sm: 4px;
-  --ppt-radius-md: 8px;
-  --ppt-radius-lg: 16px;
-  --ppt-shadow-soft: 0 4px 12px rgba(0,0,0,0.3);
-  --ppt-font-display: "IBM Plex Sans KR", sans-serif;
-  --ppt-font-body: "IBM Plex Sans KR", sans-serif;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  width:100vw; height:100vh; overflow: hidden;
-  background-color:#0A0E1A;
-  display: flex; justify-content: center; align-items: center;
-  font-family: var(--ppt-font-body);
-}
-.slide-root {
-  width: 960px; height: 720px;
-  background-color: var(--ppt-bg);
-  color: var(--ppt-text-1);
-  position: relative;
-  display: flex; flex-direction: column;
-  border: 1px solid var(--ppt-border);
-  overflow: hidden;
-}
-/* Decorative background glow */
-.slide-root::before {
-  content: '';
-  position: absolute;
-  top: -80px; left: 50%; transform: translateX(-50%);
-  width: 700px; height: 300px;
-  background: radial-gradient(ellipse, rgba(0,240,255,0.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-/* Title */
-.title-region {
-  padding: 22px 40px 8px 40px;
-  display: flex; flex-direction: column; gap: 6px;
-}
-.title-header { display: flex; align-items: center; gap: 12px; }
-.title-bar { width: 4px; height: 32px; background: var(--ppt-accent); border-radius: 2px; }
-.title-badge {
-  background: rgba(250,204,21,0.12); color: var(--ppt-accent-2);
-  padding: 3px 12px; border-radius: var(--ppt-radius-sm);
-  font-size: 13px; font-weight: 600;
-  border: 1px solid rgba(250,204,21,0.3);
-  white-space: nowrap;
-}
-.title-text {
-  font-family: var(--ppt-font-display);
-  font-size: 26px; font-weight: 700; color: var(--ppt-text-1); margin: 0;
-}
-.title-sub {
-  font-size: 15px; color: var(--ppt-text-2); padding-left: 16px;
-}
-.title-line {
-  height: 1px; width: 100%;
-  background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-  opacity: 0.3; margin-top: 4px;
-}
-/* Main 3-column grid */
-.main-container {
-  flex: 1;
-  padding: 8px 40px 8px 40px;
-  display: flex; gap: 16px; align-items: stretch;
-}
-.pillar-card {
-  flex: 1;
-  background: var(--ppt-bg-soft);
-  border: 1px solid var(--ppt-border);
-  border-radius: var(--ppt-radius-lg);
-  padding: 16px 18px;
-  display: flex; flex-direction: column; gap: 10px;
-  position: relative; overflow: hidden;
-}
-.pillar-card::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  border-radius: var(--ppt-radius-lg) var(--ppt-radius-lg) 0 0;
-}
-.pillar-card.cyan::after  { background: var(--ppt-accent); }
-.pillar-card.amber::after { background: var(--ppt-accent-2); }
-.pillar-card.green::after { background: var(--ppt-good); }
-.pillar-icon-row {
-  display: flex; align-items: center; gap: 12px;
-}
-.pillar-icon-box {
-  width: 44px; height: 44px;
-  border-radius: var(--ppt-radius-md);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; flex-shrink: 0;
-}
-.pillar-icon-box.cyan  { background: rgba(0,240,255,0.12); color: var(--ppt-accent); }
-.pillar-icon-box.amber { background: rgba(250,204,21,0.12); color: var(--ppt-accent-2); }
-.pillar-icon-box.green { background: rgba(34,197,94,0.12);  color: var(--ppt-good); }
-.pillar-heading {
-  display: flex; flex-direction: column; gap: 2px;
-}
-.pillar-title { font-size: 16px; font-weight: 700; color: var(--ppt-text-1); }
-.pillar-en    { font-size: 11px; color: var(--ppt-text-3); font-weight: 400; }
-.pillar-divider { height: 1px; background: var(--ppt-border); }
-.pillar-items { display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.pillar-item  {
-  display: flex; gap: 10px; align-items: flex-start;
-  padding: 8px 10px;
-  background: var(--ppt-surface); border-radius: var(--ppt-radius-md);
-  border: 1px solid rgba(255,255,255,0.04);
-}
-.pillar-item-icon { font-size: 13px; margin-top: 2px; flex-shrink: 0; }
-.pillar-item-icon.cyan  { color: var(--ppt-accent); }
-.pillar-item-icon.amber { color: var(--ppt-accent-2); }
-.pillar-item-icon.green { color: var(--ppt-good); }
-.pillar-item-text { display: flex; flex-direction: column; gap: 2px; }
-.pillar-item-title { font-size: 13px; font-weight: 700; color: var(--ppt-text-1); }
-.pillar-item-desc  { font-size: 11px; color: var(--ppt-text-2); line-height: 1.35; }
-
-/* VS comparison row */
-.vs-bridge {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 4px; padding: 0 2px;
-}
-.vs-label {
-  font-size: 11px; font-weight: 700; color: var(--ppt-text-3);
-  writing-mode: vertical-rl; text-orientation: mixed;
-  letter-spacing: 2px;
-}
-
-/* Bottom global banner */
-.bottom-banner {
-  margin: 0 50px 12px 50px;
-  background: linear-gradient(90deg, rgba(250,204,21,0.08) 0%, rgba(0,240,255,0.06) 50%, transparent 100%);
-  border: 1px solid rgba(250,204,21,0.2);
-  border-radius: var(--ppt-radius-md);
-  padding: 10px 20px;
-  display: flex; align-items: center; gap: 16px;
-}
-.banner-icon { font-size: 20px; color: var(--ppt-accent-2); flex-shrink: 0; }
-.banner-text { font-size: 13px; color: var(--ppt-text-2); line-height: 1.5; }
-.banner-text strong { color: var(--ppt-accent-2); }
-.banner-logos {
-  margin-left: auto;
-  display: flex; gap: 12px; align-items: center; flex-shrink: 0;
-}
-.global-tag {
-  background: var(--ppt-surface-2);
-  border: 1px solid var(--ppt-border);
-  border-radius: 20px; padding: 3px 10px;
-  font-size: 11px; font-weight: 600; color: var(--ppt-text-2);
-  white-space: nowrap;
-}
+    --ppt-bg: #0A0E1A;
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    --ppt-accent-2: #FACC15;
+    --ppt-chart-1: #00F0FF;
+    --ppt-chart-2: #3B82F6;
+    --ppt-chart-3: #8B5CF6;
+    --ppt-chart-4: #FACC15;
+    --ppt-good: #22C55E;
+    --ppt-warn: #F59E0B;
+    --ppt-bad: #EF4444;
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased
+    }
+body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.fass-summary-slide-root {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    position: relative;
+    font-family: var(--ppt-font-body);
+    color: var(--ppt-text-1);
+    display: flex;
+    flex-direction: column
+    }
+/* Non-Cover-Page Title Region */
+.title-region-container {
+    padding: 28px 40px 8px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+    }
+.title-region-header {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-region-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-region-text {
+    font-family: var(--ppt-font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-region-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+/* Main Content */
+.summary-content-wrapper {
+    flex: 1;
+    min-height: 0;
+    padding: 8px 36px 20px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0
+    }
+.summary-grid-container {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    flex: 1;
+    min-height: 0
+    }
+.summary-column-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 18px 18px 16px 18px;
+    gap: 12px;
+    box-shadow: var(--ppt-shadow-soft);
+    min-height: 0
+    }
+.summary-column-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0
+    }
+.summary-column-icon {
+    font-size: 22px;
+    color: var(--ppt-accent);
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 240, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--ppt-radius-md);
+    flex-shrink: 0
+    }
+.summary-column-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.summary-list-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-height: 0
+    }
+.summary-list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-height: 0;
+    padding: 12px 14px;
+    background: var(--ppt-surface-2);
+    border-radius: var(--ppt-radius-md);
+    border: 1px solid rgba(51, 65, 85, 0.6)
+    }
+.summary-item-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: var(--ppt-radius-sm);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    align-self: flex-start
+    }
+.tag-completed {
+    background: var(--ppt-good);
+    color: #000
+    }
+.tag-ongoing {
+    background: var(--ppt-accent);
+    color: #000
+    }
+.tag-planned {
+    background: var(--ppt-accent-2);
+    color: #000
+    }
+.summary-item-text {
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.summary-item-subtext {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ppt-text-2);
+    margin-top: 5px
+    }
+.summary-highlight-box {
+    margin-top: auto;
+    flex-shrink: 0;
+    padding: 12px 14px;
+    border-left: 3px solid var(--ppt-accent-2);
+    background: rgba(250, 204, 21, 0.06);
+    border-radius: 0 var(--ppt-radius-sm) var(--ppt-radius-sm) 0
+    }
+.summary-highlight-text {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--ppt-accent-2)
+    }
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="slide-root">
-  <!-- Title -->
-  <div class="title-region">
-    <div class="title-header">
-      <div class="title-bar"></div>
-      <span class="title-badge">FUTURE VISION</span>
-      <h1 class="title-text">AI 디지털 워커 (AI Digital Worker)</h1>
-    </div>
-  <div class="title-sub">AI 에이전트는 도구가 아닙니다 — 출근·업무·퇴근하는 '디지털 직원'의 시대가 열립니다</div>
-    <div class="title-line"></div>
-  </div>
-
-  <!-- Main 3 pillars -->
-  <div class="main-container">
-
-    <!-- Pillar 1: 출퇴근 & 조직 편성 -->
-    <div class="pillar-card cyan">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box cyan"><i class="fas fa-user-clock"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">출퇴근하는 AI 에이전트</div>
-          <div class="pillar-en">AI Agent Work Schedule</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-sun pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">09:00 출근 — 업무 태스크 자동 할당</div>
-            <div class="pillar-item-desc">일정에 따라 자동 기동, 수요예측·문서처리·재고분석 업무를 즉시 시작합니다.</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-moon pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">18:00 퇴근 — 업무 리포트 자동 생성</div>
-            <div class="pillar-item-desc">처리 결과·이상 감지·미결 항목을 자동 리포트로 정리 후 유휴 전환합니다.</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-sitemap pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">팀·부서 단위 조직 편성</div>
-            <div class="pillar-item-desc">물류팀·정산팀·고객지원 AI를 사람 조직과 동일한 구조로 편성합니다.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pillar 2: 채용 = 스크립트 복사 & 평가 -->
-    <div class="pillar-card amber">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box amber"><i class="fas fa-copy"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">"채용"은 스크립트 복사</div>
-          <div class="pillar-en">Hire = Duplicate Script</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-user-plus pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">신입사원 채용 → 에이전트 스크립트 복사</div>
-            <div class="pillar-item-desc">검증된 AI 스크립트 복제로 즉시 투입 — 온보딩 기간 0일.</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-chart-bar pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">KPI 기반 에이전트 성과 평가</div>
-            <div class="pillar-item-desc">처리 건수·정확도·오류율 등 정량 지표로 사람과 동일하게 평가·개선합니다.</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-trash-alt pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">저성과 에이전트 버전 교체 (= 해고)</div>
-            <div class="pillar-item-desc">성과 미달 에이전트는 고도화된 신버전으로 즉시 교체합니다.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pillar 3: IT 부서 모니터링 -->
-    <div class="pillar-card green">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box green"><i class="fas fa-desktop"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">IT 부서 = AI 워커 관제 센터</div>
-          <div class="pillar-en">IT Dept. as AI Control Tower</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-tachometer-alt pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">AI 워커 실시간 모니터링 대시보드</div>
-            <div class="pillar-item-desc">전 에이전트 업무 상태를 Grafana 대시보드에서 실시간 모니터링합니다.</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-exclamation-triangle pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">이상 감지 → 자동 알림 & 인터벤션</div>
-            <div class="pillar-item-desc">응답 지연·오판 발생 시 즉시 알림 후 담당자가 개입합니다.</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-shield-alt pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">AI 거버넌스 & 감사 로그 관리</div>
-            <div class="pillar-item-desc">AI 처리 이력을 감사 로그로 보존, 책임 추적과 규정 준수를 보장합니다.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Bottom global banner -->
-  <div class="bottom-banner">
-    <div class="banner-icon"><i class="fas fa-globe"></i></div>
-    <div class="banner-text">
-      <strong>글로벌 기업들의 선제적 움직임:</strong>&nbsp;
-      Microsoft·Salesforce·ServiceNow 등은 이미 <strong>'AI 디지털 워커 조직'</strong> 모델을 핵심 전략으로 채택 중입니다.
-      (주)제때 IT 부서도 <strong>AI 워커 관제 조직</strong>으로 진화합니다.
-    </div>
-    <div class="banner-logos">
-      <span class="global-tag">Microsoft</span>
-      <span class="global-tag">Salesforce</span>
-      <span class="global-tag">ServiceNow</span>
-      <span class="global-tag">Google DeepMind</span>
-    </div>
-  </div>
+<div class="fass-summary-slide-root" style="overflow: hidden;">
+<!-- Title Region -->
+<div class="title-region-container">
+<div class="title-region-header">
+<div class="title-region-bar"></div>
+<h1 class="title-region-text">Executive Summary (프로젝트 종합 요약)</h1>
+</div>
+<div class="title-region-line"></div>
+</div>
+<!-- Content Area -->
+<div class="summary-content-wrapper">
+<div class="summary-grid-container">
+<!-- Column 1: Progress Status -->
+<div class="summary-column-item">
+<div class="summary-column-header">
+<div class="summary-column-icon"><i class="fas fa-chart-line"></i></div>
+<div class="summary-column-title">진척 현황</div>
+</div>
+<div class="summary-list-container">
+<div class="summary-list-item">
+<span class="summary-item-tag tag-completed">6월 현재</span>
+<div class="summary-item-text">기반 프레임워크 표준 확립</div>
+<div class="summary-item-subtext">Java 21, React, Next.js 표준 아키텍처 구축</div>
+</div>
+<div class="summary-list-item">
+<span class="summary-item-tag tag-completed">인프라</span>
+<div class="summary-item-text">AI 에이전트 개발 환경 구축</div>
+<div class="summary-item-subtext">DGX Spark 기반 RAG 및 코드 자동화 환경 완료</div>
+</div>
+<div class="summary-list-item">
+<span class="summary-item-tag tag-ongoing">진행 중</span>
+<div class="summary-item-text">UI/UX 및 기술스택 정립 단계 진입</div>
+<div class="summary-item-subtext">디자인 시스템·기술스택 표준화 및 핵심 화면 개발 착수</div>
+</div>
+</div>
+<div class="summary-highlight-box">
+<div class="summary-highlight-text">기술 내재화를 통한 SI 비용 80억 방어</div>
+</div>
+</div>
+<!-- Column 2: Roadmap -->
+<div class="summary-column-item">
+<div class="summary-column-header">
+<div class="summary-column-icon"><i class="fa-solid fa-map"></i></div>
+<div class="summary-column-title">전략 로드맵</div>
+</div>
+<div class="summary-list-container">
+<div class="summary-list-item">
+<span class="summary-item-tag tag-completed">검증 완료</span>
+<div class="summary-item-text">PoC 및 프로토타입 격리 검증</div>
+<div class="summary-item-subtext">AI 아이디어 스파크 PoC 데이터 무결성 검증 완료</div>
+</div>
+<div class="summary-list-item">
+<span class="summary-item-tag tag-planned">26년 10월</span>
+<div class="summary-item-text">주유소(JTGS) 프로토타입 개발 착수</div>
+<div class="summary-item-subtext">2026.10 차세대 서버에서 개발 Start — 완성형 기술스택 최초 적용 (2027.03 완성 목표)</div>
+</div>
+<div class="summary-list-item">
+<span class="summary-item-tag tag-planned">최종 단계</span>
+<div class="summary-item-text">유통물류 시스템 완전 전환</div>
+<div class="summary-item-subtext">리스크 제로 기반의 Phased Roll-out 전략</div>
+</div>
+</div>
+<div class="summary-highlight-box">
+<div class="summary-highlight-text">빅뱅 방식 지양을 통한 무중단 비즈니스 보장</div>
+</div>
+</div>
+<!-- Column 3: Infrastructure -->
+<div class="summary-column-item">
+<div class="summary-column-header">
+<div class="summary-column-icon"><i class="fas fa-cloud"></i></div>
+<div class="summary-column-title">인프라 방향성</div>
+</div>
+<div class="summary-list-container">
+<div class="summary-list-item">
+<span class="summary-item-tag tag-ongoing">설계 원칙</span>
+<div class="summary-item-text">100% Cloud-Ready 아키텍처</div>
+<div class="summary-item-subtext">컨테이너 기반 설계로 즉각적인 클라우드 배포</div>
+</div>
+<div class="summary-list-item">
+<span class="summary-item-tag tag-ongoing">비용 최적화</span>
+<div class="summary-item-text">온프레미스 기반 리스크 관리</div>
+<div class="summary-item-subtext">무리한 초기 전환 유보 및 인프라 비용 낭비 방지</div>
+</div>
+<div class="summary-list-item">
+<span class="summary-item-tag tag-planned">수익화 모델</span>
+<div class="summary-item-text">솔루션 패키지화 (ASP) 공급</div>
+<div class="summary-item-subtext">외부 확장이 용이한 멀티 테넌시 구조 확보</div>
+</div>
+</div>
+<div class="summary-highlight-box">
+<div class="summary-highlight-text">IT를 '비용 부서'에서 '수익 파이프라인'으로 격상</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <script>
 (function(){

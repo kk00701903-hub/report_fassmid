@@ -220,9 +220,10 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     color: var(--ppt-text-1)
     }
 .tft-org-name-text-span--multi {
-    font-size: 12px;
     line-height: 1.35;
-    display: inline-block
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
     }
 .tft-org-task-list-container {
     list-style: none
@@ -377,7 +378,7 @@ html { overflow: hidden;  margin:0; padding:0; }
 <span class="tft-org-role-badge-span">FE 엔지니어</span>
 </td>
 <td class="tft-org-table-body-cell">
-<span class="tft-org-name-text-span tft-org-name-text-span--multi">심지훈 오준열 이지상</span>
+<span class="tft-org-name-text-span tft-org-name-text-span--multi"><span>심지훈</span><span>오준열</span><span>이지상</span></span>
 </td>
 <td class="tft-org-table-body-cell">
 <ul class="tft-org-task-list-container">

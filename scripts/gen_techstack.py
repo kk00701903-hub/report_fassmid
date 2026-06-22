@@ -62,7 +62,7 @@ for row in data["rows"]:
     if row["스프린트"]:
         current_sprint = row["스프린트"]
     tech = row["기술 스택"]
-    role = row["역할"]
+    role = row.get("역할 설명") or row.get("역할", "")
     layer = LAYER_MAP[tech]
     item: dict = {"name": tech, "detail": role, "sprintId": current_sprint}
     if row["메인담당"]:

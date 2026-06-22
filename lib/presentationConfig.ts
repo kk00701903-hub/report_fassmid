@@ -54,6 +54,47 @@ export function createDefaultConfig(): PresentationConfig {
   };
 }
 
+/** 저장된 설정을 현재 빌트인 슬라이드 목록과 맞춥니다 (삭제·추가된 슬라이드 반영). */
+export function syncPresentationConfig(config: PresentationConfig): PresentationConfig {
+  const defaults = createDefaultConfig();
+  const validFiles = new Set(
+    defaults.slides
+      .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
+      .map((slide) => slide.fileName),
+  );
+  const defaultByFile = new Map(
+    defaults.slides
+      .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
+      .map((slide) => [slide.fileName, slide]),
+  );
+
+  const kept: SlideManifestItem[] = [];
+  const seenBuiltin = new Set<string>();
+
+  for (const slide of config.slides) {
+    if (slide.type === "custom") {
+      kept.push(slide);
+      continue;
+    }
+    if (!validFiles.has(slide.fileName)) continue;
+
+    seenBuiltin.add(slide.fileName);
+    const fresh = defaultByFile.get(slide.fileName)!;
+    kept.push({
+      ...fresh,
+      title: slide.title || fresh.title,
+      visible: slide.visible,
+    });
+  }
+
+  for (const slide of defaults.slides) {
+    if (slide.type !== "builtin" || seenBuiltin.has(slide.fileName)) continue;
+    kept.push(slide);
+  }
+
+  return normalizePresentationConfig({ slides: kept });
+}
+
 export function loadPresentationConfig(): PresentationConfig {
   if (typeof window === "undefined") {
     return createDefaultConfig();
@@ -65,7 +106,10 @@ export function loadPresentationConfig(): PresentationConfig {
 
     const parsed = JSON.parse(raw) as PresentationConfig;
     if (!parsed.slides?.length) return createDefaultConfig();
-    return normalizePresentationConfig(parsed);
+
+    const synced = syncPresentationConfig(parsed);
+    savePresentationConfig(synced);
+    return synced;
   } catch {
     return createDefaultConfig();
   }

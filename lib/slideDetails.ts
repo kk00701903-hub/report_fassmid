@@ -137,7 +137,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "market-context",
-        title: "디지털 전환 4대 트렌드",
+        title: "디지털 트렌드",
         category: "process",
         summary:
           "MSA·Cloud Native·Open Source·AI Native 네 축이 동시에 차세대 플랫폼 표준을 재정의하고 있습니다. FaSS는 이 교차점에서 물류 디지털 전환의 방향을 설정합니다.",
@@ -152,6 +152,22 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
   },
   {
     slideId: 4,
+    topics: [
+      {
+        id: "digital-worker",
+        title: "AI 디지털 워커 운영 모델",
+        category: "process",
+        summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
+        process: [
+          { step: 1, title: "자동 구간", description: "반복 코드 생성·테스트·문서화" },
+          { step: 2, title: "휴먼 구간", description: "아키텍처·보안·비즈니스 판단" },
+          { step: 3, title: "에스컬레이션", description: "AI 실패 시 빌더형 인재에게 핸드오프" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 5,
     topics: [
       {
         id: "fass-identity",
@@ -178,7 +194,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 5,
+    slideId: 6,
     topics: [
       {
         id: "executive-kpi",
@@ -189,22 +205,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
           { step: 1, title: "일정", description: "마일스톤 대비 진척률 주간 점검" },
           { step: 2, title: "품질", description: "SonarQube Quality Gate 통과율" },
           { step: 3, title: "비용", description: "FinOps 기준 인프라 비용 대비 예산" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 6,
-    topics: [
-      {
-        id: "digital-worker",
-        title: "AI 디지털 워커 운영 모델",
-        category: "process",
-        summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
-        process: [
-          { step: 1, title: "자동 구간", description: "반복 코드 생성·테스트·문서화" },
-          { step: 2, title: "휴먼 구간", description: "아키텍처·보안·비즈니스 판단" },
-          { step: 3, title: "에스컬레이션", description: "AI 실패 시 빌더형 인재에게 핸드오프" },
         ],
       },
     ],
@@ -793,41 +793,6 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
           { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
           { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
           { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 23,
-    topics: [
-      {
-        id: "ai-logistics",
-        title: "AI 물류 최적화 예시",
-        category: "code",
-        summary: "배차·경로 최적화 API 호출 및 결과 처리 예시입니다.",
-        code: [
-          {
-            language: "typescript",
-            filename: "route-optimizer.ts",
-            content: `type RouteRequest = {
-  depotId: string;
-  stops: { id: string; lat: number; lng: number; demand: number }[];
-};
-
-export async function optimizeRoute(req: RouteRequest) {
-  const res = await fetch("/api/ai/routing/optimize", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(req),
-  });
-  return res.json() as Promise<{ routeId: string; sequence: string[]; etaMin: number }>;
-}`,
-          },
-        ],
-        process: [
-          { step: 1, title: "데이터 수집", description: "주문·차량·도로 제약 조건 입력" },
-          { step: 2, title: "최적화", description: "AI 엔진으로 경로·배차 계산" },
-          { step: 3, title: "적용", description: "WMS/TMS에 결과 반영 및 모니터링" },
         ],
       },
     ],

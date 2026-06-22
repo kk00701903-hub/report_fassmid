@@ -9,5 +9,9 @@ export function getBasePath(): string {
 
 export function getSlideHtmlUrl(fileName: string): string {
   const basePath = getBasePath();
-  return `${basePath}/slides/${fileName}`;
+  const path = `${basePath}/slides/${fileName}`;
+  if (typeof window !== "undefined") {
+    return new URL(path, window.location.origin).href;
+  }
+  return path;
 }
