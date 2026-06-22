@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>FaSS Platform v3.0 — 핵심 기술 스택 총괄</title>
+<title>기술 스택 상세 — Frontend · Backend · Security</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
@@ -59,75 +59,119 @@ html{overflow:hidden;margin:0;padding:0}
 <div class="slide">
 
 <div class="title-r">
-  <div class="title-row"><div class="bar"></div><span class="badge">PART 3 · Tech Stack</span></div>
-  <h1>FaSS Platform v3.0 — 핵심 기술 스택 총괄</h1>
-  <p class="sub">260622 sprint-backlog 기준 · 38개 기술 · 23 스프린트(S01–S23) · 6계층 아키텍처</p>
+  <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack 1/2</span></div>
+  <h1>기술 스택 상세 — Frontend · Backend · Security</h1>
+  <p class="sub">UI/UX 표준부터 백엔드 코어·IAM까지 — 스프린트 S01–S15 구간</p>
   <div class="line"></div>
 </div>
 <div class="body">
-  <div class="layer-grid" style="grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr)">
-<div class="layer-card" style="--c:#00f0ff">
-  <div style="height:3px;background:#00f0ff;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
-  <div class="layer-head">
-    <div class="layer-icon" style="background:#00f0ff22;color:#00f0ff"><i class="fa-solid fa-window-maximize"></i></div>
-    <div class="layer-title">Frontend</div>
-    <div class="layer-count">5개</div>
+  <div class="detail-grid" style="grid-template-columns:1fr 1.15fr 1fr">
+    
+<div class="detail-col">
+  <div class="col-head" style="background:#00f0ff14;color:#00f0ff;border:1px solid #00f0ff44">
+    <i class="fa-solid fa-window-maximize"></i> Frontend <span style="margin-left:auto;font-size:10px;opacity:.8">5종</span>
   </div>
-  <div class="tech-tags"><span class="tag"><strong>Axios / React Query</strong> · S08</span><span class="tag"><strong>Atomic Design</strong> · S09</span><span class="tag"><strong>RealGrid</strong> · S09</span><span class="tag"><strong>Modal</strong> · S09</span><span class="tag">+1 more</span></div>
-  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>송민준 · 심지훈</div>
+  <div class="item-list">
+<div class="item">
+  <div class="item-top"><div class="item-name">Axios / React Query</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S08</span></div></div>
+  <div class="item-desc">프론트엔드 상태관리 및 클라이언트-서버 간 데이터 통신 최적화</div>
 </div>
-<div class="layer-card" style="--c:#3b82f6">
-  <div style="height:3px;background:#3b82f6;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
-  <div class="layer-head">
-    <div class="layer-icon" style="background:#3b82f622;color:#3b82f6"><i class="fa-solid fa-server"></i></div>
-    <div class="layer-title">Backend</div>
-    <div class="layer-count">10개</div>
-  </div>
-  <div class="tech-tags"><span class="tag"><strong>Spring Boot</strong> · S04</span><span class="tag"><strong>JWT</strong> · S06</span><span class="tag"><strong>Spring Security 6.x</strong> · S06</span><span class="tag"><strong>RBAC/ABAC</strong> · S07</span><span class="tag">+6 more</span></div>
-  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영 · 송민준 · 심지훈</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Atomic Design</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
+  <div class="item-desc">UI/UX 컴포넌트의 체계적인 자산화 및 재사용성 극대화를 위한 원자-분자-유기체 설계 방법론</div>
 </div>
-<div class="layer-card" style="--c:#a78bfa">
-  <div style="height:3px;background:#a78bfa;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
-  <div class="layer-head">
-    <div class="layer-icon" style="background:#a78bfa22;color:#a78bfa"><i class="fa-solid fa-shield-halved"></i></div>
-    <div class="layer-title">Security &amp; IAM</div>
-    <div class="layer-count">6개</div>
-  </div>
-  <div class="tech-tags"><span class="tag"><strong>네이밍 룰</strong> · S01</span><span class="tag"><strong>Keycloak</strong> · S05</span><span class="tag"><strong>LDAP</strong> · S05</span><span class="tag"><strong>OIDC</strong> · S05</span><span class="tag">+2 more</span></div>
-  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">RealGrid</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
+  <div class="item-desc">대용량 비즈니스 데이터 처리에 특화된 웹 엔터프라이즈 그리드</div>
 </div>
-<div class="layer-card" style="--c:#22c55e">
-  <div style="height:3px;background:#22c55e;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
-  <div class="layer-head">
-    <div class="layer-icon" style="background:#22c55e22;color:#22c55e"><i class="fa-solid fa-database"></i></div>
-    <div class="layer-title">Data &amp; Messaging</div>
-    <div class="layer-count">4개</div>
-  </div>
-  <div class="tech-tags"><span class="tag"><strong>Redis</strong> · S03</span><span class="tag"><strong>Multi-tenancy</strong> · S11</span><span class="tag"><strong>Debezium</strong> · S17</span><span class="tag"><strong>Kafka</strong> · S17</span></div>
-  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영 · 송민준</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Modal</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
+  <div class="item-desc">화면 이동 없는 팝업형 다이얼로그 UI 제공 컴포넌트</div>
 </div>
-<div class="layer-card" style="--c:#facc15">
-  <div style="height:3px;background:#facc15;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
-  <div class="layer-head">
-    <div class="layer-icon" style="background:#facc1522;color:#facc15"><i class="fa-solid fa-cloud"></i></div>
-    <div class="layer-title">Platform &amp; DevOps</div>
-    <div class="layer-count">12개</div>
-  </div>
-  <div class="tech-tags"><span class="tag"><strong>Docker</strong> · S02</span><span class="tag"><strong>Docker Compose</strong> · S02</span><span class="tag"><strong>Kubernetes (K8s)</strong> · S02</span><span class="tag"><strong>GitLab CI</strong> · S02</span><span class="tag">+8 more</span></div>
-  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영 · 김희찬 · 송민준 · 심지훈</div>
-</div>
-<div class="layer-card" style="--c:#fb923c">
-  <div style="height:3px;background:#fb923c;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
-  <div class="layer-head">
-    <div class="layer-icon" style="background:#fb923c22;color:#fb923c"><i class="fa-solid fa-robot"></i></div>
-    <div class="layer-title">AI &amp; Agent</div>
-    <div class="layer-count">1개</div>
-  </div>
-  <div class="tech-tags"><span class="tag"><strong>LLM / LangChain (예상)</strong> · S18</span></div>
-  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Next.js (SSR/RSC)</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S16</span></div></div>
+  <div class="item-desc">서버 사이드 렌더링을 통한 초기 로딩 속도 최적화 및 SEO 개선</div>
 </div></div>
-  <div class="phase-bar"><div class="phase"><strong>1단계</strong><span>인프라·표준 규격</span><em>S01–S04</em></div><div class="phase"><strong>2단계</strong><span>보안·공통 모듈</span><em>S05–S08</em></div><div class="phase"><strong>3단계</strong><span>생산성·UI 표준</span><em>S09–S11</em></div><div class="phase"><strong>4단계</strong><span>외부 연동·AI 연계</span><em>S12·S14</em></div><div class="phase"><strong>5단계</strong><span>보안·최적화·리포트</span><em>S15–S17·S23</em></div><div class="phase"><strong>추가</strong><span>차세대 로드맵</span><em>S13·S18–S22</em></div></div>
-  <div class="footer-note"><strong>메인 담당:</strong> 기충영 · 김희찬 · 송민준 · 심지훈 — kk00701903-hub.github.io/sprint-backlog 연동</div>
+</div>
+    
+<div class="detail-col">
+  <div class="col-head" style="background:#3b82f614;color:#3b82f6;border:1px solid #3b82f644">
+    <i class="fa-solid fa-server"></i> Backend <span style="margin-left:auto;font-size:10px;opacity:.8">10종</span>
+  </div>
+  <div class="item-list">
+<div class="item">
+  <div class="item-top"><div class="item-name">Spring Boot</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S04</span></div></div>
+  <div class="item-desc">전사 비즈니스 로직 개발의 뼈대가 되는 기본 구조체 및 백엔드 코어</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">JWT</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S06</span></div></div>
+  <div class="item-desc">무상태(Stateless) 기반의 빠르고 안전한 사용자 인증 토큰 처리</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Spring Security 6.x</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S06</span></div></div>
+  <div class="item-desc">엔터프라이즈 애플리케이션의 인증/인가를 통제하는 강력한 보안 필터</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">RBAC/ABAC</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S07</span></div></div>
+  <div class="item-desc">역할 및 속성(조건) 기반의 세밀한 사용자 메뉴/데이터 접근 통제</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">DTO / MapStruct</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S10</span></div></div>
+  <div class="item-desc">계층 간 데이터 교환 객체 정의 및 변환(매핑) 코드 자동 생성</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Spring Batch</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S10</span></div></div>
+  <div class="item-desc">정해진 시간에 대용량 데이터를 안전하게 일괄 처리하는 스케줄링</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">API Gateway</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S12</span></div></div>
+  <div class="item-desc">외부 API 요청을 단일 진입점에서 받아 라우팅, 인증, 트래픽 제어 수행</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">REST / gRPC</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S14</span></div></div>
+  <div class="item-desc">물류/유통 AI 모델과 백엔드 시스템 간의 빠르고 표준화된 통신 규격</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Spring Cloud</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S19</span></div></div>
+  <div class="item-desc">거대한 모놀리식 시스템을 독립적인 마이크로서비스로 분리하여 유연성 확보</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Golden Set</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S20</span></div></div>
+  <div class="item-desc">보안 및 성능 검증이 완료되어 전사 표준으로 사용할 라이브러리/의존성 모음 배포</div>
+</div></div>
+</div>
+    
+<div class="detail-col">
+  <div class="col-head" style="background:#a78bfa14;color:#a78bfa;border:1px solid #a78bfa44">
+    <i class="fa-solid fa-shield-halved"></i> Security &amp; IAM <span style="margin-left:auto;font-size:10px;opacity:.8">6종</span>
+  </div>
+  <div class="item-list">
+<div class="item">
+  <div class="item-top"><div class="item-name">네이밍 룰</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S01</span></div></div>
+  <div class="item-desc">전체 개발 파트 간 코드 일관성 유지 및 유지보수성 향상</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Keycloak</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
+  <div class="item-desc">통합 계정 및 접근 관리(IAM)를 위한 오픈소스 솔루션</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">LDAP</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
+  <div class="item-desc">사내 디렉토리 서비스(조직/사용자 정보) 연계 인증</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">OIDC</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
+  <div class="item-desc">OAuth 2.0 기반의 안전한 분산 환경 사용자 인증 프로토콜</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">API 마스킹 / DB 암호화</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S15</span></div></div>
+  <div class="item-desc">화면 및 DB 상의 개인정보 등 민감 데이터 노출 원천 차단</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Nexus IQ</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S21</span></div></div>
+  <div class="item-desc">프로젝트에 포함된 오픈소스의 보안 취약점 및 라이선스 위반 리스크 자동 점검</div>
+</div></div>
+</div>
+  </div>
 </div>
 </div>
 <script>

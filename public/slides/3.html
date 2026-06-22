@@ -31,27 +31,18 @@ body {
   background:radial-gradient(ellipse at 8% 12%, rgba(0,240,255,0.05) 0%, transparent 50%),
              radial-gradient(ellipse at 92% 88%, rgba(250,204,21,0.04) 0%, transparent 50%);
 }
-.top-bar {
-  flex-shrink:0; padding:10px 28px 0;
-  display:flex; align-items:center; gap:10px;
-}
-.badge {
-  display:flex; align-items:center; gap:6px;
-  padding:3px 10px; border-radius:20px; font-size:12px; font-weight:700;
-  letter-spacing:0.5px; text-transform:uppercase;
-  background:rgba(251,146,60,0.12); border:1px solid rgba(251,146,60,0.35);
-  color:var(--ppt-orange);
-}
-.title-region { flex-shrink:0; padding:5px 28px 4px; }
+.title-region { flex-shrink:0; padding:22px 40px 8px; display:flex; flex-direction:column; gap:6px; }
+.title-header { display:flex; align-items:center; gap:12px; }
+.title-bar { width:4px; height:32px; background:var(--ppt-accent); border-radius:2px; flex-shrink:0; }
 .title-main {
-  font-family:var(--ppt-font-display); font-size:28px; font-weight:700; line-height:1.22;
+  font-family:var(--ppt-font-display); font-size:28px; font-weight:700; line-height:1.22; margin:0;
 }
 .title-main em { color:var(--ppt-orange); font-style:normal; }
-.title-sub { font-size:14px; color:var(--ppt-text-2); margin-top:3px; line-height:1.4; }
+.title-sub { font-size:14px; color:var(--ppt-text-2); padding-left:16px; line-height:1.4; }
 .title-line {
-  margin-top:6px; height:1px;
-  background:linear-gradient(90deg,var(--ppt-orange) 0%,var(--ppt-accent) 40%,transparent 100%);
-  opacity:0.45;
+  height:1px; width:100%;
+  background:linear-gradient(90deg,var(--ppt-accent) 0%,transparent 100%);
+  opacity:0.3; margin-top:4px;
 }
 .trend-grid {
   flex:1; min-height:0; padding:4px 28px 4px;
@@ -115,12 +106,11 @@ html { overflow:hidden; margin:0; padding:0; }
 </head>
 <body>
 <div class="slide-root">
-  <div class="top-bar">
-    <div class="badge"><i class="fas fa-satellite-dish"></i> PART 1 · 시대적 맥락</div>
-  </div>
-
   <div class="title-region">
-    <h1 class="title-main">디지털 트렌드</h1>
+    <div class="title-header">
+      <div class="title-bar"></div>
+      <h1 class="title-main">디지털 트렌드</h1>
+    </div>
     <p class="title-sub"><em>MSA · Cloud · Open Source · AI</em> — 네 축이 동시에 표준을 재정의하고 있습니다. 글로벌 빅테크·금융·물류 선도 기업이 채택하는 산업 표준 흐름입니다.</p>
     <div class="title-line"></div>
   </div>

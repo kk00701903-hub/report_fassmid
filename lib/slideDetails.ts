@@ -362,61 +362,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 14,
     topics: [
       {
-        id: "tech-stack-overview",
-        title: "FaSS Platform v3.0 기술 스택",
-        category: "architecture",
-        summary:
-          "sprint-backlog 23개 스프린트(S01–S23)로 정의된 6계층 스택. Next.js 15·SiteFramework·Keycloak·Debezium CDC·LangGraph를 단일 플랫폼으로 통합합니다.",
-        techLayers: "fass-full",
-        preview: {
-          type: "sprint-backlog",
-          title: "Sprint Backlog 대시보드",
-          caption: "kk00701903-hub.github.io/sprint-backlog — 스프린트별 DoD·태스크·진행률 추적",
-        },
-        process: [
-          { step: 1, title: "1단계 인프라", description: "S01–S04: 네이밍·Docker CI·Config/Vault·SiteFramework" },
-          { step: 2, title: "2단계 보안", description: "S05–S08: Keycloak OIDC·JWT·RBAC/ABAC·API 상태관리" },
-          { step: 3, title: "3단계 UI·도메인", description: "S09–S11: RealGrid·MapStruct DTO·Multi-tenancy" },
-          { step: 4, title: "4–5단계 확장", description: "S12–S23: Gateway·AI·CDC·SSR·Print/PDF" },
-        ],
-        links: [
-          { label: "FaSS Sprint Backlog (Live)", href: FASS_BACKLOG_URL },
-          { label: "SiteFramework Repo", href: "https://gitlab.com" },
-        ],
-      },
-      ODIN_INFRA_TOPIC,
-    ],
-  },
-  {
-    slideId: 15,
-    topics: [
-      {
-        id: "tech-stack-full-map",
-        title: "FaSS Platform v3.0 — 핵심 기술 스택 총괄",
-        category: "architecture",
-        summary:
-          "엑셀 스프린트 백로그(S01–S23) 기준 6계층·38개 기술 항목과 메인 담당자를 한눈에 정리합니다. Frontend → Backend → Security → Data → DevOps → AI 순으로 플랫폼을 구성합니다.",
-        techLayers: "fass-full",
-        milestones: "fass-full",
-        preview: {
-          type: "sprint-backlog",
-          title: "Sprint Backlog — 기술 스택·담당자",
-          caption: "스프린트별 DoD·태스크·진행률과 기술 항목 담당자(기충영·송민준·심지훈·김희찬) 매핑",
-        },
-        process: [
-          { step: 1, title: "1단계 인프라·표준", description: "S01–S04: 네이밍·Docker/K8s CI·Config·SiteFramework" },
-          { step: 2, title: "2단계 보안·공통", description: "S05–S08: Keycloak OIDC·JWT·RBAC/ABAC·React Query" },
-          { step: 3, title: "3단계 UI·도메인", description: "S09–S11: RealGrid·MapStruct·Multi-tenancy" },
-          { step: 4, title: "4–6단계 확장", description: "S12–S23: Gateway·CDC·SSR·AI Agent·리포팅·모니터링" },
-        ],
-        links: [{ label: "FaSS Sprint Backlog (Live)", href: FASS_BACKLOG_URL }],
-      },
-    ],
-  },
-  {
-    slideId: 16,
-    topics: [
-      {
         id: "tech-stack-fe-be-sec",
         title: "Frontend · Backend · Security 상세",
         category: "architecture",
@@ -433,7 +378,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 17,
+    slideId: 15,
     topics: [
       {
         id: "tech-stack-data-infra-ai",
@@ -452,7 +397,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 18,
+    slideId: 16,
     topics: [
       {
         id: "api-first",
@@ -598,7 +543,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 19,
+    slideId: 17,
     topics: [
       {
         id: "msa-migration",
@@ -640,7 +585,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 20,
+    slideId: 18,
     topics: [
       {
         id: "docker-cloud-ready",
@@ -701,7 +646,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 21,
+    slideId: 19,
     topics: [
       {
         id: "cdc-sync",
@@ -756,7 +701,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 22,
+    slideId: 20,
     topics: [
       {
         id: "innovation-validation",
@@ -772,7 +717,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 23,
+    slideId: 21,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -788,7 +733,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 24,
+    slideId: 22,
     topics: [
       {
         id: "realgrid-ui",
@@ -850,7 +795,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 25,
+    slideId: 23,
     topics: [
       {
         id: "sonarqube-gate",
@@ -886,7 +831,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 26,
+    slideId: 24,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -904,7 +849,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 27,
+    slideId: 25,
     topics: [
       {
         id: "finops",
@@ -934,7 +879,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 30,
+    slideId: 28,
     topics: [
       {
         id: "peer-benchmark",
@@ -951,7 +896,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 31,
+    slideId: 29,
     topics: [
       {
         id: "mm-tool-investment",
@@ -1067,7 +1012,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 30,
     topics: [
       {
         id: "framework-builder-role",
@@ -1109,7 +1054,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 33,
+    slideId: 31,
     topics: [
       {
         id: "builder-talent",
@@ -1125,7 +1070,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 34,
+    slideId: 32,
     topics: [
       {
         id: "roadmap-vision",
@@ -1141,7 +1086,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 36,
+    slideId: 34,
     topics: [
       {
         id: "risk-management",
@@ -1157,7 +1102,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 37,
+    slideId: 35,
     topics: [
       {
         id: "closing-milestones",
@@ -1174,7 +1119,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 39,
+    slideId: 37,
     topics: [
       {
         id: "commitment",
