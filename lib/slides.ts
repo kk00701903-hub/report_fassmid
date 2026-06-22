@@ -3,7 +3,7 @@ export type Slide = {
   title: string;
 };
 
-export const SLIDE_COUNT = 32;
+export const SLIDE_COUNT = 33;
 
 export const SLIDES: Slide[] = [
   { id: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고" },
@@ -38,6 +38,7 @@ export const SLIDES: Slide[] = [
   { id: 30, title: "FaSS 차세대 플랫폼 — 대용량 데이터 처리" },
   { id: 31, title: "무결점 비즈니스 전환을 위한 단계적 롤아웃 로드맵" },
   { id: 32, title: "(주)제때 차세대 FaSS 플랫폼 구축 6월 중간 보고 - 맺음말" },
+  { id: 33, title: "진행 중 스프린트 현황 — 동시 다발 대규모 프로젝트" },
 ];
 
 export function getSlideById(id: number): Slide | undefined {
