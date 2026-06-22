@@ -34,11 +34,16 @@ body {
 .title-region { flex-shrink:0; padding:22px 40px 8px; display:flex; flex-direction:column; gap:6px; }
 .title-header { display:flex; align-items:center; gap:12px; }
 .title-bar { width:4px; height:32px; background:var(--ppt-accent); border-radius:2px; flex-shrink:0; }
+.title-badge {
+  background:rgba(250,204,21,0.12); color:var(--ppt-accent-2);
+  padding:3px 12px; border-radius:4px; font-size:13px; font-weight:600;
+  border:1px solid rgba(250,204,21,0.3); white-space:nowrap;
+}
 .title-main {
-  font-family:var(--ppt-font-display); font-size:28px; font-weight:700; line-height:1.22; margin:0;
+  font-family:var(--ppt-font-display); font-size:26px; font-weight:700; line-height:1.22; margin:0;
 }
 .title-main em { color:var(--ppt-orange); font-style:normal; }
-.title-sub { font-size:14px; color:var(--ppt-text-2); padding-left:16px; line-height:1.4; }
+.title-sub { font-size:15px; color:var(--ppt-text-2); padding-left:16px; line-height:1.4; }
 .title-line {
   height:1px; width:100%;
   background:linear-gradient(90deg,var(--ppt-accent) 0%,transparent 100%);
@@ -109,9 +114,10 @@ html { overflow:hidden; margin:0; padding:0; }
   <div class="title-region">
     <div class="title-header">
       <div class="title-bar"></div>
+      <span class="title-badge">FUTURE VISION</span>
       <h1 class="title-main">디지털 트렌드</h1>
     </div>
-    <p class="title-sub"><em>MSA · Cloud · Open Source · AI</em> — 네 축이 동시에 표준을 재정의하고 있습니다. 글로벌 빅테크·금융·물류 선도 기업이 채택하는 산업 표준 흐름입니다.</p>
+    <div class="title-sub">IT 업계 트렌드 — <em>MSA · Cloud · Open Source · AI</em> 네 축이 동시에 표준을 재정의하고 있습니다. 글로벌 빅테크·금융·물류 선도 기업이 채택하는 산업 표준 흐름입니다.</div>
     <div class="title-line"></div>
   </div>
 
