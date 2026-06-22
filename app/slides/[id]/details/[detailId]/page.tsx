@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import DetailContent from "@/components/DetailContent";
+import LegacyDetailRedirect from "@/components/LegacyDetailRedirect";
 import { getDetailTopic, getSlideDetails, getAllDetailParams } from "@/lib/slideDetails";
+import { isLegacySlideId, getLegacyDetailParams, resolveSlideId } from "@/lib/slideRedirects";
 import { getSlideById, isValidSlideId } from "@/lib/slides";
 
 type DetailPageProps = {
@@ -13,26 +15,33 @@ type DetailPageProps = {
 };
 
 export function generateStaticParams() {
-  return getAllDetailParams();
+  const current = getAllDetailParams();
+  return [...current, ...getLegacyDetailParams(current)];
 }
 
 export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
   const { id, detailId } = await params;
   const slideId = Number(id);
-  const topic = getDetailTopic(slideId, detailId);
+  const resolvedId = resolveSlideId(slideId);
+  const topic = getDetailTopic(resolvedId, detailId);
 
   if (!topic) {
     return { title: "상세 자료를 찾을 수 없습니다" };
   }
 
   return {
-    title: `${topic.title} (슬라이드 ${slideId})`,
+    title: `${topic.title} (슬라이드 ${resolvedId})`,
   };
 }
 
 export default async function SlideDetailPage({ params }: DetailPageProps) {
   const { id, detailId } = await params;
   const slideId = Number(id);
+  const resolvedId = resolveSlideId(slideId);
+
+  if (isLegacySlideId(slideId)) {
+    return <LegacyDetailRedirect targetSlideId={resolvedId} detailId={detailId} />;
+  }
 
   if (!isValidSlideId(slideId)) {
     notFound();

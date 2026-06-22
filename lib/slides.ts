@@ -18,7 +18,7 @@ export const SLIDES: Slide[] = [
   { id: 10, title: "최적화 방안 2. 애자일 워룸 운영" },
   { id: 11, title: "최적화 방안 3. 사전 POC 운영" },
   { id: 12, title: "PART 3 - 기술 스택 및 아키텍처" },
-  { id: 13, title: "핵심 기술 스택 — 주요 과제별 매핑" },
+  { id: 13, title: "핵심 기술 스택" },
   { id: 14, title: "아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)" },
   { id: 15, title: "FaSS 최종 목표: MSA 전환 전략" },
   { id: 16, title: "중장기 아키텍처 원칙 2: Kubernetes (컨테이너 오케스트레이션)" },
