@@ -8,8 +8,8 @@ export const SLIDE_COUNT = 33;
 export const SLIDES: Slide[] = [
   { id: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고" },
   { id: 2, title: "PART 1 - 전략적 비전 및 목표" },
-  { id: 3, title: "디지털 트렌드" },
-  { id: 4, title: "디지털 트렌드" },
+  { id: 3, title: "디지털 트렌드 — MSA · Cloud · Open Source · AI" },
+  { id: 4, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)" },
   { id: 5, title: "FaSS 플랫폼 아이덴티티" },
   { id: 6, title: "Executive Summary - FaSS 플랫폼 구축" },
   { id: 7, title: "PART 2 - 프로젝트 진행 경과 및 방향성" },

@@ -137,10 +137,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "market-context",
-        title: "디지털 트렌드",
-        category: "process",
-        summary:
-          "MSA·Cloud Native·Open Source·AI Native 네 축이 글로벌 빅테크·금융·물류 선도 기업에서 동시에 표준으로 자리잡고 있습니다.",
+        title: "디지털 트렌드 — MSA · Cloud · Open Source · AI",
         process: [
           { step: 1, title: "MSA", description: "Modular Monolith → MSA 점진 전환, DDD·API-First" },
           { step: 2, title: "Cloud", description: "Kubernetes·GitOps·FinOps 기반 Cloud-Ready 운영" },
@@ -155,9 +152,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "digital-worker",
-        title: "디지털 트렌드",
-        category: "process",
-        summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
+        title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)",
         process: [
           { step: 1, title: "자동 구간", description: "반복 코드 생성·테스트·문서화" },
           { step: 2, title: "휴먼 구간", description: "아키텍처·보안·비즈니스 판단" },
