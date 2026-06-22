@@ -28,13 +28,13 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
     partNumber: 4,
     title: "혁신 및 검증",
     startSlideId: 18,
-    endSlideId: 28,
+    endSlideId: 27,
   },
   {
     partNumber: 5,
     title: "로드맵 및 미래 비전",
-    startSlideId: 29,
-    endSlideId: 34,
+    startSlideId: 28,
+    endSlideId: 32,
   },
 ];
 

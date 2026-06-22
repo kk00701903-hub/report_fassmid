@@ -809,22 +809,6 @@ quality_gate:
     slideId: 23,
     topics: [
       {
-        id: "builder-talent",
-        title: "빌더형 인재 역량 체크리스트",
-        category: "process",
-        summary: "모니터링·빌딩 역할을 수행하는 빌더형 인재의 역량 기준입니다.",
-        process: [
-          { step: 1, title: "Monitor", description: "AI 출력·품질 지표·파이프라인 감시" },
-          { step: 2, title: "Builder", description: "프레임워크·자동화·아키처 직접 구축" },
-          { step: 3, title: "성장", description: "분기별 역량 리뷰 및 학습 계획" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 24,
-    topics: [
-      {
         id: "roadmap-vision",
         title: "로드맵 및 미래 비전",
         category: "process",
@@ -838,7 +822,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 26,
+    slideId: 25,
     topics: [
       {
         id: "sonarqube-gate",
@@ -874,7 +858,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 27,
+    slideId: 26,
     topics: [
       {
         id: "msa-migration",
@@ -916,7 +900,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 28,
+    slideId: 27,
     topics: [
       {
         id: "cdc-sync",
@@ -971,7 +955,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 29,
+    slideId: 28,
     topics: [
       {
         id: "risk-management",
@@ -987,24 +971,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 30,
-    topics: [
-      {
-        id: "peer-benchmark",
-        title: "타사 프로젝트 규모 벤치마크",
-        category: "process",
-        summary:
-          "삼성E&A 등 유사 범위 사례(70명·2년, 1,680 M/M)의 인력 규모를 참고 지표로만 활용합니다.",
-        process: [
-          { step: 1, title: "참고 범위", description: "70명이 2년간 진행한 유사 산출물 범위의 엔터프라이즈 플랫폼 구축 사례" },
-          { step: 2, title: "비교 항목", description: "총 투입 인력(70명), 기간(2년), M/M(1,680) 감각" },
-          { step: 3, title: "활용 방식", description: "일정·비용 리스크 산정용 벤치마크 (기술 내용과 분리)" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 31,
+    slideId: 29,
     topics: [
       {
         id: "closing-milestones",
@@ -1021,7 +988,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 32,
+    slideId: 30,
     topics: [
       {
         id: "commitment",
@@ -1037,7 +1004,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 33,
+    slideId: 31,
     topics: [
       {
         id: "active-sprint-portfolio",
@@ -1061,7 +1028,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 34,
+    slideId: 32,
     topics: [
       {
         id: "business-innovation-engine",

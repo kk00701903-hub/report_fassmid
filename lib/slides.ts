@@ -3,7 +3,7 @@ export type Slide = {
   title: string;
 };
 
-export const SLIDE_COUNT = 34;
+export const SLIDE_COUNT = 32;
 
 export const SLIDES: Slide[] = [
   { id: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고" },
@@ -28,18 +28,16 @@ export const SLIDES: Slide[] = [
   { id: 20, title: "비즈니스 혁신 5. Zero-Defect 코드 품질 통제 체계" },
   { id: 21, title: "비즈니스 혁신 6. FinOps 관점에서의 클라우드 전환 대비" },
   { id: 22, title: "비즈니스 혁신 7. 독자 개발 RAG 기반 AI 솔루션 확보" },
-  { id: 23, title: "AI 개발 혁신 — 도구 투자 · 오케스트레이션 · 인재육성" },
-  { id: 24, title: "비즈니스 혁신 8. 빌더형 인재 육성을 위한 전환" },
-  { id: 25, title: "타사 프로젝트 비교" },
-  { id: 26, title: "비즈니스 혁신 3. 전략적 수익화 IT 플랫폼 확보" },
-  { id: 27, title: "중장기 목표 2: MSA 전환" },
-  { id: 28, title: "중장기 목표 1: Kubernetes 운영" },
-  { id: 29, title: "PART 5 - 로드맵 및 미래 비전" },
-  { id: 30, title: "FaSS 차세대 플랫폼 — 대용량 데이터 처리" },
-  { id: 31, title: "단계적 롤아웃 로드맵" },
-  { id: 32, title: "맺음말" },
-  { id: 33, title: "스프린트 운영현황" },
-  { id: 34, title: "비즈니스 혁신1: 차세대 영업 핵심 IT 엔진 보유" },
+  { id: 23, title: "비즈니스 혁신 8. 빌더형 인재 육성을 위한 전환" },
+  { id: 24, title: "타사 프로젝트 비교" },
+  { id: 25, title: "비즈니스 혁신 3. 전략적 수익화 IT 플랫폼 확보" },
+  { id: 26, title: "중장기 목표 2: MSA 전환" },
+  { id: 27, title: "중장기 목표 1: Kubernetes 운영" },
+  { id: 28, title: "PART 5 - 로드맵 및 미래 비전" },
+  { id: 29, title: "단계적 롤아웃 로드맵" },
+  { id: 30, title: "맺음말" },
+  { id: 31, title: "스프린트 운영현황" },
+  { id: 32, title: "비즈니스 혁신1: 차세대 영업 핵심 IT 엔진 보유" },
 ];
 
 export function getSlideById(id: number): Slide | undefined {
