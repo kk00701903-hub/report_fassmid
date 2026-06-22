@@ -1,6 +1,17 @@
-import { FASS_BACKLOG_URL, type TechStackLayer } from "@/lib/fassTechStack";
+import {
+  FASS_BACKLOG_URL,
+  FASS_TECH_LAYERS,
+  type TechStackLayer,
+} from "@/lib/fassTechStack";
 import type { MilestonePhase } from "@/lib/fassMilestones";
 import { ODIN_INFRA_TOPIC } from "@/lib/odinInfraDetail";
+
+const TECH_STACK_FE_BE_SEC: TechStackLayer[] = FASS_TECH_LAYERS.filter((l) =>
+  ["frontend", "backend", "security"].includes(l.id),
+);
+const TECH_STACK_DATA_INFRA_AI: TechStackLayer[] = FASS_TECH_LAYERS.filter((l) =>
+  ["data", "infra", "ai"].includes(l.id),
+);
 
 export type ProcessStep = {
   step: number;
@@ -186,6 +197,22 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 6,
     topics: [
       {
+        id: "digital-worker",
+        title: "AI 디지털 워커 운영 모델",
+        category: "process",
+        summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
+        process: [
+          { step: 1, title: "자동 구간", description: "반복 코드 생성·테스트·문서화" },
+          { step: 2, title: "휴먼 구간", description: "아키텍처·보안·비즈니스 판단" },
+          { step: 3, title: "에스컬레이션", description: "AI 실패 시 빌더형 인재에게 핸드오프" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 7,
+    topics: [
+      {
         id: "progress-tracking",
         title: "프로젝트 진행 관리 프로세스",
         category: "process",
@@ -199,7 +226,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 7,
+    slideId: 8,
     topics: [
       {
         id: "war-room",
@@ -215,7 +242,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 8,
+    slideId: 9,
     topics: [
       {
         id: "fass-daily-scrum",
@@ -263,7 +290,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 9,
+    slideId: 10,
     topics: [
       {
         id: "milestone-plan",
@@ -279,7 +306,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 10,
+    slideId: 11,
     topics: [
       {
         id: "ai-workforce-replacement",
@@ -325,7 +352,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
+    slideId: 12,
     topics: [
       {
         id: "module-delivery",
@@ -342,7 +369,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 12,
+    slideId: 13,
     topics: [
       {
         id: "tech-stack-overview",
@@ -371,7 +398,71 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 13,
+    slideId: 14,
+    topics: [
+      {
+        id: "tech-stack-full-map",
+        title: "FaSS Platform v3.0 — 핵심 기술 스택 총괄",
+        category: "architecture",
+        summary:
+          "엑셀 스프린트 백로그(S01–S23) 기준 6계층·38개 기술 항목과 메인 담당자를 한눈에 정리합니다. Frontend → Backend → Security → Data → DevOps → AI 순으로 플랫폼을 구성합니다.",
+        techLayers: "fass-full",
+        milestones: "fass-full",
+        preview: {
+          type: "sprint-backlog",
+          title: "Sprint Backlog — 기술 스택·담당자",
+          caption: "스프린트별 DoD·태스크·진행률과 기술 항목 담당자(기충영·송민준·심지훈·김희찬) 매핑",
+        },
+        process: [
+          { step: 1, title: "1단계 인프라·표준", description: "S01–S04: 네이밍·Docker/K8s CI·Config·SiteFramework" },
+          { step: 2, title: "2단계 보안·공통", description: "S05–S08: Keycloak OIDC·JWT·RBAC/ABAC·React Query" },
+          { step: 3, title: "3단계 UI·도메인", description: "S09–S11: RealGrid·MapStruct·Multi-tenancy" },
+          { step: 4, title: "4–6단계 확장", description: "S12–S23: Gateway·CDC·SSR·AI Agent·리포팅·모니터링" },
+        ],
+        links: [{ label: "FaSS Sprint Backlog (Live)", href: FASS_BACKLOG_URL }],
+      },
+    ],
+  },
+  {
+    slideId: 15,
+    topics: [
+      {
+        id: "tech-stack-fe-be-sec",
+        title: "Frontend · Backend · Security 상세",
+        category: "architecture",
+        summary:
+          "사용자 경험(Next.js·RealGrid)·비즈니스 코어(Spring Boot·Gateway)·통합 IAM(Keycloak·RBAC) 3계층의 스프린트·담당자 매핑입니다.",
+        techLayers: TECH_STACK_FE_BE_SEC,
+        process: [
+          { step: 1, title: "Frontend", description: "S08–S16: React Query·Atomic Design·RealGrid·Next.js SSR/RSC" },
+          { step: 2, title: "Backend", description: "S04–S20: Spring Boot·Security·Batch·Gateway·Spring Cloud" },
+          { step: 3, title: "Security", description: "S01·S05·S15·S21: 네이밍·Keycloak·마스킹·Nexus IQ" },
+        ],
+        links: [{ label: "FaSS Sprint Backlog", href: FASS_BACKLOG_URL }],
+      },
+    ],
+  },
+  {
+    slideId: 16,
+    topics: [
+      {
+        id: "tech-stack-data-infra-ai",
+        title: "Data · DevOps · AI 상세",
+        category: "architecture",
+        summary:
+          "Redis·CDC(Kafka/Debezium)·Docker/K8s GitOps·LangGraph AI Agent까지 데이터 파이프라인과 플랫폼 운영·차세대 AI 스택을 정리합니다.",
+        techLayers: TECH_STACK_DATA_INFRA_AI,
+        process: [
+          { step: 1, title: "Data & Messaging", description: "S03·S11·S17: Redis·Multi-tenancy·Debezium CDC·Kafka" },
+          { step: 2, title: "Platform & DevOps", description: "S02·S13·S22·S23: Docker·GitLab·ArgoCD·Superset·ClipReport" },
+          { step: 3, title: "AI & Agent", description: "S18: LLM/LangChain 기반 에이전트 권한·역할 통제(예상)" },
+        ],
+        links: [{ label: "FaSS Sprint Backlog", href: FASS_BACKLOG_URL }],
+      },
+    ],
+  },
+  {
+    slideId: 17,
     topics: [
       {
         id: "api-first",
@@ -439,11 +530,6 @@ paths:
           },
         ],
       },
-    ],
-  },
-  {
-    slideId: 14,
-    topics: [
       {
         id: "modular-monolith-db",
         title: "도메인별 DB 스키마 격리 (S04/S11)",
@@ -522,7 +608,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 15,
+    slideId: 18,
     topics: [
       {
         id: "msa-migration",
@@ -564,7 +650,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 16,
+    slideId: 19,
     topics: [
       {
         id: "docker-cloud-ready",
@@ -625,7 +711,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 17,
+    slideId: 20,
     topics: [
       {
         id: "cdc-sync",
@@ -680,7 +766,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 18,
+    slideId: 21,
     topics: [
       {
         id: "innovation-validation",
@@ -696,7 +782,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 19,
+    slideId: 22,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -712,7 +798,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 20,
+    slideId: 23,
     topics: [
       {
         id: "ai-logistics",
@@ -747,7 +833,7 @@ export async function optimizeRoute(req: RouteRequest) {
     ],
   },
   {
-    slideId: 21,
+    slideId: 23,
     topics: [
       {
         id: "realgrid-ui",
@@ -809,7 +895,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 22,
+    slideId: 24,
     topics: [
       {
         id: "sonarqube-gate",
@@ -863,7 +949,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 26,
+    slideId: 28,
     topics: [
       {
         id: "finops",
@@ -893,7 +979,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 27,
+    slideId: 29,
     topics: [
       {
         id: "peer-benchmark",
@@ -910,7 +996,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 28,
+    slideId: 30,
     topics: [
       {
         id: "mm-tool-investment",
@@ -1026,7 +1112,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 29,
+    slideId: 31,
     topics: [
       {
         id: "framework-builder-role",
@@ -1068,23 +1154,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
-    topics: [
-      {
-        id: "digital-worker",
-        title: "AI 디지털 워커 운영 모델",
-        category: "process",
-        summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
-        process: [
-          { step: 1, title: "자동 구간", description: "반복 코드 생성·테스트·문서화" },
-          { step: 2, title: "휴먼 구간", description: "아키텍처·보안·비즈니스 판단" },
-          { step: 3, title: "에스컬레이션", description: "AI 실패 시 빌더형 인재에게 핸드오프" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 31,
+    slideId: 32,
     topics: [
       {
         id: "builder-talent",
@@ -1100,7 +1170,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 34,
     topics: [
       {
         id: "roadmap-vision",
@@ -1116,7 +1186,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 33,
+    slideId: 35,
     topics: [
       {
         id: "risk-management",
@@ -1132,7 +1202,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 34,
+    slideId: 36,
     topics: [
       {
         id: "closing-milestones",
@@ -1149,7 +1219,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 35,
+    slideId: 37,
     topics: [
       {
         id: "commitment",

@@ -1,323 +1,147 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>FaSS 차세대 플랫폼 중간 보고 - 슬라이드 13</title>
+<title>FaSS Platform v3.0 — 핵심 기술 스택 총괄</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+<style>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-    --ppt-bg: #0A0E1A;
-    --ppt-bg-soft: #141B2D;
-    --ppt-surface: #1E2638;
-    --ppt-surface-2: #2A344A;
-    --ppt-border: #334155;
-    --ppt-text-1: #FFF;
-    --ppt-text-2: #94A3B8;
-    --ppt-text-3: #64748B;
-    --ppt-accent: #00F0FF;
-    --ppt-accent-2: #FACC15;
-    --ppt-radius-sm: 4px;
-    --ppt-radius-md: 8px;
-    --ppt-radius-lg: 16px;
-    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
-    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
-    --ppt-font-body: "IBM Plex Sans KR", sans-serif
-    }
-* {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased
-    }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
-    display: flex;
-    justify-content: center;
-    align-items: center}
-.ux-innovation-slide-root {
-    width: 960px;
-    height: 720px;
-    background-color: var(--ppt-bg);
-    color: var(--ppt-text-1);
-    font-family: var(--ppt-font-body);
-    display: flex;
-    flex-direction: column;
-    position: relative
-    }
-/* Title Region */
-.ux-innovation-title-region {
-    padding: 32px 40px 12px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-    }
-.ux-innovation-title-header {
-    display: flex;
-    align-items: center;
-    gap: 12px
-    }
-.ux-innovation-title-bar {
-    width: 4px;
-    height: 32px;
-    background: var(--ppt-accent);
-    border-radius: 2px
-    }
-.ux-innovation-title-text {
-    font-family: var(--ppt-font-display);
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    margin: 0
-    }
-.ux-innovation-title-line {
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-    opacity: 0.3;
-    margin-top: 8px
-    }
-/* Content Layout */
-.ux-innovation-main-content {
-    flex: 1;
-    min-height: 0;
-    padding: 0 40px 16px 40px;
-    display: flex;
-    gap: 16px;
-    align-items: stretch
-    }
-.ux-innovation-left-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px
-    }
-.ux-innovation-right-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px
-    }
-/* Card Components */
-.ux-innovation-card-container {
-    background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-    box-shadow: var(--ppt-shadow-soft)
-    }
-.ux-innovation-card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px
-    }
-.ux-innovation-icon-wrapper {
-    width: 48px;
-    height: 48px;
-    background: rgba(0, 240, 255, 0.1);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    color: var(--ppt-accent)
-    }
-.ux-innovation-icon-wrapper.gold {
-    background: rgba(250, 204, 21, 0.1);
-    color: var(--ppt-accent-2)
-    }
-.ux-innovation-card-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--ppt-text-1);
-    margin: 0
-    }
-.ux-innovation-card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 12px
-    }
-.ux-innovation-feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px
-    }
-.ux-innovation-feature-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--ppt-accent);
-    border-radius: 50%;
-    margin-top: 10px
-    }
-.ux-innovation-feature-dot.gold {
-    background: var(--ppt-accent-2)
-    }
-.ux-innovation-feature-text {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ppt-text-2)
-    }
-.ux-innovation-feature-text b {
-    color: var(--ppt-text-1);
-    font-weight: 600
-    }
-.ux-innovation-highlight-box {
-    margin-top: 8px;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 3px solid var(--ppt-accent);
-    border-radius: 0 var(--ppt-radius-sm) var(--ppt-radius-sm) 0
-    }
-.ux-innovation-highlight-box.gold {
-    border-left-color: var(--ppt-accent-2)
-    }
-.ux-innovation-highlight-text {
-    font-size: 16px;
-    color: var(--ppt-accent);
-    font-weight: 600
-    }
-.ux-innovation-highlight-text.gold {
-    color: var(--ppt-accent-2)
-    }
-/* Footer / Summary Tag */
-.ux-innovation-summary-tag {
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: var(--ppt-surface-2);
-    border-radius: var(--ppt-radius-md);
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    align-self: flex-start
-    }
-.ux-innovation-tag-label {
-    font-size: 14px;
-    color: var(--ppt-text-3);
-    text-transform: uppercase;
-    letter-spacing: 1px
-    }
-.ux-innovation-tag-value {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ppt-accent)
-    }
-html { overflow: hidden;  margin:0; padding:0; }
-</style></head>
+  --ppt-bg:#0A0E1A; --ppt-bg-soft:#141B2D; --ppt-surface:#1E2638; --ppt-border:#334155;
+  --ppt-text-1:#FFF; --ppt-text-2:#94A3B8; --ppt-text-3:#64748B;
+  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-radius-md:8px; --ppt-radius-lg:16px;
+  --ppt-font:"IBM Plex Sans KR",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:100vw;height:100vh;overflow:hidden;background:#0A0E1A;display:flex;justify-content:center;align-items:center;font-family:var(--ppt-font)}
+.slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden}
+.title-r{padding:22px 36px 6px;flex-shrink:0}
+.title-row{display:flex;align-items:center;gap:10px}
+.bar{width:4px;height:28px;background:var(--ppt-accent);border-radius:2px}
+.badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.3);color:var(--ppt-accent)}
+h1{font-size:24px;font-weight:700;line-height:1.3}
+.sub{font-size:12px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
+.line{height:1px;margin-top:6px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.body{flex:1;min-height:0;padding:6px 32px 12px;display:flex;flex-direction:column;gap:8px}
+.layer-grid{flex:1;min-height:0;display:grid;gap:8px}
+.layer-card{background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-lg);padding:10px 12px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.layer-card::before{content:'';height:3px;border-radius:3px 3px 0 0;margin:-10px -12px 4px}
+.layer-head{display:flex;align-items:center;gap:8px}
+.layer-icon{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.layer-title{font-size:13px;font-weight:700}
+.layer-count{margin-left:auto;font-size:10px;color:var(--ppt-text-3)}
+.tech-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:10px;padding:2px 7px;border-radius:10px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);line-height:1.3}
+.tag strong{color:var(--ppt-text-1);font-weight:600}
+.assignee-row{font-size:10px;color:var(--ppt-text-3);margin-top:auto}
+.phase-bar{flex-shrink:0;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.phase{padding:6px 8px;border-radius:var(--ppt-radius-md);background:var(--ppt-surface);border:1px solid var(--ppt-border);text-align:center}
+.phase strong{display:block;font-size:10px;color:var(--ppt-accent-2)}
+.phase span{font-size:9px;color:var(--ppt-text-3)}
+.phase em{display:block;font-size:8px;color:var(--ppt-text-2);margin-top:2px;font-style:normal}
+.footer-note{flex-shrink:0;font-size:11px;color:var(--ppt-text-2);padding:6px 10px;border-left:3px solid var(--ppt-accent);background:rgba(0,240,255,0.05);border-radius:0 var(--ppt-radius-md) var(--ppt-radius-md) 0}
+.detail-grid{flex:1;min-height:0;display:grid;gap:8px}
+.detail-col{display:flex;flex-direction:column;gap:8px;min-height:0}
+.col-head{font-size:12px;font-weight:700;padding:6px 10px;border-radius:var(--ppt-radius-md);display:flex;align-items:center;gap:8px}
+.item-list{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.item{padding:6px 8px;border-radius:var(--ppt-radius-md);background:rgba(30,38,56,0.55);border:1px solid var(--ppt-border)}
+.item-top{display:flex;justify-content:space-between;gap:6px;align-items:flex-start}
+.item-name{font-size:11px;font-weight:700;color:var(--ppt-text-1);line-height:1.3}
+.item-meta{display:flex;gap:4px;flex-shrink:0}
+.sprint{font-size:9px;padding:1px 5px;border-radius:8px;background:rgba(0,240,255,0.1);color:var(--ppt-accent)}
+.person{font-size:9px;padding:1px 5px;border-radius:8px;background:rgba(250,204,21,0.12);color:var(--ppt-accent-2)}
+.item-desc{font-size:9px;color:var(--ppt-text-3);line-height:1.35;margin-top:3px}
+html{overflow:hidden;margin:0;padding:0}
+</style>
+</head>
 <body>
-<div class="ux-innovation-slide-root" style="overflow: hidden;">
-<!-- Title Region -->
-<div class="ux-innovation-title-region">
-<div class="ux-innovation-title-header">
-<div class="ux-innovation-title-bar"></div>
-<h1 class="ux-innovation-title-text">
-          차세대 웹 프론트엔드 표준을 통한 고객 경험(UX) 혁신
-        </h1>
+<div class="slide">
+
+<div class="title-r">
+  <div class="title-row"><div class="bar"></div><span class="badge">PART 3 · Tech Stack</span></div>
+  <h1>FaSS Platform v3.0 — 핵심 기술 스택 총괄</h1>
+  <p class="sub">260622 sprint-backlog 기준 · 38개 기술 · 23 스프린트(S01–S23) · 6계층 아키텍처</p>
+  <div class="line"></div>
 </div>
-<div class="ux-innovation-title-line"></div>
+<div class="body">
+  <div class="layer-grid" style="grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr)">
+<div class="layer-card" style="--c:#00f0ff">
+  <div style="height:3px;background:#00f0ff;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
+  <div class="layer-head">
+    <div class="layer-icon" style="background:#00f0ff22;color:#00f0ff"><i class="fa-solid fa-window-maximize"></i></div>
+    <div class="layer-title">Frontend</div>
+    <div class="layer-count">5개</div>
+  </div>
+  <div class="tech-tags"><span class="tag"><strong>Axios / React Query</strong> · S08</span><span class="tag"><strong>Atomic Design</strong> · S09</span><span class="tag"><strong>RealGrid</strong> · S09</span><span class="tag"><strong>Modal</strong> · S09</span><span class="tag">+1 more</span></div>
+  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>송민준 · 심지훈</div>
 </div>
-<!-- Main Content -->
-<div class="ux-innovation-main-content">
-<!-- Left Column: Tech Stack & Performance -->
-<div class="ux-innovation-left-column">
-<div class="ux-innovation-card-container">
-<div class="ux-innovation-card-header">
-<div class="ux-innovation-icon-wrapper">
-<i class="fas fa-bolt"></i>
+<div class="layer-card" style="--c:#3b82f6">
+  <div style="height:3px;background:#3b82f6;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
+  <div class="layer-head">
+    <div class="layer-icon" style="background:#3b82f622;color:#3b82f6"><i class="fa-solid fa-server"></i></div>
+    <div class="layer-title">Backend</div>
+    <div class="layer-count">10개</div>
+  </div>
+  <div class="tech-tags"><span class="tag"><strong>Spring Boot</strong> · S04</span><span class="tag"><strong>JWT</strong> · S06</span><span class="tag"><strong>Spring Security 6.x</strong> · S06</span><span class="tag"><strong>RBAC/ABAC</strong> · S07</span><span class="tag">+6 more</span></div>
+  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영 · 송민준 · 심지훈</div>
 </div>
-<h2 class="ux-innovation-card-title">글로벌 표준 기술 및 성능 혁신</h2>
+<div class="layer-card" style="--c:#a78bfa">
+  <div style="height:3px;background:#a78bfa;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
+  <div class="layer-head">
+    <div class="layer-icon" style="background:#a78bfa22;color:#a78bfa"><i class="fa-solid fa-shield-halved"></i></div>
+    <div class="layer-title">Security &amp; IAM</div>
+    <div class="layer-count">6개</div>
+  </div>
+  <div class="tech-tags"><span class="tag"><strong>네이밍 룰</strong> · S01</span><span class="tag"><strong>Keycloak</strong> · S05</span><span class="tag"><strong>LDAP</strong> · S05</span><span class="tag"><strong>OIDC</strong> · S05</span><span class="tag">+2 more</span></div>
+  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영</div>
 </div>
-<div class="ux-innovation-card-body">
-<div class="ux-innovation-feature-item">
-<div class="ux-innovation-feature-dot"></div>
-<div class="ux-innovation-feature-text">
-<b>최신 React &amp; Next.js 도입:</b> 컴포넌트 기반의 고효율 개발 및 유지보수 환경 확립
-              </div>
+<div class="layer-card" style="--c:#22c55e">
+  <div style="height:3px;background:#22c55e;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
+  <div class="layer-head">
+    <div class="layer-icon" style="background:#22c55e22;color:#22c55e"><i class="fa-solid fa-database"></i></div>
+    <div class="layer-title">Data &amp; Messaging</div>
+    <div class="layer-count">4개</div>
+  </div>
+  <div class="tech-tags"><span class="tag"><strong>Redis</strong> · S03</span><span class="tag"><strong>Multi-tenancy</strong> · S11</span><span class="tag"><strong>Debezium</strong> · S17</span><span class="tag"><strong>Kafka</strong> · S17</span></div>
+  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영 · 송민준</div>
 </div>
-<div class="ux-innovation-feature-item">
-<div class="ux-innovation-feature-dot"></div>
-<div class="ux-innovation-feature-text">
-<b>Next.js SSR (Server Side Rendering):</b> 초기 화면 렌더링 속도 획기적 개선으로 사용자 체감 성능 극대화
-              </div>
+<div class="layer-card" style="--c:#facc15">
+  <div style="height:3px;background:#facc15;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
+  <div class="layer-head">
+    <div class="layer-icon" style="background:#facc1522;color:#facc15"><i class="fa-solid fa-cloud"></i></div>
+    <div class="layer-title">Platform &amp; DevOps</div>
+    <div class="layer-count">12개</div>
+  </div>
+  <div class="tech-tags"><span class="tag"><strong>Docker</strong> · S02</span><span class="tag"><strong>Docker Compose</strong> · S02</span><span class="tag"><strong>Kubernetes (K8s)</strong> · S02</span><span class="tag"><strong>GitLab CI</strong> · S02</span><span class="tag">+8 more</span></div>
+  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영 · 김희찬 · 송민준 · 심지훈</div>
 </div>
-<div class="ux-innovation-feature-item">
-<div class="ux-innovation-feature-dot"></div>
-<div class="ux-innovation-feature-text">
-<b>Seamless Experience:</b> 화면 전환 시 깜빡임 없는 매끄러운 동작을 통한 대고객 신뢰도 확보
-              </div>
-</div>
-<div class="ux-innovation-highlight-box">
-<div class="ux-innovation-highlight-text">
-<i class="fa-solid fa-circle-info" style="margin-right: 8px;"></i>
-                기존 레거시 대비 화면 렌더링 속도 200% 이상 개선
-              </div>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Personalization & Business Strategy -->
-<div class="ux-innovation-right-column">
-<div class="ux-innovation-card-container">
-<div class="ux-innovation-card-header">
-<div class="ux-innovation-icon-wrapper gold">
-<i class="fas fa-palette"></i>
-</div>
-<h2 class="ux-innovation-card-title">멀티 테넌시 &amp; 수익화 전략</h2>
-</div>
-<div class="ux-innovation-card-body">
-<div class="ux-innovation-feature-item">
-<div class="ux-innovation-feature-dot gold"></div>
-<div class="ux-innovation-feature-text">
-<b>Dynamic Theme Engine:</b> 단일 플랫폼 소스로 화주사별 전용 로고 및 테마 컬러 즉시 적용
-              </div>
-</div>
-<div class="ux-innovation-feature-item">
-<div class="ux-innovation-feature-dot gold"></div>
-<div class="ux-innovation-feature-text">
-<b>맞춤형 대시보드:</b> 대형 화주사별 요구사항을 반영한 데이터 시각화 및 UI 컴포넌트 유연 제공
-              </div>
-</div>
-<div class="ux-innovation-feature-item">
-<div class="ux-innovation-feature-dot gold"></div>
-<div class="ux-innovation-feature-text">
-<b>ASP 비즈니스 경쟁력:</b> 외부 솔루션 공급 시 고객사 브랜딩 최적화를 통한 강력한 영업 가치 창출
-              </div>
-</div>
-<div class="ux-innovation-highlight-box gold">
-<div class="ux-innovation-highlight-text gold">
-<i class="fas fa-gem" style="margin-right: 8px;"></i>
-                IT 비용 부서에서 수익 창출 부서(Profit Center)로의 전환
-              </div>
-</div>
-</div>
-</div>
-<!-- Summary Info Tag -->
-<div class="ux-innovation-summary-tag">
-<span class="ux-innovation-tag-label">핵심 가치</span>
-<span class="ux-innovation-tag-value">"IT 서비스의 자산화 및 영업 경쟁력 강화"</span>
-</div>
-</div>
+<div class="layer-card" style="--c:#fb923c">
+  <div style="height:3px;background:#fb923c;margin:-10px -12px 4px;border-radius:3px 3px 0 0"></div>
+  <div class="layer-head">
+    <div class="layer-icon" style="background:#fb923c22;color:#fb923c"><i class="fa-solid fa-robot"></i></div>
+    <div class="layer-title">AI &amp; Agent</div>
+    <div class="layer-count">1개</div>
+  </div>
+  <div class="tech-tags"><span class="tag"><strong>LLM / LangChain (예상)</strong> · S18</span></div>
+  <div class="assignee-row"><i class="fas fa-user" style="margin-right:4px"></i>기충영</div>
+</div></div>
+  <div class="phase-bar"><div class="phase"><strong>1단계</strong><span>인프라·표준 규격</span><em>S01–S04</em></div><div class="phase"><strong>2단계</strong><span>보안·공통 모듈</span><em>S05–S08</em></div><div class="phase"><strong>3단계</strong><span>생산성·UI 표준</span><em>S09–S11</em></div><div class="phase"><strong>4단계</strong><span>외부 연동·AI 연계</span><em>S12·S14</em></div><div class="phase"><strong>5단계</strong><span>보안·최적화·리포트</span><em>S15–S17·S23</em></div><div class="phase"><strong>추가</strong><span>차세대 로드맵</span><em>S13·S18–S22</em></div></div>
+  <div class="footer-note"><strong>메인 담당:</strong> 기충영 · 김희찬 · 송민준 · 심지훈 — kk00701903-hub.github.io/sprint-backlog 연동</div>
 </div>
 </div>
 <script>
 (function(){
   function applyScale(){
-    var el=document.querySelector('body>div');
-    if(!el)return;
+    var el=document.querySelector('body>div');if(!el)return;
     var sw=window.innerWidth,sh=window.innerHeight;
     var scale=Math.min(sw/960,sh/720);
-    el.style.transform='scale('+scale+')';
-    el.style.transformOrigin='top left';
+    el.style.transform='scale('+scale+')';el.style.transformOrigin='top left';
     el.style.position='absolute';
     el.style.left=Math.round((sw-960*scale)/2)+'px';
     el.style.top=Math.round((sh-720*scale)/2)+'px';
   }
-  applyScale();
-  window.addEventListener('resize',applyScale);
+  applyScale();window.addEventListener('resize',applyScale);
 })();
 </script>
 </body>

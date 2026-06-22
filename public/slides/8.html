@@ -3,10 +3,10 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>(주)제때 FaSS 플랫폼 구축 중간 보고 - 슬라이드 16</title>
+<meta content="width=960, height=720" name="viewport"/>
+<title>(주)제때 차세대 FaSS 플랫폼 구축 중간 보고</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
     --ppt-bg: #0A0E1A;
@@ -20,8 +20,6 @@
     --ppt-accent: #00F0FF;
     --ppt-accent-2: #FACC15;
     --ppt-good: #22C55E;
-    --ppt-warn: #F59E0B;
-    --ppt-bad: #EF4444;
     --ppt-radius-sm: 4px;
     --ppt-radius-md: 8px;
     --ppt-radius-lg: 16px;
@@ -30,389 +28,369 @@
     }
 * {
     box-sizing: border-box;
-    margin: 0 0;
-    padding: 0 0
+    margin: 0;
+    padding: 0
     }
 body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-family: var(--ppt-font-body)}
-.war-room-slide-root {
+    align-items: center}
+.tft-org-slide-root {
     width: 960px;
     height: 720px;
     background-color: var(--ppt-bg);
     color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
     display: flex;
-    flex-direction: column;
-    position: relative
+    flex-direction: column
     }
-/* Title Region */
+/* Title Region from Design Guideline */
 .title-region-container {
-    padding: 28px 40px 8px 40px;
+    padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
     }
-.title-region-header {
+.title-region-heading-group {
     display: flex;
     align-items: center;
     gap: 12px
     }
-.title-region-bar {
+.title-region-accent-bar {
     width: 4px;
     height: 32px;
     background: var(--ppt-accent);
     border-radius: 2px
     }
-.title-region-text {
+.title-region-main-title {
     font-family: var(--ppt-font-display);
     font-size: 30px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
     }
-.title-region-line {
+.title-region-divider-line {
     height: 1px;
     width: 100%;
     background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px
     }
-/* Body Layout */
-.war-room-content-wrapper {
+/* Layout Structure */
+.tft-org-main-content-wrapper {
     flex: 1;
     min-height: 0;
     display: flex;
-    padding: 8px 40px 8px 40px;
-    gap: 14px;
+    padding: 10px 40px 16px 40px;
+    gap: 20px;
     align-items: stretch
     }
-.war-room-left-column {
+.tft-org-left-strategy-column {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 16px 20px
+    gap: 16px
     }
-.war-room-right-column {
-    flex: 1;
+.tft-org-right-table-column {
+    flex: 1.6;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 13px 20px
+    justify-content: center
     }
-/* Common Card Styles */
-.war-room-feature-card {
-    background: var(--ppt-surface);
+/* Left Components */
+.tft-org-summary-card-block {
+    background: var(--ppt-bg-soft);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 14px 16px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    flex: 1
+    gap: 8px
     }
-.war-room-card-header {
+.tft-org-metric-highlight-row {
     display: flex;
-    align-items: center;
-    gap: 10px 12px
+    align-items: baseline;
+    gap: 12px
     }
-.war-room-card-icon {
+.tft-org-metric-label-text {
+    font-size: 20px;
+    color: var(--ppt-text-2);
+    font-weight: 600
+    }
+.tft-org-metric-value-text {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--ppt-accent-2);
+    line-height: 1
+    }
+.tft-org-metric-unit-text {
     font-size: 24px;
-    color: var(--ppt-accent);
+    color: var(--ppt-accent-2);
+    font-weight: 600
+    }
+.tft-org-strategy-list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px
+    }
+.tft-org-strategy-item-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px
+    }
+.tft-org-strategy-icon-wrapper {
     width: 40px;
     height: 40px;
+    background: var(--ppt-surface);
+    border-radius: var(--ppt-radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 240, 255, 0.1);
-    border-radius: var(--ppt-radius-md)
+    color: var(--ppt-accent);
+    font-size: 18px;
+    flex-shrink: 0
     }
-.war-room-card-title {
+.tft-org-strategy-content-box {
+    display: flex;
+    flex-direction: column
+    }
+.tft-org-strategy-title-text {
     font-size: 20px;
     font-weight: 600;
     color: var(--ppt-text-1)
     }
-.war-room-card-body {
+.tft-org-strategy-desc-text {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    line-height: 1.4
+    }
+/* Right Components (Table) */
+.tft-org-table-outer-container {
+    flex: 1;
+    background: var(--ppt-surface);
+    border-radius: var(--ppt-radius-md);
+    border: 1px solid var(--ppt-border);
+    display: flex;
+    flex-direction: column
+    }
+.tft-org-personnel-data-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed
+    }
+.tft-org-table-header-row {
+    background-color: var(--ppt-surface-2);
+    border-bottom: 2px solid var(--ppt-border)
+    }
+.tft-org-table-header-cell {
+    padding: 8px 10px;
+    text-align: left;
     font-size: 14px;
-    line-height: 1.45;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    font-family: var(--ppt-font-display)
+    }
+.tft-org-table-body-row {
+    border-bottom: 1px solid var(--ppt-border)
+    }
+.tft-org-table-body-row:last-child {
+    border-bottom: none
+    }
+.tft-org-table-body-cell {
+    padding: 8px 10px;
+    font-size: 14px;
+    color: var(--ppt-text-1);
+    vertical-align: middle;
+    line-height: 1.4
+    }
+.tft-org-role-badge-span {
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--ppt-surface-2);
+    border-radius: var(--ppt-radius-sm);
+    font-size: 15px;
+    font-weight: 600;
     color: var(--ppt-text-2)
     }
-.war-room-highlight-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px 10px;
-    margin-bottom: 6px
-    }
-.war-room-highlight-bullet {
-    color: var(--ppt-accent);
-    margin-top: 5px;
-    font-size: 14px
-    }
-.war-room-badge-container {
-    display: flex;
-    gap: 10px 12px;
-    margin-top: auto
-    }
-.war-room-status-badge {
-    background: var(--ppt-surface-2);
-    border: 1px solid var(--ppt-accent);
-    color: var(--ppt-accent);
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600
-    }
-.war-room-location-tag {
-    font-size: 14px;
-    color: var(--ppt-accent-2);
+.tft-org-name-text-span {
     font-weight: 600;
-    margin-bottom: 3px;
-    display: block
+    color: var(--ppt-text-1)
     }
-.war-room-dashboard-preview {
-    display: flex;
-    gap: 8px 10px;
-    margin-top: 6px
-    }
-.war-room-dashboard-box {
-    flex: 1;
-    height: 60px;
-    background: var(--ppt-bg-soft);
-    border: 1px dashed var(--ppt-border);
-    border-radius: var(--ppt-radius-sm);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px 4px
-    }
-.war-room-dashboard-label {
+.tft-org-name-text-span--multi {
     font-size: 12px;
-    color: var(--ppt-text-3);
-    text-transform: uppercase
+    line-height: 1.35;
+    display: inline-block
     }
-.war-room-dashboard-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ppt-accent)
+.tft-org-task-list-container {
+    list-style: none
     }
-.war-room-dailyscrum-banner {
-    margin: 0 40px 12px 40px;
-    flex-shrink: 0;
-    background: linear-gradient(90deg, rgba(0,240,255,0.08) 0%, rgba(167,139,250,0.06) 100%);
-    border: 1px solid rgba(0,240,255,0.35);
-    border-radius: var(--ppt-radius-lg);
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    }
-.war-room-dailyscrum-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--ppt-radius-md);
-    background: rgba(0,240,255,0.12);
-    color: var(--ppt-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-    }
-.war-room-dailyscrum-body {
-    flex: 1;
-    min-width: 0;
-    }
-.war-room-dailyscrum-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    margin-bottom: 3px;
-    }
-.war-room-dailyscrum-desc {
-    font-size: 12px;
-    color: var(--ppt-text-2);
-    line-height: 1.4;
-    }
-.war-room-dailyscrum-desc a {
-    color: var(--ppt-accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    }
-.war-room-dailyscrum-link {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: var(--ppt-radius-md);
-    background: rgba(0,240,255,0.12);
-    border: 1px solid var(--ppt-accent);
-    color: var(--ppt-accent);
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.2s, color 0.2s;
-    }
-.war-room-dailyscrum-link:hover {
-    background: var(--ppt-accent);
-    color: var(--ppt-bg);
-    }
-.war-room-analytics-fab {
-    position: absolute;
-    bottom: 12px;
-    right: 40px;
-    z-index: 10;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border-radius: var(--ppt-radius-md);
-    background: rgba(0, 240, 255, 0.12);
-    border: 1px solid var(--ppt-accent);
-    color: var(--ppt-accent);
+.tft-org-task-item-line {
+    list-style: none;
     font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-    transition: background 0.2s, color 0.2s, transform 0.2s;
+    color: var(--ppt-text-2);
+    margin-bottom: 2px
     }
-.war-room-analytics-fab:hover {
-    background: var(--ppt-accent);
-    color: var(--ppt-bg);
-    transform: translateY(-1px);
+.tft-org-task-item-line:last-child {
+    margin-bottom: 0
     }
-html { overflow: hidden; margin:0; padding:0; }
+.tft-org-footer-note-block {
+    margin-top: 16px;
+    padding-left: 12px;
+    border-left: 2px solid var(--ppt-accent-2)
+    }
+.tft-org-footer-note-text {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    font-style: italic
+    }
+html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="war-room-slide-root" style="overflow: hidden;">
+<div class="tft-org-slide-root" style="overflow: hidden;">
 <!-- Title Region -->
 <div class="title-region-container">
-<div class="title-region-header">
-<div class="title-region-bar"></div>
-<h1 class="title-region-text">
-          워룸(War-Room) 구축: 리드타임(Lead-Time) 제로화
+<div class="title-region-heading-group">
+<div class="title-region-accent-bar"></div>
+<h1 class="title-region-main-title">
+          최정예 TFT 인력 구성 및 애자일(Agile) 조직 운영
         </h1>
 </div>
-<div class="title-region-line"></div>
+<div class="title-region-divider-line"></div>
 </div>
 <!-- Main Content -->
-<div class="war-room-content-wrapper">
-<!-- Left Column: Infrastructure & Strategy -->
-<div class="war-room-left-column">
-<div class="war-room-feature-card">
-<div class="war-room-card-header">
-<div class="war-room-card-icon"><i class="fas fa-users-rectangle"></i></div>
-<div class="war-room-card-title">일체형 조직 운영 (All-in-One)</div>
+<div class="tft-org-main-content-wrapper">
+<!-- Left Column: Strategy & Metrics -->
+<div class="tft-org-left-strategy-column">
+<div class="tft-org-summary-card-block">
+<div class="tft-org-metric-highlight-row">
+<span class="tft-org-metric-label-text">내부 핵심 인력 투입량</span>
+<span class="tft-org-metric-value-text">108.0</span>
+<span class="tft-org-metric-unit-text">M/M</span>
 </div>
-<div class="war-room-card-body">
-<span class="war-room-location-tag"><i class="fas fa-location-dot"></i> 남양주 1공장 2층 프로젝트룸</span>
-<div class="war-room-highlight-item">
-<i class="fas fa-check war-room-highlight-bullet"></i>
-<span>단독 프로젝트 룸 운영을 통한 커뮤니케이션 사일로(silo) 제거</span>
+<div class="tft-org-strategy-list-group">
+<div class="tft-org-strategy-item-box">
+<div class="tft-org-strategy-icon-wrapper">
+<i class="fas fa-shield-halved"></i>
 </div>
-<div class="war-room-highlight-item">
-<i class="fas fa-check war-room-highlight-bullet"></i>
-<span>이슈 발생 시 그 자리에서 즉시 토론하고 의사결정하여 '결재 및 대기 시간'을 완벽하게 삭제</span>
-</div>
-</div>
-<div class="war-room-badge-container">
-<div class="war-room-status-badge">물리적 통합 완료</div>
-<div class="war-room-status-badge">Agile 스프린트 최적화</div>
+<div class="tft-org-strategy-content-box">
+<span class="tft-org-strategy-title-text">외주 의존도 최소화</span>
+<p class="tft-org-strategy-desc-text">자체 기술 자산 확보 및 유지보수 안정성 제고</p>
 </div>
 </div>
-<div class="war-room-feature-card">
-<div class="war-room-card-header">
-<div class="war-room-card-icon"><i class="fas fa-bolt"></i></div>
-<div class="war-room-card-title">의사결정 리드타임 제로화</div>
+<div class="tft-org-strategy-item-box">
+<div class="tft-org-strategy-icon-wrapper">
+<i class="fas fa-bolt"></i>
 </div>
-<div class="war-room-card-body">
-<div class="war-room-highlight-item">
-<i class="fas fa-circle-arrow-right war-room-highlight-bullet"></i>
-<span>현장 즉결 처리 체계 도입으로 프로젝트 지연 요소 선제적 차단</span>
-</div>
-<div class="war-room-highlight-item">
-<i class="fas fa-circle-arrow-right war-room-highlight-bullet"></i>
-<span>부서 간 업무 이관 단계 축소를 통한 개발 생산성 극대화</span>
+<div class="tft-org-strategy-content-box">
+<span class="tft-org-strategy-title-text">애자일 워룸 운영</span>
+<p class="tft-org-strategy-desc-text">기획·개발 일체형 환경 구축으로 의사결정 속도 극대화</p>
 </div>
 </div>
-<div class="war-room-dashboard-preview">
-<div class="war-room-dashboard-box">
-<span class="war-room-dashboard-label">Wait Time</span>
-<span class="war-room-dashboard-value">0s</span>
+<div class="tft-org-strategy-item-box">
+<div class="tft-org-strategy-icon-wrapper">
+<i class="fas fa-sack-dollar"></i>
 </div>
-<div class="war-room-dashboard-box">
-<span class="war-room-dashboard-label">Decision Speed</span>
-<span class="war-room-dashboard-value">Real-time</span>
+<div class="tft-org-strategy-content-box">
+<span class="tft-org-strategy-title-text">수익화 모델 기획</span>
+<p class="tft-org-strategy-desc-text">개발 단계부터 외부 공급(ASP)을 고려한 아키텍처 통제</p>
 </div>
 </div>
 </div>
 </div>
-<!-- Right Column: Monitoring & Visualization -->
-<div class="war-room-right-column">
-<div class="war-room-feature-card">
-<div class="war-room-card-header">
-<div class="war-room-card-icon"><i class="fas fa-desktop"></i></div>
-<div class="war-room-card-title">실시간 가시성 대시보드</div>
-</div>
-<div class="war-room-card-body">
-<div class="war-room-highlight-item">
-<i class="fas fa-chart-line war-room-highlight-bullet"></i>
-<span><a href="https://kk00701903-hub.github.io/fass-dailyscrum/#/analytics" target="_blank" rel="noopener noreferrer" style="color:var(--ppt-accent);font-weight:600;">FASS 데일리 스크럼 Analytics</a>으로 일단위 업무·스프린트 진척도를 점검하고 워룸에서 공유</span>
-</div>
-<div class="war-room-highlight-item">
-<i class="fas fa-bug war-room-highlight-bullet"></i>
-<span>태스크 완료율·블로커·버그 지표 시각화로 품질 리스크 상시 모니터링</span>
+<div class="tft-org-footer-note-block">
+<p class="tft-org-footer-note-text">"IT 부서를 비용 부서에서 회사의 새로운 Profit Center로 격상"</p>
 </div>
 </div>
-<div class="war-room-dashboard-preview">
-<a class="war-room-dashboard-box" href="https://kk00701903-hub.github.io/fass-dailyscrum/#/analytics" target="_blank" rel="noopener noreferrer" style="border-color:var(--ppt-accent);text-decoration:none;cursor:pointer;">
-<span class="war-room-dashboard-label">Daily Scrum</span>
-<span class="war-room-dashboard-value">Analytics</span>
-</a>
-<div class="war-room-dashboard-box" style="border-color: var(--ppt-good);">
-<span class="war-room-dashboard-label">Sprint</span>
-<span class="war-room-dashboard-value">Progress</span>
+<!-- Right Column: Personnel Table -->
+<div class="tft-org-right-table-column">
+<div class="tft-org-table-outer-container">
+<table class="tft-org-personnel-data-table">
+<thead class="tft-org-table-header-group">
+<tr class="tft-org-table-header-row">
+<th class="tft-org-table-header-cell" style="width: 25%;">역할</th>
+<th class="tft-org-table-header-cell" style="width: 20%;">담당자</th>
+<th class="tft-org-table-header-cell" style="width: 55%;">주요 업무</th>
+</tr>
+</thead>
+<tbody class="tft-org-table-body-group">
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">최고 의사결정</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">사업부장</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">비즈니스 방향성 총괄</li>
+<li class="tft-org-task-item-line">수익화(ASP) 모델 전략 기획</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">TFT 팀장</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">서선범</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">프로젝트 총괄 관리 및 리스크 차단</li>
+<li class="tft-org-task-item-line">유관 부서 간 업무 프로세스 조율</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">프로젝트 리더 (PL)</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">김희찬</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">FaSS V3.0 공통 프레임워크 표준 설계</li>
+<li class="tft-org-task-item-line">전체 아키텍처 통제 및 품질 관리</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">BE 엔지니어</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">송민준</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">백엔드 코어 모듈 구현</li>
+<li class="tft-org-task-item-line">Kafka 기반 데이터 동기화 파이프라인</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">FE 엔지니어</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span tft-org-name-text-span--multi">심지훈 오준열 이지상</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">프론트엔드 및 UX 표준 구현</li>
+<li class="tft-org-task-item-line">AI 연동 RAG 환경 및 인터페이스 구축</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<div class="war-room-feature-card">
-<div class="war-room-card-header">
-<div class="war-room-card-icon"><i class="fas fa-gauge-high"></i></div>
-<div class="war-room-card-title">프로젝트 성공 속도 가속화</div>
-</div>
-<div class="war-room-card-body">
-<div class="war-room-highlight-item">
-<i class="fas fa-shield-halved war-room-highlight-bullet"></i>
-<span>이슈 감지부터 해결까지의 MTTR(평균 복구 시간) 70% 이상 단축</span>
-</div>
-<div class="war-room-highlight-item">
-<i class="fas fa-shield-halved war-room-highlight-bullet"></i>
-<span>전 팀원이 동일한 목표 지표를 실시간으로 인지하여 성과 중심 조직으로 변모</span>
-</div>
-</div>
-<div class="war-room-badge-container">
-<div class="war-room-status-badge" style="border-color: var(--ppt-accent-2);color: var(--ppt-accent-2);">핵심 성과 지표(KPI) 연동</div>
-<div class="war-room-status-badge" style="border-color: var(--ppt-good);color: var(--ppt-good);">무결점 배포 보장</div>
-</div>
-</div>
-</div>
-</div>
-<!-- FASS Daily Scrum -->
-<div class="war-room-dailyscrum-banner">
-<div class="war-room-dailyscrum-icon"><i class="fas fa-clipboard-list"></i></div>
-<div class="war-room-dailyscrum-body">
-<div class="war-room-dailyscrum-title">FASS 데일리 스크럼 — TFT 애자일 운영 허브</div>
-<p class="war-room-dailyscrum-desc">차세대 FaSS TFT의 일일 스크럼·태스크·스프린트 데이터를 웹에서 기록하고, Analytics 대시보드로 진척·블로커·완료율을 한눈에 확인합니다. 워룸 대형 화면과 연동해 전 팀이 동일 지표를 공유합니다.</p>
-</div>
-</div>
-<a class="war-room-analytics-fab" href="https://kk00701903-hub.github.io/fass-dailyscrum/#/jira/wbs" target="_blank" rel="noopener noreferrer">
-<i class="fas fa-chart-line"></i> Analytics
-</a>
 </div>
 <script>
 (function(){

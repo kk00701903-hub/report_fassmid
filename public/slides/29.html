@@ -2,74 +2,108 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>차세대 웹프레임워크 × 빌더형 인재 육성</title>
+<title>타사 프로젝트 규모 비교 참고</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<style>
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-  --ppt-bg: #0A0E1A; --ppt-bg-soft: #141B2D; --ppt-surface: #1E2638;
-  --ppt-border: #334155; --ppt-text-1: #FFF; --ppt-text-2: #94A3B8; --ppt-text-3: #64748B;
-  --ppt-accent: #00F0FF; --ppt-accent-2: #FACC15; --ppt-good: #22C55E; --ppt-purple: #A78BFA;
-  --ppt-radius-md: 8px; --ppt-radius-lg: 16px;
+  --ppt-bg: #0A0E1A;
+  --ppt-bg-soft: #141B2D;
+  --ppt-surface: #1E2638;
+  --ppt-border: #334155;
+  --ppt-text-1: #FFF;
+  --ppt-text-2: #94A3B8;
+  --ppt-text-3: #64748B;
+  --ppt-accent: #00F0FF;
+  --ppt-accent-2: #FACC15;
+  --ppt-good: #22C55E;
+  --ppt-radius-md: 8px;
+  --ppt-radius-lg: 16px;
   --ppt-font-display: "IBM Plex Sans KR", sans-serif;
   --ppt-font-body: "IBM Plex Sans KR", sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { width:100vw; height:100vh; overflow:hidden; background:#0A0E1A;
-  display:flex; justify-content:center; align-items:center; font-family:var(--ppt-font-body); }
-.slide-root { width:960px; height:720px; background:var(--ppt-bg); color:var(--ppt-text-1);
-  display:flex; flex-direction:column; overflow:hidden; }
-.title-region { padding:24px 40px 8px; }
-.title-row { display:flex; align-items:center; gap:12px; }
-.title-bar { width:4px; height:32px; background:var(--ppt-good); border-radius:2px; }
-.title-badge { font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px;
-  background:rgba(34,197,94,0.12); color:var(--ppt-good); border:1px solid rgba(34,197,94,0.3); }
-.title-text { font-family:var(--ppt-font-display); font-size:30px; font-weight:700; }
-.title-sub { font-size:14px; color:var(--ppt-text-2); margin-top:6px; padding-left:16px; }
-.title-line { height:1px; margin-top:8px;
-  background:linear-gradient(90deg,var(--ppt-good) 0%,transparent 100%); opacity:0.35; }
-.main-body { flex:1; min-height:0; padding:6px 40px 16px; display:flex; flex-direction:column; gap:10px; }
-.hub-row { display:grid; grid-template-columns:1fr 220px 1fr; gap:10px; flex:1; min-height:0; }
-.role-col { display:flex; flex-direction:column; gap:8px; }
-.role-card {
-  flex:1; background:var(--ppt-bg-soft); border:1px solid var(--ppt-border);
-  border-radius:var(--ppt-radius-lg); padding:12px 14px; display:flex; gap:10px;
+body {
+  width: 100vw; height: 100vh; overflow: hidden;
+  background: #0A0E1A;
+  display: flex; justify-content: center; align-items: center;
+  font-family: var(--ppt-font-body);
 }
-.role-card::before { content:''; width:3px; border-radius:3px; flex-shrink:0; }
-.role-card--learn::before { background:var(--ppt-accent); }
-.role-card--build::before { background:var(--ppt-good); }
-.role-card--monitor::before { background:var(--ppt-purple); }
-.role-card--doc::before { background:var(--ppt-accent-2); }
-.role-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center;
-  justify-content:center; font-size:16px; flex-shrink:0; }
-.role-icon.cyan { background:rgba(0,240,255,0.1); color:var(--ppt-accent); }
-.role-icon.green { background:rgba(34,197,94,0.1); color:var(--ppt-good); }
-.role-icon.purple { background:rgba(167,139,250,0.1); color:var(--ppt-purple); }
-.role-icon.gold { background:rgba(250,204,21,0.1); color:var(--ppt-accent-2); }
-.role-body h3 { font-size:14px; font-weight:700; margin-bottom:4px; }
-.role-body p { font-size:12px; color:var(--ppt-text-2); line-height:1.45; }
-.hub-center {
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
-  background:linear-gradient(180deg,rgba(0,240,255,0.08),rgba(34,197,94,0.06));
-  border:1px solid rgba(0,240,255,0.3); border-radius:var(--ppt-radius-lg); padding:14px 10px;
+.slide-root {
+  width: 960px; height: 720px;
+  background: var(--ppt-bg);
+  color: var(--ppt-text-1);
+  display: flex; flex-direction: column;
+  overflow: hidden;
 }
-.hub-icon { font-size:28px; color:var(--ppt-accent); }
-.hub-title { font-size:15px; font-weight:700; text-align:center; color:var(--ppt-accent); line-height:1.35; }
-.hub-sub { font-size:11px; color:var(--ppt-text-2); text-align:center; line-height:1.4; }
-.hub-tags { display:flex; flex-wrap:wrap; gap:4px; justify-content:center; }
-.hub-tag { font-size:10px; padding:2px 7px; border-radius:12px;
-  background:var(--ppt-surface); border:1px solid var(--ppt-border); color:var(--ppt-text-3); }
-.bottom-bar {
-  flex-shrink:0; padding:10px 16px; border-radius:var(--ppt-radius-md);
-  background:linear-gradient(90deg,rgba(34,197,94,0.08),transparent);
-  border-left:4px solid var(--ppt-good);
-  display:flex; align-items:center; gap:12px;
+.title-region { padding: 28px 40px 10px; }
+.title-row { display: flex; align-items: center; gap: 12px; }
+.title-bar { width: 4px; height: 32px; background: var(--ppt-accent-2); border-radius: 2px; }
+.title-text { font-family: var(--ppt-font-display); font-size: 32px; font-weight: 700; }
+.title-sub { font-size: 14px; color: var(--ppt-text-2); margin-top: 8px; padding-left: 16px; }
+.title-line {
+  height: 1px; margin-top: 10px;
+  background: linear-gradient(90deg, var(--ppt-accent-2) 0%, transparent 100%);
+  opacity: 0.35;
 }
-.bottom-bar i { color:var(--ppt-good); font-size:18px; }
-.bottom-bar p { font-size:13px; color:var(--ppt-text-2); line-height:1.5; }
-.bottom-bar strong { color:var(--ppt-text-1); }
-html { overflow:hidden; margin:0; padding:0; }
+.main-body { flex: 1; padding: 8px 40px 20px; display: flex; flex-direction: column; gap: 12px; }
+.ref-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: var(--ppt-radius-md);
+  background: rgba(250,204,21,0.08); border: 1px solid rgba(250,204,21,0.25);
+  font-size: 13px; color: var(--ppt-accent-2); width: fit-content;
+}
+.compare-grid { flex: 1; display: grid; grid-template-columns: 1fr 56px 1fr; gap: 10px; align-items: stretch; }
+.compare-card {
+  background: var(--ppt-bg-soft); border: 1px solid var(--ppt-border);
+  border-radius: var(--ppt-radius-lg); padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.compare-card--peer { border-top: 3px solid var(--ppt-accent-2); }
+.compare-card--ours { border-top: 3px solid var(--ppt-accent); }
+.compare-label { font-size: 11px; font-weight: 700; color: var(--ppt-text-3); letter-spacing: 1px; text-transform: uppercase; }
+.compare-company { font-size: 20px; font-weight: 700; }
+.compare-company.peer { color: var(--ppt-accent-2); }
+.compare-company.ours { color: var(--ppt-accent); }
+.compare-scope { font-size: 13px; color: var(--ppt-text-2); line-height: 1.5; }
+.metric-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.metric-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 10px; border-radius: var(--ppt-radius-md);
+  background: rgba(30,38,56,0.55); border: 1px solid var(--ppt-border);
+  font-size: 13px;
+}
+.metric-item span:first-child { color: var(--ppt-text-2); }
+.metric-item strong { color: var(--ppt-text-1); font-size: 14px; }
+.vs-col { display: flex; align-items: center; justify-content: center; }
+.vs-badge {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--ppt-border); background: var(--ppt-surface);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--ppt-text-3);
+}
+.table-wrap {
+  border: 1px solid var(--ppt-border); border-radius: var(--ppt-radius-lg);
+  overflow: hidden; background: var(--ppt-bg-soft);
+}
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.compare-table th {
+  padding: 10px 14px; text-align: left;
+  background: rgba(30,38,56,0.85); color: var(--ppt-text-2);
+  border-bottom: 1px solid var(--ppt-border); font-weight: 600;
+}
+.compare-table td {
+  padding: 9px 14px; border-bottom: 1px solid rgba(51,65,85,0.55);
+  color: var(--ppt-text-2); vertical-align: top;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td strong { color: var(--ppt-text-1); }
+.footnote {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 12px; color: var(--ppt-text-3); line-height: 1.45;
+}
+.footnote i { color: var(--ppt-accent-2); margin-top: 2px; }
+html { overflow: hidden; margin: 0; padding: 0; }
 </style>
 </head>
 <body>
@@ -77,77 +111,91 @@ html { overflow:hidden; margin:0; padding:0; }
   <div class="title-region">
     <div class="title-row">
       <div class="title-bar"></div>
-      <span class="title-badge">BUILDER × PLATFORM</span>
-      <h1 class="title-text">차세대 웹프레임워크 × 빌더형 인재 육성</h1>
+      <h1 class="title-text">타사 프로젝트 규모 비교 참고</h1>
     </div>
-    <p class="title-sub">SiteFramework(FaSS Platform)는 이론이 아닌 <strong style="color:var(--ppt-accent);">실전 훈련장</strong> — 앞 슬라이드의 AI 개발 혁신(도구·오케스트레이션·육성) 위에서 빌더가 성장합니다</p>
+    <p class="title-sub">동일 시기·유사 범위 엔터프라이즈 플랫폼 구축 사례를 벤치마크로 참고합니다. (내부 전략 수립용)</p>
     <div class="title-line"></div>
   </div>
 
   <div class="main-body">
-    <div class="hub-row">
-      <div class="role-col">
-        <div class="role-card role-card--learn">
-          <div class="role-icon cyan"><i class="fas fa-graduation-cap"></i></div>
-          <div class="role-body">
-            <h3>① 표준 아키텍처 학습장</h3>
-            <p>SiteFramework·API-First·모듈 경계를 실제 코드로 익히며, 신입·전환 인력의 온보딩 시간을 단축합니다.</p>
-          </div>
-        </div>
-        <div class="role-card role-card--monitor">
-          <div class="role-icon purple"><i class="fas fa-satellite-dish"></i></div>
-          <div class="role-body">
-            <h3>② Monitor 역량 실습</h3>
-            <p>CI/CD·Quality Gate·AI 에이전트 로그를 관제하며, 운영 이상 징후 대응 역량을 키웁니다.</p>
-          </div>
-        </div>
+    <div class="ref-badge">
+      <i class="fa-solid fa-bookmark"></i>
+      벤치마크 참고 자료 — 기술 스택·AI 오케스트레이션과는 별도로 검토
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card compare-card--peer">
+        <div class="compare-label">타사 사례 (참고)</div>
+        <div class="compare-company peer">삼성E&amp;A (삼성엔지니어링)</div>
+        <p class="compare-scope">70명 규모 인력이 2년간 진행한 대규모 엔지니어링·플랫폼 프로젝트</p>
+        <ul class="metric-list">
+          <li class="metric-item"><span>총 투입 인력</span><strong>70명</strong></li>
+          <li class="metric-item"><span>진행 기간</span><strong>2년</strong></li>
+          <li class="metric-item"><span>총 투입 규모</span><strong>1,680 M/M</strong></li>
+          <li class="metric-item"><span>조직 형태</span><strong>대형 전담 조직</strong></li>
+        </ul>
       </div>
 
-      <div class="hub-center">
-        <i class="fas fa-cubes hub-icon"></i>
-        <div class="hub-title">차세대 웹프레임워크<br/>SiteFramework</div>
-        <div class="hub-sub">Next.js · Java 21 · LangGraph<br/>공통 모듈·문서·CI 표준</div>
-        <div class="hub-tags">
-          <span class="hub-tag">S04</span><span class="hub-tag">S09</span><span class="hub-tag">S18</span>
-        </div>
-      </div>
+      <div class="vs-col"><div class="vs-badge">VS</div></div>
 
-      <div class="role-col">
-        <div class="role-card role-card--build">
-          <div class="role-icon green"><i class="fas fa-hammer"></i></div>
-          <div class="role-body">
-            <h3>③ Build 역량 실습</h3>
-            <p>수주·발주 모듈 PoC를 직접 설계·구현·배포하며, 요구사항→MR→운영까지 풀사이클을 경험합니다.</p>
-          </div>
-        </div>
-        <div class="role-card role-card--doc">
-          <div class="role-icon gold"><i class="fas fa-book"></i></div>
-          <div class="role-body">
-            <h3>④ AI-Ready 문서 기여</h3>
-            <p>README·위키·OpenAPI를 마크다운으로 기여해 RAG 컨텍스트를 쌓고, AI 협업 문화를 체득합니다.</p>
-          </div>
-        </div>
+      <div class="compare-card compare-card--ours">
+        <div class="compare-label">당사 차세대 FaSS</div>
+        <div class="compare-company ours">소수 정예 TFT + 도구 투자</div>
+        <p class="compare-scope">차세대 웹프레임워크 TFT 중심의 집중 개발 체제</p>
+        <ul class="metric-list">
+          <li class="metric-item"><span>핵심 TFT</span><strong>소수 정예</strong></li>
+          <li class="metric-item"><span>생산성 보완</span><strong>고성능 개발 도구</strong></li>
+          <li class="metric-item"><span>품질 방어</span><strong>CI/CD · Quality Gate</strong></li>
+          <li class="metric-item"><span>전략 방향</span><strong>인력 확대 대신 도구·프로세스</strong></li>
+        </ul>
       </div>
     </div>
 
-    <div class="bottom-bar">
-      <i class="fas fa-link"></i>
-      <p><strong>웹프레임워크의 역할:</strong> 빌더형 인재가 Monitor·Build 역할을 동시에 연마할 수 있는 <strong>살아있는 표준 플랫폼</strong>입니다. 앞 슬라이드의 AI 육성 파이프라인과 연결되어 인재·기술 역량을 완성합니다.</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>삼성E&amp;A (참고)</th>
+            <th>당사 FaSS TFT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>인력 전략</strong></td>
+            <td>70명 · 2년 규모 전담 인력 투입</td>
+            <td>소수 정예 + 도구·자동화로 생산성 보완</td>
+          </tr>
+          <tr>
+            <td><strong>시사점</strong></td>
+            <td>유사 범위 프로젝트의 규모 감각 확보</td>
+            <td>동일 산출물 대비 M/M·일정 리스크 관리</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footnote">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>본 슬라이드는 규모 벤치마크 참고용입니다. AI 오케스트레이션·기술 스택 상세는 다음 슬라이드에서 별도로 다룹니다.</span>
     </div>
   </div>
 </div>
 <script>
 (function(){
   function applyScale(){
-    var el=document.querySelector('body>div'); if(!el)return;
+    var el=document.querySelector('body>div');
+    if(!el)return;
     var sw=window.innerWidth,sh=window.innerHeight;
     var scale=Math.min(sw/960,sh/720);
-    el.style.transform='scale('+scale+')'; el.style.transformOrigin='top left';
+    el.style.transform='scale('+scale+')';
+    el.style.transformOrigin='top left';
     el.style.position='absolute';
     el.style.left=Math.round((sw-960*scale)/2)+'px';
     el.style.top=Math.round((sh-720*scale)/2)+'px';
   }
-  applyScale(); window.addEventListener('resize',applyScale);
+  applyScale();
+  window.addEventListener('resize',applyScale);
 })();
 </script>
 </body>
