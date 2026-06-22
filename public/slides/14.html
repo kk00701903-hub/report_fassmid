@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>기술 스택 상세 — Frontend · Backend · Security</title>
+<title>핵심 기술 스택 — 주요 과제별 매핑</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
@@ -10,7 +10,7 @@
 :root {
   --ppt-bg:#0A0E1A; --ppt-bg-soft:#141B2D; --ppt-surface:#1E2638; --ppt-border:#334155;
   --ppt-text-1:#FFF; --ppt-text-2:#94A3B8; --ppt-text-3:#64748B;
-  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-radius-md:8px; --ppt-radius-lg:16px;
+  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-radius-md:8px;
   --ppt-font:"IBM Plex Sans KR",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -23,156 +23,94 @@ body{width:100vw;height:100vh;overflow:hidden;background:#0A0E1A;display:flex;ju
 h1{font-size:24px;font-weight:700;line-height:1.3}
 .sub{font-size:12px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
 .line{height:1px;margin-top:6px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
-.body{flex:1;min-height:0;padding:6px 32px 12px;display:flex;flex-direction:column;gap:8px}
-.layer-grid{flex:1;min-height:0;display:grid;gap:8px}
-.layer-card{background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-lg);padding:10px 12px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
-.layer-card::before{content:'';height:3px;border-radius:3px 3px 0 0;margin:-10px -12px 4px}
-.layer-head{display:flex;align-items:center;gap:8px}
-.layer-icon{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
-.layer-title{font-size:13px;font-weight:700}
-.layer-count{margin-left:auto;font-size:10px;color:var(--ppt-text-3)}
-.tech-tags{display:flex;flex-wrap:wrap;gap:4px}
-.tag{font-size:10px;padding:2px 7px;border-radius:10px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);line-height:1.3}
-.tag strong{color:var(--ppt-text-1);font-weight:600}
-.assignee-row{font-size:10px;color:var(--ppt-text-3);margin-top:auto}
-.phase-bar{flex-shrink:0;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
-.phase{padding:6px 8px;border-radius:var(--ppt-radius-md);background:var(--ppt-surface);border:1px solid var(--ppt-border);text-align:center}
-.phase strong{display:block;font-size:10px;color:var(--ppt-accent-2)}
-.phase span{font-size:9px;color:var(--ppt-text-3)}
-.phase em{display:block;font-size:8px;color:var(--ppt-text-2);margin-top:2px;font-style:normal}
-.footer-note{flex-shrink:0;font-size:11px;color:var(--ppt-text-2);padding:6px 10px;border-left:3px solid var(--ppt-accent);background:rgba(0,240,255,0.05);border-radius:0 var(--ppt-radius-md) var(--ppt-radius-md) 0}
-.detail-grid{flex:1;min-height:0;display:grid;gap:8px}
-.detail-col{display:flex;flex-direction:column;gap:8px;min-height:0}
-.col-head{font-size:12px;font-weight:700;padding:6px 10px;border-radius:var(--ppt-radius-md);display:flex;align-items:center;gap:8px}
-.item-list{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:5px}
-.item{padding:6px 8px;border-radius:var(--ppt-radius-md);background:rgba(30,38,56,0.55);border:1px solid var(--ppt-border)}
-.item-top{display:flex;justify-content:space-between;gap:6px;align-items:flex-start}
-.item-name{font-size:11px;font-weight:700;color:var(--ppt-text-1);line-height:1.3}
-.item-meta{display:flex;gap:4px;flex-shrink:0}
-.sprint{font-size:9px;padding:1px 5px;border-radius:8px;background:rgba(0,240,255,0.1);color:var(--ppt-accent)}
-.person{font-size:9px;padding:1px 5px;border-radius:8px;background:rgba(250,204,21,0.12);color:var(--ppt-accent-2)}
-.item-desc{font-size:9px;color:var(--ppt-text-3);line-height:1.35;margin-top:3px}
+.body{flex:1;min-height:0;padding:6px 32px 10px;display:flex;flex-direction:column;gap:8px}
+.stack-table{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-md);overflow:hidden}
+.thead{display:grid;grid-template-columns:1.05fr 1.45fr;background:linear-gradient(90deg,#1e3a5f,#243b55);border-bottom:1px solid var(--ppt-border)}
+.th{padding:9px 14px;font-size:12px;font-weight:700;color:var(--ppt-text-1);letter-spacing:.02em}
+.th:first-child{border-right:1px solid rgba(255,255,255,.12)}
+.tbody{flex:1;min-height:0;display:flex;flex-direction:column}
+.tr{display:grid;grid-template-columns:1.05fr 1.45fr;border-bottom:1px solid var(--ppt-border);min-height:0;flex:1}
+.tr:last-child{border-bottom:none}
+.tr.highlight{background:linear-gradient(90deg,rgba(250,204,21,.22),rgba(250,204,21,.08));border-left:3px solid var(--ppt-accent-2)}
+.tr:not(.highlight):nth-child(even){background:rgba(20,27,45,.55)}
+.td-task{padding:7px 12px;font-size:11px;font-weight:600;color:var(--ppt-text-1);display:flex;align-items:center;line-height:1.35;border-right:1px solid var(--ppt-border)}
+.tr.highlight .td-task{color:#1a1a2e;font-weight:700}
+.td-stack{padding:6px 10px;display:flex;flex-wrap:wrap;align-items:center;gap:4px;align-content:center}
+.chip{font-size:10px;padding:3px 8px;border-radius:10px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);line-height:1.25;white-space:nowrap}
+.tr.highlight .chip{background:rgba(255,255,255,.75);border-color:rgba(250,204,21,.5);color:#1e293b;font-weight:600}
+.footer-note{flex-shrink:0;font-size:11px;color:var(--ppt-text-2);padding:6px 10px;border-left:3px solid var(--ppt-accent);background:rgba(0,240,255,0.05);border-radius:0 var(--ppt-radius-md) var(--ppt-radius-md) 0;margin:0 32px 10px}
+.footer-note strong{color:var(--ppt-accent)}
 html{overflow:hidden;margin:0;padding:0}
 </style>
 </head>
 <body>
 <div class="slide">
-
-<div class="title-r">
-  <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack 1/2</span></div>
-  <h1>기술 스택 상세 — Frontend · Backend · Security</h1>
-  <p class="sub">UI/UX 표준부터 백엔드 코어·IAM까지 — 스프린트 S01–S15 구간</p>
-  <div class="line"></div>
-</div>
-<div class="body">
-  <div class="detail-grid" style="grid-template-columns:1fr 1.15fr 1fr">
-    
-<div class="detail-col">
-  <div class="col-head" style="background:#00f0ff14;color:#00f0ff;border:1px solid #00f0ff44">
-    <i class="fa-solid fa-window-maximize"></i> Frontend <span style="margin-left:auto;font-size:10px;opacity:.8">5종</span>
+  <div class="title-r">
+    <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack</span></div>
+    <h1>핵심 기술 스택 — 주요 과제별 매핑</h1>
+    <p class="sub">차세대 FaSS 플랫폼 구축 핵심 과제와 선정 기술 스택</p>
+    <div class="line"></div>
   </div>
-  <div class="item-list">
-<div class="item">
-  <div class="item-top"><div class="item-name">Axios / React Query</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S08</span></div></div>
-  <div class="item-desc">프론트엔드 상태관리 및 클라이언트-서버 간 데이터 통신 최적화</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Atomic Design</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
-  <div class="item-desc">UI/UX 컴포넌트의 체계적인 자산화 및 재사용성 극대화를 위한 원자-분자-유기체 설계 방법론</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">RealGrid</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
-  <div class="item-desc">대용량 비즈니스 데이터 처리에 특화된 웹 엔터프라이즈 그리드</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Modal</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
-  <div class="item-desc">화면 이동 없는 팝업형 다이얼로그 UI 제공 컴포넌트</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Next.js (SSR/RSC)</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S16</span></div></div>
-  <div class="item-desc">서버 사이드 렌더링을 통한 초기 로딩 속도 최적화 및 SEO 개선</div>
-</div></div>
-</div>
-    
-<div class="detail-col">
-  <div class="col-head" style="background:#3b82f614;color:#3b82f6;border:1px solid #3b82f644">
-    <i class="fa-solid fa-server"></i> Backend <span style="margin-left:auto;font-size:10px;opacity:.8">10종</span>
+  <div class="body">
+    <div class="stack-table">
+      <div class="thead">
+        <div class="th">주요 과제명</div>
+        <div class="th">기술 스택</div>
+      </div>
+      <div class="tbody">
+        <div class="tr">
+          <div class="td-task">개발 환경 및 인프라 기반 구축</div>
+          <div class="td-stack">
+            <span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">GitLab CI</span>
+            <span class="chip">Nexus Repository</span><span class="chip">SonarQube</span><span class="chip">ArgoCD</span>
+          </div>
+        </div>
+        <div class="tr">
+          <div class="td-task">공통 플랫폼 인프라</div>
+          <div class="td-stack">
+            <span class="chip">Spring Cloud Config</span><span class="chip">Redis</span>
+          </div>
+        </div>
+        <div class="tr highlight">
+          <div class="td-task">공통 프레임워크 아키텍처</div>
+          <div class="td-stack">
+            <span class="chip">Next.js</span><span class="chip">React 19</span><span class="chip">Tailwind CSS</span><span class="chip">RealGrid</span>
+          </div>
+        </div>
+        <div class="tr">
+          <div class="td-task">공통 UI 컴포넌트 라이브러리 개발</div>
+          <div class="td-stack">
+            <span class="chip">Atomic Design</span><span class="chip">RealGrid 2.0</span>
+          </div>
+        </div>
+        <div class="tr">
+          <div class="td-task">공통 배치 처리</div>
+          <div class="td-stack"><span class="chip">Spring Batch</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">멀티 컴퍼니 지원</div>
+          <div class="td-stack"><span class="chip">Multi-tenancy</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">외부 인터페이스</div>
+          <div class="td-stack"><span class="chip">API Gateway</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">AI 연동 모듈 개발</div>
+          <div class="td-stack"><span class="chip">REST</span><span class="chip">gRPC</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">리포트 Tool 도입</div>
+          <div class="td-stack"><span class="chip">ClipReport</span><span class="chip">Browser Print / PDF</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">BI 대시보드</div>
+          <div class="td-stack"><span class="chip">Apache Superset</span><span class="chip">Grafana</span></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="item-list">
-<div class="item">
-  <div class="item-top"><div class="item-name">Spring Boot</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S04</span></div></div>
-  <div class="item-desc">전사 비즈니스 로직 개발의 뼈대가 되는 기본 구조체 및 백엔드 코어</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">JWT</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S06</span></div></div>
-  <div class="item-desc">무상태(Stateless) 기반의 빠르고 안전한 사용자 인증 토큰 처리</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Spring Security 6.x</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S06</span></div></div>
-  <div class="item-desc">엔터프라이즈 애플리케이션의 인증/인가를 통제하는 강력한 보안 필터</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">RBAC/ABAC</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S07</span></div></div>
-  <div class="item-desc">역할 및 속성(조건) 기반의 세밀한 사용자 메뉴/데이터 접근 통제</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">DTO / MapStruct</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S10</span></div></div>
-  <div class="item-desc">계층 간 데이터 교환 객체 정의 및 변환(매핑) 코드 자동 생성</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Spring Batch</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S10</span></div></div>
-  <div class="item-desc">정해진 시간에 대용량 데이터를 안전하게 일괄 처리하는 스케줄링</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">API Gateway</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S12</span></div></div>
-  <div class="item-desc">외부 API 요청을 단일 진입점에서 받아 라우팅, 인증, 트래픽 제어 수행</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">REST / gRPC</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S14</span></div></div>
-  <div class="item-desc">물류/유통 AI 모델과 백엔드 시스템 간의 빠르고 표준화된 통신 규격</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Spring Cloud</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S19</span></div></div>
-  <div class="item-desc">거대한 모놀리식 시스템을 독립적인 마이크로서비스로 분리하여 유연성 확보</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Golden Set</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S20</span></div></div>
-  <div class="item-desc">보안 및 성능 검증이 완료되어 전사 표준으로 사용할 라이브러리/의존성 모음 배포</div>
-</div></div>
-</div>
-    
-<div class="detail-col">
-  <div class="col-head" style="background:#a78bfa14;color:#a78bfa;border:1px solid #a78bfa44">
-    <i class="fa-solid fa-shield-halved"></i> Security &amp; IAM <span style="margin-left:auto;font-size:10px;opacity:.8">6종</span>
-  </div>
-  <div class="item-list">
-<div class="item">
-  <div class="item-top"><div class="item-name">네이밍 룰</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S01</span></div></div>
-  <div class="item-desc">전체 개발 파트 간 코드 일관성 유지 및 유지보수성 향상</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Keycloak</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
-  <div class="item-desc">통합 계정 및 접근 관리(IAM)를 위한 오픈소스 솔루션</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">LDAP</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
-  <div class="item-desc">사내 디렉토리 서비스(조직/사용자 정보) 연계 인증</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">OIDC</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
-  <div class="item-desc">OAuth 2.0 기반의 안전한 분산 환경 사용자 인증 프로토콜</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">API 마스킹 / DB 암호화</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S15</span></div></div>
-  <div class="item-desc">화면 및 DB 상의 개인정보 등 민감 데이터 노출 원천 차단</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Nexus IQ</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S21</span></div></div>
-  <div class="item-desc">프로젝트에 포함된 오픈소스의 보안 취약점 및 라이선스 위반 리스크 자동 점검</div>
-</div></div>
-</div>
-  </div>
-</div>
+  <div class="footer-note"><strong>핵심 축:</strong> 공통 프레임워크 아키텍처(Next.js · React 19)를 중심으로 DevOps·플랫폼·UI·AI·리포팅·BI 스택을 단계적으로 구축합니다.</div>
 </div>
 <script>
 (function(){

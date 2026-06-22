@@ -362,42 +362,21 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 14,
     topics: [
       {
-        id: "tech-stack-fe-be-sec",
-        title: "Frontend · Backend · Security 상세",
+        id: "tech-stack-overview",
+        title: "핵심 기술 스택 — 주요 과제별 매핑",
         category: "architecture",
         summary:
-          "사용자 경험(Next.js·RealGrid)·비즈니스 코어(Spring Boot·Gateway)·통합 IAM(Keycloak·RBAC) 3계층의 스프린트·담당자 매핑입니다.",
-        techLayers: TECH_STACK_FE_BE_SEC,
+          "차세대 FaSS 플랫폼 구축 핵심 과제별 선정 기술 스택입니다. 공통 프레임워크(Next.js·React 19)를 중심으로 DevOps·플랫폼·UI·AI·리포팅·BI를 구성합니다.",
         process: [
-          { step: 1, title: "Frontend", description: "S08–S16: React Query·Atomic Design·RealGrid·Next.js SSR/RSC" },
-          { step: 2, title: "Backend", description: "S04–S20: Spring Boot·Security·Batch·Gateway·Spring Cloud" },
-          { step: 3, title: "Security", description: "S01·S05·S15·S21: 네이밍·Keycloak·마스킹·Nexus IQ" },
+          { step: 1, title: "인프라·플랫폼", description: "Docker·GitLab CI·ArgoCD·Spring Cloud Config·Redis" },
+          { step: 2, title: "프레임워크·UI", description: "Next.js·React 19·Tailwind·RealGrid·Atomic Design" },
+          { step: 3, title: "연동·분석", description: "API Gateway·REST/gRPC·ClipReport·Superset·Grafana" },
         ],
-        links: [{ label: "FaSS Sprint Backlog", href: FASS_BACKLOG_URL }],
       },
     ],
   },
   {
     slideId: 15,
-    topics: [
-      {
-        id: "tech-stack-data-infra-ai",
-        title: "Data · DevOps · AI 상세",
-        category: "architecture",
-        summary:
-          "Redis·CDC(Kafka/Debezium)·Docker/K8s GitOps·LangGraph AI Agent까지 데이터 파이프라인과 플랫폼 운영·차세대 AI 스택을 정리합니다.",
-        techLayers: TECH_STACK_DATA_INFRA_AI,
-        process: [
-          { step: 1, title: "Data & Messaging", description: "S03·S11·S17: Redis·Multi-tenancy·Debezium CDC·Kafka" },
-          { step: 2, title: "Platform & DevOps", description: "S02·S13·S22·S23: Docker·GitLab·ArgoCD·Superset·ClipReport" },
-          { step: 3, title: "AI & Agent", description: "S18: LLM/LangChain 기반 에이전트 권한·역할 통제(예상)" },
-        ],
-        links: [{ label: "FaSS Sprint Backlog", href: FASS_BACKLOG_URL }],
-      },
-    ],
-  },
-  {
-    slideId: 16,
     topics: [
       {
         id: "api-first",
@@ -543,7 +522,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 17,
+    slideId: 16,
     topics: [
       {
         id: "msa-migration",
@@ -585,7 +564,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 18,
+    slideId: 17,
     topics: [
       {
         id: "docker-cloud-ready",
@@ -646,7 +625,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 19,
+    slideId: 18,
     topics: [
       {
         id: "cdc-sync",
@@ -701,7 +680,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 20,
+    slideId: 19,
     topics: [
       {
         id: "innovation-validation",
@@ -717,7 +696,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 21,
+    slideId: 20,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -733,7 +712,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 22,
+    slideId: 21,
     topics: [
       {
         id: "realgrid-ui",
@@ -795,7 +774,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 23,
+    slideId: 22,
     topics: [
       {
         id: "sonarqube-gate",
@@ -831,7 +810,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 24,
+    slideId: 23,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -849,7 +828,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 25,
+    slideId: 24,
     topics: [
       {
         id: "finops",
@@ -879,7 +858,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 28,
+    slideId: 25,
     topics: [
       {
         id: "peer-benchmark",
@@ -896,7 +875,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 29,
+    slideId: 28,
     topics: [
       {
         id: "mm-tool-investment",
@@ -1012,7 +991,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
+    slideId: 29,
     topics: [
       {
         id: "framework-builder-role",
@@ -1054,7 +1033,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 30,
     topics: [
       {
         id: "builder-talent",
@@ -1070,7 +1049,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 31,
     topics: [
       {
         id: "roadmap-vision",
@@ -1086,7 +1065,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 34,
+    slideId: 32,
     topics: [
       {
         id: "risk-management",
@@ -1102,7 +1081,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 35,
+    slideId: 33,
     topics: [
       {
         id: "closing-milestones",
@@ -1119,7 +1098,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 37,
+    slideId: 34,
     topics: [
       {
         id: "commitment",
