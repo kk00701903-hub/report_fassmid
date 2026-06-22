@@ -247,14 +247,15 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 9,
     topics: [
       {
-        id: "war-room",
+        id: "ai-digital-worker",
         title: "최적화 방안 1. AI 디지털 워커 활용",
         category: "process",
-        summary: "집중 개발 기간 워룸 운영 방식과 일일 루틴입니다.",
+        summary:
+          "AI 디지털 워커가 우측 TFT의 보조 역할을 수행합니다. 코드·문서·테스트 등 반복 업무는 AI가 24/7 지원하고, 설계·의사결정·품질 검수는 TFT가 Human-in-the-loop로 통제하여 최소 핵심 인력으로 프로젝트를 주도합니다.",
         process: [
-          { step: 1, title: "데일리 체크인", description: "전일 완료·당일 목표·블로커 공유" },
-          { step: 2, title: "실시간 대시보드", description: "CI/CD·품질 지표 화면 상시 노출" },
-          { step: 3, title: "의사결정 SLA", description: "블로커 4시간 내 에스컬레이션" },
+          { step: 1, title: "TFT 보조", description: "AI 디지털 워커가 코드·문서·테스트 등 표준 업무를 24/7 지원" },
+          { step: 2, title: "Human-in-the-loop", description: "아키텍처·설계·품질 검수·의사결정은 TFT가 직접 수행" },
+          { step: 3, title: "최소 인력 운영", description: "소수 정예 TFT + AI 워커로 인력 증원 없이 생산성 확장" },
         ],
       },
     ],
