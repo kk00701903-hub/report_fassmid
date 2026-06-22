@@ -1,271 +1,153 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>AI 기반 스마트 물류 최적화</title>
+<title>차세대 웹프레임워크 × 빌더형 인재 육성</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+<style>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-    --ppt-bg: #0A0E1A;
-    --ppt-bg-soft: #141B2D;
-    --ppt-surface: #1E2638;
-    --ppt-surface-2: #2A344A;
-    --ppt-border: #334155;
-    --ppt-text-1: #FFF;
-    --ppt-text-2: #94A3B8;
-    --ppt-text-3: #64748B;
-    --ppt-accent: #00F0FF;
-    --ppt-accent-2: #FACC15;
-    --ppt-good: #22C55E;
-    --ppt-radius-sm: 4px;
-    --ppt-radius-md: 8px;
-    --ppt-radius-lg: 16px;
-    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
-    --ppt-font-body: "IBM Plex Sans KR", sans-serif
-    }
-* {
-    margin: 0 0;
-    padding: 0 0;
-    box-sizing: border-box
-    }
-body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-bg);
-    color: var(--ppt-text-1);
-    font-family: var(--ppt-font-body);
-    display: flex;
-    justify-content: center;
-    align-items: center}
-.fass-slide-root {
-    width: 960px;
-    height: 720px;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--ppt-bg)
-    }
-/* Title Region */
-.title-region-container {
-    padding: 32px 40px 12px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-    }
-.title-header-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px
-    }
-.title-accent-bar {
-    width: 4px;
-    height: 32px;
-    background: var(--ppt-accent);
-    border-radius: 2px
-    }
-.title-main-text {
-    font-family: var(--ppt-font-display);
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    margin: 0
-    }
-.title-gradient-line {
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-    opacity: 0.3;
-    margin-top: 8px
-    }
-/* Content Layout */
-.fass-smart-logistics-content-wrapper {
-    flex: 1;
-    padding: 12px 40px 20px 40px;
-    display: flex;
-    gap: 20px 28px;
-    align-items: stretch
-    }
-/* Left Column: Concept */
-.fass-smart-logistics-left-concept-block {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px
-    }
-.fass-smart-logistics-paradigm-text-box {
-    display: flex;
-    flex-direction: column;
-    gap: 12px
-    }
-.fass-smart-logistics-concept-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ppt-accent);
-    text-transform: uppercase;
-    letter-spacing: 1px
-    }
-.fass-smart-logistics-concept-description {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--ppt-text-1)
-    }
-.fass-smart-logistics-concept-highlight {
-    color: var(--ppt-accent-2)
-    }
-.fass-smart-logistics-visual-image-box {
-    height: 200px;
-    border-radius: var(--ppt-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--ppt-shadow-strong);
-    border: 1px solid var(--ppt-border)
-    }
-.fass-smart-logistics-visual-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover
-    }
-/* Right Column: Action */
-.fass-smart-logistics-right-action-block {
-    flex: 1.2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 16px 20px
-    }
-.fass-smart-logistics-action-item-card {
-    background: var(--ppt-surface);
-    padding: 14px 18px;
-    border-radius: var(--ppt-radius-lg);
-    border: 1px solid var(--ppt-border);
-    display: flex;
-    flex-direction: column;
-    gap: 13px 16px;
-    flex: 1
-    }
-.fass-smart-logistics-card-header {
-    display: flex;
-    align-items: center;
-    gap: 13px 16px
-    }
-.fass-smart-logistics-card-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--ppt-bg-soft);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--ppt-accent);
-    border: 1px solid var(--ppt-accent)
-    }
-.fass-smart-logistics-card-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.fass-smart-logistics-card-body {
-    font-size: 15px;
-    line-height: 1.45;
-    color: var(--ppt-text-2)
-    }
-.fass-smart-logistics-impact-badge {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    gap: 6px 8px;
-    padding: 6px 16px;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid var(--ppt-good);
-    border-radius: var(--ppt-radius-sm);
-    width: fit-content
-    }
-.fass-smart-logistics-impact-text {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--ppt-good)
-    }
-html { overflow: hidden;  margin:0; padding:0; }
-</style></head>
+  --ppt-bg: #0A0E1A; --ppt-bg-soft: #141B2D; --ppt-surface: #1E2638;
+  --ppt-border: #334155; --ppt-text-1: #FFF; --ppt-text-2: #94A3B8; --ppt-text-3: #64748B;
+  --ppt-accent: #00F0FF; --ppt-accent-2: #FACC15; --ppt-good: #22C55E; --ppt-purple: #A78BFA;
+  --ppt-radius-md: 8px; --ppt-radius-lg: 16px;
+  --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+  --ppt-font-body: "IBM Plex Sans KR", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width:100vw; height:100vh; overflow:hidden; background:#0A0E1A;
+  display:flex; justify-content:center; align-items:center; font-family:var(--ppt-font-body); }
+.slide-root { width:960px; height:720px; background:var(--ppt-bg); color:var(--ppt-text-1);
+  display:flex; flex-direction:column; overflow:hidden; }
+.title-region { padding:24px 40px 8px; }
+.title-row { display:flex; align-items:center; gap:12px; }
+.title-bar { width:4px; height:32px; background:var(--ppt-good); border-radius:2px; }
+.title-badge { font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px;
+  background:rgba(34,197,94,0.12); color:var(--ppt-good); border:1px solid rgba(34,197,94,0.3); }
+.title-text { font-family:var(--ppt-font-display); font-size:30px; font-weight:700; }
+.title-sub { font-size:14px; color:var(--ppt-text-2); margin-top:6px; padding-left:16px; }
+.title-line { height:1px; margin-top:8px;
+  background:linear-gradient(90deg,var(--ppt-good) 0%,transparent 100%); opacity:0.35; }
+.main-body { flex:1; min-height:0; padding:6px 40px 16px; display:flex; flex-direction:column; gap:10px; }
+.hub-row { display:grid; grid-template-columns:1fr 220px 1fr; gap:10px; flex:1; min-height:0; }
+.role-col { display:flex; flex-direction:column; gap:8px; }
+.role-card {
+  flex:1; background:var(--ppt-bg-soft); border:1px solid var(--ppt-border);
+  border-radius:var(--ppt-radius-lg); padding:12px 14px; display:flex; gap:10px;
+}
+.role-card::before { content:''; width:3px; border-radius:3px; flex-shrink:0; }
+.role-card--learn::before { background:var(--ppt-accent); }
+.role-card--build::before { background:var(--ppt-good); }
+.role-card--monitor::before { background:var(--ppt-purple); }
+.role-card--doc::before { background:var(--ppt-accent-2); }
+.role-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center;
+  justify-content:center; font-size:16px; flex-shrink:0; }
+.role-icon.cyan { background:rgba(0,240,255,0.1); color:var(--ppt-accent); }
+.role-icon.green { background:rgba(34,197,94,0.1); color:var(--ppt-good); }
+.role-icon.purple { background:rgba(167,139,250,0.1); color:var(--ppt-purple); }
+.role-icon.gold { background:rgba(250,204,21,0.1); color:var(--ppt-accent-2); }
+.role-body h3 { font-size:14px; font-weight:700; margin-bottom:4px; }
+.role-body p { font-size:12px; color:var(--ppt-text-2); line-height:1.45; }
+.hub-center {
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  background:linear-gradient(180deg,rgba(0,240,255,0.08),rgba(34,197,94,0.06));
+  border:1px solid rgba(0,240,255,0.3); border-radius:var(--ppt-radius-lg); padding:14px 10px;
+}
+.hub-icon { font-size:28px; color:var(--ppt-accent); }
+.hub-title { font-size:15px; font-weight:700; text-align:center; color:var(--ppt-accent); line-height:1.35; }
+.hub-sub { font-size:11px; color:var(--ppt-text-2); text-align:center; line-height:1.4; }
+.hub-tags { display:flex; flex-wrap:wrap; gap:4px; justify-content:center; }
+.hub-tag { font-size:10px; padding:2px 7px; border-radius:12px;
+  background:var(--ppt-surface); border:1px solid var(--ppt-border); color:var(--ppt-text-3); }
+.bottom-bar {
+  flex-shrink:0; padding:10px 16px; border-radius:var(--ppt-radius-md);
+  background:linear-gradient(90deg,rgba(34,197,94,0.08),transparent);
+  border-left:4px solid var(--ppt-good);
+  display:flex; align-items:center; gap:12px;
+}
+.bottom-bar i { color:var(--ppt-good); font-size:18px; }
+.bottom-bar p { font-size:13px; color:var(--ppt-text-2); line-height:1.5; }
+.bottom-bar strong { color:var(--ppt-text-1); }
+html { overflow:hidden; margin:0; padding:0; }
+</style>
+</head>
 <body>
-<div class="fass-slide-root" style="overflow: hidden;">
-<!-- Non-Cover-Page Title Region -->
-<div class="title-region-container">
-<div class="title-header-wrapper">
-<div class="title-accent-bar"></div>
-<h1 class="title-main-text">AI 기반 스마트 물류 최적화</h1>
-</div>
-<div class="title-gradient-line"></div>
-</div>
-<!-- Main Content Wrapper -->
-<div class="fass-smart-logistics-content-wrapper">
-<!-- Left: Concept Section -->
-<div class="fass-smart-logistics-left-concept-block">
-<div class="fass-smart-logistics-paradigm-text-box">
-<span class="fass-smart-logistics-concept-label">Paradigm Shift</span>
-<p class="fass-smart-logistics-concept-description">
-                        단순 기록/조회 시스템에서<br/>
-                        데이터 기반 <span class="fass-smart-logistics-concept-highlight">예측 및 자동화 시스템</span>으로의 전환
-                    </p>
-</div>
-<div class="fass-smart-logistics-visual-image-box">
-<img alt="Smart Logistics Visual" src="https://agents-download.skywork.ai/image/rt/d6fd321f922784da7bb75669ba52eb67.jpg"/>
-</div>
-</div>
-<!-- Right: Action Section -->
-<div class="fass-smart-logistics-right-action-block">
-<!-- Action Item 1: Adaptive Web Experience -->
-<div class="fass-smart-logistics-action-item-card">
-<div class="fass-smart-logistics-card-header">
-<div class="fass-smart-logistics-card-icon">
-<i class="fas fa-window-maximize"></i>
-</div>
-<h2 class="fass-smart-logistics-card-title">적응형 웹 경험 (Adaptive Web Experience)</h2>
-</div>
-<div class="fass-smart-logistics-card-body">
-                        차세대 FaSS는 <b>웹(Next.js)</b> 기반으로 구성되어 AI 연동성이 뛰어납니다.
-                        표준 <b>REST/OpenAPI</b>를 다수 제공해 일반 사용자도 회사 데이터에 쉽게 접근하고,
-                        AI·업무 앱이 동일 API로 물류·재고 데이터를 활용할 수 있습니다.
-                    </div>
-<div class="fass-smart-logistics-impact-badge">
-<i class="fas fa-plug" style="color: var(--ppt-good);font-size: 14px;"></i>
-<span class="fass-smart-logistics-impact-text">표준 API 기반 · 데이터 접근 민주화</span>
-</div>
-</div>
-<!-- Action Item 2: AI Business Assistant -->
-<div class="fass-smart-logistics-action-item-card">
-<div class="fass-smart-logistics-card-header">
-<div class="fass-smart-logistics-card-icon">
-<i class="fas fa-brain"></i>
-</div>
-<h2 class="fass-smart-logistics-card-title">AI 업무 어시스턴트 (RAG)</h2>
-</div>
-<div class="fass-smart-logistics-card-body">
-                        복잡한 3PL 계약서 및 무역 규정을 AI가 자동 검증하여 실무진의 서류 검토 리드타임을 극강으로 단축합니다.
-                    </div>
-<div class="fass-smart-logistics-impact-badge">
-<i class="fas fa-bolt" style="color: var(--ppt-good);font-size: 14px;"></i>
-<span class="fass-smart-logistics-impact-text">검토 리드타임 60% 이상 단축 예상</span>
-</div>
-</div>
-</div>
-</div>
+<div class="slide-root">
+  <div class="title-region">
+    <div class="title-row">
+      <div class="title-bar"></div>
+      <span class="title-badge">BUILDER × PLATFORM</span>
+      <h1 class="title-text">차세대 웹프레임워크 × 빌더형 인재 육성</h1>
+    </div>
+    <p class="title-sub">SiteFramework(FaSS Platform)는 이론이 아닌 <strong style="color:var(--ppt-accent);">실전 훈련장</strong> — 앞 슬라이드의 AI 개발 혁신(도구·오케스트레이션·육성) 위에서 빌더가 성장합니다</p>
+    <div class="title-line"></div>
+  </div>
+
+  <div class="main-body">
+    <div class="hub-row">
+      <div class="role-col">
+        <div class="role-card role-card--learn">
+          <div class="role-icon cyan"><i class="fas fa-graduation-cap"></i></div>
+          <div class="role-body">
+            <h3>① 표준 아키텍처 학습장</h3>
+            <p>SiteFramework·API-First·모듈 경계를 실제 코드로 익히며, 신입·전환 인력의 온보딩 시간을 단축합니다.</p>
+          </div>
+        </div>
+        <div class="role-card role-card--monitor">
+          <div class="role-icon purple"><i class="fas fa-satellite-dish"></i></div>
+          <div class="role-body">
+            <h3>② Monitor 역량 실습</h3>
+            <p>CI/CD·Quality Gate·AI 에이전트 로그를 관제하며, 운영 이상 징후 대응 역량을 키웁니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hub-center">
+        <i class="fas fa-cubes hub-icon"></i>
+        <div class="hub-title">차세대 웹프레임워크<br/>SiteFramework</div>
+        <div class="hub-sub">Next.js · Java 21 · LangGraph<br/>공통 모듈·문서·CI 표준</div>
+        <div class="hub-tags">
+          <span class="hub-tag">S04</span><span class="hub-tag">S09</span><span class="hub-tag">S18</span>
+        </div>
+      </div>
+
+      <div class="role-col">
+        <div class="role-card role-card--build">
+          <div class="role-icon green"><i class="fas fa-hammer"></i></div>
+          <div class="role-body">
+            <h3>③ Build 역량 실습</h3>
+            <p>수주·발주 모듈 PoC를 직접 설계·구현·배포하며, 요구사항→MR→운영까지 풀사이클을 경험합니다.</p>
+          </div>
+        </div>
+        <div class="role-card role-card--doc">
+          <div class="role-icon gold"><i class="fas fa-book"></i></div>
+          <div class="role-body">
+            <h3>④ AI-Ready 문서 기여</h3>
+            <p>README·위키·OpenAPI를 마크다운으로 기여해 RAG 컨텍스트를 쌓고, AI 협업 문화를 체득합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <i class="fas fa-link"></i>
+      <p><strong>웹프레임워크의 역할:</strong> 빌더형 인재가 Monitor·Build 역할을 동시에 연마할 수 있는 <strong>살아있는 표준 플랫폼</strong>입니다. 앞 슬라이드의 AI 육성 파이프라인과 연결되어 인재·기술 역량을 완성합니다.</p>
+    </div>
+  </div>
 </div>
 <script>
 (function(){
   function applyScale(){
-    var el=document.querySelector('body>div');
-    if(!el)return;
+    var el=document.querySelector('body>div'); if(!el)return;
     var sw=window.innerWidth,sh=window.innerHeight;
     var scale=Math.min(sw/960,sh/720);
-    el.style.transform='scale('+scale+')';
-    el.style.transformOrigin='top left';
+    el.style.transform='scale('+scale+')'; el.style.transformOrigin='top left';
     el.style.position='absolute';
     el.style.left=Math.round((sw-960*scale)/2)+'px';
     el.style.top=Math.round((sh-720*scale)/2)+'px';
   }
-  applyScale();
-  window.addEventListener('resize',applyScale);
+  applyScale(); window.addEventListener('resize',applyScale);
 })();
 </script>
 </body>

@@ -509,101 +509,20 @@ public class OrderController {
     slideId: 15,
     topics: [
       {
-        id: "msa-migration",
-        title: "Strangler Fig MSA 전환 (S12 Gateway)",
-        category: "architecture",
-        summary:
-          "모듈러 모놀리스에서 API Gateway(S12)로 트래픽을 점진 분리. Debezium CDC(S17)로 데이터 이중 쓰기 없이 동기화.",
-        techLayers: [
-          {
-            id: "infra",
-            label: "Migration Path",
-            icon: "fa-solid fa-route",
-            accent: "#facc15",
-            items: [
-              { name: "API Gateway", detail: "기존 URL 유지·백엔드 라우팅 전환", sprintId: "S12" },
-              { name: "Debezium CDC", detail: "분리 DB 실시간 동기화", sprintId: "S17" },
-              { name: "Config Server", detail: "분리 서비스 설정 중앙화", sprintId: "S03" },
-            ],
-          },
-        ],
-        preview: {
-          type: "api-flow",
-          title: "Strangler Fig 라우팅",
-          caption: "Gateway가 트래픽 비율에 따라 monolith ↔ microservice 전환",
-        },
-        flowNodes: [
-          { id: "client", label: "Next.js Client", sub: "S16", icon: "fa-solid fa-window-maximize" },
-          { id: "gw", label: "API Gateway", sub: "Traffic Split", icon: "fa-solid fa-shuffle" },
-          { id: "mono", label: "Modular Monolith", sub: "Legacy Path", icon: "fa-solid fa-server" },
-          { id: "ms", label: "Extracted Service", sub: "New Path", icon: "fa-solid fa-cube" },
-        ],
+        id: "prototype-dev-kickoff",
+        title: "JTGS 프로토타입 개발 착수 체크리스트",
+        category: "process",
+        summary: "2026.10 주유소(JTGS) 프로토타입 개발 착수 전·후 점검 항목입니다. 런칭·경영 시연이 아닌 개발 Start 기준입니다.",
         process: [
-          { step: 1, title: "Strangler Fig", description: "트래픽이 적은 모듈부터 분리" },
-          { step: 2, title: "API Gateway", description: "기존 API 경로 유지하며 라우팅 전환" },
-          { step: 3, title: "데이터 분리", description: "스키마 → 독립 DB로 점진 이전" },
-          { step: 4, title: "관측성", description: "분리 모듈별 로그·메트릭·트레이싱" },
+          { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
+          { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
+          { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
         ],
       },
     ],
   },
   {
     slideId: 16,
-    topics: [
-      {
-        id: "cdc-sync",
-        title: "Debezium CDC 무중단 동기화 (S17)",
-        category: "architecture",
-        summary:
-          "레거시 Oracle/PostgreSQL WAL → Debezium Connector → Kafka → 신규 FaSS 스키마. 초기 스냅샷 후 이벤트 스트리밍.",
-        techLayers: [
-          {
-            id: "data",
-            label: "CDC Pipeline",
-            icon: "fa-solid fa-database",
-            accent: "#22c55e",
-            items: [
-              { name: "Debezium", detail: "WAL 기반 Change Data Capture", sprintId: "S17" },
-              { name: "Apache Kafka", detail: "파티션·순서 보장", sprintId: "S17" },
-              { name: "Schema Registry", detail: "Avro/JSON 스키마 버전 관리", sprintId: "S17" },
-            ],
-          },
-        ],
-        preview: {
-          type: "api-flow",
-          title: "CDC 이벤트 파이프라인",
-          caption: "legacy.orders UPDATE → Kafka topic → FaSS order_mgmt consumer",
-        },
-        flowNodes: [
-          { id: "legacy", label: "Legacy DB", sub: "WAL / Redo Log", icon: "fa-solid fa-database" },
-          { id: "debezium", label: "Debezium", sub: "S17 Connector", icon: "fa-solid fa-plug" },
-          { id: "kafka", label: "Kafka", sub: "orders.cdc", icon: "fa-solid fa-stream" },
-          { id: "consumer", label: "FaSS Consumer", sub: "order_mgmt", icon: "fa-solid fa-inbox" },
-        ],
-        process: [
-          { step: 1, title: "초기 적재", description: "배치로 기존 데이터 스냅샷 이관" },
-          { step: 2, title: "CDC 연결", description: "Debezium 등으로 변경 이벤트 캡처" },
-          { step: 3, title: "이벤트 처리", description: "Kafka/큐로 순서 보장하며 반영" },
-          { step: 4, title: "검증", description: "체크섬·카운트 비교로 정합성 확인" },
-        ],
-        code: [
-          {
-            language: "json",
-            filename: "cdc-event.example.json",
-            content: `{
-  "op": "u",
-  "source": { "table": "orders", "schema": "legacy" },
-  "before": { "id": "ORD-1001", "status": "PENDING" },
-  "after":  { "id": "ORD-1001", "status": "CONFIRMED" },
-  "ts_ms": 1718000000000
-}`,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 17,
     topics: [
       {
         id: "innovation-validation",
@@ -619,23 +538,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 18,
-    topics: [
-      {
-        id: "prototype-dev-kickoff",
-        title: "JTGS 프로토타입 개발 착수 체크리스트",
-        category: "process",
-        summary: "2026.10 주유소(JTGS) 프로토타입 개발 착수 전·후 점검 항목입니다. 런칭·경영 시연이 아닌 개발 Start 기준입니다.",
-        process: [
-          { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
-          { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
-          { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 19,
+    slideId: 17,
     topics: [
       {
         id: "realgrid-ui",
@@ -697,43 +600,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 20,
-    topics: [
-      {
-        id: "sonarqube-gate",
-        title: "SonarQube Quality Gate 설정",
-        category: "code",
-        summary: "CI 파이프라인에서 코드 품질 게이트를 강제하는 GitLab CI 예시입니다.",
-        code: [
-          {
-            language: "yaml",
-            filename: ".gitlab-ci.yml",
-            content: `stages: [test, quality, deploy]
-
-sonarqube:
-  stage: quality
-  script:
-    - mvn verify sonar:sonar
-      -Dsonar.qualitygate.wait=true
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-
-deploy_prod:
-  stage: deploy
-  needs: [sonarqube]
-  when: manual`,
-          },
-        ],
-        process: [
-          { step: 1, title: "정적 분석", description: "MR마다 SonarQube 자동 스캔" },
-          { step: 2, title: "게이트", description: "Critical Bug 0, Coverage 80% 미만 차단" },
-          { step: 3, title: "배포", description: "게이트 통과 시에만 운영 배포 허용" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 21,
+    slideId: 18,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -751,7 +618,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 22,
+    slideId: 19,
     topics: [
       {
         id: "finops",
@@ -781,7 +648,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 23,
+    slideId: 20,
     topics: [
       {
         id: "peer-benchmark",
@@ -798,7 +665,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 24,
+    slideId: 21,
     topics: [
       {
         id: "mm-tool-investment",
@@ -914,7 +781,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 25,
+    slideId: 22,
     topics: [
       {
         id: "framework-builder-role",
@@ -956,7 +823,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 28,
+    slideId: 24,
     topics: [
       {
         id: "builder-talent",
@@ -972,7 +839,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 29,
+    slideId: 25,
     topics: [
       {
         id: "roadmap-vision",
@@ -988,7 +855,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
+    slideId: 26,
     topics: [
       {
         id: "risk-management",
@@ -999,6 +866,139 @@ quality_gate:
           { step: 1, title: "식별", description: "주간 리스크 레지스터 업데이트" },
           { step: 2, title: "평가", description: "영향도×발생확률 매트릭스" },
           { step: 3, title: "대응", description: "회피·완화·수용·전가 전략 선택" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 28,
+    topics: [
+      {
+        id: "sonarqube-gate",
+        title: "SonarQube Quality Gate 설정",
+        category: "code",
+        summary: "CI 파이프라인에서 코드 품질 게이트를 강제하는 GitLab CI 예시입니다.",
+        code: [
+          {
+            language: "yaml",
+            filename: ".gitlab-ci.yml",
+            content: `stages: [test, quality, deploy]
+
+sonarqube:
+  stage: quality
+  script:
+    - mvn verify sonar:sonar
+      -Dsonar.qualitygate.wait=true
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+deploy_prod:
+  stage: deploy
+  needs: [sonarqube]
+  when: manual`,
+          },
+        ],
+        process: [
+          { step: 1, title: "정적 분석", description: "MR마다 SonarQube 자동 스캔" },
+          { step: 2, title: "게이트", description: "Critical Bug 0, Coverage 80% 미만 차단" },
+          { step: 3, title: "배포", description: "게이트 통과 시에만 운영 배포 허용" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 29,
+    topics: [
+      {
+        id: "msa-migration",
+        title: "Strangler Fig MSA 전환 (S12 Gateway)",
+        category: "architecture",
+        summary:
+          "모듈러 모놀리스에서 API Gateway(S12)로 트래픽을 점진 분리. Debezium CDC(S17)로 데이터 이중 쓰기 없이 동기화.",
+        techLayers: [
+          {
+            id: "infra",
+            label: "Migration Path",
+            icon: "fa-solid fa-route",
+            accent: "#facc15",
+            items: [
+              { name: "API Gateway", detail: "기존 URL 유지·백엔드 라우팅 전환", sprintId: "S12" },
+              { name: "Debezium CDC", detail: "분리 DB 실시간 동기화", sprintId: "S17" },
+              { name: "Config Server", detail: "분리 서비스 설정 중앙화", sprintId: "S03" },
+            ],
+          },
+        ],
+        preview: {
+          type: "api-flow",
+          title: "Strangler Fig 라우팅",
+          caption: "Gateway가 트래픽 비율에 따라 monolith ↔ microservice 전환",
+        },
+        flowNodes: [
+          { id: "client", label: "Next.js Client", sub: "S16", icon: "fa-solid fa-window-maximize" },
+          { id: "gw", label: "API Gateway", sub: "Traffic Split", icon: "fa-solid fa-shuffle" },
+          { id: "mono", label: "Modular Monolith", sub: "Legacy Path", icon: "fa-solid fa-server" },
+          { id: "ms", label: "Extracted Service", sub: "New Path", icon: "fa-solid fa-cube" },
+        ],
+        process: [
+          { step: 1, title: "Strangler Fig", description: "트래픽이 적은 모듈부터 분리" },
+          { step: 2, title: "API Gateway", description: "기존 API 경로 유지하며 라우팅 전환" },
+          { step: 3, title: "데이터 분리", description: "스키마 → 독립 DB로 점진 이전" },
+          { step: 4, title: "관측성", description: "분리 모듈별 로그·메트릭·트레이싱" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 30,
+    topics: [
+      {
+        id: "cdc-sync",
+        title: "Debezium CDC 무중단 동기화 (S17)",
+        category: "architecture",
+        summary:
+          "레거시 Oracle/PostgreSQL WAL → Debezium Connector → Kafka → 신규 FaSS 스키마. 초기 스냅샷 후 이벤트 스트리밍.",
+        techLayers: [
+          {
+            id: "data",
+            label: "CDC Pipeline",
+            icon: "fa-solid fa-database",
+            accent: "#22c55e",
+            items: [
+              { name: "Debezium", detail: "WAL 기반 Change Data Capture", sprintId: "S17" },
+              { name: "Apache Kafka", detail: "파티션·순서 보장", sprintId: "S17" },
+              { name: "Schema Registry", detail: "Avro/JSON 스키마 버전 관리", sprintId: "S17" },
+            ],
+          },
+        ],
+        preview: {
+          type: "api-flow",
+          title: "CDC 이벤트 파이프라인",
+          caption: "legacy.orders UPDATE → Kafka topic → FaSS order_mgmt consumer",
+        },
+        flowNodes: [
+          { id: "legacy", label: "Legacy DB", sub: "WAL / Redo Log", icon: "fa-solid fa-database" },
+          { id: "debezium", label: "Debezium", sub: "S17 Connector", icon: "fa-solid fa-plug" },
+          { id: "kafka", label: "Kafka", sub: "orders.cdc", icon: "fa-solid fa-stream" },
+          { id: "consumer", label: "FaSS Consumer", sub: "order_mgmt", icon: "fa-solid fa-inbox" },
+        ],
+        process: [
+          { step: 1, title: "초기 적재", description: "배치로 기존 데이터 스냅샷 이관" },
+          { step: 2, title: "CDC 연결", description: "Debezium 등으로 변경 이벤트 캡처" },
+          { step: 3, title: "이벤트 처리", description: "Kafka/큐로 순서 보장하며 반영" },
+          { step: 4, title: "검증", description: "체크섬·카운트 비교로 정합성 확인" },
+        ],
+        code: [
+          {
+            language: "json",
+            filename: "cdc-event.example.json",
+            content: `{
+  "op": "u",
+  "source": { "table": "orders", "schema": "legacy" },
+  "before": { "id": "ORD-1001", "status": "PENDING" },
+  "after":  { "id": "ORD-1001", "status": "CONFIRMED" },
+  "ts_ms": 1718000000000
+}`,
+          },
         ],
       },
     ],

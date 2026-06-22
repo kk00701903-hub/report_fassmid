@@ -1,273 +1,185 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>FaSS 차세대 플랫폼 — 대용량 데이터 처리</title>
+<title>타사 프로젝트 규모 비교 참고</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-    --ppt-bg: #0A0E1A;
-    --ppt-bg-soft: #141B2D;
-    --ppt-surface: #1E2638;
-    --ppt-surface-2: #2A344A;
-    --ppt-border: #334155;
-    --ppt-text-1: #FFF;
-    --ppt-text-2: #94A3B8;
-    --ppt-text-3: #64748B;
-    --ppt-accent: #00F0FF;
-    --ppt-accent-2: #FACC15;
-    --ppt-good: #22C55E;
-    --ppt-warn: #F59E0B;
-    --ppt-bad: #EF4444;
-    --ppt-radius-sm: 4px;
-    --ppt-radius-md: 8px;
-    --ppt-radius-lg: 16px;
-    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
-    --ppt-font-body: "IBM Plex Sans KR", sans-serif
-    }
-* {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased
-    }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
-    display: flex;
-    justify-content: center;
-    align-items: center}
-.slide-root-container {
-    width: 960px;
-    height: 720px;
-    background-color: var(--ppt-bg);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--ppt-font-body);
-    color: var(--ppt-text-1)
-    }
-/* Title Region */
-.title-region-wrapper {
-    padding: 32px 40px 12px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-    }
-.title-main-header {
-    display: flex;
-    align-items: center;
-    gap: 12px
-    }
-.title-accent-bar {
-    width: 4px;
-    height: 32px;
-    background: var(--ppt-accent);
-    border-radius: 2px
-    }
-.title-text-content {
-    font-family: var(--ppt-font-display);
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    margin: 0
-    }
-.title-bottom-divider {
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-    opacity: 0.3;
-    margin-top: 8px
-    }
-/* Content Layout */
-.content-main-layout {
-    flex: 1;
-    min-height: 0;
-    padding: 0 40px 16px 40px;
-    display: flex;
-    gap: 16px;
-    align-items: stretch
-    }
-/* Left Column: Technology & UX */
-.left-tech-feature-column {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px
-    }
-.grid-architecture-card-box {
-    flex: 1;
-    background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px
-    }
-.grid-card-title-group {
-    display: flex;
-    align-items: center;
-    gap: 12px
-    }
-.grid-card-title-icon {
-    font-size: 24px;
-    color: var(--ppt-accent)
-    }
-.grid-card-title-text {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.grid-feature-list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
-    list-style: none
-    }
-.grid-feature-item-row {
-    display: block;
-    padding: 12px;
-    background: var(--ppt-surface-2);
-    border-radius: var(--ppt-radius-md);
-    border-left: 3px solid var(--ppt-accent)
-    }
-.grid-item-main-label {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ppt-text-1);
-    margin-bottom: 4px;
-    display: block
-    }
-.grid-item-sub-desc {
-    font-size: 16px;
-    color: var(--ppt-text-2);
-    display: block
-    }
-/* Right Column: Business Impact */
-.right-impact-result-column {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px
-    }
-.productivity-impact-card-box {
-    flex: 1;
-    background: linear-gradient(135deg, var(--ppt-surface) 0%, var(--ppt-bg-soft) 100%);
-    border: 1px solid var(--ppt-accent);
-    border-radius: var(--ppt-radius-lg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: var(--ppt-shadow-strong)
-    }
-.impact-metric-label {
-    font-size: 20px;
-    color: var(--ppt-text-2);
-    margin-bottom: 16px;
-    font-weight: 600
-    }
-.impact-value-highlight-group {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 24px
-    }
-.impact-value-number {
-    font-size: 72px;
-    font-weight: 700;
-    color: var(--ppt-accent-2);
-    line-height: 1
-    }
-.impact-value-unit {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--ppt-accent-2)
-    }
-.impact-summary-text-block {
-    font-size: 16px;
-    line-height: 1.45;
-    color: var(--ppt-text-1);
-    word-break: keep-all
-    }
-.impact-badge-container {
-    margin-top: 32px;
-    display: flex;
-    gap: 12px;
-    justify-content: center
-    }
-.impact-status-tag {
-    padding: 8px 16px;
-    background: rgba(0, 240, 255, 0.1);
-    border: 1px solid var(--ppt-accent);
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ppt-accent)
-    }
-html { overflow: hidden;  margin:0; padding:0; }
-</style></head>
+  --ppt-bg: #0A0E1A;
+  --ppt-bg-soft: #141B2D;
+  --ppt-surface: #1E2638;
+  --ppt-border: #334155;
+  --ppt-text-1: #FFF;
+  --ppt-text-2: #94A3B8;
+  --ppt-text-3: #64748B;
+  --ppt-accent: #00F0FF;
+  --ppt-accent-2: #FACC15;
+  --ppt-good: #22C55E;
+  --ppt-radius-md: 8px;
+  --ppt-radius-lg: 16px;
+  --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+  --ppt-font-body: "IBM Plex Sans KR", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 100vw; height: 100vh; overflow: hidden;
+  background: #0A0E1A;
+  display: flex; justify-content: center; align-items: center;
+  font-family: var(--ppt-font-body);
+}
+.slide-root {
+  width: 960px; height: 720px;
+  background: var(--ppt-bg);
+  color: var(--ppt-text-1);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.title-region { padding: 28px 40px 10px; }
+.title-row { display: flex; align-items: center; gap: 12px; }
+.title-bar { width: 4px; height: 32px; background: var(--ppt-accent-2); border-radius: 2px; }
+.title-text { font-family: var(--ppt-font-display); font-size: 32px; font-weight: 700; }
+.title-sub { font-size: 14px; color: var(--ppt-text-2); margin-top: 8px; padding-left: 16px; }
+.title-line {
+  height: 1px; margin-top: 10px;
+  background: linear-gradient(90deg, var(--ppt-accent-2) 0%, transparent 100%);
+  opacity: 0.35;
+}
+.main-body { flex: 1; padding: 8px 40px 20px; display: flex; flex-direction: column; gap: 12px; }
+.ref-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: var(--ppt-radius-md);
+  background: rgba(250,204,21,0.08); border: 1px solid rgba(250,204,21,0.25);
+  font-size: 13px; color: var(--ppt-accent-2); width: fit-content;
+}
+.compare-grid { flex: 1; display: grid; grid-template-columns: 1fr 56px 1fr; gap: 10px; align-items: stretch; }
+.compare-card {
+  background: var(--ppt-bg-soft); border: 1px solid var(--ppt-border);
+  border-radius: var(--ppt-radius-lg); padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.compare-card--peer { border-top: 3px solid var(--ppt-accent-2); }
+.compare-card--ours { border-top: 3px solid var(--ppt-accent); }
+.compare-label { font-size: 11px; font-weight: 700; color: var(--ppt-text-3); letter-spacing: 1px; text-transform: uppercase; }
+.compare-company { font-size: 20px; font-weight: 700; }
+.compare-company.peer { color: var(--ppt-accent-2); }
+.compare-company.ours { color: var(--ppt-accent); }
+.compare-scope { font-size: 13px; color: var(--ppt-text-2); line-height: 1.5; }
+.metric-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.metric-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 10px; border-radius: var(--ppt-radius-md);
+  background: rgba(30,38,56,0.55); border: 1px solid var(--ppt-border);
+  font-size: 13px;
+}
+.metric-item span:first-child { color: var(--ppt-text-2); }
+.metric-item strong { color: var(--ppt-text-1); font-size: 14px; }
+.vs-col { display: flex; align-items: center; justify-content: center; }
+.vs-badge {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--ppt-border); background: var(--ppt-surface);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--ppt-text-3);
+}
+.table-wrap {
+  border: 1px solid var(--ppt-border); border-radius: var(--ppt-radius-lg);
+  overflow: hidden; background: var(--ppt-bg-soft);
+}
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.compare-table th {
+  padding: 10px 14px; text-align: left;
+  background: rgba(30,38,56,0.85); color: var(--ppt-text-2);
+  border-bottom: 1px solid var(--ppt-border); font-weight: 600;
+}
+.compare-table td {
+  padding: 9px 14px; border-bottom: 1px solid rgba(51,65,85,0.55);
+  color: var(--ppt-text-2); vertical-align: top;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td strong { color: var(--ppt-text-1); }
+.footnote {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 12px; color: var(--ppt-text-3); line-height: 1.45;
+}
+.footnote i { color: var(--ppt-accent-2); margin-top: 2px; }
+html { overflow: hidden; margin: 0; padding: 0; }
+</style>
+</head>
 <body>
-<div class="slide-root-container" style="overflow: hidden;">
-<!-- Non-Cover-Page Title Region -->
-<div class="title-region-wrapper">
-<div class="title-main-header">
-<div class="title-accent-bar"></div>
-<h1 class="title-text-content">
-          FaSS 차세대 플랫폼 — 대용량 데이터 처리
-        </h1>
-</div>
-<div class="title-bottom-divider"></div>
-</div>
-<!-- Main Content -->
-<div class="content-main-layout">
-<!-- Left: Technology & UX Features -->
-<div class="left-tech-feature-column">
-<div class="grid-architecture-card-box">
-<div class="grid-card-title-group">
-<i class="fa-solid fa-table-cells grid-card-title-icon"></i>
-<span class="grid-card-title-text">엔터프라이즈 RealGrid (1.0 → 2.0) 아키텍처</span>
-</div>
-<div class="grid-feature-list-container">
-<div class="grid-feature-item-row">
-<span class="grid-item-main-label">초고속 렌더링 및 가상 스크롤</span>
-<span class="grid-item-sub-desc">수십만 건의 입출고 데이터를 지연 없이 즉각적으로 로딩 및 필터링</span>
-</div>
-<div class="grid-feature-item-row">
-<span class="grid-item-main-label">완벽한 엑셀(Excel) UX 계승</span>
-<span class="grid-item-sub-desc">동일한 단축키, 복사/붙여넣기, 다중 선택 및 드래그 앤 드롭 지원</span>
-</div>
-<div class="grid-feature-item-row">
-<span class="grid-item-main-label">사용자 개인화 레이아웃</span>
-<span class="grid-item-sub-desc">담당자별 컬럼 순서, 너비, 고정 영역을 서버에 저장하여 최적화된 업무 환경 제공</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Right: Business Impact -->
-<div class="right-impact-result-column">
-<div class="productivity-impact-card-box">
-<span class="impact-metric-label">일일 업무 처리 리드타임</span>
-<div class="impact-value-highlight-group">
-<span class="impact-value-number">50</span>
-<span class="impact-value-unit">% 단축</span>
-</div>
-<div class="impact-summary-text-block">
-            수작업 문서 가공 시간을 획기적으로 감축하고<br/>
-            데이터 기반의 실무 의사결정 속도를 가속화합니다.
-          </div>
-<div class="impact-badge-container">
-<div class="impact-status-tag"><i class="fa-solid fa-bolt"></i> 응답 속도 혁신</div>
-<div class="impact-status-tag"><i class="fa-solid fa-user-check"></i> 실무 만족도 극대화</div>
-</div>
-</div>
-</div>
-</div>
+<div class="slide-root">
+  <div class="title-region">
+    <div class="title-row">
+      <div class="title-bar"></div>
+      <h1 class="title-text">타사 프로젝트 규모 비교 참고</h1>
+    </div>
+    <p class="title-sub">동일 시기·유사 범위 엔터프라이즈 플랫폼 구축 사례를 벤치마크로 참고합니다. (내부 전략 수립용)</p>
+    <div class="title-line"></div>
+  </div>
+
+  <div class="main-body">
+    <div class="ref-badge">
+      <i class="fa-solid fa-bookmark"></i>
+      벤치마크 참고 자료 — 기술 스택·AI 오케스트레이션과는 별도로 검토
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card compare-card--peer">
+        <div class="compare-label">타사 사례 (참고)</div>
+        <div class="compare-company peer">삼성E&amp;A (삼성엔지니어링)</div>
+        <p class="compare-scope">70명 규모 인력이 2년간 진행한 대규모 엔지니어링·플랫폼 프로젝트</p>
+        <ul class="metric-list">
+          <li class="metric-item"><span>총 투입 인력</span><strong>70명</strong></li>
+          <li class="metric-item"><span>진행 기간</span><strong>2년</strong></li>
+          <li class="metric-item"><span>총 투입 규모</span><strong>1,680 M/M</strong></li>
+          <li class="metric-item"><span>조직 형태</span><strong>대형 전담 조직</strong></li>
+        </ul>
+      </div>
+
+      <div class="vs-col"><div class="vs-badge">VS</div></div>
+
+      <div class="compare-card compare-card--ours">
+        <div class="compare-label">당사 차세대 FaSS</div>
+        <div class="compare-company ours">소수 정예 TFT + 도구 투자</div>
+        <p class="compare-scope">차세대 웹프레임워크 TFT 중심의 집중 개발 체제</p>
+        <ul class="metric-list">
+          <li class="metric-item"><span>핵심 TFT</span><strong>소수 정예</strong></li>
+          <li class="metric-item"><span>생산성 보완</span><strong>고성능 개발 도구</strong></li>
+          <li class="metric-item"><span>품질 방어</span><strong>CI/CD · Quality Gate</strong></li>
+          <li class="metric-item"><span>전략 방향</span><strong>인력 확대 대신 도구·프로세스</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>삼성E&amp;A (참고)</th>
+            <th>당사 FaSS TFT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>인력 전략</strong></td>
+            <td>70명 · 2년 규모 전담 인력 투입</td>
+            <td>소수 정예 + 도구·자동화로 생산성 보완</td>
+          </tr>
+          <tr>
+            <td><strong>시사점</strong></td>
+            <td>유사 범위 프로젝트의 규모 감각 확보</td>
+            <td>동일 산출물 대비 M/M·일정 리스크 관리</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footnote">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>본 슬라이드는 규모 벤치마크 참고용입니다. AI 오케스트레이션·기술 스택 상세는 다음 슬라이드에서 별도로 다룹니다.</span>
+    </div>
+  </div>
 </div>
 <script>
 (function(){
