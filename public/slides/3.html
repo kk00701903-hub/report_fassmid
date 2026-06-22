@@ -32,35 +32,35 @@ body {
              radial-gradient(ellipse at 92% 88%, rgba(250,204,21,0.04) 0%, transparent 50%);
 }
 .top-bar {
-  flex-shrink:0; padding:14px 36px 0;
-  display:flex; align-items:center; gap:12px;
+  flex-shrink:0; padding:10px 28px 0;
+  display:flex; align-items:center; gap:10px;
 }
 .badge {
   display:flex; align-items:center; gap:6px;
-  padding:4px 12px; border-radius:20px; font-size:11px; font-weight:700;
+  padding:3px 10px; border-radius:20px; font-size:12px; font-weight:700;
   letter-spacing:0.5px; text-transform:uppercase;
   background:rgba(251,146,60,0.12); border:1px solid rgba(251,146,60,0.35);
   color:var(--ppt-orange);
 }
-.title-region { flex-shrink:0; padding:8px 36px 6px; }
+.title-region { flex-shrink:0; padding:5px 28px 4px; }
 .title-main {
-  font-family:var(--ppt-font-display); font-size:26px; font-weight:700; line-height:1.25;
+  font-family:var(--ppt-font-display); font-size:28px; font-weight:700; line-height:1.22;
 }
 .title-main em { color:var(--ppt-orange); font-style:normal; }
-.title-sub { font-size:13px; color:var(--ppt-text-2); margin-top:4px; line-height:1.45; }
+.title-sub { font-size:14px; color:var(--ppt-text-2); margin-top:3px; line-height:1.4; }
 .title-line {
-  margin-top:8px; height:1px;
+  margin-top:6px; height:1px;
   background:linear-gradient(90deg,var(--ppt-orange) 0%,var(--ppt-accent) 40%,transparent 100%);
   opacity:0.45;
 }
 .trend-grid {
-  flex:1; min-height:0; padding:8px 32px 6px;
-  display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:10px;
+  flex:1; min-height:0; padding:4px 28px 4px;
+  display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px;
 }
 .trend-card {
   background:var(--ppt-bg-soft); border:1px solid var(--ppt-border);
-  border-radius:var(--ppt-radius-lg); padding:12px 14px;
-  display:flex; flex-direction:column; gap:8px; position:relative; overflow:hidden;
+  border-radius:var(--ppt-radius-lg); padding:8px 10px;
+  display:flex; flex-direction:column; gap:5px; position:relative; overflow:hidden;
 }
 .trend-card::before {
   content:''; position:absolute; top:0; left:0; right:0; height:3px;
@@ -69,45 +69,45 @@ body {
 .trend-card.green::before  { background:var(--ppt-good); }
 .trend-card.purple::before { background:var(--ppt-purple); }
 .trend-card.gold::before   { background:var(--ppt-accent-2); }
-.card-head { display:flex; align-items:center; gap:10px; }
+.card-head { display:flex; align-items:center; gap:8px; }
 .card-icon {
-  width:36px; height:36px; border-radius:var(--ppt-radius-md);
-  display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;
+  width:34px; height:34px; border-radius:var(--ppt-radius-md);
+  display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0;
 }
 .card-icon.cyan   { background:rgba(0,240,255,0.12); color:var(--ppt-accent); }
 .card-icon.green  { background:rgba(34,197,94,0.12); color:var(--ppt-good); }
 .card-icon.purple { background:rgba(167,139,250,0.12); color:var(--ppt-purple); }
 .card-icon.gold   { background:rgba(250,204,21,0.12); color:var(--ppt-accent-2); }
-.card-title { font-size:14px; font-weight:700; line-height:1.3; }
-.card-en { font-size:10px; color:var(--ppt-text-3); margin-top:1px; }
+.card-title { font-size:15px; font-weight:700; line-height:1.28; }
+.card-en { font-size:11px; color:var(--ppt-text-3); margin-top:1px; }
 .card-divider { height:1px; background:var(--ppt-border); }
-.card-points { flex:1; display:flex; flex-direction:column; gap:5px; }
+.card-points { flex:1; display:flex; flex-direction:column; gap:3px; min-height:0; }
 .point {
-  display:flex; gap:7px; align-items:flex-start;
-  padding:5px 8px; border-radius:var(--ppt-radius-md);
+  display:flex; gap:6px; align-items:flex-start;
+  padding:3px 6px; border-radius:var(--ppt-radius-md);
   background:rgba(255,255,255,0.025);
 }
-.point-dot { width:5px; height:5px; border-radius:50%; margin-top:6px; flex-shrink:0; }
+.point-dot { width:5px; height:5px; border-radius:50%; margin-top:7px; flex-shrink:0; }
 .point-dot.cyan   { background:var(--ppt-accent); }
 .point-dot.green  { background:var(--ppt-good); }
 .point-dot.purple { background:var(--ppt-purple); }
 .point-dot.gold   { background:var(--ppt-accent-2); }
-.point p { font-size:11px; color:var(--ppt-text-2); line-height:1.45; }
+.point p { font-size:12px; color:var(--ppt-text-2); line-height:1.38; }
 .point strong { color:var(--ppt-text-1); }
-.card-tags { display:flex; flex-wrap:wrap; gap:4px; }
+.card-tags { display:flex; flex-wrap:wrap; gap:3px; }
 .ctag {
-  font-size:10px; font-weight:600; padding:2px 7px; border-radius:12px;
+  font-size:11px; font-weight:600; padding:2px 6px; border-radius:12px;
   background:var(--ppt-surface); border:1px solid var(--ppt-border); color:var(--ppt-text-3);
 }
 .bottom-bar {
-  flex-shrink:0; margin:0 32px 10px;
-  padding:8px 16px; border-radius:var(--ppt-radius-md);
+  flex-shrink:0; margin:0 28px 8px;
+  padding:6px 12px; border-radius:var(--ppt-radius-md);
   background:linear-gradient(90deg,rgba(251,146,60,0.1),rgba(0,240,255,0.06),transparent);
   border:1px solid rgba(251,146,60,0.25);
   display:flex; align-items:center; gap:12px;
 }
-.bottom-bar i { color:var(--ppt-orange); font-size:16px; flex-shrink:0; }
-.bottom-bar p { font-size:13px; color:var(--ppt-text-2); line-height:1.45; }
+.bottom-bar i { color:var(--ppt-orange); font-size:15px; flex-shrink:0; }
+.bottom-bar p { font-size:14px; color:var(--ppt-text-2); line-height:1.38; }
 .bottom-bar strong { color:var(--ppt-orange); }
 .bottom-bar em { color:var(--ppt-accent); font-style:normal; font-weight:600; }
 html { overflow:hidden; margin:0; padding:0; }
@@ -121,7 +121,7 @@ html { overflow:hidden; margin:0; padding:0; }
 
   <div class="title-region">
     <h1 class="title-main"><em>MSA · Cloud · Open Source · AI</em> — 네 축이 동시에 표준을 재정의하고 있습니다</h1>
-    <p class="title-sub">공공·금융·물류·제조를 가리지 않고, 차세대 플랫폼은 이 네 흐름의 교차점에서 경쟁력이 결정됩니다.</p>
+    <p class="title-sub">공공·금융·물류·제조 전 산업에서 네 축이 동시에 표준을 재정의하고 있으며, FaSS V3.0은 이 교차점에 맞춰 설계·구축되고 있습니다.</p>
     <div class="title-line"></div>
   </div>
 
@@ -144,9 +144,13 @@ html { overflow:hidden; margin:0; padding:0; }
           <div class="point-dot cyan"></div>
           <p><strong>Modular Monolith → MSA</strong> 점진 전환이 국내 대형 SI의 표준 마이그레이션 패턴</p>
         </div>
+        <div class="point">
+          <div class="point-dot cyan"></div>
+          <p><strong>FaSS V3.0</strong> — 도메인 모듈·공통 커널 분리, API-First로 MSA 전환 기반 마련</p>
+        </div>
       </div>
       <div class="card-tags">
-        <span class="ctag">DDD</span><span class="ctag">Bounded Context</span><span class="ctag">API-First</span>
+        <span class="ctag">DDD</span><span class="ctag">Bounded Context</span><span class="ctag">API-First</span><span class="ctag">Modular Monolith</span>
       </div>
     </div>
 
@@ -168,9 +172,13 @@ html { overflow:hidden; margin:0; padding:0; }
           <div class="point-dot green"></div>
           <p><strong>GitOps · FinOps</strong>로 배포·비용을 코드화 — Argo CD, 태깅 기반 클라우드 거버넌스</p>
         </div>
+        <div class="point">
+          <div class="point-dot green"></div>
+          <p><strong>FaSS Cloud-Ready</strong> — Docker·K8s·Argo CD CI/CD 파이프라인 및 Gov Cloud 이행 설계</p>
+        </div>
       </div>
       <div class="card-tags">
-        <span class="ctag">K8s</span><span class="ctag">GitOps</span><span class="ctag">FinOps</span><span class="ctag">Cloud-Ready</span>
+        <span class="ctag">K8s</span><span class="ctag">GitOps</span><span class="ctag">FinOps</span><span class="ctag">Argo CD</span>
       </div>
     </div>
 
@@ -192,9 +200,13 @@ html { overflow:hidden; margin:0; padding:0; }
           <div class="point-dot purple"></div>
           <p><strong>벤더 Lock-in 탈피</strong> — GitLab CE, Debezium CDC, Harbor 등 자체 운영 가능한 오픈 생태계</p>
         </div>
+        <div class="point">
+          <div class="point-dot purple"></div>
+          <p><strong>FaSS OSS 표준</strong> — PostgreSQL·Kafka·Spring Boot 3·React 19 전사 기술 스택 확정</p>
+        </div>
       </div>
       <div class="card-tags">
-        <span class="ctag">CNCF</span><span class="ctag">Kafka</span><span class="ctag">PostgreSQL</span><span class="ctag">Debezium</span>
+        <span class="ctag">CNCF</span><span class="ctag">Kafka</span><span class="ctag">PostgreSQL</span><span class="ctag">GitLab CE</span>
       </div>
     </div>
 
@@ -216,9 +228,13 @@ html { overflow:hidden; margin:0; padding:0; }
           <div class="point-dot gold"></div>
           <p><strong>LangGraph · RAG · Digital Worker</strong> — 24/7 자동화 + Human-in-the-loop가 새로운 IT 조직 모델</p>
         </div>
+        <div class="point">
+          <div class="point-dot gold"></div>
+          <p><strong>FaSS AI Native</strong> — LangGraph 기반 레거시 코드 마이그레이션·DGX Spark RAG 환경 완료</p>
+        </div>
       </div>
       <div class="card-tags">
-        <span class="ctag">LLM</span><span class="ctag">LangGraph</span><span class="ctag">Claude Code</span><span class="ctag">AI Agent</span>
+        <span class="ctag">LLM</span><span class="ctag">LangGraph</span><span class="ctag">RAG</span><span class="ctag">Digital Worker</span>
       </div>
     </div>
   </div>
@@ -227,7 +243,7 @@ html { overflow:hidden; margin:0; padding:0; }
     <i class="fas fa-bullseye"></i>
     <p>
       <strong>시사점:</strong> MSA · Cloud · Open Source · AI는 별개가 아닌 <em>하나의 차세대 플랫폼 설계 축</em>입니다.
-      FaSS는 이 네 트렌드의 교차점에서 <em>물류 디지털 전환의 표준</em>을 만들어 갑니다.
+      FaSS V3.0은 네 트렌드를 동시에 반영해 <em>물류 디지털 전환의 독자 표준</em>을 완성해 갑니다.
     </p>
   </div>
 </div>
