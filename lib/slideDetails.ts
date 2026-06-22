@@ -737,10 +737,10 @@ deploy_prod:
     topics: [
       {
         id: "jtgs-prototype-start",
-        title: "JTGS 통합 프로토타입 개발 착수",
+        title: "통합 프로토타입을 통한 아키텍쳐 내재화",
         category: "process",
         summary:
-          "2026.10 차세대 서버에서 프로토타입 개발을 시작합니다. 런칭이 아닌 완성형 기술스택 최초 적용의 Start이며, 2027.03 완성·2027.06 안정화까지 진행합니다.",
+          "JTGS 통합 프로토타입을 통해 차세대 기술 스택을 검증·내재화하고, 본격 확산 전 시행착오를 줄이며 당사 기술 업그레이드를 가속합니다.",
         process: [
           { step: 1, title: "2026.10 Start", description: "주유소(JTGS) 기반 프로토타입 개발 착수 — 차세대 서버·완성형 스택 적용" },
           { step: 2, title: "2027.03 완성", description: "FaSS V1.0 아키텍처·AI 파이프라인 1차 완성" },

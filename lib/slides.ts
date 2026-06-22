@@ -26,7 +26,7 @@ export const SLIDES: Slide[] = [
   { id: 18, title: "아키텍처 원칙2: 무중단 데이터 동기화 (Zero-downtime migration)" },
   { id: 19, title: "PART 4 - 혁신 및 검증" },
   { id: 20, title: "100억 원의 자산 창출과 ASP 비즈니스 대전환" },
-  { id: 21, title: "통합 프로토타입 개발 착수 — 주유소(JTGS) 관리 시스템" },
+  { id: 21, title: "통합 프로토타입을 통한 아키텍쳐 내재화" },
   { id: 22, title: "AI 기반 스마트 물류 최적화" },
   { id: 23, title: "FaSS 차세대 플랫폼 — 대용량 데이터 처리" },
   { id: 24, title: "무결점(Zero-Defect) 코드 품질 통제 체계" },
