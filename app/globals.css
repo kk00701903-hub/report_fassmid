@@ -2102,11 +2102,12 @@ button {
   z-index: 100;
 }
 
-/* Current PART badge — viewport bottom-right (avoids top detail buttons) */
+/* Current PART badge — slide viewport top-right */
 .slide-part-indicator {
   position: absolute;
   right: 12px;
-  bottom: 12px;
+  top: 12px;
+  bottom: auto;
   z-index: 30;
   display: inline-flex;
   align-items: center;
@@ -2145,7 +2146,7 @@ button {
 }
 
 .presentation-shell--fullscreen .slide-part-indicator {
-  bottom: 16px;
+  top: 16px;
   right: 16px;
   opacity: 0.85;
 }
