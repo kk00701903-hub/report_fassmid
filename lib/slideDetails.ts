@@ -541,24 +541,6 @@ public class OrderController {
     slideId: 17,
     topics: [
       {
-        id: "jtgs-prototype-start",
-        title: "통합 프로토타입을 통한 아키텍쳐 내재화",
-        category: "process",
-        summary:
-          "JTGS 통합 프로토타입을 통해 차세대 기술 스택을 검증·내재화하고, 본격 확산 전 시행착오를 줄이며 당사 기술 업그레이드를 가속합니다.",
-        process: [
-          { step: 1, title: "2026.10 Start", description: "주유소(JTGS) 기반 프로토타입 개발 착수 — 차세대 서버·완성형 스택 적용" },
-          { step: 2, title: "2027.03 완성", description: "FaSS V1.0 아키텍처·AI 파이프라인 1차 완성" },
-          { step: 3, title: "~2027.06", description: "안정화·고도화, UI/UX 스토리보드 표본 확정" },
-          { step: 4, title: "이후", description: "3PL·유통물류 대규모 이관 준비 단계로 연결" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 18,
-    topics: [
-      {
         id: "realgrid-ui",
         title: "RealGrid 2.0 엔터프라이즈 UI (S09)",
         category: "architecture",
@@ -618,6 +600,25 @@ public void importDailyShipments() {
     ],
   },
   {
+    slideId: 18,
+    topics: [
+      {
+        id: "business-innovation-engine",
+        title: "차세대 영업 핵심 IT 엔진 5대 전략",
+        category: "process",
+        summary:
+          "민첩성·기술 부채 해소·데이터 의사결정·Zero-Defect 안정성·FinOps를 통한 비즈니스 혁신 전략입니다.",
+        process: [
+          { step: 1, title: "민첩성", description: "모듈화 배포로 시장·고객 요구 즉각 대응" },
+          { step: 2, title: "업무 효율", description: "최신 웹 프레임워크로 응답 속도·생산성 향상" },
+          { step: 3, title: "데이터 의사결정", description: "API 통합·실시간 데이터 가시화" },
+          { step: 4, title: "안정성", description: "Zero-Defect 품질 통제로 장애 사전 차단" },
+          { step: 5, title: "FinOps", description: "클라우드 예산 최적화·경영 성과 연계" },
+        ],
+      },
+    ],
+  },
+  {
     slideId: 19,
     topics: [
       {
@@ -649,6 +650,60 @@ public void importDailyShipments() {
   },
   {
     slideId: 20,
+    topics: [
+      {
+        id: "sonarqube-gate",
+        title: "SonarQube Quality Gate 설정",
+        category: "code",
+        summary: "CI 파이프라인에서 코드 품질 게이트를 강제하는 GitLab CI 예시입니다.",
+        code: [
+          {
+            language: "yaml",
+            filename: ".gitlab-ci.yml",
+            content: `stages: [test, quality, deploy]
+
+sonarqube:
+  stage: quality
+  script:
+    - mvn verify sonar:sonar
+      -Dsonar.qualitygate.wait=true
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+deploy_prod:
+  stage: deploy
+  needs: [sonarqube]
+  when: manual`,
+          },
+        ],
+        process: [
+          { step: 1, title: "정적 분석", description: "MR마다 SonarQube 자동 스캔" },
+          { step: 2, title: "게이트", description: "Critical Bug 0, Coverage 80% 미만 차단" },
+          { step: 3, title: "배포", description: "게이트 통과 시에만 운영 배포 허용" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 21,
+    topics: [
+      {
+        id: "jtgs-prototype-start",
+        title: "통합 프로토타입을 통한 아키텍쳐 내재화",
+        category: "process",
+        summary:
+          "JTGS 통합 프로토타입을 통해 차세대 기술 스택을 검증·내재화하고, 본격 확산 전 시행착오를 줄이며 당사 기술 업그레이드를 가속합니다.",
+        process: [
+          { step: 1, title: "2026.10 Start", description: "주유소(JTGS) 기반 프로토타입 개발 착수 — 차세대 서버·완성형 스택 적용" },
+          { step: 2, title: "2027.03 완성", description: "FaSS V1.0 아키텍처·AI 파이프라인 1차 완성" },
+          { step: 3, title: "~2027.06", description: "안정화·고도화, UI/UX 스토리보드 표본 확정" },
+          { step: 4, title: "이후", description: "3PL·유통물류 대규모 이관 준비 단계로 연결" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 22,
     topics: [
       {
         id: "mm-tool-investment",
@@ -764,7 +819,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 21,
+    slideId: 23,
     topics: [
       {
         id: "framework-builder-role",
@@ -806,7 +861,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 23,
+    slideId: 25,
     topics: [
       {
         id: "roadmap-vision",
@@ -822,43 +877,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 25,
-    topics: [
-      {
-        id: "sonarqube-gate",
-        title: "SonarQube Quality Gate 설정",
-        category: "code",
-        summary: "CI 파이프라인에서 코드 품질 게이트를 강제하는 GitLab CI 예시입니다.",
-        code: [
-          {
-            language: "yaml",
-            filename: ".gitlab-ci.yml",
-            content: `stages: [test, quality, deploy]
-
-sonarqube:
-  stage: quality
-  script:
-    - mvn verify sonar:sonar
-      -Dsonar.qualitygate.wait=true
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-
-deploy_prod:
-  stage: deploy
-  needs: [sonarqube]
-  when: manual`,
-          },
-        ],
-        process: [
-          { step: 1, title: "정적 분석", description: "MR마다 SonarQube 자동 스캔" },
-          { step: 2, title: "게이트", description: "Critical Bug 0, Coverage 80% 미만 차단" },
-          { step: 3, title: "배포", description: "게이트 통과 시에만 운영 배포 허용" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 26,
+    slideId: 27,
     topics: [
       {
         id: "msa-migration",
@@ -900,7 +919,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 27,
+    slideId: 28,
     topics: [
       {
         id: "cdc-sync",
@@ -955,7 +974,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 28,
+    slideId: 29,
     topics: [
       {
         id: "risk-management",
@@ -971,7 +990,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 29,
+    slideId: 30,
     topics: [
       {
         id: "closing-milestones",
@@ -988,7 +1007,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 30,
+    slideId: 31,
     topics: [
       {
         id: "commitment",
@@ -1004,7 +1023,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 31,
+    slideId: 32,
     topics: [
       {
         id: "active-sprint-portfolio",
@@ -1023,25 +1042,6 @@ deploy_prod:
           { step: 2, title: "Phase 1", description: "S03~S05 인증·SSO·권한 · S15 데이터 보안" },
           { step: 3, title: "Phase 2", description: "S06~S16 SiteFramework·UI·APIM 등 8개 아키텍처 스프린트" },
           { step: 4, title: "Phase 3 + 추가", description: "S11~S17 데이터·AI · S18~S21 MSA·Golden Set·SCA·BI" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 32,
-    topics: [
-      {
-        id: "business-innovation-engine",
-        title: "차세대 영업 핵심 IT 엔진 5대 전략",
-        category: "process",
-        summary:
-          "민첩성·기술 부채 해소·데이터 의사결정·Zero-Defect 안정성·FinOps를 통한 비즈니스 혁신 전략입니다.",
-        process: [
-          { step: 1, title: "민첩성", description: "모듈화 배포로 시장·고객 요구 즉각 대응" },
-          { step: 2, title: "업무 효율", description: "최신 웹 프레임워크로 응답 속도·생산성 향상" },
-          { step: 3, title: "데이터 의사결정", description: "API 통합·실시간 데이터 가시화" },
-          { step: 4, title: "안정성", description: "Zero-Defect 품질 통제로 장애 사전 차단" },
-          { step: 5, title: "FinOps", description: "클라우드 예산 최적화·경영 성과 연계" },
         ],
       },
     ],
