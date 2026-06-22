@@ -2,13 +2,13 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>사내 AI 인재육성 활동과 빌더형 인재 완성</title>
+<title>차세대 웹프레임워크 × 빌더형 인재 육성</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-  --ppt-bg: #0A0E1A; --ppt-bg-soft: #141B2D; --ppt-surface: #1E2638; --ppt-surface-2: #2A344A;
+  --ppt-bg: #0A0E1A; --ppt-bg-soft: #141B2D; --ppt-surface: #1E2638;
   --ppt-border: #334155; --ppt-text-1: #FFF; --ppt-text-2: #94A3B8; --ppt-text-3: #64748B;
   --ppt-accent: #00F0FF; --ppt-accent-2: #FACC15; --ppt-good: #22C55E; --ppt-purple: #A78BFA;
   --ppt-radius-md: 8px; --ppt-radius-lg: 16px;
@@ -20,56 +20,55 @@ body { width:100vw; height:100vh; overflow:hidden; background:#0A0E1A;
   display:flex; justify-content:center; align-items:center; font-family:var(--ppt-font-body); }
 .slide-root { width:960px; height:720px; background:var(--ppt-bg); color:var(--ppt-text-1);
   display:flex; flex-direction:column; overflow:hidden; }
-.title-region { padding:22px 40px 6px; }
+.title-region { padding:24px 40px 8px; }
 .title-row { display:flex; align-items:center; gap:12px; }
-.title-bar { width:4px; height:32px; background:var(--ppt-purple); border-radius:2px; }
+.title-bar { width:4px; height:32px; background:var(--ppt-good); border-radius:2px; }
 .title-badge { font-size:12px; font-weight:700; padding:3px 10px; border-radius:4px;
-  background:rgba(167,139,250,0.12); color:var(--ppt-purple); border:1px solid rgba(167,139,250,0.3); }
-.title-text { font-family:var(--ppt-font-display); font-size:28px; font-weight:700; }
-.title-sub { font-size:13px; color:var(--ppt-text-2); margin-top:6px; padding-left:16px; line-height:1.4; }
-.title-line { height:1px; margin-top:6px;
-  background:linear-gradient(90deg,var(--ppt-purple) 0%,transparent 100%); opacity:0.35; }
-.main-body { flex:1; min-height:0; padding:6px 40px 14px; display:flex; flex-direction:column; gap:10px; }
-.programs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-.program-card {
-  background:var(--ppt-bg-soft); border:1px solid var(--ppt-border);
-  border-radius:var(--ppt-radius-lg); padding:12px 14px;
-  display:flex; flex-direction:column; gap:8px; position:relative; overflow:hidden;
+  background:rgba(34,197,94,0.12); color:var(--ppt-good); border:1px solid rgba(34,197,94,0.3); }
+.title-text { font-family:var(--ppt-font-display); font-size:30px; font-weight:700; }
+.title-sub { font-size:14px; color:var(--ppt-text-2); margin-top:6px; padding-left:16px; }
+.title-line { height:1px; margin-top:8px;
+  background:linear-gradient(90deg,var(--ppt-good) 0%,transparent 100%); opacity:0.35; }
+.main-body { flex:1; min-height:0; padding:6px 40px 16px; display:flex; flex-direction:column; gap:10px; }
+.hub-row { display:grid; grid-template-columns:1fr 220px 1fr; gap:10px; flex:1; min-height:0; }
+.role-col { display:flex; flex-direction:column; gap:8px; }
+.role-card {
+  flex:1; background:var(--ppt-bg-soft); border:1px solid var(--ppt-border);
+  border-radius:var(--ppt-radius-lg); padding:12px 14px; display:flex; gap:10px;
 }
-.program-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
-.program-card--w::before { background:var(--ppt-accent); }
-.program-card--c::before { background:var(--ppt-accent-2); }
-.program-card--b::before { background:var(--ppt-good); }
-.prog-head { display:flex; align-items:center; gap:10px; }
-.prog-icon { width:38px; height:38px; border-radius:8px; display:flex; align-items:center;
-  justify-content:center; font-size:17px; flex-shrink:0; }
-.prog-icon.cyan { background:rgba(0,240,255,0.1); color:var(--ppt-accent); }
-.prog-icon.gold { background:rgba(250,204,21,0.1); color:var(--ppt-accent-2); }
-.prog-icon.green { background:rgba(34,197,94,0.1); color:var(--ppt-good); }
-.prog-title { font-size:14px; font-weight:700; line-height:1.35; }
-.prog-role { font-size:11px; font-weight:700; color:var(--ppt-text-3); text-transform:uppercase; letter-spacing:0.5px; }
-.prog-desc { font-size:12px; color:var(--ppt-text-2); line-height:1.45; flex:1; }
-.prog-out { font-size:11px; color:var(--ppt-accent); padding-top:6px; border-top:1px solid var(--ppt-border); }
-.flow-section {
-  flex:1; min-height:0; background:var(--ppt-surface); border:1px solid var(--ppt-border);
-  border-radius:var(--ppt-radius-lg); padding:12px 16px; display:flex; flex-direction:column; gap:10px;
+.role-card::before { content:''; width:3px; border-radius:3px; flex-shrink:0; }
+.role-card--learn::before { background:var(--ppt-accent); }
+.role-card--build::before { background:var(--ppt-good); }
+.role-card--monitor::before { background:var(--ppt-purple); }
+.role-card--doc::before { background:var(--ppt-accent-2); }
+.role-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center;
+  justify-content:center; font-size:16px; flex-shrink:0; }
+.role-icon.cyan { background:rgba(0,240,255,0.1); color:var(--ppt-accent); }
+.role-icon.green { background:rgba(34,197,94,0.1); color:var(--ppt-good); }
+.role-icon.purple { background:rgba(167,139,250,0.1); color:var(--ppt-purple); }
+.role-icon.gold { background:rgba(250,204,21,0.1); color:var(--ppt-accent-2); }
+.role-body h3 { font-size:14px; font-weight:700; margin-bottom:4px; }
+.role-body p { font-size:12px; color:var(--ppt-text-2); line-height:1.45; }
+.hub-center {
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  background:linear-gradient(180deg,rgba(0,240,255,0.08),rgba(34,197,94,0.06));
+  border:1px solid rgba(0,240,255,0.3); border-radius:var(--ppt-radius-lg); padding:14px 10px;
 }
-.flow-title { font-size:14px; font-weight:700; color:var(--ppt-accent-2);
-  display:flex; align-items:center; gap:8px; }
-.flow-track { display:flex; align-items:center; justify-content:space-between; gap:4px; flex:1; }
-.flow-node {
-  flex:1; text-align:center; padding:10px 6px; border-radius:var(--ppt-radius-md);
-  border:1px solid var(--ppt-border); background:rgba(20,27,45,0.8); min-width:0;
+.hub-icon { font-size:28px; color:var(--ppt-accent); }
+.hub-title { font-size:15px; font-weight:700; text-align:center; color:var(--ppt-accent); line-height:1.35; }
+.hub-sub { font-size:11px; color:var(--ppt-text-2); text-align:center; line-height:1.4; }
+.hub-tags { display:flex; flex-wrap:wrap; gap:4px; justify-content:center; }
+.hub-tag { font-size:10px; padding:2px 7px; border-radius:12px;
+  background:var(--ppt-surface); border:1px solid var(--ppt-border); color:var(--ppt-text-3); }
+.bottom-bar {
+  flex-shrink:0; padding:10px 16px; border-radius:var(--ppt-radius-md);
+  background:linear-gradient(90deg,rgba(34,197,94,0.08),transparent);
+  border-left:4px solid var(--ppt-good);
+  display:flex; align-items:center; gap:12px;
 }
-.flow-node.highlight { border-color:rgba(34,197,94,0.5); background:rgba(34,197,94,0.08); }
-.flow-node i { font-size:16px; color:var(--ppt-accent); display:block; margin-bottom:4px; }
-.flow-node.final i { color:var(--ppt-good); }
-.flow-node strong { display:block; font-size:11px; color:var(--ppt-text-1); line-height:1.3; }
-.flow-node span { font-size:10px; color:var(--ppt-text-3); line-height:1.3; display:block; margin-top:2px; }
-.flow-arrow { color:var(--ppt-text-3); font-size:12px; flex-shrink:0; }
-.flow-note { font-size:12px; color:var(--ppt-text-2); line-height:1.45; padding-top:4px;
-  border-top:1px dashed var(--ppt-border); }
-.flow-note strong { color:var(--ppt-text-1); }
+.bottom-bar i { color:var(--ppt-good); font-size:18px; }
+.bottom-bar p { font-size:13px; color:var(--ppt-text-2); line-height:1.5; }
+.bottom-bar strong { color:var(--ppt-text-1); }
 html { overflow:hidden; margin:0; padding:0; }
 </style>
 </head>
@@ -78,89 +77,62 @@ html { overflow:hidden; margin:0; padding:0; }
   <div class="title-region">
     <div class="title-row">
       <div class="title-bar"></div>
-      <span class="title-badge">AI TALENT ECOSYSTEM</span>
-      <h1 class="title-text">사내 AI 인재육성 활동 → 빌더형 인재 완성</h1>
+      <span class="title-badge">BUILDER × PLATFORM</span>
+      <h1 class="title-text">차세대 웹프레임워크 × 빌더형 인재 육성</h1>
     </div>
-    <p class="title-sub">찾아가는 AI 워크숍 · AI 경진대회 · AI 아이디어 스파트 게시판이 차세대 웹프레임워크(28p)와 맞물려 빌더형 인재를 완성합니다</p>
+    <p class="title-sub">SiteFramework(FaSS Platform)는 이론이 아닌 <strong style="color:var(--ppt-accent);">실전 훈련장</strong> — 앞 슬라이드의 AI 개발 혁신(도구·오케스트레이션·육성) 위에서 빌더가 성장합니다</p>
     <div class="title-line"></div>
   </div>
 
   <div class="main-body">
-    <div class="programs-grid">
-      <div class="program-card program-card--w">
-        <div class="prog-head">
-          <div class="prog-icon cyan"><i class="fas fa-chalkboard-user"></i></div>
-          <div>
-            <div class="prog-role">Awareness · Skill</div>
-            <div class="prog-title">찾아가는 AI 워크숍</div>
+    <div class="hub-row">
+      <div class="role-col">
+        <div class="role-card role-card--learn">
+          <div class="role-icon cyan"><i class="fas fa-graduation-cap"></i></div>
+          <div class="role-body">
+            <h3>① 표준 아키텍처 학습장</h3>
+            <p>SiteFramework·API-First·모듈 경계를 실제 코드로 익히며, 신입·전환 인력의 온보딩 시간을 단축합니다.</p>
           </div>
         </div>
-        <p class="prog-desc">현업 부서를 직접 방문해 AI 리터러시·프롬프트·업무 적용 사례를 교육합니다. 전사 AI 수용 문화를 확산합니다.</p>
-        <p class="prog-out">→ 역할: <strong>인식 제고 · 기초 역량</strong></p>
+        <div class="role-card role-card--monitor">
+          <div class="role-icon purple"><i class="fas fa-satellite-dish"></i></div>
+          <div class="role-body">
+            <h3>② Monitor 역량 실습</h3>
+            <p>CI/CD·Quality Gate·AI 에이전트 로그를 관제하며, 운영 이상 징후 대응 역량을 키웁니다.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="program-card program-card--b">
-        <div class="prog-head">
-          <div class="prog-icon green"><i class="fas fa-lightbulb"></i></div>
-          <div>
-            <div class="prog-role">Ideation · Feedback</div>
-            <div class="prog-title">AI 아이디어 스파트 게시판</div>
-          </div>
+      <div class="hub-center">
+        <i class="fas fa-cubes hub-icon"></i>
+        <div class="hub-title">차세대 웹프레임워크<br/>SiteFramework</div>
+        <div class="hub-sub">Next.js · Java 21 · LangGraph<br/>공통 모듈·문서·CI 표준</div>
+        <div class="hub-tags">
+          <span class="hub-tag">S04</span><span class="hub-tag">S09</span><span class="hub-tag">S18</span>
         </div>
-        <p class="prog-desc">전사 AI 아이디어를 수집·공유·피드백합니다. TFT 백로그와 연계해 실행 가능한 과제로 선별합니다.</p>
-        <p class="prog-out">→ 역할: <strong>아이디어 발굴 · 과제화</strong></p>
       </div>
 
-      <div class="program-card program-card--c">
-        <div class="prog-head">
-          <div class="prog-icon gold"><i class="fas fa-trophy"></i></div>
-          <div>
-            <div class="prog-role">Validation · PoC</div>
-            <div class="prog-title">AI 경진대회</div>
+      <div class="role-col">
+        <div class="role-card role-card--build">
+          <div class="role-icon green"><i class="fas fa-hammer"></i></div>
+          <div class="role-body">
+            <h3>③ Build 역량 실습</h3>
+            <p>수주·발주 모듈 PoC를 직접 설계·구현·배포하며, 요구사항→MR→운영까지 풀사이클을 경험합니다.</p>
           </div>
         </div>
-        <p class="prog-desc">우수 아이디어를 프로토타입으로 검증합니다. 수상작은 SiteFramework PoC·모듈 실험으로 연계합니다.</p>
-        <p class="prog-out">→ 역할: <strong>검증 · 실전 연계</strong></p>
+        <div class="role-card role-card--doc">
+          <div class="role-icon gold"><i class="fas fa-book"></i></div>
+          <div class="role-body">
+            <h3>④ AI-Ready 문서 기여</h3>
+            <p>README·위키·OpenAPI를 마크다운으로 기여해 RAG 컨텍스트를 쌓고, AI 협업 문화를 체득합니다.</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="flow-section">
-      <div class="flow-title"><i class="fas fa-circle-nodes"></i> 빌더형 인재 완성 파이프라인</div>
-      <div class="flow-track">
-        <div class="flow-node">
-          <i class="fas fa-chalkboard-user"></i>
-          <strong>워크숍</strong>
-          <span>AI 인식·기초</span>
-        </div>
-        <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-        <div class="flow-node">
-          <i class="fas fa-comments"></i>
-          <strong>아이디어 스파트</strong>
-          <span>과제 수집</span>
-        </div>
-        <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-        <div class="flow-node">
-          <i class="fas fa-trophy"></i>
-          <strong>경진대회</strong>
-          <span>PoC 검증</span>
-        </div>
-        <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-        <div class="flow-node">
-          <i class="fas fa-cubes"></i>
-          <strong>웹프레임워크</strong>
-          <span>실전 구현</span>
-        </div>
-        <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
-        <div class="flow-node highlight final">
-          <i class="fas fa-user-gear"></i>
-          <strong>빌더형 인재</strong>
-          <span>Monitor + Build</span>
-        </div>
-      </div>
-      <p class="flow-note">
-        <strong>완성 구조:</strong> 워크숍이 전사 AI 역량을 깨우고, 게시판이 아이디어를 모으며, 경진대회가 검증합니다.
-        검증된 과제는 <strong>차세대 웹프레임워크</strong>에서 모듈·에이전트로 구현되고, 이 과정에서 <strong>빌더형 인재</strong>가 Monitor·Build 역할을 갖춘 IT 리더로 성장합니다.
-      </p>
+    <div class="bottom-bar">
+      <i class="fas fa-link"></i>
+      <p><strong>웹프레임워크의 역할:</strong> 빌더형 인재가 Monitor·Build 역할을 동시에 연마할 수 있는 <strong>살아있는 표준 플랫폼</strong>입니다. 앞 슬라이드의 AI 육성 파이프라인과 연결되어 인재·기술 역량을 완성합니다.</p>
     </div>
   </div>
 </div>

@@ -237,25 +237,38 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 /* Multi-Agent Demo */
 .agent-demo-trigger-btn {
-    margin-top: 6px;
-    margin-left: 40px;
-    padding: 6px 14px;
+    margin-top: 10px;
+    padding: 10px 16px;
     background: rgba(0, 240, 255, 0.12);
     border: 1px solid var(--ppt-accent);
     color: var(--ppt-accent);
     border-radius: var(--ppt-radius-md);
     cursor: pointer;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     font-family: var(--ppt-font-body);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.2s ease, box-shadow 0.2s ease
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 .agent-demo-trigger-btn:hover {
-    background: rgba(0, 240, 255, 0.22);
-    box-shadow: 0 0 16px rgba(0, 240, 255, 0.25)
+    background: var(--ppt-accent);
+    color: var(--ppt-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+    }
+.agent-demo-trigger-btn.is-disabled {
+    cursor: default;
+    opacity: 0.92;
+    }
+.agent-demo-trigger-btn.is-disabled:hover {
+    background: rgba(0, 240, 255, 0.12);
+    color: var(--ppt-accent);
+    transform: none;
     }
 .agent-demo-overlay {
     position: absolute;
@@ -521,9 +534,10 @@ html { overflow: hidden;  margin:0; padding:0; }
 <span class="ai-tech-process-chip-badge">C# to Java/React</span>
 <span class="ai-tech-process-chip-badge">Embedding</span>
 </div>
-<button class="agent-demo-trigger-btn" id="agentDemoOpenBtn" type="button">
+<a class="agent-demo-trigger-btn is-disabled" href="#" id="langgraphDemoLinkBtn" target="_blank" rel="noopener noreferrer" title="링크 연결 예정">
 <i class="fas fa-play-circle"></i> LangGraph 멀티에이전트 동작 보기
-</button>
+<i class="fas fa-arrow-up-right-from-square" style="font-size:12px;opacity:0.85;"></i>
+</a>
 </div>
 <!-- Impact Summary -->
 <div class="ai-impact-management-summary-box">
@@ -599,7 +613,7 @@ html { overflow: hidden;  margin:0; padding:0; }
   var svg = document.getElementById("agentDemoSvg");
   var packet = document.getElementById("agentDemoPacket");
   var statusEl = document.getElementById("agentDemoStatus");
-  var openBtn = document.getElementById("agentDemoOpenBtn");
+  var openBtn = document.getElementById("langgraphDemoLinkBtn");
   var closeBtn = document.getElementById("agentDemoCloseBtn");
 
   var agents = {};
@@ -786,10 +800,22 @@ html { overflow: hidden;  margin:0; padding:0; }
     statusEl.innerHTML = "<span>버튼을 눌러 LangGraph가 에이전트를 조율하는 과정을 확인하세요.</span>";
   }
 
+  function syncLinkButton() {
+    var href = openBtn.getAttribute("href");
+    if (href && href !== "#") {
+      openBtn.classList.remove("is-disabled");
+      openBtn.removeAttribute("title");
+    }
+  }
+
   openBtn.addEventListener("click", function(e) {
-    e.stopPropagation();
-    openOverlay();
+    var href = openBtn.getAttribute("href");
+    if (!href || href === "#") {
+      e.preventDefault();
+    }
   });
+
+  syncLinkButton();
   closeBtn.addEventListener("click", function(e) {
     e.stopPropagation();
     closeOverlay();

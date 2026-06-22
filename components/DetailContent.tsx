@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import DetailPreviewPanel from "@/components/DetailPreviewPanel";
+import MilestoneVisualizer from "@/components/MilestoneVisualizer";
 import TechStackVisualizer from "@/components/TechStackVisualizer";
 import type { CodeSample, DetailSection, DetailTable, DetailTopic, ProcessStep } from "@/lib/slideDetails";
 
@@ -165,6 +166,8 @@ export default function DetailContent({ topic }: DetailContentProps) {
     topic.techLayers &&
     (topic.category === "architecture" || topic.category === "code");
 
+  const showMilestones = Boolean(topic.milestones);
+
   return (
     <article className="detail-content">
       <header className="detail-content__header">
@@ -176,6 +179,8 @@ export default function DetailContent({ topic }: DetailContentProps) {
       {topic.meta?.length ? <MetaGrid items={topic.meta} /> : null}
 
       {showTechStack ? <TechStackVisualizer layers={topic.techLayers} /> : null}
+
+      {showMilestones ? <MilestoneVisualizer phases={topic.milestones} /> : null}
 
       {topic.preview ? (
         <DetailPreviewPanel preview={topic.preview} flowNodes={topic.flowNodes} />

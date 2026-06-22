@@ -3,10 +3,9 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>(주)제때 차세대 FaSS 플랫폼 구축 중간 보고 - Slide 15</title>
+<title>AI 기반 스마트 물류 최적화</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
     --ppt-bg: #0A0E1A;
@@ -19,47 +18,39 @@
     --ppt-text-3: #64748B;
     --ppt-accent: #00F0FF;
     --ppt-accent-2: #FACC15;
-    --ppt-chart-1: #00F0FF;
-    --ppt-chart-2: #3B82F6;
-    --ppt-chart-3: #8B5CF6;
-    --ppt-chart-4: #FACC15;
     --ppt-good: #22C55E;
-    --ppt-warn: #F59E0B;
-    --ppt-bad: #EF4444;
     --ppt-radius-sm: 4px;
     --ppt-radius-md: 8px;
     --ppt-radius-lg: 16px;
-    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
     --ppt-font-display: "IBM Plex Sans KR", sans-serif;
     --ppt-font-body: "IBM Plex Sans KR", sans-serif
     }
 * {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased
+    margin: 0 0;
+    padding: 0 0;
+    box-sizing: border-box
     }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
     display: flex;
     justify-content: center;
     align-items: center}
-.slide-root-container {
+.fass-slide-root {
     width: 960px;
     height: 720px;
-    background-color: var(--ppt-bg);
-    position: relative;
     display: flex;
     flex-direction: column;
-    font-family: var(--ppt-font-body);
-    color: var(--ppt-text-1)
+    background-color: var(--ppt-bg)
     }
-/* Title Region from DESIGN */
-.title-region-wrapper {
+/* Title Region */
+.title-region-container {
     padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
     gap: 8px
     }
-.title-header-group {
+.title-header-wrapper {
     display: flex;
     align-items: center;
     gap: 12px
@@ -72,252 +63,189 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 .title-main-text {
     font-family: var(--ppt-font-display);
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
     }
-.title-underline-gradient {
+.title-gradient-line {
     height: 1px;
     width: 100%;
     background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px
     }
-.subtitle-text-block {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--ppt-text-2);
-    margin-top: 4px;
-    line-height: 1.4
-    }
-/* Main Content Layout */
-.quality-content-main-wrapper {
+/* Content Layout */
+.fass-smart-logistics-content-wrapper {
     flex: 1;
-    min-height: 0;
-    padding: 6px 40px 14px 40px;
+    padding: 12px 40px 20px 40px;
     display: flex;
-    gap: 12px 24px;
+    gap: 20px 28px;
     align-items: stretch
     }
-/* Left Column: Pipeline Flow */
-.quality-left-pipeline-column {
-    flex: 3;
+/* Left Column: Concept */
+.fass-smart-logistics-left-concept-block {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 12px
+    gap: 24px
     }
-.quality-pipeline-step-card {
-    flex: 1 1 0;
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 12px;
+.fass-smart-logistics-paradigm-text-box {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    box-shadow: var(--ppt-shadow-soft)
-    }
-.quality-step-header-group {
-    display: flex;
-    align-items: center;
     gap: 12px
     }
-.quality-step-icon-box {
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 240, 255, 0.1);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--ppt-accent);
-    font-size: 24px
-    }
-.quality-step-title-text {
-    font-size: 18px;
+.fass-smart-logistics-concept-label {
+    font-size: 14px;
     font-weight: 600;
+    color: var(--ppt-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px
+    }
+.fass-smart-logistics-concept-description {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
     color: var(--ppt-text-1)
     }
-.quality-step-description-list {
-    list-style: none;
-    padding: 0;
-    margin: 0
+.fass-smart-logistics-concept-highlight {
+    color: var(--ppt-accent-2)
     }
-.quality-step-description-item {
-    font-size: 14px;
-    color: var(--ppt-text-2);
-    margin-bottom: 3px;
-    padding-left: 20px;
-    position: relative
+.fass-smart-logistics-visual-image-box {
+    height: 200px;
+    border-radius: var(--ppt-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--ppt-shadow-strong);
+    border: 1px solid var(--ppt-border)
     }
-.quality-step-description-item::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--ppt-accent)
+.fass-smart-logistics-visual-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
     }
-/* Right Column: Quality Gates */
-.quality-right-gate-column {
-    flex: 2;
+/* Right Column: Action */
+.fass-smart-logistics-right-action-block {
+    flex: 1.2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 13px 20px
+    gap: 16px 20px
     }
-.quality-gate-summary-container {
-    flex: 1 1 0;
-    background: linear-gradient(135deg, var(--ppt-surface) 0%, var(--ppt-bg-soft) 100%);
-    border: 1px solid var(--ppt-accent);
+.fass-smart-logistics-action-item-card {
+    background: var(--ppt-surface);
+    padding: 14px 18px;
     border-radius: var(--ppt-radius-lg);
-    padding: 12px 18px;
+    border: 1px solid var(--ppt-border);
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 13px 16px;
+    flex: 1
     }
-.quality-gate-title-badge {
-    align-self: flex-start;
-    background: var(--ppt-accent);
-    color: var(--ppt-bg);
-    padding: 4px 12px;
-    border-radius: var(--ppt-radius-sm);
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase
-    }
-.quality-gate-heading-text {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--ppt-text-1)
-    }
-.quality-gate-metrics-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px 16px
-    }
-.quality-metric-item-box {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--ppt-radius-md);
-    padding: 10px 16px;
+.fass-smart-logistics-card-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-left: 4px solid var(--ppt-bad)
+    gap: 13px 16px
     }
-.quality-metric-item-box.safe {
-    border-left-color: var(--ppt-good)
-    }
-.quality-metric-label-group {
+.fass-smart-logistics-card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--ppt-bg-soft);
+    border-radius: var(--ppt-radius-md);
     display: flex;
-    flex-direction: column
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--ppt-accent);
+    border: 1px solid var(--ppt-accent)
     }
-.quality-metric-name-text {
-    font-size: 16px;
-    color: var(--ppt-text-2)
-    }
-.quality-metric-value-text {
+.fass-smart-logistics-card-title {
     font-size: 22px;
     font-weight: 600;
     color: var(--ppt-text-1)
     }
-.quality-gate-status-indicator {
-    font-size: 14px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: var(--ppt-radius-sm)
+.fass-smart-logistics-card-body {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ppt-text-2)
     }
-.status-strict {
-    background: rgba(239, 68, 68, 0.1);
-    color: var(--ppt-bad)
-    }
-.status-standard {
-    background: rgba(34, 197, 94, 0.1);
-    color: var(--ppt-good)
-    }
-.quality-impact-footer-note {
+.fass-smart-logistics-impact-badge {
     margin-top: auto;
-    font-size: 16px;
-    color: var(--ppt-accent-2);
-    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 5px 8px
+    gap: 6px 8px;
+    padding: 6px 16px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid var(--ppt-good);
+    border-radius: var(--ppt-radius-sm);
+    width: fit-content
+    }
+.fass-smart-logistics-impact-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ppt-good)
     }
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="slide-root-container" style="overflow: hidden;">
-<!-- Title Region -->
-<div class="title-region-wrapper">
-<div class="title-header-group">
+<div class="fass-slide-root" style="overflow: hidden;">
+<!-- Non-Cover-Page Title Region -->
+<div class="title-region-container">
+<div class="title-header-wrapper">
 <div class="title-accent-bar"></div>
-<h1 class="title-main-text">무결점(Zero-Defect) 코드 품질 통제 체계</h1>
+<h1 class="title-main-text">AI 기반 스마트 물류 최적화 (Smarter 운영)</h1>
 </div>
-<div class="title-underline-gradient"></div>
+<div class="title-gradient-line"></div>
 </div>
-<!-- Content Area -->
-<div class="quality-content-main-wrapper">
-<!-- Left Column: Pipeline -->
-<div class="quality-left-pipeline-column">
-<div class="quality-pipeline-step-card">
-<div class="quality-step-header-group">
-<div class="quality-step-icon-box">
-<i class="fa-solid fa-code-merge"></i>
+<!-- Main Content Wrapper -->
+<div class="fass-smart-logistics-content-wrapper">
+<!-- Left: Concept Section -->
+<div class="fass-smart-logistics-left-concept-block">
+<div class="fass-smart-logistics-paradigm-text-box">
+<span class="fass-smart-logistics-concept-label">Paradigm Shift</span>
+<p class="fass-smart-logistics-concept-description">
+                        단순 기록/조회 시스템에서<br/>
+                        데이터 기반 <span class="fass-smart-logistics-concept-highlight">예측 및 자동화 시스템</span>으로의 전환
+                    </p>
 </div>
-<div class="quality-step-title-text">AI 가속화 기반 CI/CD 파이프라인 연동</div>
-</div>
-<div class="quality-step-description-list">
-<div class="quality-step-description-item">AI가 생성한 대량의 코드를 SonarQube 정적 분석 도구로 즉시 정밀 검사</div>
-<div class="quality-step-description-item">개발자의 코드 병합(Merge) 요청 시 보안 취약점 및 구조적 결함 자동 탐지</div>
-<div class="quality-step-description-item">사람의 눈으로 놓치기 쉬운 런타임 잠재 에러를 사전에 100% 필터링</div>
+<div class="fass-smart-logistics-visual-image-box">
+<img alt="Smart Logistics Visual" src="https://agents-download.skywork.ai/image/rt/d6fd321f922784da7bb75669ba52eb67.jpg"/>
 </div>
 </div>
-<div class="quality-pipeline-step-card">
-<div class="quality-step-header-group">
-<div class="quality-step-icon-box">
-<i class="fa-solid fa-magnifying-glass-chart"></i>
+<!-- Right: Action Section -->
+<div class="fass-smart-logistics-right-action-block">
+<!-- Action Item 1: Demand Forecasting -->
+<div class="fass-smart-logistics-action-item-card">
+<div class="fass-smart-logistics-card-header">
+<div class="fass-smart-logistics-card-icon">
+<i class="fas fa-chart-line"></i>
 </div>
-<div class="quality-step-title-text">실시간 품질 모니터링 및 시각화</div>
+<h2 class="fass-smart-logistics-card-title">지능형 수요 예측</h2>
 </div>
-<div class="quality-step-description-list">
-<div class="quality-step-description-item">코드 복잡도(Complexity) 및 중복도(Duplication) 실시간 지표화</div>
-<div class="quality-step-description-item">기술 부채(Technical Debt) 발생 구간을 추적하여 리팩토링 우선순위 자동 할당</div>
-<div class="quality-step-description-item">워룸(War-Room) 내 대시보드를 통해 팀 전체의 코드 건강도 상시 공유</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Quality Gates -->
-<div class="quality-right-gate-column">
-<div class="quality-gate-summary-container">
-<div class="quality-gate-title-badge">Pass/Fail Standard</div>
-<div class="quality-gate-heading-text">배포 자동 차단 품질 게이트 (Quality Gate)</div>
-<div class="quality-gate-metrics-grid">
-<div class="quality-metric-item-box">
-<div class="quality-metric-label-group">
-<span class="quality-metric-name-text">Critical &amp; Blocker Bugs</span>
-<span class="quality-metric-value-text">0 Items</span>
-</div>
-<span class="quality-gate-status-indicator status-strict">Strict Block</span>
-</div>
-<div class="quality-metric-item-box safe">
-<div class="quality-metric-label-group">
-<span class="quality-metric-name-text">Unit Test Coverage</span>
-<span class="quality-metric-value-text">Min 80% Over</span>
-</div>
-<span class="quality-gate-status-indicator status-standard">Mandatory</span>
-</div>
-<div class="quality-metric-item-box">
-<div class="quality-metric-label-group">
-<span class="quality-metric-name-text">Security Vulnerabilities</span>
-<span class="quality-metric-value-text">Zero Tolerance</span>
-</div>
-<span class="quality-gate-status-indicator status-strict">Strict Block</span>
+<div class="fass-smart-logistics-card-body">
+                        차세대 FaSS는 <b>웹(Next.js)</b> 기반으로 구성되어 AI 연동성이 뛰어납니다.
+                        표준 <b>REST/OpenAPI</b>를 다수 제공해 일반 사용자도 회사 데이터에 쉽게 접근하고,
+                        AI·업무 앱이 동일 API로 물류·재고 데이터를 활용할 수 있습니다.
+                    </div>
+<div class="fass-smart-logistics-impact-badge">
+<i class="fas fa-plug" style="color: var(--ppt-good);font-size: 14px;"></i>
+<span class="fass-smart-logistics-impact-text">표준 API 기반 · 데이터 접근 민주화</span>
 </div>
 </div>
-<div class="quality-impact-footer-note">
-<i class="fa-solid fa-circle-check"></i>
-<span>품질 기준 미달 시 운영 환경 배포 원천 차단으로 무결점 보장</span>
+<!-- Action Item 2: AI Business Assistant -->
+<div class="fass-smart-logistics-action-item-card">
+<div class="fass-smart-logistics-card-header">
+<div class="fass-smart-logistics-card-icon">
+<i class="fas fa-brain"></i>
+</div>
+<h2 class="fass-smart-logistics-card-title">AI 업무 어시스턴트 (RAG)</h2>
+</div>
+<div class="fass-smart-logistics-card-body">
+                        복잡한 3PL 계약서 및 무역 규정을 AI가 자동 검증하여 실무진의 서류 검토 리드타임을 극강으로 단축합니다.
+                    </div>
+<div class="fass-smart-logistics-impact-badge">
+<i class="fas fa-bolt" style="color: var(--ppt-good);font-size: 14px;"></i>
+<span class="fass-smart-logistics-impact-text">검토 리드타임 60% 이상 단축 예상</span>
 </div>
 </div>
 </div>

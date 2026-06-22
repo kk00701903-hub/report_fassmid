@@ -10,24 +10,24 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
     partNumber: 1,
     title: "전략적 비전 및 목표",
     startSlideId: 2,
-    endSlideId: 4,
+    endSlideId: 5,
   },
   {
     partNumber: 2,
     title: "프로젝트 진행 경과 및 성과",
-    startSlideId: 5,
+    startSlideId: 6,
     endSlideId: 11,
   },
   {
     partNumber: 3,
     title: "기술 스택 및 아키텍처",
     startSlideId: 12,
-    endSlideId: 17,
+    endSlideId: 19,
   },
   {
     partNumber: 4,
     title: "혁신 및 검증",
-    startSlideId: 18,
+    startSlideId: 20,
     endSlideId: 31,
   },
   {
@@ -37,6 +37,11 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
     endSlideId: 35,
   },
 ];
+
+/** PART 간지 슬라이드(목차 하이라이트용) */
+export function isPartDividerTitle(title: string): boolean {
+  return /^PART\s+\d+/i.test(title.trim());
+}
 
 /** 표지(1p) 등 PART 미표시 슬라이드 */
 export function getSlidePart(builtinSlideId: number | null): SlidePart | null {

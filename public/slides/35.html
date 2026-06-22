@@ -79,11 +79,12 @@ body {
   min-height: 0;
   overflow: hidden;
   padding: 8px 40px 12px 40px;
-  display: flex; gap: 20px; align-items: stretch;
+  display: flex;
+  align-items: stretch;
 }
 /* Left: quote + commitment */
 .left-col {
-  flex: 3;
+  flex: 1;
   display: flex; flex-direction: column;
   justify-content: center; gap: 12px;
 }
@@ -121,44 +122,6 @@ body {
 .commitment-icon { color: var(--ppt-good); font-size: 16px; flex-shrink: 0; }
 .commitment-text { font-size: 14px; color: var(--ppt-text-2); line-height: 1.35; }
 .commitment-text strong { color: var(--ppt-text-1); }
-/* Right: PROFIT CENTER visual */
-.right-col {
-  flex: 2;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  background: radial-gradient(circle at center, rgba(0,240,255,0.05) 0%, transparent 70%);
-  border: 1px solid rgba(0,240,255,0.1);
-  border-radius: var(--ppt-radius-lg);
-  padding: 16px;
-  gap: 0;
-}
-.anchor-top-label {
-  font-size: 13px; font-weight: 700;
-  color: var(--ppt-accent); letter-spacing: 3px; text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.anchor-main {
-  font-size: 56px; font-weight: 700;
-  color: var(--ppt-text-1); line-height: 1;
-  text-shadow: 0 0 30px rgba(0,240,255,0.3);
-  margin: 4px 0;
-}
-.anchor-accent {
-  font-size: 32px; font-weight: 700;
-  color: var(--ppt-accent-2); line-height: 1;
-}
-.anchor-divider {
-  width: 50px; height: 4px;
-  background: var(--ppt-accent);
-  border-radius: 2px; margin: 12px auto;
-}
-.stat-group { display: flex; flex-direction: column; gap: 2px; }
-.stat-value { font-size: 24px; font-weight: 700; color: var(--ppt-text-1); }
-.stat-label { font-size: 13px; color: var(--ppt-text-3); }
-.stat-group2 { display: flex; flex-direction: column; gap: 2px; margin-top: 10px; }
-.stat-value2 { font-size: 22px; font-weight: 700; color: var(--ppt-accent); }
-.stat-label2 { font-size: 13px; color: var(--ppt-text-3); }
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
@@ -194,22 +157,6 @@ html { overflow: hidden;  margin:0; padding:0; }
           <i class="fas fa-check-circle commitment-icon"></i>
           <div class="commitment-text"><strong>수익·미래:</strong> ASP 수익 파이프라인 전환 및 AI 디지털 워커 조직 진화</div>
         </div>
-      </div>
-    </div>
-
-    <!-- Right: visual anchor -->
-    <div class="right-col">
-      <div class="anchor-top-label">Strategic Vision</div>
-      <div class="anchor-main">PROFIT</div>
-      <div class="anchor-accent">CENTER</div>
-      <div class="anchor-divider"></div>
-      <div class="stat-group">
-        <div class="stat-value">100억+</div>
-        <div class="stat-label">자체 기술 자산 가치 내재화</div>
-      </div>
-      <div class="stat-group2">
-        <div class="stat-value2">FUTURE</div>
-        <div class="stat-label2">REVENUE ENGINE</div>
       </div>
     </div>
   </div>

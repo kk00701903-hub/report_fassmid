@@ -261,6 +261,31 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     background: var(--ppt-accent);
     color: var(--ppt-bg);
     }
+.war-room-analytics-fab {
+    position: absolute;
+    bottom: 12px;
+    right: 40px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--ppt-radius-md);
+    background: rgba(0, 240, 255, 0.12);
+    border: 1px solid var(--ppt-accent);
+    color: var(--ppt-accent);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+.war-room-analytics-fab:hover {
+    background: var(--ppt-accent);
+    color: var(--ppt-bg);
+    transform: translateY(-1px);
+    }
 html { overflow: hidden; margin:0; padding:0; }
 </style></head>
 <body>
@@ -384,10 +409,10 @@ html { overflow: hidden; margin:0; padding:0; }
 <div class="war-room-dailyscrum-title">FASS 데일리 스크럼 — TFT 애자일 운영 허브</div>
 <p class="war-room-dailyscrum-desc">차세대 FaSS TFT의 일일 스크럼·태스크·스프린트 데이터를 웹에서 기록하고, Analytics 대시보드로 진척·블로커·완료율을 한눈에 확인합니다. 워룸 대형 화면과 연동해 전 팀이 동일 지표를 공유합니다.</p>
 </div>
-<a class="war-room-dailyscrum-link" href="https://kk00701903-hub.github.io/fass-dailyscrum/#/analytics" target="_blank" rel="noopener noreferrer">
-<i class="fas fa-arrow-up-right-from-square"></i> Analytics 열기
-</a>
 </div>
+<a class="war-room-analytics-fab" href="https://kk00701903-hub.github.io/fass-dailyscrum/#/jira/wbs" target="_blank" rel="noopener noreferrer">
+<i class="fas fa-chart-line"></i> Analytics
+</a>
 </div>
 <script>
 (function(){

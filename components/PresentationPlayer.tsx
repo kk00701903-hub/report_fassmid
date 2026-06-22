@@ -9,6 +9,7 @@ import SlideStage, { SLIDE_ASPECT, SLIDE_HEIGHT, SLIDE_WIDTH } from "@/component
 import { getBasePath, getSlideHtmlUrl } from "@/lib/basePath";
 import { isSlideVisible, type PresentationConfig, type SlideManifestItem } from "@/lib/presentationConfig";
 import { prefetchSlides } from "@/lib/slideCache";
+import { isPartDividerTitle } from "@/lib/slideParts";
 
 type PresentationPlayerProps = {
   initialSlideId: number;
@@ -354,7 +355,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
             <li key={item.key}>
               <button
                 type="button"
-                className={`${index === currentIndex ? "is-active" : ""}${!isSlideVisible(item) ? " is-hidden-slide" : ""}`}
+                className={`${index === currentIndex ? "is-active" : ""}${!isSlideVisible(item) ? " is-hidden-slide" : ""}${isPartDividerTitle(item.title) ? " is-part-divider" : ""}`}
                 onClick={() => goToIndex(index, index > currentIndex ? "forward" : "back")}
               >
                 <span className="slide-sidebar__number">{index + 1}</span>

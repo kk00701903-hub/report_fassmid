@@ -177,6 +177,29 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     border: 1px solid var(--ppt-border);
     color: var(--ppt-text-3)
     }
+.ai-replacement-doc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding: 6px 12px;
+    border-radius: var(--ppt-radius-md);
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.45);
+    color: var(--ppt-good);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--ppt-font-body);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    align-self: flex-start;
+    }
+.ai-replacement-doc-btn:hover {
+    background: var(--ppt-good);
+    color: var(--ppt-bg);
+    transform: translateY(-1px);
+    }
 /* Bottom banner */
 .ai-workforce-footer-banner {
     flex-shrink: 0;
@@ -287,6 +310,9 @@ html { overflow: hidden; margin:0; padding:0; }
 <span class="ai-replacement-tag">README.md</span>
 <span class="ai-replacement-tag">Wiki Auto-sync</span>
 </div>
+<a class="ai-replacement-doc-btn" href="../docs/README.md" target="_blank" rel="noopener noreferrer">
+<i class="fas fa-file-lines"></i> README.md 보기
+</a>
 </div>
 </div>
 </div>

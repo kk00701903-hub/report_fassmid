@@ -3,7 +3,8 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>Executive Summary - FaSS 플랫폼 구축</title>
+<meta content="width=960, height=720" name="viewport"/>
+<title>FaSS 플랫폼 아이덴티티</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
@@ -18,47 +19,39 @@
     --ppt-text-3: #64748B;
     --ppt-accent: #00F0FF;
     --ppt-accent-2: #FACC15;
-    --ppt-chart-1: #00F0FF;
-    --ppt-chart-2: #3B82F6;
-    --ppt-chart-3: #8B5CF6;
-    --ppt-chart-4: #FACC15;
-    --ppt-good: #22C55E;
-    --ppt-warn: #F59E0B;
-    --ppt-bad: #EF4444;
     --ppt-radius-sm: 4px;
     --ppt-radius-md: 8px;
     --ppt-radius-lg: 16px;
-    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
     --ppt-font-display: "IBM Plex Sans KR", sans-serif;
     --ppt-font-body: "IBM Plex Sans KR", sans-serif
     }
 * {
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased
+    margin: 0;
+    padding: 0
     }
 body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     display: flex;
     justify-content: center;
     align-items: center}
-.fass-summary-slide-root {
+.fass-identity-slide-root {
     width: 960px;
     height: 720px;
     background-color: var(--ppt-bg);
-    position: relative;
-    font-family: var(--ppt-font-body);
     color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
+    position: relative;
     display: flex;
     flex-direction: column
     }
-/* Non-Cover-Page Title Region */
-.title-region-container {
-    padding: 28px 40px 8px 40px;
+/* Title Region from Design */
+.title-region-wrapper {
+    padding: 32px 40px 12px 40px;
     display: flex;
     flex-direction: column;
-    gap: 6px
+    gap: 8px
     }
-.title-region-header {
+.title-region-main {
     display: flex;
     align-items: center;
     gap: 12px
@@ -83,221 +76,241 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     opacity: 0.3;
     margin-top: 8px
     }
-/* Main Content */
-.summary-content-wrapper {
+/* Main Layout */
+.fass-identity-main-container {
     flex: 1;
     min-height: 0;
-    padding: 8px 36px 20px 36px;
+    display: flex;
+    padding: 12px 40px 16px 40px;
+    gap: 28px
+    }
+/* Left Side: 4 Core Values Flow */
+.fass-identity-left-flow-section {
+    flex: 7;
     display: flex;
     flex-direction: column;
-    gap: 0
+    justify-content: center;
+    position: relative
     }
-.summary-grid-container {
-    display: flex;
-    align-items: stretch;
-    gap: 16px;
-    flex: 1;
-    min-height: 0
+.fass-identity-rail-vertical-line {
+    position: absolute;
+    left: 28px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--ppt-accent) 0%, var(--ppt-surface) 100%);
+    opacity: 0.3
     }
-.summary-column-item {
-    flex: 1;
+.fass-identity-value-item-row {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 12px 0;
+    position: relative;
+    z-index: 1
+    }
+.fass-identity-value-marker {
+    width: 50px;
+    height: 50px;
     background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 18px 18px 16px 18px;
-    gap: 12px;
-    box-shadow: var(--ppt-shadow-soft);
-    min-height: 0
-    }
-.summary-column-header {
+    border: 2px solid var(--ppt-accent);
+    border-radius: 50%;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0
-    }
-.summary-column-icon {
-    font-size: 22px;
-    color: var(--ppt-accent);
-    width: 44px;
-    height: 44px;
-    background: rgba(0, 240, 255, 0.1);
-    display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: var(--ppt-radius-md);
-    flex-shrink: 0
-    }
-.summary-column-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.summary-list-container {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-    min-height: 0
-    }
-.summary-list-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    min-height: 0;
-    padding: 12px 14px;
-    background: var(--ppt-surface-2);
-    border-radius: var(--ppt-radius-md);
-    border: 1px solid rgba(51, 65, 85, 0.6)
-    }
-.summary-item-tag {
-    display: inline-block;
-    padding: 3px 10px;
-    font-size: 12px;
-    font-weight: 600;
-    border-radius: var(--ppt-radius-sm);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    align-self: flex-start
-    }
-.tag-completed {
-    background: var(--ppt-good);
-    color: #000
-    }
-.tag-ongoing {
-    background: var(--ppt-accent);
-    color: #000
-    }
-.tag-planned {
-    background: var(--ppt-accent-2);
-    color: #000
-    }
-.summary-item-text {
-    font-size: 16px;
-    line-height: 1.45;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.summary-item-subtext {
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--ppt-text-2);
-    margin-top: 5px
-    }
-.summary-highlight-box {
-    margin-top: auto;
+    align-items: center;
     flex-shrink: 0;
-    padding: 12px 14px;
-    border-left: 3px solid var(--ppt-accent-2);
-    background: rgba(250, 204, 21, 0.06);
-    border-radius: 0 var(--ppt-radius-sm) var(--ppt-radius-sm) 0
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2)
     }
-.summary-highlight-text {
+.fass-identity-value-marker-letter {
+    font-family: var(--ppt-font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ppt-accent)
+    }
+.fass-identity-value-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+    }
+.fass-identity-value-heading-group {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.fass-identity-value-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ppt-text-1)
+    }
+.fass-identity-value-subtitle {
     font-size: 15px;
     font-weight: 600;
+    color: var(--ppt-accent);
+    opacity: 0.9
+    }
+.fass-identity-value-description {
+    font-size: 15px;
+    font-weight: 400;
     line-height: 1.45;
-    color: var(--ppt-accent-2)
+    color: var(--ppt-text-2);
+    max-width: 650px
+    }
+/* Right Side: Logo Vision */
+.fass-identity-right-vision-section {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+    }
+.fass-identity-logo-info-card {
+    background: var(--ppt-bg-soft);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--ppt-shadow-strong)
+    }
+.fass-identity-logo-visual-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    border-radius: var(--ppt-radius-md);
+    padding: 12px 12px;
+    border: 1px solid var(--ppt-border)
+    }
+.fass-identity-logo-image {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain
+    }
+.fass-identity-logo-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ppt-accent-2);
+    text-align: center
+    }
+.fass-identity-logo-body-text {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ppt-text-1)
+    }
+.fass-identity-logo-keyword-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid var(--ppt-accent-2);
+    border-radius: var(--ppt-radius-sm);
+    color: var(--ppt-accent-2);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 12px;
+    align-self: flex-start
+    }
+.fass-identity-highlight-text {
+    color: var(--ppt-accent);
+    font-weight: 600
     }
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="fass-summary-slide-root" style="overflow: hidden;">
-<!-- Title Region -->
-<div class="title-region-container">
-<div class="title-region-header">
+<div class="fass-identity-slide-root" style="overflow: hidden;">
+<!-- Non-Cover-Page Title Region -->
+<div class="title-region-wrapper">
+<div class="title-region-main">
 <div class="title-region-bar"></div>
-<h1 class="title-region-text">Executive Summary (프로젝트 종합 요약)</h1>
+<h1 class="title-region-text">
+          FaSS 플랫폼 아이덴티티: 명칭의 의미와 로고 비전
+        </h1>
 </div>
 <div class="title-region-line"></div>
 </div>
-<!-- Content Area -->
-<div class="summary-content-wrapper">
-<div class="summary-grid-container">
-<!-- Column 1: Progress Status -->
-<div class="summary-column-item">
-<div class="summary-column-header">
-<div class="summary-column-icon"><i class="fas fa-chart-line"></i></div>
-<div class="summary-column-title">진척 현황</div>
+<!-- Main Body Content -->
+<div class="fass-identity-main-container">
+<!-- Left Flow Section -->
+<div class="fass-identity-left-flow-section">
+<div class="fass-identity-rail-vertical-line"></div>
+<!-- F - Faster -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">F</span>
 </div>
-<div class="summary-list-container">
-<div class="summary-list-item">
-<span class="summary-item-tag tag-completed">6월 현재</span>
-<div class="summary-item-text">기반 프레임워크 표준 확립</div>
-<div class="summary-item-subtext">Java 21, React, Next.js 표준 아키텍처 구축</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Faster</span>
+<span class="fass-identity-value-subtitle">신속성</span>
 </div>
-<div class="summary-list-item">
-<span class="summary-item-tag tag-completed">인프라</span>
-<div class="summary-item-text">AI 에이전트 개발 환경 구축</div>
-<div class="summary-item-subtext">DGX Spark 기반 RAG 및 코드 자동화 환경 완료</div>
-</div>
-<div class="summary-list-item">
-<span class="summary-item-tag tag-ongoing">진행 중</span>
-<div class="summary-item-text">UI/UX 및 기술스택 정립 단계 진입</div>
-<div class="summary-item-subtext">디자인 시스템·기술스택 표준화 및 핵심 화면 개발 착수</div>
+<p class="fass-identity-value-description">
+              신속한 개발 및 배포 환경을 구축하고, <span class="fass-identity-highlight-text">Next.js SSR</span> 도입을 통해 고객이 체감하는 응답 속도를 극대화합니다.
+            </p>
 </div>
 </div>
-<div class="summary-highlight-box">
-<div class="summary-highlight-text">기술 내재화를 통한 SI 비용 80억 방어</div>
+<!-- a - Agile -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">a</span>
+</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Agile</span>
+<span class="fass-identity-value-subtitle">민첩성</span>
+</div>
+<p class="fass-identity-value-description">
+              비즈니스 변화에 유연하게 대응하는 <span class="fass-identity-highlight-text">컨테이너 기반의 블록 조립형(모듈러)</span> 아키텍처를 지향합니다.
+            </p>
 </div>
 </div>
-<!-- Column 2: Roadmap -->
-<div class="summary-column-item">
-<div class="summary-column-header">
-<div class="summary-column-icon"><i class="fa-solid fa-map"></i></div>
-<div class="summary-column-title">전략 로드맵</div>
+<!-- S - Smarter -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">S</span>
 </div>
-<div class="summary-list-container">
-<div class="summary-list-item">
-<span class="summary-item-tag tag-completed">검증 완료</span>
-<div class="summary-item-text">PoC 및 프로토타입 격리 검증</div>
-<div class="summary-item-subtext">AI 아이디어 스파크 PoC 데이터 무결성 검증 완료</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Smarter</span>
+<span class="fass-identity-value-subtitle">지능화</span>
 </div>
-<div class="summary-list-item">
-<span class="summary-item-tag tag-planned">26년 10월</span>
-<div class="summary-item-text">주유소(JTGS) 프로토타입 개발 착수</div>
-<div class="summary-item-subtext">2026.10 차세대 서버에서 개발 Start — 완성형 기술스택 최초 적용 (2027.03 완성 목표, 10월 런칭 아님)</div>
-</div>
-<div class="summary-list-item">
-<span class="summary-item-tag tag-planned">최종 단계</span>
-<div class="summary-item-text">유통물류 시스템 완전 전환</div>
-<div class="summary-item-subtext">리스크 제로 기반의 Phased Roll-out 전략</div>
+<p class="fass-identity-value-description">
+<span class="fass-identity-highlight-text">AI 기반의 지능형 운영</span>, 수요 예측 및 AI 코딩 에이전트를 통해 플랫폼 스스로 진화하는 시스템을 구축합니다.
+            </p>
 </div>
 </div>
-<div class="summary-highlight-box">
-<div class="summary-highlight-text">빅뱅 방식 지양을 통한 무중단 비즈니스 보장</div>
+<!-- S - Stronger -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">S</span>
+</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Stronger</span>
+<span class="fass-identity-value-subtitle">강건함</span>
+</div>
+<p class="fass-identity-value-description">
+              강력한 보안 체계(<span class="fass-identity-highlight-text">Stateless JWT</span>) 및 무중단 데이터 동기화를 통해 비즈니스 리스크를 제로화합니다.
+            </p>
 </div>
 </div>
-<!-- Column 3: Infrastructure -->
-<div class="summary-column-item">
-<div class="summary-column-header">
-<div class="summary-column-icon"><i class="fas fa-cloud"></i></div>
-<div class="summary-column-title">인프라 방향성</div>
 </div>
-<div class="summary-list-container">
-<div class="summary-list-item">
-<span class="summary-item-tag tag-ongoing">설계 원칙</span>
-<div class="summary-item-text">100% Cloud-Ready 아키텍처</div>
-<div class="summary-item-subtext">컨테이너 기반 설계로 즉각적인 클라우드 배포</div>
+<!-- Right Vision Section -->
+<div class="fass-identity-right-vision-section">
+<div class="fass-identity-logo-info-card">
+<div class="fass-identity-logo-visual-wrap">
+<img alt="FASS 로고" class="fass-identity-logo-image" src="assets/fass-logo.png"/>
 </div>
-<div class="summary-list-item">
-<span class="summary-item-tag tag-ongoing">비용 최적화</span>
-<div class="summary-item-text">온프레미스 기반 리스크 관리</div>
-<div class="summary-item-subtext">무리한 초기 전환 유보 및 인프라 비용 낭비 방지</div>
-</div>
-<div class="summary-list-item">
-<span class="summary-item-tag tag-planned">수익화 모델</span>
-<div class="summary-item-text">솔루션 패키지화 (ASP) 공급</div>
-<div class="summary-item-subtext">외부 확장이 용이한 멀티 테넌시 구조 확보</div>
-</div>
-</div>
-<div class="summary-highlight-box">
-<div class="summary-highlight-text">IT를 '비용 부서'에서 '수익 파이프라인'으로 격상</div>
-</div>
+<h2 class="fass-identity-logo-title">FaSS 로고 디자인 의미</h2>
+<div class="fass-identity-logo-body-text">
+            클라우드와 무한 궤도(Infinity), 상승 화살표가 결합된 형상으로 <span class="fass-identity-highlight-text">지속적 성장</span>과 <span class="fass-identity-highlight-text">클라우드 확장성</span>을 상징합니다.
+            <br/><br/>
+            (주)제때의 <span class="fass-identity-highlight-text">물류 비즈니스 연속성</span>과 한계 없는 <span class="fass-identity-highlight-text">외부 확장성</span>을 시각적으로 표현합니다.
+          </div>
+<div class="fass-identity-logo-keyword-tag">
+<i class="fas fa-link" style="margin-right: 8px;"></i> 비즈니스 무한 확장
+          </div>
 </div>
 </div>
 </div>

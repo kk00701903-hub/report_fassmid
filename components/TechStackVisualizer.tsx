@@ -61,9 +61,14 @@ export default function TechStackVisualizer({ layers = "fass-full" }: TechStackV
               <li key={item.name} className="detail-tech-stack__item">
                 <div className="detail-tech-stack__item-head">
                   <strong>{item.name}</strong>
-                  {item.sprintId ? (
-                    <span className="detail-tech-stack__sprint">{item.sprintId}</span>
-                  ) : null}
+                  <div className="detail-tech-stack__badges">
+                    {item.assignee ? (
+                      <span className="detail-tech-stack__assignee">{item.assignee}</span>
+                    ) : null}
+                    {item.sprintId ? (
+                      <span className="detail-tech-stack__sprint">{item.sprintId}</span>
+                    ) : null}
+                  </div>
                 </div>
                 <p>{item.detail}</p>
               </li>

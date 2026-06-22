@@ -1,4 +1,5 @@
 import { FASS_BACKLOG_URL, type TechStackLayer } from "@/lib/fassTechStack";
+import type { MilestonePhase } from "@/lib/fassMilestones";
 import { ODIN_INFRA_TOPIC } from "@/lib/odinInfraDetail";
 
 export type ProcessStep = {
@@ -78,6 +79,8 @@ export type DetailTopic = {
   preview?: DetailPreview;
   /** 아키텍처 데이터 흐름 다이어그램 노드 */
   flowNodes?: FlowNode[];
+  /** 7단계 마일스톤 간트 (fass-full = 전체 일정) */
+  milestones?: MilestonePhase[] | "fass-full";
 };
 
 export type SlideDetailSet = {
@@ -122,6 +125,24 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 3,
     topics: [
       {
+        id: "market-context",
+        title: "디지털 전환 4대 트렌드",
+        category: "process",
+        summary:
+          "MSA·Cloud Native·Open Source·AI Native 네 축이 동시에 차세대 플랫폼 표준을 재정의하고 있습니다. FaSS는 이 교차점에서 물류 디지털 전환의 방향을 설정합니다.",
+        process: [
+          { step: 1, title: "MSA", description: "Modular Monolith → MSA 점진 전환, DDD·API-First" },
+          { step: 2, title: "Cloud", description: "Kubernetes·GitOps·FinOps 기반 Cloud-Ready 운영" },
+          { step: 3, title: "Open Source", description: "PostgreSQL·Kafka·Debezium 등 CNCF/OSS 표준 스택" },
+          { step: 4, title: "AI", description: "LangGraph Agent·RAG·Digital Worker 기반 AI Native 개발" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 4,
+    topics: [
+      {
         id: "fass-identity",
         title: "FaSS 플랫폼 아이덴티티 가이드",
         category: "architecture",
@@ -146,7 +167,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 4,
+    slideId: 5,
     topics: [
       {
         id: "executive-kpi",
@@ -162,7 +183,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 5,
+    slideId: 6,
     topics: [
       {
         id: "progress-tracking",
@@ -173,21 +194,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
           { step: 1, title: "주간 스탠드업", description: "TFT 주간 진척·리스크 공유" },
           { step: 2, title: "GitLab 이슈", description: "Epic → Story → Task 계층으로 추적" },
           { step: 3, title: "중간 보고", description: "월간 경영 보고 및 의사결정 요청" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 6,
-    topics: [
-      {
-        id: "market-context",
-        title: "시장 환경 분석 프레임",
-        category: "process",
-        summary: "물류 IT 시장 변화를 프로젝트 의사결정에 반영하는 방법입니다.",
-        process: [
-          { step: 1, title: "트렌드 수집", description: "AI·클라우드·SaaS 물류 솔루션 벤치마킹" },
-          { step: 2, title: "갭 분석", description: "기존 FaSS 대비 차별화 포인트 도출" },
         ],
       },
     ],
@@ -839,7 +845,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 23,
+    slideId: 25,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -857,7 +863,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 24,
+    slideId: 26,
     topics: [
       {
         id: "finops",
@@ -887,24 +893,24 @@ deploy_prod:
     ],
   },
   {
-    slideId: 25,
+    slideId: 27,
     topics: [
       {
         id: "peer-benchmark",
         title: "타사 프로젝트 규모 벤치마크",
         category: "process",
         summary:
-          "삼성E&A 등 유사 범위 사례의 인력 규모를 참고 지표로만 활용합니다. 기술 스택·AI 오케스트레이션과는 별도 슬라이드에서 다룹니다.",
+          "삼성E&A 등 유사 범위 사례(70명·2년, 1,680 M/M)의 인력 규모를 참고 지표로만 활용합니다.",
         process: [
-          { step: 1, title: "참고 범위", description: "동 시기·유사 산출물 범위의 엔터프라이즈 플랫폼 구축 사례" },
-          { step: 2, title: "비교 항목", description: "개발·디자인 인력 규모, 조직 형태, M/M 감각" },
+          { step: 1, title: "참고 범위", description: "70명이 2년간 진행한 유사 산출물 범위의 엔터프라이즈 플랫폼 구축 사례" },
+          { step: 2, title: "비교 항목", description: "총 투입 인력(70명), 기간(2년), M/M(1,680) 감각" },
           { step: 3, title: "활용 방식", description: "일정·비용 리스크 산정용 벤치마크 (기술 내용과 분리)" },
         ],
       },
     ],
   },
   {
-    slideId: 26,
+    slideId: 28,
     topics: [
       {
         id: "mm-tool-investment",
@@ -918,11 +924,6 @@ deploy_prod:
           { step: 3, title: "ROI", description: "2~3개월 일정 단축 → 수억 원 규모 M/M 손실 방어" },
         ],
       },
-    ],
-  },
-  {
-    slideId: 27,
-    topics: [
       {
         id: "langgraph-workflow",
         title: "LangGraph Dev Agent (S18)",
@@ -997,10 +998,35 @@ quality_gate:
           },
         ],
       },
+      {
+        id: "ai-talent-ecosystem",
+        title: "사내 AI 인재육성 생태계",
+        category: "process",
+        summary:
+          "찾아가는 AI 워크숍·AI 아이디어 스파트·AI 경진대회가 웹프레임워크 실전 구현과 맞물려 빌더형 인재 파이프라인을 완성합니다.",
+        preview: {
+          type: "agent-flow",
+          title: "빌더형 인재 완성 파이프라인",
+          caption: "워크숍(인식) → 게시판(아이디어) → 경진대회(검증) → 웹프레임워크(구현) → 빌더형 인재",
+        },
+        flowNodes: [
+          { id: "workshop", label: "AI 워크숍", sub: "인식·기초", icon: "fa-solid fa-chalkboard-user" },
+          { id: "board", label: "아이디어 스파트", sub: "과제 수집", icon: "fa-solid fa-comments" },
+          { id: "contest", label: "AI 경진대회", sub: "PoC 검증", icon: "fa-solid fa-trophy" },
+          { id: "fw", label: "웹프레임워크", sub: "실전 구현", icon: "fa-solid fa-cubes" },
+          { id: "builder", label: "빌더형 인재", sub: "Monitor+Build", icon: "fa-solid fa-user-gear" },
+        ],
+        process: [
+          { step: 1, title: "찾아가는 AI 워크숍", description: "현업 방문 교육 — AI 리터러시·프롬프트·업무 적용 사례 확산" },
+          { step: 2, title: "AI 아이디어 스파트", description: "전사 아이디어 수집·피드백 — TFT 백로그 과제화" },
+          { step: 3, title: "AI 경진대회", description: "우수 아이디어 프로토타입 검증 — SiteFramework PoC 연계" },
+          { step: 4, title: "완성", description: "검증 과제를 웹프레임워크에서 구현하며 빌더형 인재로 성장" },
+        ],
+      },
     ],
   },
   {
-    slideId: 28,
+    slideId: 29,
     topics: [
       {
         id: "framework-builder-role",
@@ -1037,36 +1063,6 @@ quality_gate:
           { step: 1, title: "학습장", description: "공통 아키텍처·코딩 표준을 실제 레포에서 체득" },
           { step: 2, title: "관제 실습", description: "파이프라인·에이전트 이상 징후 대응 훈련" },
           { step: 3, title: "구축 실습", description: "도메인 모듈을 직접 설계·구현·배포" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 29,
-    topics: [
-      {
-        id: "ai-talent-ecosystem",
-        title: "사내 AI 인재육성 생태계",
-        category: "process",
-        summary:
-          "찾아가는 AI 워크숍·AI 아이디어 스파트·AI 경진대회가 웹프레임워크 실전 구현과 맞물려 빌더형 인재 파이프라인을 완성합니다.",
-        preview: {
-          type: "agent-flow",
-          title: "빌더형 인재 완성 파이프라인",
-          caption: "워크숍(인식) → 게시판(아이디어) → 경진대회(검증) → 웹프레임워크(구현) → 빌더형 인재",
-        },
-        flowNodes: [
-          { id: "workshop", label: "AI 워크숍", sub: "인식·기초", icon: "fa-solid fa-chalkboard-user" },
-          { id: "board", label: "아이디어 스파트", sub: "과제 수집", icon: "fa-solid fa-comments" },
-          { id: "contest", label: "AI 경진대회", sub: "PoC 검증", icon: "fa-solid fa-trophy" },
-          { id: "fw", label: "웹프레임워크", sub: "실전 구현", icon: "fa-solid fa-cubes" },
-          { id: "builder", label: "빌더형 인재", sub: "Monitor+Build", icon: "fa-solid fa-user-gear" },
-        ],
-        process: [
-          { step: 1, title: "찾아가는 AI 워크숍", description: "현업 방문 교육 — AI 리터러시·프롬프트·업무 적용 사례 확산" },
-          { step: 2, title: "AI 아이디어 스파트", description: "전사 아이디어 수집·피드백 — TFT 백로그 과제화" },
-          { step: 3, title: "AI 경진대회", description: "우수 아이디어 프로토타입 검증 — SiteFramework PoC 연계" },
-          { step: 4, title: "완성", description: "검증 과제를 웹프레임워크에서 구현하며 빌더형 인재로 성장" },
         ],
       },
     ],
