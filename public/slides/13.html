@@ -10,36 +10,46 @@
 :root {
   --ppt-bg:#0A0E1A; --ppt-bg-soft:#141B2D; --ppt-surface:#1E2638; --ppt-border:#334155;
   --ppt-text-1:#FFF; --ppt-text-2:#94A3B8; --ppt-text-3:#64748B;
-  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-radius-md:8px;
+  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-radius-md:10px;
+  --c-infra:#38BDF8; --c-fw:#FACC15; --c-int:#A78BFA; --c-bi:#34D399;
   --ppt-font:"IBM Plex Sans KR",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:100vw;height:100vh;overflow:hidden;background:#0A0E1A;display:flex;justify-content:center;align-items:center;font-family:var(--ppt-font)}
 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden}
-.title-r{padding:22px 36px 6px;flex-shrink:0}
+.title-r{padding:22px 36px 8px;flex-shrink:0}
 .title-row{display:flex;align-items:center;gap:10px}
 .bar{width:4px;height:28px;background:var(--ppt-accent);border-radius:2px}
-.badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.3);color:var(--ppt-accent)}
+.badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.3);color:var(--ppt-accent)}
 h1{font-size:24px;font-weight:700;line-height:1.3}
-.sub{font-size:12px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
-.line{height:1px;margin-top:6px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
-.body{flex:1;min-height:0;padding:6px 32px 10px;display:flex;flex-direction:column;gap:8px}
-.stack-table{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-md);overflow:hidden}
-.thead{display:grid;grid-template-columns:1.05fr 1.45fr;background:linear-gradient(90deg,#1e3a5f,#243b55);border-bottom:1px solid var(--ppt-border)}
-.th{padding:9px 14px;font-size:12px;font-weight:700;color:var(--ppt-text-1);letter-spacing:.02em}
-.th:first-child{border-right:1px solid rgba(255,255,255,.12)}
-.tbody{flex:1;min-height:0;display:flex;flex-direction:column}
-.tr{display:grid;grid-template-columns:1.05fr 1.45fr;border-bottom:1px solid var(--ppt-border);min-height:0;flex:1}
-.tr:last-child{border-bottom:none}
-.tr.highlight{background:linear-gradient(90deg,rgba(250,204,21,.22),rgba(250,204,21,.08));border-left:3px solid var(--ppt-accent-2)}
-.tr:not(.highlight):nth-child(even){background:rgba(20,27,45,.55)}
-.td-task{padding:7px 12px;font-size:11px;font-weight:600;color:var(--ppt-text-1);display:flex;align-items:center;line-height:1.35;border-right:1px solid var(--ppt-border)}
-.tr.highlight .td-task{color:#1a1a2e;font-weight:700}
-.td-stack{padding:6px 10px;display:flex;flex-wrap:wrap;align-items:center;gap:4px;align-content:center}
-.chip{font-size:10px;padding:3px 8px;border-radius:10px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);line-height:1.25;white-space:nowrap}
-.tr.highlight .chip{background:rgba(255,255,255,.75);border-color:rgba(250,204,21,.5);color:#1e293b;font-weight:600}
-.footer-note{flex-shrink:0;font-size:11px;color:var(--ppt-text-2);padding:6px 10px;border-left:3px solid var(--ppt-accent);background:rgba(0,240,255,0.05);border-radius:0 var(--ppt-radius-md) var(--ppt-radius-md) 0;margin:0 32px 10px}
-.footer-note strong{color:var(--ppt-accent)}
+.sub{font-size:13px;color:var(--ppt-text-2);margin-top:5px;padding-left:14px}
+.line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.body{flex:1;min-height:0;padding:8px 32px 6px;display:flex;flex-direction:column}
+.grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px}
+.cat-card{
+  background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-md);
+  padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden;
+  border-top:3px solid var(--cat-color,var(--ppt-border));
+}
+.cat-card.core{
+  border-color:rgba(250,204,21,.45);background:linear-gradient(180deg,rgba(250,204,21,.1),var(--ppt-bg-soft));
+  box-shadow:0 0 24px rgba(250,204,21,.08);
+}
+.cat-head{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.cat-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(255,255,255,.06);color:var(--cat-color)}
+.cat-title{font-size:14px;font-weight:700;color:var(--ppt-text-1)}
+.cat-core-tag{margin-left:auto;font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;background:rgba(250,204,21,.2);color:var(--ppt-accent-2)}
+.cat-rows{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;justify-content:center}
+.row{display:grid;grid-template-columns:88px 1fr;gap:8px;align-items:start}
+.row-label{font-size:11px;font-weight:700;color:var(--cat-color);line-height:1.35;padding-top:2px}
+.row-tech{font-size:12px;color:var(--ppt-text-2);line-height:1.45}
+.row-tech strong{color:var(--ppt-text-1);font-weight:600}
+.cat-card.core .row-tech strong{color:#FDE68A}
+.footer-note{
+  flex-shrink:0;margin:8px 32px 12px;padding:8px 12px;font-size:12px;color:var(--ppt-text-2);line-height:1.4;
+  border-left:3px solid var(--ppt-accent-2);background:rgba(250,204,21,.05);border-radius:0 8px 8px 0;
+}
+.footer-note strong{color:var(--ppt-accent-2)}
 html{overflow:hidden;margin:0;padding:0}
 </style>
 </head>
@@ -48,69 +58,92 @@ html{overflow:hidden;margin:0;padding:0}
   <div class="title-r">
     <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack</span></div>
     <h1>핵심 기술 스택 — 주요 과제별 매핑</h1>
-    <p class="sub">차세대 FaSS 플랫폼 구축 핵심 과제와 선정 기술 스택</p>
+    <p class="sub">4개 영역 · 10개 핵심 과제 · 선정 기술 스택</p>
     <div class="line"></div>
   </div>
+
   <div class="body">
-    <div class="stack-table">
-      <div class="thead">
-        <div class="th">주요 과제명</div>
-        <div class="th">기술 스택</div>
+    <div class="grid">
+      <div class="cat-card" style="--cat-color:var(--c-infra)">
+        <div class="cat-head">
+          <div class="cat-icon"><i class="fas fa-server"></i></div>
+          <span class="cat-title">DevOps · 인프라</span>
+        </div>
+        <div class="cat-rows">
+          <div class="row">
+            <span class="row-label">개발 환경</span>
+            <p class="row-tech"><strong>Docker</strong> · Docker Compose · GitLab CI · Nexus · SonarQube · ArgoCD</p>
+          </div>
+          <div class="row">
+            <span class="row-label">플랫폼</span>
+            <p class="row-tech"><strong>Spring Cloud Config</strong> · Redis</p>
+          </div>
+        </div>
       </div>
-      <div class="tbody">
-        <div class="tr">
-          <div class="td-task">개발 환경 및 인프라 기반 구축</div>
-          <div class="td-stack">
-            <span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">GitLab CI</span>
-            <span class="chip">Nexus Repository</span><span class="chip">SonarQube</span><span class="chip">ArgoCD</span>
+
+      <div class="cat-card core" style="--cat-color:var(--c-fw)">
+        <div class="cat-head">
+          <div class="cat-icon"><i class="fas fa-layer-group"></i></div>
+          <span class="cat-title">프레임워크 · UI</span>
+          <span class="cat-core-tag">핵심 축</span>
+        </div>
+        <div class="cat-rows">
+          <div class="row">
+            <span class="row-label">공통 FW</span>
+            <p class="row-tech"><strong>Next.js</strong> · React 19 · Tailwind CSS · RealGrid</p>
+          </div>
+          <div class="row">
+            <span class="row-label">UI 라이브러리</span>
+            <p class="row-tech">Atomic Design · <strong>RealGrid 2.0</strong></p>
+          </div>
+          <div class="row">
+            <span class="row-label">배치</span>
+            <p class="row-tech"><strong>Spring Batch</strong></p>
           </div>
         </div>
-        <div class="tr">
-          <div class="td-task">공통 플랫폼 인프라</div>
-          <div class="td-stack">
-            <span class="chip">Spring Cloud Config</span><span class="chip">Redis</span>
+      </div>
+
+      <div class="cat-card" style="--cat-color:var(--c-int)">
+        <div class="cat-head">
+          <div class="cat-icon"><i class="fas fa-plug"></i></div>
+          <span class="cat-title">연동 · 확장</span>
+        </div>
+        <div class="cat-rows">
+          <div class="row">
+            <span class="row-label">멀티 컴퍼니</span>
+            <p class="row-tech"><strong>Multi-tenancy</strong></p>
+          </div>
+          <div class="row">
+            <span class="row-label">외부 IF</span>
+            <p class="row-tech"><strong>API Gateway</strong></p>
+          </div>
+          <div class="row">
+            <span class="row-label">AI 연동</span>
+            <p class="row-tech"><strong>REST</strong> · gRPC</p>
           </div>
         </div>
-        <div class="tr highlight">
-          <div class="td-task">공통 프레임워크 아키텍처</div>
-          <div class="td-stack">
-            <span class="chip">Next.js</span><span class="chip">React 19</span><span class="chip">Tailwind CSS</span><span class="chip">RealGrid</span>
+      </div>
+
+      <div class="cat-card" style="--cat-color:var(--c-bi)">
+        <div class="cat-head">
+          <div class="cat-icon"><i class="fas fa-chart-pie"></i></div>
+          <span class="cat-title">리포팅 · BI</span>
+        </div>
+        <div class="cat-rows">
+          <div class="row">
+            <span class="row-label">리포트</span>
+            <p class="row-tech"><strong>ClipReport</strong> · Browser Print / PDF</p>
           </div>
-        </div>
-        <div class="tr">
-          <div class="td-task">공통 UI 컴포넌트 라이브러리 개발</div>
-          <div class="td-stack">
-            <span class="chip">Atomic Design</span><span class="chip">RealGrid 2.0</span>
+          <div class="row">
+            <span class="row-label">대시보드</span>
+            <p class="row-tech"><strong>Apache Superset</strong> · Grafana</p>
           </div>
-        </div>
-        <div class="tr">
-          <div class="td-task">공통 배치 처리</div>
-          <div class="td-stack"><span class="chip">Spring Batch</span></div>
-        </div>
-        <div class="tr">
-          <div class="td-task">멀티 컴퍼니 지원</div>
-          <div class="td-stack"><span class="chip">Multi-tenancy</span></div>
-        </div>
-        <div class="tr">
-          <div class="td-task">외부 인터페이스</div>
-          <div class="td-stack"><span class="chip">API Gateway</span></div>
-        </div>
-        <div class="tr">
-          <div class="td-task">AI 연동 모듈 개발</div>
-          <div class="td-stack"><span class="chip">REST</span><span class="chip">gRPC</span></div>
-        </div>
-        <div class="tr">
-          <div class="td-task">리포트 Tool 도입</div>
-          <div class="td-stack"><span class="chip">ClipReport</span><span class="chip">Browser Print / PDF</span></div>
-        </div>
-        <div class="tr">
-          <div class="td-task">BI 대시보드</div>
-          <div class="td-stack"><span class="chip">Apache Superset</span><span class="chip">Grafana</span></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="footer-note"><strong>핵심 축:</strong> 공통 프레임워크 아키텍처(Next.js · React 19)를 중심으로 DevOps·플랫폼·UI·AI·리포팅·BI 스택을 단계적으로 구축합니다.</div>
+
+  <div class="footer-note"><strong>핵심 축</strong> Next.js · React 19 기반 프레임워크를 중심으로 DevOps → UI → 연동 → BI 순으로 단계적 구축</div>
 </div>
 <script>
 (function(){

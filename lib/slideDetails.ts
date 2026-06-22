@@ -251,11 +251,11 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "최적화 방안 1. AI 디지털 워커 활용",
         category: "process",
         summary:
-          "AI 디지털 워커가 우측 TFT의 보조 역할을 수행합니다. 코드·문서·테스트 등 반복 업무는 AI가 24/7 지원하고, 설계·의사결정·품질 검수는 TFT가 Human-in-the-loop로 통제하여 최소 핵심 인력으로 프로젝트를 주도합니다.",
+          "인간 핵심 7명과 AI 보조 인력 7명이 협업합니다. 총 14명 규모 TFT와 동등한 추진력으로 코드·문서·테스트는 AI가 24/7 지원하고, 설계·의사결정·품질 검수는 Human-in-the-loop로 통제합니다.",
         process: [
-          { step: 1, title: "TFT 보조", description: "AI 디지털 워커가 코드·문서·테스트 등 표준 업무를 24/7 지원" },
-          { step: 2, title: "Human-in-the-loop", description: "아키텍처·설계·품질 검수·의사결정은 TFT가 직접 수행" },
-          { step: 3, title: "최소 인력 운영", description: "소수 정예 TFT + AI 워커로 인력 증원 없이 생산성 확장" },
+          { step: 1, title: "인간 7명", description: "TFT 핵심 — 아키텍처·설계·의사결정·품질 검수" },
+          { step: 2, title: "AI 보조 7명", description: "디지털 워커 — 코드·문서·테스트 등 표준 업무 24/7 지원" },
+          { step: 3, title: "14명 TFT급", description: "인간+AI 14명 체제로 대규모 TFT와 동등한 프로젝트 추진 효과" },
         ],
       },
     ],
@@ -265,7 +265,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "fass-daily-scrum",
-        title: "최적화 방안 2. 프로젝트 워룸 (War Room) 운영",
+        title: "최적화 방안 2. 애자일 워룸 운영",
         category: "process",
         summary:
           "차세대 FaSS TFT 애자일 운영 허브. 일일 스크럼·태스크 기록과 Analytics 대시보드로 워룸에서 진척·블로커·완료율을 실시간 공유합니다.",
@@ -349,11 +349,11 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "핵심 기술 스택 — 주요 과제별 매핑",
         category: "architecture",
         summary:
-          "차세대 FaSS 플랫폼 구축 핵심 과제별 선정 기술 스택입니다. 공통 프레임워크(Next.js·React 19)를 중심으로 DevOps·플랫폼·UI·AI·리포팅·BI를 구성합니다.",
+          "10개 핵심 과제를 DevOps·인프라 / 프레임워크·UI / 연동·확장 / 리포팅·BI 4개 영역으로 정리한 기술 스택입니다. Next.js·React 19 프레임워크가 핵심 축입니다.",
         process: [
-          { step: 1, title: "인프라·플랫폼", description: "Docker·GitLab CI·ArgoCD·Spring Cloud Config·Redis" },
-          { step: 2, title: "프레임워크·UI", description: "Next.js·React 19·Tailwind·RealGrid·Atomic Design" },
-          { step: 3, title: "연동·분석", description: "API Gateway·REST/gRPC·ClipReport·Superset·Grafana" },
+          { step: 1, title: "DevOps·인프라", description: "Docker·GitLab CI·ArgoCD·Spring Cloud Config·Redis" },
+          { step: 2, title: "프레임워크·UI", description: "Next.js·React 19·Tailwind·RealGrid·Atomic Design·Spring Batch" },
+          { step: 3, title: "연동·BI", description: "Multi-tenancy·API Gateway·REST/gRPC·ClipReport·Superset·Grafana" },
         ],
       },
     ],
@@ -550,67 +550,6 @@ public class OrderController {
     slideId: 16,
     topics: [
       {
-        id: "docker-cloud-ready",
-        title: "Cloud-Ready Docker · GitLab CI (S02)",
-        category: "code",
-        summary:
-          "S02 인프라 스프린트 기준: Temurin 21 JRE, Actuator 헬스체크, GitLab CI Quality Gate 연동.",
-        techLayers: [
-          {
-            id: "infra",
-            label: "DevOps",
-            icon: "fa-solid fa-cloud",
-            accent: "#facc15",
-            items: [
-              { name: "Docker", detail: "멀티스테이지 빌드· distroless 옵션", sprintId: "S02" },
-              { name: "GitLab CI/CD", detail: "build → test → sonar → deploy", sprintId: "S02" },
-              { name: "Spring Actuator", detail: "/actuator/health · readiness", sprintId: "S04" },
-            ],
-          },
-        ],
-        preview: {
-          type: "terminal",
-          title: "fass-cli 개발 환경",
-          caption: "로컬 Docker Compose로 API(8080)·Web(3000) 동시 기동",
-        },
-        code: [
-          {
-            language: "dockerfile",
-            filename: "Dockerfile",
-            content: `FROM eclipse-temurin:21-jre-alpine
-WORKDIR /app
-COPY build/libs/fass-service.jar app.jar
-ENV JAVA_OPTS="-XX:+UseContainerSupport"
-EXPOSE 8080
-HEALTHCHECK CMD wget -qO- http://localhost:8080/actuator/health || exit 1
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
-          },
-          {
-            language: "yaml",
-            filename: "docker-compose.yml",
-            content: `services:
-  fass-api:
-    build: .
-    ports: ["8080:8080"]
-    environment:
-      SPRING_PROFILES_ACTIVE: onprem
-  fass-web:
-    image: fass-web:latest
-    ports: ["3000:3000"]`,
-          },
-        ],
-        process: [
-          { step: 1, title: "컨테이너화", description: "모든 서비스 Docker 이미지화" },
-          { step: 2, title: "환경 분리", description: "profile/env로 onprem·cloud 설정 분기" },
-          { step: 3, title: "IaC", description: "Terraform/K8s manifest로 클라우드 배포" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 17,
-    topics: [
-      {
         id: "cdc-sync",
         title: "Debezium CDC 무중단 동기화 (S17)",
         category: "architecture",
@@ -663,7 +602,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 18,
+    slideId: 17,
     topics: [
       {
         id: "innovation-validation",
@@ -679,7 +618,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 19,
+    slideId: 18,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -695,7 +634,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 20,
+    slideId: 19,
     topics: [
       {
         id: "realgrid-ui",
@@ -757,7 +696,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 21,
+    slideId: 20,
     topics: [
       {
         id: "sonarqube-gate",
@@ -793,7 +732,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 22,
+    slideId: 21,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -811,7 +750,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 23,
+    slideId: 22,
     topics: [
       {
         id: "finops",
@@ -841,7 +780,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 24,
+    slideId: 23,
     topics: [
       {
         id: "peer-benchmark",
@@ -858,7 +797,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 25,
+    slideId: 24,
     topics: [
       {
         id: "mm-tool-investment",
@@ -974,7 +913,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 28,
+    slideId: 25,
     topics: [
       {
         id: "framework-builder-role",
@@ -1016,7 +955,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 29,
+    slideId: 28,
     topics: [
       {
         id: "builder-talent",
@@ -1032,7 +971,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
+    slideId: 29,
     topics: [
       {
         id: "roadmap-vision",
@@ -1048,7 +987,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 30,
     topics: [
       {
         id: "risk-management",
@@ -1064,7 +1003,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 31,
     topics: [
       {
         id: "closing-milestones",
@@ -1081,7 +1020,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 33,
+    slideId: 32,
     topics: [
       {
         id: "commitment",

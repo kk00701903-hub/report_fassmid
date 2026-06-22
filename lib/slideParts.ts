@@ -22,19 +22,19 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
     partNumber: 3,
     title: "기술 스택 및 아키텍처",
     startSlideId: 12,
-    endSlideId: 19,
+    endSlideId: 18,
   },
   {
     partNumber: 4,
     title: "혁신 및 검증",
-    startSlideId: 20,
-    endSlideId: 30,
+    startSlideId: 19,
+    endSlideId: 29,
   },
   {
     partNumber: 5,
     title: "로드맵 및 미래 비전",
-    startSlideId: 31,
-    endSlideId: 33,
+    startSlideId: 30,
+    endSlideId: 32,
   },
 ];
 

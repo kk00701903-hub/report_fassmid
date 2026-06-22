@@ -113,6 +113,54 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     align-items: baseline;
     gap: 12px
     }
+.tft-org-metric-dual-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap
+    }
+.tft-org-metric-pair {
+    display: flex;
+    align-items: baseline;
+    gap: 6px
+    }
+.tft-org-metric-plus {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ppt-text-3);
+    line-height: 1
+    }
+.tft-org-metric-total-row {
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid var(--ppt-border);
+    display: flex;
+    align-items: baseline;
+    gap: 8px
+    }
+.tft-org-metric-total-label {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    font-weight: 600
+    }
+.tft-org-metric-total-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ppt-accent);
+    line-height: 1
+    }
+.tft-org-metric-total-unit {
+    font-size: 18px;
+    color: var(--ppt-accent);
+    font-weight: 600
+    }
+.tft-org-metric-total-desc {
+    font-size: 14px;
+    color: var(--ppt-accent-2);
+    font-weight: 600;
+    margin-left: auto
+    }
 .tft-org-metric-label-text {
     font-size: 20px;
     color: var(--ppt-text-2);
@@ -259,7 +307,7 @@ html { overflow: hidden;  margin:0; padding:0; }
           최적화 방안 1. AI 디지털 워커 활용
         </h1>
 </div>
-<p style="padding-left:16px;font-size:14px;color:var(--ppt-text-2);margin:0;">AI 디지털 워커가 TFT를 보조하여 최소 핵심 인력으로 프로젝트를 주도</p>
+<p style="padding-left:16px;font-size:14px;color:var(--ppt-text-2);margin:0;">인간 7명 + AI 보조 7명 — 총 14명 규모 TFT급 추진력</p>
 <div class="title-region-divider-line"></div>
 </div>
 <!-- Main Content -->
@@ -268,12 +316,26 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="tft-org-left-strategy-column">
 <p style="font-size:13px;font-weight:700;color:var(--ppt-accent-2);margin-bottom:8px;letter-spacing:.03em;"><i class="fas fa-robot" style="margin-right:6px;"></i>AI 디지털 워커 — TFT 보조</p>
 <div class="tft-org-summary-card-block">
-<div class="tft-org-metric-highlight-row">
-<span class="tft-org-metric-label-text">TFT 핵심 인력</span>
-<span class="tft-org-metric-value-text">6</span>
-<span class="tft-org-metric-unit-text">명</span>
+<div class="tft-org-metric-dual-row">
+<div class="tft-org-metric-pair">
+<span class="tft-org-metric-label-text" style="font-size:16px;">인간 핵심</span>
+<span class="tft-org-metric-value-text" style="font-size:36px;">7</span>
+<span class="tft-org-metric-unit-text" style="font-size:18px;">명</span>
 </div>
-<p class="tft-org-strategy-desc-text" style="font-size:15px;color:var(--ppt-text-2);line-height:1.45;">AI 디지털 워커가 우측 TFT의 <strong style="color:var(--ppt-accent);">보조 엔진</strong>으로 동작하여, 최소 인력으로 대규모 구축을 주도합니다.</p>
+<span class="tft-org-metric-plus">+</span>
+<div class="tft-org-metric-pair">
+<span class="tft-org-metric-label-text" style="font-size:16px;">AI 보조</span>
+<span class="tft-org-metric-value-text" style="font-size:36px;">7</span>
+<span class="tft-org-metric-unit-text" style="font-size:18px;">명</span>
+</div>
+</div>
+<div class="tft-org-metric-total-row">
+<span class="tft-org-metric-total-label">총</span>
+<span class="tft-org-metric-total-value">14</span>
+<span class="tft-org-metric-total-unit">명</span>
+<span class="tft-org-metric-total-desc">= TFT와 동등한 추진 효과</span>
+</div>
+<p class="tft-org-strategy-desc-text" style="font-size:15px;color:var(--ppt-text-2);line-height:1.45;margin-top:10px;">인간 7명이 핵심 의사결정·설계를 담당하고, AI 보조 인력 7명이 24/7로 반복 업무를 지원하여 <strong style="color:var(--ppt-accent);">14명 TFT</strong>와 같은 추진력을 확보합니다.</p>
 <div class="tft-org-strategy-list-group">
 <div class="tft-org-strategy-item-box">
 <div class="tft-org-strategy-icon-wrapper">
@@ -298,14 +360,14 @@ html { overflow: hidden;  margin:0; padding:0; }
 <i class="fas fa-users-gear"></i>
 </div>
 <div class="tft-org-strategy-content-box">
-<span class="tft-org-strategy-title-text">최소 인력 · 최대 생산성</span>
-<p class="tft-org-strategy-desc-text">소수 정예 TFT + AI 워커 조합으로 인력 증원 없이 스프린트 생산성을 확장</p>
+<span class="tft-org-strategy-title-text">7 + 7 = 14명 TFT급</span>
+<p class="tft-org-strategy-desc-text">인간·AI 각 7명 체제로 대규모 TFT와 동등한 속도·범위의 프로젝트 추진</p>
 </div>
 </div>
 </div>
 </div>
 <div class="tft-org-footer-note-block">
-<p class="tft-org-footer-note-text">"AI 디지털 워커가 TFT의 두 번째 손이 되어, 핵심 인력 최소화로 프로젝트를 이끌고 있습니다."</p>
+<p class="tft-org-footer-note-text">"인간 7명 + AI 보조 7명, 총 14명 규모의 TFT와 같은 효과로 차세대 플랫폼 구축을 이끌고 있습니다."</p>
 </div>
 </div>
 <!-- Right Column: TFT Organization -->
