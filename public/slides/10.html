@@ -3,8 +3,8 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=960, height=720, initial-scale=1.0" name="viewport"/>
-<title>AI 기반 디자이너·외주 개발 인력 대체</title>
+<meta content="width=960, height=720" name="viewport"/>
+<title>최적화 방안 2. AI 디지털 워커 활용</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
@@ -19,7 +19,6 @@
     --ppt-text-3: #64748B;
     --ppt-accent: #00F0FF;
     --ppt-accent-2: #FACC15;
-    --ppt-chart-3: #8B5CF6;
     --ppt-good: #22C55E;
     --ppt-radius-sm: 4px;
     --ppt-radius-md: 8px;
@@ -27,303 +26,371 @@
     --ppt-font-display: "IBM Plex Sans KR", sans-serif;
     --ppt-font-body: "IBM Plex Sans KR", sans-serif
     }
-* { box-sizing: border-box; margin: 0; padding: 0 }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+    }
 body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
-    display: flex; justify-content: center; align-items: center;
-    font-family: var(--ppt-font-body)}
-.ai-workforce-slide-root {
-    width: 960px; height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.tft-org-slide-root {
+    width: 960px;
+    height: 720px;
     background-color: var(--ppt-bg);
     color: var(--ppt-text-1);
-    display: flex; flex-direction: column;
-    position: relative; overflow: hidden
+    font-family: var(--ppt-font-body);
+    display: flex;
+    flex-direction: column
     }
-.title-region-wrapper {
+/* Title Region from Design Guideline */
+.title-region-container {
     padding: 32px 40px 12px 40px;
-    display: flex; flex-direction: column; gap: 8px
+    display: flex;
+    flex-direction: column;
+    gap: 8px
     }
-.title-main-header-group {
-    display: flex; align-items: center; gap: 12px
+.title-region-heading-group {
+    display: flex;
+    align-items: center;
+    gap: 12px
     }
-.title-accent-vertical-bar {
-    width: 4px; height: 32px;
-    background: var(--ppt-accent); border-radius: 2px
+.title-region-accent-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
     }
-.title-text-main-heading {
+.title-region-main-title {
     font-family: var(--ppt-font-display);
-    font-size: 28px; font-weight: 700;
-    color: var(--ppt-text-1); margin: 0
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
     }
-.title-gradient-divider-line {
-    height: 1px; width: 100%;
+.title-region-divider-line {
+    height: 1px;
+    width: 100%;
     background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-    opacity: 0.3; margin-top: 8px
+    opacity: 0.3;
+    margin-top: 8px
     }
-.ai-workforce-main-layout {
-    flex: 1; min-height: 0;
-    padding: 8px 40px 12px 40px;
-    display: flex; gap: 20px; align-items: stretch
-    }
-/* Left: LangGraph flow */
-.ai-orchestration-column {
-    flex: 1.15;
-    display: flex; flex-direction: column; gap: 10px
-    }
-.ai-orchestration-card {
+/* Layout Structure */
+.tft-org-main-content-wrapper {
     flex: 1;
+    min-height: 0;
+    display: flex;
+    padding: 10px 40px 16px 40px;
+    gap: 20px;
+    align-items: stretch
+    }
+.tft-org-left-strategy-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px
+    }
+.tft-org-right-table-column {
+    flex: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+    }
+/* Left Components */
+.tft-org-summary-card-block {
     background: var(--ppt-bg-soft);
     border: 1px solid var(--ppt-border);
     border-radius: var(--ppt-radius-lg);
-    padding: 14px 16px;
-    display: flex; flex-direction: column; gap: 10px
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
     }
-.ai-orchestration-label {
-    font-size: 13px; font-weight: 700; color: var(--ppt-chart-3);
-    display: flex; align-items: center; gap: 8px
+.tft-org-metric-highlight-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px
     }
-.ai-flow-stack {
-    flex: 1; display: flex; flex-direction: column;
-    justify-content: center; gap: 8px
+.tft-org-metric-label-text {
+    font-size: 20px;
+    color: var(--ppt-text-2);
+    font-weight: 600
     }
-.ai-flow-hub {
-    align-self: center;
-    background: linear-gradient(135deg, var(--ppt-surface-2), var(--ppt-surface));
-    border: 2px solid var(--ppt-chart-3);
-    border-radius: var(--ppt-radius-md);
-    padding: 10px 20px;
-    text-align: center;
-    box-shadow: 0 0 16px rgba(139, 92, 246, 0.25)
-    }
-.ai-flow-hub-title {
-    font-size: 16px; font-weight: 700; color: var(--ppt-chart-3)
-    }
-.ai-flow-hub-sub { font-size: 11px; color: var(--ppt-text-3); margin-top: 2px }
-.ai-flow-arrow {
-    align-self: center; color: var(--ppt-accent);
-    font-size: 14px; line-height: 1
-    }
-.ai-flow-agents-row {
-    display: flex; gap: 10px; justify-content: center
-    }
-.ai-flow-agent-box {
-    flex: 1; max-width: 140px;
-    background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-md);
-    padding: 10px 8px;
-    text-align: center;
-    display: flex; flex-direction: column; align-items: center; gap: 4px
-    }
-.ai-flow-agent-box.is-gpu { border-color: var(--ppt-accent-2) }
-.ai-flow-agent-box.is-code { border-color: var(--ppt-good) }
-.ai-flow-agent-box i { font-size: 18px }
-.ai-flow-agent-box.is-gpu i { color: var(--ppt-accent-2) }
-.ai-flow-agent-box.is-code i { color: var(--ppt-good) }
-.ai-flow-agent-name {
-    font-size: 12px; font-weight: 700; color: var(--ppt-text-1); line-height: 1.3
-    }
-.ai-flow-agent-task {
-    font-size: 10px; color: var(--ppt-text-2); line-height: 1.35
-    }
-.ai-flow-caption {
-    font-size: 12px; color: var(--ppt-text-2); line-height: 1.45;
-    padding-top: 4px; border-top: 1px solid var(--ppt-border)
-    }
-/* Right: replacement roles */
-.ai-replacement-column {
-    flex: 1;
-    display: flex; flex-direction: column; gap: 10px
-    }
-.ai-replacement-card {
-    flex: 1;
-    background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 12px 14px;
-    display: flex; gap: 12px; align-items: flex-start
-    }
-.ai-replacement-icon {
-    width: 40px; height: 40px; flex-shrink: 0;
-    border-radius: var(--ppt-radius-md);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px
-    }
-.ai-replacement-icon.design {
-    background: rgba(250, 204, 21, 0.12); color: var(--ppt-accent-2);
-    border: 1px solid rgba(250, 204, 21, 0.3)
-    }
-.ai-replacement-icon.dev {
-    background: rgba(0, 240, 255, 0.12); color: var(--ppt-accent);
-    border: 1px solid rgba(0, 240, 255, 0.3)
-    }
-.ai-replacement-icon.docs {
-    background: rgba(34, 197, 94, 0.12); color: var(--ppt-good);
-    border: 1px solid rgba(34, 197, 94, 0.3)
-    }
-.ai-replacement-body { display: flex; flex-direction: column; gap: 4px }
-.ai-replacement-title {
-    font-size: 15px; font-weight: 700; color: var(--ppt-text-1)
-    }
-.ai-replacement-desc {
-    font-size: 13px; color: var(--ppt-text-2); line-height: 1.45
-    }
-.ai-replacement-desc b { color: var(--ppt-text-1); font-weight: 600 }
-.ai-replacement-tags {
-    display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px
-    }
-.ai-replacement-tag {
-    font-size: 10px; font-weight: 600;
-    padding: 2px 8px; border-radius: 12px;
-    border: 1px solid var(--ppt-border);
-    color: var(--ppt-text-3)
-    }
-.ai-replacement-doc-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 6px;
-    padding: 6px 12px;
-    border-radius: var(--ppt-radius-md);
-    background: rgba(34, 197, 94, 0.12);
-    border: 1px solid rgba(34, 197, 94, 0.45);
-    color: var(--ppt-good);
-    font-size: 12px;
+.tft-org-metric-value-text {
+    font-size: 42px;
     font-weight: 700;
-    font-family: var(--ppt-font-body);
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s, transform 0.2s;
-    align-self: flex-start;
+    color: var(--ppt-accent-2);
+    line-height: 1
     }
-.ai-replacement-doc-btn:hover {
-    background: var(--ppt-good);
-    color: var(--ppt-bg);
-    transform: translateY(-1px);
+.tft-org-metric-unit-text {
+    font-size: 24px;
+    color: var(--ppt-accent-2);
+    font-weight: 600
     }
-/* Bottom banner */
-.ai-workforce-footer-banner {
-    flex-shrink: 0;
-    margin: 0 40px 14px 40px;
-    background: linear-gradient(90deg, rgba(250, 204, 21, 0.1) 0%, rgba(0, 240, 255, 0.06) 100%);
-    border: 1px solid var(--ppt-border);
-    border-left: 4px solid var(--ppt-accent-2);
+.tft-org-strategy-list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px
+    }
+.tft-org-strategy-item-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px
+    }
+.tft-org-strategy-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background: var(--ppt-surface);
     border-radius: var(--ppt-radius-md);
-    padding: 10px 18px;
-    display: flex; align-items: center; gap: 14px
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ppt-accent);
+    font-size: 18px;
+    flex-shrink: 0
     }
-.ai-workforce-footer-icon {
-    font-size: 22px; color: var(--ppt-accent-2); flex-shrink: 0
+.tft-org-strategy-content-box {
+    display: flex;
+    flex-direction: column
     }
-.ai-workforce-footer-text {
-    font-size: 14px; color: var(--ppt-text-2); line-height: 1.45
+.tft-org-strategy-title-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
     }
-.ai-workforce-footer-text b { color: var(--ppt-accent-2) }
-.ai-workforce-footer-text em {
-    color: var(--ppt-accent); font-style: normal; font-weight: 600
+.tft-org-strategy-desc-text {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    line-height: 1.4
     }
-html { overflow: hidden; margin:0; padding:0; }
+/* Right Components (Table) */
+.tft-org-table-outer-container {
+    flex: 1;
+    background: var(--ppt-surface);
+    border-radius: var(--ppt-radius-md);
+    border: 1px solid var(--ppt-border);
+    display: flex;
+    flex-direction: column
+    }
+.tft-org-personnel-data-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed
+    }
+.tft-org-table-header-row {
+    background-color: var(--ppt-surface-2);
+    border-bottom: 2px solid var(--ppt-border)
+    }
+.tft-org-table-header-cell {
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    font-family: var(--ppt-font-display)
+    }
+.tft-org-table-body-row {
+    border-bottom: 1px solid var(--ppt-border)
+    }
+.tft-org-table-body-row:last-child {
+    border-bottom: none
+    }
+.tft-org-table-body-cell {
+    padding: 8px 10px;
+    font-size: 14px;
+    color: var(--ppt-text-1);
+    vertical-align: middle;
+    line-height: 1.4
+    }
+.tft-org-role-badge-span {
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--ppt-surface-2);
+    border-radius: var(--ppt-radius-sm);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ppt-text-2)
+    }
+.tft-org-name-text-span {
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.tft-org-name-text-span--multi {
+    line-height: 1.35;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    }
+.tft-org-task-list-container {
+    list-style: none
+    }
+.tft-org-task-item-line {
+    list-style: none;
+    font-size: 14px;
+    color: var(--ppt-text-2);
+    margin-bottom: 2px
+    }
+.tft-org-task-item-line:last-child {
+    margin-bottom: 0
+    }
+.tft-org-footer-note-block {
+    margin-top: 16px;
+    padding-left: 12px;
+    border-left: 2px solid var(--ppt-accent-2)
+    }
+.tft-org-footer-note-text {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    font-style: italic
+    }
+html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="ai-workforce-slide-root">
-<div class="title-region-wrapper">
-<div class="title-main-header-group">
-<div class="title-accent-vertical-bar"></div>
-<h1 class="title-text-main-heading">[혁신] AI로 디자이너·외주 개발 역량을 대체하다</h1>
+<div class="tft-org-slide-root" style="overflow: hidden;">
+<!-- Title Region -->
+<div class="title-region-container">
+<div class="title-region-heading-group">
+<div class="title-region-accent-bar"></div>
+<h1 class="title-region-main-title">
+          최적화 방안 2. AI 디지털 워커 활용
+        </h1>
 </div>
-<div class="title-gradient-divider-line"></div>
+<div class="title-region-divider-line"></div>
 </div>
-<div class="ai-workforce-main-layout">
-<!-- Left: LangGraph orchestration -->
-<div class="ai-orchestration-column">
-<div class="ai-orchestration-card">
-<div class="ai-orchestration-label">
-<i class="fas fa-diagram-project"></i> LangGraph 멀티에이전트 업무 분담
+<!-- Main Content -->
+<div class="tft-org-main-content-wrapper">
+<!-- Left Column: Strategy & Metrics -->
+<div class="tft-org-left-strategy-column">
+<div class="tft-org-summary-card-block">
+<div class="tft-org-metric-highlight-row">
+<span class="tft-org-metric-label-text">내부 핵심 인력 투입량</span>
+<span class="tft-org-metric-value-text">108.0</span>
+<span class="tft-org-metric-unit-text">M/M</span>
 </div>
-<div class="ai-flow-stack">
-<div class="ai-flow-hub">
-<div class="ai-flow-hub-title">LangGraph Orchestrator</div>
-<div class="ai-flow-hub-sub">기획 · 설계 · 코딩 · QA · 문서 태스크 동적 할당</div>
+<div class="tft-org-strategy-list-group">
+<div class="tft-org-strategy-item-box">
+<div class="tft-org-strategy-icon-wrapper">
+<i class="fas fa-shield-halved"></i>
 </div>
-<div class="ai-flow-arrow"><i class="fas fa-arrows-down-to-line"></i></div>
-<div class="ai-flow-agents-row">
-<div class="ai-flow-agent-box is-gpu">
-<i class="fas fa-microchip"></i>
-<div class="ai-flow-agent-name">DGX Spark</div>
-<div class="ai-flow-agent-task">RAG 추론<br/>레거시 분석</div>
-</div>
-<div class="ai-flow-agent-box is-code">
-<i class="fas fa-robot"></i>
-<div class="ai-flow-agent-name">Claude Code</div>
-<div class="ai-flow-agent-task">코드 생성<br/>리뷰·리팩토링</div>
-</div>
-<div class="ai-flow-agent-box">
-<i class="fas fa-palette"></i>
-<div class="ai-flow-agent-name">Design Agent</div>
-<div class="ai-flow-agent-task">UI/UX 초안<br/>컴포넌트 스펙</div>
+<div class="tft-org-strategy-content-box">
+<span class="tft-org-strategy-title-text">외주 의존도 최소화</span>
+<p class="tft-org-strategy-desc-text">자체 기술 자산 확보 및 유지보수 안정성 제고</p>
 </div>
 </div>
-<p class="ai-flow-caption">
-            LangGraph가 에이전트별 역할을 조율하여 <b>외주 개발·디자인 산출물</b>을 AI 파이프라인으로 대체합니다.
-          </p>
+<div class="tft-org-strategy-item-box">
+<div class="tft-org-strategy-icon-wrapper">
+<i class="fas fa-bolt"></i>
+</div>
+<div class="tft-org-strategy-content-box">
+<span class="tft-org-strategy-title-text">애자일 워룸 운영</span>
+<p class="tft-org-strategy-desc-text">기획·개발 일체형 환경 구축으로 의사결정 속도 극대화</p>
 </div>
 </div>
+<div class="tft-org-strategy-item-box">
+<div class="tft-org-strategy-icon-wrapper">
+<i class="fas fa-sack-dollar"></i>
 </div>
-<!-- Right: role replacement -->
-<div class="ai-replacement-column">
-<div class="ai-replacement-card">
-<div class="ai-replacement-icon dev"><i class="fas fa-code"></i></div>
-<div class="ai-replacement-body">
-<div class="ai-replacement-title">외주 개발 인력 대체</div>
-<p class="ai-replacement-desc">
-              <b>DGX Spark</b>가 레거시·도메인 컨텍스트를 제공하고, <b>Claude Code</b>가 표준 코드 초안·테스트·리팩토링을 수행합니다.
-              하급 외주 M/M 투입 없이 반복 개발 업무를 자동화합니다.
-            </p>
-<div class="ai-replacement-tags">
-<span class="ai-replacement-tag">C# → Java/React</span>
-<span class="ai-replacement-tag">0 M/M 외주</span>
-</div>
-</div>
-</div>
-<div class="ai-replacement-card">
-<div class="ai-replacement-icon design"><i class="fas fa-pen-ruler"></i></div>
-<div class="ai-replacement-body">
-<div class="ai-replacement-title">디자이너 역량 AI 대체</div>
-<p class="ai-replacement-desc">
-              Design Agent가 와이어프레임·UI 스펙·컴포넌트 가이드를 생성하고, 개발 파이프라인과 즉시 연동됩니다.
-              전담 디자이너 없이도 화면 설계부터 구현까지 일관된 흐름을 유지합니다.
-            </p>
-<div class="ai-replacement-tags">
-<span class="ai-replacement-tag">UI/UX 초안</span>
-<span class="ai-replacement-tag">컴포넌트 스펙</span>
-</div>
-</div>
-</div>
-<div class="ai-replacement-card">
-<div class="ai-replacement-icon docs"><i class="fas fa-book"></i></div>
-<div class="ai-replacement-body">
-<div class="ai-replacement-title">README 위키형 문서 자동 작성</div>
-<p class="ai-replacement-desc">
-              코드·API·아키텍처 변경 시 AI가 <b>README·기술문서</b>를 위키 형태로 자동 갱신합니다.
-              수작업 문서화 인력 없이 지식이 코드베이스에 실시간 축적됩니다.
-            </p>
-<div class="ai-replacement-tags">
-<span class="ai-replacement-tag">README.md</span>
-<span class="ai-replacement-tag">Wiki Auto-sync</span>
-</div>
-<a class="ai-replacement-doc-btn" href="../docs/README.md" target="_blank" rel="noopener noreferrer">
-<i class="fas fa-file-lines"></i> README.md 보기
-</a>
+<div class="tft-org-strategy-content-box">
+<span class="tft-org-strategy-title-text">수익화 모델 기획</span>
+<p class="tft-org-strategy-desc-text">개발 단계부터 외부 공급(ASP)을 고려한 아키텍처 통제</p>
 </div>
 </div>
 </div>
 </div>
-<div class="ai-workforce-footer-banner">
-<div class="ai-workforce-footer-icon"><i class="fas fa-piggy-bank"></i></div>
-<p class="ai-workforce-footer-text">
-<b>향후 비용 절감 전략:</b>
-      디자인은 <em>Figma 스토리북</em> 정도의 최소 검수·브랜드 가이드 작업에만 디자이너를 투입하고,
-      나머지 UI 산출·개발·문서화는 AI 에이전트가 담당하여 <b>인건비를 구조적으로 절감</b>할 예정입니다.
-    </p>
+<div class="tft-org-footer-note-block">
+<p class="tft-org-footer-note-text">"IT 부서를 비용 부서에서 회사의 새로운 Profit Center로 격상"</p>
+</div>
+</div>
+<!-- Right Column: Personnel Table -->
+<div class="tft-org-right-table-column">
+<div class="tft-org-table-outer-container">
+<table class="tft-org-personnel-data-table">
+<thead class="tft-org-table-header-group">
+<tr class="tft-org-table-header-row">
+<th class="tft-org-table-header-cell" style="width: 25%;">역할</th>
+<th class="tft-org-table-header-cell" style="width: 20%;">담당자</th>
+<th class="tft-org-table-header-cell" style="width: 55%;">주요 업무</th>
+</tr>
+</thead>
+<tbody class="tft-org-table-body-group">
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">최고 의사결정</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">사업부장</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">비즈니스 방향성 총괄</li>
+<li class="tft-org-task-item-line">수익화(ASP) 모델 전략 기획</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">TFT 팀장</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">서선범</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">프로젝트 총괄 관리 및 리스크 차단</li>
+<li class="tft-org-task-item-line">유관 부서 간 업무 프로세스 조율</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">프로젝트 리더 (PL)</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">기충영</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">FaSS V3.0 공통 프레임워크 표준 설계</li>
+<li class="tft-org-task-item-line">전체 아키텍처 통제 및 품질 관리</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">BE 엔지니어</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span">김희찬</span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">백엔드 코어 모듈 구현</li>
+<li class="tft-org-task-item-line">Kafka 기반 데이터 동기화 파이프라인</li>
+</ul>
+</td>
+</tr>
+<tr class="tft-org-table-body-row">
+<td class="tft-org-table-body-cell">
+<span class="tft-org-role-badge-span">FE 엔지니어</span>
+</td>
+<td class="tft-org-table-body-cell">
+<span class="tft-org-name-text-span tft-org-name-text-span--multi"><span>심지훈</span><span>오준열</span><span>이지상</span></span>
+</td>
+<td class="tft-org-table-body-cell">
+<ul class="tft-org-task-list-container">
+<li class="tft-org-task-item-line">프론트엔드 및 UX 표준 구현</li>
+<li class="tft-org-task-item-line">AI 연동 RAG 환경 및 인터페이스 구축</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <script>

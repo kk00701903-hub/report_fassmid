@@ -1,397 +1,142 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=960, height=720" name="viewport"/>
-<title>(주)제때 차세대 FaSS 플랫폼 구축 중간 보고</title>
+<title>PART 2 - 프로젝트 진행 경과 및 방향성</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+<style>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-    --ppt-bg: #0A0E1A;
-    --ppt-bg-soft: #141B2D;
-    --ppt-surface: #1E2638;
-    --ppt-surface-2: #2A344A;
-    --ppt-border: #334155;
-    --ppt-text-1: #FFF;
-    --ppt-text-2: #94A3B8;
-    --ppt-text-3: #64748B;
-    --ppt-accent: #00F0FF;
-    --ppt-accent-2: #FACC15;
-    --ppt-good: #22C55E;
-    --ppt-radius-sm: 4px;
-    --ppt-radius-md: 8px;
-    --ppt-radius-lg: 16px;
-    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
-    --ppt-font-body: "IBM Plex Sans KR", sans-serif
-    }
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0
-    }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
-    display: flex;
-    justify-content: center;
-    align-items: center}
-.tft-org-slide-root {
-    width: 960px;
-    height: 720px;
-    background-color: var(--ppt-bg);
-    color: var(--ppt-text-1);
-    font-family: var(--ppt-font-body);
-    display: flex;
-    flex-direction: column
-    }
-/* Title Region from Design Guideline */
-.title-region-container {
-    padding: 32px 40px 12px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-    }
-.title-region-heading-group {
-    display: flex;
-    align-items: center;
-    gap: 12px
-    }
-.title-region-accent-bar {
-    width: 4px;
-    height: 32px;
-    background: var(--ppt-accent);
-    border-radius: 2px
-    }
-.title-region-main-title {
-    font-family: var(--ppt-font-display);
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    margin: 0
-    }
-.title-region-divider-line {
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-    opacity: 0.3;
-    margin-top: 8px
-    }
-/* Layout Structure */
-.tft-org-main-content-wrapper {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    padding: 10px 40px 16px 40px;
-    gap: 20px;
-    align-items: stretch
-    }
-.tft-org-left-strategy-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 16px
-    }
-.tft-org-right-table-column {
-    flex: 1.6;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
-    }
-/* Left Components */
-.tft-org-summary-card-block {
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-    }
-.tft-org-metric-highlight-row {
-    display: flex;
-    align-items: baseline;
-    gap: 12px
-    }
-.tft-org-metric-label-text {
-    font-size: 20px;
-    color: var(--ppt-text-2);
-    font-weight: 600
-    }
-.tft-org-metric-value-text {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--ppt-accent-2);
-    line-height: 1
-    }
-.tft-org-metric-unit-text {
-    font-size: 24px;
-    color: var(--ppt-accent-2);
-    font-weight: 600
-    }
-.tft-org-strategy-list-group {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 8px
-    }
-.tft-org-strategy-item-box {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px
-    }
-.tft-org-strategy-icon-wrapper {
-    width: 40px;
-    height: 40px;
-    background: var(--ppt-surface);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ppt-accent);
-    font-size: 18px;
-    flex-shrink: 0
-    }
-.tft-org-strategy-content-box {
-    display: flex;
-    flex-direction: column
-    }
-.tft-org-strategy-title-text {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.tft-org-strategy-desc-text {
-    font-size: 16px;
-    color: var(--ppt-text-2);
-    line-height: 1.4
-    }
-/* Right Components (Table) */
-.tft-org-table-outer-container {
-    flex: 1;
-    background: var(--ppt-surface);
-    border-radius: var(--ppt-radius-md);
-    border: 1px solid var(--ppt-border);
-    display: flex;
-    flex-direction: column
-    }
-.tft-org-personnel-data-table {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-    table-layout: fixed
-    }
-.tft-org-table-header-row {
-    background-color: var(--ppt-surface-2);
-    border-bottom: 2px solid var(--ppt-border)
-    }
-.tft-org-table-header-cell {
-    padding: 8px 10px;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ppt-accent);
-    font-family: var(--ppt-font-display)
-    }
-.tft-org-table-body-row {
-    border-bottom: 1px solid var(--ppt-border)
-    }
-.tft-org-table-body-row:last-child {
-    border-bottom: none
-    }
-.tft-org-table-body-cell {
-    padding: 8px 10px;
-    font-size: 14px;
-    color: var(--ppt-text-1);
-    vertical-align: middle;
-    line-height: 1.4
-    }
-.tft-org-role-badge-span {
-    display: inline-block;
-    padding: 4px 8px;
-    background: var(--ppt-surface-2);
-    border-radius: var(--ppt-radius-sm);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--ppt-text-2)
-    }
-.tft-org-name-text-span {
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.tft-org-name-text-span--multi {
-    line-height: 1.35;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    }
-.tft-org-task-list-container {
-    list-style: none
-    }
-.tft-org-task-item-line {
-    list-style: none;
-    font-size: 14px;
-    color: var(--ppt-text-2);
-    margin-bottom: 2px
-    }
-.tft-org-task-item-line:last-child {
-    margin-bottom: 0
-    }
-.tft-org-footer-note-block {
-    margin-top: 16px;
-    padding-left: 12px;
-    border-left: 2px solid var(--ppt-accent-2)
-    }
-.tft-org-footer-note-text {
-    font-size: 16px;
-    color: var(--ppt-text-2);
-    font-style: italic
-    }
+  --ppt-bg: #0A0E1A;
+  --ppt-bg-soft: #141B2D;
+  --ppt-surface: #1E2638;
+  --ppt-surface-2: #2A344A;
+  --ppt-border: #334155;
+  --ppt-text-1: #FFF;
+  --ppt-text-2: #94A3B8;
+  --ppt-text-3: #64748B;
+  --ppt-accent: #00F0FF;
+  --ppt-accent-2: #FACC15;
+  --ppt-font: "IBM Plex Sans KR", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width:100vw; height:100vh; overflow: hidden;
+  background-color:#0A0E1A; display: flex;
+  justify-content: center; align-items: center;
+}
+.section-slide-root {
+  width: 960px; height: 720px;
+  background-color: var(--ppt-bg);
+  font-family: var(--ppt-font);
+  position: relative; display: flex;
+  flex-direction: column;
+  justify-content: center; align-items: flex-start;
+  padding: 0 80px;
+  overflow: hidden;
+}
+.bg-grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.bg-glow-circle {
+  position: absolute; right: -120px; top: 50%;
+  transform: translateY(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(250,204,21,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.bg-left-bar {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, transparent 0%, var(--ppt-accent-2) 40%, var(--ppt-accent-2) 60%, transparent 100%);
+}
+.section-part-number {
+  font-size: 120px; font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(250,204,21,0.15);
+  position: absolute; right: 60px; bottom: 40px;
+  user-select: none;
+}
+.section-part-label {
+  font-size: 14px; font-weight: 700;
+  color: var(--ppt-accent-2);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-part-label::after {
+  content: '';
+  display: block; width: 60px; height: 1px;
+  background: var(--ppt-accent-2); opacity: 0.5;
+}
+.section-title-ko {
+  font-size: 48px; font-weight: 700;
+  color: var(--ppt-text-1);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.section-title-en {
+  font-size: 18px; font-weight: 400;
+  color: var(--ppt-accent);
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.section-divider-line {
+  width: 80px; height: 3px;
+  background: linear-gradient(90deg, var(--ppt-accent-2), transparent);
+  margin-bottom: 36px;
+  border-radius: 2px;
+}
+.section-topics-list {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.section-topic-item {
+  display: flex; align-items: center; gap: 14px;
+}
+.topic-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ppt-accent-2); flex-shrink: 0;
+  box-shadow: 0 0 8px var(--ppt-accent-2);
+}
+.topic-text {
+  font-size: 17px; color: var(--ppt-text-2);
+  font-weight: 400; line-height: 1.4;
+}
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="tft-org-slide-root" style="overflow: hidden;">
-<!-- Title Region -->
-<div class="title-region-container">
-<div class="title-region-heading-group">
-<div class="title-region-accent-bar"></div>
-<h1 class="title-region-main-title">
-          최정예 TFT 인력 구성 및 애자일(Agile) 조직 운영
-        </h1>
-</div>
-<div class="title-region-divider-line"></div>
-</div>
-<!-- Main Content -->
-<div class="tft-org-main-content-wrapper">
-<!-- Left Column: Strategy & Metrics -->
-<div class="tft-org-left-strategy-column">
-<div class="tft-org-summary-card-block">
-<div class="tft-org-metric-highlight-row">
-<span class="tft-org-metric-label-text">내부 핵심 인력 투입량</span>
-<span class="tft-org-metric-value-text">108.0</span>
-<span class="tft-org-metric-unit-text">M/M</span>
-</div>
-<div class="tft-org-strategy-list-group">
-<div class="tft-org-strategy-item-box">
-<div class="tft-org-strategy-icon-wrapper">
-<i class="fas fa-shield-halved"></i>
-</div>
-<div class="tft-org-strategy-content-box">
-<span class="tft-org-strategy-title-text">외주 의존도 최소화</span>
-<p class="tft-org-strategy-desc-text">자체 기술 자산 확보 및 유지보수 안정성 제고</p>
-</div>
-</div>
-<div class="tft-org-strategy-item-box">
-<div class="tft-org-strategy-icon-wrapper">
-<i class="fas fa-bolt"></i>
-</div>
-<div class="tft-org-strategy-content-box">
-<span class="tft-org-strategy-title-text">애자일 워룸 운영</span>
-<p class="tft-org-strategy-desc-text">기획·개발 일체형 환경 구축으로 의사결정 속도 극대화</p>
-</div>
-</div>
-<div class="tft-org-strategy-item-box">
-<div class="tft-org-strategy-icon-wrapper">
-<i class="fas fa-sack-dollar"></i>
-</div>
-<div class="tft-org-strategy-content-box">
-<span class="tft-org-strategy-title-text">수익화 모델 기획</span>
-<p class="tft-org-strategy-desc-text">개발 단계부터 외부 공급(ASP)을 고려한 아키텍처 통제</p>
-</div>
-</div>
-</div>
-</div>
-<div class="tft-org-footer-note-block">
-<p class="tft-org-footer-note-text">"IT 부서를 비용 부서에서 회사의 새로운 Profit Center로 격상"</p>
-</div>
-</div>
-<!-- Right Column: Personnel Table -->
-<div class="tft-org-right-table-column">
-<div class="tft-org-table-outer-container">
-<table class="tft-org-personnel-data-table">
-<thead class="tft-org-table-header-group">
-<tr class="tft-org-table-header-row">
-<th class="tft-org-table-header-cell" style="width: 25%;">역할</th>
-<th class="tft-org-table-header-cell" style="width: 20%;">담당자</th>
-<th class="tft-org-table-header-cell" style="width: 55%;">주요 업무</th>
-</tr>
-</thead>
-<tbody class="tft-org-table-body-group">
-<tr class="tft-org-table-body-row">
-<td class="tft-org-table-body-cell">
-<span class="tft-org-role-badge-span">최고 의사결정</span>
-</td>
-<td class="tft-org-table-body-cell">
-<span class="tft-org-name-text-span">사업부장</span>
-</td>
-<td class="tft-org-table-body-cell">
-<ul class="tft-org-task-list-container">
-<li class="tft-org-task-item-line">비즈니스 방향성 총괄</li>
-<li class="tft-org-task-item-line">수익화(ASP) 모델 전략 기획</li>
-</ul>
-</td>
-</tr>
-<tr class="tft-org-table-body-row">
-<td class="tft-org-table-body-cell">
-<span class="tft-org-role-badge-span">TFT 팀장</span>
-</td>
-<td class="tft-org-table-body-cell">
-<span class="tft-org-name-text-span">서선범</span>
-</td>
-<td class="tft-org-table-body-cell">
-<ul class="tft-org-task-list-container">
-<li class="tft-org-task-item-line">프로젝트 총괄 관리 및 리스크 차단</li>
-<li class="tft-org-task-item-line">유관 부서 간 업무 프로세스 조율</li>
-</ul>
-</td>
-</tr>
-<tr class="tft-org-table-body-row">
-<td class="tft-org-table-body-cell">
-<span class="tft-org-role-badge-span">프로젝트 리더 (PL)</span>
-</td>
-<td class="tft-org-table-body-cell">
-<span class="tft-org-name-text-span">김희찬</span>
-</td>
-<td class="tft-org-table-body-cell">
-<ul class="tft-org-task-list-container">
-<li class="tft-org-task-item-line">FaSS V3.0 공통 프레임워크 표준 설계</li>
-<li class="tft-org-task-item-line">전체 아키텍처 통제 및 품질 관리</li>
-</ul>
-</td>
-</tr>
-<tr class="tft-org-table-body-row">
-<td class="tft-org-table-body-cell">
-<span class="tft-org-role-badge-span">BE 엔지니어</span>
-</td>
-<td class="tft-org-table-body-cell">
-<span class="tft-org-name-text-span">송민준</span>
-</td>
-<td class="tft-org-table-body-cell">
-<ul class="tft-org-task-list-container">
-<li class="tft-org-task-item-line">백엔드 코어 모듈 구현</li>
-<li class="tft-org-task-item-line">Kafka 기반 데이터 동기화 파이프라인</li>
-</ul>
-</td>
-</tr>
-<tr class="tft-org-table-body-row">
-<td class="tft-org-table-body-cell">
-<span class="tft-org-role-badge-span">FE 엔지니어</span>
-</td>
-<td class="tft-org-table-body-cell">
-<span class="tft-org-name-text-span tft-org-name-text-span--multi"><span>심지훈</span><span>오준열</span><span>이지상</span></span>
-</td>
-<td class="tft-org-table-body-cell">
-<ul class="tft-org-task-list-container">
-<li class="tft-org-task-item-line">프론트엔드 및 UX 표준 구현</li>
-<li class="tft-org-task-item-line">AI 연동 RAG 환경 및 인터페이스 구축</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+<div class="section-slide-root">
+  <div class="bg-grid-overlay"></div>
+  <div class="bg-glow-circle"></div>
+  <div class="bg-left-bar"></div>
+  <div class="section-part-number">02</div>
+  <div class="section-part-label">PART 02</div>
+  <div class="section-title-ko">프로젝트 진행 경과 및 방향성</div>
+  <div class="section-title-en">Project Progress &amp; Direction</div>
+  <div class="section-divider-line"></div>
+  <div class="section-topics-list">
+    <div class="section-topic-item">
+      <div class="topic-dot"></div>
+      <span class="topic-text">최적화 방안 1. 워룸 운영 — 남양주 프로젝트룸 기반 리드타임 제로화</span>
+    </div>
+    <div class="section-topic-item">
+      <div class="topic-dot"></div>
+      <span class="topic-text">최적화 방안 2. AI 디지털 워커 활용 — 24/7 자동화 + Human-in-the-loop IT 조직</span>
+    </div>
+    <div class="section-topic-item">
+      <div class="topic-dot"></div>
+      <span class="topic-text">최적화 방안 3. 사전 POC 운영 — 안전성·기술 타당성 검증 후 본격 개발 착수</span>
+    </div>
+  </div>
 </div>
 <script>
 (function(){

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=960, height=720, initial-scale=1.0" name="viewport"/>
+<title>(주)제때 차세대 FaSS 플랫폼 구축 6월 중간 보고 - 맺음말</title>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
+:root {
+    --ppt-bg: #0A0E1A;
+    /* Deep Midnight Navy */
+    --ppt-bg-soft: #141B2D;
+    --ppt-surface: #1E2638;
+    --ppt-surface-2: #2A344A;
+    --ppt-border: #334155;
+    --ppt-text-1: #FFF;
+    --ppt-text-2: #94A3B8;
+    --ppt-text-3: #64748B;
+    --ppt-accent: #00F0FF;
+    /* Electric Cyan for Tech */
+    --ppt-accent-2: #FACC15;
+    /* Gold for Value/ROI */
+    --ppt-good: #22C55E;
+    --ppt-warn: #F59E0B;
+    --ppt-bad: #EF4444;
+    --ppt-radius-sm: 4px;
+    --ppt-radius-md: 8px;
+    --ppt-radius-lg: 16px;
+    --ppt-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --ppt-shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.5);
+    --ppt-font-display: "IBM Plex Sans KR", sans-serif;
+    --ppt-font-body: "IBM Plex Sans KR", sans-serif
+    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+    }
+body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ppt-font-body)}
+.fass-closing-slide-root {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: var(--ppt-text-1)
+    }
+/* Non-Cover-Page Title Region */
+.title-region-wrapper {
+    padding: 32px 40px 12px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.title-horizontal-group {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-accent-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-main-text {
+    font-family: var(--ppt-font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-gradient-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+/* Content Layout */
+.fass-closing-content-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 10px 40px 16px 40px;
+    gap: 20px
+    }
+.closing-visionary-left-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px
+    }
+.closing-visionary-right-group {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%)
+    }
+/* Left Section Components */
+.closing-milestone-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+    }
+.closing-milestone-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px
+    }
+.closing-milestone-icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ppt-accent);
+    font-size: 20px;
+    flex-shrink: 0
+    }
+.closing-milestone-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+    }
+.closing-milestone-date-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px
+    }
+.closing-milestone-title-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.closing-milestone-desc-text {
+    font-size: 16px;
+    color: var(--ppt-text-2);
+    line-height: 1.4
+    }
+.closing-vision-quote-container {
+    margin-top: 12px;
+    padding: 18px;
+    background: var(--ppt-bg-soft);
+    border-left: 4px solid var(--ppt-accent-2);
+    border-radius: var(--ppt-radius-md)
+    }
+.closing-vision-quote-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ppt-text-1);
+    line-height: 1.6;
+    font-style: italic
+    }
+.closing-vision-sub-text {
+    margin-top: 12px;
+    font-size: 16px;
+    color: var(--ppt-text-2)
+    }
+/* Right Section Components (Anchor) */
+.closing-anchor-keyword-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.closing-anchor-top-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    letter-spacing: 4px;
+    text-transform: uppercase
+    }
+.closing-anchor-main-keyword {
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    line-height: 1;
+    margin: 10px 0;
+    text-shadow: 0 0 30px rgba(0, 240, 255, 0.3)
+    }
+.closing-anchor-accent-keyword {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--ppt-accent-2);
+    line-height: 1
+    }
+.closing-anchor-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--ppt-accent);
+    margin: 32px auto;
+    border-radius: 2px
+    }
+.closing-anchor-stat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+    }
+.closing-anchor-stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ppt-text-1)
+    }
+.closing-anchor-stat-label {
+    font-size: 16px;
+    color: var(--ppt-text-3)
+    }
+ul {
+    list-style: none
+    }
+html { overflow: hidden;  margin:0; padding:0; }
+</style></head>
+<body>
+<div class="fass-closing-slide-root" style="overflow: hidden;">
+<!-- Title Region -->
+<div class="title-region-wrapper">
+<div class="title-horizontal-group">
+<div class="title-accent-bar"></div>
+<h1 class="title-main-text">Next Steps 실행 계획</h1>
+</div>
+<div class="title-gradient-line"></div>
+</div>
+<!-- Main Content Body -->
+<div class="fass-closing-content-body">
+<!-- Left: Milestones & Vision -->
+<div class="closing-visionary-left-group">
+<div class="closing-milestone-list-container">
+<div class="closing-milestone-item-row">
+<div class="closing-milestone-icon-box">
+<i class="fas fa-server"></i>
+</div>
+<div class="closing-milestone-text-block">
+<span class="closing-milestone-date-label">2026.10 — 2027.06 Prototype Development</span>
+<h3 class="closing-milestone-title-text">차세대 서버 · 완성형 기술스택 최초 적용 (Start)</h3>
+<p class="closing-milestone-desc-text">데모가 아닌 프로토타입 개발 착수. 차세대 서버에 SiteFramework·AI 오케스트레이션 등 완성형 스택을 최초로 적용하는 전환의 시작점. 2027년 3월 완성, 6월까지 안정화·고도화 진행</p>
+</div>
+</div>
+<div class="closing-milestone-item-row">
+<div class="closing-milestone-icon-box">
+<i class="fas fa-truck-fast"></i>
+</div>
+<div class="closing-milestone-text-block">
+<span class="closing-milestone-date-label">2027.06 ~ Migration Preparation</span>
+<h3 class="closing-milestone-title-text">3PL · 유통물류 대규모 이관 준비</h3>
+<p class="closing-milestone-desc-text">단순 이관이 아닌 개선 방향 수립 — 시스템 개선과 차세대 웹프레임워크 적용이 병행되는 대규모 작업. AI 본격 시스템 적용의 핵심 사례가 됩니다</p>
+</div>
+</div>
+<div class="closing-milestone-item-row">
+<div class="closing-milestone-icon-box">
+<i class="fas fa-flag-checkered"></i>
+</div>
+<div class="closing-milestone-text-block">
+<span class="closing-milestone-date-label">Preparation Complete → Roll-out</span>
+<h3 class="closing-milestone-title-text">3PL · 유통물류 본격 전환</h3>
+<p class="closing-milestone-desc-text">프로토타입에서 검증된 아키텍처·프레임워크·AI 패턴을 3PL·유통물류 전사 시스템에 확대 적용, 차세대 플랫폼 전면 가동</p>
+</div>
+</div>
+</div>
+<div class="closing-vision-quote-container" style="border-left-color:var(--ppt-accent);">
+<p style="font-size:15px;font-weight:700;color:var(--ppt-accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">즉각 추진 사항</p>
+<div style="display:flex;flex-direction:column;gap:10px;">
+  <div style="display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>7월: 핵심 화면 UI/UX 스토리보드 완성 및 대표이사 확인</div>
+  <div style="display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>8~9월: 수주·발주·정산 핵심 모듈 집중 개발</div>
+  <div style="display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>10월: 차세대 서버 프로토타입 개발 착수 — 완성형 기술스택 최초 적용 Start</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  function applyScale(){
+    var el=document.querySelector('body>div');
+    if(!el)return;
+    var sw=window.innerWidth,sh=window.innerHeight;
+    var scale=Math.min(sw/960,sh/720);
+    el.style.transform='scale('+scale+')';
+    el.style.transformOrigin='top left';
+    el.style.position='absolute';
+    el.style.left=Math.round((sw-960*scale)/2)+'px';
+    el.style.top=Math.round((sh-720*scale)/2)+'px';
+  }
+  applyScale();
+  window.addEventListener('resize',applyScale);
+})();
+</script>
+</body>
+</html>

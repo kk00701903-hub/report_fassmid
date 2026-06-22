@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>기술 스택 상세 — Data · DevOps · AI</title>
+<title>기술 스택 상세 — Frontend · Backend · Security</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
@@ -59,100 +59,116 @@ html{overflow:hidden;margin:0;padding:0}
 <div class="slide">
 
 <div class="title-r">
-  <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack 2/2</span></div>
-  <h1>기술 스택 상세 — Data · DevOps · AI</h1>
-  <p class="sub">CDC·메시징, CI/CD·모니터링, AI Agent 로드맵 — 스프린트 S02–S22</p>
+  <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack 1/2</span></div>
+  <h1>기술 스택 상세 — Frontend · Backend · Security</h1>
+  <p class="sub">UI/UX 표준부터 백엔드 코어·IAM까지 — 스프린트 S01–S15 구간</p>
   <div class="line"></div>
 </div>
 <div class="body">
-  <div class="detail-grid" style="grid-template-columns:0.9fr 1.35fr 0.75fr">
+  <div class="detail-grid" style="grid-template-columns:1fr 1.15fr 1fr">
     
 <div class="detail-col">
-  <div class="col-head" style="background:#22c55e14;color:#22c55e;border:1px solid #22c55e44">
-    <i class="fa-solid fa-database"></i> Data &amp; Messaging <span style="margin-left:auto;font-size:10px;opacity:.8">4종</span>
+  <div class="col-head" style="background:#00f0ff14;color:#00f0ff;border:1px solid #00f0ff44">
+    <i class="fa-solid fa-window-maximize"></i> Frontend <span style="margin-left:auto;font-size:10px;opacity:.8">5종</span>
   </div>
   <div class="item-list">
 <div class="item">
-  <div class="item-top"><div class="item-name">Redis</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S03</span></div></div>
-  <div class="item-desc">인메모리 기반 고속 데이터 캐싱 및 분산 세션 상태 공유</div>
+  <div class="item-top"><div class="item-name">Axios / React Query</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S08</span></div></div>
+  <div class="item-desc">프론트엔드 상태관리 및 클라이언트-서버 간 데이터 통신 최적화</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">Multi-tenancy</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S11</span></div></div>
-  <div class="item-desc">단일 시스템으로 여러 고객사(테넌트)의 데이터를 DB/스키마 레벨에서 안전하게 격리</div>
+  <div class="item-top"><div class="item-name">Atomic Design</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
+  <div class="item-desc">UI/UX 컴포넌트의 체계적인 자산화 및 재사용성 극대화를 위한 원자-분자-유기체 설계 방법론</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">Debezium</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S17</span></div></div>
-  <div class="item-desc">데이터베이스의 트랜잭션 로그(CDC)를 실시간으로 감지 및 캡처</div>
+  <div class="item-top"><div class="item-name">RealGrid</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
+  <div class="item-desc">대용량 비즈니스 데이터 처리에 특화된 웹 엔터프라이즈 그리드</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">Kafka</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S17</span></div></div>
-  <div class="item-desc">캡처된 대규모 데이터 이벤트를 병목 없이 타 시스템으로 분산 전송</div>
+  <div class="item-top"><div class="item-name">Modal</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S09</span></div></div>
+  <div class="item-desc">화면 이동 없는 팝업형 다이얼로그 UI 제공 컴포넌트</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Next.js (SSR/RSC)</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S16</span></div></div>
+  <div class="item-desc">서버 사이드 렌더링을 통한 초기 로딩 속도 최적화 및 SEO 개선</div>
 </div></div>
 </div>
     
 <div class="detail-col">
-  <div class="col-head" style="background:#facc1514;color:#facc15;border:1px solid #facc1544">
-    <i class="fa-solid fa-cloud"></i> Platform &amp; DevOps <span style="margin-left:auto;font-size:10px;opacity:.8">12종</span>
+  <div class="col-head" style="background:#3b82f614;color:#3b82f6;border:1px solid #3b82f644">
+    <i class="fa-solid fa-server"></i> Backend <span style="margin-left:auto;font-size:10px;opacity:.8">10종</span>
   </div>
   <div class="item-list">
 <div class="item">
-  <div class="item-top"><div class="item-name">Docker</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S02</span></div></div>
-  <div class="item-desc">애플리케이션의 실행 환경을 컨테이너화하여 환경 일관성 확보</div>
+  <div class="item-top"><div class="item-name">Spring Boot</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S04</span></div></div>
+  <div class="item-desc">전사 비즈니스 로직 개발의 뼈대가 되는 기본 구조체 및 백엔드 코어</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">Docker Compose</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S02</span></div></div>
-  <div class="item-desc">단일 호스트에서 멀티 컨테이너 애플리케이션 환경을 정의하고 로컬 실행 제어</div>
+  <div class="item-top"><div class="item-name">JWT</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S06</span></div></div>
+  <div class="item-desc">무상태(Stateless) 기반의 빠르고 안전한 사용자 인증 토큰 처리</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">Kubernetes (K8s)</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S02</span></div></div>
-  <div class="item-desc">컨테이너화된 애플리케이션의 자동 배포, 확장(Scaling) 및 고가용성 운영 관리(오케스트레이션)</div>
+  <div class="item-top"><div class="item-name">Spring Security 6.x</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S06</span></div></div>
+  <div class="item-desc">엔터프라이즈 애플리케이션의 인증/인가를 통제하는 강력한 보안 필터</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">GitLab CI</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S02</span></div></div>
-  <div class="item-desc">소스 코드 버전 관리 및 지속적 통합(CI) 파이프라인 자동화 구축</div>
+  <div class="item-top"><div class="item-name">RBAC/ABAC</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S07</span></div></div>
+  <div class="item-desc">역할 및 속성(조건) 기반의 세밀한 사용자 메뉴/데이터 접근 통제</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">Nexus Repository</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S02</span></div></div>
-  <div class="item-desc">사내 표준 라이브러리, 패키지 및 빌드 아티팩트 중앙 저장소 관리</div>
+  <div class="item-top"><div class="item-name">DTO / MapStruct</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S10</span></div></div>
+  <div class="item-desc">계층 간 데이터 교환 객체 정의 및 변환(매핑) 코드 자동 생성</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">SonarQube</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S02</span></div></div>
-  <div class="item-desc">소스 코드 품질 정적 분석 및 보안 취약점 사전 탐지</div>
+  <div class="item-top"><div class="item-name">Spring Batch</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S10</span></div></div>
+  <div class="item-desc">정해진 시간에 대용량 데이터를 안전하게 일괄 처리하는 스케줄링</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">ArgoCD</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S02</span></div></div>
-  <div class="item-desc">GitOps 기반의 지속적 배포(CD) 자동화 및 인프라 상태 동기화</div>
+  <div class="item-top"><div class="item-name">API Gateway</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S12</span></div></div>
+  <div class="item-desc">외부 API 요청을 단일 진입점에서 받아 라우팅, 인증, 트래픽 제어 수행</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">Spring Cloud Config</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S03</span></div></div>
-  <div class="item-desc">분산 환경의 설정 정보를 중앙 집중식으로 관리</div>
+  <div class="item-top"><div class="item-name">REST / gRPC</div><div class="item-meta"><span class="person">송민준</span><span class="sprint">S14</span></div></div>
+  <div class="item-desc">물류/유통 AI 모델과 백엔드 시스템 간의 빠르고 표준화된 통신 규격</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">ClipReport</div><div class="item-meta"><span class="person">김희찬</span><span class="sprint">S23</span></div></div>
-  <div class="item-desc">엔터프라이즈급 리포팅 솔루션을 활용한 전문 업무 서식(명세서, 대장 등) 설계 및 리포트 출력</div>
+  <div class="item-top"><div class="item-name">Spring Cloud</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S19</span></div></div>
+  <div class="item-desc">거대한 모놀리식 시스템을 독립적인 마이크로서비스로 분리하여 유연성 확보</div>
 </div>
 <div class="item">
-  <div class="item-top"><div class="item-name">API Management</div><div class="item-meta"><span class="person">김희찬</span><span class="sprint">S13</span></div></div>
-  <div class="item-desc">전사 API의 생성, 게시, 모니터링, 과금 등 전체 생명주기 통합 관리</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Apache Superset</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S22</span></div></div>
-  <div class="item-desc">다양한 소스의 비즈니스 데이터를 직접 탐색하고 시각화하는 플랫폼</div>
-</div>
-<div class="item">
-  <div class="item-top"><div class="item-name">Grafana</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S22</span></div></div>
-  <div class="item-desc">시스템 인프라 및 애플리케이션의 시계열 매트릭(성능/상태) 모니터링 시각화</div>
+  <div class="item-top"><div class="item-name">Golden Set</div><div class="item-meta"><span class="person">심지훈</span><span class="sprint">S20</span></div></div>
+  <div class="item-desc">보안 및 성능 검증이 완료되어 전사 표준으로 사용할 라이브러리/의존성 모음 배포</div>
 </div></div>
 </div>
     
 <div class="detail-col">
-  <div class="col-head" style="background:#fb923c14;color:#fb923c;border:1px solid #fb923c44">
-    <i class="fa-solid fa-robot"></i> AI &amp; Agent <span style="margin-left:auto;font-size:10px;opacity:.8">1종</span>
+  <div class="col-head" style="background:#a78bfa14;color:#a78bfa;border:1px solid #a78bfa44">
+    <i class="fa-solid fa-shield-halved"></i> Security &amp; IAM <span style="margin-left:auto;font-size:10px;opacity:.8">6종</span>
   </div>
   <div class="item-list">
 <div class="item">
-  <div class="item-top"><div class="item-name">LLM / LangChain (예상)</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S18</span></div></div>
-  <div class="item-desc">도입될 AI 에이전트의 프롬프트 프로파일링, 업무 권한, 역할 범위 통제</div>
+  <div class="item-top"><div class="item-name">네이밍 룰</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S01</span></div></div>
+  <div class="item-desc">전체 개발 파트 간 코드 일관성 유지 및 유지보수성 향상</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Keycloak</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
+  <div class="item-desc">통합 계정 및 접근 관리(IAM)를 위한 오픈소스 솔루션</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">LDAP</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
+  <div class="item-desc">사내 디렉토리 서비스(조직/사용자 정보) 연계 인증</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">OIDC</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S05</span></div></div>
+  <div class="item-desc">OAuth 2.0 기반의 안전한 분산 환경 사용자 인증 프로토콜</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">API 마스킹 / DB 암호화</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S15</span></div></div>
+  <div class="item-desc">화면 및 DB 상의 개인정보 등 민감 데이터 노출 원천 차단</div>
+</div>
+<div class="item">
+  <div class="item-top"><div class="item-name">Nexus IQ</div><div class="item-meta"><span class="person">기충영</span><span class="sprint">S21</span></div></div>
+  <div class="item-desc">프로젝트에 포함된 오픈소스의 보안 취약점 및 라이선스 위반 리스크 자동 점검</div>
 </div></div>
 </div>
   </div>

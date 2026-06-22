@@ -140,7 +140,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "디지털 트렌드",
         category: "process",
         summary:
-          "MSA·Cloud Native·Open Source·AI Native 네 축이 동시에 차세대 플랫폼 표준을 재정의하고 있습니다. FaSS는 이 교차점에서 물류 디지털 전환의 방향을 설정합니다.",
+          "MSA·Cloud Native·Open Source·AI Native 네 축이 글로벌 빅테크·금융·물류 선도 기업에서 동시에 표준으로 자리잡고 있습니다.",
         process: [
           { step: 1, title: "MSA", description: "Modular Monolith → MSA 점진 전환, DDD·API-First" },
           { step: 2, title: "Cloud", description: "Kubernetes·GitOps·FinOps 기반 Cloud-Ready 운영" },
@@ -155,7 +155,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "digital-worker",
-        title: "AI 디지털 워커 운영 모델",
+        title: "디지털 트렌드",
         category: "process",
         summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
         process: [
@@ -168,6 +168,24 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
   },
   {
     slideId: 5,
+    topics: [
+      {
+        id: "strategy-direction",
+        title: "제때의 전략 방향",
+        category: "process",
+        summary:
+          "MSA·Cloud·Open Source·AI 네 가지 산업 트렌드를 FaSS 차세대 플랫폼 구축 전략으로 내재화하는 (주)제때의 방향성입니다.",
+        process: [
+          { step: 1, title: "MSA", description: "모듈러 모놀리스 → 유통·물류 도메인 API 분리·점진적 MSA" },
+          { step: 2, title: "Cloud", description: "K8s·GitOps·FinOps Cloud-Ready, ASP/SaaS 확장 대비" },
+          { step: 3, title: "Open Source", description: "PostgreSQL·Kafka·GitLab CE 등 OSS 표준, 벤더 독립" },
+          { step: 4, title: "AI", description: "LangGraph Digital Worker + Human-in-the-loop 빌더형 IT" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 6,
     topics: [
       {
         id: "fass-identity",
@@ -194,7 +212,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 6,
+    slideId: 7,
     topics: [
       {
         id: "executive-kpi",
@@ -210,13 +228,13 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 7,
+    slideId: 8,
     topics: [
       {
         id: "progress-tracking",
         title: "프로젝트 진행 관리 프로세스",
         category: "process",
-        summary: "PART 2 진행 경과 추적을 위한 운영 프로세스입니다.",
+        summary: "PART 2 진행 경과 및 방향성 추적을 위한 운영 프로세스입니다.",
         process: [
           { step: 1, title: "주간 스탠드업", description: "TFT 주간 진척·리스크 공유" },
           { step: 2, title: "GitLab 이슈", description: "Epic → Story → Task 계층으로 추적" },
@@ -226,11 +244,29 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 8,
+    slideId: 9,
+    topics: [
+      {
+        id: "project-schedule",
+        title: "최적화 방안 1. 워룸 운영",
+        category: "process",
+        summary:
+          "2026년 1월부터 2027년 하반기까지 7단계 마일스톤으로 진행되는 FaSS 차세대 플랫폼 구축 일정입니다.",
+        process: [
+          { step: 1, title: "1~2단계", description: "AS-IS 분석·TO-BE 모델 정립 (26.01~05)" },
+          { step: 2, title: "3단계", description: "공통 아키텍처·프레임워크 PoC (26.05~09)" },
+          { step: 3, title: "4단계", description: "주요소관리 프로토타입 (26.10~27.03)" },
+          { step: 4, title: "5~7단계", description: "안정화 → 전환 준비 → 3PL·유통물류 본 전환" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 10,
     topics: [
       {
         id: "war-room",
-        title: "워룸 운영 프로세스",
+        title: "최적화 방안 2. AI 디지털 워커 활용",
         category: "process",
         summary: "집중 개발 기간 워룸 운영 방식과 일일 루틴입니다.",
         process: [
@@ -242,11 +278,11 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 9,
+    slideId: 11,
     topics: [
       {
         id: "fass-daily-scrum",
-        title: "FASS 데일리 스크럼 소개",
+        title: "최적화 방안 3. 사전 POC 운영",
         category: "process",
         summary:
           "차세대 FaSS TFT 애자일 운영 허브. 일일 스크럼·태스크 기록과 Analytics 대시보드로 워룸에서 진척·블로커·완료율을 실시간 공유합니다.",
@@ -290,7 +326,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 10,
+    slideId: 12,
     topics: [
       {
         id: "milestone-plan",
@@ -306,53 +342,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
-    topics: [
-      {
-        id: "ai-workforce-replacement",
-        title: "AI 인력 대체 및 LangGraph 오케스트레이션",
-        category: "architecture",
-        summary:
-          "LangGraph(S18)가 DGX Spark·Claude Code(S14) 에이전트에 태스크를 분배하고, SiteFramework 산출물에 README·위키 문서를 자동 생성합니다.",
-        techLayers: [
-          {
-            id: "ai",
-            label: "AI & Agent",
-            icon: "fa-solid fa-robot",
-            accent: "#fb923c",
-            items: [
-              { name: "LangGraph", detail: "StateGraph 기반 멀티에이전트 라우팅", sprintId: "S18" },
-              { name: "DGX Spark", detail: "RAG · 레거시 코드베이스 임베딩", sprintId: "S14" },
-              { name: "Claude Code", detail: "SiteFramework 보일러플레이트·MR 생성", sprintId: "S14" },
-              { name: "Docs Agent", detail: "OpenAPI·README·Confluence 위키 동기화", sprintId: "S18" },
-            ],
-          },
-        ],
-        preview: {
-          type: "agent-flow",
-          title: "에이전트 오케스트레이션 흐름",
-          caption: "기획 태스크 입력 → LangGraph가 역할별 에이전트에 분배 → GitLab MR·문서 산출",
-        },
-        flowNodes: [
-          { id: "spec", label: "요구사항·API Spec", sub: "Jira / OpenAPI", icon: "fa-solid fa-file-lines" },
-          { id: "langgraph", label: "LangGraph", sub: "S18 Router", icon: "fa-solid fa-diagram-project" },
-          { id: "dgx", label: "DGX Spark", sub: "RAG Context", icon: "fa-solid fa-microchip" },
-          { id: "claude", label: "Claude Code", sub: "Codegen + Review", icon: "fa-solid fa-code" },
-          { id: "docs", label: "Docs Agent", sub: "README Wiki", icon: "fa-solid fa-book" },
-        ],
-        process: [
-          { step: 1, title: "LangGraph", description: "기획·설계·코딩·QA·문서 태스크를 StateGraph 노드로 동적 할당" },
-          { step: 2, title: "DGX Spark", description: "레거시 FaSS·도메인 문서 RAG로 컨텍스트 주입" },
-          { step: 3, title: "Claude Code", description: "Java/TS 보일러플레이트 생성·ArchUnit 규칙 준수 리뷰" },
-          { step: 4, title: "문서 Agent", description: "모듈별 README·API 위키를 sprint-backlog 형식으로 자동 갱신" },
-          { step: 5, title: "디자인 최소화", description: "Figma Design Token·Storybook만 유지, UI 구현은 RealGrid 템플릿" },
-        ],
-        links: [{ label: "FaSS Sprint Backlog", href: FASS_BACKLOG_URL }],
-      },
-    ],
-  },
-  {
-    slideId: 12,
+    slideId: 13,
     topics: [
       {
         id: "module-delivery",
@@ -369,7 +359,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 13,
+    slideId: 14,
     topics: [
       {
         id: "tech-stack-overview",
@@ -398,7 +388,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 14,
+    slideId: 15,
     topics: [
       {
         id: "tech-stack-full-map",
@@ -424,7 +414,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 15,
+    slideId: 16,
     topics: [
       {
         id: "tech-stack-fe-be-sec",
@@ -443,7 +433,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 16,
+    slideId: 17,
     topics: [
       {
         id: "tech-stack-data-infra-ai",
@@ -462,7 +452,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 17,
+    slideId: 18,
     topics: [
       {
         id: "api-first",
@@ -608,7 +598,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 18,
+    slideId: 19,
     topics: [
       {
         id: "msa-migration",
@@ -650,7 +640,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 19,
+    slideId: 20,
     topics: [
       {
         id: "docker-cloud-ready",
@@ -711,7 +701,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 20,
+    slideId: 21,
     topics: [
       {
         id: "cdc-sync",
@@ -766,7 +756,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 21,
+    slideId: 22,
     topics: [
       {
         id: "innovation-validation",
@@ -782,7 +772,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 22,
+    slideId: 23,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -798,7 +788,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 23,
+    slideId: 24,
     topics: [
       {
         id: "realgrid-ui",
@@ -860,7 +850,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 24,
+    slideId: 25,
     topics: [
       {
         id: "sonarqube-gate",
@@ -896,7 +886,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 25,
+    slideId: 26,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -914,7 +904,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 28,
+    slideId: 27,
     topics: [
       {
         id: "finops",
@@ -944,7 +934,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 29,
+    slideId: 30,
     topics: [
       {
         id: "peer-benchmark",
@@ -961,7 +951,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 30,
+    slideId: 31,
     topics: [
       {
         id: "mm-tool-investment",
@@ -1077,7 +1067,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 32,
     topics: [
       {
         id: "framework-builder-role",
@@ -1119,7 +1109,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 33,
     topics: [
       {
         id: "builder-talent",
@@ -1151,7 +1141,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 35,
+    slideId: 36,
     topics: [
       {
         id: "risk-management",
@@ -1167,7 +1157,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 36,
+    slideId: 37,
     topics: [
       {
         id: "closing-milestones",
@@ -1184,7 +1174,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 37,
+    slideId: 39,
     topics: [
       {
         id: "commitment",

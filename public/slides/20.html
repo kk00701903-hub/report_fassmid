@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>CI/CD 자동화 아키텍처 - FaSS 플랫폼</title>
+<title>중장기 아키텍처 원칙 3: Kubernetes - FaSS 플랫폼 구축</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
@@ -18,11 +18,7 @@
   --ppt-text-3: #64748B;
   --ppt-accent: #00F0FF;
   --ppt-accent-2: #FACC15;
-  --ppt-gitlab: #FC6D26;
-  --ppt-jenkins: #D33833;
-  --ppt-nexus: #36B37E;
   --ppt-k8s: #326CE5;
-  --ppt-argo: #EF7B4D;
   --ppt-good: #22C55E;
   --ppt-radius-sm: 4px;
   --ppt-radius-md: 8px;
@@ -37,243 +33,319 @@ body {
   display: flex; justify-content: center; align-items: center;
   font-family: var(--ppt-font-body);
 }
-.slide-root {
+.fass-slide-root {
   width: 960px; height: 720px;
   background-color: var(--ppt-bg);
-  color: var(--ppt-text-1);
-  display: flex; flex-direction: column;
   position: relative;
+  display: flex; flex-direction: column;
+  color: var(--ppt-text-1);
 }
-.title-region {
-  padding: 26px 40px 8px 40px;
+.title-region-container {
+  padding: 28px 40px 8px 40px;
   display: flex; flex-direction: column; gap: 6px;
 }
-.title-header { display: flex; align-items: center; gap: 12px; }
-.title-bar { width: 4px; height: 32px; background: var(--ppt-accent); border-radius: 2px; }
-.title-badge {
-  font-size: 11px; font-weight: 700; letter-spacing: 1px;
-  padding: 3px 10px; border-radius: 12px;
-  background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.3);
-  color: var(--ppt-accent);
-}
-.title-text {
+.title-region-header { display: flex; align-items: center; gap: 12px; }
+.title-region-bar { width: 4px; height: 32px; background: var(--ppt-k8s); border-radius: 2px; }
+.title-region-text {
   font-family: var(--ppt-font-display);
-  font-size: 26px; font-weight: 700;
+  font-size: 28px; font-weight: 700; margin: 0;
 }
-.title-line {
+.title-region-divider {
   height: 1px; width: 100%;
-  background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-  opacity: 0.3; margin-top: 4px;
+  background: linear-gradient(90deg, var(--ppt-k8s) 0%, transparent 100%);
+  opacity: 0.35; margin-top: 6px;
 }
-.cicd-body {
+.k8s-main-wrapper {
   flex: 1; min-height: 0;
-  padding: 4px 40px 10px 40px;
-  display: flex; flex-direction: column; gap: 10px;
+  padding: 6px 40px 10px 40px;
+  display: flex; gap: 20px; align-items: stretch;
 }
-.cicd-legend {
-  display: flex; flex-wrap: wrap; gap: 8px 14px;
-  font-size: 11px; color: var(--ppt-text-3);
+.k8s-left-column {
+  flex: 0 0 280px;
+  display: flex; flex-direction: column; gap: 12px; justify-content: center;
 }
-.cicd-legend span { display: inline-flex; align-items: center; gap: 5px; }
-.cicd-legend i { font-size: 10px; }
-.cicd-diagram {
-  flex: 1; min-height: 0;
+.k8s-summary-card {
+  background: var(--ppt-bg-soft);
+  border-left: 4px solid var(--ppt-k8s);
+  padding: 16px 18px;
+  border-radius: var(--ppt-radius-md);
+}
+.k8s-summary-title {
+  font-size: 17px; font-weight: 700; color: var(--ppt-k8s); margin-bottom: 8px; line-height: 1.35;
+}
+.k8s-summary-desc { font-size: 14px; color: var(--ppt-text-2); line-height: 1.5; }
+.k8s-summary-desc b { color: var(--ppt-text-1); font-weight: 600; }
+.k8s-feature-list { display: flex; flex-direction: column; gap: 8px; }
+.k8s-feature-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 12px;
+  background: var(--ppt-surface);
+  border-radius: var(--ppt-radius-md);
+  border: 1px solid var(--ppt-border);
+}
+.k8s-feature-icon {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: var(--ppt-radius-sm);
+  background: rgba(50, 108, 229, 0.15);
+  color: var(--ppt-k8s);
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.k8s-feature-text strong { display: block; font-size: 14px; color: var(--ppt-text-1); margin-bottom: 2px; }
+.k8s-feature-text span { font-size: 12px; color: var(--ppt-text-2); line-height: 1.4; }
+
+/* Diagram */
+.k8s-diagram-column {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.k8s-diagram-panel {
+  flex: 1;
   background: var(--ppt-surface);
   border: 1px solid var(--ppt-border);
   border-radius: var(--ppt-radius-lg);
   padding: 14px 16px 12px;
-  display: flex; flex-direction: column; gap: 8px;
-  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: 10px;
+  position: relative;
+  overflow: hidden;
 }
-.cicd-diagram::before {
+.k8s-diagram-panel::before {
   content: "";
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(0,240,255,0.05) 0%, transparent 55%);
+  background: radial-gradient(ellipse at 50% 30%, rgba(50, 108, 229, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
-.cicd-row {
-  display: flex; align-items: center; justify-content: center;
-  gap: 6px; flex-wrap: nowrap;
-  position: relative; z-index: 1;
+.k8s-registry-row {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; z-index: 1;
 }
-.cicd-row-label {
-  flex: 0 0 72px;
-  font-size: 9px; font-weight: 700; color: var(--ppt-text-3);
-  text-transform: uppercase; letter-spacing: 0.5px;
-  text-align: right; padding-right: 4px;
+.k8s-registry-box {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px dashed rgba(0, 240, 255, 0.4);
+  border-radius: 20px;
+  font-size: 12px; font-weight: 600; color: var(--ppt-accent);
 }
-.cicd-row-track {
+.k8s-arrow-down {
+  width: 2px; height: 18px;
+  background: linear-gradient(180deg, var(--ppt-accent), var(--ppt-k8s));
+  position: relative;
+}
+.k8s-arrow-down::after {
+  content: "";
+  position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+  border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-top: 6px solid var(--ppt-k8s);
+}
+.k8s-cluster-frame {
   flex: 1;
-  display: flex; align-items: center; justify-content: center;
-  gap: 6px; min-width: 0;
-}
-.cicd-node {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 4px; padding: 8px 10px;
-  background: var(--ppt-bg-soft);
-  border: 1px solid var(--ppt-border);
+  border: 2px solid rgba(50, 108, 229, 0.55);
   border-radius: var(--ppt-radius-md);
-  min-width: 88px; max-width: 120px;
-  text-align: center;
-}
-.cicd-node.is-primary { border-width: 2px; box-shadow: 0 0 12px rgba(0,0,0,0.3); }
-.cicd-node.is-aux { opacity: 0.85; border-style: dashed; }
-.cicd-node-icon {
-  width: 32px; height: 32px;
-  border-radius: var(--ppt-radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-}
-.cicd-node-name { font-size: 11px; font-weight: 700; color: var(--ppt-text-1); line-height: 1.2; }
-.cicd-node-sub { font-size: 9px; color: var(--ppt-text-3); line-height: 1.3; }
-.cicd-node--gitlab .cicd-node-icon { background: rgba(252,109,38,0.15); color: var(--ppt-gitlab); }
-.cicd-node--gitlab.is-primary { border-color: var(--ppt-gitlab); }
-.cicd-node--jenkins .cicd-node-icon { background: rgba(211,56,51,0.15); color: var(--ppt-jenkins); }
-.cicd-node--jenkins.is-aux { border-color: rgba(211,56,51,0.4); }
-.cicd-node--nexus .cicd-node-icon { background: rgba(54,179,126,0.15); color: var(--ppt-nexus); }
-.cicd-node--nexus.is-primary { border-color: var(--ppt-nexus); }
-.cicd-node--docker .cicd-node-icon { background: rgba(0,240,255,0.12); color: var(--ppt-accent); }
-.cicd-node--docker.is-primary { border-color: var(--ppt-accent); }
-.cicd-node--k8s .cicd-node-icon { background: rgba(50,108,229,0.15); color: var(--ppt-k8s); }
-.cicd-node--k8s.is-primary { border-color: var(--ppt-k8s); }
-.cicd-node--k8s.is-aux { border-color: rgba(50,108,229,0.35); opacity: 0.72; }
-.cicd-node--k8s.is-aux .cicd-node-icon { opacity: 0.75; }
-.cicd-node--k8s.is-aux .cicd-node-name,
-.cicd-node--k8s.is-aux .cicd-node-sub { color: var(--ppt-text-3); }
-.cicd-node--argo .cicd-node-icon { background: rgba(239,123,77,0.15); color: var(--ppt-argo); }
-.cicd-node--argo.is-primary { border-color: var(--ppt-argo); }
-.cicd-node--git .cicd-node-icon { background: rgba(250,204,21,0.12); color: var(--ppt-accent-2); }
-.cicd-node--git.is-primary { border-color: var(--ppt-accent-2); }
-.cicd-arrow-h {
-  flex-shrink: 0;
-  display: flex; flex-direction: column; align-items: center; gap: 1px;
-  color: var(--ppt-text-3); font-size: 8px; font-weight: 600;
-  min-width: 36px;
-}
-.cicd-arrow-h i { font-size: 12px; color: var(--ppt-accent); }
-.cicd-arrow-h em { font-style: normal; color: var(--ppt-text-3); white-space: nowrap; }
-.cicd-arrow-v {
-  display: flex; flex-direction: column; align-items: center;
-  height: 20px; justify-content: center;
-  color: var(--ppt-accent); font-size: 11px;
-}
-.cicd-spacer-v { height: 4px; }
-.cicd-gitops-band {
-  margin-top: 4px;
+  background: rgba(10, 14, 26, 0.6);
   padding: 10px 12px;
-  border: 1px dashed rgba(250,204,21,0.35);
-  border-radius: var(--ppt-radius-md);
-  background: rgba(250,204,21,0.04);
+  display: flex; flex-direction: column; gap: 8px;
   position: relative; z-index: 1;
 }
-.cicd-gitops-title {
-  font-size: 10px; font-weight: 700; color: var(--ppt-accent-2);
-  text-align: center; margin-bottom: 8px; letter-spacing: 0.5px;
+.k8s-cluster-label {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 13px; font-weight: 700; color: var(--ppt-k8s);
+  letter-spacing: 0.5px;
 }
+.k8s-cluster-label i { font-size: 18px; }
+.k8s-control-plane {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+  padding: 8px;
+  background: rgba(50, 108, 229, 0.12);
+  border: 1px solid rgba(50, 108, 229, 0.35);
+  border-radius: var(--ppt-radius-sm);
+}
+.k8s-cp-cell {
+  text-align: center; padding: 6px 4px;
+  background: var(--ppt-surface-2);
+  border-radius: var(--ppt-radius-sm);
+  font-size: 10px; font-weight: 600; color: var(--ppt-text-1);
+}
+.k8s-cp-cell em { display: block; font-style: normal; font-size: 9px; color: var(--ppt-text-3); margin-top: 2px; font-weight: 400; }
+.k8s-orchestrate-band {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 4px 0;
+  font-size: 11px; font-weight: 700; color: var(--ppt-accent-2);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.k8s-orchestrate-band .k8s-orchestrate-line {
+  flex: 1; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ppt-accent-2), transparent);
+  animation: k8s-pulse 2s ease-in-out infinite;
+}
+@keyframes k8s-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.k8s-worker-row { display: flex; gap: 8px; flex: 1; min-height: 0; }
+.k8s-worker-node {
+  flex: 1;
+  border: 1px solid var(--ppt-border);
+  border-radius: var(--ppt-radius-sm);
+  background: var(--ppt-bg-soft);
+  padding: 8px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.k8s-node-label {
+  font-size: 10px; font-weight: 700; color: var(--ppt-text-3);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  display: flex; align-items: center; gap: 5px;
+}
+.k8s-node-label i { color: var(--ppt-good); font-size: 9px; }
+.k8s-node-role {
+  font-size: 9px; font-weight: 600; color: var(--ppt-accent);
+  line-height: 1.3;
+}
+.k8s-node-desc {
+  font-size: 9px; color: var(--ppt-text-3);
+  line-height: 1.4;
+  padding-top: 5px;
+  margin-top: auto;
+  border-top: 1px dashed rgba(51, 65, 85, 0.8);
+}
+.k8s-pods-row { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; align-content: flex-start; }
+.k8s-pod {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 5px 6px;
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 6px;
+  min-width: 52px;
+}
+.k8s-pod-icon {
+  width: 28px; height: 22px;
+  background: linear-gradient(180deg, rgba(0,240,255,0.2) 0%, rgba(0,240,255,0.05) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: 4px 4px 2px 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--ppt-accent);
+}
+.k8s-pod-name { font-size: 9px; font-weight: 600; color: var(--ppt-text-2); text-align: center; line-height: 1.2; }
+.k8s-container-note {
+  text-align: center;
+  font-size: 10px; color: var(--ppt-text-3);
+  padding-top: 4px;
+  border-top: 1px dashed var(--ppt-border);
+  margin-top: 2px;
+}
+.k8s-container-note i { color: var(--ppt-accent); margin-right: 4px; }
+.k8s-bottom-caption {
+  flex-shrink: 0;
+  margin: 0 40px 12px 40px;
+  padding: 9px 14px;
+  background: rgba(50, 108, 229, 0.08);
+  border: 1px solid rgba(50, 108, 229, 0.25);
+  border-left: 4px solid var(--ppt-k8s);
+  border-radius: var(--ppt-radius-md);
+  font-size: 13px; color: var(--ppt-text-2); line-height: 1.45;
+}
+.k8s-bottom-caption strong { color: var(--ppt-k8s); font-weight: 700; }
 html { overflow: hidden; margin: 0; padding: 0; }
 </style>
 </head>
 <body>
-<div class="slide-root">
-  <div class="title-region">
-    <div class="title-header">
-      <div class="title-bar"></div>
-      <span class="title-badge">PART 3 · DevOps</span>
-      <h1 class="title-text">CI/CD 자동화 아키텍처 (GitLab · Nexus · K8s · Argo CD)</h1>
+<div class="fass-slide-root">
+  <div class="title-region-container">
+    <div class="title-region-header">
+      <div class="title-region-bar"></div>
+      <h1 class="title-region-text">중장기 아키텍처 원칙 3: Kubernetes (컨테이너 오케스트레이션)</h1>
     </div>
-    <div class="title-line"></div>
+    <div class="title-region-divider"></div>
   </div>
 
-  <div class="cicd-body">
-    <div class="cicd-legend">
-      <span><i class="fas fa-circle" style="color:var(--ppt-gitlab)"></i> GitLab CI — 주 파이프라인</span>
-      <span><i class="fas fa-circle" style="color:var(--ppt-jenkins)"></i> Jenkins — 보조·레거시 연동</span>
-      <span><i class="fas fa-circle" style="color:var(--ppt-argo)"></i> Argo CD — GitOps 배포</span>
-      <span><i class="fas fa-circle" style="color:var(--ppt-k8s);opacity:0.55"></i> Kubernetes — 향후·보조 인프라</span>
-      <span><i class="fas fa-bolt" style="color:var(--ppt-accent)"></i> Webhook 트리거</span>
+  <div class="k8s-main-wrapper">
+    <div class="k8s-left-column">
+      <div class="k8s-summary-card">
+        <div class="k8s-summary-title">Docker 컨테이너를<br/>K8s가 자동으로 배치·운영</div>
+        <p class="k8s-summary-desc">
+          Cloud-Ready(원칙 2)로 패키징된 FaSS 모듈을 <b>Kubernetes</b> 클러스터에 올려
+          배포·확장·복구를 플랫폼이 대신 수행합니다.
+        </p>
+      </div>
+      <div class="k8s-feature-list">
+        <div class="k8s-feature-item">
+          <div class="k8s-feature-icon"><i class="fas fa-sitemap"></i></div>
+          <div class="k8s-feature-text">
+            <strong>오케스트레이션</strong>
+            <span>Control Plane이 Pod(컨테이너 묶음)를 노드에 최적 배치</span>
+          </div>
+        </div>
+        <div class="k8s-feature-item">
+          <div class="k8s-feature-icon"><i class="fas fa-expand"></i></div>
+          <div class="k8s-feature-text">
+            <strong>자동 확장 (HPA)</strong>
+            <span>부하 증가 시 Pod·노드를 Scale-out</span>
+          </div>
+        </div>
+        <div class="k8s-feature-item">
+          <div class="k8s-feature-icon"><i class="fas fa-heart-pulse"></i></div>
+          <div class="k8s-feature-text">
+            <strong>자기 치유</strong>
+            <span>장애 Pod 자동 재시작·무중단 Rolling Update</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="cicd-diagram">
-      <!-- Row 1: Source & Trigger -->
-      <div class="cicd-row">
-        <div class="cicd-row-label">Source</div>
-        <div class="cicd-row-track">
-          <div class="cicd-node cicd-node--git">
-            <div class="cicd-node-icon"><i class="fas fa-code-branch"></i></div>
-            <span class="cicd-node-name">Developer</span>
-            <span class="cicd-node-sub">Git Push / MR</span>
-          </div>
-          <div class="cicd-arrow-h"><em>push</em><i class="fas fa-arrow-right"></i></div>
-          <div class="cicd-node cicd-node--gitlab is-primary">
-            <div class="cicd-node-icon"><i class="fab fa-gitlab"></i></div>
-            <span class="cicd-node-name">GitLab</span>
-            <span class="cicd-node-sub">소스·Webhook</span>
-          </div>
-          <div class="cicd-arrow-h"><em>webhook</em><i class="fas fa-arrow-right"></i></div>
-          <div class="cicd-node cicd-node--gitlab is-primary">
-            <div class="cicd-node-icon"><i class="fas fa-gears"></i></div>
-            <span class="cicd-node-name">GitLab CI</span>
-            <span class="cicd-node-sub">Build · Test · Sonar</span>
-          </div>
+    <div class="k8s-diagram-column">
+      <div class="k8s-diagram-panel">
+        <div class="k8s-registry-row">
+          <div class="k8s-registry-box"><i class="fab fa-gitlab"></i> GitLab CI → Container Registry (Docker Image)</div>
+          <div class="k8s-arrow-down"></div>
         </div>
-      </div>
 
-      <div class="cicd-row"><div class="cicd-row-label"></div><div class="cicd-row-track"><div class="cicd-arrow-v"><i class="fas fa-arrow-down"></i></div></div></div>
+        <div class="k8s-cluster-frame">
+          <div class="k8s-cluster-label"><i class="fab fa-docker"></i> Kubernetes Cluster (K8s)</div>
 
-      <!-- Row 2: CI + Jenkins aux -->
-      <div class="cicd-row">
-        <div class="cicd-row-label">CI</div>
-        <div class="cicd-row-track">
-          <div class="cicd-node cicd-node--jenkins is-aux">
-            <div class="cicd-node-icon"><i class="fab fa-jenkins"></i></div>
-            <span class="cicd-node-name">Jenkins</span>
-            <span class="cicd-node-sub">보조 Job · 연동</span>
+          <div class="k8s-control-plane">
+            <div class="k8s-cp-cell">API Server<em>배포 요청 수신</em></div>
+            <div class="k8s-cp-cell">Scheduler<em>Pod → Node 배치</em></div>
+            <div class="k8s-cp-cell">Controller<em>상태 유지·복구</em></div>
           </div>
-          <div class="cicd-arrow-h"><em>보조</em><i class="fas fa-arrows-left-right"></i></div>
-          <div class="cicd-node cicd-node--docker is-primary">
-            <div class="cicd-node-icon"><i class="fab fa-docker"></i></div>
-            <span class="cicd-node-name">Docker Build</span>
-            <span class="cicd-node-sub">GitLab CI Runner</span>
-          </div>
-          <div class="cicd-arrow-h"><em>push image</em><i class="fas fa-arrow-right"></i></div>
-          <div class="cicd-node cicd-node--nexus is-primary">
-            <div class="cicd-node-icon"><i class="fas fa-warehouse"></i></div>
-            <span class="cicd-node-name">Nexus</span>
-            <span class="cicd-node-sub">Container Registry</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="cicd-row"><div class="cicd-row-label"></div><div class="cicd-row-track"><div class="cicd-arrow-v"><i class="fas fa-arrow-down"></i></div></div></div>
+          <div class="k8s-orchestrate-band">
+            <span class="k8s-orchestrate-line"></span>
+            <i class="fas fa-arrows-spin"></i> Container Orchestration
+            <span class="k8s-orchestrate-line"></span>
+          </div>
 
-      <!-- Row 3: GitOps CD -->
-      <div class="cicd-gitops-band">
-        <div class="cicd-gitops-title"><i class="fas fa-rotate"></i> GitOps — K8s 설정 저장소 커밋 → Argo CD 동기화 → 클러스터 배포</div>
-        <div class="cicd-row" style="margin-bottom:6px;">
-          <div class="cicd-row-label">Config</div>
-          <div class="cicd-row-track">
-            <div class="cicd-node cicd-node--git is-primary">
-              <div class="cicd-node-icon"><i class="fas fa-folder-tree"></i></div>
-              <span class="cicd-node-name">K8s Config Repo</span>
-              <span class="cicd-node-sub">manifest · Helm · Kustomize</span>
+          <div class="k8s-worker-row">
+            <div class="k8s-worker-node">
+              <div class="k8s-node-label"><i class="fas fa-circle"></i> Worker Node 1</div>
+              <div class="k8s-node-role">진입·프레젠테이션 계층</div>
+              <div class="k8s-pods-row">
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">API<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Web<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Gateway<br/>Pod</span></div>
+              </div>
+              <div class="k8s-node-desc">외부 트래픽 수신·JWT 인증·API Gateway(S12) 라우팅. Next.js SSR Web과 REST API가 사용자 진입점을 담당합니다.</div>
             </div>
-            <div class="cicd-arrow-h"><em>commit</em><i class="fas fa-arrow-right"></i></div>
-            <div class="cicd-node cicd-node--argo is-primary">
-              <div class="cicd-node-icon"><i class="fas fa-ship"></i></div>
-              <span class="cicd-node-name">Argo CD</span>
-              <span class="cicd-node-sub">GitOps Sync · Deploy</span>
+            <div class="k8s-worker-node">
+              <div class="k8s-node-label"><i class="fas fa-circle"></i> Worker Node 2</div>
+              <div class="k8s-node-role">도메인·데이터 계층</div>
+              <div class="k8s-pods-row">
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Order<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Batch<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">CDC<br/>Pod</span></div>
+              </div>
+              <div class="k8s-node-desc">수주·발주 도메인 로직, Spring Batch 대용량 처리, Debezium·Kafka 기반 레거시 DB 무중단 동기화(S17)를 수행합니다.</div>
             </div>
-            <div class="cicd-arrow-h"><em>apply</em><i class="fas fa-arrow-right"></i></div>
-            <div class="cicd-node cicd-node--k8s is-aux">
-              <div class="cicd-node-icon"><i class="fas fa-dharmachakra"></i></div>
-              <span class="cicd-node-name">Kubernetes</span>
-              <span class="cicd-node-sub">Pod · Service · Ingress</span>
-            </div>
+          </div>
+
+          <div class="k8s-container-note">
+            <i class="fas fa-layer-group"></i> 1 Pod = 1개 이상 Docker Container · Kubelet이 노드에서 컨테이너 실행
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <p class="k8s-bottom-caption">
+    <strong>Kubernetes(K8s)</strong> — 컨테이너화된 애플리케이션의 배포·스케일링·네트워킹·가용성을 자동화하는 컨테이너 오케스트레이션 플랫폼. FaSS 모듈(Docker)을 Pod 단위로 클러스터에 올려 트래픽·장애에 탄력적으로 대응합니다.
+  </p>
 </div>
 <script>
 (function(){
