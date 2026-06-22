@@ -2,93 +2,128 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>PART 3 - 기술 스택 및 아키텍처</title>
+<title>핵심 기술 스택 — 주요 과제별 매핑</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
-  --ppt-bg: #0A0E1A; --ppt-bg-soft: #141B2D; --ppt-surface: #1E2638;
-  --ppt-surface-2: #2A344A; --ppt-border: #334155;
-  --ppt-text-1: #FFF; --ppt-text-2: #94A3B8; --ppt-text-3: #64748B;
-  --ppt-accent: #00F0FF; --ppt-accent-2: #FACC15;
-  --ppt-font: "IBM Plex Sans KR", sans-serif;
+  --ppt-bg:#0A0E1A; --ppt-bg-soft:#141B2D; --ppt-surface:#1E2638; --ppt-border:#334155;
+  --ppt-text-1:#FFF; --ppt-text-2:#94A3B8; --ppt-text-3:#64748B;
+  --ppt-accent:#00F0FF; --ppt-accent-2:#FACC15; --ppt-radius-md:8px;
+  --ppt-font:"IBM Plex Sans KR",sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A; display: flex; justify-content: center; align-items: center; }
-.section-slide-root {
-  width: 960px; height: 720px; background-color: var(--ppt-bg);
-  font-family: var(--ppt-font); position: relative; display: flex;
-  flex-direction: column; justify-content: center; align-items: flex-start;
-  padding: 0 80px; overflow: hidden;
-}
-.bg-grid-overlay {
-  position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px; pointer-events: none;
-}
-.bg-glow-circle { position: absolute; right: -120px; top: 50%; transform: translateY(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,240,255,0.07) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-.bg-left-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: linear-gradient(180deg, transparent 0%, var(--ppt-accent) 40%, var(--ppt-accent) 60%, transparent 100%); }
-.section-part-number { font-size: 120px; font-weight: 700; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(0,240,255,0.2); position: absolute; right: 60px; bottom: 40px; user-select: none; }
-.section-part-label { font-size: 14px; font-weight: 700; color: var(--ppt-accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
-.section-part-label::after { content: ''; display: block; width: 60px; height: 1px; background: var(--ppt-accent); opacity: 0.5; }
-.section-title-ko { font-size: 48px; font-weight: 700; color: var(--ppt-text-1); line-height: 1.2; margin-bottom: 8px; }
-.section-title-en { font-size: 18px; font-weight: 400; color: var(--ppt-accent-2); letter-spacing: 1px; margin-bottom: 40px; }
-.section-divider-line { width: 80px; height: 3px; background: linear-gradient(90deg, var(--ppt-accent), transparent); margin-bottom: 36px; border-radius: 2px; }
-.section-topics-list { display: flex; flex-direction: column; gap: 14px; }
-.section-topic-item { display: flex; align-items: center; gap: 14px; }
-.topic-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ppt-accent); flex-shrink: 0; box-shadow: 0 0 8px var(--ppt-accent); }
-.topic-text { font-size: 17px; color: var(--ppt-text-2); font-weight: 400; line-height: 1.4; }
-html { overflow: hidden;  margin:0; padding:0; }
-</style></head>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:100vw;height:100vh;overflow:hidden;background:#0A0E1A;display:flex;justify-content:center;align-items:center;font-family:var(--ppt-font)}
+.slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden}
+.title-r{padding:22px 36px 6px;flex-shrink:0}
+.title-row{display:flex;align-items:center;gap:10px}
+.bar{width:4px;height:28px;background:var(--ppt-accent);border-radius:2px}
+.badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.3);color:var(--ppt-accent)}
+h1{font-size:24px;font-weight:700;line-height:1.3}
+.sub{font-size:12px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
+.line{height:1px;margin-top:6px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.body{flex:1;min-height:0;padding:6px 32px 10px;display:flex;flex-direction:column;gap:8px}
+.stack-table{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-md);overflow:hidden}
+.thead{display:grid;grid-template-columns:1.05fr 1.45fr;background:linear-gradient(90deg,#1e3a5f,#243b55);border-bottom:1px solid var(--ppt-border)}
+.th{padding:9px 14px;font-size:12px;font-weight:700;color:var(--ppt-text-1);letter-spacing:.02em}
+.th:first-child{border-right:1px solid rgba(255,255,255,.12)}
+.tbody{flex:1;min-height:0;display:flex;flex-direction:column}
+.tr{display:grid;grid-template-columns:1.05fr 1.45fr;border-bottom:1px solid var(--ppt-border);min-height:0;flex:1}
+.tr:last-child{border-bottom:none}
+.tr.highlight{background:linear-gradient(90deg,rgba(250,204,21,.22),rgba(250,204,21,.08));border-left:3px solid var(--ppt-accent-2)}
+.tr:not(.highlight):nth-child(even){background:rgba(20,27,45,.55)}
+.td-task{padding:7px 12px;font-size:11px;font-weight:600;color:var(--ppt-text-1);display:flex;align-items:center;line-height:1.35;border-right:1px solid var(--ppt-border)}
+.tr.highlight .td-task{color:#1a1a2e;font-weight:700}
+.td-stack{padding:6px 10px;display:flex;flex-wrap:wrap;align-items:center;gap:4px;align-content:center}
+.chip{font-size:10px;padding:3px 8px;border-radius:10px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);line-height:1.25;white-space:nowrap}
+.tr.highlight .chip{background:rgba(255,255,255,.75);border-color:rgba(250,204,21,.5);color:#1e293b;font-weight:600}
+.footer-note{flex-shrink:0;font-size:11px;color:var(--ppt-text-2);padding:6px 10px;border-left:3px solid var(--ppt-accent);background:rgba(0,240,255,0.05);border-radius:0 var(--ppt-radius-md) var(--ppt-radius-md) 0;margin:0 32px 10px}
+.footer-note strong{color:var(--ppt-accent)}
+html{overflow:hidden;margin:0;padding:0}
+</style>
+</head>
 <body>
-<div class="section-slide-root">
-  <div class="bg-grid-overlay"></div>
-  <div class="bg-glow-circle"></div>
-  <div class="bg-left-bar"></div>
-  <div class="section-part-number">03</div>
-  <div class="section-part-label">PART 03</div>
-  <div class="section-title-ko">기술 스택 및 아키텍처</div>
-  <div class="section-title-en">Tech Stack &amp; Architecture</div>
-  <div class="section-divider-line"></div>
-  <div class="section-topics-list">
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">차세대 핵심 기술 스택 — Java 21, Next.js(SSR), PostgreSQL, Docker 기반 클라우드 네이티브 표준</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">아키텍처 원칙 1 — 모듈러 모놀리스를 통한 온프레미스 안정성 및 도메인 격리</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">아키텍처 원칙 2 — Cloud-Ready 설계 및 ASP/SaaS 외부 확장성 확보 전략</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">아키텍처 원칙 3 — Kubernetes 컨테이너 오케스트레이션 (Pod 배치·자동 확장·자기 치유)</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">CI/CD 자동화 — GitLab CI · Nexus · K8s · Argo CD GitOps (Jenkins 보조)</span>
+<div class="slide">
+  <div class="title-r">
+    <div class="title-row"><div class="bar"></div><span class="badge">Tech Stack</span></div>
+    <h1>핵심 기술 스택 — 주요 과제별 매핑</h1>
+    <p class="sub">차세대 FaSS 플랫폼 구축 핵심 과제와 선정 기술 스택</p>
+    <div class="line"></div>
+  </div>
+  <div class="body">
+    <div class="stack-table">
+      <div class="thead">
+        <div class="th">주요 과제명</div>
+        <div class="th">기술 스택</div>
+      </div>
+      <div class="tbody">
+        <div class="tr">
+          <div class="td-task">개발 환경 및 인프라 기반 구축</div>
+          <div class="td-stack">
+            <span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">GitLab CI</span>
+            <span class="chip">Nexus Repository</span><span class="chip">SonarQube</span><span class="chip">ArgoCD</span>
+          </div>
+        </div>
+        <div class="tr">
+          <div class="td-task">공통 플랫폼 인프라</div>
+          <div class="td-stack">
+            <span class="chip">Spring Cloud Config</span><span class="chip">Redis</span>
+          </div>
+        </div>
+        <div class="tr highlight">
+          <div class="td-task">공통 프레임워크 아키텍처</div>
+          <div class="td-stack">
+            <span class="chip">Next.js</span><span class="chip">React 19</span><span class="chip">Tailwind CSS</span><span class="chip">RealGrid</span>
+          </div>
+        </div>
+        <div class="tr">
+          <div class="td-task">공통 UI 컴포넌트 라이브러리 개발</div>
+          <div class="td-stack">
+            <span class="chip">Atomic Design</span><span class="chip">RealGrid 2.0</span>
+          </div>
+        </div>
+        <div class="tr">
+          <div class="td-task">공통 배치 처리</div>
+          <div class="td-stack"><span class="chip">Spring Batch</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">멀티 컴퍼니 지원</div>
+          <div class="td-stack"><span class="chip">Multi-tenancy</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">외부 인터페이스</div>
+          <div class="td-stack"><span class="chip">API Gateway</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">AI 연동 모듈 개발</div>
+          <div class="td-stack"><span class="chip">REST</span><span class="chip">gRPC</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">리포트 Tool 도입</div>
+          <div class="td-stack"><span class="chip">ClipReport</span><span class="chip">Browser Print / PDF</span></div>
+        </div>
+        <div class="tr">
+          <div class="td-task">BI 대시보드</div>
+          <div class="td-stack"><span class="chip">Apache Superset</span><span class="chip">Grafana</span></div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="footer-note"><strong>핵심 축:</strong> 공통 프레임워크 아키텍처(Next.js · React 19)를 중심으로 DevOps·플랫폼·UI·AI·리포팅·BI 스택을 단계적으로 구축합니다.</div>
 </div>
 <script>
 (function(){
   function applyScale(){
-    var el=document.querySelector('body>div');
-    if(!el)return;
+    var el=document.querySelector('body>div');if(!el)return;
     var sw=window.innerWidth,sh=window.innerHeight;
     var scale=Math.min(sw/960,sh/720);
-    el.style.transform='scale('+scale+')';
-    el.style.transformOrigin='top left';
+    el.style.transform='scale('+scale+')';el.style.transformOrigin='top left';
     el.style.position='absolute';
     el.style.left=Math.round((sw-960*scale)/2)+'px';
     el.style.top=Math.round((sh-720*scale)/2)+'px';
   }
-  applyScale();
-  window.addEventListener('resize',applyScale);
+  applyScale();window.addEventListener('resize',applyScale);
 })();
 </script>
 </body>

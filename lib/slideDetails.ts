@@ -170,24 +170,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 5,
     topics: [
       {
-        id: "strategy-direction",
-        title: "제때의 전략 방향",
-        category: "process",
-        summary:
-          "MSA·Cloud·Open Source·AI 네 가지 산업 트렌드를 FaSS 차세대 플랫폼 구축 전략으로 내재화하는 (주)제때의 방향성입니다.",
-        process: [
-          { step: 1, title: "MSA", description: "모듈러 모놀리스 → 유통·물류 도메인 API 분리·점진적 MSA" },
-          { step: 2, title: "Cloud", description: "K8s·GitOps·FinOps Cloud-Ready, ASP/SaaS 확장 대비" },
-          { step: 3, title: "Open Source", description: "PostgreSQL·Kafka·GitLab CE 등 OSS 표준, 벤더 독립" },
-          { step: 4, title: "AI", description: "LangGraph Digital Worker + Human-in-the-loop 빌더형 IT" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 6,
-    topics: [
-      {
         id: "fass-identity",
         title: "FaSS 플랫폼 아이덴티티 가이드",
         category: "architecture",
@@ -212,7 +194,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 7,
+    slideId: 6,
     topics: [
       {
         id: "executive-kpi",
@@ -228,7 +210,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 8,
+    slideId: 7,
     topics: [
       {
         id: "progress-tracking",
@@ -244,7 +226,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 9,
+    slideId: 8,
     topics: [
       {
         id: "project-schedule",
@@ -262,7 +244,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 10,
+    slideId: 9,
     topics: [
       {
         id: "war-room",
@@ -278,7 +260,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
+    slideId: 10,
     topics: [
       {
         id: "fass-daily-scrum",
@@ -326,7 +308,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 12,
+    slideId: 11,
     topics: [
       {
         id: "milestone-plan",
@@ -342,7 +324,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 13,
+    slideId: 12,
     topics: [
       {
         id: "module-delivery",
@@ -359,7 +341,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 14,
+    slideId: 13,
     topics: [
       {
         id: "tech-stack-overview",
@@ -376,7 +358,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 15,
+    slideId: 14,
     topics: [
       {
         id: "api-first",
@@ -522,7 +504,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 16,
+    slideId: 15,
     topics: [
       {
         id: "msa-migration",
@@ -564,7 +546,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 17,
+    slideId: 16,
     topics: [
       {
         id: "docker-cloud-ready",
@@ -625,7 +607,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 18,
+    slideId: 17,
     topics: [
       {
         id: "cdc-sync",
@@ -680,7 +662,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 19,
+    slideId: 18,
     topics: [
       {
         id: "innovation-validation",
@@ -696,7 +678,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 20,
+    slideId: 19,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -712,7 +694,7 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]`,
     ],
   },
   {
-    slideId: 21,
+    slideId: 20,
     topics: [
       {
         id: "realgrid-ui",
@@ -774,7 +756,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 22,
+    slideId: 21,
     topics: [
       {
         id: "sonarqube-gate",
@@ -810,7 +792,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 23,
+    slideId: 22,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -828,7 +810,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 24,
+    slideId: 23,
     topics: [
       {
         id: "finops",
@@ -858,7 +840,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 25,
+    slideId: 24,
     topics: [
       {
         id: "peer-benchmark",
@@ -875,7 +857,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 28,
+    slideId: 25,
     topics: [
       {
         id: "mm-tool-investment",
@@ -991,7 +973,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 29,
+    slideId: 28,
     topics: [
       {
         id: "framework-builder-role",
@@ -1033,7 +1015,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
+    slideId: 29,
     topics: [
       {
         id: "builder-talent",
@@ -1049,7 +1031,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 30,
     topics: [
       {
         id: "roadmap-vision",
@@ -1065,7 +1047,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 31,
     topics: [
       {
         id: "risk-management",
@@ -1081,7 +1063,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 33,
+    slideId: 32,
     topics: [
       {
         id: "closing-milestones",
@@ -1098,7 +1080,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 34,
+    slideId: 33,
     topics: [
       {
         id: "commitment",
