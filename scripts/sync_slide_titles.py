@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SLIDES_DIR = ROOT / "public" / "slides"
 
 H1_CLASS_PATTERN = re.compile(
-    r'(<h1[^>]*class="[^"]*(?:title-main|title-text|title-text-content|title-text-main|title-main-text)[^"]*"[^>]*>)([\s\S]*?)(</h1>)',
+    r'(<h1[^>]*class="[^"]*(?:title-main|title-text|title-text-content|title-text-main|title-main-text|title-region-text|title-region-main-heading|title-text-main-heading)[^"]*"[^>]*>)([\s\S]*?)(</h1>)',
     re.I,
 )
 
@@ -38,21 +38,20 @@ def sync_slide(slide_id: int, title: str) -> bool:
     )
 
     if slide_id == 1:
-        # Cover: keep visual layout, ensure title tag only (h1 is stylized)
         pass
-    elif slide_id == 33:
+    elif H1_CLASS_PATTERN.search(content):
+        content = H1_CLASS_PATTERN.sub(
+            lambda m: f"{m.group(1)}{escape_html(title)}{m.group(3)}",
+            content,
+            count=1,
+        )
+    elif re.search(r"<h1[^>]*>", content, re.I):
         content = re.sub(
             r"(<h1[^>]*>)([\s\S]*?)(</h1>)",
             rf"\1{escape_html(title)}\3",
             content,
             count=1,
             flags=re.I,
-        )
-    elif H1_CLASS_PATTERN.search(content):
-        content = H1_CLASS_PATTERN.sub(
-            lambda m: f"{m.group(1)}{escape_html(title)}{m.group(3)}",
-            content,
-            count=1,
         )
 
     if content != original:
