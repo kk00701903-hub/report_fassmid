@@ -72,6 +72,12 @@ h1{font-size:26px;font-weight:700;line-height:1.25}
 .sprint-tag{font-size:10px;font-weight:700;padding:0 4px;border-radius:5px;background:rgba(250,204,21,.15);color:var(--ppt-accent-2);border:1px solid rgba(250,204,21,.3);line-height:1.45}
 .sprint-live{font-size:10px;font-weight:700;color:var(--ppt-good);display:inline-flex;align-items:center;gap:2px;line-height:1.45}
 .sprint-live i{font-size:9px;animation:pulse 1.4s ease-in-out infinite}
+.sprint-done{font-size:10px;font-weight:700;color:var(--ppt-text-3);display:inline-flex;align-items:center;gap:2px;line-height:1.45}
+.sprint-done i{font-size:9px;color:var(--ppt-text-3)}
+.sprint-future{font-size:10px;font-weight:700;color:#94A3B8;display:inline-flex;align-items:center;gap:2px;line-height:1.45}
+.sprint-future i{font-size:9px;color:var(--ppt-accent)}
+.sprint.s-done{opacity:.72}
+.sprint.s-done::before{background:var(--ppt-text-3)}
 .phase-col.p0{--phase-c:var(--p0)} .phase-col.p1{--phase-c:var(--p1)} .phase-col.p2{--phase-c:var(--p2)}
 .phase-col.p3{--phase-c:var(--p3)} .phase-col.px{--phase-c:var(--px)}
 .footer{flex-shrink:0;margin:4px 32px 12px;padding:9px 14px;border-radius:0 10px 10px 0;border-left:3px solid var(--ppt-accent-2);
@@ -88,19 +94,19 @@ html{overflow:hidden;margin:0;padding:0}
       <span class="badge"><span class="pulse"></span> LIVE · 동시 진행</span>
       <h1>스프린트 운영현황</h1>
     </div>
-    <p class="sub">FaSS Platform v3.0 — 21개 대규모 스프린트 · 5개 트랙 병렬 가동</p>
+    <p class="sub">FaSS Platform v3.0 — 19개 Mega-Sprint · ACTIVE 9 · 종료 2 · 예정 8</p>
     <div class="line"></div>
   </div>
 
   <div class="hero">
     <div class="hero-text">
-      <div class="hero-title">스프린트 1개 = <em>독립 대규모 프로젝트</em> · 현재 <em>전 Phase 동시 실행</em></div>
-      <div class="hero-desc">인프라·보안·아키텍처·데이터·전략 과제가 워룸 단위로 병렬 추진 — 일반 애자일 스프린트 대비 10배 이상 공수·범위</div>
+      <div class="hero-title">스프린트 백로그 기준 <em>실제 운영 현황</em> · S01·S08 <em>종료</em> · S23 리포트 Tool 추가</div>
+      <div class="hero-desc">별첨 스프린트/태스크 현황 반영 — 진행중(ACTIVE) · 예정(FUTURE) · 종료(CLOSED) 상태별 표시</div>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-val">21</div><div class="hstat-lbl">ACTIVE</div></div>
-      <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lbl">TRACKS</div></div>
-      <div class="hstat"><div class="hstat-val">∞</div><div class="hstat-lbl">PARALLEL</div></div>
+      <div class="hstat"><div class="hstat-val">19</div><div class="hstat-lbl">TOTAL</div></div>
+      <div class="hstat"><div class="hstat-val">9</div><div class="hstat-lbl">ACTIVE</div></div>
+      <div class="hstat"><div class="hstat-val">2</div><div class="hstat-lbl">CLOSED</div></div>
     </div>
   </div>
 
@@ -119,12 +125,13 @@ html{overflow:hidden;margin:0;padding:0}
     <div class="phase-col p0">
       <div class="phase-head">
         <div class="phase-num">Phase 0</div>
-        <div class="phase-name">기반 인프라</div>
-        <div class="phase-count">2 Mega-Sprints</div>
+        <div class="phase-name">기반 · 표준</div>
+        <div class="phase-count">3 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint"><span class="sprint-id">S01</span><div class="sprint-body"><div class="sprint-title">개발 환경 및 인프라 기반 구축</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S02</span><div class="sprint-body"><div class="sprint-title">공통 플랫폼 인프라 (Config·Discovery·Vault·Redis)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-done"><span class="sprint-id">S01</span><div class="sprint-body"><div class="sprint-title">개발 명명 규칙 표준화 작업</div><div class="sprint-meta"><span class="sprint-done"><i class="fas fa-check"></i>종료</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S02</span><div class="sprint-body"><div class="sprint-title">개발 환경 및 인프라 기반 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S03</span><div class="sprint-body"><div class="sprint-title">공통 플랫폼 인프라</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
       </div>
     </div>
 
@@ -132,13 +139,13 @@ html{overflow:hidden;margin:0;padding:0}
       <div class="phase-head">
         <div class="phase-num">Phase 1</div>
         <div class="phase-name">인증/보안/권한</div>
-        <div class="phase-count">4 Mega-Sprints</div>
+        <div class="phase-count">4 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint"><span class="sprint-id">S03</span><div class="sprint-body"><div class="sprint-title">인증 및 보안 (JWT + Spring Security 6.x)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S04</span><div class="sprint-body"><div class="sprint-title">SSO 연동 + AI Agent 역할·프로파일 관리</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S05</span><div class="sprint-body"><div class="sprint-title">권한 관리 (RBAC + ABAC + AOP)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S15</span><div class="sprint-body"><div class="sprint-title">데이터 보안 (API 마스킹 + DB 암호화)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S05</span><div class="sprint-body"><div class="sprint-title">SSO 연동 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S07</span><div class="sprint-body"><div class="sprint-title">권한 관리</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-done"><span class="sprint-id">S08</span><div class="sprint-body"><div class="sprint-title">상태관리 및 API 통신 공통 모듈 개발</div><div class="sprint-meta"><span class="sprint-done"><i class="fas fa-check"></i>종료</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S15</span><div class="sprint-body"><div class="sprint-title">데이터 보안</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
     </div>
 
@@ -146,51 +153,47 @@ html{overflow:hidden;margin:0;padding:0}
       <div class="phase-head">
         <div class="phase-num">Phase 2</div>
         <div class="phase-name">아키텍처/공통</div>
-        <div class="phase-count">8 Mega-Sprints</div>
+        <div class="phase-count">5 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint"><span class="sprint-id">S06</span><div class="sprint-body"><div class="sprint-title">공통 프레임워크 (SiteFramework)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S07</span><div class="sprint-body"><div class="sprint-title">상태관리 및 API 통신 공통 모듈</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S08</span><div class="sprint-body"><div class="sprint-title">멀티 컴퍼니 지원 (Multi-tenancy)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S09</span><div class="sprint-body"><div class="sprint-title">공통 UI 컴포넌트 (RealGrid·Modal·Suspense)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S10</span><div class="sprint-body"><div class="sprint-title">비즈니스 컴포넌트 가이드 (DTO·MapStruct·Batch)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S13</span><div class="sprint-body"><div class="sprint-title">개발 명명 규칙 표준화 (화면ID·FE·BE·DB)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S14</span><div class="sprint-body"><div class="sprint-title">Next.js SSR·RSC 최적화 및 Web Vitals</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S16</span><div class="sprint-body"><div class="sprint-title">APIM (API Management)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S04</span><div class="sprint-body"><div class="sprint-title">공통 프레임워크 아키텍처</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S09</span><div class="sprint-body"><div class="sprint-title">공통 UI 컴포넌트 라이브러리 개발</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S10</span><div class="sprint-body"><div class="sprint-title">비즈니스 컴포넌트 개발 가이드</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S11</span><div class="sprint-body"><div class="sprint-title">멀티 컴퍼니 지원</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S16</span><div class="sprint-body"><div class="sprint-title">SSR-RSC 최적화 및 Web Vitals</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
     </div>
 
     <div class="phase-col p3">
       <div class="phase-head">
         <div class="phase-num">Phase 3</div>
-        <div class="phase-name">데이터/통합</div>
-        <div class="phase-count">3 Mega-Sprints</div>
+        <div class="phase-name">데이터/통합/AI</div>
+        <div class="phase-count">3 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint"><span class="sprint-id">S11</span><div class="sprint-body"><div class="sprint-title">외부 인터페이스 (API GW + 알림 + 그룹웨어)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S12</span><div class="sprint-body"><div class="sprint-title">CDC 파이프라인 (Debezium + Kafka)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S17</span><div class="sprint-body"><div class="sprint-title">AI 연동 모듈 (물류·유통 AI 서비스 표준화)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S12</span><div class="sprint-body"><div class="sprint-title">외부 인터페이스</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S14</span><div class="sprint-body"><div class="sprint-title">AI 연동 모듈 개발</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S17</span><div class="sprint-body"><div class="sprint-title">CDC 데이터 동기화 파이프라인 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
     </div>
 
     <div class="phase-col px">
       <div class="phase-head">
         <div class="phase-num">추가 과제</div>
-        <div class="phase-name">전략·품질·BI</div>
-        <div class="phase-count">4 Mega-Sprints</div>
+        <div class="phase-name">전략·품질·Tool</div>
+        <div class="phase-count">4 Sprints</div>
       </div>
       <div class="sprint-list">
         <div class="sprint"><span class="sprint-id">S18</span><div class="sprint-body"><div class="sprint-title">MSA 전환 로드맵 실행 (Phase 1→2→3)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S19</span><div class="sprint-body"><div class="sprint-title">표준 라이브러리 골든셋 (Golden Set)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S20</span><div class="sprint-body"><div class="sprint-title">SCA 도입 (Nexus IQ — OSS 공급망 보안)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S21</span><div class="sprint-body"><div class="sprint-title">BI 대시보드 (Apache Superset + Grafana)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S23</span><div class="sprint-body"><div class="sprint-title">리포트 Tool 도입</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <strong>동시 다발 실행:</strong> Phase 0~3 + 추가 과제가 단일 워룸에서 병렬 가동 중 —
-    각 스프린트는 독립 프로젝트급 범위(인프라·보안·프레임워크·데이터·AI)이며, 의존성 관리 하에 <strong>현재 시점 전 과제 동시 진행</strong>
+    <strong>현황 기준:</strong> 별첨 스프린트 백로그 반영 — <strong>S01·S08 종료</strong>, ACTIVE 6건 + S18~S20·S23 진행중, FUTURE 8건 예정
   </div>
 </div>
 <script>
