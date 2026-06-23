@@ -166,7 +166,7 @@ h1{font-size:26px;font-weight:700;line-height:1.3}
 .connector span{font-size:13px;font-weight:700;text-align:center;line-height:1.2;max-width:48px}
 .phase{animation:phaseReveal var(--motion-duration,6s) ease infinite}
 .phase:nth-child(1){animation-delay:0s}
-.phase:nth-child(3){animation-delay:1.65s}
+.phase:nth-child(3){animation-delay:1.6var(--motion-duration,6s)}
 .phase:nth-child(5){animation-delay:3.3s}
 @keyframes phaseReveal{
   0%,8%,100%{box-shadow:none;border-color:var(--ppt-border)}
@@ -190,7 +190,7 @@ html{overflow:hidden;margin:0;padding:0}
 </style>
 </head>
 <body>
-<div class="slide" data-motion="pipeline">
+<div class="slide" data-motion="pipeline" data-motion-tier="medium">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>

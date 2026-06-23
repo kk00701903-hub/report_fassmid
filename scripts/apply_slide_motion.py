@@ -46,10 +46,10 @@ def ensure_motion_link(text: str) -> str:
     return text.replace("</head>", f"  {MOTION_LINK}\n</head>", 1)
 
 
-def apply_data_motion(text: str, template: str) -> str:
-    attr = f'data-motion="{template}"'
+def apply_data_motion(text: str, template: str, tier: str) -> str:
+    attr = f'data-motion="{template}" data-motion-tier="{tier}"'
     if "data-motion=" in text:
-        text = re.sub(r'data-motion="[^"]*"', attr, text, count=1)
+        text = re.sub(r'data-motion="[^"]*"(?:\s+data-motion-tier="[^"]*")?', attr, text, count=1)
         return text
 
     for pat in ROOT_SELECTORS:
@@ -77,7 +77,7 @@ def process_file(path: Path, cfg: dict[str, dict[str, str]]) -> bool:
     original = path.read_text(encoding="utf-8")
     updated = original
     updated = ensure_motion_link(updated)
-    updated = apply_data_motion(updated, cfg[slide_id]["template"])
+    updated = apply_data_motion(updated, cfg[slide_id]["template"], cfg[slide_id]["tier"])
     if cfg[slide_id]["tier"] == "medium":
         updated = harmonize_duration(updated)
     if updated != original:

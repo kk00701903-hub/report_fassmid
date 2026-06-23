@@ -57,7 +57,7 @@ h1{font-size:26px;font-weight:700;line-height:1.3}
 .chip i{font-size:13px;color:var(--cat-color);opacity:.9}
 .chip.spot{
   color:var(--ppt-text-1);font-weight:700;
-  animation:chipSpotPulse 4.5s ease-in-out infinite;
+  animation:chipSpotPulse 4.var(--motion-duration,6s) ease-in-out infinite;
 }
 .chip.spot-infra{
   border-color:rgba(56,189,248,.5);background:rgba(56,189,248,.1);
@@ -95,7 +95,7 @@ html{overflow:hidden;margin:0;padding:0}
 </style>
 </head>
 <body>
-<div class="slide" data-motion="cards">
+<div class="slide" data-motion="cards" data-motion-tier="medium">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>
