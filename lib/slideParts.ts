@@ -16,18 +16,18 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
     partNumber: 2,
     title: "프로젝트 진행 경과 및 방향성",
     startSlideId: 7,
-    endSlideId: 12,
+    endSlideId: 14,
   },
   {
     partNumber: 3,
     title: "기술 스택 및 아키텍처",
-    startSlideId: 13,
-    endSlideId: 17,
+    startSlideId: 15,
+    endSlideId: 19,
   },
   {
     partNumber: 4,
     title: "혁신 및 검증",
-    startSlideId: 18,
+    startSlideId: 20,
     endSlideId: 28,
   },
   {

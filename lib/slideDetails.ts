@@ -140,12 +140,12 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "디지털 트렌드 — MSA · Cloud · Open Source · AI",
         category: "process",
         summary:
-          "MSA·Cloud Native·Open Source·AI Native 네 축이 글로벌 빅테크·금융·물류 선도 기업에서 동시에 표준으로 자리잡고 있습니다.",
+          "MSA·Cloud·Open Source·AI 네 축이 글로벌 선도 기업의 동시 투자 패러다임으로 자리잡고 있습니다.",
         process: [
-          { step: 1, title: "MSA", description: "Modular Monolith → MSA 점진 전환, DDD·API-First" },
-          { step: 2, title: "Cloud", description: "Kubernetes·GitOps·FinOps 기반 Cloud-Ready 운영" },
-          { step: 3, title: "Open Source", description: "PostgreSQL·Kafka·Debezium 등 CNCF/OSS 표준 스택" },
-          { step: 4, title: "AI", description: "LangGraph Agent·RAG·Digital Worker 기반 AI Native 개발" },
+          { step: 1, title: "MSA", description: "도메인 분리·Modular Monolith → MSA 점진 전환" },
+          { step: 2, title: "Cloud", description: "Kubernetes·GitOps·FinOps 기반 Cloud-Ready" },
+          { step: 3, title: "Open Source", description: "PostgreSQL·Kafka 등 OSS 표준, 벤더 Lock-in 탈피" },
+          { step: 4, title: "AI", description: "AI Agent·LangGraph·Digital Worker CI/CD 통합" },
         ],
       },
     ],
@@ -157,11 +157,11 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         id: "digital-worker",
         title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)",
         category: "process",
-        summary: "24/7 자동화 작업과 인간 검토의 역할 분담 프로세스입니다.",
+        summary: "출근·퇴근하는 AI 디지털 워커 — 스크립트 복사 채용·KPI 평가·IT 관제 조직 모델입니다.",
         process: [
-          { step: 1, title: "자동 구간", description: "반복 코드 생성·테스트·문서화" },
-          { step: 2, title: "휴먼 구간", description: "아키텍처·보안·비즈니스 판단" },
-          { step: 3, title: "에스컬레이션", description: "AI 실패 시 빌더형 인재에게 핸드오프" },
+          { step: 1, title: "출퇴근", description: "09:00 태스크 할당 · 18:00 리포트 · 팀 단위 편성" },
+          { step: 2, title: "채용·평가", description: "스크립트 복사 투입 · KPI 평가 · 저성과 버전 교체" },
+          { step: 3, title: "IT 관제", description: "실시간 대시보드 · 이상 알림 · 감사 로그 거버넌스" },
         ],
       },
     ],
@@ -226,7 +226,31 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 9,
+    slideId: 8,
+    topics: [
+      {
+        id: "active-sprint-portfolio",
+        title: "19개 스프린트 운영 현황",
+        category: "process",
+        summary:
+          "별첨 백로그 기준 19개 Mega-Sprint — S01·S08 종료, ACTIVE 9건( S03·S04·S07·S10·S14·S23·S18~S20), FUTURE 8건.",
+        links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
+        preview: {
+          type: "sprint-backlog",
+          title: "Active Sprint Portfolio",
+          caption: "S01~S23 · 종료 2 · ACTIVE 9 · FUTURE 8",
+        },
+        process: [
+          { step: 1, title: "종료", description: "S01 개발 명명 규칙 표준화 · S08 상태관리·API 통신 공통 모듈" },
+          { step: 2, title: "진행중", description: "S03·S04·S07·S10·S14·S23 + S18 MSA · S19 Golden Set · S20 SCA" },
+          { step: 3, title: "예정", description: "S02·S05·S09·S11·S12·S15·S16·S17" },
+          { step: 4, title: "S23", description: "리포트 Tool 도입 — ACTIVE" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 11,
     topics: [
       {
         id: "project-schedule",
@@ -244,7 +268,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 10,
+    slideId: 12,
     topics: [
       {
         id: "ai-digital-worker",
@@ -261,7 +285,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
+    slideId: 13,
     topics: [
       {
         id: "fass-daily-scrum",
@@ -309,7 +333,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 12,
+    slideId: 14,
     topics: [
       {
         id: "milestone-plan",
@@ -325,7 +349,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 13,
+    slideId: 15,
     topics: [
       {
         id: "module-delivery",
@@ -342,7 +366,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 14,
+    slideId: 16,
     topics: [
       {
         id: "tech-stack-overview",
@@ -360,7 +384,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 15,
+    slideId: 17,
     topics: [
       {
         id: "api-first",
@@ -506,7 +530,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 16,
+    slideId: 18,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -522,7 +546,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 17,
+    slideId: 19,
     topics: [
       {
         id: "innovation-validation",
@@ -538,7 +562,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 18,
+    slideId: 20,
     topics: [
       {
         id: "realgrid-ui",
@@ -600,7 +624,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 19,
+    slideId: 21,
     topics: [
       {
         id: "business-innovation-engine",
@@ -619,7 +643,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 20,
+    slideId: 22,
     topics: [
       {
         id: "finops",
@@ -649,7 +673,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 21,
+    slideId: 23,
     topics: [
       {
         id: "sonarqube-gate",
@@ -685,7 +709,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 22,
+    slideId: 24,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -703,7 +727,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 23,
+    slideId: 25,
     topics: [
       {
         id: "mm-tool-investment",
@@ -819,7 +843,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 24,
+    slideId: 26,
     topics: [
       {
         id: "framework-builder-role",
@@ -861,7 +885,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 26,
+    slideId: 28,
     topics: [
       {
         id: "builder-talent-definition",
@@ -874,30 +898,6 @@ quality_gate:
           { step: 2, title: "빌더형 (After)", description: "Build·Monitor·Share — 요구사항을 직접 구현·관제·문서화" },
           { step: 3, title: "훈련장", description: "SiteFramework에서 실제 코드·배포·CI/CD·RAG 문서 실습" },
           { step: 4, title: "기대 효과", description: "개발 속도·품질·아키텍처 내재화를 조직 역량으로 축적" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 27,
-    topics: [
-      {
-        id: "active-sprint-portfolio",
-        title: "19개 스프린트 운영 현황",
-        category: "process",
-        summary:
-          "별첨 백로그 기준 19개 Mega-Sprint — S01·S08 종료, ACTIVE 9건( S03·S04·S07·S10·S14·S23·S18~S20), FUTURE 8건.",
-        links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
-        preview: {
-          type: "sprint-backlog",
-          title: "Active Sprint Portfolio",
-          caption: "S01~S23 · 종료 2 · ACTIVE 9 · FUTURE 8",
-        },
-        process: [
-          { step: 1, title: "종료", description: "S01 개발 명명 규칙 표준화 · S08 상태관리·API 통신 공통 모듈" },
-          { step: 2, title: "진행중", description: "S03·S04·S07·S10·S14·S23 + S18 MSA · S19 Golden Set · S20 SCA" },
-          { step: 3, title: "예정", description: "S02·S05·S09·S11·S12·S15·S16·S17" },
-          { step: 4, title: "S23", description: "리포트 Tool 도입 — ACTIVE" },
         ],
       },
     ],
