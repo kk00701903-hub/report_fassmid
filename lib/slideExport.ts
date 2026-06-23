@@ -136,14 +136,9 @@ function getSlideRoot(doc: Document, slideLabel: string): HTMLElement {
   return root;
 }
 
-function normalizeSlideLayout(
-  doc: Document,
-  root: HTMLElement,
-  colorMode: CaptureColorMode = "default",
-): void {
-  const bg = CAPTURE_BACKGROUNDS[colorMode];
+function normalizeSlideLayout(doc: Document, root: HTMLElement): void {
   doc.documentElement.style.overflow = "hidden";
-  doc.body.style.cssText = `margin:0;padding:0;width:${SLIDE_W}px;height:${SLIDE_H}px;overflow:hidden;background:${bg}`;
+  doc.body.style.cssText = `margin:0;padding:0;width:${SLIDE_W}px;height:${SLIDE_H}px;overflow:hidden;background:${CAPTURE_BACKGROUNDS.default}`;
   root.style.position = "relative";
   root.style.left = "0";
   root.style.top = "0";
@@ -152,13 +147,23 @@ function normalizeSlideLayout(
   root.style.width = `${SLIDE_W}px`;
   root.style.height = `${SLIDE_H}px`;
   root.style.margin = "0";
+  root.style.filter = "none";
 }
 
-/** 어두운 테마 슬라이드를 흰 배경·검은 글자 회색조로 반전 */
-function applyLightPrintTransform(doc: Document, root: HTMLElement): void {
-  doc.documentElement.style.background = "#ffffff";
-  doc.body.style.background = "#ffffff";
-  root.style.filter = "invert(1) grayscale(1)";
+/** 캡처 완료 후 회색조·밝은 배경 반전 (html2canvas 전 filter 적용 시 createPattern 오류 방지) */
+function applyLightGrayscaleToCanvas(source: HTMLCanvasElement): HTMLCanvasElement {
+  const output = document.createElement("canvas");
+  output.width = source.width;
+  output.height = source.height;
+
+  const ctx = output.getContext("2d");
+  if (!ctx) {
+    throw new Error("회색조 변환에 실패했습니다.");
+  }
+
+  ctx.filter = "invert(1) grayscale(1)";
+  ctx.drawImage(source, 0, 0);
+  return output;
 }
 
 function isCrossOriginImage(img: HTMLImageElement, pageOrigin: string): boolean {
@@ -217,17 +222,9 @@ function shouldIgnoreElement(element: Element): boolean {
   return element instanceof HTMLIFrameElement || element instanceof HTMLVideoElement;
 }
 
-function prepareDocumentForCapture(
-  doc: Document,
-  root: HTMLElement,
-  pageOrigin: string,
-  colorMode: CaptureColorMode,
-): void {
-  normalizeSlideLayout(doc, root, colorMode);
+function prepareDocumentForCapture(doc: Document, root: HTMLElement, pageOrigin: string): void {
+  normalizeSlideLayout(doc, root);
   sanitizeDocumentForCapture(doc, pageOrigin);
-  if (colorMode === "light") {
-    applyLightPrintTransform(doc, root);
-  }
 }
 
 async function captureSlideAsDataUrl(
@@ -248,7 +245,7 @@ async function captureSlideAsDataUrl(
     await waitForSlideRender(doc);
     const pageOrigin = iframe.contentWindow?.location.origin ?? window.location.origin;
     const root = getSlideRoot(doc, slideLabel);
-    prepareDocumentForCapture(doc, root, pageOrigin, colorMode);
+    prepareDocumentForCapture(doc, root, pageOrigin);
 
     const { default: html2canvas } = await import("html2canvas");
     const canvas = await html2canvas(root, {
@@ -261,12 +258,12 @@ async function captureSlideAsDataUrl(
       allowTaint: true,
       foreignObjectRendering: false,
       logging: false,
-      backgroundColor: CAPTURE_BACKGROUNDS[colorMode],
+      backgroundColor: CAPTURE_BACKGROUNDS.default,
       ignoreElements: shouldIgnoreElement,
       onclone: (clonedDoc) => {
         const clonedRoot = findSlideRoot(clonedDoc);
         if (clonedRoot) {
-          prepareDocumentForCapture(clonedDoc, clonedRoot, pageOrigin, colorMode);
+          prepareDocumentForCapture(clonedDoc, clonedRoot, pageOrigin);
         }
       },
     });
@@ -275,7 +272,9 @@ async function captureSlideAsDataUrl(
       throw new Error(`캡처 결과가 비어 있습니다 (${slideLabel})`);
     }
 
-    return canvas.toDataURL("image/png");
+    const outputCanvas = colorMode === "light" ? applyLightGrayscaleToCanvas(canvas) : canvas;
+
+    return outputCanvas.toDataURL("image/png");
   } finally {
     iframe.remove();
   }
