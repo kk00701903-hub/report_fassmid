@@ -21,8 +21,8 @@ body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:f
 .title-r{flex-shrink:0;padding:14px 28px 4px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
 .title-left{display:flex;align-items:center;gap:8px;min-width:0}
 .bar{width:4px;height:26px;background:var(--ppt-accent);border-radius:2px;flex-shrink:0}
-h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
-.sub{font-size:11px;color:var(--ppt-accent-2);font-weight:600;white-space:nowrap;flex-shrink:0}
+h1{font-size:26px;font-weight:700;line-height:1.25}
+.sub{font-size:13px;color:var(--ppt-accent-2);font-weight:600;white-space:nowrap;flex-shrink:0}
 .line-wrap{padding:0 28px 2px}
 .line{height:1px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
 .body{flex:1;min-height:0;padding:4px 28px 8px;display:grid;grid-template-columns:1fr 1.45fr;gap:8px 10px}
@@ -30,11 +30,11 @@ h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
 /* Left column */
 .left-col{display:flex;flex-direction:column;gap:6px;min-height:0}
 .strat-panel{background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:10px;padding:7px 9px;display:flex;flex-direction:column;gap:5px;flex-shrink:0}
-.panel-head{font-size:11px;font-weight:700;color:var(--ppt-accent-2);display:flex;align-items:center;gap:5px}
+.panel-head{font-size:13px;font-weight:700;color:var(--ppt-accent-2);display:flex;align-items:center;gap:5px}
 .strat-row{display:grid;grid-template-columns:1fr 1fr;gap:5px}
 .strat-box{background:rgba(10,14,26,.5);border:1px solid var(--ppt-border);border-radius:8px;padding:6px 7px;display:flex;gap:6px;align-items:flex-start}
-.strat-ico{width:26px;height:26px;border-radius:7px;background:var(--ppt-surface);display:flex;align-items:center;justify-content:center;color:var(--ppt-accent);font-size:12px;flex-shrink:0}
-.strat-t{font-size:11px;font-weight:700;line-height:1.25}
+.strat-ico{width:26px;height:26px;border-radius:7px;background:var(--ppt-surface);display:flex;align-items:center;justify-content:center;color:var(--ppt-accent);font-size:13px;flex-shrink:0}
+.strat-t{font-size:13px;font-weight:700;line-height:1.25}
 .strat-d{font-size:9.5px;color:var(--ppt-text-2);line-height:1.35;margin-top:2px}
 
 /* Animation stage */
@@ -48,8 +48,8 @@ h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
   background-image:linear-gradient(rgba(0,240,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.025) 1px,transparent 1px);
   background-size:24px 24px;pointer-events:none;
 }
-.anim-head{font-size:10px;font-weight:700;color:var(--ppt-accent);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
-.anim-status{font-size:9px;font-weight:600;color:var(--ppt-accent-2);padding:2px 8px;border-radius:10px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.3);animation:statusBlink 3s ease-in-out infinite}
+.anim-head{font-size:13px;font-weight:700;color:var(--ppt-accent);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+.anim-status{font-size:13px;font-weight:600;color:var(--ppt-accent-2);padding:2px 8px;border-radius:10px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.3);animation:statusBlink 3s ease-in-out infinite}
 @keyframes statusBlink{0%,100%{opacity:1}50%{opacity:.65}}
 
 /* Human → AI flow row */
@@ -64,7 +64,7 @@ h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
   animation:humanNod 4s ease-in-out infinite;
 }
 @keyframes humanNod{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
-.human-label{font-size:8px;font-weight:700;color:var(--c-human);text-align:center;line-height:1.2}
+.human-label{font-size:13px;font-weight:700;color:var(--c-human);text-align:center;line-height:1.2}
 .speech-bubble{
   flex:1;min-width:0;background:var(--ppt-surface);border:1px solid rgba(56,189,248,.4);
   border-radius:8px;padding:5px 8px;font-size:9.5px;color:var(--ppt-text-1);line-height:1.4;
@@ -92,7 +92,7 @@ h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
   animation:shuttle 1.2s linear infinite;
 }
 @keyframes shuttle{0%{left:-100%}100%{left:100%}}
-.arrow-tip{font-size:10px;color:var(--c-ai)}
+.arrow-tip{font-size:13px;color:var(--c-ai)}
 
 .ai-hub{
   width:56px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:3px;
@@ -109,7 +109,7 @@ h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
 }
 @keyframes aiPulse{0%,100%{box-shadow:0 0 12px rgba(250,204,21,.2)}50%{box-shadow:0 0 22px rgba(250,204,21,.45)}}
 @keyframes ringExpand{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.15);opacity:0}}
-.ai-label{font-size:8px;font-weight:700;color:var(--c-ai);text-align:center;line-height:1.2}
+.ai-label{font-size:13px;font-weight:700;color:var(--c-ai);text-align:center;line-height:1.2}
 
 /* Three output lanes */
 .lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;flex:1;min-height:0;position:relative;z-index:1}
@@ -121,15 +121,15 @@ h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
 .lane.code{--lane-color:var(--c-code)}
 .lane.design{--lane-color:var(--c-design)}
 .lane.doc{--lane-color:var(--c-doc)}
-.lane-head{display:flex;align-items:center;gap:4px;font-size:9px;font-weight:700;color:var(--lane-color)}
-.lane-head i{font-size:10px}
+.lane-head{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--lane-color)}
+.lane-head i{font-size:13px}
 .lane-screen{
   flex:1;min-height:0;background:rgba(10,14,26,.6);border:1px solid var(--ppt-border);
   border-radius:6px;padding:4px 5px;overflow:hidden;position:relative;
 }
 
 /* Code typing animation */
-.code-lines{font-family:Consolas,monospace;font-size:7px;line-height:1.55;color:var(--c-code)}
+.code-lines{font-family:Consolas,monospace;font-size:13px;line-height:1.55;color:var(--c-code)}
 .code-line{opacity:0;white-space:nowrap;overflow:hidden;border-right:1px solid var(--c-code);width:0}
 .lane.code .code-line:nth-child(1){animation:typeLine 4s steps(28) infinite}
 .lane.code .code-line:nth-child(2){animation:typeLine 4s steps(24) .4s infinite}
@@ -184,43 +184,43 @@ h1{font-size:22px;font-weight:700;line-height:1.25;white-space:nowrap}
 .lane.doc .doc-line:nth-child(5){--w:80%}
 .lane.doc .doc-line:nth-child(6){--w:40%}
 .doc-badge{
-  position:absolute;bottom:3px;right:4px;font-size:6px;font-weight:700;
+  position:absolute;bottom:3px;right:4px;font-size:13px;font-weight:700;
   color:var(--c-doc);padding:1px 4px;border-radius:4px;
   background:rgba(251,146,60,.15);animation:docDone 4s ease 2s infinite;
 }
 @keyframes docDone{0%,45%{opacity:0;transform:scale(.8)}55%,80%{opacity:1;transform:scale(1)}90%,100%{opacity:0}}
 
-.lane-foot{font-size:8px;color:var(--ppt-text-3);line-height:1.3;text-align:center;flex-shrink:0}
+.lane-foot{font-size:13px;color:var(--ppt-text-3);line-height:1.3;text-align:center;flex-shrink:0}
 
 /* Bottom wf strip */
 .wf-strip{
   flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:5px;
   padding:5px 8px;background:rgba(10,14,26,.5);border:1px solid var(--ppt-border);border-radius:8px;
-  font-size:9px;color:var(--ppt-text-2);
+  font-size:13px;color:var(--ppt-text-2);
 }
 .wf-strip strong{color:var(--ppt-accent)}
 .wf-mini{display:flex;gap:2px}
-.wf-dot{width:14px;height:14px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:7px}
+.wf-dot{width:14px;height:14px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px}
 .wf-dot.h{background:rgba(56,189,248,.15);color:var(--c-human);border:1px solid rgba(56,189,248,.4)}
 .wf-dot.a{background:rgba(250,204,21,.12);color:var(--c-ai);border:1px solid rgba(250,204,21,.4)}
 .wf-eq-num{font-size:14px;font-weight:800;color:var(--ppt-accent);padding:0 4px}
 
 /* Right: org table */
 .org-panel{display:flex;flex-direction:column;gap:5px;min-height:0}
-.org-head{font-size:11px;font-weight:700;color:var(--ppt-accent);display:flex;align-items:center;gap:5px;flex-shrink:0}
+.org-head{font-size:13px;font-weight:700;color:var(--ppt-accent);display:flex;align-items:center;gap:5px;flex-shrink:0}
 .table-wrap{flex:1;min-height:0;background:var(--ppt-surface);border:1px solid var(--ppt-border);border-radius:10px;overflow:hidden}
 table{width:100%;height:100%;border-collapse:collapse;table-layout:fixed}
 thead th{background:#2A344A;padding:7px 9px;font-size:11.5px;font-weight:700;color:var(--ppt-accent);text-align:left;border-bottom:2px solid var(--ppt-border)}
-tbody td{padding:7px 9px;font-size:11px;color:var(--ppt-text-1);vertical-align:middle;border-bottom:1px solid var(--ppt-border);line-height:1.38}
+tbody td{padding:7px 9px;font-size:13px;color:var(--ppt-text-1);vertical-align:middle;border-bottom:1px solid var(--ppt-border);line-height:1.38}
 tbody tr:last-child td{border-bottom:none}
 tbody tr{height:16.66%}
 .role{display:inline-block;padding:3px 7px;background:var(--ppt-surface);border-radius:5px;font-size:10.5px;font-weight:600;color:var(--ppt-text-2);line-height:1.2}
-.name{font-weight:700;font-size:11px;line-height:1.3}
+.name{font-weight:700;font-size:13px;line-height:1.3}
 .names .name{display:block}
 .task{margin:0;padding:0;list-style:none;color:var(--ppt-text-2);font-size:10.5px}
 .task li{position:relative;padding-left:10px;line-height:1.35}
 .task li+li{margin-top:2px}
-.task li::before{content:'•';position:absolute;left:0;color:var(--ppt-accent);font-size:8px;top:2px}
+.task li::before{content:'•';position:absolute;left:0;color:var(--ppt-accent);font-size:13px;top:2px}
 html{overflow:hidden;margin:0;padding:0}
 </style>
 </head>
@@ -335,7 +335,7 @@ html{overflow:hidden;margin:0;padding:0}
           <span class="wf-dot h"><i class="fas fa-user"></i></span>
           <span class="wf-dot h"><i class="fas fa-user"></i></span>
           <span class="wf-dot h"><i class="fas fa-user"></i></span>
-          <span style="color:var(--ppt-text-3);font-size:8px">···</span>
+          <span style="color:var(--ppt-text-3);font-size:13px">···</span>
         </div>
         <span>+</span>
         <span>AI <strong>7</strong></span>
@@ -343,7 +343,7 @@ html{overflow:hidden;margin:0;padding:0}
           <span class="wf-dot a"><i class="fas fa-robot"></i></span>
           <span class="wf-dot a"><i class="fas fa-robot"></i></span>
           <span class="wf-dot a"><i class="fas fa-robot"></i></span>
-          <span style="color:var(--ppt-text-3);font-size:8px">···</span>
+          <span style="color:var(--ppt-text-3);font-size:13px">···</span>
         </div>
         <span>=</span>
         <span class="wf-eq-num">14</span>
