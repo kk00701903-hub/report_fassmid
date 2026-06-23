@@ -41,12 +41,16 @@ h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
   background:var(--ppt-bg-soft); border:1px solid var(--ppt-border); border-radius:12px;
   padding:10px 12px; display:flex; flex-direction:column; gap:6px;
 }
-.concept-box.old { border-top:3px solid var(--ppt-text-3); opacity:.92; }
+.concept-box.old { border-top:3px solid var(--ppt-text-2); background:var(--ppt-bg-soft); }
 .concept-box.new { border-top:3px solid var(--ppt-good); background:linear-gradient(160deg,rgba(34,197,94,.08),var(--ppt-bg-soft)); }
 .concept-label { font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
-.concept-box.old .concept-label { color:var(--ppt-text-3); }
+.concept-box.old .concept-label { color:var(--ppt-text-2); }
 .concept-box.new .concept-label { color:var(--ppt-good); }
-.concept-title { font-size:14px; font-weight:700; line-height:1.3; }
+.concept-title { font-size:14px; font-weight:700; line-height:1.35; color:var(--ppt-text-1); }
+.concept-box.old .concept-title { color:var(--ppt-text-1); }
+.concept-kw { font-style:normal; font-weight:700; }
+.concept-box.old .concept-kw { color:#CBD5E1; }
+.concept-box.new .concept-kw { color:var(--ppt-good); }
 .concept-analogy { font-size:12px; color:var(--ppt-accent-2); font-weight:600; line-height:1.35; }
 .concept-list { list-style:none; display:flex; flex-direction:column; gap:3px; }
 .concept-list li {
@@ -123,7 +127,7 @@ html { overflow:hidden; margin:0; padding:0; }
     <div class="concept-strip">
       <div class="concept-box old">
         <span class="concept-label">Before · 사용자형</span>
-        <div class="concept-title">만들어진 것을 <em style="color:var(--ppt-text-3);font-style:normal;">사용</em>하는 인력</div>
+        <div class="concept-title">만들어진 것을 <em class="concept-kw">사용</em>하는 인력</div>
         <div class="concept-analogy">비유 — 완성차만 운전하는 운전사</div>
         <ul class="concept-list">
           <li>기능 변경·신규 개발은 외주·SI에 의존</li>
@@ -137,7 +141,7 @@ html { overflow:hidden; margin:0; padding:0; }
       </div>
       <div class="concept-box new">
         <span class="concept-label">After · 빌더형</span>
-        <div class="concept-title">직접 <em style="color:var(--ppt-good);font-style:normal;">만들고·고치고·운영</em>하는 인력</div>
+        <div class="concept-title">직접 <em class="concept-kw">만들고·고치고·운영</em>하는 인력</div>
         <div class="concept-analogy">비유 — 설계도 보고 차를 직접 조립·정비하는 장인</div>
         <ul class="concept-list">
           <li><strong style="color:var(--ppt-text-1);">Build</strong> — 요구사항을 코드·서비스로 직접 구현</li>

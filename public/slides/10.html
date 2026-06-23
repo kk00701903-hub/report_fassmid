@@ -23,11 +23,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:flex;justify-content:center;align-items:center;font-family:var(--ppt-font)}
 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden}
-.title-r{flex-shrink:0;padding:22px 36px 6px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.title-r{flex-shrink:0;padding:22px 36px 6px;display:flex;align-items:center;gap:12px}
 .title-left{display:flex;align-items:center;gap:10px}
 .bar{width:4px;height:30px;background:var(--ppt-accent);border-radius:2px}
 h1{font-size:26px;font-weight:700}
-.sub{font-size:13px;color:var(--ppt-accent-2);font-weight:600}
 .line-wrap{padding:0 36px 4px}
 .line{height:1px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
 .body{flex:1;min-height:0;padding:6px 36px 14px;display:flex;flex-direction:column;gap:8px}
@@ -61,6 +60,9 @@ h1{font-size:26px;font-weight:700}
 }
 .col-plan{--col-accent:var(--c-jira)}
 .col-design{--col-accent:var(--c-figma)}
+.col-design .tool-card{padding:6px 7px;flex:1;min-height:0}
+.col-design .tool-icon{width:28px;height:28px;font-size:13px}
+.col-design .tool-use{font-size:12px;line-height:1.35}
 .col-dev{--col-accent:var(--c-dgx)}
 .col-git{--col-accent:var(--c-gitlab)}
 .col-done{--col-accent:var(--ppt-good)}
@@ -148,7 +150,6 @@ html{overflow:hidden;margin:0;padding:0}
       <div class="bar"></div>
       <h1>AI-Augmented 개발 워크플로우</h1>
     </div>
-    <p class="sub">Jira · Figma · Cursor · Claude Code · DGX Spark · GitLab</p>
   </div>
   <div class="line-wrap"><div class="line"></div></div>
 
@@ -196,6 +197,13 @@ html{overflow:hidden;margin:0;padding:0}
           <div>
             <div class="tool-name">Adobe</div>
             <p class="tool-use">디자인·영상·문서 편집<br/>브랜드·가이드·산출물</p>
+          </div>
+        </div>
+        <div class="tool-card claude">
+          <div class="tool-icon"><i class="fas fa-robot"></i></div>
+          <div>
+            <div class="tool-name">Claude Code</div>
+            <p class="tool-use">Figma 스펙 → UI 코드 생성<br/>컴포넌트·스토리북 초안</p>
           </div>
         </div>
       </div>
@@ -278,7 +286,7 @@ html{overflow:hidden;margin:0;padding:0}
       <div class="pipe-flow">
         <div class="pipe-node"><strong>Jira 이슈 등록</strong><span>요구사항·스프린트 할당</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
-        <div class="pipe-node"><strong>Figma·Adobe</strong><span>UI/UX·산출물 설계</span></div>
+        <div class="pipe-node"><strong>Figma·Adobe<br/>+ Claude Code</strong><span>UI/UX 설계·코드 초안</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
         <div class="pipe-node ai"><strong>DGX Spark</strong><span>RAG·GPU 추론</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
@@ -289,7 +297,7 @@ html{overflow:hidden;margin:0;padding:0}
         <div class="pipe-node"><strong>Jira Done</strong><span>검증·회고·다음 Sprint</span></div>
       </div>
       <div class="pipe-loop">
-        <strong>Human + AI 협업 루프</strong> — 기획(Jira) → 설계(Figma·Adobe) →
+        <strong>Human + AI 협업 루프</strong> — 기획(Jira) → 설계(Figma·Adobe·<strong>Claude Code</strong>) →
         <strong>DGX Spark</strong>가 RAG 컨텍스트를 제공하고 <strong>Claude Code</strong>·<strong>Cursor</strong>가 코드를 생성 →
         <strong>GitLab</strong> MR·CI/CD → <strong>Jira</strong> 완료 후 다음 스프린트 반복
       </div>

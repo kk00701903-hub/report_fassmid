@@ -81,6 +81,13 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     color: var(--ppt-text-1);
     margin: 0
     }
+.title-sub-text {
+    font-size: 14px;
+    color: var(--ppt-text-2);
+    padding-left: 16px;
+    margin-top: 6px;
+    line-height: 1.45
+    }
 .title-gradient-line {
     height: 1px;
     width: 100%;
@@ -95,89 +102,102 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    padding: 10px 40px 16px 40px;
-    gap: 20px
+    padding: 8px 40px 12px 40px;
+    gap: 18px
     }
 .closing-visionary-left-group {
-    flex: 1;
+    flex: 1.15;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 24px
+    gap: 12px;
+    min-height: 0
     }
 .closing-visionary-right-group {
-    flex: 2;
+    flex: 0.85;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%)
+    padding: 20px 18px;
+    border-radius: var(--ppt-radius-lg);
+    border: 1px solid rgba(0, 240, 255, 0.25);
+    background: radial-gradient(circle at center, rgba(0, 240, 255, 0.08) 0%, rgba(20, 27, 45, 0.6) 70%)
     }
-/* Left Section Components */
-.closing-milestone-list-container {
+/* Vision pillars — completion state (not rollout timeline) */
+.vision-pillar-grid {
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 8px
     }
-.closing-milestone-item-row {
+.vision-pillar-card {
     display: flex;
+    gap: 12px;
     align-items: flex-start;
-    gap: 24px
+    padding: 10px 12px;
+    background: var(--ppt-bg-soft);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-md);
+    border-left: 3px solid var(--vc, var(--ppt-accent))
     }
-.closing-milestone-icon-box {
-    width: 48px;
-    height: 48px;
+.vision-pillar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     background: var(--ppt-surface);
     border: 1px solid var(--ppt-border);
-    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: var(--ppt-accent);
-    font-size: 20px;
+    justify-content: center;
+    color: var(--vc, var(--ppt-accent));
+    font-size: 17px;
     flex-shrink: 0
     }
-.closing-milestone-text-block {
-    display: flex;
-    flex-direction: column;
-    gap: 4px
-    }
-.closing-milestone-date-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ppt-accent);
+.vision-pillar-body { min-width: 0 }
+.vision-pillar-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
     text-transform: uppercase;
-    letter-spacing: 1px
+    color: var(--vc, var(--ppt-accent));
+    margin-bottom: 2px
     }
-.closing-milestone-title-text {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.closing-milestone-desc-text {
-    font-size: 16px;
-    color: var(--ppt-text-2);
-    line-height: 1.4
-    }
-.closing-vision-quote-container {
-    margin-top: 12px;
-    padding: 18px;
-    background: var(--ppt-bg-soft);
-    border-left: 4px solid var(--ppt-accent-2);
-    border-radius: var(--ppt-radius-md)
-    }
-.closing-vision-quote-text {
-    font-size: 20px;
-    font-weight: 600;
+.vision-pillar-title {
+    font-size: 15px;
+    font-weight: 700;
     color: var(--ppt-text-1);
-    line-height: 1.6;
-    font-style: italic
+    line-height: 1.35;
+    margin-bottom: 3px
     }
-.closing-vision-sub-text {
-    margin-top: 12px;
-    font-size: 16px;
-    color: var(--ppt-text-2)
+.vision-pillar-desc {
+    font-size: 13px;
+    color: var(--ppt-text-2);
+    line-height: 1.45
+    }
+.closing-commitment-bar {
+    flex-shrink: 0;
+    margin: 0 40px 14px;
+    padding: 10px 16px;
+    border-left: 3px solid var(--ppt-accent-2);
+    border-radius: 0 10px 10px 0;
+    background: rgba(250, 204, 21, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap
+    }
+.closing-commitment-bar strong { color: var(--ppt-accent-2) }
+.closing-commitment-bar span { font-size: 13px; color: var(--ppt-text-2); line-height: 1.45 }
+.commit-pill {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    color: var(--ppt-text-1);
+    white-space: nowrap
     }
 /* Right Section Components (Anchor) */
 .closing-anchor-keyword-wrapper {
@@ -240,53 +260,76 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="title-accent-bar"></div>
 <h1 class="title-main-text">맺음말</h1>
 </div>
+<p class="title-sub-text">로드맵을 넘어 — 완성 시 (주)제때가 그리는 차세대 디지털 운영의 모습</p>
 <div class="title-gradient-line"></div>
 </div>
 <!-- Main Content Body -->
 <div class="fass-closing-content-body">
-<!-- Left: Milestones & Vision -->
+<!-- Left: Completion vision pillars -->
 <div class="closing-visionary-left-group">
-<div class="closing-milestone-list-container">
-<div class="closing-milestone-item-row">
-<div class="closing-milestone-icon-box">
-<i class="fas fa-server"></i>
-</div>
-<div class="closing-milestone-text-block">
-<span class="closing-milestone-date-label">2026.10 — 2027.06 Prototype Development</span>
-<h3 class="closing-milestone-title-text">차세대 서버 · 완성형 기술스택 최초 적용 (Start)</h3>
-<p class="closing-milestone-desc-text">데모가 아닌 프로토타입 개발 착수. 차세대 서버에 SiteFramework·AI 오케스트레이션 등 완성형 스택을 최초로 적용하는 전환의 시작점. 2027년 3월 완성, 6월까지 안정화·고도화 진행</p>
+<div class="vision-pillar-grid">
+<div class="vision-pillar-card" style="--vc:var(--ppt-accent)">
+<div class="vision-pillar-icon"><i class="fas fa-layer-group"></i></div>
+<div class="vision-pillar-body">
+<div class="vision-pillar-tag">통합 플랫폼</div>
+<div class="vision-pillar-title">One FaSS — 3PL · 유통물류 · 영업이 하나로</div>
+<p class="vision-pillar-desc">파편화된 시스템이 단일 차세대 플랫폼으로 수렴합니다. API-First·실시간 데이터로 업무·의사결정이 끊김 없이 이어지는 통합 운영 체계가 완성됩니다.</p>
 </div>
 </div>
-<div class="closing-milestone-item-row">
-<div class="closing-milestone-icon-box">
-<i class="fas fa-truck-fast"></i>
-</div>
-<div class="closing-milestone-text-block">
-<span class="closing-milestone-date-label">2027.06 ~ Migration Preparation</span>
-<h3 class="closing-milestone-title-text">3PL · 유통물류 대규모 이관 준비</h3>
-<p class="closing-milestone-desc-text">단순 이관이 아닌 개선 방향 수립 — 시스템 개선과 차세대 웹프레임워크 적용이 병행되는 대규모 작업. AI 본격 시스템 적용의 핵심 사례가 됩니다</p>
+<div class="vision-pillar-card" style="--vc:var(--ppt-accent-2)">
+<div class="vision-pillar-icon"><i class="fas fa-robot"></i></div>
+<div class="vision-pillar-body">
+<div class="vision-pillar-tag">AI 네이티브 조직</div>
+<div class="vision-pillar-title">Human + Digital Worker — 24/7 협업 체계</div>
+<p class="vision-pillar-desc">TFT와 AI 디지털 워커가 상시 협업하고, 빌더형 인재가 직접 만들고·운영·개선합니다. 반복 업무는 AI, 판단·품질은 사람이 책임지는 지속 가능한 조직 모델입니다.</p>
 </div>
 </div>
-<div class="closing-milestone-item-row">
-<div class="closing-milestone-icon-box">
-<i class="fas fa-flag-checkered"></i>
-</div>
-<div class="closing-milestone-text-block">
-<span class="closing-milestone-date-label">Preparation Complete → Roll-out</span>
-<h3 class="closing-milestone-title-text">3PL · 유통물류 본격 전환</h3>
-<p class="closing-milestone-desc-text">프로토타입에서 검증된 아키텍처·프레임워크·AI 패턴을 3PL·유통물류 전사 시스템에 확대 적용, 차세대 플랫폼 전면 가동</p>
+<div class="vision-pillar-card" style="--vc:var(--ppt-good)">
+<div class="vision-pillar-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+<div class="vision-pillar-body">
+<div class="vision-pillar-tag">진화 가능 아키텍처</div>
+<div class="vision-pillar-title">Cloud-Ready → K8s · MSA — 무중단으로 성장</div>
+<p class="vision-pillar-desc">모듈러 모놀리스에서 출발해 CDC·GitOps 기반으로 점진 확장합니다. 레거시와 공존하며 전환하고, 중장기적으로 클라우드·MSA로 무리 없이 진화하는 기술 기반이 갖춰집니다.</p>
 </div>
 </div>
-</div>
-<div class="closing-vision-quote-container" style="border-left-color:var(--ppt-accent);">
-<p style="font-size:15px;font-weight:700;color:var(--ppt-accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">즉각 추진 사항</p>
-<div style="display:flex;flex-direction:column;gap:10px;">
-  <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>7월: 핵심 화면 UI/UX 스토리보드 완성 및 대표이사 확인</div>
-  <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>8~9월: 수주·발주·정산 핵심 모듈 집중 개발</div>
-  <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>10월: 차세대 서버 프로토타입 개발 착수 — 완성형 기술스택 최초 적용 Start</div>
+<div class="vision-pillar-card" style="--vc:#A78BFA">
+<div class="vision-pillar-icon"><i class="fas fa-coins"></i></div>
+<div class="vision-pillar-body">
+<div class="vision-pillar-tag">경영 · 사업 가치</div>
+<div class="vision-pillar-title">ASP 수익화 · FinOps · Zero-Defect 내재화</div>
+<p class="vision-pillar-desc">내재화된 기술 자산이 패키지·서비스로 확장 가능한 표준이 됩니다. 비용 효율·품질 통제·영업 경쟁력이 기술 투자와 직결되는 경영 엔진으로 완성됩니다.</p>
 </div>
 </div>
 </div>
+</div>
+<!-- Right: North-star anchor -->
+<div class="closing-visionary-right-group">
+<div class="closing-anchor-keyword-wrapper">
+<span class="closing-anchor-top-label">Completion Vision</span>
+<div class="closing-anchor-main-keyword">One FaSS</div>
+<div class="closing-anchor-accent-keyword">Platform</div>
+</div>
+<div class="closing-anchor-divider"></div>
+<div class="closing-anchor-stat-group">
+<span class="closing-anchor-stat-value" style="font-size:22px;color:var(--ppt-accent)">통합 · 지능 · 확장</span>
+<span class="closing-anchor-stat-label">완성 시 핵심 키워드</span>
+</div>
+<div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;width:100%;text-align:left">
+<div style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2)"><i class="fas fa-check" style="color:var(--ppt-good);margin-top:3px"></i>전사 물류·유통 업무가 하나의 데이터·프로세스로 연결</div>
+<div style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2)"><i class="fas fa-check" style="color:var(--ppt-good);margin-top:3px"></i>AI·자동화가 일상 운영에 스며든 디지털 조직</div>
+<div style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2)"><i class="fas fa-check" style="color:var(--ppt-good);margin-top:3px"></i>레거시 퇴장과 신규 확장이 공존하는 진화형 아키텍처</div>
+</div>
+<p class="closing-vision-quote-text" style="margin-top:18px;font-size:14px;font-style:normal;line-height:1.5;color:var(--ppt-text-1)">
+  「기술 프로젝트의 완료」가 아니라<br/><strong style="color:var(--ppt-accent-2)">지속 성장하는 디지털 운영 체계</strong>의 시작
+</p>
+</div>
+</div>
+<div class="closing-commitment-bar">
+<strong>TFT 실행 약속</strong>
+<span class="commit-pill"><i class="fas fa-calendar-check" style="color:var(--ppt-accent);margin-right:4px"></i>일정 ±1주</span>
+<span class="commit-pill"><i class="fas fa-shield-halved" style="color:var(--ppt-good);margin-right:4px"></i>Quality Gate 100%</span>
+<span class="commit-pill"><i class="fas fa-rocket" style="color:var(--ppt-accent-2);margin-right:4px"></i>ASP 전개 가능 아키텍처</span>
+<span style="flex:1;min-width:200px">단계적 롤아웃(30p)과 중장기 목표(31~32p)를 실행하며, 위 완성 비전을 향해 TFT가 책임지고 추진하겠습니다.</span>
 </div>
 </div>
 <script>

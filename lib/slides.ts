@@ -32,7 +32,7 @@ export const SLIDES: Slide[] = [
   { id: 24, title: "비즈니스 혁신4: 프로토타입 엔진을 통한 아키텍처 내재화" },
   { id: 25, title: "비즈니스 혁신5: Zero-Defect 코드 품질 통제 체계" },
   { id: 26, title: "비즈니스 혁신6: FinOps 관점에서의 클라우드 전환 대비" },
-  { id: 27, title: "비즈니스 혁신7: 독자 개발 RAG 기반 AI 솔루션 확보" },
+  { id: 27, title: "비즈니스 혁신7: DGX·Claude Code 하네스 및 프로세스 지침" },
   { id: 28, title: "비즈니스 혁신8: 빌더형 인재 육성을 위한 전환" },
   { id: 29, title: "PART 5 - 로드맵 및 미래 비전" },
   { id: 30, title: "단계적 롤아웃 로드맵" },

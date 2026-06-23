@@ -51,26 +51,26 @@ body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:f
   z-index:1;
 }
 .current-pill{
-  font-size:13px;font-weight:800;letter-spacing:.06em;
-  padding:3px 8px;border-radius:10px;
+  font-size:11px;font-weight:800;letter-spacing:.04em;
+  padding:2px 7px;border-radius:10px;
   background:var(--p3);color:#1a1a2e;
   box-shadow:0 0 12px rgba(255,192,0,.45);
-  margin-left:6px;
+  margin-left:4px;white-space:nowrap
 }
 .milestone-card.current .phase-badge{color:#FDE68A}
 .milestone-card.current .card-title{color:#FFF}
 .milestone-card.current .period{background:rgba(255,192,0,.15);border-color:rgba(255,192,0,.45)}
 .milestone-card.current .period-y,.milestone-card.current .period-m{color:#FDE68A}
 .milestone-card.span2{grid-column:span 2}
-.card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;flex-wrap:wrap}
-.card-head-left{display:flex;align-items:center;gap:4px}
-.phase-badge{font-size:13px;font-weight:700;color:var(--phase-color);letter-spacing:.02em}
+.card-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 8px;position:relative}
+.card-head-left{display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-width:0}
+.phase-badge{font-size:13px;font-weight:700;color:var(--phase-color);letter-spacing:.02em;white-space:nowrap}
 .period{
   display:inline-flex;align-items:center;gap:3px;
   padding:4px 9px;border-radius:10px;
   background:var(--ppt-surface);border:1px solid var(--ppt-border);
   font-variant-numeric:tabular-nums;
-  margin-left:auto;
+  margin-left:0;flex-shrink:0;white-space:nowrap;justify-self:end
 }
 .period-y{font-size:13px;font-weight:800;color:var(--ppt-accent-2);letter-spacing:.02em}
 .period-dot{font-size:13px;font-weight:700;color:var(--ppt-text-3)}

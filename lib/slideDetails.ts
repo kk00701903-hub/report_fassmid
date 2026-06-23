@@ -1036,14 +1036,15 @@ quality_gate:
     slideId: 33,
     topics: [
       {
-        id: "commitment",
-        title: "TFT 실행 약속 및 KPI",
+        id: "completion-vision",
+        title: "완성 비전 — One FaSS Platform",
         category: "process",
-        summary: "맺음말의 핵심 실행 약속과 측정 지표입니다.",
+        summary: "롤아웃 일정이 아닌, 프로젝트 완료 시 (주)제때가 지향하는 통합·AI·진화·경영 가치의 미래 모습입니다.",
         process: [
-          { step: 1, title: "일정 준수", description: "마일스톤 대비 ±1주 이내" },
-          { step: 2, title: "품질", description: "Quality Gate 100% 통과" },
-          { step: 3, title: "수익", description: "ASP 전개 가능 아키텍처 완성" },
+          { step: 1, title: "통합 플랫폼", description: "3PL·유통물류·영업 One FaSS, API-First 실시간 연결" },
+          { step: 2, title: "AI 네이티브", description: "Human + Digital Worker 24/7, 빌더형 인재 운영·개선" },
+          { step: 3, title: "진화 아키텍처", description: "Cloud-Ready → K8s·MSA, CDC 무중단 점진 확장" },
+          { step: 4, title: "경영 가치", description: "ASP·FinOps·Zero-Defect 내재화 — 기술이 경영 엔진으로" },
         ],
       },
     ],
