@@ -11,8 +11,8 @@ import {
 } from "@/lib/presentationConfig";
 import { clearSlideCache } from "@/lib/slideCache";
 import {
+  exportSlidesToPdf,
   exportSlidesToPptx,
-  exportSlidesToPrint,
   type ExportProgress,
 } from "@/lib/slideExport";
 
@@ -31,7 +31,7 @@ function moveItem<T>(items: T[], from: number, to: number): T[] {
 
 export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOptionsPanelProps) {
   const [draft, setDraft] = useState<PresentationConfig>(() => normalizePresentationConfig(config));
-  const [exporting, setExporting] = useState<"print" | "pptx" | null>(null);
+  const [exporting, setExporting] = useState<"pdf" | "pptx" | null>(null);
   const [exportProgress, setExportProgress] = useState<ExportProgress | null>(null);
   const [exportError, setExportError] = useState<string | null>(null);
 
@@ -97,15 +97,15 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
     onApply(defaults);
   };
 
-  const runExport = async (mode: "print" | "pptx") => {
+  const runExport = async (mode: "pdf" | "pptx") => {
     setExportError(null);
     setExporting(mode);
     setExportProgress({ current: 0, total: draft.slides.filter((s) => s.visible !== false).length, label: "" });
 
     try {
       const onProgress = (progress: ExportProgress) => setExportProgress(progress);
-      if (mode === "print") {
-        await exportSlidesToPrint(draft.slides, onProgress);
+      if (mode === "pdf") {
+        await exportSlidesToPdf(draft.slides, "FaSS-발표자료.pdf", onProgress);
       } else {
         await exportSlidesToPptx(draft.slides, "FaSS-발표자료.pptx", onProgress);
       }
@@ -139,17 +139,17 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
           <section className="options-section">
             <h3>보내기</h3>
             <p className="options-section__hint">
-              발표에 포함(체크)된 슬라이드만 인쇄·PDF·PowerPoint로 보냅니다. ({visibleCount}페이지)
+              발표에 포함(체크)된 슬라이드만 PDF·PowerPoint 파일로 저장합니다. ({visibleCount}페이지)
             </p>
             <div className="options-export-actions">
               <button
                 type="button"
                 className="options-btn options-btn--ghost"
                 disabled={!!exporting || visibleCount === 0}
-                onClick={() => void runExport("print")}
+                onClick={() => void runExport("pdf")}
               >
-                <i className="fa-solid fa-print" aria-hidden="true" />
-                인쇄 / PDF
+                <i className="fa-solid fa-file-pdf" aria-hidden="true" />
+                PDF 만들기
               </button>
               <button
                 type="button"
@@ -164,7 +164,7 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
             {exporting ? (
               <p className="options-export-status" role="status">
                 <i className="fa-solid fa-spinner fa-spin" aria-hidden="true" />
-                {exporting === "print" ? "인쇄 준비 중" : "PPTX 생성 중"}
+                {exporting === "pdf" ? "PDF 생성 중" : "PPTX 생성 중"}
                 {exportProgress
                   ? ` (${exportProgress.current}/${exportProgress.total}) ${exportProgress.label}`
                   : ""}

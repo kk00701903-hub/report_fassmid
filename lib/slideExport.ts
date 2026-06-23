@@ -277,80 +277,33 @@ export async function captureSlidesAsImages(
   return images;
 }
 
-async function waitForPrintImages(doc: Document): Promise<void> {
-  const images = Array.from(doc.images);
-  await Promise.all(
-    images.map(
-      (img) =>
-        new Promise<void>((resolve) => {
-          if (img.complete) {
-            resolve();
-            return;
-          }
-          img.addEventListener("load", () => resolve(), { once: true });
-          img.addEventListener("error", () => resolve(), { once: true });
-        }),
-    ),
-  );
-}
+/** 4:3 슬라이드 (960×720px @96dpi ≈ 254×190.5mm) */
+const PDF_PAGE_W_MM = 254;
+const PDF_PAGE_H_MM = 190.5;
 
-export async function exportSlidesToPrint(
+export async function exportSlidesToPdf(
   slides: SlideManifestItem[],
+  fileName = "FaSS-발표자료.pdf",
   onProgress?: (progress: ExportProgress) => void,
 ): Promise<void> {
   const images = await captureSlidesAsImages(slides, onProgress);
-  const printWindow = window.open("", "_blank", "noopener,noreferrer,width=1024,height=768");
-  if (!printWindow) throw new Error("팝업이 차단되었습니다. 인쇄 창을 허용해 주세요.");
+  const { jsPDF } = await import("jspdf");
 
-  const pages = images
-    .map(
-      (src) =>
-        `<section class="print-slide"><img src="${src}" alt="slide" width="${SLIDE_W}" height="${SLIDE_H}" /></section>`,
-    )
-    .join("");
+  const pdf = new jsPDF({
+    orientation: "landscape",
+    unit: "mm",
+    format: [PDF_PAGE_W_MM, PDF_PAGE_H_MM],
+    compress: true,
+  });
 
-  printWindow.document.write(`<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="utf-8" />
-<title>FaSS 슬라이드 인쇄</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #111; }
-  .print-slide {
-    width: ${SLIDE_W}px;
-    height: ${SLIDE_H}px;
-    margin: 0 auto;
-    page-break-after: always;
-    break-after: page;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0a0e1a;
-  }
-  .print-slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  @page { size: 254mm 190.5mm; margin: 0; }
-  @media print {
-    body { background: #fff; }
-    .print-slide { margin: 0; }
-  }
-</style>
-</head>
-<body>${pages}</body>
-</html>`);
-  printWindow.document.close();
+  images.forEach((dataUrl, index) => {
+    if (index > 0) {
+      pdf.addPage([PDF_PAGE_W_MM, PDF_PAGE_H_MM], "landscape");
+    }
+    pdf.addImage(dataUrl, "PNG", 0, 0, PDF_PAGE_W_MM, PDF_PAGE_H_MM, undefined, "FAST");
+  });
 
-  const triggerPrint = async () => {
-    await waitForPrintImages(printWindow.document);
-    printWindow.focus();
-    printWindow.print();
-  };
-
-  if (printWindow.document.readyState === "complete") {
-    await triggerPrint();
-  } else {
-    printWindow.addEventListener("load", () => void triggerPrint(), { once: true });
-  }
+  pdf.save(fileName);
 }
 
 export async function exportSlidesToPptx(
