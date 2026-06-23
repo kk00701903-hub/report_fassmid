@@ -226,30 +226,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 8,
-    topics: [
-      {
-        id: "active-sprint-portfolio",
-        title: "21개 스프린트 병렬 포트폴리오",
-        category: "process",
-        summary:
-          "Phase 0~3 및 추가 과제로 구성된 21개 Mega-Sprint가 워룸에서 동시 가동 중입니다. 각 스프린트는 독립 대규모 프로젝트 규모입니다.",
-        links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
-        preview: {
-          type: "sprint-backlog",
-          title: "Active Sprint Portfolio",
-          caption: "S01~S21 · 5 Tracks · Parallel Execution",
-        },
-        process: [
-          { step: 1, title: "Phase 0", description: "S01 개발환경 · S02 Config/Discovery/Vault/Redis" },
-          { step: 2, title: "Phase 1", description: "S03~S05 인증·SSO·권한 · S15 데이터 보안" },
-          { step: 3, title: "Phase 2", description: "S06~S16 SiteFramework·UI·APIM 등 8개 아키텍처 스프린트" },
-          { step: 4, title: "Phase 3 + 추가", description: "S11~S17 데이터·AI · S18~S21 MSA·Golden Set·SCA·BI" },
-        ],
-      },
-    ],
-  },
-  {
     slideId: 9,
     topics: [
       {
@@ -901,7 +877,31 @@ quality_gate:
     ],
   },
   {
-    slideId: 28,
+    slideId: 27,
+    topics: [
+      {
+        id: "active-sprint-portfolio",
+        title: "21개 스프린트 병렬 포트폴리오",
+        category: "process",
+        summary:
+          "Phase 0~3 및 추가 과제로 구성된 21개 Mega-Sprint가 워룸에서 동시 가동 중입니다. 각 스프린트는 독립 대규모 프로젝트 규모입니다.",
+        links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
+        preview: {
+          type: "sprint-backlog",
+          title: "Active Sprint Portfolio",
+          caption: "S01~S21 · 5 Tracks · Parallel Execution",
+        },
+        process: [
+          { step: 1, title: "Phase 0", description: "S01 개발환경 · S02 Config/Discovery/Vault/Redis" },
+          { step: 2, title: "Phase 1", description: "S03~S05 인증·SSO·권한 · S15 데이터 보안" },
+          { step: 3, title: "Phase 2", description: "S06~S16 SiteFramework·UI·APIM 등 8개 아키텍처 스프린트" },
+          { step: 4, title: "Phase 3 + 추가", description: "S11~S17 데이터·AI · S18~S21 MSA·Golden Set·SCA·BI" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 29,
     topics: [
       {
         id: "msa-migration",
@@ -943,7 +943,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 29,
+    slideId: 30,
     topics: [
       {
         id: "cdc-sync",
@@ -998,7 +998,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
+    slideId: 31,
     topics: [
       {
         id: "risk-management",
@@ -1014,7 +1014,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 32,
     topics: [
       {
         id: "closing-milestones",
@@ -1031,7 +1031,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 33,
     topics: [
       {
         id: "commitment",

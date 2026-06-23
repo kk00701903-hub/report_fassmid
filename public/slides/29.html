@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>중장기 목표 1: Kubernetes 운영</title>
+<title>중장기 목표 2: MSA 전환</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <style>
@@ -18,334 +18,274 @@
   --ppt-text-3: #64748B;
   --ppt-accent: #00F0FF;
   --ppt-accent-2: #FACC15;
-  --ppt-k8s: #326CE5;
   --ppt-good: #22C55E;
+  --ppt-warn: #F59E0B;
+  --ppt-bad: #EF4444;
   --ppt-radius-sm: 4px;
   --ppt-radius-md: 8px;
   --ppt-radius-lg: 16px;
+  --ppt-shadow-soft: 0 4px 12px rgba(0,0,0,0.3);
   --ppt-font-display: "IBM Plex Sans KR", sans-serif;
   --ppt-font-body: "IBM Plex Sans KR", sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  width: 100vw; height: 100vh; overflow: hidden;
-  background-color: #0A0E1A;
+  width:100vw; height:100vh; overflow: hidden;
+  background-color:#0A0E1A;
   display: flex; justify-content: center; align-items: center;
   font-family: var(--ppt-font-body);
 }
-.fass-slide-root {
+.slide-root {
   width: 960px; height: 720px;
   background-color: var(--ppt-bg);
+  color: var(--ppt-text-1);
   position: relative;
   display: flex; flex-direction: column;
-  color: var(--ppt-text-1);
-}
-.title-region-container {
-  padding: 28px 40px 8px 40px;
-  display: flex; flex-direction: column; gap: 6px;
-}
-.title-region-header { display: flex; align-items: center; gap: 12px; }
-.title-region-bar { width: 4px; height: 32px; background: var(--ppt-k8s); border-radius: 2px; }
-.title-region-text {
-  font-family: var(--ppt-font-display);
-  font-size: 28px; font-weight: 700; margin: 0;
-}
-.title-region-divider {
-  height: 1px; width: 100%;
-  background: linear-gradient(90deg, var(--ppt-k8s) 0%, transparent 100%);
-  opacity: 0.35; margin-top: 6px;
-}
-.k8s-main-wrapper {
-  flex: 1; min-height: 0;
-  padding: 6px 40px 10px 40px;
-  display: flex; gap: 20px; align-items: stretch;
-}
-.k8s-left-column {
-  flex: 0 0 280px;
-  display: flex; flex-direction: column; gap: 12px; justify-content: center;
-}
-.k8s-summary-card {
-  background: var(--ppt-bg-soft);
-  border-left: 4px solid var(--ppt-k8s);
-  padding: 16px 18px;
-  border-radius: var(--ppt-radius-md);
-}
-.k8s-summary-title {
-  font-size: 17px; font-weight: 700; color: var(--ppt-k8s); margin-bottom: 8px; line-height: 1.35;
-}
-.k8s-summary-desc { font-size: 14px; color: var(--ppt-text-2); line-height: 1.5; }
-.k8s-summary-desc b { color: var(--ppt-text-1); font-weight: 600; }
-.k8s-feature-list { display: flex; flex-direction: column; gap: 8px; }
-.k8s-feature-item {
-  display: flex; gap: 10px; align-items: flex-start;
-  padding: 10px 12px;
-  background: var(--ppt-surface);
-  border-radius: var(--ppt-radius-md);
   border: 1px solid var(--ppt-border);
-}
-.k8s-feature-icon {
-  width: 32px; height: 32px; flex-shrink: 0;
-  border-radius: var(--ppt-radius-sm);
-  background: rgba(50, 108, 229, 0.15);
-  color: var(--ppt-k8s);
-  display: flex; align-items: center; justify-content: center; font-size: 14px;
-}
-.k8s-feature-text strong { display: block; font-size: 14px; color: var(--ppt-text-1); margin-bottom: 2px; }
-.k8s-feature-text span { font-size: 12px; color: var(--ppt-text-2); line-height: 1.4; }
-
-/* Diagram */
-.k8s-diagram-column {
-  flex: 1; min-width: 0;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.k8s-diagram-panel {
-  flex: 1;
-  background: var(--ppt-surface);
-  border: 1px solid var(--ppt-border);
-  border-radius: var(--ppt-radius-lg);
-  padding: 14px 16px 12px;
-  display: flex; flex-direction: column; gap: 10px;
-  position: relative;
   overflow: hidden;
 }
-.k8s-diagram-panel::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 30%, rgba(50, 108, 229, 0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-.k8s-registry-row {
-  display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; z-index: 1;
-}
-.k8s-registry-box {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 6px 14px;
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px dashed rgba(0, 240, 255, 0.4);
-  border-radius: 20px;
-  font-size: 12px; font-weight: 600; color: var(--ppt-accent);
-}
-.k8s-arrow-down {
-  width: 2px; height: 18px;
-  background: linear-gradient(180deg, var(--ppt-accent), var(--ppt-k8s));
-  position: relative;
-}
-.k8s-arrow-down::after {
-  content: "";
-  position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
-  border-left: 5px solid transparent; border-right: 5px solid transparent;
-  border-top: 6px solid var(--ppt-k8s);
-}
-.k8s-cluster-frame {
-  flex: 1;
-  border: 2px solid rgba(50, 108, 229, 0.55);
-  border-radius: var(--ppt-radius-md);
-  background: rgba(10, 14, 26, 0.6);
-  padding: 10px 12px;
-  display: flex; flex-direction: column; gap: 8px;
-  position: relative; z-index: 1;
-}
-.k8s-cluster-label {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  font-size: 13px; font-weight: 700; color: var(--ppt-k8s);
-  letter-spacing: 0.5px;
-}
-.k8s-cluster-label i { font-size: 18px; }
-.k8s-control-plane {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
-  padding: 8px;
-  background: rgba(50, 108, 229, 0.12);
-  border: 1px solid rgba(50, 108, 229, 0.35);
-  border-radius: var(--ppt-radius-sm);
-}
-.k8s-cp-cell {
-  text-align: center; padding: 6px 4px;
-  background: var(--ppt-surface-2);
-  border-radius: var(--ppt-radius-sm);
-  font-size: 10px; font-weight: 600; color: var(--ppt-text-1);
-}
-.k8s-cp-cell em { display: block; font-style: normal; font-size: 9px; color: var(--ppt-text-3); margin-top: 2px; font-weight: 400; }
-.k8s-orchestrate-band {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 4px 0;
-  font-size: 11px; font-weight: 700; color: var(--ppt-accent-2);
-  text-transform: uppercase; letter-spacing: 1px;
-}
-.k8s-orchestrate-band .k8s-orchestrate-line {
-  flex: 1; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--ppt-accent-2), transparent);
-  animation: k8s-pulse 2s ease-in-out infinite;
-}
-@keyframes k8s-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-.k8s-worker-row { display: flex; gap: 8px; flex: 1; min-height: 0; }
-.k8s-worker-node {
-  flex: 1;
-  border: 1px solid var(--ppt-border);
-  border-radius: var(--ppt-radius-sm);
-  background: var(--ppt-bg-soft);
-  padding: 8px;
+/* Title */
+.title-region {
+  padding: 28px 40px 12px 40px;
   display: flex; flex-direction: column; gap: 6px;
 }
-.k8s-node-label {
-  font-size: 10px; font-weight: 700; color: var(--ppt-text-3);
-  text-transform: uppercase; letter-spacing: 0.5px;
-  display: flex; align-items: center; gap: 5px;
+.title-header { display: flex; align-items: center; gap: 12px; }
+.title-bar { width: 4px; height: 32px; background: var(--ppt-accent); border-radius: 2px; }
+.title-badge {
+  background: rgba(0,240,255,0.12); color: var(--ppt-accent);
+  padding: 3px 12px; border-radius: var(--ppt-radius-sm);
+  font-size: 13px; font-weight: 600;
+  border: 1px solid rgba(0,240,255,0.3);
+  white-space: nowrap;
 }
-.k8s-node-label i { color: var(--ppt-good); font-size: 9px; }
-.k8s-node-role {
-  font-size: 9px; font-weight: 600; color: var(--ppt-accent);
-  line-height: 1.3;
+.title-text {
+  font-family: var(--ppt-font-display);
+  font-size: 26px; font-weight: 700; color: var(--ppt-text-1); margin: 0;
 }
-.k8s-node-desc {
-  font-size: 9px; color: var(--ppt-text-3);
-  line-height: 1.4;
-  padding-top: 5px;
-  margin-top: auto;
-  border-top: 1px dashed rgba(51, 65, 85, 0.8);
+.title-line {
+  height: 1px; width: 100%;
+  background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+  opacity: 0.3; margin-top: 4px;
 }
-.k8s-pods-row { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; align-content: flex-start; }
-.k8s-pod {
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
-  padding: 5px 6px;
-  background: rgba(0, 240, 255, 0.06);
-  border: 1px solid rgba(0, 240, 255, 0.25);
-  border-radius: 6px;
-  min-width: 52px;
+/* Main layout */
+.main-container {
+  flex: 1;
+  padding: 10px 40px 12px 40px;
+  display: flex;
+  gap: 24px;
 }
-.k8s-pod-icon {
-  width: 28px; height: 22px;
-  background: linear-gradient(180deg, rgba(0,240,255,0.2) 0%, rgba(0,240,255,0.05) 100%);
-  border: 1px solid rgba(0, 240, 255, 0.35);
-  border-radius: 4px 4px 2px 2px;
+/* Left: Strangler Fig Diagram */
+.left-col {
+  flex: 1.1;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.diagram-card {
+  flex: 1;
+  background: var(--ppt-bg-soft);
+  border: 1px solid var(--ppt-border);
+  border-radius: var(--ppt-radius-lg);
+  padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.diagram-label {
+  font-size: 13px; font-weight: 700; color: var(--ppt-accent);
+  text-transform: uppercase; letter-spacing: 1px;
+  display: flex; align-items: center; gap: 6px;
+}
+.diagram-stages {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 6px;
+  justify-content: center;
+}
+.stage-row {
+  display: flex; align-items: stretch; gap: 6px;
+}
+.stage-label-col {
+  width: 58px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 10px; color: var(--ppt-accent);
+  font-size: 10px; font-weight: 700; color: var(--ppt-text-3);
+  text-align: center; line-height: 1.3;
 }
-.k8s-pod-name { font-size: 9px; font-weight: 600; color: var(--ppt-text-2); text-align: center; line-height: 1.2; }
-.k8s-container-note {
-  text-align: center;
-  font-size: 10px; color: var(--ppt-text-3);
-  padding-top: 4px;
-  border-top: 1px dashed var(--ppt-border);
-  margin-top: 2px;
+.stage-blocks {
+  flex: 1; display: flex; gap: 5px; align-items: center;
 }
-.k8s-container-note i { color: var(--ppt-accent); margin-right: 4px; }
-.k8s-bottom-caption {
-  flex-shrink: 0;
-  margin: 0 40px 12px 40px;
-  padding: 9px 14px;
-  background: rgba(50, 108, 229, 0.08);
-  border: 1px solid rgba(50, 108, 229, 0.25);
-  border-left: 4px solid var(--ppt-k8s);
+.block-legacy {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-radius: var(--ppt-radius-sm); font-size: 10px; font-weight: 600; padding: 5px 4px;
+  text-align: center; line-height: 1.3;
+}
+.block-lg { background: rgba(100,116,139,0.25); border: 1px solid rgba(100,116,139,0.4); color: #94A3B8; }
+.block-new { background: rgba(0,240,255,0.12); border: 1px solid rgba(0,240,255,0.35); color: var(--ppt-accent); }
+.block-ai  { background: rgba(250,204,21,0.12); border: 1px solid rgba(250,204,21,0.4); color: var(--ppt-accent-2); }
+.block-msa { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.4); color: var(--ppt-good); }
+.arrow-right { color: var(--ppt-text-3); font-size: 12px; }
+.stage-arrow-row {
+  display: flex; justify-content: center; align-items: center; gap: 4px;
+  color: var(--ppt-accent); opacity: 0.5;
+}
+.strangler-note {
+  font-size: 11px; color: var(--ppt-text-3); text-align: center;
+  padding: 5px 8px;
+  background: rgba(0,240,255,0.04); border-radius: var(--ppt-radius-sm);
+  border: 1px dashed rgba(0,240,255,0.2);
+}
+/* Right: Reasons + Trade-off */
+.right-col {
+  flex: 1.3;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.section-title {
+  font-size: 15px; font-weight: 700; color: var(--ppt-accent-2);
+  display: flex; align-items: center; gap: 8px;
+}
+.reasons-grid { display: flex; flex-direction: column; gap: 7px; }
+.reason-card {
+  background: var(--ppt-surface);
+  border: 1px solid var(--ppt-border);
+  border-left: 3px solid var(--ppt-accent);
   border-radius: var(--ppt-radius-md);
-  font-size: 13px; color: var(--ppt-text-2); line-height: 1.45;
+  padding: 9px 14px;
+  display: flex; align-items: flex-start; gap: 12px;
 }
-.k8s-bottom-caption strong { color: var(--ppt-k8s); font-weight: 700; }
-html { overflow: hidden; margin: 0; padding: 0; }
-</style>
-</head>
+.reason-num {
+  width: 28px; height: 28px;
+  background: rgba(0,240,255,0.12);
+  border: 1px solid rgba(0,240,255,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: var(--ppt-accent);
+  flex-shrink: 0;
+}
+.reason-content { display: flex; flex-direction: column; gap: 2px; }
+.reason-title { font-size: 15px; font-weight: 700; color: var(--ppt-text-1); }
+.reason-desc  { font-size: 12px; color: var(--ppt-text-2); line-height: 1.4; }
+.tradeoff-box {
+  background: linear-gradient(90deg, rgba(239,68,68,0.08) 0%, rgba(250,204,21,0.06) 100%);
+  border-left: 3px solid var(--ppt-accent-2);
+  border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
+  padding: 9px 14px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.tradeoff-icon { color: var(--ppt-accent-2); font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.tradeoff-text { font-size: 13px; color: var(--ppt-text-2); line-height: 1.5; }
+.tradeoff-text strong { color: var(--ppt-accent-2); }
+/* Bottom bar */
+.bottom-bar {
+  padding: 8px 40px;
+  background: linear-gradient(90deg, rgba(0,240,255,0.06) 0%, transparent 100%);
+  border-top: 1px solid rgba(0,240,255,0.15);
+  display: flex; align-items: center; gap: 10px;
+}
+.bottom-bar-icon { color: var(--ppt-accent); font-size: 16px; }
+.bottom-bar-text { font-size: 14px; color: var(--ppt-text-1); font-weight: 600; }
+.bottom-bar-sub  { font-size: 13px; color: var(--ppt-text-2); margin-left: 4px; }
+html { overflow: hidden;  margin:0; padding:0; }
+</style></head>
 <body>
-<div class="fass-slide-root">
-  <div class="title-region-container">
-    <div class="title-region-header">
-      <div class="title-region-bar"></div>
-      <h1 class="title-region-text">중장기 목표 1: Kubernetes 운영</h1>
+<div class="slide-root">
+  <!-- Title -->
+  <div class="title-region">
+    <div class="title-header">
+      <div class="title-bar"></div>
+      <span class="title-badge">ULTIMATE GOAL</span>
+      <h1 class="title-text">중장기 목표 2: MSA 전환</h1>
     </div>
-    <div class="title-region-divider"></div>
+    <div class="title-line"></div>
   </div>
 
-  <div class="k8s-main-wrapper">
-    <div class="k8s-left-column">
-      <div class="k8s-summary-card">
-        <div class="k8s-summary-title">Docker 컨테이너를<br/>K8s가 자동으로 배치·운영</div>
-        <p class="k8s-summary-desc">
-          Cloud-Ready(원칙 2)로 패키징된 FaSS 모듈을 <b>Kubernetes</b> 클러스터에 올려
-          배포·확장·복구를 플랫폼이 대신 수행합니다.
-        </p>
-      </div>
-      <div class="k8s-feature-list">
-        <div class="k8s-feature-item">
-          <div class="k8s-feature-icon"><i class="fas fa-sitemap"></i></div>
-          <div class="k8s-feature-text">
-            <strong>오케스트레이션</strong>
-            <span>Control Plane이 Pod(컨테이너 묶음)를 노드에 최적 배치</span>
+  <!-- Main -->
+  <div class="main-container">
+    <!-- Left: Diagram -->
+    <div class="left-col">
+      <div class="diagram-card">
+        <div class="diagram-label">
+          <i class="fas fa-project-diagram"></i> Strangler Fig Pattern — 점진적 신규 시스템 확대
+        </div>
+        <div class="diagram-stages">
+          <!-- Stage 1 -->
+          <div class="stage-row">
+            <div class="stage-label-col">현재<br/>(Phase 1)</div>
+            <div class="stage-blocks">
+              <div class="block-legacy block-lg" style="flex:2.5; height:44px;">레거시 모놀리스<br/>(C# 시스템)</div>
+              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+              <div class="block-legacy block-new" style="flex:1.2; height:44px;">FaSS<br/>V3.0</div>
+            </div>
+          </div>
+          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:10px; margin-left:4px;">AI 접목 신규 시스템 점진적 확대</span></div>
+          <!-- Stage 2 -->
+          <div class="stage-row">
+            <div class="stage-label-col">전환기<br/>(Phase 2)</div>
+            <div class="stage-blocks">
+              <div class="block-legacy block-lg" style="flex:1.2; height:44px;">레거시<br/>(축소)</div>
+              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+              <div class="block-legacy block-new" style="flex:1.5; height:44px;">FaSS<br/>Core</div>
+              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+              <div class="block-legacy block-ai" style="flex:1.3; height:44px;">AI<br/>Service</div>
+            </div>
+          </div>
+          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:10px; margin-left:4px;">레거시 완전 제거 — 완전한 MSA 구현</span></div>
+          <!-- Stage 3 -->
+          <div class="stage-row">
+            <div class="stage-label-col">최종<br/>(MSA)</div>
+            <div class="stage-blocks">
+              <div class="block-legacy block-msa" style="flex:1; height:44px;">유통<br/>물류</div>
+              <div class="block-legacy block-msa" style="flex:1; height:44px;">3PL<br/>시스템</div>
+              <div class="block-legacy block-msa" style="flex:1; height:44px;">주유소관리<br/>시스템</div>
+              <div class="block-legacy block-ai" style="flex:1; height:44px;">AI<br/>Engine</div>
+            </div>
           </div>
         </div>
-        <div class="k8s-feature-item">
-          <div class="k8s-feature-icon"><i class="fas fa-expand"></i></div>
-          <div class="k8s-feature-text">
-            <strong>자동 확장 (HPA)</strong>
-            <span>부하 증가 시 Pod·노드를 Scale-out</span>
-          </div>
-        </div>
-        <div class="k8s-feature-item">
-          <div class="k8s-feature-icon"><i class="fas fa-heart-pulse"></i></div>
-          <div class="k8s-feature-text">
-            <strong>자기 치유</strong>
-            <span>장애 Pod 자동 재시작·무중단 Rolling Update</span>
-          </div>
+        <div class="strangler-note">
+          <i class="fas fa-leaf" style="color:var(--ppt-accent);"></i>
+          &nbsp;기존 시스템을 한 번에 교체하지 않고, 신규 AI 접목 시스템부터 독립 서비스로 래핑하여 점진적으로 레거시를 대체
         </div>
       </div>
     </div>
 
-    <div class="k8s-diagram-column">
-      <div class="k8s-diagram-panel">
-        <div class="k8s-registry-row">
-          <div class="k8s-registry-box"><i class="fab fa-gitlab"></i> GitLab CI → Container Registry (Docker Image)</div>
-          <div class="k8s-arrow-down"></div>
+    <!-- Right: Reasons + Trade-off -->
+    <div class="right-col">
+      <div class="section-title">
+        <i class="fas fa-bullseye"></i> FaSS 최종 목표 — MSA가 반드시 필요한 3가지 이유
+      </div>
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-num">1</div>
+          <div class="reason-content">
+            <div class="reason-title">볼륨 성장 → 무중단 배포 필수</div>
+            <div class="reason-desc">유통물류 유저 및 트래픽이 커질수록, 특정 모듈 배포 시 전체 시스템을 중단할 수 없음. MSA는 모듈별 독립 배포로 <span style="color:var(--ppt-accent); font-weight:600;">365일 무중단 운영</span>을 보장합니다.</div>
+          </div>
         </div>
-
-        <div class="k8s-cluster-frame">
-          <div class="k8s-cluster-label"><i class="fab fa-docker"></i> Kubernetes Cluster (K8s)</div>
-
-          <div class="k8s-control-plane">
-            <div class="k8s-cp-cell">API Server<em>배포 요청 수신</em></div>
-            <div class="k8s-cp-cell">Scheduler<em>Pod → Node 배치</em></div>
-            <div class="k8s-cp-cell">Controller<em>상태 유지·복구</em></div>
+        <div class="reason-card">
+          <div class="reason-num">2</div>
+          <div class="reason-content">
+            <div class="reason-title">부분 장애 → 전체 마비 리스크 차단</div>
+            <div class="reason-desc">시스템 규모가 커질수록 단일 서비스 오류가 전 시스템을 마비시키는 위험이 급증함. MSA의 서킷 브레이커 패턴으로 <span style="color:var(--ppt-accent); font-weight:600;">장애 격리(Fault Isolation)</span> 를 실현합니다.</div>
           </div>
-
-          <div class="k8s-orchestrate-band">
-            <span class="k8s-orchestrate-line"></span>
-            <i class="fas fa-arrows-spin"></i> Container Orchestration
-            <span class="k8s-orchestrate-line"></span>
+        </div>
+        <div class="reason-card">
+          <div class="reason-num">3</div>
+          <div class="reason-content">
+            <div class="reason-title">AI 서비스 — 단일 시스템 내 동시 운영 불가</div>
+            <div class="reason-desc">AI 추론 엔진(수요예측·RAG)은 막대한 CPU/GPU 자원을 요구함. 단일 시스템에서 AI와 비즈니스 로직을 공존시키면 서로 자원 충돌. <span style="color:var(--ppt-accent-2); font-weight:600;">AI 서비스 독립 분리</span>가 핵심 전제 조건입니다.</div>
           </div>
-
-          <div class="k8s-worker-row">
-            <div class="k8s-worker-node">
-              <div class="k8s-node-label"><i class="fas fa-circle"></i> Worker Node 1</div>
-              <div class="k8s-node-role">진입·프레젠테이션 계층</div>
-              <div class="k8s-pods-row">
-                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">API<br/>Pod</span></div>
-                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Web<br/>Pod</span></div>
-                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Gateway<br/>Pod</span></div>
-              </div>
-              <div class="k8s-node-desc">외부 트래픽 수신·JWT 인증·API Gateway(S12) 라우팅. Next.js SSR Web과 REST API가 사용자 진입점을 담당합니다.</div>
-            </div>
-            <div class="k8s-worker-node">
-              <div class="k8s-node-label"><i class="fas fa-circle"></i> Worker Node 2</div>
-              <div class="k8s-node-role">도메인·데이터 계층</div>
-              <div class="k8s-pods-row">
-                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Order<br/>Pod</span></div>
-                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Batch<br/>Pod</span></div>
-                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">CDC<br/>Pod</span></div>
-              </div>
-              <div class="k8s-node-desc">수주·발주 도메인 로직, Spring Batch 대용량 처리, Debezium·Kafka 기반 레거시 DB 무중단 동기화(S17)를 수행합니다.</div>
-            </div>
-          </div>
-
-          <div class="k8s-container-note">
-            <i class="fas fa-layer-group"></i> 1 Pod = 1개 이상 Docker Container · Kubelet이 노드에서 컨테이너 실행
-          </div>
+        </div>
+      </div>
+      <!-- Trade-off note -->
+      <div class="tradeoff-box">
+        <div class="tradeoff-icon"><i class="fas fa-balance-scale"></i></div>
+        <div class="tradeoff-text">
+          <strong>⚠ 개발팀에 가해지는 복잡도 증가</strong>는 MSA 전환의 피할 수 없는 부산물입니다. 서비스 간 통신 설계, 분산 트랜잭션, 운영 복잡성이 높아지지만, 이는 <strong>회사의 대의(성장·수익화)를 위해 TFT 전원이 감수해야 할 기술적 부채</strong>입니다.
         </div>
       </div>
     </div>
   </div>
 
-  <p class="k8s-bottom-caption">
-    <strong>Kubernetes(K8s)</strong> — 컨테이너화된 애플리케이션의 배포·스케일링·네트워킹·가용성을 자동화하는 컨테이너 오케스트레이션 플랫폼. FaSS 모듈(Docker)을 Pod 단위로 클러스터에 올려 트래픽·장애에 탄력적으로 대응합니다.
-  </p>
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <div class="bottom-bar-icon"><i class="fas fa-flag-checkered"></i></div>
+    <div class="bottom-bar-text">MSA는 선택이 아닌 필수</div>
+    <div class="bottom-bar-sub">— FaSS 플랫폼이 진정한 'AI 디지털 물류 엔진'으로 거듭나기 위한 최종 아키텍처 목적지</div>
+  </div>
 </div>
 <script>
 (function(){
