@@ -229,6 +229,30 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 8,
     topics: [
       {
+        id: "active-sprint-portfolio",
+        title: "21개 스프린트 병렬 포트폴리오",
+        category: "process",
+        summary:
+          "Phase 0~3 및 추가 과제로 구성된 21개 Mega-Sprint가 워룸에서 동시 가동 중입니다. 각 스프린트는 독립 대규모 프로젝트 규모입니다.",
+        links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
+        preview: {
+          type: "sprint-backlog",
+          title: "Active Sprint Portfolio",
+          caption: "S01~S21 · 5 Tracks · Parallel Execution",
+        },
+        process: [
+          { step: 1, title: "Phase 0", description: "S01 개발환경 · S02 Config/Discovery/Vault/Redis" },
+          { step: 2, title: "Phase 1", description: "S03~S05 인증·SSO·권한 · S15 데이터 보안" },
+          { step: 3, title: "Phase 2", description: "S06~S16 SiteFramework·UI·APIM 등 8개 아키텍처 스프린트" },
+          { step: 4, title: "Phase 3 + 추가", description: "S11~S17 데이터·AI · S18~S21 MSA·Golden Set·SCA·BI" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 9,
+    topics: [
+      {
         id: "project-schedule",
         title: "프로젝트 진행경과 마일스톤",
         category: "process",
@@ -244,7 +268,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 9,
+    slideId: 10,
     topics: [
       {
         id: "ai-digital-worker",
@@ -261,7 +285,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 10,
+    slideId: 11,
     topics: [
       {
         id: "fass-daily-scrum",
@@ -309,7 +333,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
+    slideId: 12,
     topics: [
       {
         id: "milestone-plan",
@@ -325,7 +349,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 12,
+    slideId: 13,
     topics: [
       {
         id: "module-delivery",
@@ -342,7 +366,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 13,
+    slideId: 14,
     topics: [
       {
         id: "tech-stack-overview",
@@ -360,7 +384,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 14,
+    slideId: 15,
     topics: [
       {
         id: "api-first",
@@ -506,7 +530,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 15,
+    slideId: 16,
     topics: [
       {
         id: "prototype-dev-kickoff",
@@ -522,7 +546,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 16,
+    slideId: 17,
     topics: [
       {
         id: "innovation-validation",
@@ -538,7 +562,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 17,
+    slideId: 18,
     topics: [
       {
         id: "realgrid-ui",
@@ -600,7 +624,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 18,
+    slideId: 19,
     topics: [
       {
         id: "business-innovation-engine",
@@ -619,7 +643,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 19,
+    slideId: 20,
     topics: [
       {
         id: "finops",
@@ -649,7 +673,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 20,
+    slideId: 21,
     topics: [
       {
         id: "sonarqube-gate",
@@ -685,7 +709,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 21,
+    slideId: 22,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -703,7 +727,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 22,
+    slideId: 23,
     topics: [
       {
         id: "mm-tool-investment",
@@ -819,7 +843,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 23,
+    slideId: 24,
     topics: [
       {
         id: "framework-builder-role",
@@ -861,7 +885,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 25,
+    slideId: 26,
     topics: [
       {
         id: "roadmap-vision",
@@ -877,7 +901,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 27,
+    slideId: 28,
     topics: [
       {
         id: "msa-migration",
@@ -919,7 +943,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 28,
+    slideId: 29,
     topics: [
       {
         id: "cdc-sync",
@@ -974,7 +998,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 29,
+    slideId: 30,
     topics: [
       {
         id: "risk-management",
@@ -990,7 +1014,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
+    slideId: 31,
     topics: [
       {
         id: "closing-milestones",
@@ -1007,7 +1031,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 32,
     topics: [
       {
         id: "commitment",
@@ -1018,30 +1042,6 @@ quality_gate:
           { step: 1, title: "일정 준수", description: "마일스톤 대비 ±1주 이내" },
           { step: 2, title: "품질", description: "Quality Gate 100% 통과" },
           { step: 3, title: "수익", description: "ASP 전개 가능 아키텍처 완성" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 32,
-    topics: [
-      {
-        id: "active-sprint-portfolio",
-        title: "21개 스프린트 병렬 포트폴리오",
-        category: "process",
-        summary:
-          "Phase 0~3 및 추가 과제로 구성된 21개 Mega-Sprint가 워룸에서 동시 가동 중입니다. 각 스프린트는 독립 대규모 프로젝트 규모입니다.",
-        links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
-        preview: {
-          type: "sprint-backlog",
-          title: "Active Sprint Portfolio",
-          caption: "S01~S21 · 5 Tracks · Parallel Execution",
-        },
-        process: [
-          { step: 1, title: "Phase 0", description: "S01 개발환경 · S02 Config/Discovery/Vault/Redis" },
-          { step: 2, title: "Phase 1", description: "S03~S05 인증·SSO·권한 · S15 데이터 보안" },
-          { step: 3, title: "Phase 2", description: "S06~S16 SiteFramework·UI·APIM 등 8개 아키텍처 스프린트" },
-          { step: 4, title: "Phase 3 + 추가", description: "S11~S17 데이터·AI · S18~S21 MSA·Golden Set·SCA·BI" },
         ],
       },
     ],

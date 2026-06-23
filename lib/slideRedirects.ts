@@ -4,13 +4,13 @@
  * 현재 유효한 슬라이드 ID(1–32)는 포함하지 않습니다.
  */
 export const LEGACY_SLIDE_REDIRECTS: Record<number, number> = {
-  16: 17, // PART 4 간지 (구 16p)
-  19: 17, // PART 4 간지 (구 19p)
-  27: 29, // PART 5 간지 (구 27p)
-  33: 32, // 스프린트 운영현황 (구 34장 덱)
-  34: 18, // 비즈니스 혁신1 (구 34장 덱 맨 뒤 → Part4 선두)
-  35: 30, // 롤아웃 로드맵 (구 35p)
-  36: 31, // 맺음말 (구 36p)
+  16: 18, // PART 4 간지 (구 16p)
+  19: 18, // PART 4 간지 (구 19p)
+  27: 30, // PART 5 간지 (구 27p)
+  33: 8, // 스프린트 운영현황 (구 34장 덱 / 구 32p → Part2 선두)
+  34: 19, // 비즈니스 혁신1
+  35: 31, // 롤아웃 로드맵
+  36: 32, // 맺음말
 };
 
 export function isLegacySlideId(slideId: number): boolean {
