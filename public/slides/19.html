@@ -25,96 +25,16 @@ body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:f
 .slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(ellipse at 20% 10%,rgba(0,240,255,.07) 0%,transparent 45%),
   radial-gradient(ellipse at 80% 90%,rgba(252,109,38,.06) 0%,transparent 40%)}
-.title-r{flex-shrink:0;padding:16px 36px 6px;position:relative;z-index:1}
-.title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.bar{width:4px;height:28px;background:var(--ppt-accent);border-radius:2px}
+.title-r{flex-shrink:0;padding:32px 40px 10px;position:relative;z-index:1}
+.title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bar{width:4px;height:32px;background:var(--ppt-accent);border-radius:2px}
 .badge{font-size:13px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.3);color:var(--ppt-accent)}
-h1{font-size:26px;font-weight:700;line-height:1.3}
+h1{font-family:var(--ppt-font-display);font-size:30px;font-weight:700;line-height:1.3;margin:0}
 .sub{
-  font-size:13px;color:var(--ppt-text-2);margin-top:6px;padding-left:14px;padding-right:14px;
-  line-height:1.45;position:relative;z-index:2;
+  font-size:15px;color:var(--ppt-text-2);margin-top:8px;padding-left:16px;padding-right:16px;
+  line-height:1.5;position:relative;z-index:2;
 }
-.line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
-/* ── Title CI/CD flow animation ── */
-.cicd-flow-wrap{margin-top:10px;padding-left:14px;padding-right:14px;position:relative;padding-bottom:2px}
-.cicd-flow-label{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.cicd-flow-label .ci,.cicd-flow-label .cd{
-  font-size:22px;font-weight:800;letter-spacing:.04em;line-height:1;
-  background:linear-gradient(135deg,var(--ppt-text-1) 40%,var(--ppt-accent));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.cicd-flow-label .slash{font-size:18px;font-weight:300;color:var(--ppt-text-3);margin:0 -2px}
-.cicd-flow-label .flow-tag{
-  font-size:13px;font-weight:600;color:var(--ppt-accent);
-  padding:2px 8px;border-radius:10px;
-  background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.25);
-  animation:tagPulse 2.4s ease-in-out infinite;
-}
-@keyframes tagPulse{0%,100%{opacity:1;box-shadow:0 0 0 rgba(0,240,255,0)}50%{opacity:.85;box-shadow:0 0 10px rgba(0,240,255,.25)}}
-.cicd-track-wrap{position:relative;min-height:54px;height:auto;margin-right:0;margin-bottom:0;padding-bottom:2px}
-.cicd-track{
-  position:absolute;left:0;right:0;top:14px;
-  height:3px;border-radius:3px;
-  background:linear-gradient(90deg,var(--ppt-border),rgba(0,240,255,.15) 50%,var(--ppt-border));
-  overflow:visible;
-}
-.cicd-track::before{
-  content:'';position:absolute;inset:0;border-radius:3px;
-  background:linear-gradient(90deg,transparent 0%,rgba(0,240,255,.5) 50%,transparent 100%);
-  background-size:40% 100%;background-repeat:no-repeat;
-  animation:cicdTrackShine var(--motion-duration,6s) linear infinite;
-}
-@keyframes cicdTrackShine{0%{background-position:-40% 0}100%{background-position:140% 0}}
-.cicd-runner{
-  position:absolute;top:14px;left:0;width:14px;height:14px;margin:-7px 0 0 -7px;
-  border-radius:50%;z-index:3;
-  background:radial-gradient(circle at 35% 35%,#fff,var(--ppt-accent));
-  box-shadow:0 0 12px var(--ppt-accent),0 0 24px rgba(0,240,255,.45);
-  animation:cicdRunnerMove var(--motion-duration,6s) cubic-bezier(.45,.05,.55,.95) infinite;
-}
-.cicd-runner::after{
-  content:'';position:absolute;inset:-4px;border-radius:50%;
-  border:2px solid rgba(0,240,255,.35);
-  animation:runnerRing var(--motion-duration,6s) cubic-bezier(.45,.05,.55,.95) infinite;
-}
-@keyframes cicdRunnerMove{
-  0%{left:0%;opacity:0}
-  4%{opacity:1}
-  96%{opacity:1}
-  100%{left:100%;opacity:0}
-}
-@keyframes runnerRing{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.35);opacity:0}}
-.cicd-steps{
-  position:relative;display:flex;justify-content:space-between;align-items:flex-start;
-  padding:0 2px;min-height:54px;
-}
-.cicd-step{
-  --delay:0s;--color:var(--ppt-accent);
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-  width:48px;position:relative;z-index:2;flex-shrink:0;
-}
-.cicd-step-dot{
-  width:26px;height:26px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;color:var(--ppt-text-3);
-  background:var(--ppt-surface);border:2px solid var(--ppt-border);
-  transition:none;
-  animation:cicdStepGlow var(--motion-duration,6s) ease infinite;
-  animation-delay:var(--delay);
-}
-.cicd-step-label{
-  font-size:11px;font-weight:600;color:var(--ppt-text-3);white-space:nowrap;
-  animation:cicdLabelGlow var(--motion-duration,6s) ease infinite;
-  animation-delay:var(--delay);
-}
-@keyframes cicdStepGlow{
-  0%,8%,100%{border-color:var(--ppt-border);background:var(--ppt-surface);color:var(--ppt-text-3);box-shadow:none;transform:scale(1)}
-  12%,22%{border-color:var(--color);background:rgba(0,240,255,.12);color:var(--color);box-shadow:0 0 14px rgba(0,240,255,.35);transform:scale(1.12)}
-}
-@keyframes cicdLabelGlow{
-  0%,8%,100%{color:var(--ppt-text-3)}
-  12%,22%{color:var(--ppt-text-1)}
-}
+.line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.3}
 .body{flex:1;min-height:0;padding:6px 32px 10px;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
 .pills{display:flex;flex-wrap:wrap;gap:6px}
 .pill{font-size:13px;font-weight:600;padding:4px 10px;border-radius:14px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);display:inline-flex;align-items:center;gap:5px}
@@ -196,44 +116,8 @@ html{overflow:hidden;margin:0;padding:0}
       <div class="bar"></div>
       <h1>아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)</h1>
     </div>
-    <p class="sub">GitLab CI 중심 파이프라인 — 소스 푸시부터 빌드·품질 검증·이미지 배포까지 자동화</p>
-    <div class="cicd-flow-wrap">
-      <div class="cicd-flow-label">
-        <span class="ci">CI</span><span class="slash">/</span><span class="cd">CD</span>
-        <span class="flow-tag"><i class="fas fa-play" style="font-size:13px;margin-right:4px"></i>Pipeline Live</span>
-      </div>
-      <div class="cicd-track-wrap">
-        <div class="cicd-track"></div>
-        <div class="cicd-runner"></div>
-        <div class="cicd-steps">
-          <div class="cicd-step" style="--delay:0s;--color:var(--ppt-accent-2)">
-            <div class="cicd-step-dot"><i class="fas fa-code-branch"></i></div>
-            <span class="cicd-step-label">Push</span>
-          </div>
-          <div class="cicd-step" style="--delay:.55s;--color:var(--c-gitlab)">
-            <div class="cicd-step-dot"><i class="fas fa-gears"></i></div>
-            <span class="cicd-step-label">Build</span>
-          </div>
-          <div class="cicd-step" style="--delay:1.1s;--color:var(--c-sonar)">
-            <div class="cicd-step-dot"><i class="fas fa-shield-halved"></i></div>
-            <span class="cicd-step-label">Quality</span>
-          </div>
-          <div class="cicd-step" style="--delay:1.65s;--color:var(--c-docker)">
-            <div class="cicd-step-dot"><i class="fab fa-docker"></i></div>
-            <span class="cicd-step-label">Image</span>
-          </div>
-          <div class="cicd-step" style="--delay:2.2s;--color:var(--c-argo)">
-            <div class="cicd-step-dot"><i class="fas fa-ship"></i></div>
-            <span class="cicd-step-label">Deploy</span>
-          </div>
-          <div class="cicd-step" style="--delay:2.75s;--color:var(--ppt-good)">
-            <div class="cicd-step-dot"><i class="fas fa-circle-check"></i></div>
-            <span class="cicd-step-label">Live</span>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="line"></div>
+    <p class="sub">GitLab CI 중심 파이프라인 — 소스 푸시부터 빌드·품질 검증·이미지 배포까지 자동화</p>
   </div>
 
   <div class="body">

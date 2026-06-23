@@ -43,20 +43,27 @@ body {
   display: flex; flex-direction: column;
   color: var(--ppt-text-1);
 }
-.title-region-container {
-  padding: 28px 40px 8px 40px;
+.title-region {
+  padding: 28px 40px 12px 40px;
   display: flex; flex-direction: column; gap: 6px;
 }
-.title-region-header { display: flex; align-items: center; gap: 12px; }
-.title-region-bar { width: 4px; height: 32px; background: var(--ppt-k8s); border-radius: 2px; }
-.title-region-text {
-  font-family: var(--ppt-font-display);
-  font-size: 28px; font-weight: 700; margin: 0;
+.title-header { display: flex; align-items: center; gap: 12px; }
+.title-bar { width: 4px; height: 32px; background: var(--ppt-accent); border-radius: 2px; }
+.title-badge {
+  background: rgba(0,240,255,0.12); color: var(--ppt-accent);
+  padding: 3px 12px; border-radius: var(--ppt-radius-sm);
+  font-size: 13px; font-weight: 600;
+  border: 1px solid rgba(0,240,255,0.3);
+  white-space: nowrap;
 }
-.title-region-divider {
+.title-text {
+  font-family: var(--ppt-font-display);
+  font-size: 26px; font-weight: 700; color: var(--ppt-text-1); margin: 0;
+}
+.title-line {
   height: 1px; width: 100%;
-  background: linear-gradient(90deg, var(--ppt-k8s) 0%, transparent 100%);
-  opacity: 0.35; margin-top: 6px;
+  background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+  opacity: 0.3; margin-top: 4px;
 }
 .k8s-main-wrapper {
   flex: 1; min-height: 0;
@@ -251,12 +258,13 @@ html { overflow: hidden; margin: 0; padding: 0; }
 </head>
 <body>
 <div class="fass-slide-root" data-motion="architecture" data-motion-tier="medium">
-  <div class="title-region-container">
-    <div class="title-region-header">
-      <div class="title-region-bar"></div>
-      <h1 class="title-region-text">중장기 목표 1: Kubernetes 운영</h1>
+  <div class="title-region">
+    <div class="title-header">
+      <div class="title-bar"></div>
+      <span class="title-badge">ULTIMATE GOAL</span>
+      <h1 class="title-text">중장기 목표 1: Kubernetes 운영</h1>
     </div>
-    <div class="title-region-divider"></div>
+    <div class="title-line"></div>
   </div>
 
   <div class="k8s-main-wrapper">

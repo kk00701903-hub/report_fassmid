@@ -245,9 +245,33 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     min-height: 0
     }
 .arch-compare-card--highlight {
-    border-color: rgba(0, 240, 255, 0.45);
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.07) 0%, var(--ppt-bg-soft) 100%);
-    box-shadow: 0 0 12px rgba(0, 240, 255, 0.08)
+    position: relative;
+    flex: 1.14;
+    border: 2px solid rgba(0, 240, 255, 0.55);
+    border-left: 4px solid var(--ppt-accent);
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.14) 0%, rgba(0, 240, 255, 0.05) 45%, var(--ppt-bg-soft) 100%);
+    box-shadow: 0 0 22px rgba(0, 240, 255, 0.16), inset 0 0 0 1px rgba(0, 240, 255, 0.12);
+    animation: archCompareSpotlight 4.5s ease-in-out infinite;
+    z-index: 1;
+    padding: 9px 11px
+    }
+.arch-compare-card--highlight::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--ppt-radius-md);
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(0, 240, 255, 0.14) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: archCompareShine 5s linear infinite
+    }
+.arch-compare-card--highlight > * {
+    position: relative;
+    z-index: 1
+    }
+.arch-compare-list .arch-compare-card:not(.arch-compare-card--highlight) {
+    opacity: 0.84
     }
 .arch-compare-card--msa {
     border-color: rgba(139, 92, 246, 0.35)
@@ -273,9 +297,29 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     flex-shrink: 0
     }
 .arch-compare-card--highlight .arch-compare-num {
-    background: rgba(0, 240, 255, 0.15);
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    background: rgba(0, 240, 255, 0.22);
     border-color: var(--ppt-accent);
+    color: var(--ppt-text-1);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
+    animation: archCompareNumPulse 3s ease-in-out infinite
+    }
+.arch-compare-card--highlight .arch-compare-title {
+    font-size: 14px;
     color: var(--ppt-accent)
+    }
+.arch-compare-card--highlight .arch-compare-title em {
+    color: rgba(0, 240, 255, 0.75)
+    }
+.arch-compare-card--highlight .arch-compare-tagline strong {
+    color: var(--ppt-accent)
+    }
+.arch-compare-card--highlight .arch-compare-pros {
+    background: rgba(34, 197, 94, 0.08);
+    border-radius: var(--ppt-radius-sm);
+    padding: 3px 5px
     }
 .arch-compare-title {
     font-size: 13px;
@@ -325,12 +369,36 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     margin-left: auto;
     font-size:13px;
     font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 3px;
-    background: rgba(0, 240, 255, 0.12);
-    color: var(--ppt-accent);
-    border: 1px solid rgba(0, 240, 255, 0.35);
-    flex-shrink: 0
+    padding: 3px 8px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(0, 240, 255, 0.1));
+    color: var(--ppt-text-1);
+    border: 1px solid rgba(0, 240, 255, 0.55);
+    flex-shrink: 0;
+    box-shadow: 0 0 14px rgba(0, 240, 255, 0.25);
+    animation: archCompareBadgePulse 3s ease-in-out infinite
+    }
+@keyframes archCompareSpotlight {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.14), inset 0 0 0 1px rgba(0, 240, 255, 0.1);
+        border-color: rgba(0, 240, 255, 0.5)
+    }
+    50% {
+        box-shadow: 0 0 34px rgba(0, 240, 255, 0.3), inset 0 0 0 1px rgba(0, 240, 255, 0.2);
+        border-color: rgba(0, 240, 255, 0.9)
+    }
+    }
+@keyframes archCompareShine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+    }
+@keyframes archCompareNumPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    }
+@keyframes archCompareBadgePulse {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2); box-shadow: 0 0 18px rgba(0, 240, 255, 0.4); }
     }
 .architecture-db-isolation-row {
     display: flex;

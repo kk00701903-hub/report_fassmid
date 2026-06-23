@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=960, height=720, initial-scale=1.0" name="viewport"/>
-<title>비즈니스 혁신7: DGX·Claude Code 하네스 및 프로세스 지침</title>
+<title>비즈니스 혁신7: DGX·Claude Code 오케스트레이션 및 프로세스 지침</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <link rel="stylesheet" href="shared/slide-fonts.css">
@@ -469,9 +469,9 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="title-row">
 <div class="bar"></div>
 <span class="badge">BUSINESS INNOVATION</span>
-<h1 class="title-main">비즈니스 혁신7: DGX·Claude Code 하네스 및 프로세스 지침</h1>
+<h1 class="title-main">비즈니스 혁신7: DGX·Claude Code 오케스트레이션 및 프로세스 지침</h1>
 </div>
-<p class="sub">하네스·프로세스 지침 기반 지능형 코드 변환 — 외주 인력 0 M/M 마이그레이션</p>
+<p class="sub">오케스트레이션·프로세스 지침 기반 지능형 코드 변환 — 외주 인력 0 M/M 마이그레이션</p>
 <div class="line"></div>
 </div>
 <!-- Main Content: AI Impact Hero Layout -->
@@ -501,17 +501,17 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="ai-tech-process-icon-circle">
 <i class="fas fa-microchip"></i>
 </div>
-<div class="ai-tech-process-title-text">DGX·Claude Code 마이그레이션 하네스</div>
+<div class="ai-tech-process-title-text">DGX·Claude Code 마이그레이션 오케스트레이션</div>
 </div>
 <p class="ai-tech-process-body-description">
             독자적인 VectorDB를 따로 구성한 것이 아니라, DGX Spark와 Claude Code에
-            <b>적절한 하네스(Harness)</b>와 <b>프로세스 지침</b>을 제공했습니다.
+            <b>적절한 오케스트레이션(Orchestration)</b>과 <b>프로세스 지침</b>을 제공했습니다.
             AI 에이전트가 레거시 C#·DB 맥락을 활용해 비즈니스 로직을 분석하고 차세대 표준 코드 변환 초안을 생성합니다.
           </p>
 <div class="ai-tech-process-highlight-chip-list">
 <span class="ai-tech-process-chip-badge active">DGX Spark</span>
 <span class="ai-tech-process-chip-badge active">Claude Code</span>
-<span class="ai-tech-process-chip-badge">Harness</span>
+<span class="ai-tech-process-chip-badge">Orchestration</span>
 <span class="ai-tech-process-chip-badge">Process Guide</span>
 </div>
 <a class="agent-demo-trigger-btn is-disabled" href="#" id="langgraphDemoLinkBtn" target="_blank" rel="noopener noreferrer" title="링크 연결 예정">
@@ -560,7 +560,7 @@ html { overflow: hidden;  margin:0; padding:0; }
 </div>
 <div class="agent-demo-legend">
 <span>LangGraph Orchestrator</span>
-<span>DGX Spark · Harness</span>
+<span>DGX Spark · Orchestration</span>
 <span>Claude Code · Multi-Agent</span>
 </div>
 </div>
@@ -572,7 +572,7 @@ html { overflow: hidden;  margin:0; padding:0; }
     { id: "plan", label: "기획", sub: "Agent", icon: "fa-lightbulb", angle: -90 },
     { id: "arch", label: "설계", sub: "Agent", icon: "fa-sitemap", angle: -38 },
     { id: "design", label: "디자인", sub: "Agent", icon: "fa-palette", angle: 14 },
-    { id: "dgx", label: "DGX Spark", sub: "Harness · GPU", icon: "fa-microchip", gpu: true, angle: 66 },
+    { id: "dgx", label: "DGX Spark", sub: "Orchestration · GPU", icon: "fa-microchip", gpu: true, angle: 66 },
     { id: "claude", label: "Claude Code", sub: "코드 생성", icon: "fa-robot", code: true, angle: 118 },
     { id: "qa", label: "QA", sub: "Agent", icon: "fa-vial", angle: 166 },
     { id: "docs", label: "문서작성", sub: "Agent", icon: "fa-file-lines", angle: 214 }
@@ -581,7 +581,7 @@ html { overflow: hidden;  margin:0; padding:0; }
     { from: "langgraph", to: "plan", msg: "<b>LangGraph</b> → 기획 Agent · 요구사항·범위 분석 태스크 동적 할당" },
     { from: "plan", to: "arch", msg: "<b>기획</b> → 설계 Agent · 아키텍처·API 설계 산출물 전달" },
     { from: "arch", to: "design", msg: "<b>설계</b> → 디자인 Agent · UI/UX 와이어프레임 생성" },
-    { from: "design", to: "dgx", msg: "<b>디자인</b> → <b>DGX Spark</b> · 하네스·프로세스 지침 컨텍스트 전달" },
+    { from: "design", to: "dgx", msg: "<b>디자인</b> → <b>DGX Spark</b> · 오케스트레이션·프로세스 지침 컨텍스트 전달" },
     { from: "dgx", to: "claude", msg: "<b>DGX Spark</b> → <b>Claude Code</b> · 레거시 분석 컨텍스트 기반 코드 생성" },
     { from: "claude", to: "qa", msg: "<b>Claude Code</b> → QA Agent · 자동 테스트·검증 실행" },
     { from: "qa", to: "docs", msg: "<b>QA</b> → 문서작성 Agent · 마크다운 기술문서 자동 생성" },
