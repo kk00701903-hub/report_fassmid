@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SLIDES_DIR = ROOT / "public" / "slides"
 CONFIG_PATH = ROOT / "scripts" / "slide_motion_config.json"
-MOTION_LINK = '<link rel="stylesheet" href="shared/slide-motion.css">'
+MOTION_LINK = '<link rel="stylesheet" href="/report_fassmid/slides/shared/slide-motion.css">'
 
 ROOT_SELECTORS = [
     r'(<body>\s*<div class=")([^"]+)(")',

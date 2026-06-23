@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SLIDES_DIR = ROOT / "public" / "slides"
-FONT_LINK = '<link rel="stylesheet" href="shared/slide-fonts.css">'
+FONT_LINK = '<link rel="stylesheet" href="/report_fassmid/slides/shared/slide-fonts.css">'
 NOTO = '"Noto Sans KR", sans-serif'
 IBM_PLEX = '"IBM Plex Sans KR", sans-serif'
 

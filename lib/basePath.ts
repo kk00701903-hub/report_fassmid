@@ -15,3 +15,13 @@ export function getSlideHtmlUrl(fileName: string): string {
   }
   return path;
 }
+
+/** 슬라이드 HTML·shared 에셋의 기준 URL (끝에 / 포함) */
+export function getSlidesDirectoryUrl(): string {
+  const basePath = getBasePath();
+  const path = `${basePath}/slides/`;
+  if (typeof window !== "undefined") {
+    return new URL(path, window.location.origin).href;
+  }
+  return path;
+}
