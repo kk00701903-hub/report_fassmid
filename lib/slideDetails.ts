@@ -904,46 +904,37 @@ quality_gate:
     slideId: 29,
     topics: [
       {
-        id: "msa-migration",
-        title: "Strangler Fig MSA 전환 (S12 Gateway)",
-        category: "architecture",
-        summary:
-          "모듈러 모놀리스에서 API Gateway(S12)로 트래픽을 점진 분리. Debezium CDC(S17)로 데이터 이중 쓰기 없이 동기화.",
-        techLayers: [
-          {
-            id: "infra",
-            label: "Migration Path",
-            icon: "fa-solid fa-route",
-            accent: "#facc15",
-            items: [
-              { name: "API Gateway", detail: "기존 URL 유지·백엔드 라우팅 전환", sprintId: "S12" },
-              { name: "Debezium CDC", detail: "분리 DB 실시간 동기화", sprintId: "S17" },
-              { name: "Config Server", detail: "분리 서비스 설정 중앙화", sprintId: "S03" },
-            ],
-          },
-        ],
-        preview: {
-          type: "api-flow",
-          title: "Strangler Fig 라우팅",
-          caption: "Gateway가 트래픽 비율에 따라 monolith ↔ microservice 전환",
-        },
-        flowNodes: [
-          { id: "client", label: "Next.js Client", sub: "S16", icon: "fa-solid fa-window-maximize" },
-          { id: "gw", label: "API Gateway", sub: "Traffic Split", icon: "fa-solid fa-shuffle" },
-          { id: "mono", label: "Modular Monolith", sub: "Legacy Path", icon: "fa-solid fa-server" },
-          { id: "ms", label: "Extracted Service", sub: "New Path", icon: "fa-solid fa-cube" },
-        ],
+        id: "risk-management",
+        title: "리스크 관리 프로세스",
+        category: "process",
+        summary: "기술·일정·비용 리스크 식별 및 대응 절차입니다.",
         process: [
-          { step: 1, title: "Strangler Fig", description: "트래픽이 적은 모듈부터 분리" },
-          { step: 2, title: "API Gateway", description: "기존 API 경로 유지하며 라우팅 전환" },
-          { step: 3, title: "데이터 분리", description: "스키마 → 독립 DB로 점진 이전" },
-          { step: 4, title: "관측성", description: "분리 모듈별 로그·메트릭·트레이싱" },
+          { step: 1, title: "식별", description: "주간 리스크 레지스터 업데이트" },
+          { step: 2, title: "평가", description: "영향도×발생확률 매트릭스" },
+          { step: 3, title: "대응", description: "회피·완화·수용·전가 전략 선택" },
         ],
       },
     ],
   },
   {
     slideId: 30,
+    topics: [
+      {
+        id: "closing-milestones",
+        title: "향후 마일스톤 상세",
+        category: "process",
+        summary: "맺음말 슬라이드의 후속 마일스톤 실행 계획입니다.",
+        process: [
+          { step: 1, title: "7월", description: "UI/UX 스토리보드 대표이사 확인" },
+          { step: 2, title: "8~9월", description: "핵심 모듈 집중 개발" },
+          { step: 3, title: "10월~", description: "차세대 서버 프로토타입 개발 착수 — 기술스택 최초 적용 Start" },
+          { step: 4, title: "2027.06~", description: "3PL·유통물류 이관 준비 — 개선·프레임워크·AI 본격 적용" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 31,
     topics: [
       {
         id: "cdc-sync",
@@ -998,34 +989,43 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
-    topics: [
-      {
-        id: "risk-management",
-        title: "리스크 관리 프로세스",
-        category: "process",
-        summary: "기술·일정·비용 리스크 식별 및 대응 절차입니다.",
-        process: [
-          { step: 1, title: "식별", description: "주간 리스크 레지스터 업데이트" },
-          { step: 2, title: "평가", description: "영향도×발생확률 매트릭스" },
-          { step: 3, title: "대응", description: "회피·완화·수용·전가 전략 선택" },
-        ],
-      },
-    ],
-  },
-  {
     slideId: 32,
     topics: [
       {
-        id: "closing-milestones",
-        title: "향후 마일스톤 상세",
-        category: "process",
-        summary: "맺음말 슬라이드의 후속 마일스톤 실행 계획입니다.",
+        id: "msa-migration",
+        title: "Strangler Fig MSA 전환 (S12 Gateway)",
+        category: "architecture",
+        summary:
+          "모듈러 모놀리스에서 API Gateway(S12)로 트래픽을 점진 분리. Debezium CDC(S17)로 데이터 이중 쓰기 없이 동기화.",
+        techLayers: [
+          {
+            id: "infra",
+            label: "Migration Path",
+            icon: "fa-solid fa-route",
+            accent: "#facc15",
+            items: [
+              { name: "API Gateway", detail: "기존 URL 유지·백엔드 라우팅 전환", sprintId: "S12" },
+              { name: "Debezium CDC", detail: "분리 DB 실시간 동기화", sprintId: "S17" },
+              { name: "Config Server", detail: "분리 서비스 설정 중앙화", sprintId: "S03" },
+            ],
+          },
+        ],
+        preview: {
+          type: "api-flow",
+          title: "Strangler Fig 라우팅",
+          caption: "Gateway가 트래픽 비율에 따라 monolith ↔ microservice 전환",
+        },
+        flowNodes: [
+          { id: "client", label: "Next.js Client", sub: "S16", icon: "fa-solid fa-window-maximize" },
+          { id: "gw", label: "API Gateway", sub: "Traffic Split", icon: "fa-solid fa-shuffle" },
+          { id: "mono", label: "Modular Monolith", sub: "Legacy Path", icon: "fa-solid fa-server" },
+          { id: "ms", label: "Extracted Service", sub: "New Path", icon: "fa-solid fa-cube" },
+        ],
         process: [
-          { step: 1, title: "7월", description: "UI/UX 스토리보드 대표이사 확인" },
-          { step: 2, title: "8~9월", description: "핵심 모듈 집중 개발" },
-          { step: 3, title: "10월~", description: "차세대 서버 프로토타입 개발 착수 — 기술스택 최초 적용 Start" },
-          { step: 4, title: "2027.06~", description: "3PL·유통물류 이관 준비 — 개선·프레임워크·AI 본격 적용" },
+          { step: 1, title: "Strangler Fig", description: "트래픽이 적은 모듈부터 분리" },
+          { step: 2, title: "API Gateway", description: "기존 API 경로 유지하며 라우팅 전환" },
+          { step: 3, title: "데이터 분리", description: "스키마 → 독립 DB로 점진 이전" },
+          { step: 4, title: "관측성", description: "분리 모듈별 로그·메트릭·트레이싱" },
         ],
       },
     ],

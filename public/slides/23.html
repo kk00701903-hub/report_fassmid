@@ -6,9 +6,13 @@
 <title>비즈니스 혁신 5. Zero-Defect 코드 품질 통제 체계</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<link rel="stylesheet" href="shared/slide-fonts.css">
+<link rel="stylesheet" href="shared/slide-motion.css">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
+  --ppt-font: "IBM Plex Sans KR", sans-serif;
+
     --ppt-bg: #0A0E1A;
     --ppt-bg-soft: #141B2D;
     --ppt-surface: #1E2638;
@@ -38,10 +42,10 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased
     }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+body{width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     display: flex;
     justify-content: center;
-    align-items: center}
+    align-items: center;font-family:var(--ppt-font-body,var(--ppt-font))}
 .slide-root-container {
     width: 960px;
     height: 720px;
@@ -72,7 +76,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 .title-main-text {
     font-family: var(--ppt-font-display);
-    font-size:30px;
+    font-size:26px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
@@ -247,7 +251,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="slide-root-container" style="overflow: hidden;">
+<div class="slide-root-container" data-motion="innovation" style="overflow: hidden;">
 <!-- Title Region -->
 <div class="title-region-wrapper">
 <div class="title-header-group">

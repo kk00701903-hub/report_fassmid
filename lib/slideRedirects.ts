@@ -1,16 +1,16 @@
 /**
  * 구버전(최대 36장) 슬라이드 번호 → 현재 슬라이드 ID.
  * 북마크·공유 URL 호환용.
- * 현재 유효한 슬라이드 ID(1–32)는 포함하지 않습니다.
+ * 현재 유효한 슬라이드 ID(1–33)는 포함하지 않습니다.
  */
 export const LEGACY_SLIDE_REDIRECTS: Record<number, number> = {
   16: 18, // PART 4 간지 (구 16p)
   19: 18, // PART 4 간지 (구 19p)
-  27: 30, // PART 5 간지 (구 27p)
+  27: 29, // PART 5 간지 (구 27p)
   33: 8, // 스프린트 운영현황 (구 34장 덱 / 구 32p → Part2 선두)
   34: 19, // 비즈니스 혁신1
-  35: 31, // 롤아웃 로드맵
-  36: 32, // 맺음말
+  35: 30, // 롤아웃 로드맵
+  36: 33, // 맺음말
 };
 
 export function isLegacySlideId(slideId: number): boolean {

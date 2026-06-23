@@ -6,8 +6,12 @@
 <title>아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<link rel="stylesheet" href="shared/slide-fonts.css">
+<link rel="stylesheet" href="shared/slide-motion.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
+  --ppt-font: "IBM Plex Sans KR", sans-serif;
+
     --ppt-bg: #0A0E1A;
     --ppt-bg-soft: #141B2D;
     --ppt-surface: #1E2638;
@@ -367,7 +371,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="fass-slide-root" style="overflow: hidden;">
+<div class="fass-slide-root" data-motion="architecture" style="overflow: hidden;">
 <!-- Non-Cover-Page Title Region -->
 <div class="title-region-wrapper">
 <div class="title-region-header">
@@ -388,7 +392,7 @@ html { overflow: hidden;  margin:0; padding:0; }
               </div>
 </div>
 <div class="architecture-diagram-container">
-<div style="margin-bottom: 8px;font-size: 16px;font-weight: 600;color: var(--ppt-text-2);">
+<div style="margin-bottom: 8px;font-size:13px;font-weight: 600;color: var(--ppt-text-2);">
                 [ 논리적 MSA 구현 ]
               </div>
 <div class="architecture-physical-server-box">

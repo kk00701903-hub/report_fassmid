@@ -7,8 +7,12 @@
 <title>아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<link rel="stylesheet" href="shared/slide-fonts.css">
+<link rel="stylesheet" href="shared/slide-motion.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
+  --ppt-font: "IBM Plex Sans KR", sans-serif;
+
     --ppt-bg: #0A0E1A;
     --ppt-bg-soft: #141B2D;
     --ppt-surface: #1E2638;
@@ -31,10 +35,10 @@
     padding: 0;
     box-sizing: border-box
     }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+body{width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     display: flex;
     justify-content: center;
-    align-items: center}
+    align-items: center;font-family:var(--ppt-font-body,var(--ppt-font))}
 .migration-slide-root {
     width: 960px;
     height: 720px;
@@ -256,7 +260,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="migration-slide-root" style="overflow: hidden;">
+<div class="migration-slide-root" data-motion="architecture" style="overflow: hidden;">
 <!-- Title Region -->
 <div class="title-region-wrapper">
 <div class="title-main-header">

@@ -1,0 +1,134 @@
+/**
+ * FaSS slide deck — subtle motion utilities for CEO-friendly diagrams.
+ * Respects prefers-reduced-motion.
+ */
+:root {
+  --motion-duration: 6s;
+  --motion-ease: ease-in-out;
+}
+
+/* ── Ambient background grid drift ── */
+[data-motion="part"] .bg-grid-overlay,
+[data-motion="cover"] .fass-report-slide-root::before,
+[data-motion="cards"] .slide-root::before {
+  animation: motionGridDrift var(--motion-duration) linear infinite;
+}
+
+@keyframes motionGridDrift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 40px 40px, 40px 40px; }
+}
+
+/* ── Horizontal flow (pipelines, timelines, roadmap) ── */
+[data-motion="pipeline"] .pipe-flow,
+[data-motion="timeline"] .milestone-grid,
+[data-motion="roadmap"] .roadmap-visual-track-container {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-motion="pipeline"] .pipe-flow::after,
+[data-motion="timeline"] .milestone-grid::after,
+[data-motion="roadmap"] .roadmap-visual-track-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.12), transparent);
+  animation: motionFlowX var(--motion-duration) linear infinite;
+}
+
+@keyframes motionFlowX {
+  0% { left: -35%; }
+  100% { left: 100%; }
+}
+
+/* ── Soft pulse on icons / cards ── */
+[data-motion="cards"] .trend-card,
+[data-motion="cards"] .card-icon,
+[data-motion="innovation"] .engine-icon,
+[data-motion="architecture"] .node-icon {
+  animation: motionPulseSoft var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="cards"] .trend-card:nth-child(1) { animation-delay: 0s; }
+[data-motion="cards"] .trend-card:nth-child(2) { animation-delay: 0.8s; }
+[data-motion="cards"] .trend-card:nth-child(3) { animation-delay: 1.6s; }
+[data-motion="cards"] .trend-card:nth-child(4) { animation-delay: 2.4s; }
+
+@keyframes motionPulseSoft {
+  0%, 100% { box-shadow: none; opacity: 1; }
+  50% { box-shadow: 0 0 14px rgba(0, 240, 255, 0.18); opacity: 0.92; }
+}
+
+/* ── PART divider topic sequential highlight ── */
+[data-motion="part"] .section-topic-item {
+  animation: motionStepGlow var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="part"] .section-topic-item:nth-child(1) { animation-delay: 0s; }
+[data-motion="part"] .section-topic-item:nth-child(2) { animation-delay: 0.6s; }
+[data-motion="part"] .section-topic-item:nth-child(3) { animation-delay: 1.2s; }
+[data-motion="part"] .section-topic-item:nth-child(4) { animation-delay: 1.8s; }
+[data-motion="part"] .section-topic-item:nth-child(5) { animation-delay: 2.4s; }
+[data-motion="part"] .section-topic-item:nth-child(6) { animation-delay: 3s; }
+[data-motion="part"] .section-topic-item:nth-child(7) { animation-delay: 3.6s; }
+[data-motion="part"] .section-topic-item:nth-child(8) { animation-delay: 4.2s; }
+[data-motion="part"] .section-topic-item:nth-child(9) { animation-delay: 4.8s; }
+[data-motion="part"] .section-topic-item:nth-child(10) { animation-delay: 5.4s; }
+
+@keyframes motionStepGlow {
+  0%, 10%, 100% { opacity: 0.55; }
+  15%, 25% { opacity: 1; }
+}
+
+/* ── Current milestone highlight ── */
+[data-motion="timeline"] .milestone-card.current {
+  animation: motionMilestonePulse 3s var(--motion-ease) infinite;
+}
+
+@keyframes motionMilestonePulse {
+  0%, 100% { box-shadow: 0 0 28px rgba(255, 192, 0, 0.22); }
+  50% { box-shadow: 0 0 36px rgba(255, 192, 0, 0.38); }
+}
+
+/* ── Comparison — our column ── */
+[data-motion="compare"] .compare-card--ours {
+  animation: motionComparePulse var(--motion-duration) var(--motion-ease) infinite;
+}
+
+@keyframes motionComparePulse {
+  0%, 100% { border-color: rgba(0, 240, 255, 0.35); }
+  50% { border-color: rgba(0, 240, 255, 0.75); box-shadow: 0 0 20px rgba(0, 240, 255, 0.15); }
+}
+
+/* ── Closing milestones ── */
+[data-motion="closing"] .closing-milestone-item,
+[data-motion="cover"] .cover-keyword-item {
+  animation: motionStepGlow var(--motion-duration) var(--motion-ease) infinite;
+}
+
+/* ── Connector chevron nudge ── */
+[data-motion="architecture"] .connector i,
+[data-motion="pipeline"] .pipe-arrow i,
+[data-motion="pipeline"] .arrow-icon {
+  animation: motionChevron 2.4s var(--motion-ease) infinite;
+}
+
+@keyframes motionChevron {
+  0%, 100% { transform: translateX(0); opacity: 0.55; }
+  50% { transform: translateX(3px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

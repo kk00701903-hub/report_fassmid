@@ -7,8 +7,12 @@
 <title>맺음말</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<link rel="stylesheet" href="shared/slide-fonts.css">
+<link rel="stylesheet" href="shared/slide-motion.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
+  --ppt-font: "IBM Plex Sans KR", sans-serif;
+
     --ppt-bg: #0A0E1A;
     /* Deep Midnight Navy */
     --ppt-bg-soft: #141B2D;
@@ -72,7 +76,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 .title-main-text {
     font-family: var(--ppt-font-display);
-    font-size:30px;
+    font-size:26px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
@@ -229,7 +233,7 @@ ul {
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="fass-closing-slide-root" style="overflow: hidden;">
+<div class="fass-closing-slide-root" data-motion="closing" style="overflow: hidden;">
 <!-- Title Region -->
 <div class="title-region-wrapper">
 <div class="title-horizontal-group">
@@ -277,9 +281,9 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="closing-vision-quote-container" style="border-left-color:var(--ppt-accent);">
 <p style="font-size:15px;font-weight:700;color:var(--ppt-accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">즉각 추진 사항</p>
 <div style="display:flex;flex-direction:column;gap:10px;">
-  <div style="display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>7월: 핵심 화면 UI/UX 스토리보드 완성 및 대표이사 확인</div>
-  <div style="display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>8~9월: 수주·발주·정산 핵심 모듈 집중 개발</div>
-  <div style="display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>10월: 차세대 서버 프로토타입 개발 착수 — 완성형 기술스택 최초 적용 Start</div>
+  <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>7월: 핵심 화면 UI/UX 스토리보드 완성 및 대표이사 확인</div>
+  <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>8~9월: 수주·발주·정산 핵심 모듈 집중 개발</div>
+  <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2);"><i class="fas fa-arrow-right" style="color:var(--ppt-accent);margin-top:3px;"></i>10월: 차세대 서버 프로토타입 개발 착수 — 완성형 기술스택 최초 적용 Start</div>
 </div>
 </div>
 </div>

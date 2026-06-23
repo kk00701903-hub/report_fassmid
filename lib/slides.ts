@@ -34,10 +34,10 @@ export const SLIDES: Slide[] = [
   { id: 26, title: "비즈니스 혁신 8. 빌더형 인재 육성을 위한 전환" },
   { id: 27, title: "스프린트 운영현황" },
   { id: 28, title: "타사 프로젝트 비교" },
-  { id: 29, title: "중장기 목표 2: MSA 전환" },
-  { id: 30, title: "중장기 목표 1: Kubernetes 운영" },
-  { id: 31, title: "PART 5 - 로드맵 및 미래 비전" },
-  { id: 32, title: "단계적 롤아웃 로드맵" },
+  { id: 29, title: "PART 5 - 로드맵 및 미래 비전" },
+  { id: 30, title: "단계적 롤아웃 로드맵" },
+  { id: 31, title: "중장기 목표 1: Kubernetes 운영" },
+  { id: 32, title: "중장기 목표 2: MSA 전환" },
   { id: 33, title: "맺음말" },
 ];
 

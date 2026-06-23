@@ -5,8 +5,12 @@
 <title>타사 프로젝트 비교</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<link rel="stylesheet" href="shared/slide-fonts.css">
+<link rel="stylesheet" href="shared/slide-motion.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
+  --ppt-font: "IBM Plex Sans KR", sans-serif;
+
   --ppt-bg: #0A0E1A;
   --ppt-bg-soft: #141B2D;
   --ppt-surface: #1E2638;
@@ -39,7 +43,7 @@ body {
 .title-region { padding: 28px 40px 10px; }
 .title-row { display: flex; align-items: center; gap: 12px; }
 .title-bar { width: 4px; height: 32px; background: var(--ppt-accent-2); border-radius: 2px; }
-.title-text { font-family: var(--ppt-font-display); font-size:32px; font-weight: 700; }
+.title-text { font-family: var(--ppt-font-display); font-size:26px; font-weight: 700; }
 .title-sub { font-size: 14px; color: var(--ppt-text-2); margin-top: 8px; padding-left: 16px; }
 .title-line {
   height: 1px; margin-top: 10px;
@@ -107,7 +111,7 @@ html { overflow: hidden; margin: 0; padding: 0; }
 </style>
 </head>
 <body>
-<div class="slide-root">
+<div class="slide-root" data-motion="compare">
   <div class="title-region">
     <div class="title-row">
       <div class="title-bar"></div>
@@ -140,13 +144,13 @@ html { overflow: hidden; margin: 0; padding: 0; }
 
       <div class="compare-card compare-card--ours">
         <div class="compare-label">당사 차세대 FaSS</div>
-        <div class="compare-company ours">소수 정예 TFT + 도구 투자</div>
-        <p class="compare-scope">차세대 웹프레임워크 TFT 중심의 집중 개발 체제</p>
+        <div class="compare-company ours">소규모 TFT (AI도구 협업)</div>
+        <p class="compare-scope">차세대 웹프레임워크 TFT 중심 · AI 도구로 생산성 보완</p>
         <ul class="metric-list">
-          <li class="metric-item"><span>핵심 TFT</span><strong>소수 정예</strong></li>
-          <li class="metric-item"><span>생산성 보완</span><strong>고성능 개발 도구</strong></li>
-          <li class="metric-item"><span>품질 방어</span><strong>CI/CD · Quality Gate</strong></li>
-          <li class="metric-item"><span>전략 방향</span><strong>인력 확대 대신 도구·프로세스</strong></li>
+          <li class="metric-item"><span>총 투입 인력</span><strong>핵심 7명 (+ AI 7)</strong></li>
+          <li class="metric-item"><span>진행 기간</span><strong>1.5년</strong></li>
+          <li class="metric-item"><span>총 투입 규모</span><strong>108 M/M</strong></li>
+          <li class="metric-item"><span>조직 형태</span><strong>소규모 TFT (AI도구 협업)</strong></li>
         </ul>
       </div>
     </div>
@@ -162,14 +166,19 @@ html { overflow: hidden; margin: 0; padding: 0; }
         </thead>
         <tbody>
           <tr>
-            <td><strong>인력 전략</strong></td>
-            <td>70명 · 2년 규모 전담 인력 투입</td>
-            <td>소수 정예 + 도구·자동화로 생산성 보완</td>
+            <td><strong>총 투입 규모</strong></td>
+            <td>1,680 M/M · 2년 (70명 전담)</td>
+            <td>108 M/M · 1.5년 (소규모 TFT)</td>
+          </tr>
+          <tr>
+            <td><strong>조직 형태</strong></td>
+            <td>대형 전담 조직</td>
+            <td>소규모 TFT (AI도구 협업)</td>
           </tr>
           <tr>
             <td><strong>시사점</strong></td>
             <td>유사 범위 프로젝트의 규모 감각 확보</td>
-            <td>동일 산출물 대비 M/M·일정 리스크 관리</td>
+            <td>동일 산출물 대비 M/M·일정 효율 극대화</td>
           </tr>
         </tbody>
       </table>

@@ -6,8 +6,12 @@
 <title>(주)제때 차세대 FaSS 플랫폼 구축 중간 보고</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+<link rel="stylesheet" href="shared/slide-fonts.css">
+<link rel="stylesheet" href="shared/slide-motion.css">
 <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap");
 :root {
+  --ppt-font: "IBM Plex Sans KR", sans-serif;
+
     --ppt-bg: #0A0E1A;
     --ppt-bg-soft: #141B2D;
     --ppt-surface: #1E2638;
@@ -38,10 +42,10 @@
     margin: 0;
     padding: 0
     }
-body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
+body{width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     display: flex;
     justify-content: center;
-    align-items: center}
+    align-items: center;font-family:var(--ppt-font-body,var(--ppt-font))}
 .fass-report-slide-root {
     width: 960px;
     height: 720px;
@@ -100,7 +104,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
     }
 .fass-title-main-heading {
     font-family: var(--ppt-font-display);
-    font-size: 60px;
+    font-size:26px;
     font-weight: 700;
     line-height: 1.1;
     color: var(--ppt-text-1);
@@ -163,7 +167,7 @@ body {width:100vw; height:100vh; overflow: hidden; background-color:#0A0E1A;
 html { overflow: hidden;  margin:0; padding:0; }
 </style></head>
 <body>
-<div class="fass-report-slide-root" style="overflow: hidden;">
+<div class="fass-report-slide-root" data-motion="cover" style="overflow: hidden;">
 <!-- Background Image Layer -->
 <div class="fass-background-image-container">
 <img alt="FaSS Platform Background" class="fass-background-image-element" src="https://agents-download.skywork.ai/image/ppt/7467390590712455169/03c74e0b26cc32ff7c809ac5088e2e3b.png"/>
