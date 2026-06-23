@@ -24,21 +24,54 @@ body { width:100vw; height:100vh; overflow:hidden; background:#0A0E1A;
   display:flex; justify-content:center; align-items:center; font-family:var(--ppt-font-body); }
 .slide-root { width:960px; height:720px; background:var(--ppt-bg); color:var(--ppt-text-1);
   display:flex; flex-direction:column; overflow:hidden; }
-.title-region { padding:24px 40px 8px; }
+.title-region { padding:18px 40px 4px; }
 .title-row { display:flex; align-items:center; gap:12px; }
 .title-bar { width:4px; height:32px; background:var(--ppt-good); border-radius:2px; }
 .title-badge { font-size:13px; font-weight:700; padding:3px 10px; border-radius:4px;
   background:rgba(34,197,94,0.12); color:var(--ppt-good); border:1px solid rgba(34,197,94,0.3); }
 .title-text { font-family:var(--ppt-font-display); font-size:26px; font-weight:700; }
-.title-sub { font-size:14px; color:var(--ppt-text-2); margin-top:6px; padding-left:16px; }
-.title-line { height:1px; margin-top:8px;
+.title-sub { font-size:13px; color:var(--ppt-text-2); margin-top:4px; padding-left:16px; line-height:1.45; }
+.title-sub strong { color:var(--ppt-text-1); }
+.title-line { height:1px; margin-top:6px;
   background:linear-gradient(90deg,var(--ppt-good) 0%,transparent 100%); opacity:0.35; }
-.main-body { flex:1; min-height:0; padding:6px 40px 16px; display:flex; flex-direction:column; gap:10px; }
-.hub-row { display:grid; grid-template-columns:1fr 220px 1fr; gap:10px; flex:1; min-height:0; }
+.main-body { flex:1; min-height:0; padding:4px 40px 12px; display:flex; flex-direction:column; gap:8px; }
+/* ── Builder concept (easy explanation) ── */
+.concept-strip {
+  flex-shrink:0; display:grid; grid-template-columns:1fr 52px 1fr; gap:8px; align-items:stretch;
+}
+.concept-box {
+  background:var(--ppt-bg-soft); border:1px solid var(--ppt-border); border-radius:12px;
+  padding:10px 12px; display:flex; flex-direction:column; gap:6px;
+}
+.concept-box.old { border-top:3px solid var(--ppt-text-3); opacity:.92; }
+.concept-box.new { border-top:3px solid var(--ppt-good); background:linear-gradient(160deg,rgba(34,197,94,.08),var(--ppt-bg-soft)); }
+.concept-label { font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+.concept-box.old .concept-label { color:var(--ppt-text-3); }
+.concept-box.new .concept-label { color:var(--ppt-good); }
+.concept-title { font-size:14px; font-weight:700; line-height:1.3; }
+.concept-analogy { font-size:12px; color:var(--ppt-accent-2); font-weight:600; line-height:1.35; }
+.concept-list { list-style:none; display:flex; flex-direction:column; gap:3px; }
+.concept-list li {
+  font-size:12px; color:var(--ppt-text-2); line-height:1.35; padding-left:12px; position:relative;
+}
+.concept-list li::before { content:'·'; position:absolute; left:0; color:var(--ppt-text-3); }
+.concept-arrow {
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+  color:var(--ppt-good); font-size:12px; font-weight:700;
+}
+.concept-arrow i { font-size:20px; }
+.concept-oneline {
+  flex-shrink:0; text-align:center; padding:8px 14px; border-radius:10px;
+  background:rgba(0,240,255,.06); border:1px dashed rgba(0,240,255,.35);
+  font-size:13px; color:var(--ppt-text-2); line-height:1.45;
+}
+.concept-oneline em { font-style:normal; color:var(--ppt-accent); font-weight:700; }
+.concept-oneline strong { color:var(--ppt-good); }
+.hub-row { display:grid; grid-template-columns:1fr 200px 1fr; gap:8px; flex:1; min-height:0; }
 .role-col { display:flex; flex-direction:column; gap:8px; }
 .role-card {
   flex:1; background:var(--ppt-bg-soft); border:1px solid var(--ppt-border);
-  border-radius:var(--ppt-radius-lg); padding:12px 14px; display:flex; gap:10px;
+  border-radius:var(--ppt-radius-lg); padding:9px 11px; display:flex; gap:8px;
 }
 .role-card::before { content:''; width:3px; border-radius:3px; flex-shrink:0; }
 .role-card--learn::before { background:var(--ppt-accent); }
@@ -51,8 +84,8 @@ body { width:100vw; height:100vh; overflow:hidden; background:#0A0E1A;
 .role-icon.green { background:rgba(34,197,94,0.1); color:var(--ppt-good); }
 .role-icon.purple { background:rgba(167,139,250,0.1); color:var(--ppt-purple); }
 .role-icon.gold { background:rgba(250,204,21,0.1); color:var(--ppt-accent-2); }
-.role-body h3 { font-size:14px; font-weight:700; margin-bottom:4px; }
-.role-body p { font-size:13px; color:var(--ppt-text-2); line-height:1.45; }
+.role-body h3 { font-size:13px; font-weight:700; margin-bottom:3px; }
+.role-body p { font-size:12px; color:var(--ppt-text-2); line-height:1.4; }
 .hub-center {
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
   background:linear-gradient(180deg,rgba(0,240,255,0.08),rgba(34,197,94,0.06));
@@ -84,11 +117,42 @@ html { overflow:hidden; margin:0; padding:0; }
       <span class="title-badge">BUILDER × PLATFORM</span>
       <h1 class="title-text">비즈니스 혁신 8. 빌더형 인재 육성을 위한 전환</h1>
     </div>
-    <p class="title-sub">SiteFramework(FaSS Platform)는 이론이 아닌 <strong style="color:var(--ppt-accent);">실전 훈련장</strong> — RAG·AI 협업 역량 위에서 빌더가 성장합니다</p>
+    <p class="title-sub"><strong>빌더형 인재</strong>란? 완성된 시스템만 쓰는 사람이 아니라, AI와 함께 <strong style="color:var(--ppt-good);">직접 만들고·운영하며 개선하는</strong> 차세대 IT 인재입니다.</p>
     <div class="title-line"></div>
   </div>
 
   <div class="main-body">
+    <div class="concept-strip">
+      <div class="concept-box old">
+        <span class="concept-label">Before · 사용자형</span>
+        <div class="concept-title">만들어진 것을 <em style="color:var(--ppt-text-3);font-style:normal;">사용</em>하는 인력</div>
+        <div class="concept-analogy">비유 — 완성차만 운전하는 운전사</div>
+        <ul class="concept-list">
+          <li>기능 변경·신규 개발은 외주·SI에 의존</li>
+          <li>내부는 매뉴얼대로 조작·운영 위주</li>
+          <li>조직 IT 역량이 프로젝트마다 흩어짐</li>
+        </ul>
+      </div>
+      <div class="concept-arrow">
+        <span>전환</span>
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      <div class="concept-box new">
+        <span class="concept-label">After · 빌더형</span>
+        <div class="concept-title">직접 <em style="color:var(--ppt-good);font-style:normal;">만들고·고치고·운영</em>하는 인력</div>
+        <div class="concept-analogy">비유 — 설계도 보고 차를 직접 조립·정비하는 장인</div>
+        <ul class="concept-list">
+          <li><strong style="color:var(--ppt-text-1);">Build</strong> — 요구사항을 코드·서비스로 직접 구현</li>
+          <li><strong style="color:var(--ppt-text-1);">Monitor</strong> — 배포·품질·AI를 스스로 관제·개선</li>
+          <li><strong style="color:var(--ppt-text-1);">Share</strong> — 표준·문서를 남겨 조직 역량을 축적</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="concept-oneline">
+      <em>한 줄 정의</em> — 빌더형 인재 = AI 협업 위에서 <strong>Build · Monitor · Share</strong>를 실전에서 연마하는 인재 &nbsp;|&nbsp; 훈련장 = <strong>SiteFramework</strong>
+    </div>
+
     <div class="hub-row">
       <div class="role-col">
         <div class="role-card role-card--learn">
@@ -109,8 +173,8 @@ html { overflow:hidden; margin:0; padding:0; }
 
       <div class="hub-center">
         <i class="fas fa-cubes hub-icon"></i>
-        <div class="hub-title">차세대 웹프레임워크<br/>SiteFramework</div>
-        <div class="hub-sub">Next.js · Java 21 · LangGraph<br/>공통 모듈·문서·CI 표준</div>
+        <div class="hub-title">실전 훈련장<br/>SiteFramework</div>
+        <div class="hub-sub">이론 교육이 아닌<br/>실제 코드·배포·관제 실습</div>
         <div class="hub-tags">
           <span class="hub-tag">S04</span><span class="hub-tag">S09</span><span class="hub-tag">S18</span>
         </div>
@@ -136,7 +200,7 @@ html { overflow:hidden; margin:0; padding:0; }
 
     <div class="bottom-bar">
       <i class="fas fa-link"></i>
-      <p><strong>웹프레임워크의 역할:</strong> 빌더형 인재가 Monitor·Build 역할을 동시에 연마할 수 있는 <strong>살아있는 표준 플랫폼</strong>입니다. RAG·CI/CD·문서화 표준과 연결되어 인재·기술 역량을 완성합니다.</p>
+      <p><strong>왜 지금인가:</strong> AI가 코딩·문서·테스트를 돕는 시대 — "요청만 하는" 사용자형에서 "직접 만드는" 빌더형으로 전환해야 속도·품질·내재화를 동시에 확보합니다.</p>
     </div>
   </div>
 </div>

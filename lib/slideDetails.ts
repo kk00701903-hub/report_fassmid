@@ -864,14 +864,16 @@ quality_gate:
     slideId: 26,
     topics: [
       {
-        id: "roadmap-vision",
-        title: "로드맵 및 미래 비전",
+        id: "builder-talent-definition",
+        title: "빌더형 인재란?",
         category: "process",
-        summary: "PART 5 로드맵의 단계별 목표와 의존 관계입니다.",
+        summary:
+          "완성된 시스템만 사용하는 사용자형 인력에서, AI와 협업하며 직접 만들고(Build)·운영하고(Monitor)·표준을 전파(Share)하는 빌더형 인재로 전환합니다.",
         process: [
-          { step: 1, title: "2026.10 Start", description: "차세대 서버 프로토타입 개발 착수 — 완성형 기술스택 최초 적용의 시작점 (데모 아님)" },
-          { step: 2, title: "2027.03 완성", description: "주유소(JTGS) 기반 프로토타입 완성, 6월까지 안정화·고도화" },
-          { step: 3, title: "2027.06~ 이관 준비", description: "3PL·유통물류 대규모 이관 준비 — 개선·웹프레임워크·AI 본격 적용" },
+          { step: 1, title: "사용자형 (Before)", description: "기능 변경·개발을 외주/SI에 의존, 매뉴얼 운영 위주" },
+          { step: 2, title: "빌더형 (After)", description: "Build·Monitor·Share — 요구사항을 직접 구현·관제·문서화" },
+          { step: 3, title: "훈련장", description: "SiteFramework에서 실제 코드·배포·CI/CD·RAG 문서 실습" },
+          { step: 4, title: "기대 효과", description: "개발 속도·품질·아키텍처 내재화를 조직 역량으로 축적" },
         ],
       },
     ],
@@ -920,15 +922,15 @@ quality_gate:
     slideId: 30,
     topics: [
       {
-        id: "closing-milestones",
-        title: "향후 마일스톤 상세",
+        id: "rollout-roadmap",
+        title: "단계적 롤아웃 로드맵",
         category: "process",
-        summary: "맺음말 슬라이드의 후속 마일스톤 실행 계획입니다.",
+        summary: "2027.06 프로토타입·템플릿 완성 후 3PL 선행 전환, 2028.12까지 3PL·유통물류 통합까지 단계적 롤아웃합니다.",
         process: [
-          { step: 1, title: "7월", description: "UI/UX 스토리보드 대표이사 확인" },
-          { step: 2, title: "8~9월", description: "핵심 모듈 집중 개발" },
-          { step: 3, title: "10월~", description: "차세대 서버 프로토타입 개발 착수 — 기술스택 최초 적용 Start" },
-          { step: 4, title: "2027.06~", description: "3PL·유통물류 이관 준비 — 개선·프레임워크·AI 본격 적용" },
+          { step: 1, title: "~2027.06", description: "프로토타입 및 프레임워크 템플릿 완성" },
+          { step: 2, title: "2027.07~08", description: "3PL·유통물류 시스템 분석 및 요구사항 수렴" },
+          { step: 3, title: "2027.09~", description: "3PL 시스템부터 단계적 차세대 FaSS 전환" },
+          { step: 4, title: "~2028.12", description: "유통물류 전환 + 3PL·유통물류 통합 완료" },
         ],
       },
     ],

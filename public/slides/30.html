@@ -155,7 +155,9 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    width: 155px
+    flex: 1;
+    min-width: 0;
+    max-width: 130px
     }
 .roadmap-node-circle {
     width: 24px;
@@ -170,9 +172,16 @@ body {width:100vw; height:100vh; overflow: hidden; background-color: var(--ppt-b
     box-shadow: 0 0 10px var(--ppt-accent-2)
     }
 .roadmap-node-label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--ppt-text-1);
+    text-align: center;
+    line-height: 1.3
+    }
+.roadmap-node-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ppt-accent);
     text-align: center
     }
 /* Table Region */
@@ -272,8 +281,8 @@ html { overflow: hidden;  margin:0; padding:0; }
 <i class="fas fa-shield-halved"></i>
 </div>
 <div class="roadmap-strategy-text-group">
-<span class="roadmap-strategy-label">단계적 롤아웃</span>
-<span class="roadmap-strategy-desc">빅뱅 방식의 리스크를 원천 차단하는 점진적 이관 체계 수립</span>
+<span class="roadmap-strategy-label">목표 기간</span>
+<span class="roadmap-strategy-desc">~2027.06 기반 완성 → 7~8월 분석 → 3PL 선행 전환 → 2028.12 통합 완료</span>
 </div>
 </div>
 <div style="flex: 2;padding: 8px 0;">
@@ -281,15 +290,23 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div class="roadmap-visual-track-line"></div>
 <div class="roadmap-step-node">
 <div class="roadmap-node-circle"></div>
-<span class="roadmap-node-label">차세대 스택<br/>최초 적용 (Start)</span>
+<span class="roadmap-node-date">~2027.06</span>
+<span class="roadmap-node-label">프로토타입·<br/>프레임워크 완성</span>
 </div>
 <div class="roadmap-step-node">
 <div class="roadmap-node-circle"></div>
-<span class="roadmap-node-label">프로토타입<br/>완성·안정화</span>
+<span class="roadmap-node-date">2027.07~08</span>
+<span class="roadmap-node-label">3PL·유통물류<br/>분석·요구사항</span>
 </div>
 <div class="roadmap-step-node">
 <div class="roadmap-node-circle gold"></div>
-<span class="roadmap-node-label">대규모 이관<br/>준비·개선</span>
+<span class="roadmap-node-date">2027.09~</span>
+<span class="roadmap-node-label">3PL<br/>단계적 전환</span>
+</div>
+<div class="roadmap-step-node">
+<div class="roadmap-node-circle gold"></div>
+<span class="roadmap-node-date">~2028.12</span>
+<span class="roadmap-node-label">유통물류 전환<br/>· 시스템 통합</span>
 </div>
 </div>
 </div>
@@ -314,49 +331,65 @@ html { overflow: hidden;  margin:0; padding:0; }
 <tbody>
 <tr>
 <td>
-<span class="roadmap-phase-badge">통합 프로토타입</span>
-<div style="font-weight: 600;">차세대 기술스택 최초 적용</div>
+<span class="roadmap-phase-badge">Phase 1</span>
+<div style="font-weight: 600;">프로토타입·프레임워크 템플릿</div>
 </td>
 <td>
-<span class="roadmap-schedule-text">2026.10 시작</span><br/>
-<span style="font-size:13px;color:var(--ppt-text-2);">2027.03 완성 · ~06 진행</span>
+<span class="roadmap-schedule-text">~2027.06</span>
 </td>
 <td>
 <div class="roadmap-content-list">
-<span class="roadmap-content-item highlight">차세대 서버에서 프로토타입 개발 착수 — 완성형 기술스택 최초 적용의 스타트</span>
-<span class="roadmap-content-item">주유소(JTGS) 관리 시스템 기반 프로토타입 개발 — 개발 기간 중 FaSS V1.0 아키텍처·AI 파이프라인 실전 검증</span>
-<span class="roadmap-content-item">2027년 3월 프로토타입 완성, 6월까지 안정화·고도화 진행</span>
+<span class="roadmap-content-item highlight">차세대 서버 프로토타입 및 SiteFramework 등 프레임워크 템플릿 완성</span>
+<span class="roadmap-content-item">주유소(JTGS) 기반 실전 검증 — 아키텍처·AI 파이프라인 안정화·고도화</span>
+<span class="roadmap-content-item">2027년 6월까지 프로토타입·표준 템플릿 확정 — 본격 이관의 기술·조직 기반 마련</span>
 </div>
 </td>
 </tr>
 <tr>
 <td>
-<span class="roadmap-phase-badge">이관 준비</span>
-<div style="font-weight: 600;">3PL · 유통물류</div>
+<span class="roadmap-phase-badge">Phase 2</span>
+<div style="font-weight: 600;">분석 · 요구사항 수렴</div>
 </td>
 <td>
-<span class="roadmap-schedule-text">2027.06 ~</span>
+<span class="roadmap-schedule-text">2027.07 ~ 2027.08</span>
 </td>
 <td>
 <div class="roadmap-content-list">
-<span class="roadmap-content-item">3PL 시스템·유통물류 시스템 대규모 이관을 위한 준비 단계 개시</span>
-<span class="roadmap-content-item">단순 이관이 아닌 개선 방향 수립 — 시스템 개선 + 차세대 웹프레임워크 적용</span>
-<span class="roadmap-content-item highlight">AI 본격 시스템 적용 사례 확보 — 대규모 전환의 기술·조직 레퍼런스</span>
+<span class="roadmap-content-item highlight">3PL 시스템·유통물류 시스템 현행 분석 및 Gap·개선 방향 도출</span>
+<span class="roadmap-content-item">현업·IT 요구사항 수렴 — 전환 범위·우선순위·통합 아키텍처 합의</span>
+<span class="roadmap-content-item">단계적 롤아웃 상세 계획·Quality Gate 기준 확정</span>
 </div>
 </td>
 </tr>
 <tr>
 <td>
-<span class="roadmap-phase-badge final">대규모 전환</span>
-<div style="font-weight: 600;">3PL → 유통물류</div>
+<span class="roadmap-phase-badge">Phase 3</span>
+<div style="font-weight: 600;">3PL 차세대 전환</div>
 </td>
 <td>
-<span class="roadmap-schedule-text">준비 완료 후</span>
+<span class="roadmap-schedule-text">2027.09 ~</span>
 </td>
 <td>
 <div class="roadmap-content-list">
-<span class="roadmap-content-item">프로토타입에서 검증된 스택·프레임워크·AI 패턴을 본격 이관에 확대 적용</span>
-<span class="roadmap-content-item">레거시 환경 단계적 폐기 및 차세대 표준 플랫폼 전면 가동</span>
+<span class="roadmap-content-item highlight">3PL 시스템부터 단계적 차세대 FaSS 플랫폼 전환 착수</span>
+<span class="roadmap-content-item">검증된 프레임워크·AI 패턴을 3PL 업무 모듈에 순차 적용</span>
+<span class="roadmap-content-item">모듈별 Quality Gate 통과 후 다음 범위 확대 — 상시 롤백 가능</span>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<span class="roadmap-phase-badge final">Phase 4</span>
+<div style="font-weight: 600;">유통물류 전환 · 통합</div>
+</td>
+<td>
+<span class="roadmap-schedule-text">~2028.12</span>
+</td>
+<td>
+<div class="roadmap-content-list">
+<span class="roadmap-content-item">유통물류 시스템 차세대 전환 병행·후속 추진</span>
+<span class="roadmap-content-item highlight">3PL·유통물류 양 시스템 통합 — 단일 FaSS 플랫폼으로 업무·데이터 일원화</span>
+<span class="roadmap-content-item">2028년 12월까지 단계적 롤아웃 완료 — 레거시 단계적 폐기 및 전사 표준 가동</span>
 </div>
 </td>
 </tr>
@@ -367,7 +400,7 @@ html { overflow: hidden;  margin:0; padding:0; }
 <div style="margin-top: 13px;display: flex;align-items: center;gap: 6px 8px;">
 <i class="fas fa-circle-info" style="color: var(--ppt-accent);font-size:13px;"></i>
 <span style="font-size: 14px;color: var(--ppt-text-2);">
-            각 단계별 안정성 검증 통과(Quality Gate) 시에만 다음 단계로 전환하며, 상시 롤백 가능한 파이프라인을 유지함
+            3PL 선행 전환 → 유통물류 전환 → 양 시스템 통합. 각 단계 Quality Gate 통과 시에만 다음 단계 진행, 상시 롤백 가능 파이프라인 유지
           </span>
 </div>
 </div>
