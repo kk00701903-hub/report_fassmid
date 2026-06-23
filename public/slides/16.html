@@ -56,6 +56,29 @@ h1{font-size:26px;font-weight:700;line-height:1.3}
 .chips{display:flex;flex-wrap:wrap;gap:5px}
 .chip{font-size:13px;font-weight:600;padding:4px 9px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);display:inline-flex;align-items:center;gap:4px}
 .chip i{font-size:13px;color:var(--cat-color);opacity:.9}
+.chip.spot{
+  color:var(--ppt-text-1);font-weight:700;
+  animation:chipSpotPulse 4.5s ease-in-out infinite;
+}
+.chip.spot-infra{
+  border-color:rgba(56,189,248,.5);background:rgba(56,189,248,.1);
+  box-shadow:0 0 10px rgba(56,189,248,.12);
+}
+.chip.spot-infra i{color:#7DD3FC}
+.chip.spot-sec{
+  border-color:rgba(167,139,250,.5);background:rgba(167,139,250,.1);
+  box-shadow:0 0 10px rgba(167,139,250,.12);
+}
+.chip.spot-sec i{color:#C4B5FD}
+.chip.spot-data{
+  border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.1);
+  box-shadow:0 0 10px rgba(52,211,153,.12);
+}
+.chip.spot-data i{color:#6EE7B7}
+@keyframes chipSpotPulse{
+  0%,100%{filter:brightness(1);transform:scale(1)}
+  50%{filter:brightness(1.15);transform:scale(1.02)}
+}
 .core-visual{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:rgba(250,204,21,.06);border:1px dashed rgba(250,204,21,.25)}
 .layer-box{flex:1;text-align:center;padding:6px 4px;border-radius:6px;font-size:13px;font-weight:700;line-height:1.3}
 .layer-box.l1{background:rgba(97,218,251,.12);color:#7DD3FC;border:1px solid rgba(97,218,251,.25)}
@@ -110,9 +133,9 @@ html{overflow:hidden;margin:0;padding:0}
         </div>
         <div class="cat-body">
           <div class="chips">
-            <span class="chip"><i class="fab fa-docker"></i>Docker</span>
+            <span class="chip spot spot-infra"><i class="fab fa-docker"></i>Docker</span>
             <span class="chip"><i class="fas fa-ship"></i>K8s</span>
-            <span class="chip"><i class="fab fa-gitlab"></i>GitLab CI</span>
+            <span class="chip spot spot-infra" style="animation-delay:.8s"><i class="fab fa-gitlab"></i>GitLab CI</span>
             <span class="chip"><i class="fas fa-rotate"></i>ArgoCD</span>
             <span class="chip"><i class="fas fa-magnifying-glass-chart"></i>SonarQube</span>
             <span class="chip"><i class="fas fa-cube"></i>Nexus</span>
@@ -158,7 +181,7 @@ html{overflow:hidden;margin:0;padding:0}
             <span class="chip"><i class="fas fa-key"></i>Keycloak</span>
             <span class="chip"><i class="fas fa-id-card"></i>JWT</span>
             <span class="chip"><i class="fas fa-lock"></i>Spring Security</span>
-            <span class="chip"><i class="fas fa-shield-halved"></i>API Gateway</span>
+            <span class="chip spot spot-sec" style="animation-delay:.4s"><i class="fas fa-shield-halved"></i>API Gateway</span>
             <span class="chip"><i class="fas fa-plug"></i>REST / gRPC</span>
             <span class="chip"><i class="fas fa-users-rectangle"></i>Multi-tenancy</span>
           </div>
@@ -173,7 +196,7 @@ html{overflow:hidden;margin:0;padding:0}
         </div>
         <div class="cat-body">
           <div class="chips">
-            <span class="chip"><i class="fas fa-database"></i>Debezium</span>
+            <span class="chip spot spot-data" style="animation-delay:1.2s"><i class="fas fa-database"></i>Debezium</span>
             <span class="chip"><i class="fas fa-stream"></i>Kafka</span>
             <span class="chip"><i class="fas fa-print"></i>ClipReport</span>
             <span class="chip"><i class="fas fa-chart-bar"></i>Superset</span>

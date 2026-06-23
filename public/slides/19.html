@@ -126,8 +126,21 @@ h1{font-size:26px;font-weight:700;line-height:1.3}
 .phase-head{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .phase-num{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--ph);color:var(--ph);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
 .phase-title{font-size:13px;font-weight:700;color:var(--ppt-text-1)}
-.phase-desc{font-size:13px;color:var(--ppt-text-3);margin-top:1px}
-.phase-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;justify-content:center}
+.phase-desc{font-size:12px;color:var(--ppt-text-3);margin-top:1px;line-height:1.35}
+.phase-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;justify-content:flex-start;overflow:hidden}
+.phase:not(.phase-dense) .phase-body{justify-content:center}
+.phase-head > div:last-child{min-width:0;flex:1}
+.phase-dense .phase-head{margin-bottom:2px}
+.phase-dense .phase-desc{font-size:11px;line-height:1.3}
+.phase-dense .phase-body{
+  display:grid;grid-template-columns:1fr 1fr;gap:4px;align-content:start;
+}
+.phase-dense .phase-body .node-flow{grid-column:1/-1;padding:1px 0;font-size:11px;line-height:1.2}
+.phase-dense .node{padding:5px 6px;gap:5px;min-height:0}
+.phase-dense .node.aux{grid-column:1/-1;padding:4px 6px}
+.phase-dense .node-icon{width:24px;height:24px;font-size:12px;border-radius:6px}
+.phase-dense .node-name{font-size:11px;line-height:1.2}
+.phase-dense .node-sub{font-size:10px;line-height:1.25;margin-top:0}
 .node{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(10,14,26,.55);border:1px solid var(--ppt-border);border-radius:10px;border-left:3px solid var(--nc)}
 .node.aux{opacity:.78;border-style:dashed}
 .node-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;background:rgba(255,255,255,.06);color:var(--nc);flex-shrink:0}
@@ -269,12 +282,12 @@ html{overflow:hidden;margin:0;padding:0}
       </div>
 
       <!-- Phase 2: CI -->
-      <div class="phase" style="--ph:var(--c-gitlab)">
+      <div class="phase phase-dense" style="--ph:var(--c-gitlab)">
         <div class="phase-head">
           <div class="phase-num">2</div>
           <div>
             <div class="phase-title">Build & Quality</div>
-            <div class="phase-desc">빌드 · 테스트 · 정적 분석 · 이미지 생성</div>
+            <div class="phase-desc">빌드·테스트·품질검증·이미지</div>
           </div>
         </div>
         <div class="phase-body">
@@ -282,21 +295,20 @@ html{overflow:hidden;margin:0;padding:0}
             <div class="node-icon"><i class="fas fa-gears"></i></div>
             <div class="node-text">
               <div class="node-name">GitLab CI</div>
-              <div class="node-sub">Build · Unit Test · Runner</div>
+              <div class="node-sub">Build · Test</div>
             </div>
           </div>
           <div class="node" style="--nc:var(--c-sonar)">
             <div class="node-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
             <div class="node-text">
               <div class="node-name">SonarQube</div>
-              <div class="node-sub">정적 분석 · Quality Gate</div>
+              <div class="node-sub">Quality Gate</div>
             </div>
           </div>
           <div class="node aux" style="--nc:var(--c-jenkins)">
             <div class="node-icon"><i class="fab fa-jenkins"></i></div>
             <div class="node-text">
-              <div class="node-name">Jenkins</div>
-              <div class="node-sub">보조 Job · 레거시 연동</div>
+              <div class="node-name">Jenkins — 보조 Job · 레거시 연동</div>
             </div>
           </div>
           <div class="node-flow"><i class="fas fa-arrow-down"></i> image push</div>
@@ -304,14 +316,14 @@ html{overflow:hidden;margin:0;padding:0}
             <div class="node-icon"><i class="fab fa-docker"></i></div>
             <div class="node-text">
               <div class="node-name">Docker Build</div>
-              <div class="node-sub">컨테이너 이미지 패키징</div>
+              <div class="node-sub">이미지 패키징</div>
             </div>
           </div>
           <div class="node" style="--nc:var(--c-nexus)">
             <div class="node-icon"><i class="fas fa-warehouse"></i></div>
             <div class="node-text">
               <div class="node-name">Nexus Registry</div>
-              <div class="node-sub">아티팩트 · 이미지 중앙 저장</div>
+              <div class="node-sub">중앙 저장</div>
             </div>
           </div>
         </div>

@@ -925,9 +925,9 @@ quality_gate:
         id: "rollout-roadmap",
         title: "단계적 롤아웃 로드맵",
         category: "process",
-        summary: "2027.06 프로토타입·템플릿 완성 후 3PL 선행 전환, 2028.12까지 3PL·유통물류 통합까지 단계적 롤아웃합니다.",
+        summary: "2027년 3월 주유소 관리시스템 프로토타입 Live 후 3PL 선행 전환, 2028.12까지 3PL·유통물류 통합까지 단계적 롤아웃합니다.",
         process: [
-          { step: 1, title: "~2027.06", description: "프로토타입 및 프레임워크 템플릿 완성" },
+          { step: 1, title: "2027년 3월", description: "주유소(JTGS) 관리시스템 프로토타입 Live" },
           { step: 2, title: "2027.07~08", description: "3PL·유통물류 시스템 분석 및 요구사항 수렴" },
           { step: 3, title: "2027.09~", description: "3PL 시스템부터 단계적 차세대 FaSS 전환" },
           { step: 4, title: "~2028.12", description: "유통물류 전환 + 3PL·유통물류 통합 완료" },
