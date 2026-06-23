@@ -23,7 +23,7 @@ export default function LegacyDetailRedirect({ targetSlideId, detailId }: Legacy
         justifyContent: "center",
         background: "#0A0E1A",
         color: "#94A3B8",
-        fontFamily: '"IBM Plex Sans KR", sans-serif',
+        fontFamily: '"Noto Sans KR", sans-serif',
       }}
     >
       상세 자료로 이동 중…

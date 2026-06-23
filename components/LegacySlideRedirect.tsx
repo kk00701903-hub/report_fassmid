@@ -22,7 +22,7 @@ export default function LegacySlideRedirect({ targetSlideId }: LegacySlideRedire
         justifyContent: "center",
         background: "#0A0E1A",
         color: "#94A3B8",
-        fontFamily: '"IBM Plex Sans KR", sans-serif',
+        fontFamily: '"Noto Sans KR", sans-serif',
       }}
     >
       슬라이드 {targetSlideId}로 이동 중…

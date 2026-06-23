@@ -1,4 +1,4 @@
-"""Unify IBM Plex Sans KR typography across all slide HTML files."""
+"""Unify Noto Sans KR typography across all slide HTML files."""
 from __future__ import annotations
 
 import re
@@ -7,7 +7,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SLIDES_DIR = ROOT / "public" / "slides"
 FONT_LINK = '<link rel="stylesheet" href="shared/slide-fonts.css">'
-IBM = '"IBM Plex Sans KR", sans-serif'
+NOTO = '"Noto Sans KR", sans-serif'
+IBM_PLEX = '"IBM Plex Sans KR", sans-serif'
+
+FONT_IMPORT_RE = re.compile(
+    r'@import\s+url\(["\']?https://fonts\.googleapis\.com/css2\?'
+    r'family=IBM\+Plex\+Sans\+KR[^"\']*["\']?\)\s*;?\s*',
+    re.I,
+)
+NOTO_IMPORT_RE = re.compile(
+    r'@import\s+url\(["\']?https://fonts\.googleapis\.com/css2\?'
+    r'family=Noto\+Sans\+KR[^"\']*["\']?\)\s*;?\s*',
+    re.I,
+)
 
 TITLE_PATTERNS = [
     re.compile(r"(h1(?:\.[\w-]+)?\{[^}]*?)font-size:\s*(\d+)px", re.DOTALL),
@@ -35,6 +47,12 @@ def ensure_font_link(text: str) -> str:
     return text.replace("</head>", f"  {FONT_LINK}\n</head>", 1)
 
 
+def remove_font_imports(text: str) -> str:
+    text = FONT_IMPORT_RE.sub("", text)
+    text = NOTO_IMPORT_RE.sub("", text)
+    return text
+
+
 def unify_root_vars(text: str) -> str:
     if ":root" not in text:
         return text
@@ -43,11 +61,11 @@ def unify_root_vars(text: str) -> str:
         block = m.group(0)
         additions: list[str] = []
         if "--ppt-font:" not in block and "--ppt-font " not in block:
-            additions.append(f"  --ppt-font: {IBM};")
+            additions.append(f"  --ppt-font: {NOTO};")
         if "--ppt-font-body:" not in block:
-            additions.append(f"  --ppt-font-body: {IBM};")
+            additions.append(f"  --ppt-font-body: {NOTO};")
         if "--ppt-font-display:" not in block:
-            additions.append(f"  --ppt-font-display: {IBM};")
+            additions.append(f"  --ppt-font-display: {NOTO};")
         if not additions:
             return block
         return block.replace("{", "{\n" + "\n".join(additions) + "\n", 1)
@@ -56,9 +74,20 @@ def unify_root_vars(text: str) -> str:
 
 
 def normalize_var_values(text: str) -> str:
+    text = text.replace(IBM_PLEX, NOTO)
     text = re.sub(
-        r'--ppt-font\s*:\s*"IBM Plex Sans KR",sans-serif',
-        f"--ppt-font: {IBM}",
+        r'--ppt-font\s*:\s*"Noto Sans KR",sans-serif',
+        f"--ppt-font: {NOTO}",
+        text,
+    )
+    text = re.sub(
+        r'--ppt-font-body\s*:\s*"Noto Sans KR",sans-serif',
+        f"--ppt-font-body: {NOTO}",
+        text,
+    )
+    text = re.sub(
+        r'--ppt-font-display\s*:\s*"Noto Sans KR",sans-serif',
+        f"--ppt-font-display: {NOTO}",
         text,
     )
     return text
@@ -95,6 +124,7 @@ def process_file(path: Path) -> bool:
     original = path.read_text(encoding="utf-8")
     updated = original
     updated = ensure_font_link(updated)
+    updated = remove_font_imports(updated)
     updated = unify_root_vars(updated)
     updated = normalize_var_values(updated)
     updated = standardize_titles(updated)

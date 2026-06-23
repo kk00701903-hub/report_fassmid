@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SLIDES_DIR = ROOT / "public" / "slides"
 
 ALLOWED = {
-    "IBM Plex Sans KR",
+    "Noto Sans KR",
     "Font Awesome 7 Free",
     "Font Awesome 6 Free",
     "Font Awesome 7 Brands",

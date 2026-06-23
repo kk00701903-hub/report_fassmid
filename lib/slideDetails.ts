@@ -182,7 +182,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
   --fass-bg: #0A0E1A;
   --fass-accent: #00F0FF;
   --fass-accent-2: #FACC15;
-  --fass-font: "IBM Plex Sans KR", sans-serif;
+  --fass-font: "Noto Sans KR", sans-serif;
 }`,
           },
         ],
