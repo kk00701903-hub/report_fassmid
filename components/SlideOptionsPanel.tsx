@@ -12,7 +12,6 @@ import {
 import { clearSlideCache } from "@/lib/slideCache";
 import {
   exportSlidesToPdf,
-  exportSlidesToPptx,
   type ExportProgress,
 } from "@/lib/slideExport";
 
@@ -31,7 +30,7 @@ function moveItem<T>(items: T[], from: number, to: number): T[] {
 
 export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOptionsPanelProps) {
   const [draft, setDraft] = useState<PresentationConfig>(() => normalizePresentationConfig(config));
-  const [exporting, setExporting] = useState<"pdf" | "pdf-light" | "pptx" | null>(null);
+  const [exporting, setExporting] = useState<"pdf" | "pdf-light" | null>(null);
   const [exportProgress, setExportProgress] = useState<ExportProgress | null>(null);
   const [exportError, setExportError] = useState<string | null>(null);
 
@@ -97,7 +96,7 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
     onApply(defaults);
   };
 
-  const runExport = async (mode: "pdf" | "pdf-light" | "pptx") => {
+  const runExport = async (mode: "pdf" | "pdf-light") => {
     setExportError(null);
     setExporting(mode);
     setExportProgress({ current: 0, total: draft.slides.filter((s) => s.visible !== false).length, label: "" });
@@ -106,12 +105,10 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
       const onProgress = (progress: ExportProgress) => setExportProgress(progress);
       if (mode === "pdf") {
         await exportSlidesToPdf(draft.slides, "FaSS-발표자료.pdf", onProgress);
-      } else if (mode === "pdf-light") {
+      } else {
         await exportSlidesToPdf(draft.slides, "FaSS-발표자료-회색조.pdf", onProgress, {
           colorMode: "light",
         });
-      } else {
-        await exportSlidesToPptx(draft.slides, "FaSS-발표자료.pptx", onProgress);
       }
     } catch (error) {
       setExportError(error instanceof Error ? error.message : "보내기에 실패했습니다.");
@@ -143,8 +140,8 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
           <section className="options-section">
             <h3>보내기</h3>
             <p className="options-section__hint">
-              발표에 포함(체크)된 슬라이드만 PDF·PowerPoint 파일로 저장합니다. 회색조 PDF는 어두운 배경을
-              흰색·검은 글자로 반전합니다. ({visibleCount}페이지)
+              발표에 포함(체크)된 슬라이드만 PDF 파일로 저장합니다. 회색조 PDF는 어두운 배경을 흰색·검은
+              글자로 반전합니다. ({visibleCount}페이지)
             </p>
             <div className="options-export-actions">
               <button
@@ -165,24 +162,11 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
                 <i className="fa-solid fa-file-pdf" aria-hidden="true" />
                 PDF 만들기 (회색조)
               </button>
-              <button
-                type="button"
-                className="options-btn options-btn--ghost"
-                disabled={!!exporting || visibleCount === 0}
-                onClick={() => void runExport("pptx")}
-              >
-                <i className="fa-solid fa-file-powerpoint" aria-hidden="true" />
-                PowerPoint
-              </button>
             </div>
             {exporting ? (
               <p className="options-export-status" role="status">
                 <i className="fa-solid fa-spinner fa-spin" aria-hidden="true" />
-                {exporting === "pdf"
-                  ? "PDF 생성 중"
-                  : exporting === "pdf-light"
-                    ? "회색조 PDF 생성 중"
-                    : "PPTX 생성 중"}
+                {exporting === "pdf" ? "PDF 생성 중" : "회색조 PDF 생성 중"}
                 {exportProgress
                   ? ` (${exportProgress.current}/${exportProgress.total}) ${exportProgress.label}`
                   : ""}

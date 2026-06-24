@@ -250,6 +250,41 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
+    slideId: 9,
+    topics: [
+      {
+        id: "peer-benchmark",
+        title: "타사 프로젝트 비교",
+        category: "process",
+        summary:
+          "삼성E&A 70명·2년(1,680 M/M) 대비 당사 핵심 7명(+ AI 8)·1.5년(108 M/M) TFT의 규모·효율 벤치마크입니다. 내부 전략 수립용 참고 자료입니다.",
+        process: [
+          { step: 1, title: "타사 사례", description: "70명 규모·2년 진행 대규모 엔지니어링·플랫폼 프로젝트" },
+          { step: 2, title: "당사 TFT", description: "핵심 7명 + AI 8명 협업, 1.5년·108 M/M" },
+          { step: 3, title: "시사점", description: "동일 산출물 대비 M/M·일정 효율 극대화" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 10,
+    topics: [
+      {
+        id: "ai-augmented-workflow",
+        title: "AI-Augmented 개발 워크플로우",
+        category: "process",
+        summary:
+          "기획·설계·AI 개발·통합·배포·검증까지 AI 도구가 연결된 End-to-End 개발 파이프라인. Claude Code·DGX Spark·GitLab CI가 단일 흐름으로 통합됩니다.",
+        process: [
+          { step: 1, title: "기획·설계", description: "요구사항·API 스펙·UI 와이어프레임 정의" },
+          { step: 2, title: "AI 개발", description: "Claude Code·DGX 기반 코드·테스트·문서 생성" },
+          { step: 3, title: "통합·배포", description: "GitLab CI Quality Gate 통과 후 스테이징·운영 반영" },
+          { step: 4, title: "검증", description: "Human-in-the-loop 품질 검수·회귀 테스트" },
+        ],
+      },
+    ],
+  },
+  {
     slideId: 11,
     topics: [
       {
@@ -275,11 +310,11 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "최적화 방안 1. AI 디지털 워커 활용",
         category: "process",
         summary:
-          "인간 핵심 7명과 AI 보조 인력 7명이 협업합니다. 총 14명 규모 TFT와 동등한 추진력으로 코드·문서·테스트는 AI가 24/7 지원하고, 설계·의사결정·품질 검수는 Human-in-the-loop로 통제합니다.",
+          "인간 핵심 7명과 AI 보조 인력 8명이 협업합니다. 총 15명 규모 TFT와 동등한 추진력으로 코드·문서·테스트는 AI가 24/7 지원하고, 설계·의사결정·품질 검수는 Human-in-the-loop로 통제합니다.",
         process: [
           { step: 1, title: "인간 7명", description: "TFT 핵심 — 아키텍처·설계·의사결정·품질 검수" },
-          { step: 2, title: "AI 보조 7명", description: "디지털 워커 — 코드·문서·테스트 등 표준 업무 24/7 지원" },
-          { step: 3, title: "14명 TFT급", description: "인간+AI 14명 체제로 대규모 TFT와 동등한 프로젝트 추진 효과" },
+          { step: 2, title: "AI 보조 8명", description: "디지털 워커 — 코드·문서·테스트 등 표준 업무 24/7 지원" },
+          { step: 3, title: "15명 TFT급", description: "인간+AI 15명 체제로 대규모 TFT와 동등한 프로젝트 추진 효과" },
         ],
       },
     ],
@@ -336,31 +371,15 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 14,
     topics: [
       {
-        id: "milestone-plan",
+        id: "poc-cdc-validation",
         title: "최적화 방안 3. 사전 POC 운영",
         category: "process",
-        summary: "6월~10월 핵심 마일스톤 달성을 위한 단계별 점검 흐름입니다.",
+        summary:
+          "AI 아이디어 스파크 포인트 관리 시스템 PoC로 데이터 마이그레이션 리스크를 선제 검증했습니다. Oracle→PostgreSQL CDC 파이프라인(Debezium·Kafka) 구축 및 0.1초 내 실시간 동기화를 확인했습니다.",
         process: [
-          { step: 1, title: "7월", description: "UI/UX 스토리보드 확정" },
-          { step: 2, title: "8~9월", description: "수주·발주·정산 핵심 모듈 개발" },
-          { step: 3, title: "10월", description: "JTGS 통합 프로토타입 개발 착수 (차세대 서버·완성형 스택 Start)" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 15,
-    topics: [
-      {
-        id: "module-delivery",
-        title: "핵심 모듈 납품 프로세스",
-        category: "process",
-        summary: "수주·발주·정산 모듈의 개발-검증-배포 흐름입니다.",
-        process: [
-          { step: 1, title: "요구사항", description: "도메인별 API 스펙 확정" },
-          { step: 2, title: "구현", description: "모듈 경계 내 개발, API 통신만 허용" },
-          { step: 3, title: "검증", description: "통합 테스트 + Quality Gate" },
-          { step: 4, title: "배포", description: "스테이징 → 운영 단계적 반영" },
+          { step: 1, title: "PoC 선정", description: "포인트 관리 — 이기종 DB 마이그레이션 리스크 검증" },
+          { step: 2, title: "CDC 구축", description: "Debezium + Kafka 기반 변경 데이터 캡처" },
+          { step: 3, title: "검증 완료", description: "실시간 동기화·무결성·부하 테스트 통과" },
         ],
       },
     ],
@@ -533,14 +552,40 @@ public class OrderController {
     slideId: 18,
     topics: [
       {
-        id: "prototype-dev-kickoff",
-        title: "JTGS 프로토타입 개발 착수 체크리스트",
-        category: "process",
-        summary: "2026.10 주유소(JTGS) 프로토타입 개발 착수 전·후 점검 항목입니다. 런칭·경영 시연이 아닌 개발 Start 기준입니다.",
+        id: "cdc-sync",
+        title: "무중단 데이터 동기화 (CDC)",
+        category: "architecture",
+        summary:
+          "Legacy Oracle → Debezium + Kafka → PostgreSQL 실시간 CDC 파이프라인. 업무 중단 없이 매끄러운 시스템 전환 및 데이터 무결성 100% 안전망을 확보합니다.",
+        techLayers: [
+          {
+            id: "data",
+            label: "CDC Pipeline",
+            icon: "fa-solid fa-database",
+            accent: "#22c55e",
+            items: [
+              { name: "Debezium", detail: "WAL 기반 Change Data Capture", sprintId: "S17" },
+              { name: "Apache Kafka", detail: "파티션·순서 보장", sprintId: "S17" },
+              { name: "PostgreSQL", detail: "차세대 FaSS 타깃 DB", sprintId: "S17" },
+            ],
+          },
+        ],
+        preview: {
+          type: "api-flow",
+          title: "CDC 이벤트 파이프라인",
+          caption: "legacy.orders UPDATE → Kafka topic → FaSS order_mgmt consumer",
+        },
+        flowNodes: [
+          { id: "legacy", label: "Legacy DB", sub: "Oracle On-Prem", icon: "fa-solid fa-database" },
+          { id: "debezium", label: "Debezium", sub: "S17 Connector", icon: "fa-solid fa-plug" },
+          { id: "kafka", label: "Kafka", sub: "Streaming Hub", icon: "fa-solid fa-stream" },
+          { id: "consumer", label: "FaSS DB", sub: "PostgreSQL", icon: "fa-solid fa-inbox" },
+        ],
         process: [
-          { step: 1, title: "개발 환경", description: "차세대 서버·SiteFramework·AI 파이프라인 스택 배포 확인" },
-          { step: 2, title: "범위 확정", description: "JTGS 정산·재고·외부 연동 등 프로토타입 개발 스코프·마일스톤 합의" },
-          { step: 3, title: "품질 게이트", description: "일일 통합·Quality Gate — 2027.03 완성·6월 안정화 목표 연계" },
+          { step: 1, title: "초기 적재", description: "배치로 기존 데이터 스냅샷 이관" },
+          { step: 2, title: "CDC 연결", description: "Debezium으로 변경 이벤트 실시간 캡처" },
+          { step: 3, title: "이벤트 처리", description: "Kafka로 순서 보장하며 신규 DB 반영" },
+          { step: 4, title: "검증", description: "체크섬·카운트 비교로 정합성 확인" },
         ],
       },
     ],
@@ -549,14 +594,22 @@ public class OrderController {
     slideId: 19,
     topics: [
       {
-        id: "innovation-validation",
-        title: "혁신 과제 검증 프로세스",
-        category: "process",
-        summary: "PART 4 혁신 항목의 PoC → 프로토타입 개발 → 운영 반영 흐름입니다. JTGS는 2026.10 개발 착수(런칭 아님)입니다.",
+        id: "cicd-gitops",
+        title: "CI/CD 자동화 (DevOps · GitOps)",
+        category: "architecture",
+        summary:
+          "GitLab CI 단일 파이프라인 + Jenkins 보조 연동. Quality Gate(SonarQube·테스트) 통과 후에만 배포하며, ArgoCD GitOps로 Blue-Green·Canary 전략을 지원합니다.",
         process: [
-          { step: 1, title: "PoC", description: "2주 내 기술 타당성 검증 (예: AI 스파크 데이터 무결성)" },
-          { step: 2, title: "프로토타입 개발", description: "2026.10 JTGS 착수 — 차세대 서버·완성형 스택으로 본격 개발" },
-          { step: 3, title: "완성·안정화", description: "2027.03 프로토타입 완성, 6월까지 고도화 후 본격 이관 준비" },
+          { step: 1, title: "Source & Trigger", description: "Git Push·MR → GitLab 파이프라인 자동 트리거" },
+          { step: 2, title: "CI Build & Gate", description: "빌드·단위테스트·SonarQube 정적 분석 Pass/Fail" },
+          { step: 3, title: "CD Deploy", description: "Docker Registry → ArgoCD GitOps 동기화·자동 배포" },
+          { step: 4, title: "운영", description: "On-Prem Docker 환경 Blue-Green·Canary 무중단 전환" },
+        ],
+        flowNodes: [
+          { id: "dev", label: "Developer", sub: "Git Push · MR", icon: "fa-solid fa-code-branch" },
+          { id: "gitlab", label: "GitLab CI", sub: "Build · Test", icon: "fa-brands fa-gitlab" },
+          { id: "gate", label: "Quality Gate", sub: "SonarQube", icon: "fa-solid fa-shield" },
+          { id: "argo", label: "ArgoCD", sub: "GitOps Sync", icon: "fa-solid fa-rocket" },
         ],
       },
     ],
