@@ -151,11 +151,11 @@ body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:f
 .code-row .ln{color:var(--ppt-text-3);width:10px;flex-shrink:0;font-size:6px}
 .code-chunk{display:inline-block;overflow:hidden;max-width:0;vertical-align:bottom}
 .code-row.r1 .code-chunk{animation:codeType 8s steps(28,end) infinite}
-.code-row.r2 .code-chunk{animation:codeType 8s steps(24,end) .3var(--motion-duration,6s) infinite}
+.code-row.r2 .code-chunk{animation:codeType 8s steps(24,end) 0.3s infinite}
 .code-row.r3 .code-chunk{animation:codeType 8s steps(26,end) .7s infinite}
-.code-row.r4 .code-chunk{animation:codeType 8s steps(22,end) 1.0var(--motion-duration,6s) infinite}
+.code-row.r4 .code-chunk{animation:codeType 8s steps(22,end) 1.0s infinite}
 .code-row.r5 .code-chunk{animation:codeType 8s steps(20,end) 1.4s infinite}
-.code-row.r6 .code-chunk{animation:codeType 8s steps(18,end) 1.7var(--motion-duration,6s) infinite}
+.code-row.r6 .code-chunk{animation:codeType 8s steps(18,end) 1.7s infinite}
 @keyframes codeType{
   0%,6%{max-width:0;opacity:.3}
   14%,82%{max-width:120px;opacity:1}
@@ -252,16 +252,16 @@ body{width:100vw;height:100vh;overflow:hidden;background:var(--ppt-bg);display:f
 .md-line .txt{display:inline-block;overflow:hidden;max-width:0}
 .md-line.m1{animation:mdShow 7s ease-in-out infinite}
 .md-line.m1 .txt{animation:mdType 7s steps(16,end) infinite}
-.md-line.m2{animation:mdShow 7s ease-in-out .4var(--motion-duration,6s) infinite}
-.md-line.m2 .txt{animation:mdType 7s steps(14,end) .4var(--motion-duration,6s) infinite}
+.md-line.m2{animation:mdShow 7s ease-in-out 0.4s infinite}
+.md-line.m2 .txt{animation:mdType 7s steps(14,end) 0.4s infinite}
 .md-line.m3{animation:mdShow 7s ease-in-out .9s infinite}
 .md-line.m3 .txt{animation:mdType 7s steps(18,end) .9s infinite}
-.md-line.m4{animation:mdShow 7s ease-in-out 1.3var(--motion-duration,6s) infinite}
-.md-line.m4 .txt{animation:mdType 7s steps(20,end) 1.3var(--motion-duration,6s) infinite}
+.md-line.m4{animation:mdShow 7s ease-in-out 1.3s infinite}
+.md-line.m4 .txt{animation:mdType 7s steps(20,end) 1.3s infinite}
 .md-line.m5{animation:mdShow 7s ease-in-out 1.8s infinite}
 .md-line.m5 .txt{animation:mdType 7s steps(12,end) 1.8s infinite}
-.md-line.m6{animation:mdShow 7s ease-in-out 2.2var(--motion-duration,6s) infinite}
-.md-line.m6 .txt{animation:mdType 7s steps(8,end) 2.2var(--motion-duration,6s) infinite}
+.md-line.m6{animation:mdShow 7s ease-in-out 2.2s infinite}
+.md-line.m6 .txt{animation:mdType 7s steps(8,end) 2.2s infinite}
 .md-line.m7{animation:mdShow 7s ease-in-out 2.7s infinite}
 .md-line.m7 .txt{animation:mdType 7s steps(10,end) 2.7s infinite}
 @keyframes mdShow{

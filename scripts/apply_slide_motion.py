@@ -62,11 +62,7 @@ def apply_data_motion(text: str, template: str, tier: str) -> str:
 
 
 def harmonize_duration(text: str) -> str:
-    """Align existing keyframe durations on heavily animated slides to 6s."""
-    if "animation:" not in text and "@keyframes" not in text:
-        return text
-    text = re.sub(r"animation:([^;]*?)2\.2s", r"animation:\1var(--motion-duration,6s)", text)
-    text = re.sub(r"animation:([^;]*?)5s", r"animation:\1var(--motion-duration,6s)", text)
+    """Reserved for future duration harmonization — do not rewrite animation-delay values."""
     return text
 
 
