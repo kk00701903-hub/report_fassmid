@@ -1,0 +1,244 @@
+/**
+ * Fluent CEO primer theme — shared design system (Slide04 baseline).
+ * Applied to content slides via .fluent-slide root class.
+ */
+[class*="slide-s"] .fluent-slide {
+  --fluent-blue: #0078d4;
+  --fluent-blue-light: #deecf9;
+  --fluent-blue-muted: rgba(0, 120, 212, 0.1);
+  --fluent-bg: #ffffff;
+  --fluent-surface: #ffffff;
+  --fluent-grey-130: #484644;
+  --fluent-grey-160: #201f1e;
+  --fluent-grey-90: #8a8886;
+  --fluent-border: #d2d0ce;
+  --fluent-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --fluent-card-bg: #f8f8f8;
+  --fluent-good: #107c10;
+  --fluent-warn: #ca5010;
+  --fluent-bad: #d13438;
+
+  /* Legacy --ppt-* remap inside fluent slides */
+  --ppt-bg: #ffffff;
+  --ppt-bg-soft: #f8f8f8;
+  --ppt-surface: #ffffff;
+  --ppt-surface-2: #f3f2f1;
+  --ppt-border: #d2d0ce;
+  --ppt-text-1: #201f1e;
+  --ppt-text-2: #484644;
+  --ppt-text-3: #8a8886;
+  --ppt-accent: #0078d4;
+  --ppt-accent-2: #0078d4;
+  --ppt-good: #107c10;
+  --ppt-warn: #ca5010;
+  --ppt-bad: #d13438;
+  --ppt-purple: #5c2d91;
+  --ppt-shadow-soft: var(--fluent-shadow);
+  --ppt-shadow-strong: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  --slide-title-size: 28px;
+  --slide-sub-size: 16px;
+  --slide-footer-size: 14px;
+  --slide-surface: var(--fluent-card-bg);
+  --slide-surface-elevated: var(--fluent-surface);
+  --slide-border: var(--fluent-border);
+}
+
+[class*="slide-s"] .slide-motion-content > div:has(.fluent-slide) {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Canvas roots */
+[class*="slide-s"] .fluent-slide,
+[class*="slide-s"] .slide.fluent-slide,
+[class*="slide-s"] .slide-root.fluent-slide,
+[class*="slide-s"] .fass-summary-slide-root.fluent-slide,
+[class*="slide-s"] .fass-identity-slide-root.fluent-slide,
+[class*="slide-s"] .fass-closing-slide-root.fluent-slide,
+[class*="slide-s"] .roi-asset-slide-root.fluent-slide,
+[class*="slide-s"] .engine-slide-root.fluent-slide,
+[class*="slide-s"] .fass-slide-root.fluent-slide,
+[class*="slide-s"] .migration-slide-root.fluent-slide,
+[class*="slide-s"] .roadmap-slide-root.fluent-slide,
+[class*="slide-s"] .war-room-slide-root.fluent-slide,
+[class*="slide-s"] .poc-slide-root.fluent-slide,
+[class*="slide-s"] .slide-root-container.fluent-slide {
+  width: 100%;
+  height: 100% !important;
+  min-height: 0;
+  background: var(--fluent-bg);
+  color: var(--fluent-grey-160);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+}
+
+/* Title chrome — standard + aliases */
+[class*="slide-s"] .fluent-slide .title-r,
+[class*="slide-s"] .fluent-slide .title-region,
+[class*="slide-s"] .fluent-slide .title-region-wrapper,
+[class*="slide-s"] .fluent-slide .title-region-container {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  padding: 16px 36px 10px;
+}
+
+[class*="slide-s"] .fluent-slide .title-row,
+[class*="slide-s"] .fluent-slide .title-row-inner,
+[class*="slide-s"] .fluent-slide .title-region-header,
+[class*="slide-s"] .fluent-slide .title-horizontal-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+[class*="slide-s"] .fluent-slide .bar,
+[class*="slide-s"] .fluent-slide .title-bar,
+[class*="slide-s"] .fluent-slide .title-region-bar,
+[class*="slide-s"] .fluent-slide .title-accent-bar {
+  width: 4px;
+  height: 32px;
+  background: var(--fluent-blue);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+[class*="slide-s"] .fluent-slide .badge,
+[class*="slide-s"] .fluent-slide .title-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 3px;
+  background: var(--fluent-blue-muted);
+  border: 1px solid rgba(0, 120, 212, 0.3);
+  color: var(--fluent-blue);
+  letter-spacing: 0.05em;
+}
+
+[class*="slide-s"] .fluent-slide h1,
+[class*="slide-s"] .fluent-slide .title-main,
+[class*="slide-s"] .fluent-slide .title-text,
+[class*="slide-s"] .fluent-slide .title-region-text,
+[class*="slide-s"] .fluent-slide .title-main-text {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--fluent-grey-160);
+}
+
+[class*="slide-s"] .fluent-slide .sub,
+[class*="slide-s"] .fluent-slide .title-sub,
+[class*="slide-s"] .fluent-slide .title-sub-text {
+  font-size: 16px;
+  color: var(--fluent-grey-130);
+  margin-top: 6px;
+  padding-left: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+[class*="slide-s"] .fluent-slide .line,
+[class*="slide-s"] .fluent-slide .title-line,
+[class*="slide-s"] .fluent-slide .title-region-line,
+[class*="slide-s"] .fluent-slide .title-gradient-line {
+  height: 2px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--fluent-blue), transparent);
+  opacity: 0.45;
+}
+
+/* Body */
+[class*="slide-s"] .fluent-slide .body,
+[class*="slide-s"] .fluent-slide .content,
+[class*="slide-s"] .fluent-slide .main-content,
+[class*="slide-s"] .fluent-slide .roi-asset-main-content,
+[class*="slide-s"] .fluent-slide .engine-main-content,
+[class*="slide-s"] .fluent-slide .fass-smart-logistics-content-wrapper,
+[class*="slide-s"] .fluent-slide .summary-content-wrapper,
+[class*="slide-s"] .fluent-slide .fass-closing-content-body,
+[class*="slide-s"] .fluent-slide .war-room-content-wrapper,
+[class*="slide-s"] .fluent-slide .poc-main-content,
+[class*="slide-s"] .fluent-slide .roadmap-content-container {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 32px 14px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Footer / bottom bar */
+[class*="slide-s"] .fluent-slide .footer,
+[class*="slide-s"] .fluent-slide .slide-footer,
+[class*="slide-s"] .fluent-slide .foot,
+[class*="slide-s"] .fluent-slide .bottom-bar {
+  flex-shrink: 0;
+  margin: auto 32px 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--fluent-grey-130);
+  background: var(--fluent-blue-light);
+  border: 1px solid rgba(0, 120, 212, 0.28);
+  border-left: 3px solid var(--fluent-blue);
+  border-radius: 0 8px 8px 0;
+}
+
+[class*="slide-s"] .fluent-slide .footer strong,
+[class*="slide-s"] .fluent-slide .bottom-bar strong {
+  color: var(--fluent-grey-160);
+  font-weight: 700;
+}
+
+/* Generic cards */
+[class*="slide-s"] .fluent-slide .fluent-card,
+[class*="slide-s"] .fluent-slide .card,
+[class*="slide-s"] .fluent-slide .term,
+[class*="slide-s"] .fluent-slide .milestone-card,
+[class*="slide-s"] .fluent-slide .tool-card,
+[class*="slide-s"] .fluent-slide .glossary-card,
+[class*="slide-s"] .fluent-slide .compare-card,
+[class*="slide-s"] .fluent-slide .engine-evidence-card,
+[class*="slide-s"] .fluent-slide .roi-asset-evidence-card,
+[class*="slide-s"] .fluent-slide .fass-smart-logistics-action-item-card,
+[class*="slide-s"] .fluent-slide .vision-pillar-card,
+[class*="slide-s"] .fluent-slide .summary-column-item {
+  background: var(--fluent-surface);
+  border: 1px solid var(--fluent-border);
+  border-radius: 8px;
+  box-shadow: var(--fluent-shadow);
+  box-sizing: border-box;
+}
+
+/* Fluent banner */
+[class*="slide-s"] .fluent-slide .fluent-banner,
+[class*="slide-s"] .fluent-slide .k8s-banner,
+[class*="slide-s"] .fluent-slide .wrapup-box {
+  flex-shrink: 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 120, 212, 0.35);
+  background: linear-gradient(135deg, #ffffff 0%, var(--fluent-blue-light) 100%);
+  box-shadow: var(--fluent-shadow);
+}
+
+/* Hide dark-theme decorative glows */
+[class*="slide-s"] .fluent-slide::before,
+[class*="slide-s"] .fluent-slide .slide::before {
+  display: none !important;
+}

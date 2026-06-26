@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide11.css";
 
-const SLIDE_HTML = `<div class="fass-summary-slide-root" style="overflow: hidden;">
+const SLIDE_HTML = `<div class="fass-summary-slide-root fluent-slide" style="overflow: hidden;">
 <!-- Title Region -->
 <div class="title-region-container">
 <div class="title-region-header">

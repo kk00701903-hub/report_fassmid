@@ -5,6 +5,7 @@
 @import "../styles/slides/slide-dynamic.css";
 @import "../styles/slides/slide-base.css";
 @import "../styles/slides/shared-chrome.css";
+@import "../styles/slides/fluent-primer.css";
 @import "../styles/slides/slide-fill.css";
 
 :root {

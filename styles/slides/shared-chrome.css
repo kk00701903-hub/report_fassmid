@@ -1,5 +1,5 @@
 /**
- * Shared visual chrome for scoped slides — title bars, badges, footers, cards.
+ * Shared visual chrome — layout tokens (all slides).
  */
 [class*="slide-s"] {
   --slide-title-pad: 14px var(--slide-pad-x) 8px;
@@ -8,9 +8,6 @@
   --slide-sub-size: 13px;
   --slide-footer-size: 12px;
   --slide-card-radius: 10px;
-  --slide-surface: var(--ppt-bg-soft, rgba(255, 255, 255, 0.04));
-  --slide-surface-elevated: var(--ppt-surface, rgba(255, 255, 255, 0.06));
-  --slide-border: var(--ppt-border, rgba(255, 255, 255, 0.1));
 }
 
 [class*="slide-s"] .title-r,
@@ -28,8 +25,41 @@
   flex-wrap: wrap;
 }
 
-[class*="slide-s"] .bar,
-[class*="slide-s"] .title-bar {
+[class*="slide-s"] .body,
+[class*="slide-s"] .content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * Dark-theme chrome — cover + PART dividers only.
+ */
+.slide-s01,
+.slide-s02,
+.slide-s12,
+.slide-s21,
+.slide-s26,
+.slide-s35 {
+  --slide-surface: var(--ppt-bg-soft, rgba(255, 255, 255, 0.04));
+  --slide-surface-elevated: var(--ppt-surface, rgba(255, 255, 255, 0.06));
+  --slide-border: var(--ppt-border, rgba(255, 255, 255, 0.1));
+}
+
+.slide-s01 .bar,
+.slide-s01 .title-bar,
+.slide-s02 .bar,
+.slide-s02 .title-bar,
+.slide-s12 .bar,
+.slide-s12 .title-bar,
+.slide-s21 .bar,
+.slide-s21 .title-bar,
+.slide-s26 .bar,
+.slide-s26 .title-bar,
+.slide-s35 .bar,
+.slide-s35 .title-bar {
   width: 4px;
   height: 30px;
   background: var(--ppt-accent-2, #facc15);
@@ -37,8 +67,18 @@
   flex-shrink: 0;
 }
 
-[class*="slide-s"] .badge,
-[class*="slide-s"] .title-badge {
+.slide-s01 .badge,
+.slide-s01 .title-badge,
+.slide-s02 .badge,
+.slide-s02 .title-badge,
+.slide-s12 .badge,
+.slide-s12 .title-badge,
+.slide-s21 .badge,
+.slide-s21 .title-badge,
+.slide-s26 .badge,
+.slide-s26 .title-badge,
+.slide-s35 .badge,
+.slide-s35 .title-badge {
   font-size: 11px;
   font-weight: 700;
   padding: 3px 9px;
@@ -49,16 +89,36 @@
   letter-spacing: 0.02em;
 }
 
-[class*="slide-s"] h1,
-[class*="slide-s"] .title-text {
+.slide-s01 h1,
+.slide-s01 .title-text,
+.slide-s02 h1,
+.slide-s02 .title-text,
+.slide-s12 h1,
+.slide-s12 .title-text,
+.slide-s21 h1,
+.slide-s21 .title-text,
+.slide-s26 h1,
+.slide-s26 .title-text,
+.slide-s35 h1,
+.slide-s35 .title-text {
   font-size: var(--slide-title-size);
   font-weight: 700;
   line-height: 1.25;
   margin: 0;
 }
 
-[class*="slide-s"] .sub,
-[class*="slide-s"] .title-sub {
+.slide-s01 .sub,
+.slide-s01 .title-sub,
+.slide-s02 .sub,
+.slide-s02 .title-sub,
+.slide-s12 .sub,
+.slide-s12 .title-sub,
+.slide-s21 .sub,
+.slide-s21 .title-sub,
+.slide-s26 .sub,
+.slide-s26 .title-sub,
+.slide-s35 .sub,
+.slide-s35 .title-sub {
   font-size: var(--slide-sub-size);
   color: var(--ppt-text-2, #94a3b8);
   margin-top: 5px;
@@ -66,26 +126,42 @@
   line-height: 1.4;
 }
 
-[class*="slide-s"] .line,
-[class*="slide-s"] .title-line {
+.slide-s01 .line,
+.slide-s01 .title-line,
+.slide-s02 .line,
+.slide-s02 .title-line,
+.slide-s12 .line,
+.slide-s12 .title-line,
+.slide-s21 .line,
+.slide-s21 .title-line,
+.slide-s26 .line,
+.slide-s26 .title-line,
+.slide-s35 .line,
+.slide-s35 .title-line {
   height: 1px;
   margin-top: 7px;
   background: linear-gradient(90deg, var(--ppt-accent-2, #facc15), transparent);
   opacity: 0.35;
 }
 
-[class*="slide-s"] .body,
-[class*="slide-s"] .content {
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-[class*="slide-s"] .footer,
-[class*="slide-s"] .slide-footer,
-[class*="slide-s"] .foot {
+.slide-s01 .footer,
+.slide-s01 .slide-footer,
+.slide-s01 .foot,
+.slide-s02 .footer,
+.slide-s02 .slide-footer,
+.slide-s02 .foot,
+.slide-s12 .footer,
+.slide-s12 .slide-footer,
+.slide-s12 .foot,
+.slide-s21 .footer,
+.slide-s21 .slide-footer,
+.slide-s21 .foot,
+.slide-s26 .footer,
+.slide-s26 .slide-footer,
+.slide-s26 .foot,
+.slide-s35 .footer,
+.slide-s35 .slide-footer,
+.slide-s35 .foot {
   flex-shrink: 0;
   margin: auto 32px 10px;
   padding: 8px 12px;
@@ -98,10 +174,30 @@
   border-radius: 0 var(--slide-card-radius) var(--slide-card-radius) 0;
 }
 
-[class*="slide-s"] .card,
-[class*="slide-s"] .tool-card,
-[class*="slide-s"] .milestone-card,
-[class*="slide-s"] .glossary-card {
+.slide-s01 .card,
+.slide-s01 .tool-card,
+.slide-s01 .milestone-card,
+.slide-s01 .glossary-card,
+.slide-s02 .card,
+.slide-s02 .tool-card,
+.slide-s02 .milestone-card,
+.slide-s02 .glossary-card,
+.slide-s12 .card,
+.slide-s12 .tool-card,
+.slide-s12 .milestone-card,
+.slide-s12 .glossary-card,
+.slide-s21 .card,
+.slide-s21 .tool-card,
+.slide-s21 .milestone-card,
+.slide-s21 .glossary-card,
+.slide-s26 .card,
+.slide-s26 .tool-card,
+.slide-s26 .milestone-card,
+.slide-s26 .glossary-card,
+.slide-s35 .card,
+.slide-s35 .tool-card,
+.slide-s35 .milestone-card,
+.slide-s35 .glossary-card {
   border-radius: var(--slide-card-radius);
   border: 1px solid var(--slide-border);
   background: var(--slide-surface-elevated);

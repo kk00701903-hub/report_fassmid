@@ -60,7 +60,7 @@
 }
 
 .slide-s06 .badge {
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 2px;
@@ -131,12 +131,14 @@
 
 .slide-s06 .panel--legacy {
   background: linear-gradient(165deg, var(--legacy-bg) 0%, #f5f5f4 100%);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
   border: 1px solid var(--legacy-border);
   border-top: 3px solid var(--legacy-red);
 }
 
 .slide-s06 .panel--cdc {
   background: linear-gradient(165deg, var(--cdc-blue-bg) 0%, #ecfeff 55%, #f0fdf4 100%);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
   border: 1px solid var(--cdc-border);
   border-top: 3px solid var(--fluent-blue);
 }
@@ -154,12 +156,14 @@
 .slide-s06 .panel-badge--warn {
   color: var(--legacy-red);
   background: rgba(185, 28, 28, 0.1);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
   border: 1px solid rgba(185, 28, 28, 0.25);
 }
 
 .slide-s06 .panel-badge--pos {
   color: var(--fluent-blue);
   background: rgba(0, 120, 212, 0.1);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
   border: 1px solid rgba(0, 120, 212, 0.25);
 }
 
@@ -173,7 +177,7 @@
 
 .slide-s06 .panel-title span {
   display: block;
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--fluent-grey-130);
   margin-top: 2px;
@@ -192,6 +196,7 @@
   padding: 4px 0;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -212,7 +217,7 @@
 
 .slide-s06 .panel-analogy {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
   color: var(--fluent-grey-130);
   flex-shrink: 0;
@@ -234,11 +239,13 @@
 
 .slide-s06 .panel-callout--danger {
   background: rgba(254, 226, 226, 0.7);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
   border: 1px solid #fca5a5;
 }
 
 .slide-s06 .panel-callout--success {
   background: rgba(219, 234, 254, 0.65);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
   border: 1px solid #93c5fd;
 }
 
@@ -250,21 +257,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .slide-s06 .panel-callout--danger .callout-icon {
-  color: #fff;
+  color: var(--fluent-grey-160, #201f1e);
   background: var(--legacy-red);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
 }
 
 .slide-s06 .panel-callout--success .callout-icon {
-  color: #fff;
+  color: var(--fluent-grey-160, #201f1e);
   background: linear-gradient(135deg, var(--fluent-blue), var(--fluent-mint));
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
 }
 
 .slide-s06 .callout-label {
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -281,7 +290,7 @@
 
 .slide-s06 .callout-body p {
   margin: 0;
-  font-size: 11.5px;
+  font-size: 13px;
   line-height: 1.42;
   color: var(--fluent-grey-130);
 }
@@ -316,7 +325,7 @@
 }
 
 .slide-s06 .divider-badge {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--fluent-grey-90);
   padding: 4px 8px;
@@ -356,7 +365,7 @@
 
 .slide-s06 .wrapup-text {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
   color: var(--fluent-grey-130);
 }

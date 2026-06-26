@@ -1,44 +1,45 @@
-.slide-s17 .slide-root{width:100%;height:100%;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;min-height:0;box-sizing:border-box;}
+.slide-s17 .slide-root{width:100%;height:100%;background: var(--fluent-bg, #ffffff);color:var(--fluent-grey-160, #201f1e);display:flex;flex-direction:column;overflow:hidden;min-height:0;box-sizing:border-box;}
 .slide-s17 .title-region{flex-shrink:0;}
 .slide-s17 .title-header{display:flex;align-items:center;gap:12px}
-.slide-s17 .title-bar{width:4px;height:32px;background:var(--ppt-accent);border-radius:2px}
+.slide-s17 .title-bar{width:4px;height:32px;background:var(--fluent-blue, #0078d4);border-radius:2px}
 .slide-s17 .title-main{font-size:26px;font-weight:700}
-.slide-s17 .title-sub{font-size:14px;color:var(--ppt-text-2);padding-left:16px;margin-top:6px}
-.slide-s17 .title-line{height:1px;margin-top:10px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.3}
+.slide-s17 .title-sub{font-size:14px;color:var(--fluent-grey-130, #484644);padding-left:16px;margin-top:6px}
+.slide-s17 .title-line{height:1px;margin-top:10px;background:linear-gradient(90deg,var(--fluent-blue, #0078d4),transparent);opacity:.3}
 .slide-s17 .s17-progress{flex-shrink:0;margin:6px 32px 0;padding:8px 12px 10px;border-radius:12px;
   background:linear-gradient(135deg,rgba(0,120,212,.12),rgba(0,120,212,.04));
   border:1px solid rgba(0,120,212,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.06);}
 .slide-s17 .s17-progress-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
-.slide-s17 .s17-progress-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ppt-text-1)}
-.slide-s17 .s17-progress-title i{color:var(--ppt-accent);font-size:14px}
-.slide-s17 .s17-progress-ontrack{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;
-  background:rgba(34,197,94,.18);color:var(--ppt-good);border:1px solid rgba(34,197,94,.35)}
-.slide-s17 .s17-progress-asof{font-size:11px;color:var(--ppt-text-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.slide-s17 .s17-progress-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--fluent-grey-160, #201f1e)}
+.slide-s17 .s17-progress-title i{color:var(--fluent-blue, #0078d4);font-size:14px}
+.slide-s17 .s17-progress-ontrack{font-size: 13px;font-weight:700;padding:3px 8px;border-radius:999px;
+  background:rgba(34,197,94,.18);color:var(--fluent-good, #107c10);border:1px solid rgba(34,197,94,.35)}
+.slide-s17 .s17-progress-asof{font-size: 13px;color:var(--fluent-grey-90, #8a8886);font-variant-numeric:tabular-nums;white-space:nowrap}
 .slide-s17 .s17-progress-body{display:flex;align-items:center;gap:14px}
-.slide-s17 .s17-progress-pct{flex-shrink:0;font-size:36px;font-weight:800;line-height:1;color:var(--ppt-accent);
+.slide-s17 .s17-progress-pct{flex-shrink:0;font-size:36px;font-weight:800;line-height:1;color:var(--fluent-blue, #0078d4);
   font-variant-numeric:tabular-nums;min-width:72px;text-align:center}
 .slide-s17 .s17-progress-pct span{font-size:18px;font-weight:700;margin-left:1px;opacity:.85}
 .slide-s17 .s17-progress-track-wrap{flex:1;min-width:0}
 .slide-s17 .s17-progress-track{position:relative;height:10px;border-radius:999px;
   background:rgba(100,116,139,.25);overflow:visible;margin-bottom:18px}
 .slide-s17 .s17-progress-fill{position:absolute;left:0;top:0;height:100%;border-radius:999px;
-  background:linear-gradient(90deg,var(--ppt-accent),var(--ppt-accent-2));
+  background:linear-gradient(90deg,var(--fluent-blue, #0078d4),var(--fluent-blue, #0078d4));
   box-shadow:0 0 12px rgba(0,120,212,.45)}
 .slide-s17 .s17-progress-marker{position:absolute;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:3px;z-index:2}
 .slide-s17 .s17-marker-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--ppt-bg);box-shadow:0 0 0 1px rgba(255,255,255,.25)}
-.slide-s17 .s17-progress-marker--proto .s17-marker-dot{background:var(--ppt-good)}
-.slide-s17 .s17-progress-marker--today .s17-marker-dot{background:var(--ppt-accent-2);box-shadow:0 0 10px rgba(250,204,21,.55)}
-.slide-s17 .s17-marker-label{position:absolute;top:14px;font-size:10px;font-weight:700;white-space:nowrap;color:var(--ppt-text-2)}
-.slide-s17 .s17-progress-marker--proto .s17-marker-label{color:var(--ppt-good)}
-.slide-s17 .s17-progress-marker--today .s17-marker-label{color:var(--ppt-accent-2)}
-.slide-s17 .s17-progress-axis{display:flex;justify-content:space-between;font-size:10px;color:var(--ppt-text-3);font-variant-numeric:tabular-nums;margin-top:-10px}
-.slide-s17 .s17-progress-desc{margin:6px 0 0;font-size:11px;line-height:1.45;color:var(--ppt-text-2)}
-.slide-s17 .s17-progress-desc strong{color:var(--ppt-text-1);font-weight:700}
+.slide-s17 .s17-progress-marker--proto .s17-marker-dot{background:var(--fluent-good, #107c10)}
+.slide-s17 .s17-progress-marker--today .s17-marker-dot{background:var(--fluent-blue, #0078d4);box-shadow:0 0 10px rgba(250,204,21,.55)}
+.slide-s17 .s17-marker-label{position:absolute;top:14px;font-size: 14px;font-weight:700;white-space:nowrap;color:var(--fluent-grey-130, #484644)}
+.slide-s17 .s17-progress-marker--proto .s17-marker-label{color:var(--fluent-good, #107c10)}
+.slide-s17 .s17-progress-marker--today .s17-marker-label{color:var(--fluent-blue, #0078d4)}
+.slide-s17 .s17-progress-axis{display:flex;justify-content:space-between;font-size: 14px;color:var(--fluent-grey-90, #8a8886);font-variant-numeric:tabular-nums;margin-top:-10px}
+.slide-s17 .s17-progress-desc{margin:6px 0 0;font-size: 13px;line-height:1.45;color:var(--fluent-grey-130, #484644)}
+.slide-s17 .s17-progress-desc strong{color:var(--fluent-grey-160, #201f1e);font-weight:700}
 .slide-s17 .content{flex:1;min-height:0;padding:10px 36px 12px;display:flex;flex-direction:column}
 .slide-s17 .milestone-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:10px}
-.slide-s17 .milestone-card{background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:12px;
+.slide-s17 .milestone-card{background:var(--fluent-card-bg, #f8f8f8);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));border:1px solid var(--fluent-border, #d2d0ce);border-radius:12px;
   padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:0;
-  border-top:3px solid var(--phase-color,var(--ppt-border));
+  border-top:3px solid var(--phase-color,var(--fluent-border, #d2d0ce));
   position:relative;}
 .slide-s17 .milestone-card.p1{--phase-color:var(--p1)}
 .slide-s17 .milestone-card.p2{--phase-color:var(--p2)}
@@ -47,55 +48,56 @@
 .slide-s17 .milestone-card.p5{--phase-color:var(--p5)}
 .slide-s17 .milestone-card.p6{--phase-color:var(--p6)}
 .slide-s17 .milestone-card.p7{--phase-color:var(--p7)}
-.slide-s17 .milestone-card.current{border-color:rgba(255,192,0,.75);
+.slide-s17 .milestone-card.current{border-color: rgba(0, 120, 212,.75);
   background:linear-gradient(180deg,rgba(255,192,0,.18),rgba(255,192,0,.06));
   box-shadow:0 0 0 1px rgba(255,192,0,.35),0 0 28px rgba(255,192,0,.22),inset 0 0 24px rgba(255,192,0,.06);
   z-index:1;}
-.slide-s17 .current-pill{font-size:11px;font-weight:800;letter-spacing:.04em;
+.slide-s17 .current-pill{font-size: 13px;font-weight:800;letter-spacing:.04em;
   padding:2px 7px;border-radius:10px;
   background:var(--p3);color:#1a1a2e;
   box-shadow:0 0 12px rgba(255,192,0,.45);
   margin-left:4px;white-space:nowrap}
-.slide-s17 .milestone-card.current .phase-badge{color:#FDE68A}
+.slide-s17 .milestone-card.current .phase-badge{color: var(--fluent-warn, #ca5010)}
 .slide-s17 .milestone-card.current .card-title{color:#FFF}
-.slide-s17 .milestone-card.current .period{background:rgba(255,192,0,.15);border-color:rgba(255,192,0,.45)}
-.slide-s17 .milestone-card.current .period-y, .slide-s17 .milestone-card.current .period-m{color:#FDE68A}
+.slide-s17 .milestone-card.current .period{background:rgba(255,192,0,.15);
+  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));border-color: rgba(0, 120, 212,.45)}
+.slide-s17 .milestone-card.current .period-y, .slide-s17 .milestone-card.current .period-m{color: var(--fluent-warn, #ca5010)}
 .slide-s17 .milestone-card.span2{grid-column:span 2}
 .slide-s17 .card-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 8px;position:relative}
 .slide-s17 .card-head-left{display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-width:0}
 .slide-s17 .phase-badge{font-size:13px;font-weight:700;color:var(--phase-color);letter-spacing:.02em;white-space:nowrap}
 .slide-s17 .period{display:inline-flex;align-items:center;gap:3px;
   padding:4px 9px;border-radius:10px;
-  background:var(--ppt-surface);border:1px solid var(--ppt-border);
+  background:var(--fluent-surface, #ffffff);border:1px solid var(--fluent-border, #d2d0ce);
   font-variant-numeric:tabular-nums;
   margin-left:0;flex-shrink:0;white-space:nowrap;justify-self:end}
-.slide-s17 .period-y{font-size:13px;font-weight:800;color:var(--ppt-accent-2);letter-spacing:.02em}
-.slide-s17 .period-dot{font-size:13px;font-weight:700;color:var(--ppt-text-3)}
-.slide-s17 .period-m{font-size:13px;font-weight:800;color:var(--ppt-text-1);letter-spacing:.03em}
-.slide-s17 .period-sep{font-size:13px;font-weight:600;color:var(--ppt-text-3);margin:0 2px}
+.slide-s17 .period-y{font-size:13px;font-weight:800;color:var(--fluent-blue, #0078d4);letter-spacing:.02em}
+.slide-s17 .period-dot{font-size:13px;font-weight:700;color:var(--fluent-grey-90, #8a8886)}
+.slide-s17 .period-m{font-size:13px;font-weight:800;color:var(--fluent-grey-160, #201f1e);letter-spacing:.03em}
+.slide-s17 .period-sep{font-size:13px;font-weight:600;color:var(--fluent-grey-90, #8a8886);margin:0 2px}
 .slide-s17 .period-end .period-y{font-size:13px}
 .slide-s17 .period-end .period-m{font-size:13px}
-.slide-s17 .card-title{font-size:14px;font-weight:700;line-height:1.35;color:var(--ppt-text-1)}
-.slide-s17 .card-desc{font-size:13px;color:var(--ppt-text-2);line-height:1.45;flex:1}
+.slide-s17 .card-title{font-size:14px;font-weight:700;line-height:1.35;color:var(--fluent-grey-160, #201f1e)}
+.slide-s17 .card-desc{font-size:13px;color:var(--fluent-grey-130, #484644);line-height:1.45;flex:1}
 .slide-s17 .card-foot{display:flex;justify-content:flex-end;margin-top:auto}
 .slide-s17 .status-tag{font-size:13px;font-weight:700;padding:3px 9px;border-radius:10px}
-.slide-s17 .status-done{background:rgba(34,197,94,.15);color:var(--ppt-good)}
-.slide-s17 .status-now{background:rgba(255,192,0,.25);color:#FDE68A;border:1px solid rgba(255,192,0,.5)}
-.slide-s17 .status-next{background:rgba(100,116,139,.2);color:var(--ppt-text-3)}
+.slide-s17 .status-done{background:rgba(34,197,94,.15);color:var(--fluent-good, #107c10)}
+.slide-s17 .status-now{background:rgba(255,192,0,.25);color: var(--fluent-warn, #ca5010);border:1px solid rgba(255,192,0,.5)}
+.slide-s17 .status-next{background:rgba(100,116,139,.2);color:var(--fluent-grey-90, #8a8886)}
 .slide-s17 .bottom-bar{flex-shrink:0;margin:10px 36px 14px;padding:10px 14px;
-  border-left:3px solid var(--ppt-accent-2);background:rgba(250,204,21,.05);
-  border-radius:0 8px 8px 0;font-size:13px;color:var(--ppt-text-2);line-height:1.45;}
-.slide-s17 .bottom-bar strong{color:var(--ppt-accent-2)}
+  border-left:3px solid var(--fluent-blue, #0078d4);background:rgba(250,204,21,.05);
+  border-radius:0 8px 8px 0;font-size:13px;color:var(--fluent-grey-130, #484644);line-height:1.45;}
+.slide-s17 .bottom-bar strong{color:var(--fluent-blue, #0078d4)}
 .slide-s17 .title-main {font-size: 24px;}
 .slide-s17 .content {padding: 4px 32px 6px;}
 .slide-s17 .milestone-grid {gap: 8px;}
 .slide-s17 .milestone-card {padding: 9px 11px; gap: 6px;}
 .slide-s17 .card-title {font-size: 13px; line-height: 1.28;}
-.slide-s17 .card-desc {font-size: 12px;
+.slide-s17 .card-desc {font-size: 14px;
   line-height: 1.38;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;}
 .slide-s17 .milestone-card.span2 .card-desc {-webkit-line-clamp: 2;}
-.slide-s17 .bottom-bar {margin: 6px 32px 10px; padding: 8px 12px; font-size: 12px;}
+.slide-s17 .bottom-bar {margin: 6px 32px 10px; padding: 8px 12px; font-size: 14px;}

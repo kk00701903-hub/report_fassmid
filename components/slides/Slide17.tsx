@@ -94,7 +94,7 @@ const CONTENT_HTML = `<div class="content">
 export default function Slide17() {
   return (
     <SlideCanvas slideId={17} motion="timeline" motionTier="medium">
-      <div className="slide-root">
+      <div className="slide-root fluent-slide">
         <div dangerouslySetInnerHTML={{ __html: TITLE_HTML }} />
         <Slide17Progress />
         <div dangerouslySetInnerHTML={{ __html: CONTENT_HTML }} />

@@ -11,16 +11,16 @@
     gap: 12px}
 .slide-s36 .title-region-bar{width: 4px;
     height: 32px;
-    background: var(--ppt-accent);
+    background: var(--fluent-blue, #0078d4);
     border-radius: 2px}
 .slide-s36 .title-region-text{font-family: var(--ppt-font-;display);
     font-size: 30px;
     font-weight: 700;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     margin: 0}
 .slide-s36 .title-region-line{height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--fluent-blue, #0078d4) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px}
 
@@ -37,25 +37,25 @@
     gap: 19px 24px}
 .slide-s36 .roadmap-strategy-card{flex-shrink: 0;
     max-width: 240px;
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
+    background: var(--fluent-card-bg, #f8f8f8);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-md);
     padding: 8px 16px;
     display: flex;
     align-items: center;
     gap: 10px}
 .slide-s36 .roadmap-strategy-icon{font-size: 22px;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     flex-shrink: 0}
 .slide-s36 .roadmap-strategy-text-group{display: flex;
     flex-direction: column}
 .slide-s36 .roadmap-strategy-label{font-size:13px;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0px}
 .slide-s36 .roadmap-strategy-desc{font-size: 14px;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     font-weight: 500;
     line-height: 1.4}
 
@@ -66,9 +66,9 @@
     min-height: 88px;
     padding: 10px 12px 6px;
     border-radius: var(--ppt-radius-md);
-    border: 1px solid rgba(0, 240, 255, 0.18);
-    background: linear-gradient(135deg, rgba(20, 27, 45, 0.92), rgba(10, 14, 26, 0.75));
-    box-shadow: inset 0 0 24px rgba(0, 240, 255, 0.04);
+    border: 1px solid rgba(0, 120, 212, 0.18);
+    background: linear-gradient(135deg, rgba(20, 27, 45, 0.92), rgba(255, 255, 255, 0.75));
+    box-shadow: inset 0 0 24px rgba(0, 120, 212, 0.04);
     overflow: visible;
     gap: 2px}
 .slide-s36 .roadmap-visual-track-line{position: absolute;
@@ -77,13 +77,13 @@
     right: 48px;
     height: 3px;
     border-radius: 3px;
-    background: linear-gradient(90deg, var(--ppt-border), rgba(0, 240, 255, 0.25) 50%, var(--ppt-border));
+    background: linear-gradient(90deg, var(--fluent-border, #d2d0ce), rgba(0, 120, 212, 0.25) 50%, var(--fluent-border, #d2d0ce));
     z-index: 1;
     overflow: hidden}
 .slide-s36 .roadmap-visual-track-line::after{content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.65) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 120, 212, 0.65) 50%, transparent 100%);
     background-size: 35% 100%;
     background-repeat: no-repeat;
     animation: roadmapTrackShine 5s linear infinite}
@@ -95,8 +95,8 @@
     margin: -6px 0 0 -6px;
     border-radius: 50%;
     z-index: 4;
-    background: radial-gradient(circle at 35% 35%, #fff, var(--ppt-accent));
-    box-shadow: 0 0 12px var(--ppt-accent), 0 0 22px rgba(0, 240, 255, 0.45);
+    background: radial-gradient(circle at 35% 35%, #fff, var(--fluent-blue, #0078d4));
+    box-shadow: 0 0 12px var(--fluent-blue, #0078d4), 0 0 22px rgba(0, 120, 212, 0.45);
     animation: roadmapRunnerMove 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite}
 .slide-s36 .roadmap-step-node{position: relative;
     z-index: 2;
@@ -120,8 +120,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--ppt-accent);
-    font-size: 11px;
+    color: var(--fluent-blue, #0078d4);
+    font-size: 13px;
     margin-top: 18px;
     opacity: 0.55;
     animation: roadmapArrowNudge 2.4s ease-in-out infinite}
@@ -131,25 +131,25 @@
 .slide-s36 .roadmap-node-circle{width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: var(--ppt-bg);
-    border: 4px solid var(--ppt-accent);
-    box-shadow: 0 0 10px var(--ppt-accent)}
-.slide-s36 .roadmap-node-circle.gold{border-color: var(--ppt-accent-2);
-    box-shadow: 0 0 10px var(--ppt-accent-2)}
+    background: var(--fluent-bg, #ffffff);
+    border: 4px solid var(--fluent-blue, #0078d4);
+    box-shadow: 0 0 10px var(--fluent-blue, #0078d4)}
+.slide-s36 .roadmap-node-circle.gold{border-color: var(--fluent-blue, #0078d4);
+    box-shadow: 0 0 10px var(--fluent-blue, #0078d4)}
 .slide-s36 .roadmap-step-node.step-kickoff .roadmap-node-circle{width: 30px;
     height: 30px;
     border-width: 3px;
-    border-color: var(--ppt-good);
+    border-color: var(--fluent-good, #107c10);
     box-shadow: 0 0 16px rgba(34, 197, 94, 0.55);
     animation: roadmapKickoffPulse 2.4s ease-in-out infinite}
 .slide-s36 .roadmap-kickoff-badge{display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.08em;
     color: #052e16;
-    background: linear-gradient(135deg, #4ade80, var(--ppt-good));
+    background: linear-gradient(135deg, #4ade80, var(--fluent-good, #107c10));
     padding: 2px 7px;
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(34, 197, 94, 0.45);
@@ -161,42 +161,42 @@
     background: #fff;
     box-shadow: 0 0 6px #fff;
     animation: roadmapLiveDot 1.2s ease-in-out infinite}
-.slide-s36 .roadmap-step-node.step-kickoff .roadmap-node-date{color: var(--ppt-good);
-    font-size: 12px}
+.slide-s36 .roadmap-step-node.step-kickoff .roadmap-node-date{color: var(--fluent-good, #107c10);
+    font-size: 14px}
 .slide-s36 .roadmap-step-node.step-kickoff .roadmap-node-label{font-weight: 700;
-    color: var(--ppt-text-1)}
-.slide-s36 .roadmap-node-label{font-size: 12px;
+    color: var(--fluent-grey-160, #201f1e)}
+.slide-s36 .roadmap-node-label{font-size: 14px;
     font-weight: 600;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     text-align: center;
     line-height: 1.3}
-.slide-s36 .roadmap-node-date{font-size: 11px;
+.slide-s36 .roadmap-node-date{font-size: 13px;
     font-weight: 700;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     text-align: center}
 
 .slide-s36 .roadmap-table-section-wrapper{flex: 1;
     display: flex;
     flex-direction: column}
 .slide-s36 .roadmap-table-container{flex: 1;
-    border: 1px solid var(--ppt-border);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-md);
-    background: var(--ppt-surface)}
+    background: var(--fluent-surface, #ffffff)}
 .slide-s36 .roadmap-data-table{width: 100%;
     height: 100%;
     border-collapse: collapse;
     table-layout: fixed}
-.slide-s36 .roadmap-data-table thead{background: var(--ppt-bg-soft)}
+.slide-s36 .roadmap-data-table thead{background: var(--fluent-card-bg, #f8f8f8)}
 .slide-s36 .roadmap-data-table th{padding: 6px 12px;
     text-align: left;
     font-size: 13px;
     font-weight: 600;
-    color: var(--ppt-text-2);
-    border-bottom: 1px solid var(--ppt-border)}
+    color: var(--fluent-grey-130, #484644);
+    border-bottom: 1px solid var(--fluent-border, #d2d0ce)}
 .slide-s36 .roadmap-data-table td{padding: 6px 12px;
     font-size: 13px;
-    color: var(--ppt-text-1);
-    border-bottom: 1px solid var(--ppt-border);
+    color: var(--fluent-grey-160, #201f1e);
+    border-bottom: 1px solid var(--fluent-border, #d2d0ce);
     vertical-align: top}
 .slide-s36 .roadmap-data-table tr:last-child td{border-bottom: none}
 .slide-s36 .roadmap-phase-badge{display: inline-block;
@@ -204,13 +204,13 @@
     border-radius: var(--ppt-radius-sm);
     font-size: 14px;
     font-weight: 600;
-    background: var(--ppt-surface-2);
-    color: var(--ppt-accent);
+    background: #f3f2f1;
+    color: var(--fluent-blue, #0078d4);
     margin-bottom: 3px}
-.slide-s36 .roadmap-phase-badge.final{color: var(--ppt-accent-2)}
+.slide-s36 .roadmap-phase-badge.final{color: var(--fluent-blue, #0078d4)}
 .slide-s36 .roadmap-schedule-text{font-family: var(--ppt-font-;display);
     font-weight: 600;
-    color: var(--ppt-accent)}
+    color: var(--fluent-blue, #0078d4)}
 .slide-s36 .roadmap-content-list{list-style: none}
 .slide-s36 .roadmap-content-item{display: block;
     position: relative;
@@ -220,8 +220,8 @@
 .slide-s36 .roadmap-content-item::before{content: "•";
     position: absolute;
     left: 0;
-    color: var(--ppt-accent)}
-.slide-s36 .roadmap-content-item.highlight::before{color: var(--ppt-accent-2)}
+    color: var(--fluent-blue, #0078d4)}
+.slide-s36 .roadmap-content-item.highlight::before{color: var(--fluent-blue, #0078d4)}
 @keyframes roadmapTrackShine {
     0% {background-position: -35% 0;}
     100% {background-position: 135% 0;}
@@ -257,7 +257,7 @@
 .slide-s36 .roadmap-slide-root {overflow: hidden;}
 .slide-s36 .roadmap-content-container {gap: 8px; min-height: 0; flex: 1 1 auto;}
 .slide-s36 .roadmap-strategy-card {padding: 8px 10px;}
-.slide-s36 .roadmap-strategy-desc {font-size: 12px; line-height: 1.35;}
-.slide-s36 .roadmap-detail-table tbody td {padding: 5px 8px; font-size: 11.5px; line-height: 1.32;}
-.slide-s36 .roadmap-detail-table thead th {padding: 5px 8px; font-size: 11px;}
-.slide-s36 .roadmap-content-item {font-size: 11.5px; line-height: 1.32;}
+.slide-s36 .roadmap-strategy-desc {font-size: 14px; line-height: 1.35;}
+.slide-s36 .roadmap-detail-table tbody td {padding: 5px 8px; font-size: 13px; line-height: 1.32;}
+.slide-s36 .roadmap-detail-table thead th {padding: 5px 8px; font-size: 13px;}
+.slide-s36 .roadmap-content-item {font-size: 13px; line-height: 1.32;}

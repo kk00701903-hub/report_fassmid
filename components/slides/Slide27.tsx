@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide27.css";
 
-const SLIDE_HTML = `<div class="engine-slide-root">
+const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>

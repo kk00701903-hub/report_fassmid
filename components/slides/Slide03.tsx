@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide03.css";
 
-const SLIDE_HTML = `<div class="slide">
+const SLIDE_HTML = `<div class="slide fluent-slide">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>

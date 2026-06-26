@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide34.css";
 
-const SLIDE_HTML = `<div class="slide-root">
+const SLIDE_HTML = `<div class="slide fluent-slide-root">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>

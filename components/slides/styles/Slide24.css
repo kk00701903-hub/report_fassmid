@@ -1,10 +1,10 @@
 .slide-s24 .migration-slide-root{width:100%;height:100%;
-    background-color: var(--ppt-bg);
+    background-color: var(--fluent-bg, #ffffff);
     position: relative;
     display: flex;
     flex-direction: column;
     font-family: var(--ppt-font-body);
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     overflow:hidden;min-height:0;box-sizing:border-box;}
 
 .slide-s24 .title-region-wrapper{display: flex;
@@ -15,20 +15,20 @@
     gap: 12px}
 .slide-s24 .title-accent-bar{width: 4px;
     height: 32px;
-    background: var(--ppt-accent);
+    background: var(--fluent-blue, #0078d4);
     border-radius: 2px}
 .slide-s24 .title-text-content{font-family: var(--ppt-font-;display);
     font-size: 30px;
     font-weight: 700;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     margin: 0}
 .slide-s24 .title-underline-gradient{height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--fluent-blue, #0078d4) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px}
 .slide-s24 .title-subtitle-text{font-size: 15px;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     margin-top: 4px;
     font-weight: 400}
 
@@ -51,8 +51,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center}
-.slide-s24 .migration-node-box{background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
+.slide-s24 .migration-node-box{background: var(--fluent-surface, #ffffff);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-lg);
     padding: 12px;
     text-align: center;
@@ -63,16 +63,16 @@
     align-items: center;
     gap: 10px}
 .slide-s24 .migration-node-icon{font-size: 28px;
-    color: var(--ppt-text-3);
+    color: var(--fluent-grey-90, #8a8886);
     margin-bottom: 8px}
-.slide-s24 .migration-node-icon.active{color: var(--ppt-accent)}
+.slide-s24 .migration-node-icon.active{color: var(--fluent-blue, #0078d4)}
 .slide-s24 .migration-node-title{font-size: 18px;
     font-weight: 700;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s24 .migration-node-desc{font-size: 14px;
-    color: var(--ppt-text-2)}
-.slide-s24 .migration-engine-box{background: linear-gradient(145deg, var(--ppt-surface-2), var(--ppt-surface));
-    border: 2px solid var(--ppt-accent);
+    color: var(--fluent-grey-130, #484644)}
+.slide-s24 .migration-engine-box{background: linear-gradient(145deg, #f3f2f1, var(--fluent-surface, #ffffff));
+    border: 2px solid var(--fluent-blue, #0078d4);
     border-radius: var(--ppt-radius-lg);
     padding: 16px;
     height: 100%;
@@ -81,9 +81,9 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1)}
-.slide-s24 .migration-engine-label{background: rgba(0, 240, 255, 0.1);
-    color: var(--ppt-accent);
+    box-shadow: 0 0 20px rgba(0, 120, 212, 0.1)}
+.slide-s24 .migration-engine-label{background: rgba(0, 120, 212, 0.1);
+    color: var(--fluent-blue, #0078d4);
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 14px;
@@ -92,64 +92,64 @@
 .slide-s24 .migration-engine-main-info{text-align: center}
 .slide-s24 .migration-engine-tech-name{font-size: 22px;
     font-weight: 700;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     margin-bottom: 8px}
 .slide-s24 .migration-engine-spec{font-size: 18px;
-    color: var(--ppt-accent-2);
+    color: var(--fluent-blue, #0078d4);
     font-weight: 600}
 .slide-s24 .migration-flow-indicator{display: flex;
     align-items: center;
     gap: 12px;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     font-size: 20px}
 
 .slide-s24 .migration-impact-row{display: flex;
     gap: 20px}
 .slide-s24 .migration-impact-card{flex: 1;
-    background: var(--ppt-bg-soft);
-    border-left: 4px solid var(--ppt-accent);
+    background: var(--fluent-card-bg, #f8f8f8);
+    border-left: 4px solid var(--fluent-blue, #0078d4);
     padding: 12px 16px;
     border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
     display: flex;
     align-items: flex-start;
     gap: 16px}
-.slide-s24 .migration-impact-icon-wrapper{background: var(--ppt-surface);
+.slide-s24 .migration-impact-icon-wrapper{background: var(--fluent-surface, #ffffff);
     width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--ppt-radius-sm);
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     font-size: 20px}
 .slide-s24 .migration-impact-text-group{display: flex;
     flex-direction: column;
     gap: 4px}
 .slide-s24 .migration-impact-headline{font-size: 16px;
     font-weight: 600;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s24 .migration-impact-detail{font-size: 15px;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     line-height: 1.4}
 .slide-s24 .migration-badge-safety{display: inline-block;
     margin-top: 8px;
     padding: 2px 8px;
     background: rgba(34, 197, 94, 0.1);
-    color: var(--ppt-good);
+    color: var(--fluent-good, #107c10);
     border-radius: 4px;
     font-size:13px;
     font-weight: 600}
 .slide-s24 .migration-glossary{flex-shrink: 0;
     margin: 0 40px 12px 40px;
     padding: 8px 12px;
-    background: rgba(0, 240, 255, 0.05);
-    border: 1px solid rgba(0, 240, 255, 0.18);
+    background: rgba(0, 120, 212, 0.05);
+    border: 1px solid rgba(0, 120, 212, 0.18);
     border-radius: var(--ppt-radius-md);
     font-size:13px;
-    color: var(--ppt-text-3);
+    color: var(--fluent-grey-90, #8a8886);
     line-height: 1.45;
     display: flex;
     flex-direction: column;
     gap: 3px;}
-.slide-s24 .migration-glossary strong{color: var(--ppt-accent);
+.slide-s24 .migration-glossary strong{color: var(--fluent-blue, #0078d4);
     font-weight: 700;}

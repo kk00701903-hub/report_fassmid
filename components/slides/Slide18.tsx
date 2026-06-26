@@ -36,7 +36,7 @@ const ORG_ROWS = [
 export default function Slide18() {
   return (
     <SlideCanvas slideId={18} motion="innovation" motionTier="medium">
-      <div className="slide">
+      <div className="slide fluent-slide">
         <header className="title-region">
           <div className="title-header">
             <div className="title-bar" />

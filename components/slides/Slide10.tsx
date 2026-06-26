@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide10.css";
 
-const SLIDE_HTML = `<div class="fass-identity-slide-root" style="overflow: hidden;">
+const SLIDE_HTML = `<div class="fass-identity-slide-root fluent-slide" style="overflow: hidden;">
 <!-- Non-Cover-Page Title Region -->
 <div class="title-region-wrapper">
 <div class="title-region-main">

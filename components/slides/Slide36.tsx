@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide36.css";
 
-const SLIDE_HTML = `<div class="roadmap-slide-root" style="overflow: hidden;">
+const SLIDE_HTML = `<div class="roadmap-slide-root fluent-slide" style="overflow: hidden;">
 <!-- Title Region -->
 <div class="title-region-wrapper">
 <div class="title-region-main">

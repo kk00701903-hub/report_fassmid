@@ -1,10 +1,10 @@
 .slide-s23 .fass-slide-root{width:100%;height:100%;
-    background-color: var(--ppt-bg);
-    color: var(--ppt-text-1);
+    background-color: var(--fluent-bg, #ffffff);
+    color: var(--fluent-grey-160, #201f1e);
     position: relative;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--ppt-border)}
+    border: 1px solid var(--fluent-border, #d2d0ce)}
 
 .slide-s23 .title-region-wrapper{display: flex;
     flex-direction: column;
@@ -14,16 +14,16 @@
     gap: 12px}
 .slide-s23 .title-region-bar{width: 4px;
     height: 32px;
-    background: var(--ppt-accent);
+    background: var(--fluent-blue, #0078d4);
     border-radius: 2px}
 .slide-s23 .title-region-text{font-family: var(--ppt-font-;display);
     font-size: 30px;
     font-weight: 700;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     margin: 0}
 .slide-s23 .title-region-line{height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--fluent-blue, #0078d4) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px}
 
@@ -45,8 +45,8 @@
     justify-content: center;
     min-width: 0}
 .slide-s23 .architecture-visual-card-item{flex: 1;
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
+    background: var(--fluent-card-bg, #f8f8f8);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-lg);
     padding: 10px 12px;
     display: flex;
@@ -57,33 +57,33 @@
 .slide-s23 .architecture-visual-label-group{display: flex;
     justify-content: space-between;
     align-items: center}
-.slide-s23 .architecture-visual-badge-cyan{background: rgba(0, 240, 255, 0.1);
-    color: var(--ppt-accent);
+.slide-s23 .architecture-visual-badge-cyan{background: rgba(0, 120, 212, 0.1);
+    color: var(--fluent-blue, #0078d4);
     padding: 3px 12px;
     border-radius: var(--ppt-radius-sm);
     font-size: 14px;
     font-weight: 600;
-    border: 1px solid rgba(0, 240, 255, 0.3)}
+    border: 1px solid rgba(0, 120, 212, 0.3)}
 .slide-s23 .architecture-diagram-container{flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(0, 0, 0, 0.04);
     border-radius: var(--ppt-radius-md);
-    border: 1px dashed var(--ppt-border);
+    border: 1px dashed var(--fluent-border, #d2d0ce);
     padding: 10px 14px}
 .slide-s23 .architecture-physical-server-box{width: 90%;
     padding: 13px 16px;
-    border: 2px solid var(--ppt-accent);
+    border: 2px solid var(--fluent-blue, #0078d4);
     border-radius: var(--ppt-radius-md);
     display: flex;
     flex-direction: column;
     gap: 10px 12px;
-    background: rgba(0, 240, 255, 0.05)}
+    background: rgba(0, 120, 212, 0.05)}
 .slide-s23 .architecture-server-title-text{font-size: 14px;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
@@ -91,32 +91,32 @@
 .slide-s23 .architecture-module-grid-wrapper{display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px 12px}
-.slide-s23 .architecture-module-unit-box{background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
+.slide-s23 .architecture-module-unit-box{background: var(--fluent-surface, #ffffff);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     padding: 6px 6px;
     border-radius: var(--ppt-radius-sm);
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 5px 6px}
-.slide-s23 .architecture-module-icon-element{color: var(--ppt-accent);
+.slide-s23 .architecture-module-icon-element{color: var(--fluent-blue, #0078d4);
     font-size: 18px}
 .slide-s23 .architecture-module-name-text{font-size:13px;
     font-weight: 600;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s23 .architecture-mini-strategy{display: flex;
     flex-direction: column;
     gap: 5px;
     margin-top: 4px;
     padding-top: 8px;
-    border-top: 1px dashed var(--ppt-border)}
+    border-top: 1px dashed var(--fluent-border, #d2d0ce)}
 .slide-s23 .architecture-mini-strategy-item{display: flex;
     align-items: flex-start;
     gap: 6px;
     font-size:13px;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     line-height: 1.35}
-.slide-s23 .architecture-mini-strategy-item i{color: var(--ppt-accent);
+.slide-s23 .architecture-mini-strategy-item i{color: var(--fluent-blue, #0078d4);
     font-size:13px;
     margin-top: 2px;
     flex-shrink: 0}
@@ -129,7 +129,7 @@
     min-height: 0}
 .slide-s23 .arch-compare-panel-title{font-size: 13px;
     font-weight: 700;
-    color: var(--ppt-accent-2);
+    color: var(--fluent-blue, #0078d4);
     letter-spacing: 0.5px;
     flex-shrink: 0}
 .slide-s23 .arch-compare-list{flex: 1;
@@ -138,8 +138,8 @@
     gap: 7px;
     min-height: 0}
 .slide-s23 .arch-compare-card{flex: 1;
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
+    background: var(--fluent-card-bg, #f8f8f8);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-md);
     padding: 8px 10px;
     display: flex;
@@ -148,10 +148,10 @@
     min-height: 0}
 .slide-s23 .arch-compare-card--highlight{position: relative;
     flex: 1.14;
-    border: 2px solid rgba(0, 240, 255, 0.55);
-    border-left: 4px solid var(--ppt-accent);
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.14) 0%, rgba(0, 240, 255, 0.05) 45%, var(--ppt-bg-soft) 100%);
-    box-shadow: 0 0 22px rgba(0, 240, 255, 0.16), inset 0 0 0 1px rgba(0, 240, 255, 0.12);
+    border: 2px solid rgba(0, 120, 212, 0.55);
+    border-left: 4px solid var(--fluent-blue, #0078d4);
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.14) 0%, rgba(0, 120, 212, 0.05) 45%, var(--fluent-card-bg, #f8f8f8) 100%);
+    box-shadow: 0 0 22px rgba(0, 120, 212, 0.16), inset 0 0 0 1px rgba(0, 120, 212, 0.12);
     animation: archCompareSpotlight 4.5s ease-in-out infinite;
     z-index: 1;
     padding: 9px 11px}
@@ -161,7 +161,7 @@
     border-radius: var(--ppt-radius-md);
     pointer-events: none;
     z-index: 0;
-    background: linear-gradient(120deg, transparent 30%, rgba(0, 240, 255, 0.14) 50%, transparent 70%);
+    background: linear-gradient(120deg, transparent 30%, rgba(0, 120, 212, 0.14) 50%, transparent 70%);
     background-size: 200% 100%;
     animation: archCompareShine 5s linear infinite}
 .slide-s23 .arch-compare-card--highlight > *{position: relative;
@@ -175,11 +175,11 @@
 .slide-s23 .arch-compare-num{width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--ppt-surface-2);
-    border: 1px solid var(--ppt-border);
+    background: #f3f2f1;
+    border: 1px solid var(--fluent-border, #d2d0ce);
     font-size:13px;
     font-weight: 700;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,31 +187,31 @@
 .slide-s23 .arch-compare-card--highlight .arch-compare-num{width: 22px;
     height: 22px;
     font-size: 14px;
-    background: rgba(0, 240, 255, 0.22);
-    border-color: var(--ppt-accent);
-    color: var(--ppt-text-1);
-    box-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
+    background: rgba(0, 120, 212, 0.22);
+    border-color: var(--fluent-blue, #0078d4);
+    color: var(--fluent-grey-160, #201f1e);
+    box-shadow: 0 0 12px rgba(0, 120, 212, 0.45);
     animation: archCompareNumPulse 3s ease-in-out infinite}
 .slide-s23 .arch-compare-card--highlight .arch-compare-title{font-size: 14px;
-    color: var(--ppt-accent)}
-.slide-s23 .arch-compare-card--highlight .arch-compare-title em{color: rgba(0, 240, 255, 0.75)}
-.slide-s23 .arch-compare-card--highlight .arch-compare-tagline strong{color: var(--ppt-accent)}
+    color: var(--fluent-blue, #0078d4)}
+.slide-s23 .arch-compare-card--highlight .arch-compare-title em{color: rgba(0, 120, 212, 0.75)}
+.slide-s23 .arch-compare-card--highlight .arch-compare-tagline strong{color: var(--fluent-blue, #0078d4)}
 .slide-s23 .arch-compare-card--highlight .arch-compare-pros{background: rgba(34, 197, 94, 0.08);
     border-radius: var(--ppt-radius-sm);
     padding: 3px 5px}
 .slide-s23 .arch-compare-title{font-size: 13px;
     font-weight: 700;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     line-height: 1.2}
 .slide-s23 .arch-compare-title em{font-style: normal;
     font-size:13px;
     font-weight: 500;
-    color: var(--ppt-text-3)}
+    color: var(--fluent-grey-90, #8a8886)}
 .slide-s23 .arch-compare-tagline{font-size:13px;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     line-height: 1.35;
     flex-shrink: 0}
-.slide-s23 .arch-compare-tagline strong{color: var(--ppt-text-1);
+.slide-s23 .arch-compare-tagline strong{color: var(--fluent-grey-160, #201f1e);
     font-weight: 600}
 .slide-s23 .arch-compare-body{display: grid;
     grid-template-columns: 1fr 1fr;
@@ -220,29 +220,29 @@
     min-height: 0}
 .slide-s23 .arch-compare-field{font-size:13px;
     line-height: 1.35;
-    color: var(--ppt-text-3)}
+    color: var(--fluent-grey-90, #8a8886)}
 .slide-s23 .arch-compare-field--full{grid-column: 1 / -1}
 .slide-s23 .arch-compare-field-label{font-weight: 700;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     margin-right: 4px}
-.slide-s23 .arch-compare-pros .arch-compare-field-label{color: var(--ppt-good)}
+.slide-s23 .arch-compare-pros .arch-compare-field-label{color: var(--fluent-good, #107c10)}
 .slide-s23 .arch-compare-cons .arch-compare-field-label{color: var(--ppt-warn)}
 .slide-s23 .arch-compare-fass-badge{margin-left: auto;
     font-size:13px;
     font-weight: 700;
     padding: 3px 8px;
     border-radius: 10px;
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(0, 240, 255, 0.1));
-    color: var(--ppt-text-1);
-    border: 1px solid rgba(0, 240, 255, 0.55);
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.22), rgba(0, 120, 212, 0.1));
+    color: var(--fluent-grey-160, #201f1e);
+    border: 1px solid rgba(0, 120, 212, 0.55);
     flex-shrink: 0;
-    box-shadow: 0 0 14px rgba(0, 240, 255, 0.25);
+    box-shadow: 0 0 14px rgba(0, 120, 212, 0.25);
     animation: archCompareBadgePulse 3s ease-in-out infinite}
 @keyframes archCompareSpotlight {
-    0%, 100% {box-shadow: 0 0 20px rgba(0, 240, 255, 0.14), inset 0 0 0 1px rgba(0, 240, 255, 0.1);
-        border-color: rgba(0, 240, 255, 0.5)}
-    50% {box-shadow: 0 0 34px rgba(0, 240, 255, 0.3), inset 0 0 0 1px rgba(0, 240, 255, 0.2);
-        border-color: rgba(0, 240, 255, 0.9)}
+    0%, 100% {box-shadow: 0 0 20px rgba(0, 120, 212, 0.14), inset 0 0 0 1px rgba(0, 120, 212, 0.1);
+        border-color: rgba(0, 120, 212, 0.5)}
+    50% {box-shadow: 0 0 34px rgba(0, 120, 212, 0.3), inset 0 0 0 1px rgba(0, 120, 212, 0.2);
+        border-color: rgba(0, 120, 212, 0.9)}
     }
 @keyframes archCompareShine {
     0% {background-position: 200% 0;}
@@ -254,7 +254,7 @@
     }
 @keyframes archCompareBadgePulse {
     0%, 100% {filter: brightness(1);}
-    50% {filter: brightness(1.2); box-shadow: 0 0 18px rgba(0, 240, 255, 0.4);}
+    50% {filter: brightness(1.2); box-shadow: 0 0 18px rgba(0, 120, 212, 0.4);}
     }
 .slide-s23 .architecture-db-isolation-row{display: flex;
     justify-content: space-around;
@@ -264,18 +264,18 @@
     flex-direction: column;
     align-items: center;
     gap: 3px 4px;
-    color: var(--ppt-text-3)}
+    color: var(--fluent-grey-90, #8a8886)}
 .slide-s23 .architecture-db-label-caption{font-size:13px}
 
 
 .slide-s23 .architecture-impact-highlight-box{background: linear-gradient(90deg, rgba(250, 204, 21, 0.1) 0%, transparent 100%);
-    border-left: 4px solid var(--ppt-accent-2);
+    border-left: 4px solid var(--fluent-blue, #0078d4);
     padding: 8px 14px;
     border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
     flex-shrink: 0}
 .slide-s23 .architecture-impact-label-text{font-size: 15px;
     font-weight: 700;
-    color: var(--ppt-accent-2)}
+    color: var(--fluent-blue, #0078d4)}
 .slide-s23 .architecture-impact-desc-text{font-size: 13px;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     line-height: 1.4}

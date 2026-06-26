@@ -1,6 +1,6 @@
 .slide-s10 .fass-identity-slide-root{width:100%;height:100%;
-    background-color: var(--ppt-bg);
-    color: var(--ppt-text-1);
+    background-color: var(--fluent-bg, #ffffff);
+    color: var(--fluent-grey-160, #201f1e);
     font-family: var(--ppt-font-body);
     position: relative;
     display: flex;
@@ -15,16 +15,16 @@
     gap: 12px}
 .slide-s10 .title-region-bar{width: 4px;
     height: 32px;
-    background: var(--ppt-accent);
+    background: var(--fluent-blue, #0078d4);
     border-radius: 2px}
 .slide-s10 .title-region-text{font-family: var(--ppt-font-;display);
     font-size: 32px;
     font-weight: 700;
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     margin: 0}
 .slide-s10 .title-region-line{height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--fluent-blue, #0078d4) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px}
 
@@ -44,7 +44,7 @@
     top: 20px;
     bottom: 20px;
     width: 2px;
-    background: linear-gradient(180deg, var(--ppt-accent) 0%, var(--ppt-surface) 100%);
+    background: linear-gradient(180deg, var(--fluent-blue, #0078d4) 0%, var(--fluent-surface, #ffffff) 100%);
     opacity: 0.3}
 .slide-s10 .fass-identity-value-item-row{display: flex;
     align-items: flex-start;
@@ -54,18 +54,18 @@
     z-index: 1}
 .slide-s10 .fass-identity-value-marker{width: 50px;
     height: 50px;
-    background: var(--ppt-surface);
-    border: 2px solid var(--ppt-accent);
+    background: var(--fluent-surface, #ffffff);
+    border: 2px solid var(--fluent-blue, #0078d4);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2)}
+    box-shadow: 0 0 15px rgba(0, 120, 212, 0.2)}
 .slide-s10 .fass-identity-value-marker-letter{font-family: var(--ppt-font-;display);
     font-size: 26px;
     font-weight: 700;
-    color: var(--ppt-accent)}
+    color: var(--fluent-blue, #0078d4)}
 .slide-s10 .fass-identity-value-text-block{display: flex;
     flex-direction: column;
     gap: 4px}
@@ -74,23 +74,23 @@
     gap: 12px}
 .slide-s10 .fass-identity-value-title{font-size: 20px;
     font-weight: 700;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s10 .fass-identity-value-subtitle{font-size: 15px;
     font-weight: 600;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     opacity: 0.9}
 .slide-s10 .fass-identity-value-description{font-size: 15px;
     font-weight: 400;
     line-height: 1.45;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     max-width: 650px}
 
 .slide-s10 .fass-identity-right-vision-section{flex: 5;
     display: flex;
     flex-direction: column;
     justify-content: center}
-.slide-s10 .fass-identity-logo-info-card{background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
+.slide-s10 .fass-identity-logo-info-card{background: var(--fluent-card-bg, #f8f8f8);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-lg);
     padding: 16px;
     display: flex;
@@ -103,7 +103,7 @@
     background: #000;
     border-radius: var(--ppt-radius-md);
     padding: 12px 12px;
-    border: 1px solid var(--ppt-border)}
+    border: 1px solid var(--fluent-border, #d2d0ce)}
 .slide-s10 .fass-identity-logo-image{display: block;
     width: 100%;
     max-width: 280px;
@@ -111,21 +111,21 @@
     object-fit: contain}
 .slide-s10 .fass-identity-logo-title{font-size: 18px;
     font-weight: 700;
-    color: var(--ppt-accent-2);
+    color: var(--fluent-blue, #0078d4);
     text-align: center}
 .slide-s10 .fass-identity-logo-body-text{font-size: 14px;
     line-height: 1.45;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s10 .fass-identity-logo-keyword-tag{display: inline-flex;
     align-items: center;
     padding: 6px 12px;
     background: rgba(250, 204, 21, 0.1);
-    border: 1px solid var(--ppt-accent-2);
+    border: 1px solid var(--fluent-blue, #0078d4);
     border-radius: var(--ppt-radius-sm);
-    color: var(--ppt-accent-2);
+    color: var(--fluent-blue, #0078d4);
     font-size: 14px;
     font-weight: 600;
     margin-top: 12px;
     align-self: flex-start}
-.slide-s10 .fass-identity-highlight-text{color: var(--ppt-accent);
+.slide-s10 .fass-identity-highlight-text{color: var(--fluent-blue, #0078d4);
     font-weight: 600}

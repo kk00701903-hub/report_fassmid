@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide37.css";
 
-const SLIDE_HTML = `<div class="fass-slide-root">
+const SLIDE_HTML = `<div class="fass-slide-root fluent-slide">
   <div class="title-region">
     <div class="title-header">
       <div class="title-bar"></div>

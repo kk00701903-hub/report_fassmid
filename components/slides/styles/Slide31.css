@@ -1,19 +1,19 @@
 .slide-s31 .slide-root-container{width:100%;height:100%;
-    background-color: var(--ppt-bg);
+    background-color: var(--fluent-bg, #ffffff);
     position: relative;
     display: flex;
     flex-direction: column;
     font-family: var(--ppt-font-body);
-    color: var(--ppt-text-1);
+    color: var(--fluent-grey-160, #201f1e);
     overflow:hidden;min-height:0;box-sizing:border-box;}
 
 .slide-s31 .title-r{flex-shrink:0;position:relative;z-index:1}
 .slide-s31 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.slide-s31 .bar{width:4px;height:30px;background:var(--ppt-accent);border-radius:2px}
-.slide-s31 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--ppt-accent-2)}
+.slide-s31 .bar{width:4px;height:30px;background:var(--fluent-blue, #0078d4);border-radius:2px}
+.slide-s31 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--fluent-blue, #0078d4)}
 .slide-s31 h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
-.slide-s31 .sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px;line-height:1.4}
-.slide-s31 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.slide-s31 .sub{font-size:13px;color:var(--fluent-grey-130, #484644);margin-top:4px;padding-left:14px;line-height:1.4}
+.slide-s31 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--fluent-blue, #0078d4),transparent);opacity:.35}
 
 .slide-s31 .quality-content-main-wrapper{flex: 1;
     min-height: 0;
@@ -28,8 +28,8 @@
     justify-content: center;
     gap: 12px}
 .slide-s31 .quality-pipeline-step-card{flex: 1 1 0;
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
+    background: var(--fluent-card-bg, #f8f8f8);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-lg);
     padding: 12px;
     display: flex;
@@ -41,28 +41,28 @@
     gap: 12px}
 .slide-s31 .quality-step-icon-box{width: 40px;
     height: 40px;
-    background: rgba(0, 240, 255, 0.1);
+    background: rgba(0, 120, 212, 0.1);
     border-radius: var(--ppt-radius-md);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     font-size: 24px}
 .slide-s31 .quality-step-title-text{font-size: 18px;
     font-weight: 600;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s31 .quality-step-description-list{list-style: none;
     padding: 0;
     margin: 0}
 .slide-s31 .quality-step-description-item{font-size: 14px;
-    color: var(--ppt-text-2);
+    color: var(--fluent-grey-130, #484644);
     margin-bottom: 3px;
     padding-left: 20px;
     position: relative}
 .slide-s31 .quality-step-description-item::before{content: "•";
     position: absolute;
     left: 0;
-    color: var(--ppt-accent)}
+    color: var(--fluent-blue, #0078d4)}
 
 .slide-s31 .quality-right-gate-column{flex: 2;
     display: flex;
@@ -70,15 +70,15 @@
     justify-content: center;
     gap: 13px 20px}
 .slide-s31 .quality-gate-summary-container{flex: 1 1 0;
-    background: linear-gradient(135deg, var(--ppt-surface) 0%, var(--ppt-bg-soft) 100%);
-    border: 1px solid var(--ppt-accent);
+    background: linear-gradient(135deg, var(--fluent-surface, #ffffff) 0%, var(--fluent-card-bg, #f8f8f8) 100%);
+    border: 1px solid var(--fluent-blue, #0078d4);
     border-radius: var(--ppt-radius-lg);
     padding: 12px 18px;
     display: flex;
     flex-direction: column;
     gap: 10px}
 .slide-s31 .quality-gate-title-badge{align-self: flex-start;
-    background: var(--ppt-accent);
+    background: var(--fluent-blue, #0078d4);
     color: var(--ppt-bg);
     padding: 4px 12px;
     border-radius: var(--ppt-radius-sm);
@@ -87,25 +87,25 @@
     text-transform: uppercase}
 .slide-s31 .quality-gate-heading-text{font-size: 18px;
     font-weight: 700;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s31 .quality-gate-metrics-grid{display: grid;
     grid-template-columns: 1fr;
     gap: 10px 16px}
-.slide-s31 .quality-metric-item-box{background: rgba(255, 255, 255, 0.03);
+.slide-s31 .quality-metric-item-box{background: rgba(0, 0, 0, 0.04);
     border-radius: var(--ppt-radius-md);
     padding: 10px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-left: 4px solid var(--ppt-bad)}
-.slide-s31 .quality-metric-item-box.safe{border-left-color: var(--ppt-good)}
+.slide-s31 .quality-metric-item-box.safe{border-left-color: var(--fluent-good, #107c10)}
 .slide-s31 .quality-metric-label-group{display: flex;
     flex-direction: column}
 .slide-s31 .quality-metric-name-text{font-size: 16px;
-    color: var(--ppt-text-2)}
+    color: var(--fluent-grey-130, #484644)}
 .slide-s31 .quality-metric-value-text{font-size: 22px;
     font-weight: 600;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s31 .quality-gate-status-indicator{font-size: 14px;
     font-weight: 600;
     padding: 2px 8px;
@@ -113,10 +113,10 @@
 .slide-s31 .status-strict{background: rgba(239, 68, 68, 0.1);
     color: var(--ppt-bad)}
 .slide-s31 .status-standard{background: rgba(34, 197, 94, 0.1);
-    color: var(--ppt-good)}
+    color: var(--fluent-good, #107c10)}
 .slide-s31 .quality-impact-footer-note{margin-top: auto;
     font-size: 16px;
-    color: var(--ppt-accent-2);
+    color: var(--fluent-blue, #0078d4);
     font-weight: 600;
     display: flex;
     align-items: center;

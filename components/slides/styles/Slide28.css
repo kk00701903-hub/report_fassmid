@@ -1,15 +1,15 @@
 .slide-s28 .fass-slide-root{width:100%;height:100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--ppt-bg)}
+    background-color: var(--fluent-bg, #ffffff)}
 
 .slide-s28 .title-r{flex-shrink:0;position:relative;z-index:1}
 .slide-s28 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.slide-s28 .bar{width:4px;height:30px;background:var(--ppt-accent);border-radius:2px}
-.slide-s28 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--ppt-accent-2)}
+.slide-s28 .bar{width:4px;height:30px;background:var(--fluent-blue, #0078d4);border-radius:2px}
+.slide-s28 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--fluent-blue, #0078d4)}
 .slide-s28 h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
-.slide-s28 .sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px;line-height:1.4}
-.slide-s28 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.slide-s28 .sub{font-size:13px;color:var(--fluent-grey-130, #484644);margin-top:4px;padding-left:14px;line-height:1.4}
+.slide-s28 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--fluent-blue, #0078d4),transparent);opacity:.35}
 
 .slide-s28 .fass-smart-logistics-content-wrapper{flex: 1;
     padding: 12px 40px 20px 40px;
@@ -27,19 +27,19 @@
     gap: 12px}
 .slide-s28 .fass-smart-logistics-concept-label{font-size: 14px;
     font-weight: 600;
-    color: var(--ppt-accent);
+    color: var(--fluent-blue, #0078d4);
     text-transform: uppercase;
     letter-spacing: 1px}
 .slide-s28 .fass-smart-logistics-concept-description{font-size: 22px;
     font-weight: 600;
     line-height: 1.4;
-    color: var(--ppt-text-1)}
-.slide-s28 .fass-smart-logistics-concept-highlight{color: var(--ppt-accent-2)}
+    color: var(--fluent-grey-160, #201f1e)}
+.slide-s28 .fass-smart-logistics-concept-highlight{color: var(--fluent-blue, #0078d4)}
 .slide-s28 .fass-smart-logistics-visual-image-box{height: 200px;
     border-radius: var(--ppt-radius-lg);
     overflow: hidden;
     box-shadow: var(--ppt-shadow-strong);
-    border: 1px solid var(--ppt-border)}
+    border: 1px solid var(--fluent-border, #d2d0ce)}
 .slide-s28 .fass-smart-logistics-visual-image-box img{width: 100%;
     height: 100%;
     object-fit: cover}
@@ -49,10 +49,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 16px 20px}
-.slide-s28 .fass-smart-logistics-action-item-card{background: var(--ppt-surface);
+.slide-s28 .fass-smart-logistics-action-item-card{background: var(--fluent-surface, #ffffff);
     padding: 14px 18px;
     border-radius: var(--ppt-radius-lg);
-    border: 1px solid var(--ppt-border);
+    border: 1px solid var(--fluent-border, #d2d0ce);
     display: flex;
     flex-direction: column;
     gap: 13px 16px;
@@ -62,29 +62,37 @@
     gap: 13px 16px}
 .slide-s28 .fass-smart-logistics-card-icon{width: 48px;
     height: 48px;
-    background: var(--ppt-bg-soft);
+    background: var(--fluent-card-bg, #f8f8f8);
     border-radius: var(--ppt-radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: var(--ppt-accent);
-    border: 1px solid var(--ppt-accent)}
+    color: var(--fluent-blue, #0078d4);
+    border: 1px solid var(--fluent-blue, #0078d4)}
 .slide-s28 .fass-smart-logistics-card-title{font-size: 22px;
     font-weight: 600;
-    color: var(--ppt-text-1)}
+    color: var(--fluent-grey-160, #201f1e)}
 .slide-s28 .fass-smart-logistics-card-body{font-size: 15px;
     line-height: 1.45;
-    color: var(--ppt-text-2)}
+    color: var(--fluent-grey-130, #484644)}
 .slide-s28 .fass-smart-logistics-impact-badge{margin-top: auto;
     display: flex;
     align-items: center;
     gap: 6px 8px;
     padding: 6px 16px;
     background: rgba(34, 197, 94, 0.1);
-    border: 1px solid var(--ppt-good);
+    border: 1px solid var(--fluent-good, #107c10);
     border-radius: var(--ppt-radius-sm);
     width: fit-content}
 .slide-s28 .fass-smart-logistics-impact-text{font-size: 16px;
     font-weight: 600;
-    color: var(--ppt-good)}
+    color: var(--fluent-good, #107c10)}
+/* overflow fix */
+.slide-s28 h1.title-main {font-size: 22px;}
+.slide-s28 .fass-smart-logistics-content-wrapper {padding: 8px 28px 12px; gap: 14px;}
+.slide-s28 .fass-smart-logistics-concept-description {font-size: 17px;}
+.slide-s28 .fass-smart-logistics-visual-image-box {height: 130px;}
+.slide-s28 .fass-smart-logistics-action-item-card {padding: 10px 12px; gap: 8px;}
+.slide-s28 .fass-smart-logistics-card-title {font-size: 17px;}
+.slide-s28 .fass-smart-logistics-card-body {font-size: 13px; line-height: 1.38;}
