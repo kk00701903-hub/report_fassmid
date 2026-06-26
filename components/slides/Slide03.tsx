@@ -8,66 +8,115 @@ const SLIDE_HTML = `<div class="slide">
     <div class="title-row">
       <div class="bar"></div>
       <span class="badge">C-LEVEL PRIMER</span>
-      <h1>IT 시스템 이해하기 — 웹 · 프론트엔드 · WAS · DB</h1>
+      <h1>IT 시스템 이해하기 — 웹 · WAS · DB</h1>
     </div>
-    <p class="sub">앞으로 소개될 기술·아키텍처 장표를 이해하기 위한 최소 개념 — 3층 구조로 읽으시면 됩니다.</p>
+    <p class="sub">사용자 화면(프론트엔드)과 서버(백엔드)가 어떻게 연결되는지, 그리고 본 프로젝트가 담당하는 영역을 한눈에 봅니다.</p>
     <div class="line"></div>
   </div>
 
   <div class="body">
-    <div class="stack">
-      <div class="layer" style="--lc:var(--c-web)">
-        <div class="layer-icon" style="color:var(--c-web)"><i class="fas fa-window-maximize"></i></div>
-        <div class="layer-body">
-          <div class="layer-name">웹(Web) · 프론트엔드</div>
-          <div class="layer-en">Frontend — 사용자가 보는 화면</div>
-          <p class="layer-desc">PC·모바일 브라우저에서 보이는 메뉴, 버튼, 표, 입력 화면입니다. 사용자 경험(UX)과 화면 반응 속도가 여기서 결정됩니다.</p>
-          <div class="layer-tags"><span class="tag">화면·UI</span><span class="tag">브라우저</span><span class="tag">Next.js · React</span></div>
+    <div class="arch-diagram">
+      <!-- 프론트엔드 영역 -->
+      <div class="arch-zone arch-zone--fe">
+        <div class="arch-zone-label">
+          <span class="arch-zone-line"></span>
+          <span>프론트엔드 (Front-End)</span>
+          <span class="arch-zone-line"></span>
+        </div>
+        <div class="arch-fe-stack">
+          <div class="browser-mock">
+            <div class="browser-chrome">
+              <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            </div>
+            <div class="browser-body browser-body--search">
+              <span class="browser-input">컴퓨터</span>
+              <span class="browser-btn">검색</span>
+            </div>
+            <div class="arch-step-badge">① 검색</div>
+          </div>
+          <div class="browser-mock">
+            <div class="browser-chrome">
+              <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            </div>
+            <div class="browser-body browser-body--result">
+              <span class="browser-result">Computer</span>
+            </div>
+            <div class="arch-step-badge">④ 결과확인</div>
+          </div>
         </div>
       </div>
-      <div class="arrow-down"><i class="fas fa-arrow-down"></i> 요청 · 응답</div>
-      <div class="layer" style="--lc:var(--c-was)">
-        <div class="layer-icon" style="color:var(--c-was)"><i class="fas fa-server"></i></div>
-        <div class="layer-body">
-          <div class="layer-name">WAS (웹 애플리케이션 서버)</div>
-          <div class="layer-en">Backend Application — 업무 처리 엔진</div>
-          <p class="layer-desc">수주·발주·정산 등 <strong>비즈니스 규칙을 실행</strong>하는 서버 프로그램입니다. 화면에서 '저장'을 누르면 WAS가 검증·계산·처리를 수행합니다.</p>
-          <div class="layer-tags"><span class="tag">업무 로직</span><span class="tag">API</span><span class="tag">Spring · Java</span></div>
+
+      <!-- 요청 · 응답 화살표 -->
+      <div class="arch-mid-flow">
+        <div class="arch-flow-row arch-flow-row--req">
+          <span class="arch-flow-label">② 요청</span>
+          <span class="arch-flow-arrow"><i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="arch-flow-row arch-flow-row--res">
+          <span class="arch-flow-arrow"><i class="fas fa-arrow-left"></i></span>
+          <span class="arch-flow-label">③ 응답</span>
         </div>
       </div>
-      <div class="arrow-down"><i class="fas fa-arrow-down"></i> 읽기 · 쓰기</div>
-      <div class="layer" style="--lc:var(--c-db)">
-        <div class="layer-icon" style="color:var(--c-db)"><i class="fas fa-database"></i></div>
-        <div class="layer-body">
-          <div class="layer-name">DB (데이터베이스)</div>
-          <div class="layer-en">Database — 데이터 저장소</div>
-          <p class="layer-desc">거래·재고·고객·정산 데이터가 <strong>안전하게 저장·조회</strong>되는 창고입니다. 시스템의 신뢰성과 연속성은 DB 설계·동기화 품질에 달려 있습니다.</p>
-          <div class="layer-tags"><span class="tag">Oracle · PostgreSQL</span><span class="tag">트랜잭션</span><span class="tag">데이터 무결성</span></div>
+
+      <!-- 백엔드 영역 — 구축 범위 강조 -->
+      <div class="arch-zone arch-zone--be arch-zone--scope">
+        <div class="scope-ribbon"><i class="fas fa-bullseye"></i> 본 프로젝트 구축 영역 — Web · WAS · DB</div>
+        <div class="arch-zone-label arch-zone-label--be">
+          <span class="arch-zone-line"></span>
+          <span>백엔드 (Back-End)</span>
+          <span class="arch-zone-line"></span>
+        </div>
+        <div class="arch-be-row">
+          <div class="arch-server arch-server--web">
+            <div class="server-icon server-icon--web">
+              <div class="server-blade"></div>
+              <div class="server-blade"></div>
+              <div class="server-blade"></div>
+            </div>
+            <div class="server-name">Web Server</div>
+            <div class="server-desc">웹 · 정적·화면 전달</div>
+          </div>
+          <div class="arch-connector"><i class="fas fa-exchange-alt"></i></div>
+          <div class="arch-server arch-server--was">
+            <div class="server-icon server-icon--was">
+              <div class="server-blade"></div>
+              <div class="server-blade"></div>
+              <div class="server-blade"></div>
+            </div>
+            <div class="server-name">WAS</div>
+            <div class="server-desc">업무 로직 · API</div>
+          </div>
+          <div class="arch-connector"><i class="fas fa-exchange-alt"></i></div>
+          <div class="arch-server arch-server--db">
+            <div class="server-icon server-icon--db">
+              <div class="db-cylinder">
+                <div class="db-top"></div>
+                <div class="db-body"></div>
+              </div>
+            </div>
+            <div class="server-name">DB</div>
+            <div class="server-desc">데이터 저장소</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="right-col">
-      <div class="flow-card">
-        <div class="flow-title"><i class="fas fa-route"></i> 사용자 한 번의 업무 처리 흐름</div>
-        <div class="flow-steps">
-          <div class="flow-step"><span class="step-num">1</span><p class="step-text"><strong>웹</strong> — 담당자가 화면에서 수주 정보 입력</p></div>
-          <div class="flow-step"><span class="step-num">2</span><p class="step-text"><strong>WAS</strong> — 재고·가격·권한 검증 후 업무 규칙 적용</p></div>
-          <div class="flow-step"><span class="step-num">3</span><p class="step-text"><strong>DB</strong> — 수주 데이터 영구 저장, 타 시스템 연동 기준 확보</p></div>
-          <div class="flow-step"><span class="step-num">4</span><p class="step-text"><strong>응답</strong> — 결과가 다시 웹 화면에 표시</p></div>
-        </div>
+    <div class="arch-notes">
+      <div class="cloud-note">
+        <div class="cloud-note-icon"><i class="fas fa-cloud"></i></div>
+        <p><strong>클라우드(Cloud)란?</strong> 웹·WAS·DB 중 <strong>하나 이상</strong>을 회사 내부가 아닌 <strong>외부 전문 업체</strong>에 맡겨 운영·관리하는 방식입니다. (예: DB만 AWS RDS, WAS만 클라우드 호스팅 등)</p>
       </div>
-      <div class="analogy">
-        <div class="analogy-title"><i class="fas fa-lightbulb"></i> 비유 — 식당 운영</div>
-        <div class="analogy-row"><em>웹</em>홀·메뉴판 (고객이 보는 공간)</div>
-        <div class="analogy-row"><em>WAS</em>주방·요리 (주문을 받아 요리하는 곳)</div>
-        <div class="analogy-row"><em>DB</em>창고·재고 장부 (식자재·매출 기록 보관)</div>
+      <div class="scope-summary">
+        <span class="scope-pill scope-pill--web">Web</span>
+        <span class="scope-pill scope-pill--was">WAS</span>
+        <span class="scope-pill scope-pill--db">DB</span>
+        <span class="scope-summary-text">세 계층 모두 FaSS 플랫폼의 핵심 구축·고도화 대상입니다.</span>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <strong>이후 장표 안내:</strong> API·MSA·Cloud·보안·AI 등은 이 3층 구조를 <strong>확장·고도화</strong>한 개념입니다. 본 보고서의 아키텍처·기술 스택은 모두 이 흐름 위에 쌓입니다.
+    <strong>이후 장표:</strong> API · MSA · 보안 · AI 등은 이 구조를 <strong>확장·연결</strong>하는 개념입니다. 클라우드는 위 세 계층 중 일부를 외부에 두는 <strong>운영 방식</strong>입니다.
   </div>
 </div>`;
 

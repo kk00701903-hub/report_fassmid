@@ -185,14 +185,15 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 6,
     topics: [
       {
-        id: "glossary-ops-ai",
-        title: "핵심 용어집 ③ — DevOps · CI/CD · CDC · AI · 품질·비용",
+        id: "cdc-primer",
+        title: "CDC(Change Data Capture)란?",
         category: "process",
-        summary: "DevOps·CI/CD(자동화), CDC(무중단 DB 이관), AI 디지털 워커, Quality Gate·FinOps·GitOps·SSO·PoC 등 운영·품질·비용 용어입니다.",
+        summary:
+          "Batch 전수 복사 vs CDC 변경분 실시간 캡처를 물류센터 비유로 설명합니다. Debezium + Kafka 기반 무중단 DB 이관의 핵심 개념입니다.",
         process: [
-          { step: 1, title: "DevOps·CI/CD", description: "개발-운영 통합, GitLab 자동 빌드·배포" },
-          { step: 2, title: "CDC", description: "레거시→신규 DB 실시간 동기화" },
-          { step: 3, title: "AI·품질·비용", description: "디지털 워커 · Quality Gate · FinOps" },
+          { step: 1, title: "기존 Batch", description: "야간 전수조사 — 운영 DB 부하·과거 데이터 한계" },
+          { step: 2, title: "차세대 CDC", description: "변동분만 실시간 전송 — 부하 제로·즉각 의사결정" },
+          { step: 3, title: "FaSS 적용", description: "Oracle → PostgreSQL Debezium + Kafka 무중단 동기화" },
         ],
       },
     ],

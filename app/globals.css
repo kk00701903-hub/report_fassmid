@@ -5,6 +5,7 @@
 @import "../styles/slides/slide-dynamic.css";
 @import "../styles/slides/slide-base.css";
 @import "../styles/slides/shared-chrome.css";
+@import "../styles/slides/slide-fill.css";
 
 :root {
   --bg: #0a0e1a;

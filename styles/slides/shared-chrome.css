@@ -2,6 +2,8 @@
  * Shared visual chrome for scoped slides — title bars, badges, footers, cards.
  */
 [class*="slide-s"] {
+  --slide-title-pad: 14px var(--slide-pad-x) 8px;
+  --slide-body-pad: 0 var(--slide-pad-x) 12px;
   --slide-title-size: 24px;
   --slide-sub-size: 13px;
   --slide-footer-size: 12px;
@@ -15,7 +17,7 @@
 [class*="slide-s"] .title-region,
 [class*="slide-s"] .title-region-wrapper {
   flex-shrink: 0;
-  padding: 16px 36px 4px;
+  padding: var(--slide-title-pad);
 }
 
 [class*="slide-s"] .title-row,
@@ -77,13 +79,15 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 [class*="slide-s"] .footer,
 [class*="slide-s"] .slide-footer,
 [class*="slide-s"] .foot {
   flex-shrink: 0;
-  margin: 0 32px 10px;
+  margin: auto 32px 10px;
   padding: 8px 12px;
   font-size: var(--slide-footer-size);
   line-height: 1.4;

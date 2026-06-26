@@ -43,9 +43,18 @@
 
 [class*="slide-s"] .body,
 [class*="slide-s"] .content,
-[class*="slide-s"] .flow-main,
 [class*="slide-s"] .main-content {
   flex: 1;
   min-height: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+[class*="slide-s"] .flow-main {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }

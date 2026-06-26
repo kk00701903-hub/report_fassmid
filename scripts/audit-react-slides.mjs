@@ -139,19 +139,51 @@ async function auditSlide(page, url) {
         }
       }
 
+      const slideRoot = canvas.querySelector(
+        ".fass-report-slide-root, .section-slide-root, .slide-root, .slide, .fass-closing-slide-root, .fass-summary-slide-root, .migration-slide-root, .slide-root-container, .roadmap-slide-root, .fass-slide-root",
+      );
+
       const belowFold = visible.filter((el) => {
         const r = el.getBoundingClientRect();
         return r.bottom > canvasRect.bottom + 2;
       }).length;
 
-      const overflow =
-        canvas.scrollHeight > canvas.clientHeight + 2 ||
-        Boolean(inner && inner.scrollHeight > canvas.clientHeight + 2);
+      const rootBelow =
+        Boolean(slideRoot) &&
+        slideRoot.getBoundingClientRect().bottom > canvasRect.bottom + 2;
+
+      const contentEls = visible.length
+        ? visible
+        : Array.from(canvas.querySelectorAll("*")).filter((el) => {
+            const style = window.getComputedStyle(el);
+            if (style.display === "none" || style.visibility === "hidden") return false;
+            const r = el.getBoundingClientRect();
+            return r.width > 8 && r.height > 8;
+          });
+
+      let topGap = null;
+      let bottomGap = null;
+      if (contentEls.length) {
+        const tops = contentEls.map((el) => el.getBoundingClientRect().top);
+        const bottoms = contentEls.map((el) => el.getBoundingClientRect().bottom);
+        topGap = Math.round(Math.min(...tops) - canvasRect.top);
+        bottomGap = Math.round(canvasRect.bottom - Math.max(...bottoms));
+      }
+
+      const gapImbalance =
+        topGap != null &&
+        bottomGap != null &&
+        (bottomGap > 40 || (bottomGap > 8 && topGap / bottomGap > 1.5));
+
+      const overflow = belowFold > 0 || rootBelow;
 
       return {
         scrollHeight: canvas.scrollHeight,
         clientHeight: canvas.clientHeight,
-        innerHeight: inner?.getBoundingClientRect().height ?? null,
+        innerHeight: slideRoot?.getBoundingClientRect().height ?? inner?.getBoundingClientRect().height ?? null,
+        topGap,
+        bottomGap,
+        gapImbalance,
         overflow,
         belowFold,
         overlapCount: overlaps.length,
@@ -192,8 +224,9 @@ async function main() {
       const info = await auditSlide(page, url);
       results.push({ slide: i, url, ...info });
       const flag = info.overflow || (info.overlapCount ?? 0) > 3 ? " !" : "";
+      const gapFlag = info.gapImbalance ? " gap!" : "";
       console.log(
-        `slide ${String(i).padStart(2)}: overflow=${info.overflow} overlaps=${info.overlapCount} belowFold=${info.belowFold}${flag}`,
+        `slide ${String(i).padStart(2)}: overflow=${info.overflow} overlaps=${info.overlapCount} belowFold=${info.belowFold} topGap=${info.topGap} bottomGap=${info.bottomGap}${flag}${gapFlag}`,
       );
     } catch (e) {
       results.push({ slide: i, url, error: String(e) });
@@ -209,9 +242,13 @@ async function main() {
   writeFileSync(outPath, JSON.stringify(results, null, 2));
   const overflow = results.filter((r) => r.overflow);
   const highOverlap = results.filter((r) => (r.overlapCount ?? 0) > 3);
+  const gapIssues = results.filter((r) => r.gapImbalance);
   console.log(`\nWrote ${outPath}`);
-  console.log(`Overflow: ${overflow.length}, high overlap (>3): ${highOverlap.length}`);
+  console.log(`Overflow: ${overflow.length}, high overlap (>3): ${highOverlap.length}, gap imbalance: ${gapIssues.length}`);
   overflow.forEach((r) => console.log(`  overflow slide ${r.slide}: scroll=${r.scrollHeight}`));
+  gapIssues.forEach((r) =>
+    console.log(`  gap slide ${r.slide}: top=${r.topGap}px bottom=${r.bottomGap}px`),
+  );
 }
 
 main().catch((e) => {

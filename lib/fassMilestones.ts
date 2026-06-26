@@ -21,7 +21,7 @@ export type MilestonePhase = {
 };
 
 /** 간트 차트 기준일 (중간보고 시점) */
-export const FASS_SCHEDULE_TODAY = "2026-06";
+export const FASS_SCHEDULE_TODAY = "2026-07";
 
 export const FASS_MILESTONE_PHASES: MilestonePhase[] = [
   {

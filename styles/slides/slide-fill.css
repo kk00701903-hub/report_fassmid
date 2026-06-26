@@ -1,0 +1,142 @@
+/**
+ * Vertical fill for 4:3 slides (960×720) — balance title/body/footer distribution.
+ */
+[class*="slide-s"] {
+  --slide-pad-x: 36px;
+  --slide-title-pad: 14px var(--slide-pad-x) 8px;
+  --slide-body-pad: 0 var(--slide-pad-x) 12px;
+}
+
+/* Balanced title chrome */
+[class*="slide-s"] .title-r,
+[class*="slide-s"] .title-region,
+[class*="slide-s"] .title-region-wrapper,
+[class*="slide-s"] .title-region-container {
+  padding: var(--slide-title-pad);
+}
+
+/* Body as flex column that stretches children */
+[class*="slide-s"] .body,
+[class*="slide-s"] .content,
+[class*="slide-s"] .main-content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--slide-body-pad);
+  box-sizing: border-box;
+}
+
+[class*="slide-s"] .flow-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Primary content grids/stacks fill remaining body height */
+[class*="slide-s"] .body > .flow-main,
+[class*="slide-s"] .body > .milestone-grid,
+[class*="slide-s"] .body > .trend-grid,
+[class*="slide-s"] .body > .board,
+[class*="slide-s"] .body > .compare-grid,
+[class*="slide-s"] .body > .phase-stack,
+[class*="slide-s"] .body > .stack,
+[class*="slide-s"] .body > .cat-grid,
+[class*="slide-s"] .body > .grid,
+[class*="slide-s"] .finops-main-content-layout,
+[class*="slide-s"] .migration-content-wrapper,
+[class*="slide-s"] .roadmap-content-container,
+[class*="slide-s"] .k8s-main-wrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-items: stretch;
+}
+
+[class*="slide-s"] .content > .flow-main,
+[class*="slide-s"] .content > .milestone-grid,
+[class*="slide-s"] .content > .trend-grid,
+[class*="slide-s"] .content > .board,
+[class*="slide-s"] .content > .compare-grid,
+[class*="slide-s"] .content > .phase-stack,
+[class*="slide-s"] .content > .stack,
+[class*="slide-s"] .content > .grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-content: stretch;
+}
+
+/* Vertical stacks inside body stretch instead of clustering at top */
+[class*="slide-s"] .body .stack,
+[class*="slide-s"] .body .phase-stack,
+[class*="slide-s"] .body .cat-body,
+[class*="slide-s"] .content .stack,
+[class*="slide-s"] .content .phase-stack,
+[class*="slide-s"] .content .cat-body {
+  min-height: 0;
+  justify-content: stretch;
+  align-content: stretch;
+}
+
+/* Anchor footers to slide bottom */
+[class*="slide-s"] .footer,
+[class*="slide-s"] .slide-footer,
+[class*="slide-s"] .foot,
+[class*="slide-s"] .bottom-bar {
+  margin-top: auto;
+}
+
+/* Cover slide vertical distribution */
+[class*="slide-s"] .fass-content-overlay-layer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+[class*="slide-s"] .fass-title-content-wrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+[class*="slide-s"] .fass-vision-statement-container {
+  margin-top: 0;
+}
+
+[class*="slide-s"] .title-region-wrapper {
+  flex-shrink: 0;
+  padding: var(--slide-title-pad);
+  box-sizing: border-box;
+}
+
+[class*="slide-s"] .fass-closing-content-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-items: stretch;
+}
+
+[class*="slide-s"] .closing-visionary-left-group,
+[class*="slide-s"] .closing-visionary-right-group {
+  justify-content: stretch;
+}
+
+[class*="slide-s"] .vision-pillar-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  justify-content: space-between;
+}
+
+[class*="slide-s"] .closing-commitment-bar {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+/* PART divider slides — spread content vertically */
+[class*="slide-s"] .section-slide-root {
+  justify-content: space-between;
+  padding: 48px 80px;
+  box-sizing: border-box;
+}

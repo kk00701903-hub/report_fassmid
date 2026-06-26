@@ -1,5 +1,4 @@
-.slide-s01 .fass-report-slide-root{
-    width:100%;height:100%;
+.slide-s01 .fass-report-slide-root{width:100%;height:100%;
     background-color: var(--ppt-bg);
     position: relative;
     display: grid;
@@ -7,21 +6,16 @@
     grid-template-rows: 1fr;
     font-family: var(--ppt-font-body);
     overflow:hidden;min-height:0;box-sizing:border-box;}
-.slide-s01 .fass-background-image-container{
-    grid-area: 1/1/2/2;
+.slide-s01 .fass-background-image-container{grid-area: 1/1/2/2;
     position: relative;
     z-index: 0;
     width: 100%;
-    height:100%
-    }
-.slide-s01 .fass-background-image-element{
-    width: 100%;
+    height:100%}
+.slide-s01 .fass-background-image-element{width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6
-    }
-.slide-s01 .fass-content-overlay-layer{
-    grid-area: 1/1/2/2;
+    opacity: 0.6}
+.slide-s01 .fass-content-overlay-layer{grid-area: 1/1/2/2;
     position: relative;
     z-index: 1;
     width: 100%;
@@ -31,96 +25,70 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    min-height: 0;
-    }
-.slide-s01 .fass-top-header-section{
-    margin-bottom: 80px
-    }
-.slide-s01 .fass-company-brand-label{
-    font-size: 24px;
+    min-height: 0;}
+.slide-s01 .fass-top-header-section{margin-bottom: 24px}
+.slide-s01 .fass-company-brand-label{font-size: 24px;
     font-weight: 700;
     color: var(--ppt-text-1);
     letter-spacing: 2px;
     display: flex;
     align-items: center;
-    gap: 12px
-    }
-.slide-s01 .fass-brand-accent-bar{
-    width: 4px;
+    gap: 12px}
+.slide-s01 .fass-brand-accent-bar{width: 4px;
     height: 24px;
-    background-color: var(--ppt-accent)
-    }
-.slide-s01 .fass-title-content-wrapper{
+    background-color: var(--ppt-accent)}
+.slide-s01 .fass-title-content-wrapper{flex: 1;
+    min-height: 0;
     flex-direction: column;
     display: flex;
-    gap: 24px
-    }
-.slide-s01 .fass-title-main-heading{
-    font-family: var(--ppt-font-;display);
+    gap: 20px;
+    justify-content: space-between}
+.slide-s01 .fass-title-main-heading{font-family: var(--ppt-font-;display);
     font-size:26px;
     font-weight: 700;
     line-height: 1.1;
     color: var(--ppt-text-1);
-    margin: 0
-    }
-.slide-s01 .fass-title-main-heading span{
-    color: var(--ppt-accent)
-    }
-.slide-s01 .fass-subtitle-description-text{
-    font-size: 24px;
+    margin: 0}
+.slide-s01 .fass-title-main-heading span{color: var(--ppt-accent)}
+.slide-s01 .fass-subtitle-description-text{font-size: 24px;
     font-weight: 600;
     color: var(--ppt-accent-2);
     line-height: 1.4;
-    max-width: 800px
-    }
-.slide-s01 .fass-vision-statement-container{
-    margin-top: 60px;
+    max-width: 800px}
+.slide-s01 .fass-vision-statement-container{margin-top: 0;
     padding: 24px;
     background-color: rgba(30, 38, 56, 0.6);
     border-left: 4px solid var(--ppt-accent);
     border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
-    max-width: 720px
-    }
-.slide-s01 .fass-vision-slogan-label{
-    font-size: 14px;
+    max-width: 720px}
+.slide-s01 .fass-vision-slogan-label{font-size: 14px;
     font-weight: 600;
     color: var(--ppt-text-2);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 8px
-    }
-.slide-s01 .fass-vision-content-text{
-    font-size: 18px;
+    margin-bottom: 8px}
+.slide-s01 .fass-vision-content-text{font-size: 18px;
     font-weight: 400;
     color: var(--ppt-text-1);
-    line-height: 1.6
-    }
-.slide-s01 .fass-footer-info-group{
-    margin-top: auto;
+    line-height: 1.6}
+.slide-s01 .fass-footer-info-group{margin-top: auto;
     display: flex;
     gap: 40px;
-    align-items: flex-end
-    }
-.slide-s01 .fass-info-item-box{
-    display: flex;
+    align-items: flex-end}
+.slide-s01 .fass-info-item-box{display: flex;
     flex-direction: column;
-    gap: 4px
-    }
-.slide-s01 .fass-info-label-text{
-    font-size:13px;
+    gap: 4px}
+.slide-s01 .fass-info-label-text{font-size:13px;
     font-weight: 400;
     color: var(--ppt-text-3);
-    text-transform: uppercase
-    }
-.slide-s01 .fass-info-value-text{
-    font-size: 18px;
+    text-transform: uppercase}
+.slide-s01 .fass-info-value-text{font-size: 18px;
     font-weight: 600;
-    color: var(--ppt-text-1)
-    }
+    color: var(--ppt-text-1)}
 
 /* UX compact — cover slide */
-.slide-s01 .fass-content-overlay-layer { padding: 40px 48px; }
-.slide-s01 .fass-top-header-section { margin-bottom: 48px; }
-.slide-s01 .fass-main-title-text { font-size: 36px; line-height: 1.15; }
-.slide-s01 .fass-subtitle-text { font-size: 16px; }
-.slide-s01 .fass-bottom-info-section { gap: 24px; }
+.slide-s01 .fass-content-overlay-layer {padding: 36px 44px;}
+.slide-s01 .fass-top-header-section {margin-bottom: 20px;}
+.slide-s01 .fass-main-title-text {font-size: 36px; line-height: 1.15;}
+.slide-s01 .fass-subtitle-text {font-size: 16px;}
+.slide-s01 .fass-bottom-info-section {gap: 24px;}

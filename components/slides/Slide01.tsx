@@ -41,7 +41,7 @@ const SLIDE_HTML = `<div class="fass-report-slide-root" style="overflow: hidden;
 </div>
 <div class="fass-info-item-box">
 <div class="fass-info-label-text">Date</div>
-<div class="fass-info-value-text">2026. 06. 24</div>
+<div class="fass-info-value-text">2026. 07. 07</div>
 </div>
 </div>
 </div>

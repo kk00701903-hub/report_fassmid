@@ -2,22 +2,16 @@
 .slide-s25 .slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(ellipse at 20% 10%,rgba(0,240,255,.07) 0%,transparent 45%),
   radial-gradient(ellipse at 80% 90%,rgba(252,109,38,.06) 0%,transparent 40%)}
-.slide-s25 .title-region-wrapper{
-  flex-shrink:0;padding:24px 40px 8px;position:relative;z-index:1;
-  display:flex;flex-direction:column;gap:8px
-}
+.slide-s25 .title-region-wrapper{flex-shrink:0;position:relative;z-index:1;
+  display:flex;flex-direction:column;gap:8px}
 .slide-s25 .title-region-header{display:flex;align-items:center;gap:12px}
 .slide-s25 .title-region-bar{width:4px;height:32px;background:var(--ppt-accent);border-radius:2px}
-.slide-s25 .title-region-text{
-  font-family:var(--ppt-font-;display);font-size:30px;font-weight:700;
-  color:var(--ppt-text-1);line-height:1.3;margin:0
-}
-.slide-s25 .title-region-line{
-  height:1px;width:100%;
+.slide-s25 .title-region-text{font-family:var(--ppt-font-;display);font-size:30px;font-weight:700;
+  color:var(--ppt-text-1);line-height:1.3;margin:0}
+.slide-s25 .title-region-line{height:1px;width:100%;
   background:linear-gradient(90deg,var(--ppt-accent) 0%,transparent 100%);
-  opacity:.3;margin-top:0
-}
-.slide-s25 .body{flex:1;min-height:0;padding:8px 40px 10px;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+  opacity:.3;margin-top:0}
+.slide-s25 .body{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
 .slide-s25 .pipeline{flex:1;min-height:0;display:grid;grid-template-columns:1fr 52px 1fr 52px 1fr;gap:0;align-items:stretch}
 .slide-s25 .phase{background:linear-gradient(160deg,rgba(30,38,56,.95),var(--ppt-bg-soft));border:1px solid var(--ppt-border);border-radius:14px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:8px;min-height:0;position:relative;overflow:hidden}
 .slide-s25 .phase-dense{padding:10px 10px 8px;gap:5px}
@@ -31,9 +25,7 @@
 .slide-s25 .phase-head > div:last-child{min-width:0;flex:1}
 .slide-s25 .phase-dense .phase-head{margin-bottom:4px;padding-bottom:4px;border-bottom:1px solid rgba(51,65,85,.45)}
 .slide-s25 .phase-dense .phase-desc{display:none}
-.slide-s25 .phase-dense .phase-body{
-  display:grid;grid-template-columns:1fr 1fr;gap:4px;align-content:start;
-}
+.slide-s25 .phase-dense .phase-body{display:grid;grid-template-columns:1fr 1fr;gap:4px;align-content:start;}
 .slide-s25 .phase-dense .phase-body .node-flow{grid-column:1/-1;padding:1px 0;font-size:11px;line-height:1.2}
 .slide-s25 .phase-dense .node{padding:5px 6px;gap:5px;min-height:0}
 .slide-s25 .phase-dense .node.aux{grid-column:1/-1;padding:4px 6px}
@@ -50,11 +42,9 @@
 .slide-s25 .node-flow i{color:var(--ppt-accent);font-size:13px}
 .slide-s25 .connector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--ppt-text-3);position:relative}
 .slide-s25 .connector-line{width:2px;flex:1;min-height:20px;background:linear-gradient(180deg,var(--ppt-border),var(--ppt-accent),var(--ppt-border));border-radius:2px;opacity:.6;position:relative;overflow:hidden}
-.slide-s25 .connector-line::after{
-  content:'';position:absolute;left:0;width:100%;height:40%;border-radius:2px;
+.slide-s25 .connector-line::after{content:'';position:absolute;left:0;width:100%;height:40%;border-radius:2px;
   background:linear-gradient(180deg,transparent,rgba(0,240,255,.9),transparent);
-  animation:connFlowDown var(--motion-duration,6s) linear infinite;
-}
+  animation:connFlowDown var(--motion-duration,6s) linear infinite;}
 .slide-s25 .connector:nth-child(2) .connector-line::after{animation-delay:0s}
 .slide-s25 .connector:nth-child(4) .connector-line::after{animation-delay:1.1s}
 @keyframes connFlowDown{0%{top:-40%}100%{top:100%}}

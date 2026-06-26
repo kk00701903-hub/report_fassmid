@@ -1,44 +1,53 @@
-.slide-s27 .slide{width:100%;height:100%;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative;min-height:0;box-sizing:border-box;}
-.slide-s27 .slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
+.slide-s27 .engine-slide-root{width:100%;height:100%;background:var(--ppt-bg);color:var(--ppt-text-1);
+  display:flex;flex-direction:column;overflow:hidden;position:relative;min-height:0;box-sizing:border-box;}
+.slide-s27 .engine-slide-root::before{content:'';position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(ellipse at 0% 0%,rgba(0,240,255,.08) 0%,transparent 50%),
   radial-gradient(ellipse at 100% 100%,rgba(250,204,21,.07) 0%,transparent 45%)}
-.slide-s27 .title-r{flex-shrink:0;padding:22px 36px 6px;position:relative;z-index:1}
+
+.slide-s27 .title-r{flex-shrink:0;position:relative;z-index:1}
 .slide-s27 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .slide-s27 .bar{width:4px;height:30px;background:var(--ppt-accent);border-radius:2px}
 .slide-s27 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--ppt-accent-2)}
-.slide-s27 h1.title-main{font-size:26px;font-weight:700;line-height:1.3}
-.slide-s27 .sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
+.slide-s27 h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
+.slide-s27 .sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px;line-height:1.4}
 .slide-s27 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
-.slide-s27 .body{flex:1;min-height:0;padding:6px 32px 10px;display:grid;grid-template-columns:200px 1fr;gap:14px;position:relative;z-index:1}
-.slide-s27 .engine-panel{
-  background:linear-gradient(160deg,rgba(0,240,255,.12),rgba(30,38,56,.95));
-  border:1px solid rgba(0,240,255,.3);border-radius:16px;padding:18px 16px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;
-  box-shadow:0 0 40px rgba(0,240,255,.08);
-}
-.slide-s27 .engine-icon{width:64px;height:64px;border-radius:16px;background:rgba(0,240,255,.15);border:1px solid rgba(0,240,255,.35);
-  display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--ppt-accent);
-  box-shadow:0 0 24px rgba(0,240,255,.2)}
-.slide-s27 .engine-label{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--ppt-accent);text-transform:uppercase}
-.slide-s27 .engine-title{font-size:16px;font-weight:700;line-height:1.4;color:var(--ppt-text-1)}
-.slide-s27 .engine-tags{display:flex;flex-direction:column;gap:5px;width:100%}
-.slide-s27 .etag{font-size:14px;font-weight:600;padding:5px 8px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2)}
-.slide-s27 .etag i{margin-right:5px;color:var(--ppt-accent-2);font-size:14px}
-.slide-s27 .strategies{display:flex;flex-direction:column;gap:7px;min-height:0}
-.slide-s27 .strat{
-  flex:1;min-height:0;display:flex;gap:10px;padding:9px 12px;border-radius:12px;
-  background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-left:3px solid var(--c);
-  position:relative;overflow:hidden;
-}
-.slide-s27 .strat::after{content:'';position:absolute;right:-20px;top:-20px;width:80px;height:80px;border-radius:50%;background:var(--c);opacity:.04}
-.slide-s27 .strat-num{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--c)}
-.slide-s27 .strat-icon{flex-shrink:0;width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
-  display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--c);margin-top:1px}
-.slide-s27 .strat-body{flex:1;min-width:0}
-.slide-s27 .strat-title{font-size:14px;font-weight:700;color:var(--ppt-text-1);line-height:1.35;margin-bottom:4px}
-.slide-s27 .strat-desc{font-size:12.5px;color:var(--ppt-text-2);line-height:1.48}
-.slide-s27 .strat.s1{--c:var(--c1)} .slide-s27 .strat.s2{--c:var(--c2)} .slide-s27 .strat.s3{--c:var(--c3)} .slide-s27 .strat.s4{--c:var(--c4)} .slide-s27 .strat.s5{--c:var(--c5)}
-.slide-s27 .footer{flex-shrink:0;margin:0 32px 12px;padding:8px 14px;border-radius:0 10px 10px 0;border-left:3px solid var(--ppt-accent-2);
-  background:rgba(250,204,21,.05);font-size:14px;color:var(--ppt-text-2);line-height:1.48;position:relative;z-index:1}
-.slide-s27 .footer strong{color:var(--ppt-accent-2)}
+
+.slide-s27 .engine-main-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 36px 20px;gap:18px;position:relative;z-index:1}
+
+.slide-s27 .engine-focus-wrapper{flex:1;min-height:0;display:flex;align-items:center;gap:28px}
+.slide-s27 .engine-highlight-left{flex:3;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.slide-s27 .engine-icon-box{width:56px;height:56px;border-radius:14px;background:rgba(0,240,255,.15);border:1px solid rgba(0,240,255,.35);
+  display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--ppt-accent);
+  box-shadow:0 0 24px rgba(0,240,255,.2);margin-bottom:4px}
+.slide-s27 .engine-label-top{font-size:18px;font-weight:600;color:var(--ppt-accent);letter-spacing:.08em;text-transform:uppercase}
+.slide-s27 .engine-value-main{font-size:34px;font-weight:700;line-height:1.25;color:var(--ppt-text-1)}
+.slide-s27 .engine-value-accent{color:var(--ppt-accent-2)}
+.slide-s27 .engine-tagline{font-size:17px;font-weight:600;color:var(--ppt-text-1);line-height:1.45;margin-top:4px}
+.slide-s27 .engine-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.slide-s27 .engine-pill{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;
+  background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);white-space:nowrap}
+.slide-s27 .engine-pill i{margin-right:6px;color:var(--ppt-accent-2);font-size:12px}
+
+.slide-s27 .engine-description-right{flex:2;background:rgba(255,255,255,.03);border-left:2px solid var(--ppt-accent);
+  padding:20px 22px;display:flex;flex-direction:column;gap:12px;min-height:0}
+.slide-s27 .engine-desc-title{font-size:20px;font-weight:600;color:var(--ppt-text-1);margin:0}
+.slide-s27 .engine-desc-body{font-size:16px;line-height:1.58;color:var(--ppt-text-2);margin:0}
+
+.slide-s27 .engine-evidence-grid{flex-shrink:0;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:auto}
+.slide-s27 .engine-evidence-card{background:var(--ppt-surface);border:1px solid var(--ppt-border);border-radius:var(--ppt-radius-md);
+  padding:12px 14px;display:flex;align-items:flex-start;gap:12px;min-height:0;
+  border-top:3px solid var(--c,var(--ppt-accent))}
+.slide-s27 .engine-evidence-card.s1{grid-column:span 2;--c:var(--c1)}
+.slide-s27 .engine-evidence-card.s2{grid-column:span 2;--c:var(--c2)}
+.slide-s27 .engine-evidence-card.s3{grid-column:span 2;--c:var(--c3)}
+.slide-s27 .engine-evidence-card.s4{grid-column:2 / span 2;--c:var(--c4)}
+.slide-s27 .engine-evidence-card.s5{grid-column:4 / span 2;--c:var(--c5)}
+
+.slide-s27 .engine-card-icon-box{flex-shrink:0;width:44px;height:44px;background:rgba(0,240,255,.1);border-radius:var(--ppt-radius-sm);
+  display:flex;justify-content:center;align-items:center;color:var(--c,var(--ppt-accent));font-size:18px}
+.slide-s27 .engine-card-text-group{display:flex;flex-direction:column;gap:3px;min-width:0}
+.slide-s27 .engine-card-num{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--c,var(--ppt-accent));text-transform:uppercase}
+.slide-s27 .engine-card-heading{font-size:16px;font-weight:600;color:var(--ppt-text-1);line-height:1.3}
+.slide-s27 .engine-card-subtext{font-size:13px;color:var(--ppt-text-2);line-height:1.42;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.slide-s27 .engine-card-accent-label{font-size:12px;font-weight:600;color:var(--ppt-good);margin-top:2px}

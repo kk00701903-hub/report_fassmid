@@ -29,7 +29,7 @@ const SLIDE_HTML = `<div class="section-slide-root">
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">핵심 용어집 ③ — DevOps · CI/CD · CDC · AI · 품질·비용</span>
+      <span class="topic-text">CDC(Change Data Capture)란?</span>
     </div>
       <span class="topic-text">차세대 FaSS 구축 프로젝트 범위</span>
     </div>
