@@ -3,88 +3,112 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide39.css";
 
-const SLIDE_HTML = `<div class="fass-closing-slide-root fluent-slide" style="overflow: hidden;">
-<!-- Title Region -->
-<div class="title-region-wrapper">
-<div class="title-horizontal-group">
-<div class="title-accent-bar"></div>
-<h1 class="title-main-text">맺음말</h1>
-</div>
-<p class="title-sub-text">로드맵을 넘어 — 완성 시 (주)제때가 그리는 차세대 디지털 운영의 모습</p>
-<div class="title-gradient-line"></div>
-</div>
-<!-- Main Content Body -->
-<div class="fass-closing-content-body">
-<!-- Left: Completion vision pillars -->
-<div class="closing-visionary-left-group">
-<div class="vision-pillar-grid">
-<div class="vision-pillar-card" style="--vc:var(--ppt-accent)">
-<div class="vision-pillar-icon"><i class="fas fa-layer-group"></i></div>
-<div class="vision-pillar-body">
-<div class="vision-pillar-tag">통합 플랫폼</div>
-<div class="vision-pillar-title">One FaSS — 3PL · 유통물류 · 영업이 하나로</div>
-<p class="vision-pillar-desc">파편화된 시스템이 단일 차세대 플랫폼으로 수렴합니다. API-First·실시간 데이터로 업무·의사결정이 끊김 없이 이어지는 통합 운영 체계가 완성됩니다.</p>
-</div>
-</div>
-<div class="vision-pillar-card" style="--vc:var(--ppt-accent-2)">
-<div class="vision-pillar-icon"><i class="fas fa-robot"></i></div>
-<div class="vision-pillar-body">
-<div class="vision-pillar-tag">AI 네이티브 조직</div>
-<div class="vision-pillar-title">Human + Digital Worker — 24/7 협업 체계</div>
-<p class="vision-pillar-desc">TFT와 AI 디지털 워커가 상시 협업하고, 빌더형 인재가 직접 만들고·운영·개선합니다. 반복 업무는 AI, 판단·품질은 사람이 책임지는 지속 가능한 조직 모델입니다.</p>
-</div>
-</div>
-<div class="vision-pillar-card" style="--vc:var(--ppt-good)">
-<div class="vision-pillar-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-<div class="vision-pillar-body">
-<div class="vision-pillar-tag">진화 가능 아키텍처</div>
-<div class="vision-pillar-title">Cloud-Ready → K8s · MSA — 무중단으로 성장</div>
-<p class="vision-pillar-desc">모듈러 모놀리스에서 출발해 CDC·GitOps 기반으로 점진 확장합니다. 레거시와 공존하며 전환하고, 중장기적으로 클라우드·MSA로 무리 없이 진화하는 기술 기반이 갖춰집니다.</p>
-</div>
-</div>
-<div class="vision-pillar-card" style="--vc:#A78BFA">
-<div class="vision-pillar-icon"><i class="fas fa-coins"></i></div>
-<div class="vision-pillar-body">
-<div class="vision-pillar-tag">경영 · 사업 가치</div>
-<div class="vision-pillar-title">ASP 수익화 · FinOps · Zero-Defect 내재화</div>
-<p class="vision-pillar-desc">내재화된 기술 자산이 패키지·서비스로 확장 가능한 표준이 됩니다. 비용 효율·품질 통제·영업 경쟁력이 기술 투자와 직결되는 경영 엔진으로 완성됩니다.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Right: North-star anchor -->
-<div class="closing-visionary-right-group">
-<div class="closing-anchor-keyword-wrapper">
-<span class="closing-anchor-top-label">Completion Vision</span>
-<div class="closing-anchor-main-keyword">One FaSS</div>
-<div class="closing-anchor-accent-keyword">Platform</div>
-</div>
-<div class="closing-anchor-divider"></div>
-<div class="closing-anchor-stat-group">
-<span class="closing-anchor-stat-value" style="font-size:22px;color:var(--ppt-accent)">통합 · 지능 · 확장</span>
-<span class="closing-anchor-stat-label">완성 시 핵심 키워드</span>
-</div>
-<div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;width:100%;text-align:left">
-<div style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2)"><i class="fas fa-check" style="color:var(--ppt-good);margin-top:3px"></i>전사 물류·유통 업무가 하나의 데이터·프로세스로 연결</div>
-<div style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2)"><i class="fas fa-check" style="color:var(--ppt-good);margin-top:3px"></i>AI·자동화가 일상 운영에 스며든 디지털 조직</div>
-<div style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ppt-text-2)"><i class="fas fa-check" style="color:var(--ppt-good);margin-top:3px"></i>레거시 퇴장과 신규 확장이 공존하는 진화형 아키텍처</div>
-</div>
-<p class="closing-vision-quote-text" style="margin-top:18px;font-size:14px;font-style:normal;line-height:1.5;color:var(--ppt-text-1)">
-  「기술 프로젝트의 완료」가 아니라<br/><strong style="color:var(--ppt-accent-2)">지속 성장하는 디지털 운영 체계</strong>의 시작
-</p>
-</div>
-</div>
-<div class="closing-commitment-bar">
-<strong>TFT 실행 약속</strong>
-<span class="commit-pill"><i class="fas fa-calendar-check" style="color:var(--ppt-accent);margin-right:4px"></i>일정 ±1주</span>
-<span class="commit-pill"><i class="fas fa-shield-halved" style="color:var(--ppt-good);margin-right:4px"></i>Quality Gate 100%</span>
-<span class="commit-pill"><i class="fas fa-rocket" style="color:var(--ppt-accent-2);margin-right:4px"></i>ASP 전개 가능 아키텍처</span>
-</div>
+const SLIDE_HTML = `<div class="slide fluent-slide">
+  <div class="title-r">
+    <div class="title-row">
+      <div class="bar"></div>
+      <span class="badge">ULTIMATE GOAL</span>
+      <h1>중장기 목표 2: MSA 전환</h1>
+    </div>
+    <div class="line"></div>
+  </div>
+  <div class="main-container">
+    <!-- Left: Diagram -->
+    <div class="left-col">
+      <div class="diagram-card">
+        <div class="diagram-label">
+          <i class="fas fa-project-diagram"></i> Strangler Fig Pattern — 점진적 신규 시스템 확대
+        </div>
+        <div class="diagram-stages">
+          <!-- Stage 1 -->
+          <div class="stage-row">
+            <div class="stage-label-col">현재<br/>(Phase 1)</div>
+            <div class="stage-blocks">
+              <div class="block-legacy block-lg" style="flex:2.5; height:44px;">레거시 모놀리스<br/>(C# 시스템)</div>
+              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+              <div class="block-legacy block-new" style="flex:1.2; height:44px;">FaSS<br/>V3.0</div>
+            </div>
+          </div>
+          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:13px; margin-left:4px;">AI 접목 신규 시스템 점진적 확대</span></div>
+          <!-- Stage 2 -->
+          <div class="stage-row">
+            <div class="stage-label-col">전환기<br/>(Phase 2)</div>
+            <div class="stage-blocks">
+              <div class="block-legacy block-lg" style="flex:1.2; height:44px;">레거시<br/>(축소)</div>
+              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+              <div class="block-legacy block-new" style="flex:1.5; height:44px;">FaSS<br/>Core</div>
+              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
+              <div class="block-legacy block-ai" style="flex:1.3; height:44px;">AI<br/>Service</div>
+            </div>
+          </div>
+          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:13px; margin-left:4px;">레거시 완전 제거 — 완전한 MSA 구현</span></div>
+          <!-- Stage 3 -->
+          <div class="stage-row">
+            <div class="stage-label-col">최종<br/>(MSA)</div>
+            <div class="stage-blocks">
+              <div class="block-legacy block-msa" style="flex:1; height:44px;">유통<br/>물류</div>
+              <div class="block-legacy block-msa" style="flex:1; height:44px;">3PL<br/>시스템</div>
+              <div class="block-legacy block-msa" style="flex:1; height:44px;">주유소관리<br/>시스템</div>
+              <div class="block-legacy block-ai" style="flex:1; height:44px;">AI<br/>Engine</div>
+            </div>
+          </div>
+        </div>
+        <div class="strangler-note">
+          <i class="fas fa-leaf" style="color:var(--ppt-accent);"></i>
+          &nbsp;기존 시스템을 한 번에 교체하지 않고, 신규 AI 접목 시스템부터 독립 서비스로 래핑하여 점진적으로 레거시를 대체
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Reasons + Trade-off -->
+    <div class="right-col">
+      <div class="section-title">
+        <i class="fas fa-bullseye"></i> FaSS 최종 목표 — MSA가 반드시 필요한 3가지 이유
+      </div>
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-num">1</div>
+          <div class="reason-content">
+            <div class="reason-title">볼륨 성장 → 무중단 배포 필수</div>
+            <div class="reason-desc">유통물류 유저 및 트래픽이 커질수록, 특정 모듈 배포 시 전체 시스템을 중단할 수 없음. MSA는 모듈별 독립 배포로 <span style="color:var(--ppt-accent); font-weight:600;">365일 무중단 운영</span>을 보장합니다.</div>
+          </div>
+        </div>
+        <div class="reason-card">
+          <div class="reason-num">2</div>
+          <div class="reason-content">
+            <div class="reason-title">부분 장애 → 전체 마비 리스크 차단</div>
+            <div class="reason-desc">시스템 규모가 커질수록 단일 서비스 오류가 전 시스템을 마비시키는 위험이 급증함. MSA의 서킷 브레이커 패턴으로 <span style="color:var(--ppt-accent); font-weight:600;">장애 격리(Fault Isolation)</span> 를 실현합니다.</div>
+          </div>
+        </div>
+        <div class="reason-card">
+          <div class="reason-num">3</div>
+          <div class="reason-content">
+            <div class="reason-title">AI 서비스 — 단일 시스템 내 동시 운영 불가</div>
+            <div class="reason-desc">AI 추론 엔진(수요예측·RAG)은 막대한 CPU/GPU 자원을 요구함. 단일 시스템에서 AI와 비즈니스 로직을 공존시키면 서로 자원 충돌. <span style="color:var(--ppt-accent-2); font-weight:600;">AI 서비스 독립 분리</span>가 핵심 전제 조건입니다.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Trade-off note -->
+      <div class="tradeoff-box">
+        <div class="tradeoff-icon"><i class="fas fa-balance-scale"></i></div>
+        <div class="tradeoff-text">
+          <strong>⚠ 개발팀에 가해지는 복잡도 증가</strong>는 MSA 전환의 피할 수 없는 부산물입니다. 서비스 간 통신 설계, 분산 트랜잭션, 운영 복잡성이 높아지지만, 이는 <strong>회사의 대의(성장·수익화)를 위해 TFT 전원이 감수해야 할 기술적 부채</strong>입니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <div class="bottom-bar-icon"><i class="fas fa-flag-checkered"></i></div>
+    <div class="bottom-bar-text">MSA는 선택이 아닌 필수</div>
+    <div class="bottom-bar-sub">— FaSS 플랫폼이 진정한 'AI 디지털 물류 엔진'으로 거듭나기 위한 최종 아키텍처 목적지</div>
+  </div>
 </div>`;
 
-export default function Slide39() {
+export default function Slide38() {
   return (
-    <SlideCanvas slideId={39} motion="closing" motionTier="medium">
+    <SlideCanvas slideId={39} motion="architecture" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
     </SlideCanvas>
   );

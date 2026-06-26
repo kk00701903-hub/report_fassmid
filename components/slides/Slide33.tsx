@@ -3,110 +3,90 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide33.css";
 
-const SLIDE_HTML = `<div class="fass-slide-root fluent-slide-container" style="overflow: hidden;">
-<!-- Non-Cover-Page Title Region -->
+const SLIDE_HTML = `<div class="slide fluent-slide" style="overflow: hidden;">
+<!-- Title Region -->
 <div class="title-r">
 <div class="title-row">
 <div class="bar"></div>
 <span class="badge">BUSINESS INNOVATION</span>
-<h1 class="title-main">비즈니스 혁신7: DGX·Claude Code 오케스트레이션 및 프로세스 지침</h1>
+<h1 class="title-main">비즈니스 혁신6: FinOps 관점에서의 클라우드 전환 대비</h1>
 </div>
-<p class="sub">오케스트레이션·프로세스 지침 기반 지능형 코드 변환 — 외주 인력 0 M/M 마이그레이션</p>
+<p class="sub">유휴 자원 자동 셧다운 등 비용 최적화 습관을 자산화하여, ASP 공급 시 수익성을 극대화합니다.</p>
 <div class="line"></div>
 </div>
-<!-- Main Content: AI Impact Hero Layout -->
-<div class="ai-innovation-hero-main-layout">
-<!-- Left Column: Stat Anchor -->
-<div class="ai-innovation-left-stat-column">
-<div class="ai-innovation-stat-label-top">외주 개발 인력 투입 최소화</div>
-<div style="display: flex; align-items: baseline;">
-<span class="ai-innovation-hero-stat-number">0</span>
-<span class="ai-innovation-stat-unit-text">M/M</span>
+<!-- Main Content -->
+<div class="finops-main-content-layout">
+<!-- Column 1: Strategy -->
+<div class="finops-column-item-wrapper">
+<div class="finops-content-card-box">
+<div class="finops-card-header-group">
+<div class="finops-card-icon-circle">
+<i class="fas fa-bullseye"></i>
 </div>
-<div class="ai-innovation-stat-description-box">
-<p class="ai-innovation-stat-impact-summary">
-            과거 수백 명의 하급 인력이 수행하던<br/>
-            수작업 마이그레이션을 AI가 전담
+<h2 class="finops-card-title-text">미래 ASP 수익성 기반</h2>
+<div class="finops-card-divider-line"></div>
+</div>
+<p class="finops-card-body-text">
+            개발 단계부터 비용 효율적인 인프라 운영 습관을 내재화하여 향후 솔루션 패키지화 시 가격 경쟁력을 확보합니다.
           </p>
-<p class="ai-innovation-stat-impact-subtext">
-            * 인건비 획기적 방어 및 휴먼 에러 원천 차단
-          </p>
-</div>
-</div>
-<!-- Right Column: Content Area -->
-<div class="ai-innovation-right-content-column">
-<!-- Tech Process 1 -->
-<div class="ai-tech-process-group-item">
-<div class="ai-tech-process-header-row">
-<div class="ai-tech-process-icon-circle">
-<i class="fas fa-microchip"></i>
-</div>
-<div class="ai-tech-process-title-text">DGX·Claude Code 마이그레이션 오케스트레이션</div>
-</div>
-<p class="ai-tech-process-body-description">
-            독자적인 VectorDB를 따로 구성한 것이 아니라, DGX Spark와 Claude Code에
-            <b>적절한 오케스트레이션(Orchestration)</b>과 <b>프로세스 지침</b>을 제공했습니다.
-            AI 에이전트가 레거시 C#·DB 맥락을 활용해 비즈니스 로직을 분석하고 차세대 표준 코드 변환 초안을 생성합니다.
-          </p>
-<div class="ai-tech-process-highlight-chip-list">
-<span class="ai-tech-process-chip-badge active">DGX Spark</span>
-<span class="ai-tech-process-chip-badge active">Claude Code</span>
-<span class="ai-tech-process-chip-badge">Orchestration</span>
-<span class="ai-tech-process-chip-badge">Process Guide</span>
-</div>
-<a class="agent-demo-trigger-btn is-disabled" href="#" id="langgraphDemoLinkBtn" target="_blank" rel="noopener noreferrer" title="링크 연결 예정">
-<i class="fas fa-play-circle"></i> LangGraph 멀티에이전트 동작 보기
-<i class="fas fa-arrow-up-right-from-square" style="font-size:13px;opacity:0.85;"></i>
-</a>
-</div>
-<!-- Impact Summary -->
-<div class="ai-impact-management-summary-box">
-<div class="ai-impact-management-title">
-<i class="fas fa-chart-line"></i> 핵심 경영 임팩트
-          </div>
-<ul class="ai-impact-management-list">
-<li class="ai-impact-management-list-entry">
-<i class="fa-solid fa-circle-check"></i>
-<span><b>인건비 절감:</b> 외주 인건비 리스크 해소 및 휴먼 에러 원천 차단</span>
-</li>
-<li class="ai-impact-management-list-entry">
-<i class="fa-solid fa-check"></i>
-<span><b>품질 상향 평준화:</b> 숙련도 편차 제거 및 표준 아키텍처 준수</span>
-</li>
-<li class="ai-impact-management-list-entry">
-<i class="fa-solid fa-heart-circle-check"></i>
-<span><b>기술 자산화:</b> 레거시 분석 데이터 확보로 유지보수 효율 극대화</span>
-</li>
+<ul class="finops-list-container-group">
+<li class="finops-list-item-row">인프라 비용의 변동비화 (FinOps)</li>
+<li class="finops-list-item-row">리소스 사용량 실시간 가시성 확보</li>
+<li class="finops-list-item-row">수익 창출 부서(Profit Center) 전환 대비</li>
 </ul>
+<div class="finops-highlight-badge-tag">비용 관리 체계 자산화</div>
 </div>
 </div>
+<!-- Column 2: Action -->
+<div class="finops-column-item-wrapper">
+<div class="finops-content-card-box">
+<div class="finops-card-header-group">
+<div class="finops-card-icon-circle">
+<i class="fas fa-toggle-off"></i>
 </div>
-<!-- Multi-Agent Orchestration Demo Overlay -->
-<div aria-hidden="true" class="agent-demo-overlay" id="agentDemoOverlay">
-<div class="agent-demo-header">
-<div class="agent-demo-header-title">
-<i class="fas fa-diagram-project"></i> LangGraph 멀티에이전트 오케스트레이션
+<h2 class="finops-card-title-text">인프라 최적화 실행</h2>
+<div class="finops-card-divider-line"></div>
 </div>
-<button class="agent-demo-close-btn" id="agentDemoCloseBtn" type="button">닫기 ✕</button>
+<div class="finops-policy-visual-item">
+<span class="finops-policy-time-label">야간/주말</span>
+<span class="finops-policy-desc-text">Cloud Run 등 테스트 서버 자동 셧다운(Shut-down) 강제 적용</span>
 </div>
-<div class="agent-demo-stage-wrap">
-<div class="agent-demo-stage" id="agentDemoStage">
-<svg class="agent-demo-svg" id="agentDemoSvg"></svg>
-<div class="agent-demo-packet" id="agentDemoPacket"></div>
+<div class="finops-policy-visual-item">
+<span class="finops-policy-time-label">상시 모니터링</span>
+<span class="finops-policy-desc-text">유휴 인스턴스 및 미사용 스토리지 자동 탐지 및 즉각 삭제</span>
+</div>
+<ul class="finops-list-container-group">
+<li class="finops-list-item-row">불필요한 클라우드 낭비 요소 원천 차단</li>
+<li class="finops-list-item-row">자동화 스크립트를 통한 운영 리소스 최소화</li>
+</ul>
+<div class="finops-highlight-badge-tag">자동화 기반 비용 절감</div>
 </div>
 </div>
-<div class="agent-demo-status" id="agentDemoStatus">
-<span>버튼을 눌러 LangGraph가 에이전트를 조율하는 과정을 확인하세요.</span>
+<!-- Column 3: Impact -->
+<div class="finops-column-item-wrapper">
+<div class="finops-content-card-box">
+<div class="finops-card-header-group">
+<div class="finops-card-icon-circle">
+<i class="fas fa-coins"></i>
 </div>
-<div class="agent-demo-legend">
-<span>LangGraph Orchestrator</span>
-<span>DGX Spark · Orchestration</span>
-<span>Claude Code · Multi-Agent</span>
+<h2 class="finops-card-title-text">경영적 기대 효과</h2>
+<div class="finops-card-divider-line"></div>
+</div>
+<p class="finops-card-body-text">
+            절감된 인프라 유지 비용은 그대로 회사의 이익으로 직결되며, 외부 고객사 공급 시 강력한 운영 노하우로 작용합니다.
+          </p>
+<ul class="finops-list-container-group">
+<li class="finops-list-item-row">SaaS/ASP 서비스 마진율 극대화</li>
+<li class="finops-list-item-row">오픈 소스 DB 전환과 결합된 시너지</li>
+<li class="finops-list-item-row">연간 수억 원 단위의 클라우드 비용 방어</li>
+</ul>
+<div class="finops-highlight-badge-tag">핵심 운영 노하우 자산화</div>
+</div>
 </div>
 </div>
 </div>`;
 
-export default function Slide33() {
+export default function Slide32() {
   return (
     <SlideCanvas slideId={33} motion="innovation" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

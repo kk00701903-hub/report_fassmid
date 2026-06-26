@@ -3,72 +3,73 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide29.css";
 
-const SLIDE_HTML = `<div class="roi-asset-slide-root fluent-slide" style="overflow: hidden;">
+const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: hidden;">
 <!-- Non-Cover-Page Title Region -->
 <div class="title-r">
 <div class="title-row">
 <div class="bar"></div>
 <span class="badge">BUSINESS INNOVATION</span>
-<h1 class="title-main">비즈니스 혁신3: 전략적 수익화 IT 플랫폼 확보</h1>
+<h1 class="title-main">비즈니스 혁신2: AI 지능형 물류 플랫폼으로의 전환</h1>
 </div>
-<p class="sub">내재화 기술 자산 가치 극대화 — ASP 수익화를 위한 전략적 IT 플랫폼</p>
+<p class="sub">단순 기록/조회에서 데이터 기반 예측·자동화 시스템으로의 전환</p>
 <div class="line"></div>
 </div>
-<!-- Main Content Body -->
-<div class="roi-asset-main-content">
-<!-- Top Focus Statement Section -->
-<div class="roi-asset-focus-wrapper">
-<div class="roi-asset-highlight-left">
-<div class="roi-asset-label-top">내재화 기술 자산 가치</div>
-<div class="roi-asset-value-main">
-            100 <span class="roi-asset-value-unit">억 원+</span>
+<!-- Main Content Wrapper -->
+<div class="fass-smart-logistics-content-wrapper">
+<!-- Left: Concept Section -->
+<div class="fass-smart-logistics-left-concept-block">
+<div class="fass-smart-logistics-paradigm-text-box">
+<span class="fass-smart-logistics-concept-label">Paradigm Shift</span>
+<p class="fass-smart-logistics-concept-description">
+                        단순 기록/조회 시스템에서<br/>
+                        데이터 기반 <span class="fass-smart-logistics-concept-highlight">예측 및 자동화 시스템</span>으로의 전환
+                    </p>
 </div>
-<p class="roi-asset-tagline">IT 부서를 넘어, 회사의 핵심 수익 파이프라인(Profit Center)으로 격상</p>
-</div>
-<div class="roi-asset-description-right">
-<h2 class="roi-asset-desc-title">비즈니스 모델의 근본적 전환</h2>
-<p class="roi-asset-desc-body">
-            대규모 외주 SI에 의존하던 과거 방식에서 탈피하여, 독자적인 기술 스택과 AI 에이전트를 결합한 차세대 FaSS 플랫폼을 완성했습니다. 이는 단순한 시스템 구축을 넘어, 유관 기업 및 중소 물류사에 즉각 공급 가능한 '패키지형 자산'을 확보했음을 의미합니다.
-          </p>
+<div class="fass-smart-logistics-visual-image-box">
+<img alt="Smart Logistics Visual" src="https://agents-download.skywork.ai/image/rt/d6fd321f922784da7bb75669ba52eb67.jpg"/>
 </div>
 </div>
-<!-- Bottom Evidence Strip -->
-<div class="roi-asset-evidence-strip">
-<div class="roi-asset-evidence-card">
-<div class="roi-asset-card-icon-box">
-<i class="fas fa-shield-halved"></i>
+<!-- Right: Action Section -->
+<div class="fass-smart-logistics-right-action-block">
+<!-- Action Item 1: Adaptive Web Experience -->
+<div class="fass-smart-logistics-action-item-card">
+<div class="fass-smart-logistics-card-header">
+<div class="fass-smart-logistics-card-icon">
+<i class="fas fa-window-maximize"></i>
 </div>
-<div class="roi-asset-card-text-group">
-<div class="roi-asset-card-heading">외주 SI 비용 방어</div>
-<div class="roi-asset-card-subtext">약 80억 원 규모의 SI 외주비를 내부 인력 및 AI로 대체</div>
-<div class="roi-asset-card-accent-label">비용 절감 효과 극대화</div>
+<h2 class="fass-smart-logistics-card-title">적응형 웹 경험 (Adaptive Web Experience)</h2>
 </div>
-</div>
-<div class="roi-asset-evidence-card">
-<div class="roi-asset-card-icon-box">
-<i class="fas fa-database"></i>
-</div>
-<div class="roi-asset-card-text-group">
-<div class="roi-asset-card-heading">라이선스 비용 영구 절감</div>
-<div class="roi-asset-card-subtext">Oracle → PostgreSQL 마이그레이션 및 오픈소스 표준화</div>
-<div class="roi-asset-card-accent-label">수억 원 단위 고정비 제거</div>
+<div class="fass-smart-logistics-card-body">
+                        차세대 FaSS는 <b>웹(Next.js)</b> 기반으로 구성되어 AI 연동성이 뛰어납니다.
+                        표준 <b>REST/OpenAPI</b>를 다수 제공해 일반 사용자도 회사 데이터에 쉽게 접근하고,
+                        AI·업무 앱이 동일 API로 물류·재고 데이터를 활용할 수 있습니다.
+                    </div>
+<div class="fass-smart-logistics-impact-badge">
+<i class="fas fa-plug" style="color: var(--ppt-good);font-size: 14px;"></i>
+<span class="fass-smart-logistics-impact-text">표준 API 기반 · 데이터 접근 민주화</span>
 </div>
 </div>
-<div class="roi-asset-evidence-card">
-<div class="roi-asset-card-icon-box">
-<i class="fas fa-money-bill-trend-up"></i>
+<!-- Action Item 2: AI Business Assistant -->
+<div class="fass-smart-logistics-action-item-card">
+<div class="fass-smart-logistics-card-header">
+<div class="fass-smart-logistics-card-icon">
+<i class="fas fa-brain"></i>
 </div>
-<div class="roi-asset-card-text-group">
-<div class="roi-asset-card-heading">ASP 수익화 모델 확보</div>
-<div class="roi-asset-card-subtext">완성된 플랫폼을 구독형(ASP) 솔루션으로 패키지화</div>
-<div class="roi-asset-card-accent-label">신규 매출 파이프라인 창출</div>
+<h2 class="fass-smart-logistics-card-title">AI 업무 어시스턴트 (RAG)</h2>
+</div>
+<div class="fass-smart-logistics-card-body">
+                        복잡한 3PL 계약서 및 무역 규정을 AI가 자동 검증하여 실무진의 서류 검토 리드타임을 극강으로 단축합니다.
+                    </div>
+<div class="fass-smart-logistics-impact-badge">
+<i class="fas fa-bolt" style="color: var(--ppt-good);font-size: 14px;"></i>
+<span class="fass-smart-logistics-impact-text">검토 리드타임 60% 이상 단축 예상</span>
 </div>
 </div>
 </div>
 </div>
 </div>`;
 
-export default function Slide29() {
+export default function Slide28() {
   return (
     <SlideCanvas slideId={29} motion="innovation" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

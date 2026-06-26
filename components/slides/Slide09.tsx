@@ -1,150 +1,158 @@
 "use client";
 
+import { useState } from "react";
+
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide09.css";
 
-const SLIDE_HTML = `<div class="slide fluent-slide-root">
-  <!-- Title -->
-  <div class="title-region">
-    <div class="title-header">
-      <div class="title-bar"></div>
-      <span class="title-badge">FUTURE VISION</span>
-      <h1 class="title-text">디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)</h1>
-    </div>
-  <div class="title-sub">출근·업무·퇴근하는 '디지털 직원' — AI가 조직의 일원으로 편성되는 시대</div>
-    <div class="title-line"></div>
-  </div>
+type Agent = {
+  id: string;
+  name: string;
+  role: string;
+  services: string;
+  triggers: string;
+  tools: string[];
+};
 
-  <!-- Main 3 pillars -->
-  <div class="main-container">
-
-    <!-- Pillar 1: 출퇴근 & 조직 편성 -->
-    <div class="pillar-card cyan">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box cyan"><i class="fas fa-user-clock"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">출퇴근하는 AI 에이전트</div>
-          <div class="pillar-en">AI Agent Work Schedule</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-sun pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">09:00 출근 — 태스크 자동 할당</div>
-            <div class="pillar-item-desc">수요예측·문서처리·재고분석 등 업무 즉시 시작</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-moon pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">18:00 퇴근 — 결과 리포트 생성</div>
-            <div class="pillar-item-desc">처리 결과·이상·미결 항목 정리 후 유휴 전환</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-sitemap pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">팀·부서 단위 조직 편성</div>
-            <div class="pillar-item-desc">물류·정산·고객지원 AI를 사람 조직과 동일 구조로 배치</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pillar 2: 채용 = 스크립트 복사 & 평가 -->
-    <div class="pillar-card amber">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box amber"><i class="fas fa-copy"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">"채용"은 스크립트 복사</div>
-          <div class="pillar-en">Hire = Duplicate Script</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-user-plus pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">채용 = 검증된 스크립트 복사</div>
-            <div class="pillar-item-desc">복제 즉시 투입 — 온보딩 0일</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-chart-bar pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">KPI 기반 성과 평가</div>
-            <div class="pillar-item-desc">처리량·정확도·오류율로 사람과 동일하게 평가</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-trash-alt pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">저성과 버전 교체 (= 해고)</div>
-            <div class="pillar-item-desc">성과 미달 시 고도화 신버전으로 즉시 교체</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pillar 3: IT 부서 모니터링 -->
-    <div class="pillar-card green">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box green"><i class="fas fa-desktop"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">IT 부서 = AI 워커 관제 센터</div>
-          <div class="pillar-en">IT Dept. as AI Control Tower</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-tachometer-alt pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">실시간 모니터링 대시보드</div>
-            <div class="pillar-item-desc">전 에이전트 업무 상태를 Grafana에서 실시간 관제</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-exclamation-triangle pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">이상 감지 → 알림·인터벤션</div>
-            <div class="pillar-item-desc">응답 지연·오판 시 즉시 알림, 담당자 개입</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-shield-alt pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">AI 거버넌스 · 감사 로그</div>
-            <div class="pillar-item-desc">처리 이력 보존 — 책임 추적·규정 준수</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Bottom global banner -->
-  <div class="bottom-banner">
-    <div class="banner-icon"><i class="fas fa-globe"></i></div>
-    <div class="banner-text">
-      <strong>글로벌 선제 움직임:</strong>&nbsp;
-      Microsoft·Salesforce·ServiceNow 등이 <strong>'AI 디지털 워커 조직'</strong>을 핵심 전략으로 채택 —
-      (주)제때 IT도 <strong>AI 관제 조직</strong>으로 진화합니다.
-    </div>
-    <div class="banner-logos">
-      <span class="global-tag">Microsoft</span>
-      <span class="global-tag">Salesforce</span>
-      <span class="global-tag">ServiceNow</span>
-    </div>
-  </div>
-</div>`;
+const AGENTS: Agent[] = [
+  {
+    id: "backend-engineer",
+    name: "backend-engineer",
+    role: "Spring Boot · 도메인 API",
+    services: "ideaspark-backend\n아이디어/포인트 · 고객관리 · 유통/3PL 물류",
+    triggers: "Spring Boot 기능·디버깅·리뷰, JPA/QueryDSL/MyBatis, REST·도메인/DTO",
+    tools: ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  },
+  {
+    id: "frontend-engineer",
+    name: "frontend-engineer",
+    role: "Next.js 어드민 SPA",
+    services: "ideaspark-frontend\n어드민 SPA · 디자인 시스템 · API 연동",
+    triggers: "Next.js 페이지·컴포넌트, React Query, 표준 UI 패턴, 화면 E2E 연동",
+    tools: ["Read", "Edit", "Write", "Glob", "Grep"],
+  },
+  {
+    id: "platform-engineer",
+    name: "platform-engineer",
+    role: "Gateway · Auth · SSO",
+    services: "platform-gateway\nAPI Gateway · 인증/인가 · SSO · 공통 보안",
+    triggers: "Spring Cloud Gateway, JWT·RBAC, SSO 연동, 라우팅·레이트리밋",
+    tools: ["Read", "Edit", "Write", "Bash", "Glob"],
+  },
+  {
+    id: "infra-deployer",
+    name: "infra-deployer",
+    role: "Nginx · Redis · Docker",
+    services: "deploy-stack\nNginx · Redis · Docker Compose · 운영 환경",
+    triggers: "컨테이너 빌드·배포, Nginx 설정, Redis 캐시, 환경 변수·헬스체크",
+    tools: ["Read", "Edit", "Write", "Bash"],
+  },
+  {
+    id: "python-tooling",
+    name: "python-tooling",
+    role: "FastAPI · RAG · uv",
+    services: "ai-tooling-service\nRAG 파이프라인 · FastAPI · 벡터 검색",
+    triggers: "FastAPI 엔드포인트, RAG 인덱싱·검색, uv 패키지 관리, LLM 연동",
+    tools: ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  },
+  {
+    id: "migration-specialist",
+    name: "migration-specialist",
+    role: "C# → Spring 포팅",
+    services: "legacy-migration\n레거시 C# 분석 · Spring 포팅 · API 호환",
+    triggers: "C# 코드 분석, Spring 변환, 도메인 매핑, 회귀 테스트·검증",
+    tools: ["Read", "Edit", "Write", "Glob", "Grep"],
+  },
+  {
+    id: "wiki-maintainer",
+    name: "wiki-maintainer",
+    role: "위키 유지관리 전담",
+    services: "project-wiki\n기술 문서 · Runbook · 온보딩 가이드",
+    triggers: "위키 구조 정리, 문서 동기화, 릴리즈 노트·변경 이력 반영",
+    tools: ["Read", "Edit", "Write", "Glob"],
+  },
+  {
+    id: "product-planner",
+    name: "product-planner",
+    role: "신규·대형 기능 기획 전담",
+    services: "product-planning\n요구사항 · 사용자 스토리 · 마일스톤",
+    triggers: "기능 명세 작성, 우선순위·범위 정의, 이해관계자 정렬·로드맵",
+    tools: ["Read", "Edit", "Write"],
+  },
+];
 
 export default function Slide09() {
+  const [selectedId, setSelectedId] = useState(AGENTS[0].id);
+  const selected = AGENTS.find((a) => a.id === selectedId) ?? AGENTS[0];
+
   return (
     <SlideCanvas slideId={9} motion="cards" motionTier="medium">
-      <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
+      <div className="agent-slide fluent-slide">
+        <div className="title-r">
+          <div className="title-row">
+            <div className="bar" />
+            <span className="badge">AI WORKFORCE</span>
+            <h1>팀 에이전트 구성 — AI 8인 역할</h1>
+          </div>
+          <p className="sub">카드를 클릭해 담당 서비스 · 위임 트리거 · 도구를 확인하세요.</p>
+          <div className="line" />
+        </div>
+
+        <div className="agent-root-bar">
+          <div className="agent-root-left">
+            <span className="agent-root-tag">ROOT · ORCHESTRATION</span>
+            <span className="agent-root-title">루트 Claude · 지휘 본부</span>
+          </div>
+          <span className="agent-root-right">위임 · 조율 · 종합</span>
+        </div>
+
+        <div className="agent-body">
+          <div className="agent-grid">
+            {AGENTS.map((agent) => (
+              <button
+                key={agent.id}
+                type="button"
+                className={`agent-card${selectedId === agent.id ? " is-active" : ""}`}
+                onClick={() => setSelectedId(agent.id)}
+              >
+                <div className="agent-card-name">{agent.name}</div>
+                <div className="agent-card-role">{agent.role}</div>
+              </button>
+            ))}
+          </div>
+
+          <aside className="agent-detail">
+            <div className="agent-detail-label">AGENT DETAIL</div>
+            <div className="agent-detail-name">{selected.name}</div>
+
+            <div className="agent-detail-block">
+              <div className="agent-detail-heading">담당 서비스</div>
+              <p className="agent-detail-text">{selected.services}</p>
+            </div>
+
+            <div className="agent-detail-block">
+              <div className="agent-detail-heading">위임 트리거</div>
+              <p className="agent-detail-text">{selected.triggers}</p>
+            </div>
+
+            <div className="agent-detail-tools">
+              {selected.tools.map((tool) => (
+                <span key={tool} className="agent-tool-tag">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </aside>
+        </div>
+
+        <footer className="agent-workflow">
+          <span className="agent-workflow-label">WORKFLOW</span>
+          <p className="agent-workflow-text">
+            모든 엔지니어 에이전트는 항상 <strong>계획 → 개발 → 리뷰 → 문서화</strong> 워크플로우를 실행
+          </p>
+          <span className="agent-workflow-effect">기대효과 · 개발 성능/속도 향상 · 토큰 최적화</span>
+        </footer>
+      </div>
     </SlideCanvas>
   );
 }

@@ -12,8 +12,8 @@ min-height:0;box-sizing:border-box;}
 .slide-s07 .line{height: 1px; margin-top: 8px; background: linear-gradient(90deg, var(--fluent-blue, #0078d4), transparent); opacity: 0.35;}
 .slide-s07 .body{flex: 1; min-height: 0;  display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1;}
 .slide-s07 .scope-banner{display: flex; align-items: center; gap: 12px; padding: 10px 14px;
-  border-radius: var(--ppt-radius-lg); border: 1px solid rgba(250,204,21,0.35);
-  background: linear-gradient(90deg, rgba(250,204,21,0.1), rgba(0, 120, 212,0.06));}
+  border-radius: var(--ppt-radius-lg); border: 1px solid rgba(0, 120, 212, 0.28);
+  background: linear-gradient(90deg, var(--fluent-blue-light), rgba(0, 120, 212, 0.06));}
 .slide-s07 .scope-banner i{font-size: 22px; color: var(--fluent-blue, #0078d4); flex-shrink: 0;}
 .slide-s07 .scope-banner p{font-size: 14px; color: var(--fluent-grey-130, #484644); line-height: 1.45;}
 .slide-s07 .scope-banner strong{color: var(--fluent-grey-160, #201f1e);}
@@ -29,13 +29,13 @@ min-height:0;box-sizing:border-box;}
 .slide-s07 .card-desc{font-size: 14px; color: var(--fluent-grey-130, #484644); line-height: 1.4; flex: 1;}
 .slide-s07 .card-items{list-style: none; display: flex; flex-direction: column; gap: 3px; margin-top: 2px;}
 .slide-s07 .card-items li{font-size: 13px; color: var(--fluent-grey-90, #8a8886); padding-left: 10px; position: relative; line-height: 1.35;}
-.slide-s07 .card-items li::before{content: '•'; position: absolute; left: 0; color: var(--cc, var(--fluent-blue, #0078d4));}
+.slide-s07 .card-items li::before{content: '\2022'; position: absolute; left: 0; color: var(--cc, var(--fluent-blue, #0078d4));}
 .slide-s07 .pill-row{display: flex; flex-wrap: wrap; gap: 6px; flex-shrink: 0;}
 .slide-s07 .pill{font-size: 14px; font-weight: 600; padding: 5px 12px; border-radius: 20px;
   background: var(--fluent-surface, #ffffff); border: 1px solid var(--fluent-border, #d2d0ce); color: var(--fluent-grey-130, #484644);}
 .slide-s07 .pill i{margin-right: 5px; color: var(--fluent-blue, #0078d4);}
 .slide-s07 .footer{flex-shrink: 0; margin: 0 32px 12px; padding: 9px 14px; border-radius: 0 10px 10px 0;
-  border-left: 3px solid var(--fluent-blue, #0078d4); background: rgba(250,204,21,0.05);
+  border-left: 3px solid var(--fluent-blue, #0078d4); background: var(--fluent-blue-light);
   font-size: 13px; color: var(--fluent-grey-130, #484644); line-height: 1.45; position: relative; z-index: 1;}
 .slide-s07 .footer strong{color: var(--fluent-blue, #0078d4);}
 .slide-s07 h1 {font-size: 24px;}

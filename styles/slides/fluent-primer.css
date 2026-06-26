@@ -2,7 +2,8 @@
  * Fluent CEO primer theme — shared design system (Slide04 baseline).
  * Applied to content slides via .fluent-slide root class.
  */
-[class*="slide-s"] .fluent-slide {
+[class*="slide-s"] .fluent-slide,
+[class*="slide-s"] .agent-slide.fluent-slide {
   --fluent-blue: #0078d4;
   --fluent-blue-light: #deecf9;
   --fluent-blue-muted: rgba(0, 120, 212, 0.1);
@@ -54,6 +55,7 @@
 /* Canvas roots */
 [class*="slide-s"] .fluent-slide,
 [class*="slide-s"] .slide.fluent-slide,
+[class*="slide-s"] .agent-slide.fluent-slide,
 [class*="slide-s"] .slide-root.fluent-slide,
 [class*="slide-s"] .fass-summary-slide-root.fluent-slide,
 [class*="slide-s"] .fass-identity-slide-root.fluent-slide,
@@ -87,11 +89,12 @@
   flex-shrink: 0;
   position: relative;
   z-index: 1;
-  padding: 16px 36px 10px;
+  padding: 12px 32px 8px;
 }
 
 [class*="slide-s"] .fluent-slide .title-row,
 [class*="slide-s"] .fluent-slide .title-row-inner,
+[class*="slide-s"] .fluent-slide .title-header,
 [class*="slide-s"] .fluent-slide .title-region-header,
 [class*="slide-s"] .fluent-slide .title-horizontal-group {
   display: flex;
@@ -167,7 +170,15 @@
 [class*="slide-s"] .fluent-slide .fass-closing-content-body,
 [class*="slide-s"] .fluent-slide .war-room-content-wrapper,
 [class*="slide-s"] .fluent-slide .poc-main-content,
-[class*="slide-s"] .fluent-slide .roadmap-content-container {
+[class*="slide-s"] .fluent-slide .roadmap-content-container,
+[class*="slide-s"] .fluent-slide .main-body,
+[class*="slide-s"] .fluent-slide .main-container,
+[class*="slide-s"] .fluent-slide .fass-identity-main-container,
+[class*="slide-s"] .fluent-slide .fass-architecture-main-container,
+[class*="slide-s"] .fluent-slide .quality-content-main-wrapper,
+[class*="slide-s"] .fluent-slide .migration-content-wrapper,
+[class*="slide-s"] .fluent-slide .finops-main-content-layout,
+[class*="slide-s"] .fluent-slide .ai-innovation-hero-main-layout {
   flex: 1;
   min-height: 0;
   display: flex;
@@ -183,7 +194,9 @@
 [class*="slide-s"] .fluent-slide .footer,
 [class*="slide-s"] .fluent-slide .slide-footer,
 [class*="slide-s"] .fluent-slide .foot,
-[class*="slide-s"] .fluent-slide .bottom-bar {
+[class*="slide-s"] .fluent-slide .bottom-bar,
+[class*="slide-s"] .fluent-slide .footer-note,
+[class*="slide-s"] .fluent-slide .bottom {
   flex-shrink: 0;
   margin: auto 32px 12px;
   padding: 10px 14px;
@@ -237,8 +250,127 @@
   box-shadow: var(--fluent-shadow);
 }
 
-/* Hide dark-theme decorative glows */
+/* Hide dark-theme decorative glows + keep fluent cards fully opaque (motion fade made text hard to read) */
 [class*="slide-s"] .fluent-slide::before,
 [class*="slide-s"] .fluent-slide .slide::before {
   display: none !important;
+}
+
+[class*="slide-s"] .fluent-slide .pillar-card,
+[class*="slide-s"] .fluent-slide .milestone-card,
+[class*="slide-s"] .fluent-slide .war-room-feature-card,
+[class*="slide-s"] .fluent-slide .migration-node-box,
+[class*="slide-s"] .fluent-slide .migration-engine-box,
+[class*="slide-s"] .fluent-slide .migration-impact-card,
+[class*="slide-s"] .fluent-slide .roi-asset-evidence-card,
+[class*="slide-s"] .fluent-slide .fass-identity-value-item-row,
+[class*="slide-s"] .fluent-slide .fass-identity-logo-info-card,
+[class*="slide-s"] .fluent-slide .finops-content-card-box,
+[class*="slide-s"] .fluent-slide .compare-card,
+[class*="slide-s"] .fluent-slide .cat-card,
+[class*="slide-s"] .fluent-slide .role-card,
+[class*="slide-s"] .fluent-slide .concept-box,
+[class*="slide-s"] .fluent-slide .reason-card,
+[class*="slide-s"] .fluent-slide .diagram-card {
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.slide-s22 .section-slide-root,
+.slide-s36 .section-slide-root {
+  color: #ffffff;
+}
+
+.slide-s22 .section-topic-item,
+.slide-s36 .section-topic-item {
+  opacity: 1 !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+.slide-s22 .topic-text,
+.slide-s36 .topic-text {
+  color: #e2e8f0 !important;
+  font-weight: 500;
+}
+
+.slide-s22 .section-title-ko,
+.slide-s36 .section-title-ko {
+  color: #ffffff !important;
+}
+
+.slide-s02 .section-title-en,
+.slide-s13 .section-title-en,
+.slide-s22 .section-title-en,
+.slide-s27 .section-title-en,
+.slide-s36 .section-title-en {
+  color: #facc15 !important;
+}
+
+/* CEO presentation — dense slides: slightly smaller title to prevent crowding */
+[class*="slide-s"] .fluent-slide.fluent-slide-dense h1,
+[class*="slide-s"] .fluent-slide.fluent-slide-dense .title-main,
+[class*="slide-s"] .fluent-slide.fluent-slide-dense .title-text {
+  font-size: 24px;
+  line-height: 1.22;
+}
+
+/* CEO readability floor inside fluent content slides */
+[class*="slide-s"] .fluent-slide {
+  font-size: 14px;
+}
+
+[class*="slide-s"] .fluent-slide th {
+  background: var(--fluent-blue-light) !important;
+  color: var(--fluent-grey-160) !important;
+}
+
+[class*="slide-s"] .fluent-slide .metric-item,
+[class*="slide-s"] .fluent-slide .compare-table td {
+  background: var(--fluent-surface);
+  color: var(--fluent-grey-130);
+  border-color: var(--fluent-border);
+}
+
+[class*="slide-s"] .fluent-slide .ref-badge {
+  background: var(--fluent-blue-muted);
+  border: 1px solid rgba(0, 120, 212, 0.28);
+  color: var(--fluent-blue);
+}
+
+/* PART divider slides — high contrast on dark canvas */
+.slide-s02 .section-slide-root,
+.slide-s13 .section-slide-root,
+.slide-s22 .section-slide-root,
+.slide-s27 .section-slide-root,
+.slide-s36 .section-slide-root {
+  color: #ffffff;
+}
+
+.slide-s02 .section-topic-item,
+.slide-s13 .section-topic-item,
+.slide-s22 .section-topic-item,
+.slide-s27 .section-topic-item,
+.slide-s36 .section-topic-item {
+  opacity: 1 !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+.slide-s02 .topic-text,
+.slide-s13 .topic-text,
+.slide-s22 .topic-text,
+.slide-s27 .topic-text,
+.slide-s36 .topic-text {
+  color: #e2e8f0 !important;
+  font-weight: 500;
+}
+
+.slide-s02 .section-title-ko,
+.slide-s13 .section-title-ko,
+.slide-s22 .section-title-ko,
+.slide-s27 .section-title-ko,
+.slide-s36 .section-title-ko {
+  color: #ffffff !important;
 }

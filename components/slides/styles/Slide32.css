@@ -1,104 +1,123 @@
-.slide-s32 .slide-root-container{width:100%;height:100%;
-    background-color: var(--fluent-bg, #ffffff);
-    color: var(--fluent-grey-160, #201f1e);
-    font-family: var(--ppt-font-body);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow:hidden;min-height:0;box-sizing:border-box;}
+/* Slide 32 ??Quality pipeline (extends fluent-primer.css) */
 
-.slide-s32 .title-r{flex-shrink:0;position:relative;z-index:1}
-.slide-s32 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.slide-s32 .bar{width:4px;height:30px;background:var(--fluent-blue, #0078d4);border-radius:2px}
-.slide-s32 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--fluent-blue, #0078d4)}
-.slide-s32 h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
-.slide-s32 .sub{font-size:13px;color:var(--fluent-grey-130, #484644);margin-top:4px;padding-left:14px;line-height:1.4}
-.slide-s32 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--fluent-blue, #0078d4),transparent);opacity:.35}
-
-.slide-s32 .finops-main-content-layout{flex: 1;
+.slide-s32 .quality-content-main-wrapper {flex: 1;
     min-height: 0;
+    padding: 6px 40px 14px 40px;
     display: flex;
-    gap: 12px;
-    padding: 8px 40px 16px 40px;
+    gap: 12px 24px;
     align-items: stretch}
-.slide-s32 .finops-column-item-wrapper{flex: 1;
+
+.slide-s32 .quality-left-pipeline-column{flex: 3;
     display: flex;
     flex-direction: column;
-    justify-content: center}
-.slide-s32 .finops-content-card-box{flex: 1;
-    background-color: var(--fluent-card-bg, #f8f8f8);
+    justify-content: center;
+    gap: 12px}
+.slide-s32 .quality-pipeline-step-card{flex: 1 1 0;
+    background: var(--fluent-card-bg, #f8f8f8);
     border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-lg);
-    padding: 16px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    transition: border-color 0.3s ease}
-.slide-s32 .finops-content-card-box:hover{border-color: var(--fluent-blue, #0078d4)}
-.slide-s32 .finops-card-header-group{display: flex;
-    flex-direction: column;
-    gap: 10px 12px}
-.slide-s32 .finops-card-icon-circle{width: 44px;
-    height: 44px;
-    background-color: var(--fluent-surface, #ffffff);
-    border-radius: 50%;
+    gap: 8px;
+    box-shadow: var(--ppt-shadow-soft)}
+.slide-s32 .quality-step-header-group{display: flex;
+    align-items: center;
+    gap: 12px}
+.slide-s32 .quality-step-icon-box{width: 40px;
+    height: 40px;
+    background: rgba(0, 120, 212, 0.1);
+    border-radius: var(--ppt-radius-md);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
     color: var(--fluent-blue, #0078d4);
-    border: 1px solid var(--fluent-border, #d2d0ce)}
-.slide-s32 .finops-card-title-text{font-size: 18px;
+    font-size: 24px}
+.slide-s32 .quality-step-title-text{font-size: 18px;
     font-weight: 600;
     color: var(--fluent-grey-160, #201f1e)}
-.slide-s32 .finops-card-divider-line{height: 2px;
-    width: 40px;
-    background-color: var(--fluent-blue, #0078d4)}
-.slide-s32 .finops-card-body-text{font-size: 15px;
-    line-height: 1.45;
-    color: var(--fluent-grey-130, #484644)}
-.slide-s32 .finops-list-container-group{list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px 12px;
-    margin-top: 6px}
-.slide-s32 .finops-list-item-row{display: block;
-    padding-left: 24px;
-    position: relative;
-    font-size: 14px;
+.slide-s32 .quality-step-description-list{list-style: none;
+    padding: 0;
+    margin: 0}
+.slide-s32 .quality-step-description-item{font-size: 14px;
     color: var(--fluent-grey-130, #484644);
-    line-height: 1.45}
-.slide-s32 .finops-list-item-row::before{content: "";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
+    margin-bottom: 3px;
+    padding-left: 20px;
+    position: relative}
+.slide-s32 .quality-step-description-item::before{content: "\2022";
     position: absolute;
     left: 0;
-    color: var(--fluent-blue, #0078d4);
-    font-size: 14px}
-.slide-s32 .finops-highlight-badge-tag{display: inline-block;
-    padding: 3px 12px;
-    background-color: rgba(250, 204, 21, 0.1);
+    color: var(--fluent-blue, #0078d4)}
+
+.slide-s32 .quality-right-gate-column{flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 13px 20px}
+.slide-s32 .quality-gate-summary-container{flex: 1 1 0;
+    background: linear-gradient(135deg, var(--fluent-surface, #ffffff) 0%, var(--fluent-card-bg, #f8f8f8) 100%);
     border: 1px solid var(--fluent-blue, #0078d4);
-    color: var(--fluent-blue, #0078d4);
+    border-radius: var(--ppt-radius-lg);
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px}
+.slide-s32 .quality-gate-title-badge{align-self: flex-start;
+    background: var(--fluent-blue, #0078d4);
+    color: var(--ppt-bg);
+    padding: 4px 12px;
     border-radius: var(--ppt-radius-sm);
+    font-weight: 700;
     font-size: 14px;
-    font-weight: 600;
-    margin-top: auto;
-    text-align: center}
-.slide-s32 .finops-policy-visual-item{background: var(--fluent-surface, #ffffff);
-    padding: 8px 12px;
+    text-transform: uppercase}
+.slide-s32 .quality-gate-heading-text{font-size: 18px;
+    font-weight: 700;
+    color: var(--fluent-grey-160, #201f1e)}
+.slide-s32 .quality-gate-metrics-grid{display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px 16px}
+.slide-s32 .quality-metric-item-box{background: rgba(0, 0, 0, 0.04);
     border-radius: var(--ppt-radius-md);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid var(--ppt-bad)}
+.slide-s32 .quality-metric-item-box.safe{border-left-color: var(--fluent-good, #107c10)}
+.slide-s32 .quality-metric-label-group{display: flex;
+    flex-direction: column}
+.slide-s32 .quality-metric-name-text{font-size: 16px;
+    color: var(--fluent-grey-130, #484644)}
+.slide-s32 .quality-metric-value-text{font-size: 22px;
+    font-weight: 600;
+    color: var(--fluent-grey-160, #201f1e)}
+.slide-s32 .quality-gate-status-indicator{font-size: 14px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--ppt-radius-sm)}
+.slide-s32 .status-strict{background: rgba(239, 68, 68, 0.1);
+    color: var(--ppt-bad)}
+.slide-s32 .status-standard{background: rgba(34, 197, 94, 0.1);
+    color: var(--fluent-good, #107c10)}
+.slide-s32 .quality-impact-footer-note{margin-top: auto;
+    font-size: 16px;
+    color: var(--fluent-blue, #0078d4);
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 13px 16px}
-.slide-s32 .finops-policy-time-label{font-size: 14px;
-    color: var(--fluent-blue, #0078d4);
-    font-weight: 700;
-    white-space: nowrap}
-.slide-s32 .finops-policy-desc-text{font-size: 13px;
-    color: var(--fluent-grey-160, #201f1e)}
-.slide-s32 h1.title-main {font-size: 24px;}
-.slide-s32 .finops-main-content-layout {padding: 6px 32px 10px; gap: 10px;}
-.slide-s32 .finops-content-card-box {padding: 12px; gap: 8px;}
-.slide-s32 .finops-card-title-text {font-size: 16px;}
-.slide-s32 .finops-card-body-text {font-size: 13.5px; line-height: 1.4;}
+    gap: 5px 8px}
+
+/* overflow fix — 720px canvas */
+.slide-s32 h1 { font-size: 24px; }
+.slide-s32 .quality-content-main-wrapper { padding: 4px 28px 8px; gap: 12px; }
+.slide-s32 .quality-left-pipeline-column { gap: 8px; }
+.slide-s32 .quality-pipeline-step-card { padding: 8px; gap: 6px; }
+.slide-s32 .quality-step-icon-box { width: 34px; height: 34px; font-size: 18px; }
+.slide-s32 .quality-step-title-text { font-size: 15px; }
+.slide-s32 .quality-step-description-item { font-size: 13px; margin-bottom: 2px; }
+.slide-s32 .quality-gate-summary-container { padding: 10px 14px; gap: 8px; }
+.slide-s32 .quality-gate-heading-text { font-size: 16px; }
+.slide-s32 .quality-metric-item-box { padding: 8px 12px; }
+.slide-s32 .quality-metric-name-text { font-size: 14px; }
+.slide-s32 .quality-metric-value-text { font-size: 18px; }
+.slide-s32 .quality-impact-footer-note { font-size: 14px; }

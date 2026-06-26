@@ -10,7 +10,7 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
     partNumber: 1,
     title: "전략적 비전 및 목표",
     startSlideId: 2,
-    endSlideId: 11,
+    endSlideId: 12,
   },
   {
     partNumber: 2,

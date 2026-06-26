@@ -238,6 +238,23 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 9,
     topics: [
       {
+        id: "team-agent-roster",
+        title: "팀 에이전트 구성 — AI 8인 역할",
+        category: "process",
+        summary:
+          "루트 Claude 지휘 하에 8명의 전문 AI 에이전트가 Spring·Next.js·인프라·마이그레이션·기획·위키 등 역할별로 위임·조율됩니다.",
+        process: [
+          { step: 1, title: "루트 오케스트레이션", description: "위임 · 조율 · 종합" },
+          { step: 2, title: "8인 전문 에이전트", description: "백엔드·프론트·플랫폼·인프라·Python·마이그레이션·위키·기획" },
+          { step: 3, title: "표준 워크플로우", description: "계획 → 개발 → 리뷰 → 문서화" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 10,
+    topics: [
+      {
         id: "digital-worker",
         title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)",
         category: "process",
@@ -251,7 +268,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 10,
+    slideId: 11,
     topics: [
       {
         id: "fass-identity",
@@ -278,7 +295,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
+    slideId: 12,
     topics: [
       {
         id: "executive-kpi",
@@ -294,7 +311,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 12,
+    slideId: 13,
     topics: [
       {
         id: "progress-tracking",
@@ -310,7 +327,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 13,
+    slideId: 14,
     topics: [
       {
         id: "active-sprint-portfolio",
@@ -334,7 +351,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 14,
+    slideId: 15,
     topics: [
       {
         id: "peer-benchmark",
@@ -351,7 +368,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 15,
+    slideId: 16,
     topics: [
       {
         id: "ai-augmented-workflow",
@@ -369,7 +386,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 16,
+    slideId: 17,
     topics: [
       {
         id: "e2e-flow-primer",
@@ -388,7 +405,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 17,
+    slideId: 18,
     topics: [
       {
         id: "project-schedule",
@@ -406,7 +423,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 18,
+    slideId: 19,
     topics: [
       {
         id: "ai-digital-worker",
@@ -423,7 +440,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 19,
+    slideId: 20,
     topics: [
       {
         id: "fass-daily-scrum",
@@ -471,7 +488,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 20,
+    slideId: 21,
     topics: [
       {
         id: "poc-cdc-validation",
@@ -488,7 +505,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 22,
+    slideId: 23,
     topics: [
       {
         id: "tech-stack-overview",
@@ -506,7 +523,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 23,
+    slideId: 24,
     topics: [
       {
         id: "api-first",
@@ -652,7 +669,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 24,
+    slideId: 25,
     topics: [
       {
         id: "cdc-sync",
@@ -694,7 +711,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 25,
+    slideId: 26,
     topics: [
       {
         id: "cicd-gitops",
@@ -718,7 +735,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 26,
+    slideId: 27,
     topics: [
       {
         id: "realgrid-ui",
@@ -780,7 +797,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 27,
+    slideId: 28,
     topics: [
       {
         id: "business-innovation-engine",
@@ -799,7 +816,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 28,
+    slideId: 29,
     topics: [
       {
         id: "finops",
@@ -829,7 +846,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 29,
+    slideId: 30,
     topics: [
       {
         id: "sonarqube-gate",
@@ -865,7 +882,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 30,
+    slideId: 31,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -883,7 +900,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 31,
+    slideId: 32,
     topics: [
       {
         id: "mm-tool-investment",
@@ -999,7 +1016,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 33,
     topics: [
       {
         id: "framework-builder-role",
@@ -1041,7 +1058,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 34,
+    slideId: 35,
     topics: [
       {
         id: "builder-talent-definition",
@@ -1059,7 +1076,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 35,
+    slideId: 36,
     topics: [
       {
         id: "risk-management",
@@ -1075,7 +1092,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 36,
+    slideId: 37,
     topics: [
       {
         id: "rollout-roadmap",
@@ -1092,7 +1109,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 37,
+    slideId: 38,
     topics: [
       {
         id: "cdc-sync",
@@ -1147,7 +1164,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 38,
+    slideId: 39,
     topics: [
       {
         id: "msa-migration",
@@ -1189,7 +1206,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 39,
+    slideId: 40,
     topics: [
       {
         id: "completion-vision",

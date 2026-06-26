@@ -3,113 +3,109 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide38.css";
 
-const SLIDE_HTML = `<div class="slide fluent-slide-root">
-  <!-- Title -->
+const SLIDE_HTML = `<div class="fass-slide-root fluent-slide">
   <div class="title-region">
     <div class="title-header">
       <div class="title-bar"></div>
       <span class="title-badge">ULTIMATE GOAL</span>
-      <h1 class="title-text">중장기 목표 2: MSA 전환</h1>
+      <h1 class="title-text">중장기 목표 1: Kubernetes 운영</h1>
     </div>
     <div class="title-line"></div>
   </div>
 
-  <!-- Main -->
-  <div class="main-container">
-    <!-- Left: Diagram -->
-    <div class="left-col">
-      <div class="diagram-card">
-        <div class="diagram-label">
-          <i class="fas fa-project-diagram"></i> Strangler Fig Pattern — 점진적 신규 시스템 확대
-        </div>
-        <div class="diagram-stages">
-          <!-- Stage 1 -->
-          <div class="stage-row">
-            <div class="stage-label-col">현재<br/>(Phase 1)</div>
-            <div class="stage-blocks">
-              <div class="block-legacy block-lg" style="flex:2.5; height:44px;">레거시 모놀리스<br/>(C# 시스템)</div>
-              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
-              <div class="block-legacy block-new" style="flex:1.2; height:44px;">FaSS<br/>V3.0</div>
-            </div>
-          </div>
-          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:13px; margin-left:4px;">AI 접목 신규 시스템 점진적 확대</span></div>
-          <!-- Stage 2 -->
-          <div class="stage-row">
-            <div class="stage-label-col">전환기<br/>(Phase 2)</div>
-            <div class="stage-blocks">
-              <div class="block-legacy block-lg" style="flex:1.2; height:44px;">레거시<br/>(축소)</div>
-              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
-              <div class="block-legacy block-new" style="flex:1.5; height:44px;">FaSS<br/>Core</div>
-              <div class="arrow-right"><i class="fas fa-arrow-right"></i></div>
-              <div class="block-legacy block-ai" style="flex:1.3; height:44px;">AI<br/>Service</div>
-            </div>
-          </div>
-          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:13px; margin-left:4px;">레거시 완전 제거 — 완전한 MSA 구현</span></div>
-          <!-- Stage 3 -->
-          <div class="stage-row">
-            <div class="stage-label-col">최종<br/>(MSA)</div>
-            <div class="stage-blocks">
-              <div class="block-legacy block-msa" style="flex:1; height:44px;">유통<br/>물류</div>
-              <div class="block-legacy block-msa" style="flex:1; height:44px;">3PL<br/>시스템</div>
-              <div class="block-legacy block-msa" style="flex:1; height:44px;">주유소관리<br/>시스템</div>
-              <div class="block-legacy block-ai" style="flex:1; height:44px;">AI<br/>Engine</div>
-            </div>
+  <div class="k8s-main-wrapper">
+    <div class="k8s-left-column">
+      <div class="k8s-summary-card">
+        <div class="k8s-summary-title">Docker 컨테이너를<br/>K8s가 자동으로 배치·운영</div>
+        <p class="k8s-summary-desc">
+          Cloud-Ready(원칙 2)로 패키징된 FaSS 모듈을 <b>Kubernetes</b> 클러스터에 올려
+          배포·확장·복구를 플랫폼이 대신 수행합니다.
+        </p>
+      </div>
+      <div class="k8s-feature-list">
+        <div class="k8s-feature-item">
+          <div class="k8s-feature-icon"><i class="fas fa-sitemap"></i></div>
+          <div class="k8s-feature-text">
+            <strong>오케스트레이션</strong>
+            <span>Control Plane이 Pod(컨테이너 묶음)를 노드에 최적 배치</span>
           </div>
         </div>
-        <div class="strangler-note">
-          <i class="fas fa-leaf" style="color:var(--ppt-accent);"></i>
-          &nbsp;기존 시스템을 한 번에 교체하지 않고, 신규 AI 접목 시스템부터 독립 서비스로 래핑하여 점진적으로 레거시를 대체
+        <div class="k8s-feature-item">
+          <div class="k8s-feature-icon"><i class="fas fa-expand"></i></div>
+          <div class="k8s-feature-text">
+            <strong>자동 확장 (HPA)</strong>
+            <span>부하 증가 시 Pod·노드를 Scale-out</span>
+          </div>
+        </div>
+        <div class="k8s-feature-item">
+          <div class="k8s-feature-icon"><i class="fas fa-heart-pulse"></i></div>
+          <div class="k8s-feature-text">
+            <strong>자기 치유</strong>
+            <span>장애 Pod 자동 재시작·무중단 Rolling Update</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Right: Reasons + Trade-off -->
-    <div class="right-col">
-      <div class="section-title">
-        <i class="fas fa-bullseye"></i> FaSS 최종 목표 — MSA가 반드시 필요한 3가지 이유
-      </div>
-      <div class="reasons-grid">
-        <div class="reason-card">
-          <div class="reason-num">1</div>
-          <div class="reason-content">
-            <div class="reason-title">볼륨 성장 → 무중단 배포 필수</div>
-            <div class="reason-desc">유통물류 유저 및 트래픽이 커질수록, 특정 모듈 배포 시 전체 시스템을 중단할 수 없음. MSA는 모듈별 독립 배포로 <span style="color:var(--ppt-accent); font-weight:600;">365일 무중단 운영</span>을 보장합니다.</div>
-          </div>
+    <div class="k8s-diagram-column">
+      <div class="k8s-diagram-panel">
+        <div class="k8s-registry-row">
+          <div class="k8s-registry-box"><i class="fab fa-gitlab"></i> GitLab CI → Container Registry (Docker Image)</div>
+          <div class="k8s-arrow-down"></div>
         </div>
-        <div class="reason-card">
-          <div class="reason-num">2</div>
-          <div class="reason-content">
-            <div class="reason-title">부분 장애 → 전체 마비 리스크 차단</div>
-            <div class="reason-desc">시스템 규모가 커질수록 단일 서비스 오류가 전 시스템을 마비시키는 위험이 급증함. MSA의 서킷 브레이커 패턴으로 <span style="color:var(--ppt-accent); font-weight:600;">장애 격리(Fault Isolation)</span> 를 실현합니다.</div>
+
+        <div class="k8s-cluster-frame">
+          <div class="k8s-cluster-label"><i class="fab fa-docker"></i> Kubernetes Cluster (K8s)</div>
+
+          <div class="k8s-control-plane">
+            <div class="k8s-cp-cell">API Server<em>배포 요청 수신</em></div>
+            <div class="k8s-cp-cell">Scheduler<em>Pod → Node 배치</em></div>
+            <div class="k8s-cp-cell">Controller<em>상태 유지·복구</em></div>
           </div>
-        </div>
-        <div class="reason-card">
-          <div class="reason-num">3</div>
-          <div class="reason-content">
-            <div class="reason-title">AI 서비스 — 단일 시스템 내 동시 운영 불가</div>
-            <div class="reason-desc">AI 추론 엔진(수요예측·RAG)은 막대한 CPU/GPU 자원을 요구함. 단일 시스템에서 AI와 비즈니스 로직을 공존시키면 서로 자원 충돌. <span style="color:var(--ppt-accent-2); font-weight:600;">AI 서비스 독립 분리</span>가 핵심 전제 조건입니다.</div>
+
+          <div class="k8s-orchestrate-band">
+            <span class="k8s-orchestrate-line"></span>
+            <i class="fas fa-arrows-spin"></i> Container Orchestration
+            <span class="k8s-orchestrate-line"></span>
           </div>
-        </div>
-      </div>
-      <!-- Trade-off note -->
-      <div class="tradeoff-box">
-        <div class="tradeoff-icon"><i class="fas fa-balance-scale"></i></div>
-        <div class="tradeoff-text">
-          <strong>⚠ 개발팀에 가해지는 복잡도 증가</strong>는 MSA 전환의 피할 수 없는 부산물입니다. 서비스 간 통신 설계, 분산 트랜잭션, 운영 복잡성이 높아지지만, 이는 <strong>회사의 대의(성장·수익화)를 위해 TFT 전원이 감수해야 할 기술적 부채</strong>입니다.
+
+          <div class="k8s-worker-row">
+            <div class="k8s-worker-node">
+              <div class="k8s-node-label"><i class="fas fa-circle"></i> Worker Node 1</div>
+              <div class="k8s-node-role">진입·프레젠테이션 계층</div>
+              <div class="k8s-pods-row">
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">API<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Web<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Gateway<br/>Pod</span></div>
+              </div>
+              <div class="k8s-node-desc">외부 트래픽 수신·JWT 인증·API Gateway(S12) 라우팅. Next.js SSR Web과 REST API가 사용자 진입점을 담당합니다.</div>
+            </div>
+            <div class="k8s-worker-node">
+              <div class="k8s-node-label"><i class="fas fa-circle"></i> Worker Node 2</div>
+              <div class="k8s-node-role">도메인·데이터 계층</div>
+              <div class="k8s-pods-row">
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Order<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">Batch<br/>Pod</span></div>
+                <div class="k8s-pod"><div class="k8s-pod-icon"><i class="fas fa-box"></i></div><span class="k8s-pod-name">CDC<br/>Pod</span></div>
+              </div>
+              <div class="k8s-node-desc">수주·발주 도메인 로직, Spring Batch 대용량 처리, Debezium·Kafka 기반 레거시 DB 무중단 동기화(S17)를 수행합니다.</div>
+            </div>
+          </div>
+
+          <div class="k8s-container-note">
+            <i class="fas fa-layer-group"></i> 1 Pod = 1개 이상 Docker Container · Kubelet이 노드에서 컨테이너 실행
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bottom bar -->
-  <div class="bottom-bar">
-    <div class="bottom-bar-icon"><i class="fas fa-flag-checkered"></i></div>
-    <div class="bottom-bar-text">MSA는 선택이 아닌 필수</div>
-    <div class="bottom-bar-sub">— FaSS 플랫폼이 진정한 'AI 디지털 물류 엔진'으로 거듭나기 위한 최종 아키텍처 목적지</div>
-  </div>
+  <p class="k8s-bottom-caption">
+    <strong>Kubernetes(K8s)</strong> — 컨테이너화된 애플리케이션의 배포·스케일링·네트워킹·가용성을 자동화하는 컨테이너 오케스트레이션 플랫폼. FaSS 모듈(Docker)을 Pod 단위로 클러스터에 올려 트래픽·장애에 탄력적으로 대응합니다.
+  </p>
 </div>`;
 
-export default function Slide38() {
+export default function Slide37() {
   return (
     <SlideCanvas slideId={38} motion="architecture" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

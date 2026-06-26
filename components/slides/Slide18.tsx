@@ -1,153 +1,103 @@
 "use client";
 
 import SlideCanvas from "@/components/slides/SlideCanvas";
-import Slide18CollaborationFlow from "@/components/slides/Slide18CollaborationFlow";
-import Slide18WorkLanes from "@/components/slides/Slide18WorkLanes";
+import Slide17Progress from "@/components/slides/Slide17Progress";
 import "./styles/Slide18.css";
 
-const ORG_ROWS = [
-  {
-    role: "최고 의사결정",
-    name: "시스템\n사업부장",
-    tasks: ["비즈니스 방향성·투자 우선순위 총괄"],
-  },
-  {
-    role: "TFT 팀장",
-    name: "서선범",
-    tasks: ["프로젝트 총괄 관리 및 리스크 차단", "유관 부서 간 업무 프로세스 조율"],
-  },
-  {
-    role: "프로젝트 리더",
-    name: "기충영",
-    tasks: ["FaSS V3.0 공통 프레임워크 표준 설계", "전체 아키텍처 통제 및 품질 관리"],
-  },
-  {
-    role: "BE 엔지니어",
-    names: ["김희찬", "송민준"],
-    tasks: ["백엔드 코어 모듈 구현", "Kafka 기반 데이터 동기화 파이프라인"],
-  },
-  {
-    role: "FE 엔지니어",
-    names: ["심지훈", "오준열", "이지상"],
-    tasks: ["프론트엔드 및 UX 표준 구현", "AI 연동 RAG 환경 및 인터페이스 구축"],
-  },
-] as const;
+const TITLE_HTML = `<div class="title-region">
+  <div class="title-header">
+    <div class="title-bar"></div>
+    <h1 class="title-main">프로젝트 진행경과 마일스톤</h1>
+  </div>
+  <div class="title-sub">FaSS 차세대 플랫폼 구축 — 7단계 로드맵</div>
+  <div class="title-line"></div>
+</div>`;
 
-export default function Slide18() {
+const CONTENT_HTML = `<div class="content">
+  <div class="milestone-grid">
+    <div class="milestone-card p1">
+      <div class="card-head">
+        <div class="card-head-left"><span class="phase-badge">1단계</span></div>
+        <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">01</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">02</span></span></span>
+      </div>
+      <div class="card-title">AS-IS 분석 · AI 에이전트 기반</div>
+      <p class="card-desc">시스템 아키텍처·비즈니스 프레임워크 분석, AI 모델·서브에이전트 구축</p>
+      <div class="card-foot"><span class="status-tag status-done">완료</span></div>
+    </div>
+
+    <div class="milestone-card p2">
+      <div class="card-head">
+        <div class="card-head-left"><span class="phase-badge">2단계</span></div>
+        <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">03</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">05</span></span></span>
+      </div>
+      <div class="card-title">TO-BE 모델 · 표준 프레임워크</div>
+      <p class="card-desc">요구사항 정의 및 차세대 표준 프레임워크 모델 정립</p>
+      <div class="card-foot"><span class="status-tag status-done">완료</span></div>
+    </div>
+
+    <div class="milestone-card p3 current">
+      <div class="card-head">
+        <div class="card-head-left"><span class="phase-badge">3단계</span></div>
+        <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">05</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">09</span></span></span>
+      </div>
+      <div class="card-title">공통 아키텍처 · 프레임워크 PoC</div>
+      <p class="card-desc">공통 아키텍처 설계 및 프레임워크 기술 타당성 검증(PoC) — 현재 스프린트를 애자일 방식으로 진행 중</p>
+      <div class="card-foot"><span class="status-tag status-now">진행 중</span></div>
+    </div>
+
+    <div class="milestone-card p4">
+      <div class="card-head">
+        <div class="card-head-left"><span class="phase-badge">4단계</span></div>
+        <span class="period"><span class="period-ym"><span class="period-y">26</span><span class="period-dot">.</span><span class="period-m">10</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">03</span></span></span>
+      </div>
+      <div class="card-title">JTGS 프로토타입 개발</div>
+      <p class="card-desc">주요소관리시스템 프로토타입, 템플릿·스토리보드 완성</p>
+      <div class="card-foot"><span class="status-tag status-next">예정</span></div>
+    </div>
+
+    <div class="milestone-card p5">
+      <div class="card-head">
+        <div class="card-head-left"><span class="phase-badge">5단계</span></div>
+        <span class="period"><span class="period-ym"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">04</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">06</span></span></span>
+      </div>
+      <div class="card-title">시스템 안정화</div>
+      <p class="card-desc">프로토타입 운영 안정화 및 품질·성능 검증</p>
+      <div class="card-foot"><span class="status-tag status-next">예정</span></div>
+    </div>
+
+    <div class="milestone-card p6">
+      <div class="card-head">
+        <div class="card-head-left"><span class="phase-badge">6단계</span></div>
+        <span class="period"><span class="period-ym"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">07</span></span><span class="period-sep">~</span><span class="period-ym period-end"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">08</span></span></span>
+      </div>
+      <div class="card-title">3PL · 유통물류 전환 준비</div>
+      <p class="card-desc">3PL/유통물류 전환 준비 및 현업 요구사항 반영</p>
+      <div class="card-foot"><span class="status-tag status-next">예정</span></div>
+    </div>
+
+    <div class="milestone-card p7 span2">
+      <div class="card-head">
+        <div class="card-head-left"><span class="phase-badge">7단계</span></div>
+        <span class="period"><span class="period-ym"><span class="period-y">27</span><span class="period-dot">.</span><span class="period-m">09</span></span><span class="period-sep">~</span></span>
+      </div>
+      <div class="card-title">3PL · 유통물류 본 전환</div>
+      <p class="card-desc">3PL 전환 및 유통물류 전환 본격 개발 — 차세대 FaSS 플랫폼 단계적 롤아웃 완료</p>
+      <div class="card-foot"><span class="status-tag status-next">예정</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <strong>전환 경로</strong> 주유소(JTGS) → 프로토타입 → 3PL · 유통물류 단계적 전환
+</div>`;
+
+export default function Slide17() {
   return (
-    <SlideCanvas slideId={18} motion="innovation" motionTier="medium">
-      <div className="slide fluent-slide">
-        <header className="title-region">
-          <div className="title-header">
-            <div className="title-bar" />
-            <h1 className="title-main">최적화 방안 1. AI 디지털 워커 활용</h1>
-          </div>
-          <p className="title-sub">인간 7 + AI 8 = 15명 TFT급 추진력</p>
-          <div className="title-line" />
-        </header>
-
-        <div className="body">
-          <section className="anim-col">
-            <div className="strat-bar">
-              <div className="strat-pill">
-                <i className="fas fa-robot" />
-                <div>
-                  <strong>24/7 디지털 워커</strong>
-                  <span>코드·문서·테스트 반복 업무 AI 상시 지원</span>
-                </div>
-              </div>
-              <div className="strat-pill">
-                <i className="fas fa-user-check" />
-                <div>
-                  <strong>Human-in-the-loop</strong>
-                  <span>설계·품질·의사결정은 TFT가 최종 통제</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="anim-panel">
-              <Slide18CollaborationFlow />
-              <Slide18WorkLanes />
-            </div>
-
-            <div className="wf-strip">
-              <span>
-                인간 <strong>7</strong>
-              </span>
-              <div className="wf-mini">
-                {[0, 1, 2].map((i) => (
-                  <span key={i} className="wf-dot h">
-                    <i className="fas fa-user" />
-                  </span>
-                ))}
-                <span className="wf-ellipsis">···</span>
-              </div>
-              <span>+</span>
-              <span>
-                AI <strong>8</strong>
-              </span>
-              <div className="wf-mini">
-                {[0, 1, 2].map((i) => (
-                  <span key={i} className="wf-dot a">
-                    <i className="fas fa-robot" />
-                  </span>
-                ))}
-                <span className="wf-ellipsis">···</span>
-              </div>
-              <span>=</span>
-              <span className="wf-eq">15</span>
-              <span className="wf-caption">TFT급 추진력 · 지시→AI실행→Human검토</span>
-            </div>
-          </section>
-
-          <aside className="org-panel">
-            <div className="org-head">
-              <i className="fas fa-sitemap" /> 차세대 FaSS TFT — 핵심 조직
-            </div>
-            <div className="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th style={{ width: "24%" }}>역할</th>
-                    <th style={{ width: "18%" }}>담당자</th>
-                    <th style={{ width: "58%" }}>주요 업무</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ORG_ROWS.map((row) => (
-                    <tr key={row.role}>
-                      <td>
-                        <span className="role">{row.role}</span>
-                      </td>
-                      <td>
-                        {"names" in row ? (
-                          <div className="names">
-                            {row.names.map((n) => (
-                              <span key={n} className="name">
-                                {n}
-                              </span>
-                            ))}
-                          </div>
-                        ) : (
-                          <span className="name" style={{ whiteSpace: "pre-line" }}>
-                            {row.name}
-                          </span>
-                        )}
-                      </td>
-                      <td>
-                        <ul className="task">
-                          {row.tasks.map((t) => (
-                            <li key={t}>{t}</li>
-                          ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </aside>
-        </div>
+    <SlideCanvas slideId={18} motion="timeline" motionTier="medium">
+      <div className="slide-root fluent-slide">
+        <div dangerouslySetInnerHTML={{ __html: TITLE_HTML }} />
+        <Slide17Progress />
+        <div dangerouslySetInnerHTML={{ __html: CONTENT_HTML }} />
       </div>
     </SlideCanvas>
   );

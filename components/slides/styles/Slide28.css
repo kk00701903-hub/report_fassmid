@@ -1,98 +1,50 @@
-.slide-s28 .fass-slide-root{width:100%;height:100%;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--fluent-bg, #ffffff)}
+.slide-s28 .engine-slide-root{width:100%;height:100%;background: var(--fluent-bg, #ffffff);color:var(--fluent-grey-160, #201f1e);
+  display:flex;flex-direction:column;overflow:hidden;position:relative;min-height:0;box-sizing:border-box;}
+
 
 .slide-s28 .title-r{flex-shrink:0;position:relative;z-index:1}
 .slide-s28 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .slide-s28 .bar{width:4px;height:30px;background:var(--fluent-blue, #0078d4);border-radius:2px}
-.slide-s28 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--fluent-blue, #0078d4)}
 .slide-s28 h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
 .slide-s28 .sub{font-size:13px;color:var(--fluent-grey-130, #484644);margin-top:4px;padding-left:14px;line-height:1.4}
 .slide-s28 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--fluent-blue, #0078d4),transparent);opacity:.35}
 
-.slide-s28 .fass-smart-logistics-content-wrapper{flex: 1;
-    padding: 12px 40px 20px 40px;
-    display: flex;
-    gap: 20px 28px;
-    align-items: stretch}
+.slide-s28 .engine-main-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 36px 20px;gap:18px;position:relative;z-index:1}
 
-.slide-s28 .fass-smart-logistics-left-concept-block{flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px}
-.slide-s28 .fass-smart-logistics-paradigm-text-box{display: flex;
-    flex-direction: column;
-    gap: 12px}
-.slide-s28 .fass-smart-logistics-concept-label{font-size: 14px;
-    font-weight: 600;
-    color: var(--fluent-blue, #0078d4);
-    text-transform: uppercase;
-    letter-spacing: 1px}
-.slide-s28 .fass-smart-logistics-concept-description{font-size: 22px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--fluent-grey-160, #201f1e)}
-.slide-s28 .fass-smart-logistics-concept-highlight{color: var(--fluent-blue, #0078d4)}
-.slide-s28 .fass-smart-logistics-visual-image-box{height: 200px;
-    border-radius: var(--ppt-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--ppt-shadow-strong);
-    border: 1px solid var(--fluent-border, #d2d0ce)}
-.slide-s28 .fass-smart-logistics-visual-image-box img{width: 100%;
-    height: 100%;
-    object-fit: cover}
+.slide-s28 .engine-focus-wrapper{flex:1;min-height:0;display:flex;align-items:center;gap:28px}
+.slide-s28 .engine-highlight-left{flex:3;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.slide-s28 .engine-icon-box{width:56px;height:56px;border-radius:14px;background:rgba(0, 120, 212,.15);border:1px solid rgba(0, 120, 212,.35);
+  display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--fluent-blue, #0078d4);
+  box-shadow:0 0 24px rgba(0, 120, 212,.2);margin-bottom:4px}
+.slide-s28 .engine-label-top{font-size:18px;font-weight:600;color:var(--fluent-blue, #0078d4);letter-spacing:.08em;text-transform:uppercase}
+.slide-s28 .engine-value-main{font-size:34px;font-weight:700;line-height:1.25;color:var(--fluent-grey-160, #201f1e)}
+.slide-s28 .engine-value-accent{color:var(--fluent-blue, #0078d4)}
+.slide-s28 .engine-tagline{font-size:17px;font-weight:600;color:var(--fluent-grey-160, #201f1e);line-height:1.45;margin-top:4px}
+.slide-s28 .engine-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.slide-s28 .engine-pill{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;
+  background:var(--fluent-surface, #ffffff);border:1px solid var(--fluent-border, #d2d0ce);color:var(--fluent-grey-130, #484644);white-space:nowrap}
+.slide-s28 .engine-pill i{margin-right:6px;color:var(--fluent-blue, #0078d4);font-size: 14px}
 
-.slide-s28 .fass-smart-logistics-right-action-block{flex: 1.2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 16px 20px}
-.slide-s28 .fass-smart-logistics-action-item-card{background: var(--fluent-surface, #ffffff);
-    padding: 14px 18px;
-    border-radius: var(--ppt-radius-lg);
-    border: 1px solid var(--fluent-border, #d2d0ce);
-    display: flex;
-    flex-direction: column;
-    gap: 13px 16px;
-    flex: 1}
-.slide-s28 .fass-smart-logistics-card-header{display: flex;
-    align-items: center;
-    gap: 13px 16px}
-.slide-s28 .fass-smart-logistics-card-icon{width: 48px;
-    height: 48px;
-    background: var(--fluent-card-bg, #f8f8f8);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--fluent-blue, #0078d4);
-    border: 1px solid var(--fluent-blue, #0078d4)}
-.slide-s28 .fass-smart-logistics-card-title{font-size: 22px;
-    font-weight: 600;
-    color: var(--fluent-grey-160, #201f1e)}
-.slide-s28 .fass-smart-logistics-card-body{font-size: 15px;
-    line-height: 1.45;
-    color: var(--fluent-grey-130, #484644)}
-.slide-s28 .fass-smart-logistics-impact-badge{margin-top: auto;
-    display: flex;
-    align-items: center;
-    gap: 6px 8px;
-    padding: 6px 16px;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid var(--fluent-good, #107c10);
-    border-radius: var(--ppt-radius-sm);
-    width: fit-content}
-.slide-s28 .fass-smart-logistics-impact-text{font-size: 16px;
-    font-weight: 600;
-    color: var(--fluent-good, #107c10)}
-/* overflow fix */
-.slide-s28 h1.title-main {font-size: 22px;}
-.slide-s28 .fass-smart-logistics-content-wrapper {padding: 8px 28px 12px; gap: 14px;}
-.slide-s28 .fass-smart-logistics-concept-description {font-size: 17px;}
-.slide-s28 .fass-smart-logistics-visual-image-box {height: 130px;}
-.slide-s28 .fass-smart-logistics-action-item-card {padding: 10px 12px; gap: 8px;}
-.slide-s28 .fass-smart-logistics-card-title {font-size: 17px;}
-.slide-s28 .fass-smart-logistics-card-body {font-size: 13px; line-height: 1.38;}
+.slide-s28 .engine-description-right{flex:2;background:rgba(255,255,255,.03);border-left:2px solid var(--fluent-blue, #0078d4);
+  padding:20px 22px;display:flex;flex-direction:column;gap:12px;min-height:0}
+.slide-s28 .engine-desc-title{font-size:20px;font-weight:600;color:var(--fluent-grey-160, #201f1e);margin:0}
+.slide-s28 .engine-desc-body{font-size:16px;line-height:1.58;color:var(--fluent-grey-130, #484644);margin:0}
+
+.slide-s28 .engine-evidence-grid{flex-shrink:0;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:auto}
+.slide-s28 .engine-evidence-card{background:var(--fluent-surface, #ffffff);border:1px solid var(--fluent-border, #d2d0ce);border-radius:var(--ppt-radius-md);
+  padding:12px 14px;display:flex;align-items:flex-start;gap:12px;min-height:0;
+  border-top:3px solid var(--c,var(--fluent-blue, #0078d4))}
+.slide-s28 .engine-evidence-card.s1{grid-column:span 2;--c:var(--c1)}
+.slide-s28 .engine-evidence-card.s2{grid-column:span 2;--c:var(--c2)}
+.slide-s28 .engine-evidence-card.s3{grid-column:span 2;--c:var(--c3)}
+.slide-s28 .engine-evidence-card.s4{grid-column:2 / span 2;--c:var(--c4)}
+.slide-s28 .engine-evidence-card.s5{grid-column:4 / span 2;--c:var(--c5)}
+
+.slide-s28 .engine-card-icon-box{flex-shrink:0;width:44px;height:44px;background:rgba(0, 120, 212,.1);border-radius:var(--ppt-radius-sm);
+  display:flex;justify-content:center;align-items:center;color:var(--c,var(--fluent-blue, #0078d4));font-size:18px}
+.slide-s28 .engine-card-text-group{display:flex;flex-direction:column;gap:3px;min-width:0}
+.slide-s28 .engine-card-num{font-size: 13px;font-weight:700;letter-spacing:.04em;color:var(--c,var(--fluent-blue, #0078d4));text-transform:uppercase}
+.slide-s28 .engine-card-heading{font-size:16px;font-weight:600;color:var(--fluent-grey-160, #201f1e);line-height:1.3}
+.slide-s28 .engine-card-subtext{font-size:13px;color:var(--fluent-grey-130, #484644);line-height:1.42;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.slide-s28 .engine-card-accent-label{font-size: 14px;font-weight:600;color:var(--fluent-good, #107c10);margin-top:2px}

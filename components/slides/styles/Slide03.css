@@ -91,7 +91,7 @@
   z-index: 1;
 }
 
-/* â”€â”€ Architecture diagram â”€â”€ */
+/* ?€?€ Architecture diagram ?€?€ */
 .slide-s03 .arch-diagram {
   flex: 1 1 auto;
   min-height: 0;
@@ -243,7 +243,7 @@
   color: var(--arch-blue);
 }
 
-/* Backend â€” project scope highlight */
+/* Backend ??project scope highlight */
 .slide-s03 .arch-zone--be {
   position: relative;
   border: 2px solid rgba(0, 120, 212, 0.45);
