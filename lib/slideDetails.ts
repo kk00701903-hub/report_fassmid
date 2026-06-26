@@ -136,6 +136,89 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 3,
     topics: [
       {
+        id: "web-stack-primer",
+        title: "IT 시스템 이해하기 — 웹 · 프론트엔드 · WAS · DB",
+        category: "process",
+        summary:
+          "웹(프론트엔드)·WAS(백엔드 업무 처리)·DB(데이터 저장) 3층 구조로 IT 시스템을 이해합니다. 이후 아키텍처·기술 스택 장표의 기본 틀입니다.",
+        process: [
+          { step: 1, title: "웹 · 프론트엔드", description: "사용자가 보는 화면·메뉴·입력 UI (브라우저)" },
+          { step: 2, title: "WAS", description: "수주·발주·정산 등 비즈니스 규칙 실행 (백엔드 응용 서버)" },
+          { step: 3, title: "DB", description: "거래·재고·정산 데이터 영구 저장·조회" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 4,
+    topics: [
+      {
+        id: "glossary-infra",
+        title: "핵심 용어집 ① — 클라우드 · 오픈소스 · API",
+        category: "process",
+        summary: "클라우드(인터넷 IT 자원), 오픈소스(공개 SW·벤더 탈피), API(시스템 연결 창구), SaaS/ASP(서비스형 제공) 용어 정리입니다.",
+        process: [
+          { step: 1, title: "클라우드", description: "서버·저장소를 필요 시 빌려 쓰는 방식 — 확장성·초기비용 절감" },
+          { step: 2, title: "오픈소스", description: "PostgreSQL·Kafka 등 — 라이선스·Lock-in 리스크 감소" },
+          { step: 3, title: "API", description: "모듈·외부 시스템 간 표준 연결 — MSA·연동의 기반" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 5,
+    topics: [
+      {
+        id: "glossary-architecture",
+        title: "핵심 용어집 ② — MSA · 모듈러 모놀리스 · Docker · Kubernetes",
+        category: "process",
+        summary: "MSA(업무 단위 분리), 모듈러 모놀리스(MSA 전 단계), Docker(컨테이너), Kubernetes(컨테이너 자동 운영) 아키텍처 용어입니다.",
+        process: [
+          { step: 1, title: "MSA", description: "독립 배포·확장·장애 격리" },
+          { step: 2, title: "모듈러 모놀리스", description: "FaSS 현재 전략 — 안정적 기반 후 점진 MSA" },
+          { step: 3, title: "Docker·K8s", description: "표준 실행 환경 → 자동 확장·운영" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 6,
+    topics: [
+      {
+        id: "glossary-ops-ai",
+        title: "핵심 용어집 ③ — DevOps · CI/CD · CDC · AI · 품질·비용",
+        category: "process",
+        summary: "DevOps·CI/CD(자동화), CDC(무중단 DB 이관), AI 디지털 워커, Quality Gate·FinOps·GitOps·SSO·PoC 등 운영·품질·비용 용어입니다.",
+        process: [
+          { step: 1, title: "DevOps·CI/CD", description: "개발-운영 통합, GitLab 자동 빌드·배포" },
+          { step: 2, title: "CDC", description: "레거시→신규 DB 실시간 동기화" },
+          { step: 3, title: "AI·품질·비용", description: "디지털 워커 · Quality Gate · FinOps" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 7,
+    topics: [
+      {
+        id: "project-scope",
+        title: "차세대 FaSS 구축 프로젝트 범위",
+        category: "process",
+        summary:
+          "프론트엔드·백엔드(WAS)·DB 핵심에 보안·인프라·DevOps·AI까지 포함한 대형 엔터프라이즈 플랫폼 전면 재구축 프로젝트입니다.",
+        process: [
+          { step: 1, title: "핵심 3층", description: "웹 UI · WAS 업무 모듈 · DB 마이그레이션·CDC" },
+          { step: 2, title: "보안·품질", description: "SSO·RBAC·Quality Gate·SCA" },
+          { step: 3, title: "인프라·AI", description: "Docker·CI/CD·K8s 로드맵 · AI 디지털 워커" },
+          { step: 4, title: "전사 범위", description: "3PL·유통물류 전환 · ASP/SaaS 확장 가능 아키텍처" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 8,
+    topics: [
+      {
         id: "market-context",
         title: "디지털 트렌드 — MSA · Cloud · Open Source · AI",
         category: "process",
@@ -151,7 +234,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 4,
+    slideId: 9,
     topics: [
       {
         id: "digital-worker",
@@ -167,7 +250,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 5,
+    slideId: 10,
     topics: [
       {
         id: "fass-identity",
@@ -194,7 +277,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 6,
+    slideId: 11,
     topics: [
       {
         id: "executive-kpi",
@@ -210,7 +293,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 7,
+    slideId: 12,
     topics: [
       {
         id: "progress-tracking",
@@ -226,7 +309,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 8,
+    slideId: 13,
     topics: [
       {
         id: "active-sprint-portfolio",
@@ -250,7 +333,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 9,
+    slideId: 14,
     topics: [
       {
         id: "peer-benchmark",
@@ -267,7 +350,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 10,
+    slideId: 15,
     topics: [
       {
         id: "ai-augmented-workflow",
@@ -285,7 +368,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
+    slideId: 16,
     topics: [
       {
         id: "project-schedule",
@@ -303,7 +386,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 12,
+    slideId: 17,
     topics: [
       {
         id: "ai-digital-worker",
@@ -320,7 +403,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 13,
+    slideId: 18,
     topics: [
       {
         id: "fass-daily-scrum",
@@ -368,7 +451,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 14,
+    slideId: 19,
     topics: [
       {
         id: "poc-cdc-validation",
@@ -385,7 +468,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 16,
+    slideId: 21,
     topics: [
       {
         id: "tech-stack-overview",
@@ -403,7 +486,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 17,
+    slideId: 22,
     topics: [
       {
         id: "api-first",
@@ -549,7 +632,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 18,
+    slideId: 23,
     topics: [
       {
         id: "cdc-sync",
@@ -591,7 +674,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 19,
+    slideId: 24,
     topics: [
       {
         id: "cicd-gitops",
@@ -615,7 +698,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 20,
+    slideId: 25,
     topics: [
       {
         id: "realgrid-ui",
@@ -677,7 +760,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 21,
+    slideId: 26,
     topics: [
       {
         id: "business-innovation-engine",
@@ -696,7 +779,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 22,
+    slideId: 27,
     topics: [
       {
         id: "finops",
@@ -726,7 +809,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 23,
+    slideId: 28,
     topics: [
       {
         id: "sonarqube-gate",
@@ -762,7 +845,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 24,
+    slideId: 29,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -780,7 +863,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 25,
+    slideId: 30,
     topics: [
       {
         id: "mm-tool-investment",
@@ -896,7 +979,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 26,
+    slideId: 31,
     topics: [
       {
         id: "framework-builder-role",
@@ -938,7 +1021,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 28,
+    slideId: 33,
     topics: [
       {
         id: "builder-talent-definition",
@@ -956,7 +1039,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 29,
+    slideId: 34,
     topics: [
       {
         id: "risk-management",
@@ -972,7 +1055,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 30,
+    slideId: 35,
     topics: [
       {
         id: "rollout-roadmap",
@@ -989,7 +1072,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 36,
     topics: [
       {
         id: "cdc-sync",
@@ -1044,7 +1127,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 32,
+    slideId: 37,
     topics: [
       {
         id: "msa-migration",
@@ -1086,7 +1169,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 33,
+    slideId: 38,
     topics: [
       {
         id: "completion-vision",

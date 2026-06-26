@@ -2,177 +2,199 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<title>PART 2 - 프로젝트 진행 경과 및 방향성</title>
+<title>차세대 FaSS 구축 프로젝트 범위</title>
 <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 <link rel="stylesheet" href="/report_fassmid/slides/shared/slide-fonts.css">
 <link rel="stylesheet" href="/report_fassmid/slides/shared/slide-motion.css">
 <style>
 :root {
-  --ppt-font-body: "Noto Sans KR", sans-serif;
-  --ppt-font-display: "Noto Sans KR", sans-serif;
-
-  --ppt-bg: #0A0E1A;
-  --ppt-bg-soft: #141B2D;
-  --ppt-surface: #1E2638;
-  --ppt-surface-2: #2A344A;
-  --ppt-border: #334155;
-  --ppt-text-1: #FFF;
-  --ppt-text-2: #94A3B8;
-  --ppt-text-3: #64748B;
-  --ppt-accent: #00F0FF;
-  --ppt-accent-2: #FACC15;
   --ppt-font: "Noto Sans KR", sans-serif;
+  --ppt-bg: #0A0E1A; --ppt-bg-soft: #141B2D; --ppt-surface: #1E2638;
+  --ppt-border: #334155; --ppt-text-1: #FFF; --ppt-text-2: #94A3B8; --ppt-text-3: #64748B;
+  --ppt-accent: #00F0FF; --ppt-accent-2: #FACC15; --ppt-good: #22C55E; --ppt-purple: #A78BFA; --ppt-orange: #FB923C;
+  --ppt-radius-md: 8px; --ppt-radius-lg: 16px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body{
-  width:100vw; height:100vh; overflow: hidden;
-  background-color:#0A0E1A; display: flex;
-  justify-content: center; align-items: center;
-;font-family:var(--ppt-font-body,var(--ppt-font))}
-.section-slide-root {
-  width: 960px; height: 720px;
-  background-color: var(--ppt-bg);
-  font-family: var(--ppt-font);
-  position: relative; display: flex;
-  flex-direction: column;
-  justify-content: center; align-items: flex-start;
-  padding: 0 80px;
-  overflow: hidden;
+body {
+  width: 100vw; height: 100vh; overflow: hidden; background: #0A0E1A;
+  display: flex; justify-content: center; align-items: center; font-family: var(--ppt-font);
 }
-.bg-grid-overlay {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+.slide {
+  width: 960px; height: 720px; background: var(--ppt-bg); color: var(--ppt-text-1);
+  display: flex; flex-direction: column; overflow: hidden; position: relative;
 }
-.bg-glow-circle {
-  position: absolute; right: -120px; top: 50%;
-  transform: translateY(-50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(250,204,21,0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+.slide::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 90% 15%, rgba(0,240,255,0.06) 0%, transparent 45%),
+              radial-gradient(ellipse at 10% 85%, rgba(34,197,94,0.05) 0%, transparent 40%);
 }
-.bg-left-bar {
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 6px;
-  background: linear-gradient(180deg, transparent 0%, var(--ppt-accent-2) 40%, var(--ppt-accent-2) 60%, transparent 100%);
+.title-r { flex-shrink: 0; padding: 22px 40px 6px; position: relative; z-index: 1; }
+.title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.bar { width: 4px; height: 32px; background: var(--ppt-accent); border-radius: 2px; }
+.badge {
+  font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px;
+  background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.35); color: var(--ppt-accent);
 }
-.section-part-number {
-  font-size: 120px; font-weight: 700;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(250,204,21,0.15);
-  position: absolute; right: 60px; bottom: 40px;
-  user-select: none;
+h1 { font-size: 26px; font-weight: 700; line-height: 1.25; margin: 0; }
+.sub { font-size: 14px; color: var(--ppt-text-2); margin-top: 6px; padding-left: 16px; line-height: 1.45; }
+.line { height: 1px; margin-top: 8px; background: linear-gradient(90deg, var(--ppt-accent), transparent); opacity: 0.35; }
+.body { flex: 1; min-height: 0; padding: 6px 32px 8px; display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+.scope-banner {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+  border-radius: var(--ppt-radius-lg); border: 1px solid rgba(250,204,21,0.35);
+  background: linear-gradient(90deg, rgba(250,204,21,0.1), rgba(0,240,255,0.06));
 }
-.section-part-label {
-  font-size: 14px; font-weight: 700;
-  color: var(--ppt-accent-2);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  display: flex; align-items: center; gap: 12px;
+.scope-banner i { font-size: 22px; color: var(--ppt-accent-2); flex-shrink: 0; }
+.scope-banner p { font-size: 14px; color: var(--ppt-text-2); line-height: 1.45; }
+.scope-banner strong { color: var(--ppt-text-1); }
+.grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: 8px; }
+.scope-card {
+  background: var(--ppt-bg-soft); border: 1px solid var(--ppt-border); border-radius: var(--ppt-radius-lg);
+  padding: 10px 12px; display: flex; flex-direction: column; gap: 5px; position: relative; overflow: hidden;
 }
-.section-part-label::after {
-  content: '';
-  display: block; width: 60px; height: 1px;
-  background: var(--ppt-accent-2); opacity: 0.5;
+.scope-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--cc, var(--ppt-accent)); }
+.card-head { display: flex; align-items: center; gap: 8px; }
+.card-icon {
+  width: 32px; height: 32px; border-radius: var(--ppt-radius-md); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 15px;
+  background: rgba(255,255,255,0.06); color: var(--cc, var(--ppt-accent));
 }
-.section-title-ko {
-  font-size:26px; font-weight: 700;
-  color: var(--ppt-text-1);
-  line-height: 1.2;
-  margin-bottom: 8px;
+.card-title { font-size: 14px; font-weight: 700; line-height: 1.25; }
+.card-desc { font-size: 12.5px; color: var(--ppt-text-2); line-height: 1.4; flex: 1; }
+.card-items { list-style: none; display: flex; flex-direction: column; gap: 3px; margin-top: 2px; }
+.card-items li { font-size: 11.5px; color: var(--ppt-text-3); padding-left: 10px; position: relative; line-height: 1.35; }
+.card-items li::before { content: '•'; position: absolute; left: 0; color: var(--cc, var(--ppt-accent)); }
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; flex-shrink: 0; }
+.pill {
+  font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px;
+  background: var(--ppt-surface); border: 1px solid var(--ppt-border); color: var(--ppt-text-2);
 }
-.section-title-en {
-  font-size: 18px; font-weight: 400;
-  color: var(--ppt-accent);
-  letter-spacing: 1px;
-  margin-bottom: 40px;
+.pill i { margin-right: 5px; color: var(--ppt-accent); }
+.footer {
+  flex-shrink: 0; margin: 0 32px 12px; padding: 9px 14px; border-radius: 0 10px 10px 0;
+  border-left: 3px solid var(--ppt-accent-2); background: rgba(250,204,21,0.05);
+  font-size: 13px; color: var(--ppt-text-2); line-height: 1.45; position: relative; z-index: 1;
 }
-.section-divider-line {
-  width: 80px; height: 3px;
-  background: linear-gradient(90deg, var(--ppt-accent-2), transparent);
-  margin-bottom: 36px;
-  border-radius: 2px;
-}
-.section-topics-list {
-  display: flex; flex-direction: column; gap: 14px;
-}
-.section-topic-item {
-  display: flex; align-items: center; gap: 14px;
-}
-.topic-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--ppt-accent-2); flex-shrink: 0;
-  box-shadow: 0 0 8px var(--ppt-accent-2);
-}
-.topic-text {
-  font-size: 17px; color: var(--ppt-text-2);
-  font-weight: 400; line-height: 1.4;
-}
-html { overflow: hidden;  margin:0; padding:0; }
-</style></head>
+.footer strong { color: var(--ppt-accent-2); }
+html { overflow: hidden; margin: 0; padding: 0; }
+</style>
+</head>
 <body>
-<div class="section-slide-root" data-motion="part" data-motion-tier="medium">
-  <div class="bg-grid-overlay"></div>
-  <div class="bg-glow-circle"></div>
-  <div class="bg-left-bar"></div>
-  <div class="section-part-number">02</div>
-  <div class="section-part-label">PART 02</div>
-  <div class="section-title-ko">프로젝트 진행 경과 및 방향성</div>
-  <div class="section-title-en">Project Progress &amp; Direction</div>
-  <div class="section-divider-line"></div>
-  <div class="section-topics-list">
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">스프린트 운영현황</span>
+<div class="slide" data-motion="cards" data-motion-tier="medium">
+  <div class="title-r">
+    <div class="title-row">
+      <div class="bar"></div>
+      <span class="badge">PROJECT SCOPE</span>
+      <h1>차세대 FaSS 구축 프로젝트 범위</h1>
     </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">타사 프로젝트 비교</span>
+    <p class="sub">프론트엔드(웹)부터 백엔드(WAS)·DB, 보안·인프라·AI까지 — 전사 물류·유통 운영을 지탱하는 <strong style="color:var(--ppt-text-1)">대형 엔터프라이즈 플랫폼</strong> 전면 재구축입니다.</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="body">
+    <div class="scope-banner">
+      <i class="fas fa-layer-group"></i>
+      <p><strong>단순 화면 개편이 아닙니다.</strong> 수주·발주·정산·물류·유통 전 영역의 업무 시스템을 차세대 웹 표준·AI 협업 체제로 <strong>일괄 전환</strong>하는 전략 프로젝트입니다.</p>
     </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">AI-Augmented 개발 워크플로우</span>
+
+    <div class="grid">
+      <div class="scope-card" style="--cc:var(--ppt-accent)">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-desktop"></i></div>
+          <div class="card-title">프론트엔드 (웹)</div>
+        </div>
+        <p class="card-desc">사용자 화면·업무 UX 전면 재설계</p>
+        <ul class="card-items">
+          <li>Next.js · React 19 기반 웹 UI</li>
+          <li>RealGrid · 공통 컴포넌트 라이브러리</li>
+          <li>UI/UX 스토리보드 · 접근성 표준</li>
+        </ul>
+      </div>
+      <div class="scope-card" style="--cc:var(--ppt-accent-2)">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-cogs"></i></div>
+          <div class="card-title">백엔드 (WAS)</div>
+        </div>
+        <p class="card-desc">업무 로직·API·도메인 모듈 구축</p>
+        <ul class="card-items">
+          <li>수주·발주·정산 핵심 모듈</li>
+          <li>API-First · 모듈러 모놀리스</li>
+          <li>외부 연동·멀티 컴퍼니 지원</li>
+        </ul>
+      </div>
+      <div class="scope-card" style="--cc:var(--ppt-good)">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-database"></i></div>
+          <div class="card-title">데이터베이스 (DB)</div>
+        </div>
+        <p class="card-desc">데이터 모델·마이그레이션·동기화</p>
+        <ul class="card-items">
+          <li>Oracle → PostgreSQL 전환</li>
+          <li>CDC 무중단 데이터 동기화</li>
+          <li>BI·리포팅 데이터 파이프라인</li>
+        </ul>
+      </div>
+      <div class="scope-card" style="--cc:var(--ppt-purple)">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="card-title">보안 · 거버넌스</div>
+        </div>
+        <p class="card-desc">인증·권한·품질·컴플라이언스</p>
+        <ul class="card-items">
+          <li>SSO · RBAC 권한 체계</li>
+          <li>데이터 보안 · SCA(OSS 보안)</li>
+          <li>Zero-Defect Quality Gate</li>
+        </ul>
+      </div>
+      <div class="scope-card" style="--cc:var(--ppt-orange)">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-cloud"></i></div>
+          <div class="card-title">인프라 · DevOps</div>
+        </div>
+        <p class="card-desc">배포·운영·확장 기반 마련</p>
+        <ul class="card-items">
+          <li>Docker · GitLab CI/CD · GitOps</li>
+          <li>Cloud-Ready · FinOps 대비</li>
+          <li>Kubernetes · MSA 중장기 로드맵</li>
+        </ul>
+      </div>
+      <div class="scope-card" style="--cc:#38BDF8">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-robot"></i></div>
+          <div class="card-title">AI · 생산성 혁신</div>
+        </div>
+        <p class="card-desc">디지털 워커·자동화로 TFT 추진력 확대</p>
+        <ul class="card-items">
+          <li>AI 디지털 워커 · Claude Code</li>
+          <li>애자일 워룸 · 스프린트 운영</li>
+          <li>사전 PoC · 프로토타입 검증</li>
+        </ul>
+      </div>
     </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">프로젝트 진행경과 마일스톤</span>
+
+    <div class="pill-row">
+      <span class="pill"><i class="fas fa-check"></i>19개 Mega-Sprint</span>
+      <span class="pill"><i class="fas fa-check"></i>1.5년 · 핵심 7명 + AI 8</span>
+      <span class="pill"><i class="fas fa-check"></i>3PL·유통물류 전사 전환</span>
+      <span class="pill"><i class="fas fa-check"></i>ASP/SaaS 확장 가능 아키텍처</span>
     </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">최적화 방안 1. AI 디지털 워커 활용</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">최적화 방안 2. 애자일 워룸 운영</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">최적화 방안 3. 사전 POC 운영</span>
-    </div>
+  </div>
+
+  <div class="footer">
+    <strong>프로젝트 성격:</strong> 프론트엔드~백엔드 핵심에 더해 보안·인프라·AI·운영 체계까지 포함한 <strong>대형 통합 플랫폼 구축</strong> — 이후 PART에서 각 영역을 상세히 다룹니다.
   </div>
 </div>
 <script>
 (function(){
   function applyScale(){
-    var el=document.querySelector('body>div');
-    if(!el)return;
-    var sw=window.innerWidth,sh=window.innerHeight;
-    var scale=Math.min(sw/960,sh/720);
-    el.style.transform='scale('+scale+')';
-    el.style.transformOrigin='top left';
-    el.style.position='absolute';
-    el.style.left=Math.round((sw-960*scale)/2)+'px';
+    var el=document.querySelector('.slide'); if(!el)return;
+    var sw=window.innerWidth,sh=window.innerHeight,scale=Math.min(sw/960,sh/720);
+    el.style.transform='scale('+scale+')'; el.style.transformOrigin='top left';
+    el.style.position='absolute'; el.style.left=Math.round((sw-960*scale)/2)+'px';
     el.style.top=Math.round((sh-720*scale)/2)+'px';
   }
-  applyScale();
-  window.addEventListener('resize',applyScale);
+  applyScale(); window.addEventListener('resize',applyScale);
 })();
 </script>
 </body>
