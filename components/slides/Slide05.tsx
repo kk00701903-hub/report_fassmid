@@ -54,7 +54,7 @@ const SLIDE_HTML = `<div class="slide">
 
 export default function Slide05() {
   return (
-    <SlideCanvas motion="cards" motionTier="medium">
+    <SlideCanvas slideId={5} motion="cards" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
     </SlideCanvas>
   );

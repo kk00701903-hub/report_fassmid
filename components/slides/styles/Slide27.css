@@ -1,125 +1,44 @@
-.fass-slide-root {
-    width: 960px;
-    height: 720px;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--ppt-bg)
-    }
-/* Title Region — match slide 19 */
-.title-r{flex-shrink:0;padding:22px 36px 6px;position:relative;z-index:1}
-.title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.bar{width:4px;height:30px;background:var(--ppt-accent);border-radius:2px}
-.badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--ppt-accent-2)}
-h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
-.sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px;line-height:1.4}
-.line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
-/* Content Layout */
-.fass-smart-logistics-content-wrapper {
-    flex: 1;
-    padding: 12px 40px 20px 40px;
-    display: flex;
-    gap: 20px 28px;
-    align-items: stretch
-    }
-/* Left Column: Concept */
-.fass-smart-logistics-left-concept-block {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px
-    }
-.fass-smart-logistics-paradigm-text-box {
-    display: flex;
-    flex-direction: column;
-    gap: 12px
-    }
-.fass-smart-logistics-concept-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ppt-accent);
-    text-transform: uppercase;
-    letter-spacing: 1px
-    }
-.fass-smart-logistics-concept-description {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--ppt-text-1)
-    }
-.fass-smart-logistics-concept-highlight {
-    color: var(--ppt-accent-2)
-    }
-.fass-smart-logistics-visual-image-box {
-    height: 200px;
-    border-radius: var(--ppt-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--ppt-shadow-strong);
-    border: 1px solid var(--ppt-border)
-    }
-.fass-smart-logistics-visual-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover
-    }
-/* Right Column: Action */
-.fass-smart-logistics-right-action-block {
-    flex: 1.2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 16px 20px
-    }
-.fass-smart-logistics-action-item-card {
-    background: var(--ppt-surface);
-    padding: 14px 18px;
-    border-radius: var(--ppt-radius-lg);
-    border: 1px solid var(--ppt-border);
-    display: flex;
-    flex-direction: column;
-    gap: 13px 16px;
-    flex: 1
-    }
-.fass-smart-logistics-card-header {
-    display: flex;
-    align-items: center;
-    gap: 13px 16px
-    }
-.fass-smart-logistics-card-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--ppt-bg-soft);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--ppt-accent);
-    border: 1px solid var(--ppt-accent)
-    }
-.fass-smart-logistics-card-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.fass-smart-logistics-card-body {
-    font-size: 15px;
-    line-height: 1.45;
-    color: var(--ppt-text-2)
-    }
-.fass-smart-logistics-impact-badge {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    gap: 6px 8px;
-    padding: 6px 16px;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid var(--ppt-good);
-    border-radius: var(--ppt-radius-sm);
-    width: fit-content
-    }
-.fass-smart-logistics-impact-text {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--ppt-good)
-    }
+.slide-s27 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.slide-s27 .slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse at 0% 0%,rgba(0,240,255,.08) 0%,transparent 50%),
+  radial-gradient(ellipse at 100% 100%,rgba(250,204,21,.07) 0%,transparent 45%)}
+.slide-s27 .title-r{flex-shrink:0;padding:22px 36px 6px;position:relative;z-index:1}
+.slide-s27 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.slide-s27 .bar{width:4px;height:30px;background:var(--ppt-accent);border-radius:2px}
+.slide-s27 .badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--ppt-accent-2)}
+.slide-s27 h1.title-main{font-size:26px;font-weight:700;line-height:1.3}
+.slide-s27 .sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
+.slide-s27 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.slide-s27 .body{flex:1;min-height:0;padding:6px 32px 10px;display:grid;grid-template-columns:200px 1fr;gap:14px;position:relative;z-index:1}
+.slide-s27 .engine-panel{
+  background:linear-gradient(160deg,rgba(0,240,255,.12),rgba(30,38,56,.95));
+  border:1px solid rgba(0,240,255,.3);border-radius:16px;padding:18px 16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;
+  box-shadow:0 0 40px rgba(0,240,255,.08);
+}
+.slide-s27 .engine-icon{width:64px;height:64px;border-radius:16px;background:rgba(0,240,255,.15);border:1px solid rgba(0,240,255,.35);
+  display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--ppt-accent);
+  box-shadow:0 0 24px rgba(0,240,255,.2)}
+.slide-s27 .engine-label{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--ppt-accent);text-transform:uppercase}
+.slide-s27 .engine-title{font-size:16px;font-weight:700;line-height:1.4;color:var(--ppt-text-1)}
+.slide-s27 .engine-tags{display:flex;flex-direction:column;gap:5px;width:100%}
+.slide-s27 .etag{font-size:14px;font-weight:600;padding:5px 8px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2)}
+.slide-s27 .etag i{margin-right:5px;color:var(--ppt-accent-2);font-size:14px}
+.slide-s27 .strategies{display:flex;flex-direction:column;gap:7px;min-height:0}
+.slide-s27 .strat{
+  flex:1;min-height:0;display:flex;gap:10px;padding:9px 12px;border-radius:12px;
+  background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-left:3px solid var(--c);
+  position:relative;overflow:hidden;
+}
+.slide-s27 .strat::after{content:'';position:absolute;right:-20px;top:-20px;width:80px;height:80px;border-radius:50%;background:var(--c);opacity:.04}
+.slide-s27 .strat-num{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--c)}
+.slide-s27 .strat-icon{flex-shrink:0;width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--c);margin-top:1px}
+.slide-s27 .strat-body{flex:1;min-width:0}
+.slide-s27 .strat-title{font-size:14px;font-weight:700;color:var(--ppt-text-1);line-height:1.35;margin-bottom:4px}
+.slide-s27 .strat-desc{font-size:12.5px;color:var(--ppt-text-2);line-height:1.48}
+.slide-s27 .strat.s1{--c:var(--c1)} .slide-s27 .strat.s2{--c:var(--c2)} .slide-s27 .strat.s3{--c:var(--c3)} .slide-s27 .strat.s4{--c:var(--c4)} .slide-s27 .strat.s5{--c:var(--c5)}
+.slide-s27 .footer{flex-shrink:0;margin:0 32px 12px;padding:8px 14px;border-radius:0 10px 10px 0;border-left:3px solid var(--ppt-accent-2);
+  background:rgba(250,204,21,.05);font-size:14px;color:var(--ppt-text-2);line-height:1.48;position:relative;z-index:1}
+.slide-s27 .footer strong{color:var(--ppt-accent-2)}

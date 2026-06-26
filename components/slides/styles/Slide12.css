@@ -1,4 +1,4 @@
-.section-slide-root {
+.slide-s12 .section-slide-root{
   width: 960px; height: 720px;
   background-color: var(--ppt-bg);
   font-family: var(--ppt-font);
@@ -8,7 +8,7 @@
   padding: 0 80px;
   overflow: hidden;
 }
-.bg-grid-overlay {
+.slide-s12 .bg-grid-overlay{
   position: absolute; inset: 0;
   background-image:
     linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
@@ -16,7 +16,7 @@
   background-size: 40px 40px;
   pointer-events: none;
 }
-.bg-glow-circle {
+.slide-s12 .bg-glow-circle{
   position: absolute; right: -120px; top: 50%;
   transform: translateY(-50%);
   width: 500px; height: 500px;
@@ -24,12 +24,12 @@
   border-radius: 50%;
   pointer-events: none;
 }
-.bg-left-bar {
+.slide-s12 .bg-left-bar{
   position: absolute; left: 0; top: 0; bottom: 0;
   width: 6px;
   background: linear-gradient(180deg, transparent 0%, var(--ppt-accent-2) 40%, var(--ppt-accent-2) 60%, transparent 100%);
 }
-.section-part-number {
+.slide-s12 .section-part-number{
   font-size: 120px; font-weight: 700;
   line-height: 1;
   color: transparent;
@@ -37,7 +37,7 @@
   position: absolute; right: 60px; bottom: 40px;
   user-select: none;
 }
-.section-part-label {
+.slide-s12 .section-part-label{
   font-size: 14px; font-weight: 700;
   color: var(--ppt-accent-2);
   letter-spacing: 4px;
@@ -45,41 +45,41 @@
   margin-bottom: 16px;
   display: flex; align-items: center; gap: 12px;
 }
-.section-part-label::after {
+.slide-s12 .section-part-label::after{
   content: '';
   display: block; width: 60px; height: 1px;
   background: var(--ppt-accent-2); opacity: 0.5;
 }
-.section-title-ko {
+.slide-s12 .section-title-ko{
   font-size:26px; font-weight: 700;
   color: var(--ppt-text-1);
   line-height: 1.2;
   margin-bottom: 8px;
 }
-.section-title-en {
+.slide-s12 .section-title-en{
   font-size: 18px; font-weight: 400;
   color: var(--ppt-accent);
   letter-spacing: 1px;
   margin-bottom: 40px;
 }
-.section-divider-line {
+.slide-s12 .section-divider-line{
   width: 80px; height: 3px;
   background: linear-gradient(90deg, var(--ppt-accent-2), transparent);
   margin-bottom: 36px;
   border-radius: 2px;
 }
-.section-topics-list {
+.slide-s12 .section-topics-list{
   display: flex; flex-direction: column; gap: 14px;
 }
-.section-topic-item {
+.slide-s12 .section-topic-item{
   display: flex; align-items: center; gap: 14px;
 }
-.topic-dot {
+.slide-s12 .topic-dot{
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--ppt-accent-2); flex-shrink: 0;
   box-shadow: 0 0 8px var(--ppt-accent-2);
 }
-.topic-text {
+.slide-s12 .topic-text{
   font-size: 17px; color: var(--ppt-text-2);
   font-weight: 400; line-height: 1.4;
 }

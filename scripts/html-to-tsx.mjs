@@ -5,6 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { scopeSlideCss } from "./scope-slide-css.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -75,7 +76,7 @@ function convertSlide(id) {
   }
 
   const html = fs.readFileSync(htmlPath, "utf8");
-  const css = extractStyles(html);
+  const css = scopeSlideCss(extractStyles(html), id);
   const bodyHtml = prepareBodyHtml(extractBody(html));
   const { motion, tier } = extractMotion(bodyHtml + html);
 
@@ -93,7 +94,7 @@ const SLIDE_HTML = \`${escapeTemplateLiteral(bodyHtml)}\`;
 
 export default function ${name}() {
   return (
-    <SlideCanvas motion="${motion}" motionTier="${tier}">
+    <SlideCanvas slideId={${id}} motion="${motion}" motionTier="${tier}">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
     </SlideCanvas>
   );

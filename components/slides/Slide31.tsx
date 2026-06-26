@@ -9,78 +9,74 @@ const SLIDE_HTML = `<div class="slide-root-container" style="overflow: hidden;">
 <div class="title-row">
 <div class="bar"></div>
 <span class="badge">BUSINESS INNOVATION</span>
-<h1 class="title-main">비즈니스 혁신6: FinOps 관점에서의 클라우드 전환 대비</h1>
+<h1 class="title-main">비즈니스 혁신5: Zero-Defect 코드 품질 통제 체계</h1>
 </div>
-<p class="sub">유휴 자원 자동 셧다운 등 비용 최적화 습관을 자산화하여, ASP 공급 시 수익성을 극대화합니다.</p>
+<p class="sub">AI 가속 CI/CD + SonarQube 정적 분석 — 무결점 코드 품질 통제 체계</p>
 <div class="line"></div>
 </div>
-<!-- Main Content -->
-<div class="finops-main-content-layout">
-<!-- Column 1: Strategy -->
-<div class="finops-column-item-wrapper">
-<div class="finops-content-card-box">
-<div class="finops-card-header-group">
-<div class="finops-card-icon-circle">
-<i class="fas fa-bullseye"></i>
+<!-- Content Area -->
+<div class="quality-content-main-wrapper">
+<!-- Left Column: Pipeline -->
+<div class="quality-left-pipeline-column">
+<div class="quality-pipeline-step-card">
+<div class="quality-step-header-group">
+<div class="quality-step-icon-box">
+<i class="fa-solid fa-code-merge"></i>
 </div>
-<h2 class="finops-card-title-text">미래 ASP 수익성 기반</h2>
-<div class="finops-card-divider-line"></div>
+<div class="quality-step-title-text">AI 가속화 기반 CI/CD 파이프라인 연동</div>
 </div>
-<p class="finops-card-body-text">
-            개발 단계부터 비용 효율적인 인프라 운영 습관을 내재화하여 향후 솔루션 패키지화 시 가격 경쟁력을 확보합니다.
-          </p>
-<ul class="finops-list-container-group">
-<li class="finops-list-item-row">인프라 비용의 변동비화 (FinOps)</li>
-<li class="finops-list-item-row">리소스 사용량 실시간 가시성 확보</li>
-<li class="finops-list-item-row">수익 창출 부서(Profit Center) 전환 대비</li>
-</ul>
-<div class="finops-highlight-badge-tag">비용 관리 체계 자산화</div>
+<div class="quality-step-description-list">
+<div class="quality-step-description-item">AI가 생성한 대량의 코드를 SonarQube 정적 분석 도구로 즉시 정밀 검사</div>
+<div class="quality-step-description-item">개발자의 코드 병합(Merge) 요청 시 보안 취약점 및 구조적 결함 자동 탐지</div>
+<div class="quality-step-description-item">사람의 눈으로 놓치기 쉬운 런타임 잠재 에러를 사전에 100% 필터링</div>
 </div>
 </div>
-<!-- Column 2: Action -->
-<div class="finops-column-item-wrapper">
-<div class="finops-content-card-box">
-<div class="finops-card-header-group">
-<div class="finops-card-icon-circle">
-<i class="fas fa-toggle-off"></i>
+<div class="quality-pipeline-step-card">
+<div class="quality-step-header-group">
+<div class="quality-step-icon-box">
+<i class="fa-solid fa-magnifying-glass-chart"></i>
 </div>
-<h2 class="finops-card-title-text">인프라 최적화 실행</h2>
-<div class="finops-card-divider-line"></div>
+<div class="quality-step-title-text">실시간 품질 모니터링 및 시각화</div>
 </div>
-<div class="finops-policy-visual-item">
-<span class="finops-policy-time-label">야간/주말</span>
-<span class="finops-policy-desc-text">Cloud Run 등 테스트 서버 자동 셧다운(Shut-down) 강제 적용</span>
-</div>
-<div class="finops-policy-visual-item">
-<span class="finops-policy-time-label">상시 모니터링</span>
-<span class="finops-policy-desc-text">유휴 인스턴스 및 미사용 스토리지 자동 탐지 및 즉각 삭제</span>
-</div>
-<ul class="finops-list-container-group">
-<li class="finops-list-item-row">불필요한 클라우드 낭비 요소 원천 차단</li>
-<li class="finops-list-item-row">자동화 스크립트를 통한 운영 리소스 최소화</li>
-</ul>
-<div class="finops-highlight-badge-tag" style="background-color: rgba(0, 240, 255, 0.1);border-color: var(--ppt-accent);color: var(--ppt-accent);">자동화 기반 비용 절감</div>
+<div class="quality-step-description-list">
+<div class="quality-step-description-item">코드 복잡도(Complexity) 및 중복도(Duplication) 실시간 지표화</div>
+<div class="quality-step-description-item">기술 부채(Technical Debt) 발생 구간을 추적하여 리팩토링 우선순위 자동 할당</div>
+<div class="quality-step-description-item">워룸(War-Room) 내 대시보드를 통해 팀 전체의 코드 건강도 상시 공유</div>
 </div>
 </div>
-<!-- Column 3: Impact -->
-<div class="finops-column-item-wrapper">
-<div class="finops-content-card-box">
-<div class="finops-card-header-group">
-<div class="finops-card-icon-circle">
-<i class="fas fa-coins"></i>
 </div>
-<h2 class="finops-card-title-text">경영적 기대 효과</h2>
-<div class="finops-card-divider-line"></div>
+<!-- Right Column: Quality Gates -->
+<div class="quality-right-gate-column">
+<div class="quality-gate-summary-container">
+<div class="quality-gate-title-badge">Pass/Fail Standard</div>
+<div class="quality-gate-heading-text">배포 자동 차단 품질 게이트 (Quality Gate)</div>
+<div class="quality-gate-metrics-grid">
+<div class="quality-metric-item-box">
+<div class="quality-metric-label-group">
+<span class="quality-metric-name-text">Critical &amp; Blocker Bugs</span>
+<span class="quality-metric-value-text">0 Items</span>
 </div>
-<p class="finops-card-body-text">
-            절감된 인프라 유지 비용은 그대로 회사의 이익으로 직결되며, 외부 고객사 공급 시 강력한 운영 노하우로 작용합니다.
-          </p>
-<ul class="finops-list-container-group">
-<li class="finops-list-item-row">SaaS/ASP 서비스 마진율 극대화</li>
-<li class="finops-list-item-row">오픈 소스 DB 전환과 결합된 시너지</li>
-<li class="finops-list-item-row">연간 수억 원 단위의 클라우드 비용 방어</li>
-</ul>
-<div class="finops-highlight-badge-tag">핵심 운영 노하우 자산화</div>
+<span class="quality-gate-status-indicator status-strict">Strict Block</span>
+</div>
+<div class="quality-metric-item-box safe">
+<div class="quality-metric-label-group">
+<span class="quality-metric-name-text">Unit Test Coverage</span>
+<span class="quality-metric-value-text">Min 80% Over</span>
+</div>
+<span class="quality-gate-status-indicator status-standard">Mandatory</span>
+</div>
+<div class="quality-metric-item-box">
+<div class="quality-metric-label-group">
+<span class="quality-metric-name-text">Security Vulnerabilities</span>
+<span class="quality-metric-value-text">Zero Tolerance</span>
+</div>
+<span class="quality-gate-status-indicator status-strict">Strict Block</span>
+</div>
+</div>
+<div class="quality-impact-footer-note">
+<i class="fa-solid fa-circle-check"></i>
+<span>품질 기준 미달 시 운영 환경 배포 원천 차단으로 무결점 보장</span>
+</div>
 </div>
 </div>
 </div>
@@ -88,7 +84,7 @@ const SLIDE_HTML = `<div class="slide-root-container" style="overflow: hidden;">
 
 export default function Slide31() {
   return (
-    <SlideCanvas motion="innovation" motionTier="medium">
+    <SlideCanvas slideId={31} motion="innovation" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
     </SlideCanvas>
   );

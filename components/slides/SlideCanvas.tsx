@@ -19,6 +19,7 @@ export type SlideMotionType =
 export type SlideMotionTier = "medium" | "subtle";
 
 export type SlideCanvasProps = {
+  slideId?: number;
   motion?: SlideMotionType;
   motionTier?: SlideMotionTier;
   className?: string;
@@ -26,14 +27,21 @@ export type SlideCanvasProps = {
   children: ReactNode;
 };
 
+function getScopeClass(slideId?: number): string | undefined {
+  if (!slideId || slideId < 1) return undefined;
+  return `slide-s${String(slideId).padStart(2, "0")}`;
+}
+
 const SlideCanvas = forwardRef<HTMLDivElement, SlideCanvasProps>(function SlideCanvas(
-  { motion, motionTier = "medium", className, style, children },
+  { slideId, motion, motionTier = "medium", className, style, children },
   ref,
 ) {
+  const scopeClass = getScopeClass(slideId);
+
   return (
     <div
       ref={ref}
-      className={[SLIDE_CANVAS_CLASS, className].filter(Boolean).join(" ")}
+      className={[SLIDE_CANVAS_CLASS, scopeClass, className].filter(Boolean).join(" ")}
       data-motion={motion}
       data-motion-tier={motionTier}
       style={{

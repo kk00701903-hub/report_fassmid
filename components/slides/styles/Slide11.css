@@ -1,4 +1,4 @@
-.fass-summary-slide-root {
+.slide-s11 .fass-summary-slide-root{
     width: 960px;
     height: 720px;
     background-color: var(--ppt-bg);
@@ -8,40 +8,40 @@
     display: flex;
     flex-direction: column
     }
-/* Non-Cover-Page Title Region */
-.title-region-container {
+
+.slide-s11 .title-region-container{
     padding: 28px 40px 8px 40px;
     display: flex;
     flex-direction: column;
     gap: 6px
     }
-.title-region-header {
+.slide-s11 .title-region-header{
     display: flex;
     align-items: center;
     gap: 12px
     }
-.title-region-bar {
+.slide-s11 .title-region-bar{
     width: 4px;
     height: 32px;
     background: var(--ppt-accent);
     border-radius: 2px
     }
-.title-region-text {
+.slide-s11 .title-region-text{
     font-family: var(--ppt-font-display);
     font-size: 32px;
     font-weight: 700;
     color: var(--ppt-text-1);
     margin: 0
     }
-.title-region-line {
+.slide-s11 .title-region-line{
     height: 1px;
     width: 100%;
     background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
     opacity: 0.3;
     margin-top: 8px
     }
-/* Main Content */
-.summary-content-wrapper {
+
+.slide-s11 .summary-content-wrapper{
     flex: 1;
     min-height: 0;
     padding: 8px 36px 20px 36px;
@@ -49,14 +49,14 @@
     flex-direction: column;
     gap: 0
     }
-.summary-grid-container {
+.slide-s11 .summary-grid-container{
     display: flex;
     align-items: stretch;
     gap: 16px;
     flex: 1;
     min-height: 0
     }
-.summary-column-item {
+.slide-s11 .summary-column-item{
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -68,13 +68,13 @@
     box-shadow: var(--ppt-shadow-soft);
     min-height: 0
     }
-.summary-column-header {
+.slide-s11 .summary-column-header{
     display: flex;
     align-items: center;
     gap: 12px;
     flex-shrink: 0
     }
-.summary-column-icon {
+.slide-s11 .summary-column-icon{
     font-size: 22px;
     color: var(--ppt-accent);
     width: 44px;
@@ -86,12 +86,12 @@
     border-radius: var(--ppt-radius-md);
     flex-shrink: 0
     }
-.summary-column-title {
+.slide-s11 .summary-column-title{
     font-size: 20px;
     font-weight: 600;
     color: var(--ppt-text-1)
     }
-.summary-list-container {
+.slide-s11 .summary-list-container{
     list-style: none;
     padding: 0;
     margin: 0;
@@ -101,7 +101,7 @@
     flex: 1;
     min-height: 0
     }
-.summary-list-item {
+.slide-s11 .summary-list-item{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +112,7 @@
     border-radius: var(--ppt-radius-md);
     border: 1px solid rgba(51, 65, 85, 0.6)
     }
-.summary-item-tag {
+.slide-s11 .summary-item-tag{
     display: inline-block;
     padding: 3px 10px;
     font-size:13px;
@@ -122,31 +122,31 @@
     text-transform: uppercase;
     align-self: flex-start
     }
-.tag-completed {
+.slide-s11 .tag-completed{
     background: var(--ppt-good);
     color: #000
     }
-.tag-ongoing {
+.slide-s11 .tag-ongoing{
     background: var(--ppt-accent);
     color: #000
     }
-.tag-planned {
+.slide-s11 .tag-planned{
     background: var(--ppt-accent-2);
     color: #000
     }
-.summary-item-text {
+.slide-s11 .summary-item-text{
     font-size: 16px;
     line-height: 1.45;
     font-weight: 600;
     color: var(--ppt-text-1)
     }
-.summary-item-subtext {
+.slide-s11 .summary-item-subtext{
     font-size: 13px;
     line-height: 1.5;
     color: var(--ppt-text-2);
     margin-top: 5px
     }
-.summary-highlight-box {
+.slide-s11 .summary-highlight-box{
     margin-top: auto;
     flex-shrink: 0;
     padding: 12px 14px;
@@ -154,7 +154,7 @@
     background: rgba(250, 204, 21, 0.06);
     border-radius: 0 var(--ppt-radius-sm) var(--ppt-radius-sm) 0
     }
-.summary-highlight-text {
+.slide-s11 .summary-highlight-text{
     font-size: 15px;
     font-weight: 600;
     line-height: 1.45;

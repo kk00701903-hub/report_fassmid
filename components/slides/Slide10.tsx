@@ -100,7 +100,7 @@ const SLIDE_HTML = `<div class="fass-identity-slide-root" style="overflow: hidde
 
 export default function Slide10() {
   return (
-    <SlideCanvas motion="cards" motionTier="medium">
+    <SlideCanvas slideId={10} motion="cards" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
     </SlideCanvas>
   );

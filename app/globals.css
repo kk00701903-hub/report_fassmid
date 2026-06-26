@@ -2,6 +2,7 @@
 @import "../styles/slides/tokens.css";
 @import "../styles/slides/slide-fonts.css";
 @import "../styles/slides/slide-motion.css";
+@import "../styles/slides/slide-base.css";
 
 :root {
   --bg: #0a0e1a;
@@ -2255,6 +2256,13 @@ button {
   border: none;
   transform-origin: top left;
   background: transparent;
+}
+
+.projector-viewport .slide-stage__canvas {
+  display: block;
+  transform-origin: top left;
+  background: transparent;
+  overflow: hidden;
 }
 
 .projector-viewport .slide-viewer {

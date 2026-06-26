@@ -1,393 +1,71 @@
-.fass-slide-root {
-    width: 960px;
-    height: 720px;
-    background-color: var(--ppt-bg);
-    color: var(--ppt-text-1);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--ppt-border)
-    }
-/* Title Region */
-.title-region-wrapper {
-    padding: 24px 40px 8px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-    }
-.title-region-header {
-    display: flex;
-    align-items: center;
-    gap: 12px
-    }
-.title-region-bar {
-    width: 4px;
-    height: 32px;
-    background: var(--ppt-accent);
-    border-radius: 2px
-    }
-.title-region-text {
-    font-family: var(--ppt-font-display);
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    margin: 0
-    }
-.title-region-line {
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
-    opacity: 0.3;
-    margin-top: 8px
-    }
-/* Content Layout */
-.fass-architecture-main-container {
-    flex: 1;
-    min-height: 0;
-    padding: 4px 40px 10px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-    }
-.fass-architecture-columns-wrapper {
-    display: flex;
-    align-items: stretch;
-    gap: 14px;
-    flex: 1;
-    min-height: 0
-    }
-/* Left Column: Visual Concept */
-.architecture-left-visual-column {
-    flex: 0 0 42%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-width: 0
-    }
-.architecture-visual-card-item {
-    flex: 1;
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-lg);
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    box-shadow: var(--ppt-shadow-soft);
-    min-height: 0
-    }
-.architecture-visual-label-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center
-    }
-.architecture-visual-badge-cyan {
-    background: rgba(0, 240, 255, 0.1);
-    color: var(--ppt-accent);
-    padding: 3px 12px;
-    border-radius: var(--ppt-radius-sm);
-    font-size: 14px;
-    font-weight: 600;
-    border: 1px solid rgba(0, 240, 255, 0.3)
-    }
-.architecture-diagram-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: var(--ppt-radius-md);
-    border: 1px dashed var(--ppt-border);
-    padding: 10px 14px
-    }
-.architecture-physical-server-box {
-    width: 90%;
-    padding: 13px 16px;
-    border: 2px solid var(--ppt-accent);
-    border-radius: var(--ppt-radius-md);
-    display: flex;
-    flex-direction: column;
-    gap: 10px 12px;
-    background: rgba(0, 240, 255, 0.05)
-    }
-.architecture-server-title-text {
-    font-size: 14px;
-    color: var(--ppt-accent);
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px
-    }
-.architecture-module-grid-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px 12px
-    }
-.architecture-module-unit-box {
-    background: var(--ppt-surface);
-    border: 1px solid var(--ppt-border);
-    padding: 6px 6px;
-    border-radius: var(--ppt-radius-sm);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 5px 6px
-    }
-.architecture-module-icon-element {
-    color: var(--ppt-accent);
-    font-size: 18px
-    }
-.architecture-module-name-text {
-    font-size:13px;
-    font-weight: 600;
-    color: var(--ppt-text-1)
-    }
-.architecture-mini-strategy {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 4px;
-    padding-top: 8px;
-    border-top: 1px dashed var(--ppt-border)
-    }
-.architecture-mini-strategy-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-    font-size:13px;
-    color: var(--ppt-text-2);
-    line-height: 1.35
-    }
-.architecture-mini-strategy-item i {
-    color: var(--ppt-accent);
-    font-size:13px;
-    margin-top: 2px;
-    flex-shrink: 0
-    }
-/* Right Column: Architecture Comparison */
-.architecture-right-content-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    min-width: 0;
-    min-height: 0
-    }
-.arch-compare-panel-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--ppt-accent-2);
-    letter-spacing: 0.5px;
-    flex-shrink: 0
-    }
-.arch-compare-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    min-height: 0
-    }
-.arch-compare-card {
-    flex: 1;
-    background: var(--ppt-bg-soft);
-    border: 1px solid var(--ppt-border);
-    border-radius: var(--ppt-radius-md);
-    padding: 8px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-height: 0
-    }
-.arch-compare-card--highlight {
-    position: relative;
-    flex: 1.14;
-    border: 2px solid rgba(0, 240, 255, 0.55);
-    border-left: 4px solid var(--ppt-accent);
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.14) 0%, rgba(0, 240, 255, 0.05) 45%, var(--ppt-bg-soft) 100%);
-    box-shadow: 0 0 22px rgba(0, 240, 255, 0.16), inset 0 0 0 1px rgba(0, 240, 255, 0.12);
-    animation: archCompareSpotlight 4.5s ease-in-out infinite;
-    z-index: 1;
-    padding: 9px 11px
-    }
-.arch-compare-card--highlight::after {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: var(--ppt-radius-md);
-    pointer-events: none;
-    z-index: 0;
-    background: linear-gradient(120deg, transparent 30%, rgba(0, 240, 255, 0.14) 50%, transparent 70%);
-    background-size: 200% 100%;
-    animation: archCompareShine 5s linear infinite
-    }
-.arch-compare-card--highlight > * {
-    position: relative;
-    z-index: 1
-    }
-.arch-compare-list .arch-compare-card:not(.arch-compare-card--highlight) {
-    opacity: 0.84
-    }
-.arch-compare-card--msa {
-    border-color: rgba(139, 92, 246, 0.35)
-    }
-.arch-compare-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0
-    }
-.arch-compare-num {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--ppt-surface-2);
-    border: 1px solid var(--ppt-border);
-    font-size:13px;
-    font-weight: 700;
-    color: var(--ppt-text-2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0
-    }
-.arch-compare-card--highlight .arch-compare-num {
-    width: 22px;
-    height: 22px;
-    font-size: 14px;
-    background: rgba(0, 240, 255, 0.22);
-    border-color: var(--ppt-accent);
-    color: var(--ppt-text-1);
-    box-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
-    animation: archCompareNumPulse 3s ease-in-out infinite
-    }
-.arch-compare-card--highlight .arch-compare-title {
-    font-size: 14px;
-    color: var(--ppt-accent)
-    }
-.arch-compare-card--highlight .arch-compare-title em {
-    color: rgba(0, 240, 255, 0.75)
-    }
-.arch-compare-card--highlight .arch-compare-tagline strong {
-    color: var(--ppt-accent)
-    }
-.arch-compare-card--highlight .arch-compare-pros {
-    background: rgba(34, 197, 94, 0.08);
-    border-radius: var(--ppt-radius-sm);
-    padding: 3px 5px
-    }
-.arch-compare-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--ppt-text-1);
-    line-height: 1.2
-    }
-.arch-compare-title em {
-    font-style: normal;
-    font-size:13px;
-    font-weight: 500;
-    color: var(--ppt-text-3)
-    }
-.arch-compare-tagline {
-    font-size:13px;
-    color: var(--ppt-text-2);
-    line-height: 1.35;
-    flex-shrink: 0
-    }
-.arch-compare-tagline strong {
-    color: var(--ppt-text-1);
-    font-weight: 600
-    }
-.arch-compare-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px 8px;
-    flex: 1;
-    min-height: 0
-    }
-.arch-compare-field {
-    font-size:13px;
-    line-height: 1.35;
-    color: var(--ppt-text-3)
-    }
-.arch-compare-field--full {
-    grid-column: 1 / -1
-    }
-.arch-compare-field-label {
-    font-weight: 700;
-    color: var(--ppt-text-2);
-    margin-right: 4px
-    }
-.arch-compare-pros .arch-compare-field-label { color: var(--ppt-good) }
-.arch-compare-cons .arch-compare-field-label { color: var(--ppt-warn) }
-.arch-compare-fass-badge {
-    margin-left: auto;
-    font-size:13px;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(0, 240, 255, 0.1));
-    color: var(--ppt-text-1);
-    border: 1px solid rgba(0, 240, 255, 0.55);
-    flex-shrink: 0;
-    box-shadow: 0 0 14px rgba(0, 240, 255, 0.25);
-    animation: archCompareBadgePulse 3s ease-in-out infinite
-    }
-@keyframes archCompareSpotlight {
-    0%, 100% {
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.14), inset 0 0 0 1px rgba(0, 240, 255, 0.1);
-        border-color: rgba(0, 240, 255, 0.5)
-    }
-    50% {
-        box-shadow: 0 0 34px rgba(0, 240, 255, 0.3), inset 0 0 0 1px rgba(0, 240, 255, 0.2);
-        border-color: rgba(0, 240, 255, 0.9)
-    }
-    }
-@keyframes archCompareShine {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-    }
-@keyframes archCompareNumPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    }
-@keyframes archCompareBadgePulse {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.2); box-shadow: 0 0 18px rgba(0, 240, 255, 0.4); }
-    }
-.architecture-db-isolation-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 6px
-    }
-.architecture-db-icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px 4px;
-    color: var(--ppt-text-3)
-    }
-.architecture-db-label-caption {
-    font-size:13px
-    }
-/* removed old right column strategy styles — replaced by compare panel */
-/* Bottom Highlight */
-.architecture-impact-highlight-box {
-    background: linear-gradient(90deg, rgba(250, 204, 21, 0.1) 0%, transparent 100%);
-    border-left: 4px solid var(--ppt-accent-2);
-    padding: 8px 14px;
-    border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
-    flex-shrink: 0
-    }
-.architecture-impact-label-text {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--ppt-accent-2)
-    }
-.architecture-impact-desc-text {
-    font-size: 13px;
-    color: var(--ppt-text-1);
-    line-height: 1.4
-    }
+.slide-s22 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.slide-s22 .slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse at 15% 0%,rgba(0,240,255,.06) 0%,transparent 50%),
+  radial-gradient(ellipse at 85% 100%,rgba(250,204,21,.05) 0%,transparent 45%)}
+.slide-s22 .title-r{flex-shrink:0;padding:22px 36px 6px;position:relative;z-index:1}
+.slide-s22 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.slide-s22 .bar{width:4px;height:28px;background:var(--ppt-accent);border-radius:2px}
+.slide-s22 .badge{font-size:13px;font-weight:700;padding:3px 9px;border-radius:12px;background:rgba(0,240,255,.1);border:1px solid rgba(0,240,255,.3);color:var(--ppt-accent)}
+.slide-s22 h1{font-size:26px;font-weight:700;line-height:1.3}
+.slide-s22 .sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px}
+.slide-s22 .line{height:1px;margin-top:6px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+.slide-s22 .std-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;padding-left:14px}
+.slide-s22 .std-pill{font-size:13px;font-weight:600;padding:4px 10px;border-radius:14px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);display:inline-flex;align-items:center;gap:5px}
+.slide-s22 .std-pill i{color:var(--ppt-accent);font-size:13px}
+.slide-s22 .body{flex:1;min-height:0;padding:8px 32px 6px;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+.slide-s22 .flow-strip{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:6px;padding:7px 12px;background:rgba(20,27,45,.85);border:1px solid var(--ppt-border);border-radius:10px}
+.slide-s22 .flow-node{display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);font-size:13px;font-weight:700;white-space:nowrap}
+.slide-s22 .flow-node i{font-size:13px}
+.slide-s22 .flow-node.n1{color:var(--c-infra);border-color:rgba(56,189,248,.35)} .slide-s22 .flow-node.n1 i{color:var(--c-infra)}
+.slide-s22 .flow-node.n2{color:var(--c-fw);border-color:rgba(250,204,21,.4);background:rgba(250,204,21,.08)} .slide-s22 .flow-node.n2 i{color:var(--c-fw)}
+.slide-s22 .flow-node.n3{color:var(--c-sec);border-color:rgba(167,139,250,.35)} .slide-s22 .flow-node.n3 i{color:var(--c-sec)}
+.slide-s22 .flow-node.n4{color:var(--c-data);border-color:rgba(52,211,153,.35)} .slide-s22 .flow-node.n4 i{color:var(--c-data)}
+.slide-s22 .flow-arrow{color:var(--ppt-text-3);font-size:13px}
+.slide-s22 .grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px}
+.slide-s22 .cat-card{background:linear-gradient(145deg,rgba(30,38,56,.95),var(--ppt-bg-soft));border:1px solid var(--ppt-border);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-height:0;border-top:3px solid var(--cat-color);position:relative;overflow:hidden}
+.slide-s22 .cat-card.core{border-color:rgba(250,204,21,.5);box-shadow:0 0 28px rgba(250,204,21,.1)}
+.slide-s22 .cat-head{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.slide-s22 .cat-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(255,255,255,.07);color:var(--cat-color);border:1px solid rgba(255,255,255,.08)}
+.slide-s22 .cat-title{font-size:15px;font-weight:700}
+.slide-s22 .cat-count{margin-left:auto;font-size:13px;color:var(--ppt-text-3);background:var(--ppt-surface);padding:3px 8px;border-radius:8px;border:1px solid var(--ppt-border)}
+.slide-s22 .cat-core-tag{font-size:13px;font-weight:700;padding:2px 8px;border-radius:8px;background:rgba(250,204,21,.2);color:var(--ppt-accent-2);border:1px solid rgba(250,204,21,.35)}
+.slide-s22 .cat-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;justify-content:center}
+.slide-s22 .chips{display:flex;flex-wrap:wrap;gap:5px}
+.slide-s22 .chip{font-size:13px;font-weight:600;padding:4px 9px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);color:var(--ppt-text-2);display:inline-flex;align-items:center;gap:4px}
+.slide-s22 .chip i{font-size:13px;color:var(--cat-color);opacity:.9}
+.slide-s22 .chip.spot{
+  color:var(--ppt-text-1);font-weight:700;
+  animation:chipSpotPulse 4.var(--motion-duration,6s) ease-in-out infinite;
+}
+.slide-s22 .chip.spot-infra{
+  border-color:rgba(56,189,248,.5);background:rgba(56,189,248,.1);
+  box-shadow:0 0 10px rgba(56,189,248,.12);
+}
+.slide-s22 .chip.spot-infra i{color:#7DD3FC}
+.slide-s22 .chip.spot-sec{
+  border-color:rgba(167,139,250,.5);background:rgba(167,139,250,.1);
+  box-shadow:0 0 10px rgba(167,139,250,.12);
+}
+.slide-s22 .chip.spot-sec i{color:#C4B5FD}
+.slide-s22 .chip.spot-data{
+  border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.1);
+  box-shadow:0 0 10px rgba(52,211,153,.12);
+}
+.slide-s22 .chip.spot-data i{color:#6EE7B7}
+@keyframes chipSpotPulse{
+  0%,100%{filter:brightness(1);transform:scale(1)}
+  50%{filter:brightness(1.15);transform:scale(1.02)}
+}
+.slide-s22 .core-visual{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:rgba(250,204,21,.06);border:1px dashed rgba(250,204,21,.25)}
+.slide-s22 .layer-box{flex:1;text-align:center;padding:6px 4px;border-radius:6px;font-size:13px;font-weight:700;line-height:1.3}
+.slide-s22 .layer-box.l1{background:rgba(97,218,251,.12);color:#7DD3FC;border:1px solid rgba(97,218,251,.25)}
+.slide-s22 .layer-box.l2{background:rgba(250,204,21,.12);color:#FDE68A;border:1px solid rgba(250,204,21,.3)}
+.slide-s22 .layer-box.l3{background:rgba(109,179,63,.12);color:#BBF7D0;border:1px solid rgba(109,179,63,.25)}
+.slide-s22 .layer-arrow{color:var(--ppt-text-3);font-size:13px}
+.slide-s22 .footer{flex-shrink:0;margin:4px 32px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}
+.slide-s22 .footer-note{flex:1;padding:9px 12px;font-size:13px;color:var(--ppt-text-2);line-height:1.45;border-left:3px solid var(--ppt-accent-2);background:rgba(250,204,21,.05);border-radius:0 8px 8px 0}
+.slide-s22 .footer-note strong{color:var(--ppt-accent-2)}
+.slide-s22 .footer-stats{display:flex;gap:8px;flex-shrink:0}
+.slide-s22 .stat-box{text-align:center;padding:7px 14px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);min-width:68px}
+.slide-s22 .stat-val{font-size:20px;font-weight:700;color:var(--ppt-accent);line-height:1}
+.slide-s22 .stat-lbl{font-size:13px;color:var(--ppt-text-3);margin-top:2px}

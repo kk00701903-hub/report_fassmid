@@ -49,7 +49,7 @@ const SLIDE_HTML = `<div class="fass-report-slide-root" style="overflow: hidden;
 
 export default function Slide01() {
   return (
-    <SlideCanvas motion="cover" motionTier="medium">
+    <SlideCanvas slideId={1} motion="cover" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
     </SlideCanvas>
   );

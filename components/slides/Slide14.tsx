@@ -80,7 +80,7 @@ const SLIDE_HTML = `<div class="slide-root">
 
 export default function Slide14() {
   return (
-    <SlideCanvas motion="compare" motionTier="medium">
+    <SlideCanvas slideId={14} motion="compare" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />
     </SlideCanvas>
   );

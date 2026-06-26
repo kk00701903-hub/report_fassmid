@@ -371,6 +371,25 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 16,
     topics: [
       {
+        id: "e2e-flow-primer",
+        title: "End-to-End 개발 흐름 — 5단계 한눈에 (보조 설명)",
+        category: "process",
+        summary:
+          "AI-Augmented 워크플로우(15p)의 5단계를 경영진 관점에서 풀어쓴 보조 장표입니다. 기획→설계→AI 개발→통합·배포→검증이 매 스프린트마다 반복되는 End-to-End 흐름입니다.",
+        process: [
+          { step: 1, title: "기획·관리", description: "Jira 백로그·스프린트 — 무엇을 언제까지 할지 확정" },
+          { step: 2, title: "설계·UI/UX", description: "Figma·API 스펙 — 화면·데이터 구조 설계도 확정" },
+          { step: 3, title: "AI 개발", description: "Claude Code·DGX — 코드·테스트·문서 생성, 사람 검수" },
+          { step: 4, title: "통합·배포", description: "GitLab CI/CD — 빌드·테스트·스테이징·운영 반영" },
+          { step: 5, title: "검증·완료", description: "QA·회귀 테스트·Human-in-the-loop 후 Done 처리" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 17,
+    topics: [
+      {
         id: "project-schedule",
         title: "프로젝트 진행경과 마일스톤",
         category: "process",
@@ -386,7 +405,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 17,
+    slideId: 18,
     topics: [
       {
         id: "ai-digital-worker",
@@ -403,7 +422,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 18,
+    slideId: 19,
     topics: [
       {
         id: "fass-daily-scrum",
@@ -451,7 +470,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 19,
+    slideId: 20,
     topics: [
       {
         id: "poc-cdc-validation",
@@ -468,7 +487,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 21,
+    slideId: 22,
     topics: [
       {
         id: "tech-stack-overview",
@@ -486,7 +505,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 22,
+    slideId: 23,
     topics: [
       {
         id: "api-first",
@@ -632,7 +651,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 23,
+    slideId: 24,
     topics: [
       {
         id: "cdc-sync",
@@ -674,7 +693,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 24,
+    slideId: 25,
     topics: [
       {
         id: "cicd-gitops",
@@ -698,7 +717,7 @@ public class OrderController {
     ],
   },
   {
-    slideId: 25,
+    slideId: 26,
     topics: [
       {
         id: "realgrid-ui",
@@ -760,7 +779,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 26,
+    slideId: 27,
     topics: [
       {
         id: "business-innovation-engine",
@@ -779,7 +798,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 27,
+    slideId: 28,
     topics: [
       {
         id: "finops",
@@ -809,7 +828,7 @@ public void importDailyShipments() {
     ],
   },
   {
-    slideId: 28,
+    slideId: 29,
     topics: [
       {
         id: "sonarqube-gate",
@@ -845,7 +864,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 29,
+    slideId: 30,
     topics: [
       {
         id: "jtgs-prototype-start",
@@ -863,7 +882,7 @@ deploy_prod:
     ],
   },
   {
-    slideId: 30,
+    slideId: 31,
     topics: [
       {
         id: "mm-tool-investment",
@@ -979,7 +998,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 31,
+    slideId: 32,
     topics: [
       {
         id: "framework-builder-role",
@@ -1021,7 +1040,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 33,
+    slideId: 34,
     topics: [
       {
         id: "builder-talent-definition",
@@ -1039,7 +1058,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 34,
+    slideId: 35,
     topics: [
       {
         id: "risk-management",
@@ -1055,7 +1074,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 35,
+    slideId: 36,
     topics: [
       {
         id: "rollout-roadmap",
@@ -1072,7 +1091,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 36,
+    slideId: 37,
     topics: [
       {
         id: "cdc-sync",
@@ -1127,7 +1146,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 37,
+    slideId: 38,
     topics: [
       {
         id: "msa-migration",
@@ -1169,7 +1188,7 @@ quality_gate:
     ],
   },
   {
-    slideId: 38,
+    slideId: 39,
     topics: [
       {
         id: "completion-vision",
