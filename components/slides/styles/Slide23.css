@@ -1,6 +1,5 @@
 .slide-s23 .fass-slide-root{
-    width: 960px;
-    height: 720px;
+    width:100%;height:100%;
     background-color: var(--ppt-bg);
     color: var(--ppt-text-1);
     position: relative;
@@ -27,7 +26,7 @@
     border-radius: 2px
     }
 .slide-s23 .title-region-text{
-    font-family: var(--ppt-font-display);
+    font-family: var(--ppt-font-;display);
     font-size: 30px;
     font-weight: 700;
     color: var(--ppt-text-1);

@@ -1,4 +1,4 @@
-.slide-s04 .slide{ width:960px; height:720px; background:var(--ppt-bg); color:var(--ppt-text-1); display:flex; flex-direction:column; overflow:hidden; position:relative; }
+.slide-s04 .slide{ width:100%;height:100%; background:var(--ppt-bg); color:var(--ppt-text-1); display:flex; flex-direction:column; overflow:hidden; position:relative; min-height:0;box-sizing:border-box;}
 .slide-s04 .slide::before{ content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 12% 8%, rgba(0,240,255,0.06) 0%, transparent 50%); }
 .slide-s04 .title-r{ flex-shrink:0; padding:22px 40px 6px; position:relative; z-index:1; }
 .slide-s04 .title-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }

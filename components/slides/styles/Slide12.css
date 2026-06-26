@@ -1,5 +1,5 @@
 .slide-s12 .section-slide-root{
-  width: 960px; height: 720px;
+  width:100%;height:100%;
   background-color: var(--ppt-bg);
   font-family: var(--ppt-font);
   position: relative; display: flex;
@@ -7,7 +7,7 @@
   justify-content: center; align-items: flex-start;
   padding: 0 80px;
   overflow: hidden;
-}
+min-height:0;box-sizing:border-box;}
 .slide-s12 .bg-grid-overlay{
   position: absolute; inset: 0;
   background-image:

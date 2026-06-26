@@ -1,4 +1,4 @@
-.slide-s05 .slide{ width:960px; height:720px; background:var(--ppt-bg); color:var(--ppt-text-1); display:flex; flex-direction:column; overflow:hidden; position:relative; }
+.slide-s05 .slide{ width:100%;height:100%; background:var(--ppt-bg); color:var(--ppt-text-1); display:flex; flex-direction:column; overflow:hidden; position:relative; min-height:0;box-sizing:border-box;}
 .slide-s05 .title-r{ flex-shrink:0; padding:22px 40px 6px; position:relative; z-index:1; }
 .slide-s05 .title-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 .slide-s05 .bar{ width:4px; height:32px; background:var(--ppt-accent); border-radius:2px; }

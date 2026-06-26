@@ -1,6 +1,5 @@
 .slide-s39 .fass-closing-slide-root{
-    width: 960px;
-    height: 720px;
+    width:100%;height:100%;
     background-color: var(--ppt-bg);
     position: relative;
     display: flex;
@@ -26,7 +25,7 @@
     border-radius: 2px
     }
 .slide-s39 .title-main-text{
-    font-family: var(--ppt-font-display);
+    font-family: var(--ppt-font-;display);
     font-size:26px;
     font-weight: 700;
     color: var(--ppt-text-1);
@@ -201,3 +200,25 @@
 .slide-s39 ul{
     list-style: none
     }
+
+/* UX compact — closing slide fit 960×720 */
+.slide-s39 .fass-closing-slide-root {
+  overflow: hidden;
+  min-height: 0;
+  box-sizing: border-box;
+}
+.slide-s39 .title-region-wrapper { padding: 16px 32px 6px; gap: 4px; }
+.slide-s39 .title-main-text { font-size: 24px; }
+.slide-s39 .title-sub-text { font-size: 12.5px; margin-top: 4px; }
+.slide-s39 .fass-closing-content-body { padding: 4px 28px 6px; gap: 12px; }
+.slide-s39 .vision-pillar-grid { gap: 5px; }
+.slide-s39 .vision-pillar-card { padding: 7px 10px; gap: 8px; }
+.slide-s39 .vision-pillar-title { font-size: 13.5px; }
+.slide-s39 .vision-pillar-desc { font-size: 12px; line-height: 1.35; }
+.slide-s39 .closing-visionary-right-group { padding: 12px 14px; }
+.slide-s39 .closing-anchor-main-keyword { font-size: 48px; margin: 6px 0; }
+.slide-s39 .closing-anchor-accent-keyword { font-size: 36px; }
+.slide-s39 .closing-anchor-divider { margin: 16px auto; }
+.slide-s39 .closing-anchor-stat-value { font-size: 26px; }
+.slide-s39 .closing-commitment-bar { margin: 0 28px 8px; padding: 7px 12px; gap: 10px; }
+.slide-s39 .closing-commitment-bar span { font-size: 12px; }

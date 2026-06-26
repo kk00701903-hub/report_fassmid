@@ -1,0 +1,122 @@
+/**
+ * React slide dynamic effects — particles, aurora, GSAP entrance companions.
+ */
+
+.slide-motion-orchestrator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.slide-motion-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.slide-dynamic-particles {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  opacity: 0.55;
+}
+
+.slide-dynamic-aurora {
+  position: absolute;
+  inset: -20%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(0, 240, 255, 0.09) 0%, transparent 52%),
+    radial-gradient(ellipse at 82% 88%, rgba(250, 204, 21, 0.07) 0%, transparent 48%),
+    radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+  animation: slideAuroraDrift 14s ease-in-out infinite alternate;
+}
+
+.slide-dynamic-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 240, 255, 0.35) 2px,
+    rgba(0, 240, 255, 0.35) 3px
+  );
+  mix-blend-mode: screen;
+}
+
+.slide-dynamic-sweep-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(0, 240, 255, 0.07) 48%,
+    rgba(250, 204, 21, 0.06) 52%,
+    transparent 60%
+  );
+  animation: slideAccentSweep 1.8s ease-out forwards;
+}
+
+@keyframes slideAuroraDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, -1.5%, 0) scale(1.04);
+  }
+}
+
+@keyframes slideAccentSweep {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* Motion-type accent pulses on key blocks */
+[data-dynamic-motion="pipeline"] .pipe-node,
+[data-dynamic-motion="pipeline"] .phase-step,
+[data-dynamic-motion="timeline"] .milestone-card,
+[data-dynamic-motion="roadmap"] .roadmap-node-circle,
+[data-dynamic-motion="innovation"] .finops-card-icon-circle,
+[data-dynamic-motion="architecture"] .flow-node {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+[data-dynamic-motion="pipeline"] .pipe-node:hover,
+[data-dynamic-motion="timeline"] .milestone-card:hover,
+[data-dynamic-motion="innovation"] .finops-content-card-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-dynamic-aurora,
+  .slide-dynamic-scanlines,
+  .slide-dynamic-particles,
+  .slide-dynamic-sweep-active::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}

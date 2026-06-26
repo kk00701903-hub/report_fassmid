@@ -1,13 +1,12 @@
 .slide-s24 .migration-slide-root{
-    width: 960px;
-    height: 720px;
+    width:100%;height:100%;
     background-color: var(--ppt-bg);
     position: relative;
     display: flex;
     flex-direction: column;
     font-family: var(--ppt-font-body);
-    color: var(--ppt-text-1)
-    }
+    color: var(--ppt-text-1);
+    overflow:hidden;min-height:0;box-sizing:border-box;}
 
 .slide-s24 .title-region-wrapper{
     padding: 32px 40px 10px 40px;
@@ -27,7 +26,7 @@
     border-radius: 2px
     }
 .slide-s24 .title-text-content{
-    font-family: var(--ppt-font-display);
+    font-family: var(--ppt-font-;display);
     font-size: 30px;
     font-weight: 700;
     color: var(--ppt-text-1);

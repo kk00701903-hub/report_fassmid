@@ -7,6 +7,7 @@ import {
   type ComponentType,
   type LazyExoticComponent,
 } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 export const SLIDE_WIDTH = 960;
 export const SLIDE_HEIGHT = 720;
@@ -21,13 +22,15 @@ type SlideStageProps = {
   scale: number;
   direction: "forward" | "back" | "none";
   title?: string;
+  slideKey?: string;
   onReady?: () => void;
 };
 
 const SlideStage = forwardRef<HTMLDivElement, SlideStageProps>(function SlideStage(
-  { SlideComponent, src, srcDoc, scale, direction, title = "슬라이드", onReady },
+  { SlideComponent, src, srcDoc, scale, direction, title = "슬라이드", slideKey = "slide", onReady },
   ref,
 ) {
+  const reduceMotion = useReducedMotion();
   const safeScale = Number.isFinite(scale) && scale > 0 ? scale : 1;
   const animationClass =
     direction === "forward"
@@ -59,6 +62,8 @@ const SlideStage = forwardRef<HTMLDivElement, SlideStageProps>(function SlideSta
       window.clearTimeout(timer);
     };
   }, [SlideComponent, isCustom, onReady, src, srcDoc]);
+
+  const enterX = direction === "forward" ? 48 : direction === "back" ? -48 : 0;
 
   return (
     <div className={`slide-stage slide-stage--projector ${animationClass}`}>
@@ -93,9 +98,38 @@ const SlideStage = forwardRef<HTMLDivElement, SlideStageProps>(function SlideSta
             }}
           >
             <div className="slide-stage__content">
-              <Suspense fallback={null}>
-                <SlideComponent />
-              </Suspense>
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={slideKey}
+                  className="slide-stage__motion-shell"
+                  initial={
+                    reduceMotion
+                      ? false
+                      : { opacity: 0, x: enterX, scale: 0.97, filter: "blur(4px)" }
+                  }
+                  animate={
+                    reduceMotion
+                      ? undefined
+                      : { opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }
+                  }
+                  exit={
+                    reduceMotion
+                      ? undefined
+                      : {
+                          opacity: 0,
+                          x: direction === "forward" ? -36 : direction === "back" ? 36 : 0,
+                          scale: 0.98,
+                          filter: "blur(3px)",
+                        }
+                  }
+                  transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ width: "100%", height: "100%" }}
+                >
+                  <Suspense fallback={null}>
+                    <SlideComponent />
+                  </Suspense>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         ) : null}

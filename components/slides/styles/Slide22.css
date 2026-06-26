@@ -1,4 +1,4 @@
-.slide-s22 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.slide-s22 .slide{width:100%;height:100%;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative;min-height:0;box-sizing:border-box;}
 .slide-s22 .slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(ellipse at 15% 0%,rgba(0,240,255,.06) 0%,transparent 50%),
   radial-gradient(ellipse at 85% 100%,rgba(250,204,21,.05) 0%,transparent 45%)}
@@ -69,3 +69,16 @@
 .slide-s22 .stat-box{text-align:center;padding:7px 14px;border-radius:8px;background:var(--ppt-surface);border:1px solid var(--ppt-border);min-width:68px}
 .slide-s22 .stat-val{font-size:20px;font-weight:700;color:var(--ppt-accent);line-height:1}
 .slide-s22 .stat-lbl{font-size:13px;color:var(--ppt-text-3);margin-top:2px}
+
+/* UX compact — fit 960×720 */
+.slide-s22 .title-r { padding: 14px 28px 4px; }
+.slide-s22 h1 { font-size: 24px; }
+.slide-s22 .std-pills { margin-top: 4px; }
+.slide-s22 .body { padding: 4px 28px 4px; gap: 6px; }
+.slide-s22 .flow-strip { padding: 5px 10px; }
+.slide-s22 .grid { gap: 6px; }
+.slide-s22 .cat-card { padding: 10px 12px; gap: 6px; }
+.slide-s22 .cat-title { font-size: 14px; }
+.slide-s22 .chip { font-size: 12px; padding: 3px 7px; }
+.slide-s22 .footer { margin: 2px 28px 8px; }
+.slide-s22 .footer-note { padding: 7px 10px; font-size: 12px; }

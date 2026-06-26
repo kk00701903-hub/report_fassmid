@@ -1,4 +1,4 @@
-.slide-s18 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden}
+.slide-s18 .slide{width:100%;height:100%;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;min-height:0;box-sizing:border-box;}
 .slide-s18 .title-region{flex-shrink:0;padding:24px 40px 10px}
 .slide-s18 .title-header{display:flex;align-items:center;gap:12px}
 .slide-s18 .title-bar{width:4px;height:32px;background:var(--ppt-accent);border-radius:2px}
@@ -297,3 +297,13 @@
   color:var(--ppt-accent);font-size:10.5px;line-height:1.4;
   position:static;top:auto;left:auto
 }
+
+/* UX compact — fit 960×720 */
+.slide-s18 .title-region { padding: 14px 32px 6px; }
+.slide-s18 .title-main { font-size: 24px; }
+.slide-s18 .body { padding: 4px 28px 8px; gap: 6px 8px; }
+.slide-s18 .anim-panel { min-height: 120px; padding: 6px 8px; }
+.slide-s18 .lane-row { min-height: 52px; }
+.slide-s18 .code-viewport { max-height: 88px; }
+.slide-s18 tbody td { padding: 5px 7px; font-size: 11.5px; }
+.slide-s18 thead th { padding: 5px 7px; font-size: 10.5px; }

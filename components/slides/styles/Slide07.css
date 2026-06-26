@@ -1,7 +1,7 @@
 .slide-s07 .slide{
-  width: 960px; height: 720px; background: var(--ppt-bg); color: var(--ppt-text-1);
+  width:100%;height:100%; background: var(--ppt-bg); color: var(--ppt-text-1);
   display: flex; flex-direction: column; overflow: hidden; position: relative;
-}
+min-height:0;box-sizing:border-box;}
 .slide-s07 .slide::before{
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse at 90% 15%, rgba(0,240,255,0.06) 0%, transparent 45%),
@@ -55,3 +55,13 @@
   font-size: 13px; color: var(--ppt-text-2); line-height: 1.45; position: relative; z-index: 1;
 }
 .slide-s07 .footer strong{ color: var(--ppt-accent-2); }
+
+/* UX compact — scope grid */
+.slide-s07 .title-r { padding: 16px 36px 4px; }
+.slide-s07 h1 { font-size: 24px; }
+.slide-s07 .body { padding: 4px 28px 6px; gap: 8px; }
+.slide-s07 .scope-banner { padding: 8px 12px; }
+.slide-s07 .grid { gap: 6px; }
+.slide-s07 .scope-card { padding: 8px 9px; }
+.slide-s07 .scope-desc { font-size: 11.5px; line-height: 1.32; }
+.slide-s07 .footer { margin: 0 28px 8px; font-size: 12px; }

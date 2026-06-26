@@ -1,6 +1,5 @@
 .slide-s29 .roi-asset-slide-root{
-    width: 960px;
-    height: 720px;
+    width:100%;height:100%;
     background-color: var(--ppt-bg);
     position: relative;
     display: flex;
@@ -42,7 +41,7 @@
     margin-bottom: 8px
     }
 .slide-s29 .roi-asset-value-main{
-    font-family: var(--ppt-font-display);
+    font-family: var(--ppt-font-;display);
     font-size: 90px;
     font-weight: 700;
     color: var(--ppt-accent-2);

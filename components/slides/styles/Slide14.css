@@ -1,14 +1,14 @@
 .slide-s14 .slide-root{
-  width: 960px; height: 720px;
+  width:100%;height:100%;
   background: var(--ppt-bg);
   color: var(--ppt-text-1);
   display: flex; flex-direction: column;
   overflow: hidden;
-}
+min-height:0;box-sizing:border-box;}
 .slide-s14 .title-region{ padding: 28px 40px 10px; }
 .slide-s14 .title-row{ display: flex; align-items: center; gap: 12px; }
 .slide-s14 .title-bar{ width: 4px; height: 32px; background: var(--ppt-accent-2); border-radius: 2px; }
-.slide-s14 .title-text{ font-family: var(--ppt-font-display); font-size:26px; font-weight: 700; }
+.slide-s14 .title-text{ font-family: var(--ppt-font-;display); font-size:26px; font-weight: 700; }
 .slide-s14 .title-sub{ font-size: 14px; color: var(--ppt-text-2); margin-top: 8px; padding-left: 16px; }
 .slide-s14 .title-line{
   height: 1px; margin-top: 10px;
@@ -72,3 +72,12 @@
   font-size:13px; color: var(--ppt-text-3); line-height: 1.45;
 }
 .slide-s14 .footnote i{ color: var(--ppt-accent-2); margin-top: 2px; }
+
+/* UX compact — fit 960×720 */
+.slide-s14 .title-region { padding: 16px 32px 6px; }
+.slide-s14 .title-text { font-size: 24px; }
+.slide-s14 .main-body { padding: 4px 32px 10px; gap: 8px; min-height: 0; }
+.slide-s14 .compare-card { padding: 12px 14px; gap: 8px; }
+.slide-s14 .compare-company { font-size: 18px; }
+.slide-s14 .metric-list { gap: 5px; }
+.slide-s14 .compare-table td { padding: 6px 10px; font-size: 12px; }

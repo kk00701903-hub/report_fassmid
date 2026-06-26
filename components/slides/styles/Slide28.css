@@ -1,6 +1,5 @@
 .slide-s28 .fass-slide-root{
-    width: 960px;
-    height: 720px;
+    width:100%;height:100%;
     display: flex;
     flex-direction: column;
     background-color: var(--ppt-bg)

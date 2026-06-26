@@ -1,0 +1,105 @@
+/**
+ * Shared visual chrome for scoped slides — title bars, badges, footers, cards.
+ */
+[class*="slide-s"] {
+  --slide-title-size: 24px;
+  --slide-sub-size: 13px;
+  --slide-footer-size: 12px;
+  --slide-card-radius: 10px;
+  --slide-surface: var(--ppt-bg-soft, rgba(255, 255, 255, 0.04));
+  --slide-surface-elevated: var(--ppt-surface, rgba(255, 255, 255, 0.06));
+  --slide-border: var(--ppt-border, rgba(255, 255, 255, 0.1));
+}
+
+[class*="slide-s"] .title-r,
+[class*="slide-s"] .title-region,
+[class*="slide-s"] .title-region-wrapper {
+  flex-shrink: 0;
+  padding: 16px 36px 4px;
+}
+
+[class*="slide-s"] .title-row,
+[class*="slide-s"] .title-row-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+[class*="slide-s"] .bar,
+[class*="slide-s"] .title-bar {
+  width: 4px;
+  height: 30px;
+  background: var(--ppt-accent-2, #facc15);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+[class*="slide-s"] .badge,
+[class*="slide-s"] .title-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(250, 204, 21, 0.12);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  color: var(--ppt-accent-2, #facc15);
+  letter-spacing: 0.02em;
+}
+
+[class*="slide-s"] h1,
+[class*="slide-s"] .title-text {
+  font-size: var(--slide-title-size);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+[class*="slide-s"] .sub,
+[class*="slide-s"] .title-sub {
+  font-size: var(--slide-sub-size);
+  color: var(--ppt-text-2, #94a3b8);
+  margin-top: 5px;
+  padding-left: 16px;
+  line-height: 1.4;
+}
+
+[class*="slide-s"] .line,
+[class*="slide-s"] .title-line {
+  height: 1px;
+  margin-top: 7px;
+  background: linear-gradient(90deg, var(--ppt-accent-2, #facc15), transparent);
+  opacity: 0.35;
+}
+
+[class*="slide-s"] .body,
+[class*="slide-s"] .content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+[class*="slide-s"] .footer,
+[class*="slide-s"] .slide-footer,
+[class*="slide-s"] .foot {
+  flex-shrink: 0;
+  margin: 0 32px 10px;
+  padding: 8px 12px;
+  font-size: var(--slide-footer-size);
+  line-height: 1.4;
+  color: var(--ppt-text-2, #94a3b8);
+  background: var(--slide-surface);
+  border: 1px solid var(--slide-border);
+  border-left: 3px solid var(--ppt-accent, #00f0ff);
+  border-radius: 0 var(--slide-card-radius) var(--slide-card-radius) 0;
+}
+
+[class*="slide-s"] .card,
+[class*="slide-s"] .tool-card,
+[class*="slide-s"] .milestone-card,
+[class*="slide-s"] .glossary-card {
+  border-radius: var(--slide-card-radius);
+  border: 1px solid var(--slide-border);
+  background: var(--slide-surface-elevated);
+  box-sizing: border-box;
+}

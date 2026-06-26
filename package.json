@@ -8,9 +8,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "audit:slides": "node scripts/audit-slide-height.mjs public/slides slide-audit.json"
+    "audit:slides": "npm run build && node scripts/audit-react-slides.mjs"
   },
   "dependencies": {
+    "@tsparticles/react": "^4.2.1",
+    "@tsparticles/slim": "^4.2.1",
+    "countup.js": "^2.10.0",
+    "framer-motion": "^12.42.0",
+    "gsap": "^3.15.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
     "next": "^15.3.3",

@@ -1,4 +1,4 @@
-.slide-s25 .slide{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.slide-s25 .slide{width:100%;height:100%;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden;position:relative;min-height:0;box-sizing:border-box;}
 .slide-s25 .slide::before{content:'';position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(ellipse at 20% 10%,rgba(0,240,255,.07) 0%,transparent 45%),
   radial-gradient(ellipse at 80% 90%,rgba(252,109,38,.06) 0%,transparent 40%)}
@@ -9,7 +9,7 @@
 .slide-s25 .title-region-header{display:flex;align-items:center;gap:12px}
 .slide-s25 .title-region-bar{width:4px;height:32px;background:var(--ppt-accent);border-radius:2px}
 .slide-s25 .title-region-text{
-  font-family:var(--ppt-font-display);font-size:30px;font-weight:700;
+  font-family:var(--ppt-font-;display);font-size:30px;font-weight:700;
   color:var(--ppt-text-1);line-height:1.3;margin:0
 }
 .slide-s25 .title-region-line{

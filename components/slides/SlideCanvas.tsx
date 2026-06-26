@@ -2,6 +2,7 @@
 
 import { forwardRef, type CSSProperties, type ReactNode } from "react";
 
+import SlideMotionOrchestrator from "@/components/slides/motion/SlideMotionOrchestrator";
 import { SLIDE_CANVAS_CLASS } from "@/lib/slideConstants";
 
 export type SlideMotionType =
@@ -53,7 +54,22 @@ const SlideCanvas = forwardRef<HTMLDivElement, SlideCanvasProps>(function SlideC
         ...style,
       }}
     >
-      {children}
+      <div
+        className="slide-canvas-inner"
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          minHeight: 0,
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        <SlideMotionOrchestrator slideId={slideId} motion={motion} motionTier={motionTier}>
+          {children}
+        </SlideMotionOrchestrator>
+      </div>
     </div>
   );
 });

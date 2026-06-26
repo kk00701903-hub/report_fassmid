@@ -1,7 +1,7 @@
 .slide-s03 .slide{
-  width: 960px; height: 720px; background: var(--ppt-bg); color: var(--ppt-text-1);
+  width:100%;height:100%; background: var(--ppt-bg); color: var(--ppt-text-1);
   display: flex; flex-direction: column; overflow: hidden; position: relative;
-}
+min-height:0;box-sizing:border-box;}
 .slide-s03 .slide::before{
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse at 15% 10%, rgba(0,240,255,0.06) 0%, transparent 50%),
@@ -70,3 +70,12 @@
   font-size: 13px; color: var(--ppt-text-2); line-height: 1.45; position: relative; z-index: 1;
 }
 .slide-s03 .footer strong{ color: var(--ppt-accent); }
+
+/* UX compact — glossary grid */
+.slide-s03 .title-r { padding: 16px 36px 4px; }
+.slide-s03 h1 { font-size: 24px; }
+.slide-s03 .body { padding: 4px 28px 8px; gap: 10px; }
+.slide-s03 .layer { padding: 8px 10px; gap: 8px; }
+.slide-s03 .layer-desc { font-size: 12px; line-height: 1.35; }
+.slide-s03 .stack { gap: 6px; }
+.slide-s03 .footer { margin: 0 28px 8px; font-size: 12px; }

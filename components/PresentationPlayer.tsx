@@ -6,6 +6,7 @@ import SlidePartIndicator from "@/components/SlidePartIndicator";
 import SlideOptionsPanel from "@/components/SlideOptionsPanel";
 import { usePresentationConfigState } from "@/hooks/usePresentationConfig";
 import SlideStage, { SLIDE_ASPECT, SLIDE_HEIGHT, SLIDE_WIDTH } from "@/components/SlideStage";
+import SlideParticlesProvider from "@/components/slides/motion/SlideParticlesProvider";
 import { getBasePath } from "@/lib/basePath";
 import { getBuiltinSlideId, isSlideVisible, type PresentationConfig, type SlideManifestItem } from "@/lib/presentationConfig";
 import { prefetchSlides } from "@/lib/slideCache";
@@ -322,6 +323,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   }
 
   return (
+    <SlideParticlesProvider>
     <div
       id="presentation-shell"
       className={`presentation-shell presentation-shell--projector ${sidebarOpen ? "presentation-shell--sidebar-open" : ""} ${isFullscreen ? "presentation-shell--fullscreen" : ""}`}
@@ -382,6 +384,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
               <>
                 <SlideStage
                   key={currentItem?.key ?? currentIndex}
+                  slideKey={currentItem?.key ?? String(currentIndex)}
                   SlideComponent={SlideComponent}
                   srcDoc={currentItem?.type === "custom" ? currentItem.html : undefined}
                   scale={scale}
@@ -494,5 +497,6 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
         <SlideOptionsPanel config={config} onClose={() => setShowOptions(false)} onApply={handleConfigApply} />
       ) : null}
     </div>
+    </SlideParticlesProvider>
   );
 }

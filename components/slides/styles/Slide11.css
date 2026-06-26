@@ -1,13 +1,12 @@
 .slide-s11 .fass-summary-slide-root{
-    width: 960px;
-    height: 720px;
+    width:100%;height:100%;
     background-color: var(--ppt-bg);
     position: relative;
     font-family: var(--ppt-font-body);
     color: var(--ppt-text-1);
     display: flex;
-    flex-direction: column
-    }
+    flex-direction: column;
+    overflow:hidden;min-height:0;box-sizing:border-box;}
 
 .slide-s11 .title-region-container{
     padding: 28px 40px 8px 40px;
@@ -27,7 +26,7 @@
     border-radius: 2px
     }
 .slide-s11 .title-region-text{
-    font-family: var(--ppt-font-display);
+    font-family: var(--ppt-font-;display);
     font-size: 32px;
     font-weight: 700;
     color: var(--ppt-text-1);
@@ -160,3 +159,16 @@
     line-height: 1.45;
     color: var(--ppt-accent-2)
     }
+
+/* UX compact — fit 960×720 */
+.slide-s11 .title-region-container { padding: 16px 32px 4px; }
+.slide-s11 .title-region-text { font-size: 26px; }
+.slide-s11 .summary-content-wrapper { padding: 4px 28px 10px; }
+.slide-s11 .summary-column-item { padding: 12px 12px 10px; gap: 8px; }
+.slide-s11 .summary-column-title { font-size: 17px; }
+.slide-s11 .summary-list-container { gap: 6px; }
+.slide-s11 .summary-list-item { padding: 8px 10px; }
+.slide-s11 .summary-item-text { font-size: 14px; line-height: 1.35; }
+.slide-s11 .summary-item-subtext { font-size: 12px; margin-top: 3px; }
+.slide-s11 .summary-highlight-box { padding: 8px 10px; }
+.slide-s11 .summary-highlight-text { font-size: 13px; }

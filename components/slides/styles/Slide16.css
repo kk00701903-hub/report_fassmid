@@ -1,13 +1,12 @@
-.slide-s16 .slide {
-  width: 960px;
-  height: 720px;
+.slide-s16 .slide{
+  width:100%;height:100%;
   background: var(--ppt-bg);
   color: var(--ppt-text-1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
-}
+min-height:0;box-sizing:border-box;}
 .slide-s16 .slide::before {
   content: "";
   position: absolute;
@@ -63,7 +62,7 @@
   background: linear-gradient(90deg, var(--ppt-accent-2), transparent);
   opacity: 0.35;
 }
-.slide-s16 .body {
+.slide-s16 .body{
   flex: 1;
   min-height: 0;
   padding: 4px 32px 8px;
@@ -73,12 +72,12 @@
   position: relative;
   z-index: 1;
 }
-.slide-s16 .phase-stack {
+.slide-s16 .phase-stack{
   display: flex;
   flex-direction: column;
   gap: 3px;
   justify-content: center;
-}
+flex:1;min-height:0;}
 .slide-s16 .phase {
   display: flex;
   align-items: stretch;
@@ -258,3 +257,32 @@
 .slide-s16 .footer strong {
   color: var(--ppt-accent-2);
 }
+
+/* UX compact — fit 960×720 */
+.slide-s16 .title-r { padding: 12px 32px 0; }
+.slide-s16 h1 { font-size: 22px; }
+.slide-s16 .sub { font-size: 12.5px; margin-top: 4px; }
+.slide-s16 .body { padding: 2px 28px 6px; gap: 10px; }
+.slide-s16 .phase-stack { gap: 2px; }
+.slide-s16 .phase { padding: 4px 8px; gap: 6px; }
+.slide-s16 .phase-name { font-size: 13px; }
+.slide-s16 .phase-desc {
+  font-size: 11.5px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.slide-s16 .scenario { padding: 8px 10px; gap: 5px; }
+.slide-s16 .scenario-step { padding: 4px 6px; }
+.slide-s16 .step-text { font-size: 11.5px; line-height: 1.32; }
+.slide-s16 .analogy { padding: 7px 10px; }
+.slide-s16 .footer { margin: 0 28px 8px; padding: 6px 12px; font-size: 11.5px; }
+
+/* additional compact */
+.slide-s16 .title-r { padding: 10px 28px 0; }
+.slide-s16 .body { padding: 0 24px 4px; gap: 8px; }
+.slide-s16 .phase { padding: 3px 7px; }
+.slide-s16 .phase-desc { -webkit-line-clamp: 1; }
+.slide-s16 .footer { margin: 0 24px 6px; padding: 5px 10px; }
