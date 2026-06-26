@@ -1,0 +1,69 @@
+.slide-root{width:960px;height:720px;background:var(--ppt-bg);color:var(--ppt-text-1);display:flex;flex-direction:column;overflow:hidden}
+.title-region{flex-shrink:0;padding:24px 40px 10px}
+.title-header{display:flex;align-items:center;gap:12px}
+.title-bar{width:4px;height:32px;background:var(--ppt-accent);border-radius:2px}
+.title-main{font-size:26px;font-weight:700}
+.title-sub{font-size:14px;color:var(--ppt-text-2);padding-left:16px;margin-top:6px}
+.title-line{height:1px;margin-top:10px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.3}
+.content{flex:1;min-height:0;padding:10px 36px 12px;display:flex;flex-direction:column}
+.milestone-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:10px}
+.milestone-card{
+  background:var(--ppt-bg-soft);border:1px solid var(--ppt-border);border-radius:12px;
+  padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:0;
+  border-top:3px solid var(--phase-color,var(--ppt-border));
+  position:relative;
+}
+.milestone-card.p1{--phase-color:var(--p1)}
+.milestone-card.p2{--phase-color:var(--p2)}
+.milestone-card.p3{--phase-color:var(--p3)}
+.milestone-card.p4{--phase-color:var(--p4)}
+.milestone-card.p5{--phase-color:var(--p5)}
+.milestone-card.p6{--phase-color:var(--p6)}
+.milestone-card.p7{--phase-color:var(--p7)}
+.milestone-card.current{
+  border-color:rgba(255,192,0,.75);
+  background:linear-gradient(180deg,rgba(255,192,0,.18),rgba(255,192,0,.06));
+  box-shadow:0 0 0 1px rgba(255,192,0,.35),0 0 28px rgba(255,192,0,.22),inset 0 0 24px rgba(255,192,0,.06);
+  z-index:1;
+}
+.current-pill{
+  font-size:11px;font-weight:800;letter-spacing:.04em;
+  padding:2px 7px;border-radius:10px;
+  background:var(--p3);color:#1a1a2e;
+  box-shadow:0 0 12px rgba(255,192,0,.45);
+  margin-left:4px;white-space:nowrap
+}
+.milestone-card.current .phase-badge{color:#FDE68A}
+.milestone-card.current .card-title{color:#FFF}
+.milestone-card.current .period{background:rgba(255,192,0,.15);border-color:rgba(255,192,0,.45)}
+.milestone-card.current .period-y,.milestone-card.current .period-m{color:#FDE68A}
+.milestone-card.span2{grid-column:span 2}
+.card-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 8px;position:relative}
+.card-head-left{display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-width:0}
+.phase-badge{font-size:13px;font-weight:700;color:var(--phase-color);letter-spacing:.02em;white-space:nowrap}
+.period{
+  display:inline-flex;align-items:center;gap:3px;
+  padding:4px 9px;border-radius:10px;
+  background:var(--ppt-surface);border:1px solid var(--ppt-border);
+  font-variant-numeric:tabular-nums;
+  margin-left:0;flex-shrink:0;white-space:nowrap;justify-self:end
+}
+.period-y{font-size:13px;font-weight:800;color:var(--ppt-accent-2);letter-spacing:.02em}
+.period-dot{font-size:13px;font-weight:700;color:var(--ppt-text-3)}
+.period-m{font-size:13px;font-weight:800;color:var(--ppt-text-1);letter-spacing:.03em}
+.period-sep{font-size:13px;font-weight:600;color:var(--ppt-text-3);margin:0 2px}
+.period-end .period-y{font-size:13px}
+.period-end .period-m{font-size:13px}
+.card-title{font-size:14px;font-weight:700;line-height:1.35;color:var(--ppt-text-1)}
+.card-desc{font-size:13px;color:var(--ppt-text-2);line-height:1.45;flex:1}
+.card-foot{display:flex;justify-content:flex-end;margin-top:auto}
+.status-tag{font-size:13px;font-weight:700;padding:3px 9px;border-radius:10px}
+.status-done{background:rgba(34,197,94,.15);color:var(--ppt-good)}
+.status-now{background:rgba(255,192,0,.25);color:#FDE68A;border:1px solid rgba(255,192,0,.5)}
+.status-next{background:rgba(100,116,139,.2);color:var(--ppt-text-3)}
+.bottom-bar{
+  flex-shrink:0;margin:10px 36px 14px;padding:10px 14px;
+  border-left:3px solid var(--ppt-accent-2);background:rgba(250,204,21,.05);
+  border-radius:0 8px 8px 0;font-size:13px;color:var(--ppt-text-2);line-height:1.45;
+}
+.bottom-bar strong{color:var(--ppt-accent-2)}

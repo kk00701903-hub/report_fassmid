@@ -1,0 +1,219 @@
+.war-room-slide-root {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    display: flex;
+    flex-direction: column;
+    position: relative
+    }
+/* Title Region */
+.title-region-container {
+    padding: 28px 40px 8px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.title-region-header {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-region-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-region-text {
+    font-family: var(--ppt-font-display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-region-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+/* Body Layout */
+.war-room-content-wrapper {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    padding: 8px 40px 8px 40px;
+    gap: 14px;
+    align-items: stretch
+    }
+.war-room-left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px 20px
+    }
+.war-room-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 13px 20px
+    }
+/* Common Card Styles */
+.war-room-feature-card {
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1
+    }
+.war-room-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px 12px
+    }
+.war-room-card-icon {
+    font-size: 24px;
+    color: var(--ppt-accent);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 240, 255, 0.1);
+    border-radius: var(--ppt-radius-md)
+    }
+.war-room-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ppt-text-1)
+    }
+.war-room-card-body {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ppt-text-2)
+    }
+.war-room-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px 10px;
+    margin-bottom: 6px
+    }
+.war-room-highlight-bullet {
+    color: var(--ppt-accent);
+    margin-top: 5px;
+    font-size: 14px
+    }
+.war-room-badge-container {
+    display: flex;
+    gap: 10px 12px;
+    margin-top: auto
+    }
+.war-room-status-badge {
+    background: var(--ppt-surface-2);
+    border: 1px solid var(--ppt-accent);
+    color: var(--ppt-accent);
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600
+    }
+.war-room-location-tag {
+    font-size: 14px;
+    color: var(--ppt-accent-2);
+    font-weight: 600;
+    margin-bottom: 3px;
+    display: block
+    }
+.war-room-dashboard-preview {
+    display: flex;
+    gap: 8px 10px;
+    margin-top: 6px
+    }
+.war-room-dashboard-box {
+    flex: 1;
+    height: 60px;
+    background: var(--ppt-bg-soft);
+    border: 1px dashed var(--ppt-border);
+    border-radius: var(--ppt-radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px 4px
+    }
+.war-room-dashboard-label {
+    font-size:13px;
+    color: var(--ppt-text-3);
+    text-transform: uppercase
+    }
+.war-room-dashboard-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ppt-accent)
+    }
+.war-room-dailyscrum-banner {
+    margin: 0 40px 14px 40px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, rgba(0,240,255,0.08) 0%, rgba(167,139,250,0.06) 100%);
+    border: 1px solid rgba(0,240,255,0.35);
+    border-radius: var(--ppt-radius-lg);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 0;
+    }
+.war-room-dailyscrum-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--ppt-radius-md);
+    background: rgba(0,240,255,0.12);
+    color: var(--ppt-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    }
+.war-room-dailyscrum-body {
+    flex: 1;
+    min-width: 0;
+    }
+.war-room-dailyscrum-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin-bottom: 3px;
+    }
+.war-room-dailyscrum-desc {
+    font-size:13px;
+    color: var(--ppt-text-2);
+    line-height: 1.38;
+    }
+.war-room-dailyscrum-link {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: var(--ppt-radius-md);
+    background: rgba(0,240,255,0.12);
+    border: 1px solid var(--ppt-accent);
+    color: var(--ppt-accent);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+    }
+.war-room-dailyscrum-link:hover {
+    background: var(--ppt-accent);
+    color: var(--ppt-bg);
+    }

@@ -1,0 +1,553 @@
+/**
+ * FaSS slide deck — subtle motion utilities for CEO-friendly diagrams.
+ * Respects prefers-reduced-motion.
+ */
+:root {
+  --motion-duration: 5.5s;
+  --motion-ease: ease-in-out;
+  --motion-stagger: 0.48s;
+}
+
+[data-motion-tier="medium"] {
+  --motion-duration: 5s;
+  --motion-stagger: 0.42s;
+}
+
+[data-motion-tier="subtle"] {
+  --motion-duration: 6.5s;
+  --motion-stagger: 0.58s;
+}
+
+/* ── Ambient background grid drift ── */
+[data-motion="part"] .bg-grid-overlay,
+[data-motion="cover"] .fass-report-slide-root::before,
+[data-motion="cards"] .slide-root::before,
+[data-motion="cards"] .fass-summary-slide-root::before,
+[data-motion="cards"] .fass-identity-slide-root::before {
+  animation: motionGridDrift var(--motion-duration) linear infinite;
+}
+
+@keyframes motionGridDrift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 40px 40px, 40px 40px; }
+}
+
+/* ── Horizontal flow shine ── */
+[data-motion="pipeline"] .pipe-flow,
+[data-motion="pipeline"] .pipeline,
+[data-motion="cards"] .flow-strip,
+[data-motion="timeline"] .milestone-grid,
+[data-motion="timeline"] .board,
+[data-motion="roadmap"] .roadmap-visual-track-container,
+[data-motion="architecture"] .flow-strip,
+[data-motion="architecture"] .migration-pipeline-container {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-motion="pipeline"] .pipe-flow::after,
+[data-motion="pipeline"] .pipeline::after,
+[data-motion="cards"] .flow-strip::after,
+[data-motion="timeline"] .milestone-grid::after,
+[data-motion="timeline"] .board::after,
+[data-motion="roadmap"] .roadmap-visual-track-container::after,
+[data-motion="architecture"] .flow-strip::after,
+[data-motion="architecture"] .migration-pipeline-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.12), transparent);
+  animation: motionFlowX var(--motion-duration) linear infinite;
+}
+
+@keyframes motionFlowX {
+  0% { left: -35%; }
+  100% { left: 100%; }
+}
+
+/* ── Sequential step glow (shared) ── */
+[data-motion="part"] .section-topic-item,
+[data-motion="cover"] .fass-info-item-box,
+[data-motion="cover"] .fass-vision-statement-container,
+[data-motion="cards"] .trend-card,
+[data-motion="cards"] .summary-column-item,
+[data-motion="cards"] .summary-list-item,
+[data-motion="cards"] .fass-identity-value-item-row,
+[data-motion="cards"] .war-room-feature-card,
+[data-motion="cards"] .poc-left-target-card,
+[data-motion="cards"] .poc-right-tech-card,
+[data-motion="cards"] .poc-flow-item,
+[data-motion="cards"] .poc-metric-item,
+[data-motion="cards"] .cat-card,
+[data-motion="cards"] .flow-node,
+[data-motion="pipeline"] .phase-step,
+[data-motion="pipeline"] .flow-col,
+[data-motion="pipeline"] .pipe-node,
+[data-motion="pipeline"] .cicd-step,
+[data-motion="timeline"] .milestone-card,
+[data-motion="timeline"] .phase-col,
+[data-motion="roadmap"] .roadmap-step-node,
+[data-motion="roadmap"] .roadmap-data-table tbody tr,
+[data-motion="roadmap"] .roadmap-strategy-card,
+[data-motion="innovation"] .strat,
+[data-motion="innovation"] .concept-box,
+[data-motion="innovation"] .role-card,
+[data-motion="innovation"] .engine-panel,
+[data-motion="innovation"] .roi-asset-evidence-card,
+[data-motion="innovation"] .finops-content-card-box,
+[data-motion="innovation"] .finops-column-item-wrapper,
+[data-motion="architecture"] .flow-node,
+[data-motion="architecture"] .architecture-module-unit-box,
+[data-motion="architecture"] .architecture-visual-card-item,
+[data-motion="architecture"] .k8s-feature-item,
+[data-motion="architecture"] .k8s-summary-card,
+[data-motion="architecture"] .diagram-card,
+[data-motion="architecture"] .stage-row,
+[data-motion="architecture"] .migration-node-box,
+[data-motion="architecture"] .migration-engine-box,
+[data-motion="compare"] .compare-card,
+[data-motion="compare"] .compare-table tbody tr,
+[data-motion="compare"] .metric-item,
+[data-motion="pipeline"] .node,
+[data-motion="pipeline"] .pill,
+[data-motion="cards"] .std-pill,
+[data-motion="cards"] .stat-box,
+[data-motion="cards"] .chip,
+[data-motion="cards"] .layer-box,
+[data-motion="innovation"] .etag,
+[data-motion="innovation"] .strat-num,
+[data-motion="closing"] .closing-milestone-item,
+[data-motion="closing"] .vision-pillar-card {
+  animation: motionStepGlow var(--motion-duration) var(--motion-ease) infinite;
+}
+
+/* Stagger delays — child 1–8 */
+[data-motion] .section-topic-item:nth-child(1),
+[data-motion] .fass-info-item-box:nth-child(1),
+[data-motion] .trend-card:nth-child(1),
+[data-motion] .summary-column-item:nth-child(1),
+[data-motion] .fass-identity-value-item-row:nth-child(1),
+[data-motion] .war-room-feature-card:nth-child(1),
+[data-motion] .poc-metric-item:nth-child(1),
+[data-motion] .cat-card:nth-child(1),
+[data-motion] .flow-node:nth-child(1),
+[data-motion] .phase-step:nth-child(1),
+[data-motion] .flow-col:nth-child(1),
+[data-motion] .pipe-node:nth-child(1),
+[data-motion] .cicd-step:nth-child(1),
+[data-motion] .milestone-card:nth-child(1),
+[data-motion] .phase-col:nth-child(1),
+[data-motion] .roadmap-step-node:nth-child(1),
+[data-motion] .roadmap-data-table tbody tr:nth-child(1),
+[data-motion] .strat:nth-child(1),
+[data-motion] .concept-box:nth-child(1),
+[data-motion] .role-card:nth-child(1),
+[data-motion] .compare-card:nth-child(1),
+[data-motion] .compare-table tbody tr:nth-child(1),
+[data-motion] .vision-pillar-card:nth-child(1) { animation-delay: 0s; }
+
+[data-motion] .section-topic-item:nth-child(2),
+[data-motion] .fass-info-item-box:nth-child(2),
+[data-motion] .trend-card:nth-child(2),
+[data-motion] .summary-column-item:nth-child(2),
+[data-motion] .fass-identity-value-item-row:nth-child(2),
+[data-motion] .war-room-feature-card:nth-child(2),
+[data-motion] .poc-metric-item:nth-child(2),
+[data-motion] .cat-card:nth-child(2),
+[data-motion] .flow-node:nth-child(3),
+[data-motion] .phase-step:nth-child(2),
+[data-motion] .flow-col:nth-child(2),
+[data-motion] .pipe-node:nth-child(2),
+[data-motion] .cicd-step:nth-child(2),
+[data-motion] .milestone-card:nth-child(2),
+[data-motion] .phase-col:nth-child(2),
+[data-motion] .roadmap-step-node:nth-child(2),
+[data-motion] .roadmap-data-table tbody tr:nth-child(2),
+[data-motion] .strat:nth-child(2),
+[data-motion] .concept-box:nth-child(2),
+[data-motion] .role-card:nth-child(2),
+[data-motion] .compare-card:nth-child(3),
+[data-motion] .compare-table tbody tr:nth-child(2),
+[data-motion] .vision-pillar-card:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+
+[data-motion] .section-topic-item:nth-child(3),
+[data-motion] .trend-card:nth-child(3),
+[data-motion] .summary-column-item:nth-child(3),
+[data-motion] .fass-identity-value-item-row:nth-child(3),
+[data-motion] .poc-metric-item:nth-child(3),
+[data-motion] .cat-card:nth-child(3),
+[data-motion] .flow-node:nth-child(5),
+[data-motion] .phase-step:nth-child(3),
+[data-motion] .flow-col:nth-child(3),
+[data-motion] .pipe-node:nth-child(3),
+[data-motion] .cicd-step:nth-child(3),
+[data-motion] .milestone-card:nth-child(3),
+[data-motion] .phase-col:nth-child(3),
+[data-motion] .roadmap-step-node:nth-child(3),
+[data-motion] .roadmap-data-table tbody tr:nth-child(3),
+[data-motion] .strat:nth-child(3),
+[data-motion] .role-card:nth-child(3),
+[data-motion] .compare-table tbody tr:nth-child(3),
+[data-motion] .vision-pillar-card:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+
+[data-motion] .section-topic-item:nth-child(4),
+[data-motion] .trend-card:nth-child(4),
+[data-motion] .summary-column-item:nth-child(4),
+[data-motion] .fass-identity-value-item-row:nth-child(4),
+[data-motion] .poc-metric-item:nth-child(4),
+[data-motion] .cat-card:nth-child(4),
+[data-motion] .flow-node:nth-child(7),
+[data-motion] .phase-step:nth-child(4),
+[data-motion] .flow-col:nth-child(4),
+[data-motion] .pipe-node:nth-child(4),
+[data-motion] .cicd-step:nth-child(4),
+[data-motion] .milestone-card:nth-child(4),
+[data-motion] .phase-col:nth-child(4),
+[data-motion] .roadmap-step-node:nth-child(4),
+[data-motion] .roadmap-data-table tbody tr:nth-child(4),
+[data-motion] .strat:nth-child(4),
+[data-motion] .role-card:nth-child(4),
+[data-motion] .compare-table tbody tr:nth-child(4),
+[data-motion] .vision-pillar-card:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+
+[data-motion="part"] .section-topic-item:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
+
+[data-motion="part"] .section-topic-item:nth-child(6) { animation-delay: calc(var(--motion-stagger) * 5); }
+[data-motion="part"] .section-topic-item:nth-child(7) { animation-delay: calc(var(--motion-stagger) * 6); }
+[data-motion="part"] .section-topic-item:nth-child(8) { animation-delay: calc(var(--motion-stagger) * 7); }
+[data-motion="part"] .section-topic-item:nth-child(9) { animation-delay: calc(var(--motion-stagger) * 8); }
+[data-motion="part"] .section-topic-item:nth-child(10) { animation-delay: calc(var(--motion-stagger) * 9); }
+
+[data-motion="pipeline"] .phase-step:nth-child(5),
+[data-motion="pipeline"] .flow-col:nth-child(5),
+[data-motion="pipeline"] .pipe-node:nth-child(5),
+[data-motion="pipeline"] .cicd-step:nth-child(5),
+[data-motion="timeline"] .phase-col:nth-child(5),
+[data-motion="innovation"] .strat:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
+
+[data-motion="pipeline"] .pipe-node:nth-child(6),
+[data-motion="pipeline"] .cicd-step:nth-child(6) { animation-delay: calc(var(--motion-stagger) * 5); }
+
+@keyframes motionStepGlow {
+  0%, 10%, 100% {
+    opacity: 0.82;
+    box-shadow: none;
+    transform: translateY(0);
+    filter: brightness(0.96);
+  }
+  14%, 28% {
+    opacity: 1;
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+    box-shadow: 0 0 22px rgba(0, 240, 255, 0.2), inset 0 0 0 1px rgba(0, 240, 255, 0.12);
+  }
+}
+
+/* ── Soft pulse on icons / emphasis panels ── */
+[data-motion="cards"] .card-icon,
+[data-motion="cards"] .summary-column-icon,
+[data-motion="cards"] .war-room-card-icon,
+[data-motion="cards"] .cat-icon,
+[data-motion="innovation"] .engine-icon,
+[data-motion="innovation"] .strat-icon,
+[data-motion="innovation"] .role-icon,
+[data-motion="architecture"] .node-icon,
+[data-motion="pipeline"] .cicd-step-dot,
+[data-motion="closing"] .vision-pillar-icon,
+[data-motion="closing"] .closing-anchor-main-keyword {
+  animation: motionPulseSoft var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="innovation"] .strat-icon:nth-child(1),
+[data-motion="cards"] .trend-card:nth-child(1) .card-icon { animation-delay: 0s; }
+[data-motion="innovation"] .strat.s2 .strat-icon { animation-delay: 0.8s; }
+[data-motion="innovation"] .strat.s3 .strat-icon { animation-delay: 1.6s; }
+[data-motion="innovation"] .strat.s4 .strat-icon { animation-delay: 2.4s; }
+[data-motion="innovation"] .strat.s5 .strat-icon { animation-delay: 3.2s; }
+
+[data-motion="innovation"] .lane-head i {
+  animation: motionPulseSoft var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="innovation"] .lanes .lane:nth-child(1) .lane-head i { animation-delay: 0s; }
+[data-motion="innovation"] .lanes .lane:nth-child(2) .lane-head i { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="innovation"] .lanes .lane:nth-child(3) .lane-head i { animation-delay: calc(var(--motion-stagger) * 2); }
+
+@keyframes motionPulseSoft {
+  0%, 100% { box-shadow: none; opacity: 1; transform: scale(1); }
+  50% { box-shadow: 0 0 14px rgba(0, 240, 255, 0.2); opacity: 0.92; transform: scale(1.03); }
+}
+
+/* ── Current / active emphasis ── */
+[data-motion="timeline"] .milestone-card.current {
+  animation: motionMilestonePulse 3s var(--motion-ease) infinite;
+}
+
+[data-motion="timeline"] .sprint:has(.sprint-live) {
+  animation: motionLivePulse 2.4s var(--motion-ease) infinite;
+}
+
+[data-motion="pipeline"] .phase-step.active,
+[data-motion="pipeline"] .pipe-node.highlight,
+[data-motion="pipeline"] .pipe-node.ai {
+  animation: motionActiveBorder var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="roadmap"] .roadmap-node-circle.gold {
+  animation: motionPulseSoft 4s var(--motion-ease) infinite;
+}
+
+@keyframes motionMilestonePulse {
+  0%, 100% { box-shadow: 0 0 28px rgba(255, 192, 0, 0.22); }
+  50% { box-shadow: 0 0 36px rgba(255, 192, 0, 0.42); }
+}
+
+@keyframes motionLivePulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(34, 197, 94, 0); }
+  50% { box-shadow: 0 0 12px rgba(34, 197, 94, 0.35); }
+}
+
+@keyframes motionActiveBorder {
+  0%, 100% { border-color: rgba(0, 240, 255, 0.35); }
+  50% { border-color: rgba(0, 240, 255, 0.85); box-shadow: 0 0 16px rgba(0, 240, 255, 0.2); }
+}
+
+/* ── Comparison — our column emphasis ── */
+[data-motion="compare"] .compare-card--ours {
+  animation: motionComparePulse var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="compare"] .vs-badge {
+  animation: motionChevron 2.4s var(--motion-ease) infinite;
+}
+
+@keyframes motionComparePulse {
+  0%, 100% { border-color: rgba(0, 240, 255, 0.35); }
+  50% { border-color: rgba(0, 240, 255, 0.75); box-shadow: 0 0 20px rgba(0, 240, 255, 0.15); }
+}
+
+/* ── Cover keywords (legacy + vision) ── */
+[data-motion="cover"] .cover-keyword-item {
+  animation: motionStepGlow var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="cover"] .fass-title-main-heading span {
+  animation: motionTextShine 5s var(--motion-ease) infinite;
+}
+
+@keyframes motionTextShine {
+  0%, 100% { text-shadow: none; }
+  50% { text-shadow: 0 0 24px rgba(0, 240, 255, 0.35); }
+}
+
+/* ── Closing anchor + TFT bar ── */
+[data-motion="closing"] .closing-commitment-bar {
+  animation: motionBorderGlow var(--motion-duration) var(--motion-ease) infinite;
+}
+
+@keyframes motionBorderGlow {
+  0%, 100% { border-color: rgba(0, 240, 255, 0.25); }
+  50% { border-color: rgba(0, 240, 255, 0.65); box-shadow: 0 0 22px rgba(0, 240, 255, 0.12); }
+}
+
+/* ── Connector chevron nudge ── */
+[data-motion="pipeline"] .connector i,
+[data-motion="architecture"] .connector i,
+[data-motion="architecture"] .flow-arrow i,
+[data-motion="architecture"] .migration-flow-indicator i,
+[data-motion="pipeline"] .pipe-arrow i,
+[data-motion="pipeline"] .arrow-icon,
+[data-motion="innovation"] .concept-arrow i {
+  animation: motionChevron 2.4s var(--motion-ease) infinite;
+}
+
+@keyframes motionChevron {
+  0%, 100% { transform: translateX(0); opacity: 0.55; }
+  50% { transform: translateX(3px); opacity: 1; }
+}
+
+/* ══════════════════════════════════════════════
+   UNIVERSAL — title chrome, accents, sequence cues
+   ══════════════════════════════════════════════ */
+[data-motion] .bar,
+[data-motion] .title-bar {
+  animation: motionBarPulse var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion] .line,
+[data-motion] .title-line {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-motion] .line::after,
+[data-motion] .title-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+  animation: motionFlowX var(--motion-duration) linear infinite;
+}
+
+[data-motion] .badge,
+[data-motion] .title-badge,
+[data-motion] .ref-badge {
+  animation: motionBadgePulse calc(var(--motion-duration) * 0.9) var(--motion-ease) infinite;
+}
+
+[data-motion] .footer,
+[data-motion] .footer-note,
+[data-motion] .footnote {
+  animation: motionFooterGlow calc(var(--motion-duration) * 1.1) var(--motion-ease) infinite;
+}
+
+[data-motion] .chip.spot,
+[data-motion] .chip.spot-infra,
+[data-motion] .chip.spot-sec,
+[data-motion] .chip.spot-data {
+  animation: motionAccentChip 4s var(--motion-ease) infinite;
+}
+
+[data-motion="part"] .topic-dot {
+  animation: motionDotPulse var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="part"] .section-part-number {
+  animation: motionTextShine calc(var(--motion-duration) * 1.2) var(--motion-ease) infinite;
+}
+
+[data-motion="part"] .section-divider-line {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-motion="part"] .section-divider-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.45), transparent);
+  animation: motionFlowX calc(var(--motion-duration) * 0.85) linear infinite;
+}
+
+[data-motion] .strat-num,
+[data-motion] .phase-num,
+[data-motion] .cicd-step-dot {
+  animation: motionNumPop var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="pipeline"] .phase-body > .node:nth-child(1) { animation-delay: 0s; }
+[data-motion="pipeline"] .phase-body > .node:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="pipeline"] .phase-body > .node:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="pipeline"] .phase-body > .node:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 3); }
+[data-motion="pipeline"] .phase-body > .node:nth-child(6) { animation-delay: calc(var(--motion-stagger) * 4); }
+
+[data-motion="cards"] .std-pill:nth-child(1),
+[data-motion="cards"] .stat-box:nth-child(1) { animation-delay: 0s; }
+[data-motion="cards"] .std-pill:nth-child(2),
+[data-motion="cards"] .stat-box:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="cards"] .std-pill:nth-child(3),
+[data-motion="cards"] .stat-box:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="cards"] .std-pill:nth-child(4),
+[data-motion="cards"] .stat-box:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+
+[data-motion="compare"] .metric-item:nth-child(1) { animation-delay: 0s; }
+[data-motion="compare"] .metric-item:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="compare"] .metric-item:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="compare"] .metric-item:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+
+[data-motion="part"] .section-topic-item:nth-child(1) .topic-dot { animation-delay: 0s; }
+[data-motion="part"] .section-topic-item:nth-child(2) .topic-dot { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="part"] .section-topic-item:nth-child(3) .topic-dot { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="part"] .section-topic-item:nth-child(4) .topic-dot { animation-delay: calc(var(--motion-stagger) * 3); }
+[data-motion="part"] .section-topic-item:nth-child(5) .topic-dot { animation-delay: calc(var(--motion-stagger) * 4); }
+
+[data-motion="innovation"] .strategies .strat:nth-child(1) .strat-num { animation-delay: 0s; }
+[data-motion="innovation"] .strategies .strat:nth-child(2) .strat-num { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="innovation"] .strategies .strat:nth-child(3) .strat-num { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="innovation"] .strategies .strat:nth-child(4) .strat-num { animation-delay: calc(var(--motion-stagger) * 3); }
+[data-motion="innovation"] .strategies .strat:nth-child(5) .strat-num { animation-delay: calc(var(--motion-stagger) * 4); }
+
+[data-motion="pipeline"] .connector-line {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-motion="pipeline"] .connector-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  border-radius: 2px;
+  background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.85), transparent);
+  animation: motionFlowDown var(--motion-duration) linear infinite;
+}
+
+[data-motion="pipeline"] .connector:nth-child(2) .connector-line::before { animation-delay: 0s; }
+[data-motion="pipeline"] .connector:nth-child(4) .connector-line::before { animation-delay: calc(var(--motion-stagger) * 2); }
+
+[data-motion="pipeline"] .gitops-strip {
+  animation: motionBorderGlow var(--motion-duration) var(--motion-ease) infinite;
+}
+
+[data-motion="pipeline"] .pills .pill:nth-child(1) { animation-delay: 0s; }
+[data-motion="pipeline"] .pills .pill:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="pipeline"] .pills .pill:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="pipeline"] .pills .pill:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+[data-motion="pipeline"] .pills .pill:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
+
+@keyframes motionBarPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); transform: scaleY(1); }
+  50% { box-shadow: 0 0 14px rgba(0, 240, 255, 0.5); transform: scaleY(1.1); }
+}
+
+@keyframes motionBadgePulse {
+  0%, 100% { box-shadow: none; opacity: 1; }
+  50% { box-shadow: 0 0 16px rgba(0, 240, 255, 0.22); opacity: 0.92; }
+}
+
+@keyframes motionFooterGlow {
+  0%, 100% { border-left-color: rgba(250, 204, 21, 0.45); }
+  50% { border-left-color: rgba(250, 204, 21, 0.95); box-shadow: 0 0 18px rgba(250, 204, 21, 0.1); }
+}
+
+@keyframes motionAccentChip {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.04); filter: brightness(1.18); box-shadow: 0 0 16px rgba(0, 240, 255, 0.25); }
+}
+
+@keyframes motionDotPulse {
+  0%, 12%, 100% { transform: scale(1); box-shadow: none; opacity: 0.7; }
+  16%, 28% { transform: scale(1.35); box-shadow: 0 0 12px rgba(0, 240, 255, 0.55); opacity: 1; }
+}
+
+@keyframes motionNumPop {
+  0%, 12%, 100% { transform: scale(1); box-shadow: none; }
+  16%, 28% { transform: scale(1.12); box-shadow: 0 0 14px rgba(0, 240, 255, 0.35); }
+}
+
+@keyframes motionFlowDown {
+  0% { top: -35%; }
+  100% { top: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

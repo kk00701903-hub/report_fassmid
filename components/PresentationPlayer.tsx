@@ -6,9 +6,10 @@ import SlidePartIndicator from "@/components/SlidePartIndicator";
 import SlideOptionsPanel from "@/components/SlideOptionsPanel";
 import { usePresentationConfigState } from "@/hooks/usePresentationConfig";
 import SlideStage, { SLIDE_ASPECT, SLIDE_HEIGHT, SLIDE_WIDTH } from "@/components/SlideStage";
-import { getBasePath, getSlideHtmlUrl } from "@/lib/basePath";
-import { isSlideVisible, type PresentationConfig, type SlideManifestItem } from "@/lib/presentationConfig";
+import { getBasePath } from "@/lib/basePath";
+import { getBuiltinSlideId, isSlideVisible, type PresentationConfig, type SlideManifestItem } from "@/lib/presentationConfig";
 import { prefetchSlides } from "@/lib/slideCache";
+import { getSlideComponent } from "@/lib/slideRegistry";
 import { isPartDividerTitle } from "@/lib/slideParts";
 
 type PresentationPlayerProps = {
@@ -16,14 +17,6 @@ type PresentationPlayerProps = {
 };
 
 type TransitionDirection = "forward" | "back" | "none";
-
-function getSlideSource(item: SlideManifestItem | undefined): { src?: string; srcDoc?: string } {
-  if (!item) return {};
-  if (item.type === "builtin") {
-    return { src: getSlideHtmlUrl(item.fileName) };
-  }
-  return { srcDoc: item.html };
-}
 
 function findAdjacentVisibleIndex(slides: SlideManifestItem[], from: number, delta: 1 | -1): number {
   let index = from + delta;
@@ -54,7 +47,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
   const [currentIndex, setCurrentIndex] = useState(Math.max(0, initialSlideId - 1));
   const [direction, setDirection] = useState<TransitionDirection>("none");
-  const [iframeLoading, setIframeLoading] = useState(true);
+  const [slideLoading, setSlideLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [scale, setScale] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -64,8 +57,10 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   const slideCount = config?.slides.length ?? 0;
   const currentItem = config?.slides[currentIndex];
   const currentNumber = currentIndex + 1;
-  const slideSource = getSlideSource(currentItem);
-  const hasSlideSource = Boolean(slideSource.src || slideSource.srcDoc);
+  const builtinSlideId = getBuiltinSlideId(currentItem);
+  const SlideComponent = builtinSlideId ? getSlideComponent(builtinSlideId) : null;
+  const hasSlideContent =
+    currentItem?.type === "custom" ? Boolean(currentItem.html) : Boolean(SlideComponent);
 
   const visibleCount = useMemo(
     () => (config ? config.slides.filter(isSlideVisible).length : 0),
@@ -180,8 +175,8 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     setScale(Math.min(widthScale, heightScale));
   }, []);
 
-  const handleIframeLoad = useCallback(() => {
-    setIframeLoading(false);
+  const handleSlideReady = useCallback(() => {
+    setSlideLoading(false);
     setError(null);
   }, []);
 
@@ -209,12 +204,12 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
     if (!currentItem) {
       setError("표시할 슬라이드가 없습니다. 설정에서 슬라이드를 추가해 주세요.");
-      setIframeLoading(false);
+      setSlideLoading(false);
       return;
     }
 
     setError(null);
-    setIframeLoading(true);
+    setSlideLoading(true);
     prefetchSlides(config.slides, currentIndex);
   }, [config, currentIndex, currentItem]);
 
@@ -236,7 +231,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       observer.disconnect();
       window.removeEventListener("resize", syncScale);
     };
-  }, [updateScale, iframeLoading, sidebarOpen, currentIndex, isFullscreen]);
+  }, [updateScale, slideLoading, sidebarOpen, currentIndex, isFullscreen]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -383,24 +378,24 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
               <div className="slide-viewer slide-viewer--error">
                 <p>{error}</p>
               </div>
-            ) : hasSlideSource ? (
+            ) : hasSlideContent ? (
               <>
                 <SlideStage
                   key={currentItem?.key ?? currentIndex}
-                  src={slideSource.src}
-                  srcDoc={slideSource.srcDoc}
+                  SlideComponent={SlideComponent}
+                  srcDoc={currentItem?.type === "custom" ? currentItem.html : undefined}
                   scale={scale}
                   direction={direction}
                   title={currentItem?.title}
-                  onLoad={handleIframeLoad}
+                  onReady={handleSlideReady}
                 />
-                {iframeLoading ? (
+                {slideLoading ? (
                   <div className="slide-viewer slide-viewer--loading slide-viewer--overlay">
                     <p>슬라이드를 불러오는 중...</p>
                   </div>
                 ) : null}
 
-                {!iframeLoading && !error ? (
+                {!slideLoading && !error ? (
                   <div className="projector-click-layer" aria-hidden="true">
                     <button
                       type="button"

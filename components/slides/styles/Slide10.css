@@ -1,0 +1,182 @@
+.fass-identity-slide-root {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    font-family: var(--ppt-font-body);
+    position: relative;
+    display: flex;
+    flex-direction: column
+    }
+/* Title Region from Design */
+.title-region-wrapper {
+    padding: 32px 40px 12px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+    }
+.title-region-main {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.title-region-bar {
+    width: 4px;
+    height: 32px;
+    background: var(--ppt-accent);
+    border-radius: 2px
+    }
+.title-region-text {
+    font-family: var(--ppt-font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    margin: 0
+    }
+.title-region-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ppt-accent) 0%, transparent 100%);
+    opacity: 0.3;
+    margin-top: 8px
+    }
+/* Main Layout */
+.fass-identity-main-container {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    padding: 12px 40px 16px 40px;
+    gap: 28px
+    }
+/* Left Side: 4 Core Values Flow */
+.fass-identity-left-flow-section {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative
+    }
+.fass-identity-rail-vertical-line {
+    position: absolute;
+    left: 28px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--ppt-accent) 0%, var(--ppt-surface) 100%);
+    opacity: 0.3
+    }
+.fass-identity-value-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 12px 0;
+    position: relative;
+    z-index: 1
+    }
+.fass-identity-value-marker {
+    width: 50px;
+    height: 50px;
+    background: var(--ppt-surface);
+    border: 2px solid var(--ppt-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2)
+    }
+.fass-identity-value-marker-letter {
+    font-family: var(--ppt-font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ppt-accent)
+    }
+.fass-identity-value-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+    }
+.fass-identity-value-heading-group {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.fass-identity-value-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ppt-text-1)
+    }
+.fass-identity-value-subtitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    opacity: 0.9
+    }
+.fass-identity-value-description {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--ppt-text-2);
+    max-width: 650px
+    }
+/* Right Side: Logo Vision */
+.fass-identity-right-vision-section {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+    }
+.fass-identity-logo-info-card {
+    background: var(--ppt-bg-soft);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--ppt-shadow-strong)
+    }
+.fass-identity-logo-visual-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    border-radius: var(--ppt-radius-md);
+    padding: 12px 12px;
+    border: 1px solid var(--ppt-border)
+    }
+.fass-identity-logo-image {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain
+    }
+.fass-identity-logo-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ppt-accent-2);
+    text-align: center
+    }
+.fass-identity-logo-body-text {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ppt-text-1)
+    }
+.fass-identity-logo-keyword-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid var(--ppt-accent-2);
+    border-radius: var(--ppt-radius-sm);
+    color: var(--ppt-accent-2);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 12px;
+    align-self: flex-start
+    }
+.fass-identity-highlight-text {
+    color: var(--ppt-accent);
+    font-weight: 600
+    }

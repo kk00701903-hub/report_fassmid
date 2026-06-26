@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap");
+@import "../styles/slides/tokens.css";
+@import "../styles/slides/slide-fonts.css";
+@import "../styles/slides/slide-motion.css";
 
 :root {
   --bg: #0a0e1a;

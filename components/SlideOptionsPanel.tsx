@@ -221,7 +221,7 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
                       aria-label={`슬라이드 ${index + 1} 제목`}
                     />
                     <span className="options-slide-list__meta">
-                      {slide.type === "builtin" ? slide.fileName : "업로드 HTML"}
+                      {slide.type === "builtin" ? `슬라이드 ${slide.slideId}` : "업로드 HTML"}
                       {slide.visible === false ? " · 발표 숨김" : ""}
                     </span>
                   </div>

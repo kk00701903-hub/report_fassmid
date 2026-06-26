@@ -1,9 +1,7 @@
 "use client";
 
-import {
-  getBuiltinSlideIdFromFileName,
-  getSlidePart,
-} from "@/lib/slideParts";
+import { getBuiltinSlideId } from "@/lib/presentationConfig";
+import { getSlidePart } from "@/lib/slideParts";
 import type { SlideManifestItem } from "@/lib/presentationConfig";
 
 type SlidePartIndicatorProps = {
@@ -11,10 +9,7 @@ type SlidePartIndicatorProps = {
 };
 
 export default function SlidePartIndicator({ manifestItem }: SlidePartIndicatorProps) {
-  const builtinId =
-    manifestItem?.type === "builtin"
-      ? getBuiltinSlideIdFromFileName(manifestItem.fileName)
-      : null;
+  const builtinId = getBuiltinSlideId(manifestItem);
   const part = getSlidePart(builtinId);
 
   if (!part) return null;

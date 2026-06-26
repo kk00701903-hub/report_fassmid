@@ -1,0 +1,413 @@
+.fass-slide-root-container {
+    width: 960px;
+    height: 720px;
+    background-color: var(--ppt-bg);
+    color: var(--ppt-text-1);
+    display: flex;
+    flex-direction: column;
+    position: relative
+    }
+/* Title Region — match slide 19 */
+.title-r{flex-shrink:0;padding:22px 36px 6px;position:relative;z-index:1}
+.title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bar{width:4px;height:30px;background:var(--ppt-accent);border-radius:2px}
+.badge{font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:var(--ppt-accent-2)}
+h1.title-main{font-size:26px;font-weight:700;line-height:1.3;margin:0}
+.sub{font-size:13px;color:var(--ppt-text-2);margin-top:4px;padding-left:14px;line-height:1.4}
+.line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--ppt-accent),transparent);opacity:.35}
+/* AI Impact Hero Layout */
+.ai-innovation-hero-main-layout {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: stretch;
+    padding: 8px 40px 16px 40px;
+    gap: 24px
+    }
+/* Left Column: Stat Anchor */
+.ai-innovation-left-stat-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start
+    }
+.ai-innovation-stat-label-top {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-text-2);
+    margin-bottom: 8px
+    }
+.ai-innovation-hero-stat-number {
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--ppt-accent-2);
+    line-height: 1;
+    letter-spacing: -4px
+    }
+.ai-innovation-stat-unit-text {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ppt-accent);
+    margin-left: 12px
+    }
+.ai-innovation-stat-description-box {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--ppt-border);
+    width: 100%
+    }
+.ai-innovation-stat-impact-summary {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-text-1);
+    line-height: 1.4
+    }
+.ai-innovation-stat-impact-subtext {
+    font-size: 14px;
+    color: var(--ppt-text-2);
+    margin-top: 8px
+    }
+/* Right Column: Content Area */
+.ai-innovation-right-content-column {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px
+    }
+.ai-tech-process-group-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+    }
+.ai-tech-process-header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px
+    }
+.ai-tech-process-icon-circle {
+    width: 40px;
+    height: 40px;
+    background: var(--ppt-bg-soft);
+    border: 1px solid var(--ppt-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ppt-accent);
+    font-size: 20px
+    }
+.ai-tech-process-title-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ppt-accent)
+    }
+.ai-tech-process-body-description {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ppt-text-1);
+    padding-left: 40px
+    }
+.ai-tech-process-highlight-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+    padding-left: 40px
+    }
+.ai-tech-process-chip-badge {
+    background: var(--ppt-surface);
+    border: 1px solid var(--ppt-border);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--ppt-text-2);
+    font-weight: 600
+    }
+.ai-tech-process-chip-badge.active {
+    border-color: var(--ppt-accent);
+    color: var(--ppt-accent)
+    }
+.ai-impact-management-summary-box {
+    background: linear-gradient(135deg, var(--ppt-surface) 0%, var(--ppt-bg-soft) 100%);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-lg);
+    padding: 14px;
+    margin-left: 40px
+    }
+.ai-impact-management-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ppt-accent-2);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px
+    }
+.ai-impact-management-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+    }
+.ai-impact-management-list-entry {
+    font-size: 14px;
+    color: var(--ppt-text-2);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px
+    }
+.ai-impact-management-list-entry i {
+    color: var(--ppt-good);
+    margin-top: 4px
+    }
+.ai-impact-management-list-entry b {
+    color: var(--ppt-text-1)
+    }
+/* Multi-Agent Demo */
+.agent-demo-trigger-btn {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: rgba(0, 240, 255, 0.12);
+    border: 1px solid var(--ppt-accent);
+    color: var(--ppt-accent);
+    border-radius: var(--ppt-radius-md);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: var(--ppt-font-body);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+.agent-demo-trigger-btn:hover {
+    background: var(--ppt-accent);
+    color: var(--ppt-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+    }
+.agent-demo-trigger-btn.is-disabled {
+    cursor: default;
+    opacity: 0.92;
+    }
+.agent-demo-trigger-btn.is-disabled:hover {
+    background: rgba(0, 240, 255, 0.12);
+    color: var(--ppt-accent);
+    transform: none;
+    }
+.agent-demo-overlay {
+    position: absolute;
+    inset: 68px 0 0 0;
+    z-index: 100;
+    background: rgba(10, 14, 26, 0.98);
+    display: none;
+    flex-direction: column;
+    padding: 8px 24px 16px;
+    border-top: 1px solid var(--ppt-border)
+    }
+.agent-demo-overlay.is-open {
+    display: flex
+    }
+.agent-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    flex-shrink: 0
+    }
+.agent-demo-header-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ppt-accent);
+    display: flex;
+    align-items: center;
+    gap: 8px
+    }
+.agent-demo-close-btn {
+    border: 1px solid var(--ppt-border);
+    background: var(--ppt-surface);
+    color: var(--ppt-text-2);
+    border-radius: var(--ppt-radius-sm);
+    padding: 4px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: var(--ppt-font-body)
+    }
+.agent-demo-close-btn:hover {
+    border-color: var(--ppt-accent);
+    color: var(--ppt-accent)
+    }
+.agent-demo-stage-wrap {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+    width: 100%
+    }
+.agent-demo-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px
+    }
+.agent-demo-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none
+    }
+.agent-demo-svg line {
+    stroke: var(--ppt-border);
+    stroke-width: 2;
+    transition: stroke 0.3s ease, stroke-width 0.3s ease
+    }
+.agent-demo-svg line.is-active {
+    stroke: var(--ppt-accent);
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.6))
+    }
+.agent-demo-svg line.is-flow {
+    stroke: var(--ppt-accent-2);
+    stroke-dasharray: 8 6;
+    animation: agentFlowDash 0.6s linear infinite
+    }
+.agent-demo-packet {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ppt-accent-2);
+    box-shadow: 0 0 12px var(--ppt-accent-2);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 0.15s ease
+    }
+.agent-demo-packet.is-visible {
+    opacity: 1
+    }
+.agent-node {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    z-index: 10;
+    transition: transform 0.35s ease
+    }
+.agent-node-box {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 2px solid var(--ppt-border);
+    background: var(--ppt-surface);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-align: center;
+    padding: 6px;
+    animation: agentFloat 3s ease-in-out infinite
+    }
+.agent-node-box i {
+    font-size: 18px;
+    color: var(--ppt-text-2)
+    }
+.agent-node-label {
+    font-size:13px;
+    font-weight: 700;
+    color: var(--ppt-text-1);
+    line-height: 1.2
+    }
+.agent-node-sub {
+    font-size:13px;
+    color: var(--ppt-text-3);
+    line-height: 1.2
+    }
+.agent-node.is-hub .agent-node-box {
+    width: 104px;
+    height: 104px;
+    border-color: var(--ppt-chart-3);
+    background: linear-gradient(145deg, var(--ppt-surface-2), var(--ppt-bg-soft));
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.35)
+    }
+.agent-node.is-hub .agent-node-box i {
+    font-size: 26px;
+    color: var(--ppt-chart-3)
+    }
+.agent-node.is-hub .agent-node-label {
+    font-size: 13px;
+    color: var(--ppt-chart-3)
+    }
+.agent-node.is-gpu .agent-node-box {
+    border-color: var(--ppt-accent-2)
+    }
+.agent-node.is-gpu .agent-node-box i {
+    color: var(--ppt-accent-2)
+    }
+.agent-node.is-code .agent-node-box {
+    border-color: var(--ppt-good)
+    }
+.agent-node.is-code .agent-node-box i {
+    color: var(--ppt-good)
+    }
+.agent-node.is-active {
+    z-index: 15;
+    transform: translate(-50%, -50%) scale(1.06)
+    }
+.agent-node.is-active .agent-node-box {
+    border-color: var(--ppt-accent);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.45)
+    }
+.agent-node.is-active .agent-node-label {
+    color: var(--ppt-accent)
+    }
+.agent-demo-status {
+    flex-shrink: 0;
+    margin-top: 8px;
+    padding: 8px 14px;
+    background: var(--ppt-bg-soft);
+    border: 1px solid var(--ppt-border);
+    border-radius: var(--ppt-radius-md);
+    font-size: 13px;
+    color: var(--ppt-text-2);
+    text-align: center;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px
+    }
+.agent-demo-status b {
+    color: var(--ppt-accent-2)
+    }
+.agent-demo-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 6px;
+    flex-shrink: 0
+    }
+.agent-demo-legend span {
+    font-size:13px;
+    color: var(--ppt-text-3);
+    padding: 2px 8px;
+    border: 1px solid var(--ppt-border);
+    border-radius: 12px
+    }
+@keyframes agentFloat {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-5px) }
+    }
+@keyframes agentFlowDash {
+    to { stroke-dashoffset: -14 }
+    }

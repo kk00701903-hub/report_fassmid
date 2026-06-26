@@ -1,0 +1,72 @@
+.slide {
+  width: 960px; height: 720px; background: var(--ppt-bg); color: var(--ppt-text-1);
+  display: flex; flex-direction: column; overflow: hidden; position: relative;
+}
+.slide::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 15% 10%, rgba(0,240,255,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 85% 90%, rgba(250,204,21,0.05) 0%, transparent 45%);
+}
+.title-r { flex-shrink: 0; padding: 22px 40px 6px; position: relative; z-index: 1; }
+.title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.bar { width: 4px; height: 32px; background: var(--ppt-accent); border-radius: 2px; flex-shrink: 0; }
+.badge {
+  font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px;
+  background: rgba(250,204,21,0.12); border: 1px solid rgba(250,204,21,0.35); color: var(--ppt-accent-2);
+}
+h1 { font-size: 26px; font-weight: 700; line-height: 1.25; margin: 0; }
+.sub { font-size: 14px; color: var(--ppt-text-2); margin-top: 6px; padding-left: 16px; line-height: 1.45; }
+.line { height: 1px; margin-top: 8px; background: linear-gradient(90deg, var(--ppt-accent), transparent); opacity: 0.35; }
+.body { flex: 1; min-height: 0; padding: 6px 32px 10px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 14px; position: relative; z-index: 1; }
+.stack { display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+.layer {
+  display: flex; align-items: stretch; gap: 10px; padding: 10px 12px;
+  background: var(--ppt-bg-soft); border: 1px solid var(--ppt-border); border-radius: var(--ppt-radius-lg);
+  border-left: 4px solid var(--lc, var(--ppt-accent)); position: relative;
+}
+.layer-icon {
+  width: 40px; height: 40px; border-radius: var(--ppt-radius-md); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+  background: rgba(255,255,255,0.06);
+}
+.layer-body { flex: 1; min-width: 0; }
+.layer-name { font-size: 15px; font-weight: 700; line-height: 1.25; color: var(--lc, var(--ppt-text-1)); }
+.layer-en { font-size: 12px; color: var(--ppt-text-3); margin-top: 1px; }
+.layer-desc { font-size: 13px; color: var(--ppt-text-2); line-height: 1.42; margin-top: 4px; }
+.layer-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.tag { font-size: 11px; padding: 2px 7px; border-radius: 10px; background: var(--ppt-surface); border: 1px solid var(--ppt-border); color: var(--ppt-text-3); }
+.arrow-down { text-align: center; color: var(--ppt-text-3); font-size: 12px; line-height: 1; padding: 0 0 2px; }
+.arrow-down i { color: var(--ppt-accent); }
+.right-col { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.flow-card {
+  flex: 1; background: var(--ppt-bg-soft); border: 1px solid var(--ppt-border);
+  border-radius: var(--ppt-radius-lg); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
+}
+.flow-title { font-size: 14px; font-weight: 700; color: var(--ppt-accent); display: flex; align-items: center; gap: 8px; }
+.flow-steps { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.flow-step {
+  display: flex; gap: 8px; align-items: flex-start; padding: 7px 8px;
+  border-radius: var(--ppt-radius-md); background: rgba(255,255,255,0.025);
+}
+.step-num {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(0,240,255,0.12); border: 1px solid rgba(0,240,255,0.35);
+  color: var(--ppt-accent); font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.step-text { font-size: 13px; color: var(--ppt-text-2); line-height: 1.4; }
+.step-text strong { color: var(--ppt-text-1); }
+.analogy {
+  background: linear-gradient(135deg, rgba(250,204,21,0.08), rgba(0,240,255,0.05));
+  border: 1px dashed rgba(250,204,21,0.35); border-radius: var(--ppt-radius-lg);
+  padding: 10px 12px;
+}
+.analogy-title { font-size: 13px; font-weight: 700; color: var(--ppt-accent-2); margin-bottom: 6px; }
+.analogy-row { display: flex; gap: 6px; font-size: 12.5px; color: var(--ppt-text-2); line-height: 1.4; margin-top: 3px; }
+.analogy-row em { font-style: normal; font-weight: 700; color: var(--ppt-text-1); min-width: 52px; }
+.footer {
+  flex-shrink: 0; margin: 0 32px 12px; padding: 9px 14px; border-radius: 0 10px 10px 0;
+  border-left: 3px solid var(--ppt-accent); background: rgba(0,240,255,0.05);
+  font-size: 13px; color: var(--ppt-text-2); line-height: 1.45; position: relative; z-index: 1;
+}
+.footer strong { color: var(--ppt-accent); }

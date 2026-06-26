@@ -4,23 +4,17 @@ import { useEffect, useState } from "react";
 import SlideDetailPanel from "@/components/SlideDetailPanel";
 import { getSlideDetails } from "@/lib/slideDetails";
 import type { DetailTopic } from "@/lib/slideDetails";
-import type { SlideManifestItem } from "@/lib/presentationConfig";
+import { getBuiltinSlideId, type SlideManifestItem } from "@/lib/presentationConfig";
 
 type SlideDetailButtonsProps = {
   slideIndex: number;
   manifestItem: SlideManifestItem | undefined;
 };
 
-function getBuiltinSlideId(fileName: string): number | null {
-  const match = fileName.match(/^(\d+)\.html$/i);
-  return match ? Number(match[1]) : null;
-}
-
 export default function SlideDetailButtons({ slideIndex, manifestItem }: SlideDetailButtonsProps) {
   const [activeTopic, setActiveTopic] = useState<DetailTopic | null>(null);
 
-  const builtinId =
-    manifestItem?.type === "builtin" ? getBuiltinSlideId(manifestItem.fileName) : null;
+  const builtinId = getBuiltinSlideId(manifestItem);
   const detailSet = builtinId ? getSlideDetails(builtinId) : undefined;
   const topics = detailSet?.topics ?? [];
 

@@ -55,8 +55,3 @@ export function getSlidePart(builtinSlideId: number | null): SlidePart | null {
 
   return { partNumber: part.partNumber, title: part.title };
 }
-
-export function getBuiltinSlideIdFromFileName(fileName: string): number | null {
-  const match = fileName.match(/^(\d+)\.html$/i);
-  return match ? Number(match[1]) : null;
-}
