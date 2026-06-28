@@ -163,7 +163,7 @@ export function Slide05MonoScene() {
               animate={{ x: workerX }}
               transition={{ type: "spring", stiffness: 120, damping: 18 }}
             >
-              <WorkerFigure x={0} tone="legacy" active working label="전담 1인" />
+              <WorkerFigure x={0} tone="legacy" active working label="단일 담당" />
               <motion.rect
                 x={-7}
                 y={46}
@@ -179,7 +179,7 @@ export function Slide05MonoScene() {
             </motion.g>
           ) : (
             <motion.g key="worker-incident" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <WorkerFigure x={workerX} tone="legacy" injured label="부상!" />
+              <WorkerFigure x={workerX} tone="legacy" injured label="장애 발생" />
               <text x={114} y={22} textAnchor="middle" fontSize={11} fontWeight={800} fill="#b91c1c">
                 ⚠ 전체 라인 마비
               </text>
@@ -203,7 +203,7 @@ export function Slide05MonoScene() {
         ) : null}
       </svg>
       <div className={`s05-scene__status ${incident ? "is-danger" : ""}`}>
-        {incident ? "작업자 문제 → 입고·분류·포장·출고 전체 중단" : `한 명이 ${TASKS[taskIdx]} 포함 전 공정을 동시에 처리 중…`}
+        {incident ? "단일 장애 → 입고·분류·포장·출고 전 공정 중단" : `단일 인력이 전 공정 일괄 처리 중 (${TASKS[taskIdx]} 포함)`}
       </div>
     </div>
   );
@@ -247,7 +247,7 @@ export function Slide05MsaScene() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35 }}
                 >
-                  <WorkerFigure x={STATION_X[i]} tone="swap" active working label="신규 투입" />
+                  <WorkerFigure x={STATION_X[i]} tone="swap" active working label="대체 배치" />
                 </motion.g>
               </AnimatePresence>
             );
@@ -287,8 +287,8 @@ export function Slide05MsaScene() {
       </svg>
       <div className={`s05-scene__status ${swapping ? "is-success" : ""}`}>
         {swapping
-          ? "포장 담당만 즉시 교체 — 입고·분류·출고는 무중단 가동"
-          : `전담 인력 4명이 ${TASKS[boxPos]} 구간에서 병렬 협업 중…`}
+          ? "포장 모듈만 교체·배포 — 입고·분류·출고는 무중단 가동"
+          : `전담 인력 4명 · ${TASKS[boxPos]} 구간 병렬 운영 중`}
       </div>
     </div>
   );

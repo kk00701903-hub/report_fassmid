@@ -21,11 +21,11 @@ export default function Slide06() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>CDC(Change Data Capture)란?</h1>
+            <h1>CDC(Change Data Capture) — 데이터 동기화 전환</h1>
           </div>
           <p className="sub">
-            <strong>변경 데이터 캡처</strong> — DB 변경분만 실시간 전송. 아래{" "}
-            <strong>물류창고 야간 전수조사 vs 실시간 센서</strong> 그림으로 Batch와 CDC를 비교합니다.
+            현행 <strong>Batch(야간 전수 복제)</strong>와 <strong>CDC(변경분 실시간 전송)</strong>를 운영 부하·
+            데이터 신선도 관점에서 비교·검토합니다.
           </p>
           <div className="line" />
         </div>
@@ -33,16 +33,16 @@ export default function Slide06() {
         <div className="body">
           <div className="compare-panels">
             <div className="panel panel--legacy">
-              <div className="panel-badge panel-badge--warn">기존 방식 · Batch 기반 데이터 복사</div>
+              <div className="panel-badge panel-badge--warn">현행 · Batch 복제</div>
               <h2 className="panel-title">
                 &apos;야간 재고 전수조사&apos;
-                <span> — 매일 밤 전체를 다시 세는 방식</span>
+                <span> — 매일 야간 전체 데이터 재복제</span>
               </h2>
 
               <Slide06BatchScene />
 
               <p className="panel-analogy">
-                <RichText text="매일 밤 자정에 물류센터 문을 닫고, 센터 안의 **모든 물건을 처음부터 끝까지** 다시 세어 본사에 보고하는 방식입니다." />
+                <RichText text="매일 야간에 **전 재고·전 거래 데이터를 처음부터 재집계**하여 본사 분석 DB로 일괄 전송하는 방식입니다." />
               </p>
 
               <div className="panel-callout panel-callout--danger">
@@ -50,9 +50,9 @@ export default function Slide06() {
                   <i className="fas fa-triangle-exclamation" />
                 </div>
                 <div className="callout-body">
-                  <div className="callout-label">단점</div>
+                  <div className="callout-label">현행 과제</div>
                   <p>
-                    <RichText text="시간이 오래 걸리고 물류센터(**운영 DB**)에 엄청난 피로와 부하를 줍니다. 본사는 **어제 자정 기준의 과거 데이터**만 볼 수 있습니다." />
+                    <RichText text="대용량 전수 처리로 **운영 DB 부하**가 발생하며, 본사는 **전일 자정 기준 과거 데이터**에 의존하게 됩니다." />
                   </p>
                 </div>
               </div>
@@ -65,16 +65,16 @@ export default function Slide06() {
             </div>
 
             <div className="panel panel--cdc">
-              <div className="panel-badge panel-badge--pos">차세대 방식 · CDC 도입</div>
+              <div className="panel-badge panel-badge--pos">차세대 · CDC</div>
               <h2 className="panel-title">
                 &apos;실시간 입출고 센서 보고&apos;
-                <span> — 변동분만 즉시 전송</span>
+                <span> — 변동분만 즉시 동기화</span>
               </h2>
 
               <Slide06CdcScene />
 
               <p className="panel-analogy">
-                <RichText text="출입구에 스마트 센서를 달아, 기존 재고는 건드리지 않고 방금 **'들어온 물건'**과 **'나간 물건(변동분)'**만 실시간으로 본사에 전송합니다." />
+                <RichText text="기존 재고는 유지한 채 **입·출고 변동분만** 실시간으로 분석 DB에 동기화하는 방식입니다." />
               </p>
 
               <div className="panel-callout panel-callout--success">
@@ -82,9 +82,9 @@ export default function Slide06() {
                   <i className="fas fa-circle-check" />
                 </div>
                 <div className="callout-body">
-                  <div className="callout-label">장점</div>
+                  <div className="callout-label">기대 효과</div>
                   <p>
-                    <RichText text="물류센터 업무에 전혀 지장을 주지 않으면서(**운영 DB 부하 제로**), 본사는 **1초 전의 100% 실시간 데이터**로 즉각적인 비즈니스 의사결정을 내릴 수 있습니다." />
+                    <RichText text="운영 DB에 **실질적 부하 없이** 신·구 시스템을 연동하며, **준실시간 데이터** 기반 의사결정을 지원합니다." />
                   </p>
                 </div>
               </div>
@@ -94,10 +94,10 @@ export default function Slide06() {
           <div className="wrapup-box">
             <div className="wrapup-head">
               <i className="fas fa-arrows-rotate" />
-              <h3>FaSS 차세대 적용</h3>
+              <h3>FaSS 차세대 적용 방안</h3>
             </div>
             <p className="wrapup-text">
-              <RichText text="**Debezium + Kafka** 기반 CDC 파이프라인으로 레거시 Oracle → PostgreSQL **무중단 데이터 이관** — 업무 중단 없이 신·구 시스템을 실시간 동기화합니다." />
+              <RichText text="**Debezium + Kafka** 기반 CDC 파이프라인으로 레거시 Oracle → PostgreSQL **무중단 데이터 이관**을 추진합니다. 업무 중단 없이 신·구 시스템을 실시간 동기화합니다." />
             </p>
           </div>
         </div>

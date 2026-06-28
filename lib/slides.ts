@@ -18,7 +18,7 @@ export const SLIDES: Slide[] = [
   { id: 3, title: "IT 시스템 이해하기 — 웹 · 프론트엔드 · WAS · DB" },
   { id: 4, title: "핵심 용어집 ① — 클라우드 · 오픈소스 · API" },
   { id: 5, title: "핵심 용어집 ② — MSA · 모듈러 모놀리스 · Docker · Kubernetes" },
-  { id: 6, title: "CDC(Change Data Capture)란?" },
+  { id: 6, title: "CDC(Change Data Capture) — 데이터 동기화 전환" },
   { id: 7, title: "차세대 FaSS 구축 프로젝트 범위" },
   { id: 8, title: "[별첨] 디지털 트렌드 — MSA · Cloud · Open Source · AI" },
   { id: 9, title: "팀 에이전트 구성 — AI 8인 역할" },

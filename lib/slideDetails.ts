@@ -186,10 +186,10 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "cdc-primer",
-        title: "CDC(Change Data Capture)란?",
+        title: "CDC(Change Data Capture) — 데이터 동기화 전환",
         category: "process",
         summary:
-          "Batch 전수 복사 vs CDC 변경분 실시간 캡처를 물류센터 비유로 설명합니다. Debezium + Kafka 기반 무중단 DB 이관의 핵심 개념입니다.",
+          "현행 Batch(야간 전수 복제)와 CDC(변경분 실시간 전송)를 운영 부하·데이터 신선도 관점에서 비교합니다. Debezium + Kafka 기반 무중단 DB 이관의 핵심 방안입니다.",
         process: [
           { step: 1, title: "기존 Batch", description: "야간 전수조사 — 운영 DB 부하·과거 데이터 한계" },
           { step: 2, title: "차세대 CDC", description: "변동분만 실시간 전송 — 부하 제로·즉각 의사결정" },

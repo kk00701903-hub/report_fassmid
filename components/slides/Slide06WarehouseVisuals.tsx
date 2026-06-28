@@ -192,8 +192,8 @@ export function Slide06BatchScene() {
       </svg>
       <div className={`s06-scene__status ${phase === "reporting" ? "is-warn" : "is-danger"}`}>
         {phase === "reporting"
-          ? "전수조사 완료 → 과거 데이터만 본사에 일괄 전송 (운영 DB 부하↑)"
-          : `야간 전수조사 진행 중 — 모든 선반 ${scanIdx + 1}/${SHELF_SLOTS.length} 구역 카운트`}
+          ? "전수조사 완료 → 전일 자정 기준 데이터 일괄 전송 (운영 DB 부하↑)"
+          : `야간 전수조사 진행 — 전 구역 재집계 ${scanIdx + 1}/${SHELF_SLOTS.length}`}
       </div>
     </div>
   );
@@ -283,7 +283,7 @@ export function Slide06CdcScene() {
         <HqBuilding x={158} y={38} tone="cdc" label="본사 (분석 DB)" sub="실시간 동기화" />
       </svg>
       <div className="s06-scene__status is-success">
-        변동분({event.label})만 즉시 전송 — 재고 전체를 다시 세지 않음 · 운영 DB 부하 제로
+        변동분({event.label})만 즉시 동기화 — 전체 재집계 없음 · 운영 DB 부하 최소
       </div>
     </div>
   );

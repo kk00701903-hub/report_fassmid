@@ -220,7 +220,7 @@ export function Slide04ShipHero() {
       </div>
 
       <div className="docker-ship-hero__bridge">
-        <div className="docker-ship-hero__bridge-tag">1:1 비유</div>
+        <div className="docker-ship-hero__bridge-tag">물류 ↔ IT</div>
         <motion.div
           className="docker-ship-hero__bridge-arrows"
           animate={reduceMotion ? undefined : { x: [0, 4, 0] }}
@@ -228,7 +228,7 @@ export function Slide04ShipHero() {
         >
           <i className="fas fa-arrows-left-right" />
         </motion.div>
-        <p>철제 컨테이너 = 도커 컨테이너</p>
+        <p>물류 컨테이너 ↔ Docker 컨테이너</p>
       </div>
 
       <div className="docker-ship-hero__scene docker-ship-hero__scene--it">

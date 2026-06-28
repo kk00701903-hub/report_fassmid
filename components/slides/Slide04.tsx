@@ -11,26 +11,26 @@ const CONCEPTS = [
     en: "Standardization",
     variant: "standard" as const,
     logistics:
-      "쌀·TV·부품 등 내용물이 달라도 **동일 규격의 철제 컨테이너**에 실어 하역·선적 효율을 극대화합니다.",
-    it: "언어·설정이 다른 프로그램도 **동일 규격의 도커 컨테이너**에 담아 빠르고 일관된 배포가 가능합니다.",
+      "품목·규격이 달라도 **동일 규격 컨테이너**로 적재·하역을 표준화하여 선적 효율을 극대화합니다.",
+    it: "언어·환경이 다른 서비스도 **Docker 컨테이너** 단위로 패키징하여 배포·운영의 일관성을 확보합니다.",
   },
   {
     num: "02",
-    title: "완벽한 이식성",
+    title: "이식성",
     en: "Portability",
     variant: "port" as const,
     logistics:
-      "부산항에서 실은 컨테이너를 미국 도착 후에도 **배·기차·트럭에 그대로** 옮겨 실어 운송합니다.",
-    it: "개발 PC에서 검증한 컨테이너가 **Live 서버·클라우드**에서도 동일하게 에러 없이 실행됩니다.",
+      "부산항 적재 컨테이너를 미국 도착 후에도 **선박·열차·트럭에 그대로** 연결하여 운송합니다.",
+    it: "개발·검증 환경과 **Live·클라우드**에서 동일 이미지를 실행하여 환경 차이로 인한 장애 리스크를 줄입니다.",
   },
   {
     num: "03",
-    title: "화물의 독립성",
+    title: "서비스 격리",
     en: "Isolation",
     variant: "isolated" as const,
     logistics:
-      "의류와 액체류를 **각기 다른 컨테이너**에 분리 적재해 냄새 섞임·오염을 차단합니다.",
-    it: "한 서버에 여러 컨테이너를 띄워도 철저히 분리 — 한 서비스 장애가 **다른 서비스에 영향 없음**.",
+      "의류와 액체류를 **각기 다른 컨테이너**에 분리 적재하여 교차 오염·품질 리스크를 차단합니다.",
+    it: "동일 서버 내 컨테이너를 철저히 분리하여, 단일 서비스 장애가 **타 서비스로 확산되지 않습니다**.",
   },
 ] as const;
 
@@ -51,11 +51,11 @@ export default function Slide04() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>도커(Docker) 컨테이너란?</h1>
+            <h1>Docker 컨테이너 — 배포 표준화 개념</h1>
           </div>
           <p className="sub">
-            물류의 <strong>배 + 철제 컨테이너</strong>를 그림으로 이해하면, IT의 도커 컨테이너 개념이 한눈에
-            들어옵니다.
+            물류 현장의 <strong>컨테이너선·철제 컨테이너</strong> 운영 원칙을 FaSS 배포 체계에 적용할 때의{" "}
+            <strong>표준화 · 이식 · 격리</strong> 3대 효과를 보고드립니다.
           </p>
           <div className="line" />
         </div>
@@ -107,12 +107,12 @@ export default function Slide04() {
             <div className="k8s-body">
               <div className="k8s-title">
                 <span className="k8s-tag">운영 자동화</span>
-                쿠버네티스(K8s) = 무인 자동화 항만 관제탑
+                쿠버네티스(K8s) — 컨테이너 무인 관제 체계
               </div>
               <p className="k8s-desc">
-                쏟아지는 수백 개의 컨테이너(앱)를 사람이 일일이 관리할 수 없습니다. 쿠버네티스는{" "}
-                <strong>빈 트럭(서버 자원)</strong>을 찾아 컨테이너를 자동 배치하고, 트래픽 폭주 시{" "}
-                <strong>동일 컨테이너를 자동 복제(투입)</strong>하는 완벽한 무인 관제탑 역할을 수행합니다.
+                FaSS 차세대에서는 다수 컨테이너의 <strong>자동 배치·스케일링</strong>이 필수입니다. Kubernetes는
+                유휴 서버 자원을 탐색해 컨테이너를 배치하고, 트래픽 급증 시{" "}
+                <strong>동일 컨테이너를 자동 복제·투입</strong>하여 가용성을 유지하는 무인 관제 체계입니다.
               </p>
             </div>
           </div>
