@@ -19,6 +19,10 @@
   --fluent-warn: #ca5010;
   --fluent-bad: #d13438;
 
+  --ppt-font: "Noto Sans KR", sans-serif;
+  --ppt-font-display: "Noto Sans KR", sans-serif;
+  --ppt-font-body: "Noto Sans KR", sans-serif;
+
   /* Legacy --ppt-* remap inside fluent slides */
   --ppt-bg: #ffffff;
   --ppt-bg-soft: #f8f8f8;
@@ -78,7 +82,7 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
-  font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+  font-family: var(--ppt-font-body);
 }
 
 /* Title chrome — standard + aliases */

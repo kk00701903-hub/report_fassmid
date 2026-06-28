@@ -74,7 +74,7 @@
   box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0, 0, 0, 0.08));
   cursor: pointer;
   text-align: left;
-  font-family: "Consolas", "JetBrains Mono", "Segoe UI", monospace;
+  font-family: "Consolas", "JetBrains Mono", monospace;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
@@ -100,7 +100,7 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--fluent-grey-130, #484644);
-  font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+  font-family: var(--ppt-font-body);
   line-height: 1.35;
 }
 

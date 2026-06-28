@@ -9,6 +9,16 @@ body {
   font-family: "Noto Sans KR", sans-serif;
 }
 
+[class*="slide-s"] .slide-canvas-root,
+[class*="slide-s"] .slide-motion-content,
+[class*="slide-s"] .slide-motion-orchestrator {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+[class*="slide-s"] svg text {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
 *,
 *::before,
 *::after {

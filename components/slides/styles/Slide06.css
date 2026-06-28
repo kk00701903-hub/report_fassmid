@@ -34,7 +34,7 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
-  font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+  font-family: var(--ppt-font-body);
 }
 
 .slide-s06 .title-r {
