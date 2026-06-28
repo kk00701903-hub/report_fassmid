@@ -1,13 +1,51 @@
-/* Slide 34 ??AI innovation (extends fluent-primer.css) */
+/* Slide 34 — DGX·Claude Code: left stat anchor + right orchestration content */
 
-.slide-s34 .ai-innovation-hero-main-layout {flex: 1;
-    min-height: 0;
-    display: flex;
-    align-items: stretch;
-    padding: 8px 40px 16px 40px;
-    gap: 24px}
+.slide-s34 .fass-slide-root {
+  width: 100%;
+  height: 100%;
+  background: var(--fluent-bg, #fff);
+  color: var(--fluent-grey-160, #201f1e);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.slide-s34 .title-r {
+  flex-shrink: 0;
+}
+
+.slide-s34 h1.title-main {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.slide-s34 .sub {
+  font-size: 13px;
+  color: var(--fluent-grey-130, #484644);
+  margin-top: 4px;
+  padding-left: 14px;
+  line-height: 1.4;
+}
+
+/* 좌: 외주 인력 0 M/M | 우: DGX·Claude Code 오케스트레이션 */
+.slide-s34 .ai-innovation-hero-main-layout {
+  flex: 1;
+  min-height: 0;
+  padding: 8px 36px 16px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 24px !important;
+  align-items: stretch;
+  overflow: visible;
+}
 
 .slide-s34 .ai-innovation-left-stat-column{flex: 2;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,6 +76,7 @@
     margin-top: 8px}
 
 .slide-s34 .ai-innovation-right-content-column{flex: 3;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,6 +144,7 @@
 .slide-s34 .ai-impact-management-list-entry b{color: var(--fluent-grey-160, #201f1e)}
 
 .slide-s34 .agent-demo-trigger-btn{margin-top: 10px;
+    margin-left: 40px;
     padding: 10px 16px;
     background: rgba(0, 120, 212, 0.12);
     border: 1px solid var(--fluent-blue, #0078d4);
@@ -275,14 +315,3 @@
 @keyframes agentFlowDash {
     to {stroke-dashoffset: -14}
     }
-.slide-s34 h1.title-main {font-size: 22px;}
-.slide-s34 .ai-innovation-hero-main-layout {padding: 2px 24px 6px; gap: 12px; min-height: 0; overflow: hidden;}
-.slide-s34 .ai-innovation-hero-stat-number {font-size: 44px; letter-spacing: -1px;}
-.slide-s34 .ai-innovation-stat-unit-text {font-size: 18px; margin-left: 8px;}
-.slide-s34 .ai-innovation-stat-label-top { font-size: 15px; margin-bottom: 2px; }
-.slide-s34 .ai-innovation-stat-description-box { margin-top: 8px; padding-top: 8px; }
-.slide-s34 .ai-innovation-stat-impact-summary { font-size: 15px; }
-.slide-s34 .ai-innovation-stat-impact-subtext { font-size: 12px; margin-top: 2px; }
-.slide-s34 .ai-innovation-right-content-column { gap: 6px; }
-.slide-s34 .agent-demo-panel {min-height: 0; overflow: hidden; max-height: 220px;}
-.slide-s34 .ai-tech-process-group-item { gap: 6px; }

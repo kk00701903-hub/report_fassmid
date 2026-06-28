@@ -14,6 +14,7 @@ const SLIDE_HTML = `<div class="war-room-slide-root fluent-slide" style="overflo
 </div>
 <!-- Main Content -->
 <div class="war-room-content-wrapper">
+<div class="war-room-columns">
 <!-- Left Column: Infrastructure & Strategy -->
 <div class="war-room-left-column">
 <div class="war-room-feature-card">
@@ -124,6 +125,7 @@ const SLIDE_HTML = `<div class="war-room-slide-root fluent-slide" style="overflo
 <a class="war-room-dailyscrum-link" href="https://kk00701903-hub.github.io/fass-dailyscrum/#/analytics" target="_blank" rel="noopener noreferrer">
 <i class="fas fa-chart-line"></i> Analytics
 </a>
+</div>
 </div>
 </div>`;
 

@@ -255,22 +255,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     slideId: 10,
     topics: [
       {
-        id: "digital-worker",
-        title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)",
-        category: "process",
-        summary: "출근·퇴근하는 AI 디지털 워커 — 스크립트 복사 채용·KPI 평가·IT 관제 조직 모델입니다.",
-        process: [
-          { step: 1, title: "출퇴근", description: "09:00 태스크 할당 · 18:00 리포트 · 팀 단위 편성" },
-          { step: 2, title: "채용·평가", description: "스크립트 복사 투입 · KPI 평가 · 저성과 버전 교체" },
-          { step: 3, title: "IT 관제", description: "실시간 대시보드 · 이상 알림 · 감사 로그 거버넌스" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 11,
-    topics: [
-      {
         id: "fass-identity",
         title: "FaSS 플랫폼 아이덴티티 가이드",
         category: "architecture",
@@ -290,6 +274,22 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         process: [
           { step: 1, title: "UI 토큰", description: "색상·타이포·간격을 디자인 토큰으로 고정" },
           { step: 2, title: "문서 표준", description: "마크다운 기반 산출물에 동일 네이밍 적용" },
+        ],
+      },
+    ],
+  },
+  {
+    slideId: 11,
+    topics: [
+      {
+        id: "digital-worker",
+        title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)",
+        category: "process",
+        summary: "출근·퇴근하는 AI 디지털 워커 — 스크립트 복사 채용·KPI 평가·IT 관제 조직 모델입니다.",
+        process: [
+          { step: 1, title: "출퇴근", description: "09:00 태스크 할당 · 18:00 리포트 · 팀 단위 편성" },
+          { step: 2, title: "채용·평가", description: "스크립트 복사 투입 · KPI 평가 · 저성과 버전 교체" },
+          { step: 3, title: "IT 관제", description: "실시간 대시보드 · 이상 알림 · 감사 로그 거버넌스" },
         ],
       },
     ],
@@ -334,18 +334,17 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "19개 스프린트 운영 현황",
         category: "process",
         summary:
-          "별첨 백로그 기준 19개 Mega-Sprint — S01·S08 종료, ACTIVE 9건( S03·S04·S07·S10·S14·S23·S18~S20), FUTURE 8건.",
+          "별첨 백로그 기준 19개 Mega-Sprint — S01·S08 종료, ACTIVE 6건 (S03·S04·S07·S10·S14·S23), FUTURE 11건 (S18~S20 대규모 포함).",
         links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
         preview: {
           type: "sprint-backlog",
           title: "Active Sprint Portfolio",
-          caption: "S01~S23 · 종료 2 · ACTIVE 9 · FUTURE 8",
+          caption: "S01~S23 · 종료 2 · ACTIVE 6 · FUTURE 11",
         },
         process: [
           { step: 1, title: "종료", description: "S01 개발 명명 규칙 표준화 · S08 상태관리·API 통신 공통 모듈" },
-          { step: 2, title: "진행중", description: "S03·S04·S07·S10·S14·S23 + S18 MSA · S19 Golden Set · S20 SCA" },
-          { step: 3, title: "예정", description: "S02·S05·S09·S11·S12·S15·S16·S17" },
-          { step: 4, title: "S23", description: "리포트 Tool 도입 — ACTIVE" },
+          { step: 2, title: "진행중", description: "S03·S04·S07·S10·S14·S23 — ACTIVE 6건 (깜빡임 표시)" },
+          { step: 3, title: "예정", description: "S02·S05·S09·S11·S12·S15·S16·S17 및 S18~S20 대규모 — FUTURE 11건" },
         ],
       },
     ],

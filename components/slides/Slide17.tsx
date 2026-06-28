@@ -75,7 +75,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
           <div class="scenario-step"><span class="step-tag">1 기획</span><p class="step-text"><strong>Jira Story</strong> 등록 — "납기일 필드 추가", 스프린트 배정</p></div>
           <div class="scenario-step"><span class="step-tag">2 설계</span><p class="step-text"><strong>Figma</strong> 화면 수정 · API 스펙 정의</p></div>
           <div class="scenario-step"><span class="step-tag">3 개발</span><p class="step-text"><strong>Claude Code</strong> UI·API·테스트 코드 생성 → 개발자 검수</p></div>
-          <div class="scenario-step"><span class="step-tag">4 배포</span><p class="step-text"><strong>GitLab CI</strong> 빌드·테스트 통과 → 스테이징·운영 반영</p></div>
+          <div class="scenario-step"><span class="step-tag step-tag--deploy">4 배포</span><p class="step-text"><strong>GitLab CI</strong> 빌드·테스트 통과 → 스테이징·운영 반영</p></div>
           <div class="scenario-step"><span class="step-tag">5 검증</span><p class="step-text">QA·현업 확인 후 <strong>Done</strong> — 다음 기능으로</p></div>
         </div>
       </div>

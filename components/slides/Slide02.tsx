@@ -43,11 +43,11 @@ const SLIDE_HTML = `<div class="section-slide-root section-slide-dense">
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)</span>
+      <span class="topic-text">FaSS 플랫폼 아이덴티티</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">FaSS 플랫폼 아이덴티티</span>
+      <span class="topic-text">디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>

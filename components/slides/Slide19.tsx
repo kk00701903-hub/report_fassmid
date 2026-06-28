@@ -1,8 +1,7 @@
 "use client";
 
 import SlideCanvas from "@/components/slides/SlideCanvas";
-import Slide18CollaborationFlow from "@/components/slides/Slide18CollaborationFlow";
-import Slide18WorkLanes from "@/components/slides/Slide18WorkLanes";
+import Slide19DigitalWorkerPanel from "@/components/slides/Slide19DigitalWorkerPanel";
 import "./styles/Slide19.css";
 
 const ORG_ROWS = [
@@ -47,57 +46,8 @@ export default function Slide18() {
         </header>
 
         <div className="body">
-          <section className="anim-col">
-            <div className="strat-bar">
-              <div className="strat-pill">
-                <i className="fas fa-robot" />
-                <div>
-                  <strong>24/7 디지털 워커</strong>
-                  <span>코드·문서·테스트 반복 업무 AI 상시 지원</span>
-                </div>
-              </div>
-              <div className="strat-pill">
-                <i className="fas fa-user-check" />
-                <div>
-                  <strong>Human-in-the-loop</strong>
-                  <span>설계·품질·의사결정은 TFT가 최종 통제</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="anim-panel">
-              <Slide18CollaborationFlow />
-              <Slide18WorkLanes />
-            </div>
-
-            <div className="wf-strip">
-              <span>
-                인간 <strong>7</strong>
-              </span>
-              <div className="wf-mini">
-                {[0, 1, 2].map((i) => (
-                  <span key={i} className="wf-dot h">
-                    <i className="fas fa-user" />
-                  </span>
-                ))}
-                <span className="wf-ellipsis">···</span>
-              </div>
-              <span>+</span>
-              <span>
-                AI <strong>8</strong>
-              </span>
-              <div className="wf-mini">
-                {[0, 1, 2].map((i) => (
-                  <span key={i} className="wf-dot a">
-                    <i className="fas fa-robot" />
-                  </span>
-                ))}
-                <span className="wf-ellipsis">···</span>
-              </div>
-              <span>=</span>
-              <span className="wf-eq">15</span>
-              <span className="wf-caption">TFT급 추진력 · 지시→AI실행→Human검토</span>
-            </div>
+          <section className="worker-col" aria-label="AI 디지털 워커 생성 데모">
+            <Slide19DigitalWorkerPanel />
           </section>
 
           <aside className="org-panel">

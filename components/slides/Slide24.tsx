@@ -81,44 +81,32 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 </div>
 <!-- Right: Architecture Comparison -->
 <div class="architecture-right-content-column">
-<div class="arch-compare-panel-title"><i class="fas fa-scale-balanced"></i> 아키텍처 패턴 비교 — FaSS는 모듈러 모놀리스를 선택</div>
+<div class="arch-compare-panel-title"><i class="fas fa-scale-balanced"></i> 아키텍처 선택 — FaSS는 모듈러 모놀리스</div>
 <div class="arch-compare-list">
 <div class="arch-compare-card">
 <div class="arch-compare-header">
 <span class="arch-compare-num">1</span>
 <div class="arch-compare-title">모놀리스 <em>Monolithic</em></div>
 </div>
-<p class="arch-compare-tagline"><strong>전체를 하나의 덩어리</strong>로 개발·배포하는 방식</p>
-<div class="arch-compare-body">
-<div class="arch-compare-field arch-compare-field--full"><span class="arch-compare-field-label">구조</span>단일 코드베이스·단일 프로세스·모든 기능 통합 실행</div>
-<div class="arch-compare-field arch-compare-pros"><span class="arch-compare-field-label">장점</span>초기 개발·테스트·배포 단순, 단일 DB 트랜잭션으로 데이터 일관성 용이</div>
-<div class="arch-compare-field arch-compare-cons"><span class="arch-compare-field-label">단점</span>규모 확대 시 빅 볼 오브 머드, 소규모 수정에도 전체 재배포, 부하 전파</div>
-</div>
+<p class="arch-compare-tagline">전체를 <strong>하나의 덩어리</strong>로 개발·배포</p>
+<p class="arch-compare-key">초기에는 단순 — 규모가 커지면 변경·확장 부담 증가</p>
 </div>
 <div class="arch-compare-card arch-compare-card--highlight">
 <div class="arch-compare-header">
 <span class="arch-compare-num">2</span>
 <div class="arch-compare-title">모듈러 모놀리스 <em>Modular Monolith</em></div>
-<span class="arch-compare-fass-badge">FaSS V3.0</span>
+<span class="arch-compare-fass-badge">FaSS V3.0 선택</span>
 </div>
-<p class="arch-compare-tagline"><strong>물리적으로는 모놀리스</strong>, 내부는 모듈 단위로 철저히 격리</p>
-<div class="arch-compare-body">
-<div class="arch-compare-field arch-compare-field--full"><span class="arch-compare-field-label">구조</span>단일 프로세스 내 주문·결제·재고 등 독립 모듈, 정해진 인터페이스(API)로만 통신</div>
-<div class="arch-compare-field arch-compare-pros"><span class="arch-compare-field-label">장점</span>모놀리스 단순함 + 낮은 결합도, 유지보수성 높음, MSA 전환 최적 중간 단계</div>
-<div class="arch-compare-field arch-compare-cons"><span class="arch-compare-field-label">단점</span>모듈 경계·인터페이스 준수를 위한 강한 개발 규율 필요</div>
-</div>
+<p class="arch-compare-tagline">서버는 <strong>하나</strong>, 업무 모듈은 <strong>독립 격리</strong></p>
+<p class="arch-compare-key arch-compare-key--choice">안정적 운영 + 비용 효율 + 향후 MSA 전환 준비</p>
 </div>
 <div class="arch-compare-card arch-compare-card--msa">
 <div class="arch-compare-header">
 <span class="arch-compare-num">3</span>
 <div class="arch-compare-title">MSA <em>Microservices</em></div>
 </div>
-<p class="arch-compare-tagline"><strong>기능별 완전 분리 서비스</strong>를 네트워크로 연결하는 방식</p>
-<div class="arch-compare-body">
-<div class="arch-compare-field arch-compare-field--full"><span class="arch-compare-field-label">구조</span>서비스별 독립 프로세스·고유 DB, REST·gRPC·MQ로 통신</div>
-<div class="arch-compare-field arch-compare-pros"><span class="arch-compare-field-label">장점</span>독립 배포·확장, 기술 스택 자유, 장애 격리</div>
-<div class="arch-compare-field arch-compare-cons"><span class="arch-compare-field-label">단점</span>분산 복잡성, 분산 트랜잭션 어려움, K8s·모니터링 등 인프라 비용 막대</div>
-</div>
+<p class="arch-compare-tagline">기능별로 <strong>완전 분리</strong>해 각각 운영</p>
+<p class="arch-compare-key">최대 유연성 — 분산 운영·인프라 비용 부담 큼</p>
 </div>
 </div>
 </div>
@@ -128,7 +116,7 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 <div class="architecture-impact-content-row" style="display:flex;align-items:center;gap:10px;">
 <div class="architecture-impact-label-text">경영 임팩트</div>
 <div class="architecture-impact-desc-text">
-            성급한 MSA 대신 <span style="color: var(--ppt-accent);font-weight: 700;">모듈러 모놀리스</span>로 논리적 MSA 효과를 온프레미스에서 실현 — 안정성·비용·전환 용이성을 동시에 확보합니다.
+            성급한 MSA 대신 <span style="color: var(--ppt-accent);font-weight: 700;">모듈러 모놀리스</span> — 안정성·비용·전환 용이성을 동시에 확보
           </div>
 </div>
 </div>

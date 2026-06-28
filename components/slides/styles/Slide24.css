@@ -127,34 +127,44 @@
     gap: 7px;
     min-width: 0;
     min-height: 0}
-.slide-s24 .arch-compare-panel-title{font-size: 13px;
-    font-weight: 700;
-    color: var(--fluent-blue, #0078d4);
-    letter-spacing: 0.5px;
-    flex-shrink: 0}
-.slide-s24 .arch-compare-list{flex: 1;
+.slide-s24 .arch-compare-panel-title{
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--fluent-grey-160, #201f1e);
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+}
+.slide-s24 .arch-compare-list{
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 7px;
-    min-height: 0}
-.slide-s24 .arch-compare-card{flex: 1;
+    gap: 10px;
+    min-height: 0;
+    justify-content: center;
+}
+.slide-s24 .arch-compare-card{
+    flex: 1;
     background: var(--fluent-card-bg, #f8f8f8);
     border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-md);
-    padding: 8px 10px;
+    padding: 12px 14px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    min-height: 0}
-.slide-s24 .arch-compare-card--highlight{position: relative;
-    flex: 1.14;
+    gap: 6px;
+    min-height: 0;
+    justify-content: center;
+}
+.slide-s24 .arch-compare-card--highlight{
+    position: relative;
+    flex: 1.2;
     border: 2px solid rgba(0, 120, 212, 0.55);
-    border-left: 4px solid var(--fluent-blue, #0078d4);
+    border-left: 5px solid var(--fluent-blue, #0078d4);
     background: linear-gradient(135deg, rgba(0, 120, 212, 0.14) 0%, rgba(0, 120, 212, 0.05) 45%, var(--fluent-card-bg, #f8f8f8) 100%);
     box-shadow: 0 0 22px rgba(0, 120, 212, 0.16), inset 0 0 0 1px rgba(0, 120, 212, 0.12);
     animation: archCompareSpotlight 4.5s ease-in-out infinite;
     z-index: 1;
-    padding: 9px 11px}
+    padding: 14px 16px;
+}
 .slide-s24 .arch-compare-card--highlight::after{content: "";
     position: absolute;
     inset: -1px;
@@ -192,52 +202,91 @@
     color: var(--fluent-grey-160, #201f1e);
     box-shadow: 0 0 12px rgba(0, 120, 212, 0.45);
     animation: archCompareNumPulse 3s ease-in-out infinite}
-.slide-s24 .arch-compare-card--highlight .arch-compare-title{font-size: 14px;
-    color: var(--fluent-blue, #0078d4)}
-.slide-s24 .arch-compare-card--highlight .arch-compare-title em{color: rgba(0, 120, 212, 0.75)}
-.slide-s24 .arch-compare-card--highlight .arch-compare-tagline strong{color: var(--fluent-blue, #0078d4)}
-.slide-s24 .arch-compare-card--highlight .arch-compare-pros{background: rgba(34, 197, 94, 0.08);
-    border-radius: var(--ppt-radius-sm);
-    padding: 3px 5px}
-.slide-s24 .arch-compare-title{font-size: 13px;
-    font-weight: 700;
+.slide-s24 .arch-compare-card--highlight .arch-compare-title{
+    font-size: 16px;
+    color: var(--fluent-blue, #0078d4);
+}
+.slide-s24 .arch-compare-card--highlight .arch-compare-title em{
+    color: rgba(0, 120, 212, 0.75);
+}
+.slide-s24 .arch-compare-card--highlight .arch-compare-tagline{
+    font-size: 15px;
+}
+.slide-s24 .arch-compare-card--highlight .arch-compare-tagline strong{
+    color: var(--fluent-blue, #0078d4);
+}
+.slide-s24 .arch-compare-card--highlight .arch-compare-key--choice{
+    font-size: 15px;
+    font-weight: 800;
     color: var(--fluent-grey-160, #201f1e);
-    line-height: 1.2}
-.slide-s24 .arch-compare-title em{font-style: normal;
-    font-size:13px;
-    font-weight: 500;
-    color: var(--fluent-grey-90, #8a8886)}
-.slide-s24 .arch-compare-tagline{font-size:13px;
+    background: rgba(0, 120, 212, 0.1);
+    border-radius: var(--ppt-radius-sm);
+    padding: 6px 10px;
+    border-left: 3px solid var(--fluent-good, #107c10);
+}
+.slide-s24 .arch-compare-title{
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--fluent-grey-160, #201f1e);
+    line-height: 1.25;
+}
+.slide-s24 .arch-compare-title em{
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--fluent-grey-90, #8a8886);
+}
+.slide-s24 .arch-compare-tagline{
+    font-size: 14px;
     color: var(--fluent-grey-130, #484644);
-    line-height: 1.35;
-    flex-shrink: 0}
-.slide-s24 .arch-compare-tagline strong{color: var(--fluent-grey-160, #201f1e);
-    font-weight: 600}
-.slide-s24 .arch-compare-body{display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px 8px;
-    flex: 1;
-    min-height: 0}
-.slide-s24 .arch-compare-field{font-size:13px;
-    line-height: 1.35;
-    color: var(--fluent-grey-90, #8a8886)}
-.slide-s24 .arch-compare-field--full{grid-column: 1 / -1}
-.slide-s24 .arch-compare-field-label{font-weight: 700;
-    color: var(--fluent-grey-130, #484644);
-    margin-right: 4px}
-.slide-s24 .arch-compare-pros .arch-compare-field-label{color: var(--fluent-good, #107c10)}
-.slide-s24 .arch-compare-cons .arch-compare-field-label{color: var(--ppt-warn)}
-.slide-s24 .arch-compare-fass-badge{margin-left: auto;
-    font-size:13px;
+    line-height: 1.4;
+    flex-shrink: 0;
+    margin: 0;
+}
+.slide-s24 .arch-compare-tagline strong{
+    color: var(--fluent-grey-160, #201f1e);
     font-weight: 700;
-    padding: 3px 8px;
+}
+.slide-s24 .arch-compare-key{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--fluent-grey-130, #484644);
+    line-height: 1.45;
+    margin: 0;
+}
+.slide-s24 .arch-compare-fass-badge{
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 10px;
     border-radius: 10px;
     background: linear-gradient(135deg, rgba(0, 120, 212, 0.22), rgba(0, 120, 212, 0.1));
     color: var(--fluent-grey-160, #201f1e);
     border: 1px solid rgba(0, 120, 212, 0.55);
     flex-shrink: 0;
     box-shadow: 0 0 14px rgba(0, 120, 212, 0.25);
-    animation: archCompareBadgePulse 3s ease-in-out infinite}
+    animation: archCompareBadgePulse 3s ease-in-out infinite;
+    letter-spacing: 0.02em;
+}
+.slide-s24 .architecture-impact-highlight-box{
+    background: linear-gradient(90deg, rgba(0, 120, 212, 0.1) 0%, transparent 100%);
+    border-left: 5px solid var(--fluent-blue, #0078d4);
+    padding: 10px 16px;
+    border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
+    flex-shrink: 0;
+}
+.slide-s24 .architecture-impact-label-text{
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--fluent-blue, #0078d4);
+    flex-shrink: 0;
+}
+.slide-s24 .architecture-impact-desc-text{
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--fluent-grey-160, #201f1e);
+    line-height: 1.45;
+}
 @keyframes archCompareSpotlight {
     0%, 100% {box-shadow: 0 0 20px rgba(0, 120, 212, 0.14), inset 0 0 0 1px rgba(0, 120, 212, 0.1);
         border-color: rgba(0, 120, 212, 0.5)}
@@ -266,16 +315,3 @@
     gap: 3px 4px;
     color: var(--fluent-grey-90, #8a8886)}
 .slide-s24 .architecture-db-label-caption{font-size:13px}
-
-
-.slide-s24 .architecture-impact-highlight-box{background: linear-gradient(90deg, rgba(250, 204, 21, 0.1) 0%, transparent 100%);
-    border-left: 4px solid var(--fluent-blue, #0078d4);
-    padding: 8px 14px;
-    border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
-    flex-shrink: 0}
-.slide-s24 .architecture-impact-label-text{font-size: 15px;
-    font-weight: 700;
-    color: var(--fluent-blue, #0078d4)}
-.slide-s24 .architecture-impact-desc-text{font-size: 13px;
-    color: var(--fluent-grey-160, #201f1e);
-    line-height: 1.4}

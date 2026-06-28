@@ -1,6 +1,7 @@
-/* Slide 09 ??Team agent roster (extends fluent-primer.css) */
+/* Slide 09 — Team agent roster (vertical list + detail panel) */
+
 .slide-s09 .agent-slide {
-  gap: 10px;
+  gap: 8px;
   padding: 0;
 }
 
@@ -49,59 +50,120 @@
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: minmax(220px, 36%) 1fr;
   gap: 12px;
   padding: 0 32px;
 }
-.slide-s09 .agent-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  min-height: 0;
-}
 
-.slide-s09 .agent-card {
+.slide-s09 .agent-roster {
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   gap: 6px;
-  padding: 12px 14px;
+  padding: 10px 10px 10px 12px;
   border-radius: 8px;
   border: 1px solid var(--fluent-border, #d2d0ce);
   background: var(--fluent-surface, #fff);
-  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0, 0, 0, 0.08));
+  box-shadow: var(--fluent-shadow);
+  position: relative;
+}
+
+.slide-s09 .agent-roster::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: -8px;
+  width: 2px;
+  height: 8px;
+  background: rgba(0, 120, 212, 0.45);
+}
+
+.slide-s09 .agent-roster__label {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--fluent-blue);
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--fluent-border, #d2d0ce);
+}
+
+.slide-s09 .agent-grid {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+}
+
+.slide-s09 .agent-card {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+  row-gap: 2px;
+  align-items: start;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--fluent-border, #d2d0ce);
+  background: var(--fluent-card-bg, #f8f8f8);
   cursor: pointer;
   text-align: left;
-  font-family: "Consolas", "JetBrains Mono", monospace;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  font-family: var(--ppt-font-body);
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
 }
 
 .slide-s09 .agent-card:hover {
   border-color: rgba(0, 120, 212, 0.45);
+  background: #fff;
 }
 
 .slide-s09 .agent-card.is-active {
   border: 2px solid var(--fluent-blue, #0078d4);
-  box-shadow: 0 0 0 1px rgba(0, 120, 212, 0.15), var(--fluent-shadow);
-  padding: 11px 13px;
+  background: rgba(0, 120, 212, 0.06);
+  box-shadow: 0 0 0 1px rgba(0, 120, 212, 0.12);
+  padding: 6px 9px;
+}
+
+.slide-s09 .agent-card__num {
+  grid-row: 1 / span 2;
+  align-self: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--fluent-blue);
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid rgba(0, 120, 212, 0.2);
+}
+
+.slide-s09 .agent-card.is-active .agent-card__num {
+  color: #fff;
+  background: var(--fluent-blue, #0078d4);
+  border-color: var(--fluent-blue, #0078d4);
 }
 
 .slide-s09 .agent-card-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--fluent-grey-160, #201f1e);
   line-height: 1.25;
+  font-family: "Consolas", "JetBrains Mono", monospace;
   word-break: break-all;
 }
 
 .slide-s09 .agent-card-role {
-  font-size: 12px;
+  grid-column: 2;
+  font-size: 11px;
   font-weight: 500;
   color: var(--fluent-grey-130, #484644);
-  font-family: var(--ppt-font-body);
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .slide-s09 .agent-detail {
@@ -177,7 +239,9 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 14px;
-  margin: 0 32px 12px;  border-radius: 8px;
+  margin: 0 32px 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
   border: 1px solid rgba(0, 120, 212, 0.35);
   background: linear-gradient(90deg, rgba(0, 120, 212, 0.08), rgba(0, 120, 212, 0.03));
 }

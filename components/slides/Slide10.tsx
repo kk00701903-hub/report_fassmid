@@ -3,145 +3,101 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide10.css";
 
-const SLIDE_HTML = `<div class="slide fluent-slide">
-  <!-- Title -->
-  <div class="title-region">
-    <div class="title-header">
-      <div class="title-bar"></div>
-      <span class="title-badge">FUTURE VISION</span>
-      <h1 class="title-text">디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)</h1>
-    </div>
-  <div class="title-sub">출근·업무·퇴근하는 '디지털 직원' — AI가 조직의 일원으로 편성되는 시대</div>
-    <div class="title-line"></div>
+const SLIDE_HTML = `<div class="fass-identity-slide-root fluent-slide" style="overflow: hidden;">
+<div class="title-region-wrapper">
+  <div class="title-row">
+    <div class="bar"></div>
+    <span class="badge">PLATFORM IDENTITY</span>
+    <h1>FaSS 플랫폼 아이덴티티</h1>
   </div>
-
-  <!-- Main 3 pillars -->
-  <div class="main-container">
-
-    <!-- Pillar 1: 출퇴근 & 조직 편성 -->
-    <div class="pillar-card cyan">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box cyan"><i class="fas fa-user-clock"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">출퇴근하는 AI 에이전트</div>
-          <div class="pillar-en">AI Agent Work Schedule</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-sun pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">09:00 출근 — 태스크 자동 할당</div>
-            <div class="pillar-item-desc">수요예측·문서처리·재고분석 등 업무 즉시 시작</div>
+  <div class="line"></div>
+</div>
+<div class="fass-identity-main-container">
+<!-- Left Flow Section -->
+<div class="fass-identity-left-flow-section">
+<div class="fass-identity-rail-vertical-line"></div>
+<!-- F - Faster -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">F</span>
+</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Faster</span>
+<span class="fass-identity-value-subtitle">신속성</span>
+</div>
+<p class="fass-identity-value-description">
+              신속한 개발 및 배포 환경을 구축하고, <span class="fass-identity-highlight-text">Next.js SSR</span> 도입을 통해 고객이 체감하는 응답 속도를 극대화합니다.
+            </p>
+</div>
+</div>
+<!-- a - Agile -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">a</span>
+</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Agile</span>
+<span class="fass-identity-value-subtitle">민첩성</span>
+</div>
+<p class="fass-identity-value-description">
+              비즈니스 변화에 유연하게 대응하는 <span class="fass-identity-highlight-text">컨테이너 기반의 블록 조립형(모듈러)</span> 아키텍처를 지향합니다.
+            </p>
+</div>
+</div>
+<!-- S - Smarter -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">S</span>
+</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Smarter</span>
+<span class="fass-identity-value-subtitle">지능화</span>
+</div>
+<p class="fass-identity-value-description">
+<span class="fass-identity-highlight-text">AI 기반의 지능형 운영</span>, 수요 예측 및 AI 코딩 에이전트를 통해 플랫폼 스스로 진화하는 시스템을 구축합니다.
+            </p>
+</div>
+</div>
+<!-- S - Stronger -->
+<div class="fass-identity-value-item-row">
+<div class="fass-identity-value-marker">
+<span class="fass-identity-value-marker-letter">S</span>
+</div>
+<div class="fass-identity-value-text-block">
+<div class="fass-identity-value-heading-group">
+<span class="fass-identity-value-title">Stronger</span>
+<span class="fass-identity-value-subtitle">강건함</span>
+</div>
+<p class="fass-identity-value-description">
+              강력한 보안 체계(<span class="fass-identity-highlight-text">Stateless JWT</span>) 및 무중단 데이터 동기화를 통해 비즈니스 리스크를 제로화합니다.
+            </p>
+</div>
+</div>
+</div>
+<!-- Right Vision Section -->
+<div class="fass-identity-right-vision-section">
+<div class="fass-identity-logo-info-card">
+<div class="fass-identity-logo-visual-wrap">
+<img alt="FASS 로고" class="fass-identity-logo-image" src="/report_fassmid/assets/slides/fass-logo.png"/>
+</div>
+<h2 class="fass-identity-logo-title">FaSS 로고 디자인 의미</h2>
+<div class="fass-identity-logo-body-text">
+            클라우드와 무한 궤도(Infinity), 상승 화살표가 결합된 형상으로 <span class="fass-identity-highlight-text">지속적 성장</span>과 <span class="fass-identity-highlight-text">클라우드 확장성</span>을 상징합니다.
+            <br/><br/>
+            (주)제때의 <span class="fass-identity-highlight-text">물류 비즈니스 연속성</span>과 한계 없는 <span class="fass-identity-highlight-text">외부 확장성</span>을 시각적으로 표현합니다.
           </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-moon pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">18:00 퇴근 — 결과 리포트 생성</div>
-            <div class="pillar-item-desc">처리 결과·이상·미결 항목 정리 후 유휴 전환</div>
+<div class="fass-identity-logo-keyword-tag">
+<i class="fas fa-link" style="margin-right: 8px;"></i> 비즈니스 무한 확장
           </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-sitemap pillar-item-icon cyan"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">팀·부서 단위 조직 편성</div>
-            <div class="pillar-item-desc">물류·정산·고객지원 AI를 사람 조직과 동일 구조로 배치</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pillar 2: 채용 = 스크립트 복사 & 평가 -->
-    <div class="pillar-card amber">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box amber"><i class="fas fa-copy"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">"채용"은 스크립트 복사</div>
-          <div class="pillar-en">Hire = Duplicate Script</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-user-plus pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">채용 = 검증된 스크립트 복사</div>
-            <div class="pillar-item-desc">복제 즉시 투입 — 온보딩 0일</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-chart-bar pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">KPI 기반 성과 평가</div>
-            <div class="pillar-item-desc">처리량·정확도·오류율로 사람과 동일하게 평가</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-trash-alt pillar-item-icon amber"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">저성과 버전 교체 (= 해고)</div>
-            <div class="pillar-item-desc">성과 미달 시 고도화 신버전으로 즉시 교체</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pillar 3: IT 부서 모니터링 -->
-    <div class="pillar-card green">
-      <div class="pillar-icon-row">
-        <div class="pillar-icon-box green"><i class="fas fa-desktop"></i></div>
-        <div class="pillar-heading">
-          <div class="pillar-title">IT 부서 = AI 워커 관제 센터</div>
-          <div class="pillar-en">IT Dept. as AI Control Tower</div>
-        </div>
-      </div>
-      <div class="pillar-divider"></div>
-      <div class="pillar-items">
-        <div class="pillar-item">
-          <i class="fas fa-tachometer-alt pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">실시간 모니터링 대시보드</div>
-            <div class="pillar-item-desc">전 에이전트 업무 상태를 Grafana에서 실시간 관제</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-exclamation-triangle pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">이상 감지 → 알림·인터벤션</div>
-            <div class="pillar-item-desc">응답 지연·오판 시 즉시 알림, 담당자 개입</div>
-          </div>
-        </div>
-        <div class="pillar-item">
-          <i class="fas fa-shield-alt pillar-item-icon green"></i>
-          <div class="pillar-item-text">
-            <div class="pillar-item-title">AI 거버넌스 · 감사 로그</div>
-            <div class="pillar-item-desc">처리 이력 보존 — 책임 추적·규정 준수</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Bottom global banner -->
-  <div class="bottom-banner">
-    <div class="banner-icon"><i class="fas fa-globe"></i></div>
-    <div class="banner-text">
-      <strong>글로벌 선제 움직임:</strong>&nbsp;
-      Microsoft·Salesforce·ServiceNow 등이 <strong>'AI 디지털 워커 조직'</strong>을 핵심 전략으로 채택 —
-      (주)제때 IT도 <strong>AI 관제 조직</strong>으로 진화합니다.
-    </div>
-    <div class="banner-logos">
-      <span class="global-tag">Microsoft</span>
-      <span class="global-tag">Salesforce</span>
-      <span class="global-tag">ServiceNow</span>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </div>`;
 
-export default function Slide09() {
+export default function Slide10() {
   return (
     <SlideCanvas slideId={10} motion="cards" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

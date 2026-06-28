@@ -52,7 +52,6 @@ export default function Slide17Progress() {
             </div>
           </div>
           <div className="s17-progress-axis">
-            <span>{p.startLabel}</span>
             <span>{p.endLabel}</span>
           </div>
         </div>

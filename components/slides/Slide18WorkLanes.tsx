@@ -120,7 +120,7 @@ function LaneCard({
   );
 }
 
-function CodeLane({ reduceMotion, active }: { reduceMotion: boolean; active: boolean }) {
+export function CodeLane({ reduceMotion, active }: { reduceMotion: boolean; active: boolean }) {
   return (
     <div className="s18-code-view">
       <motion.div
@@ -160,7 +160,7 @@ function CodeLane({ reduceMotion, active }: { reduceMotion: boolean; active: boo
   );
 }
 
-function DesignLane({ reduceMotion, active }: { reduceMotion: boolean; active: boolean }) {
+export function DesignLane({ reduceMotion, active }: { reduceMotion: boolean; active: boolean }) {
   const dur = reduceMotion ? 0 : 5.5;
   return (
     <div className="s18-design-canvas">
@@ -205,7 +205,7 @@ function DesignLane({ reduceMotion, active }: { reduceMotion: boolean; active: b
   );
 }
 
-function DocLane({ reduceMotion, active }: { reduceMotion: boolean; active: boolean }) {
+export function DocLane({ reduceMotion, active }: { reduceMotion: boolean; active: boolean }) {
   return (
     <div className="s18-doc-view">
       {DOC_LINES.map((line, i) => (

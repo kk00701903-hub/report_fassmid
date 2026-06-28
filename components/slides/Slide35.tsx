@@ -90,11 +90,11 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="bottom-bar">
-      <i class="fas fa-link"></i>
-      <p><strong>왜 지금인가:</strong> AI가 코딩·문서·테스트를 돕는 시대 — "요청만 하는" 사용자형에서 "직접 만드는" 빌더형으로 전환해야 속도·품질·내재화를 동시에 확보합니다.</p>
-    </div>
+  <div class="bottom-bar">
+    <i class="fas fa-link"></i>
+    <p><strong>왜 지금인가:</strong> AI가 코딩·문서·테스트를 돕는 시대 — "요청만 하는" 사용자형에서 "직접 만드는" 빌더형으로 전환해야 속도·품질·내재화를 동시에 확보합니다.</p>
   </div>
 </div>`;
 

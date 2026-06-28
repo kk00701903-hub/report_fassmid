@@ -94,7 +94,10 @@ export default function Slide09() {
             <span className="badge">AI WORKFORCE</span>
             <h1>팀 에이전트 구성 — AI 8인 역할</h1>
           </div>
-          <p className="sub">카드를 클릭해 담당 서비스 · 위임 트리거 · 도구를 확인하세요.</p>
+          <p className="sub">
+            루트 Claude 아래 <strong>8인 에이전트를 세로 목록</strong>으로 편성했습니다. 항목을 클릭해 담당
+            서비스 · 위임 트리거 · 도구를 확인하세요.
+          </p>
           <div className="line" />
         </div>
 
@@ -107,18 +110,22 @@ export default function Slide09() {
         </div>
 
         <div className="agent-body">
-          <div className="agent-grid">
-            {AGENTS.map((agent) => (
-              <button
-                key={agent.id}
-                type="button"
-                className={`agent-card${selectedId === agent.id ? " is-active" : ""}`}
-                onClick={() => setSelectedId(agent.id)}
-              >
-                <div className="agent-card-name">{agent.name}</div>
-                <div className="agent-card-role">{agent.role}</div>
-              </button>
-            ))}
+          <div className="agent-roster">
+            <div className="agent-roster__label">AI 8인 역할 — 세로 편성</div>
+            <div className="agent-grid">
+              {AGENTS.map((agent, index) => (
+                <button
+                  key={agent.id}
+                  type="button"
+                  className={`agent-card${selectedId === agent.id ? " is-active" : ""}`}
+                  onClick={() => setSelectedId(agent.id)}
+                >
+                  <span className="agent-card__num">{String(index + 1).padStart(2, "0")}</span>
+                  <div className="agent-card-name">{agent.name}</div>
+                  <div className="agent-card-role">{agent.role}</div>
+                </button>
+              ))}
+            </div>
           </div>
 
           <aside className="agent-detail">

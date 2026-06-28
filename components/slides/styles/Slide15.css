@@ -1,5 +1,11 @@
 /* Slide 15 — Benchmark compare (extends fluent-primer.css) */
+
 .slide-s15 .main-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 32px 12px;
   gap: 10px;
 }
 
@@ -9,8 +15,16 @@
   gap: 8px;
   padding: 8px 14px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 600;
   width: fit-content;
+  background: #f3f2f1;
+  border: 1px solid #c8c6c4;
+  color: #484644;
+}
+
+.slide-s15 .ref-badge i {
+  color: #605e5c;
 }
 
 .slide-s15 .compare-grid {
@@ -23,35 +37,123 @@
 }
 
 .slide-s15 .compare-card {
-  background: var(--fluent-surface);
-  border: 1px solid var(--fluent-border);
-  box-shadow: var(--fluent-shadow);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 14px 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-top: 3px solid var(--fluent-blue);
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* ── 타사 (참고) — muted, low emphasis ── */
+.slide-s15 .compare-card--peer {
+  background: #faf9f8;
+  border: 1px solid #d2d0ce;
+  border-top: 3px solid #a19f9d;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.slide-s15 .compare-card--peer .compare-label {
+  color: #8a8886;
+}
+
+.slide-s15 .compare-card--peer .compare-company.peer {
+  font-size: 17px;
+  font-weight: 700;
+  color: #605e5c;
+}
+
+.slide-s15 .compare-card--peer .compare-scope {
+  font-size: 13px;
+  color: #8a8886;
+  line-height: 1.45;
+}
+
+.slide-s15 .compare-card--peer .metric-item {
+  background: #f3f2f1;
+  border: 1px solid #e1dfdd;
+}
+
+.slide-s15 .compare-card--peer .metric-item span:first-child {
+  color: #8a8886;
+}
+
+.slide-s15 .compare-card--peer .metric-item strong {
+  color: #605e5c;
+  font-size: 14px;
+}
+
+/* ── 당사 FaSS — brand highlight ── */
+.slide-s15 .compare-card--ours {
+  background: linear-gradient(165deg, #deecf9 0%, #ffffff 42%);
+  border: 1px solid rgba(0, 120, 212, 0.45);
+  border-top: 4px solid #0078d4;
+  box-shadow:
+    0 4px 18px rgba(0, 120, 212, 0.16),
+    0 0 0 1px rgba(0, 120, 212, 0.14);
+  animation: s15-fass-glow 2.6s ease-in-out infinite !important;
 }
 
 .slide-s15 .compare-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--fluent-grey-90);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.slide-s15 .compare-company {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--fluent-grey-160);
+.slide-s15 .compare-label--ours {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-transform: none;
+  font-size: 12px;
+  color: #004578;
+  letter-spacing: 0.02em;
 }
 
-.slide-s15 .compare-scope {
-  font-size: 14px;
-  color: var(--fluent-grey-130);
+.slide-s15 .fass-mark {
+  display: inline-block;
+  background: #0078d4;
+  color: #ffffff;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  box-shadow: 0 1px 4px rgba(0, 90, 158, 0.35);
+}
+
+.slide-s15 .compare-company.ours {
+  font-size: 19px;
+  font-weight: 800;
+  color: #004578;
+  line-height: 1.25;
+}
+
+.slide-s15 .compare-card--ours .compare-scope {
+  font-size: 13px;
+  color: #201f1e;
   line-height: 1.45;
+  font-weight: 500;
+}
+
+.slide-s15 .compare-card--ours .metric-item {
+  background: #ffffff;
+  border: 1px solid rgba(0, 120, 212, 0.28);
+}
+
+.slide-s15 .compare-card--ours .metric-item span:first-child {
+  color: #484644;
+  font-weight: 600;
+}
+
+.slide-s15 .compare-card--ours .metric-item strong {
+  color: #0078d4;
+  font-size: 15px;
+  font-weight: 800;
 }
 
 .slide-s15 .metric-list {
@@ -60,6 +162,7 @@
   flex-direction: column;
   gap: 6px;
   margin-top: 4px;
+  padding: 0;
 }
 
 .slide-s15 .metric-item {
@@ -69,15 +172,6 @@
   padding: 8px 10px;
   border-radius: 6px;
   font-size: 13px;
-}
-
-.slide-s15 .metric-item span:first-child {
-  color: var(--fluent-grey-130);
-}
-
-.slide-s15 .metric-item strong {
-  color: var(--fluent-grey-160);
-  font-size: 14px;
 }
 
 .slide-s15 .vs-col {
@@ -90,22 +184,24 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--fluent-border);
-  background: var(--fluent-blue-light);
+  border: 2px solid #005a9e;
+  background: #0078d4;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  font-weight: 700;
-  color: var(--fluent-blue);
+  font-weight: 800;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 120, 212, 0.35);
 }
 
 .slide-s15 .table-wrap {
-  border: 1px solid var(--fluent-border);
-  border-radius: 8px;
+  border: 1px solid #c8c6c4;
+  border-radius: 10px;
   overflow: hidden;
-  background: var(--fluent-surface);
+  background: #ffffff;
   box-shadow: var(--fluent-shadow);
+  flex-shrink: 0;
 }
 
 .slide-s15 .compare-table {
@@ -117,14 +213,49 @@
 .slide-s15 .compare-table th {
   padding: 10px 14px;
   text-align: left;
-  font-weight: 600;
-  border-bottom: 1px solid var(--fluent-border);
+  font-weight: 700;
+  border-bottom: 1px solid #c8c6c4;
+}
+
+.slide-s15 .compare-table th:first-child {
+  background: #f3f2f1;
+  color: #201f1e;
+  width: 22%;
+}
+
+.slide-s15 .compare-table th:nth-child(2) {
+  background: #edebe9;
+  color: #605e5c;
+  width: 39%;
+}
+
+.slide-s15 .compare-table th:nth-child(3) {
+  background: #0078d4;
+  color: #ffffff;
+  width: 39%;
 }
 
 .slide-s15 .compare-table td {
-  padding: 8px 14px;
-  border-bottom: 1px solid var(--fluent-border);
+  padding: 9px 14px;
+  border-bottom: 1px solid #e1dfdd;
   vertical-align: top;
+  line-height: 1.45;
+}
+
+.slide-s15 .compare-table td:first-child {
+  background: #faf9f8;
+  color: #201f1e;
+}
+
+.slide-s15 .compare-table td:nth-child(2) {
+  background: #faf9f8;
+  color: #605e5c;
+}
+
+.slide-s15 .compare-table td:nth-child(3) {
+  background: rgba(222, 236, 249, 0.65);
+  color: #201f1e;
+  font-weight: 600;
 }
 
 .slide-s15 .compare-table tr:last-child td {
@@ -132,19 +263,43 @@
 }
 
 .slide-s15 .compare-table td strong {
-  color: var(--fluent-grey-160);
+  color: #201f1e;
+}
+
+.slide-s15 .compare-table td:nth-child(3) strong {
+  color: #004578;
 }
 
 .slide-s15 .footnote {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 13px;
-  color: var(--fluent-grey-90);
+  font-size: 12px;
+  color: #605e5c;
   line-height: 1.45;
+  flex-shrink: 0;
 }
 
 .slide-s15 .footnote i {
-  color: var(--fluent-blue);
+  color: #0078d4;
   margin-top: 2px;
+}
+
+@keyframes s15-fass-glow {
+  0%, 100% {
+    box-shadow:
+      0 4px 16px rgba(0, 120, 212, 0.14),
+      0 0 0 1px rgba(0, 120, 212, 0.22);
+  }
+  50% {
+    box-shadow:
+      0 6px 24px rgba(0, 120, 212, 0.26),
+      0 0 0 2px rgba(0, 120, 212, 0.42);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-s15 .compare-card--ours {
+    animation: none !important;
+  }
 }

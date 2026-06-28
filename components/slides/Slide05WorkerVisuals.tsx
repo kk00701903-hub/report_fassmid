@@ -18,7 +18,7 @@ type WorkerFigureProps = {
 
 export function WorkerFigure({
   x = 0,
-  y = 28,
+  y = 20,
   tone = "msa",
   active = false,
   injured = false,
@@ -39,37 +39,37 @@ export function WorkerFigure({
 
   return (
     <g transform={`translate(${x}, ${y})`}>
-      {active && !injured ? <circle cx={0} cy={-18} r={14} fill="rgba(0,120,212,0.15)" /> : null}
-      <circle cx={0} cy={-10} r={7} fill={skin} stroke="#334155" strokeWidth={1} />
-      <rect x={-8} y={-2} width={16} height={18} rx={3} fill={shirt} stroke="#334155" strokeWidth={0.8} />
+      {active && !injured ? <circle cx={0} cy={-20} r={16} fill="rgba(0,120,212,0.15)" /> : null}
+      <circle cx={0} cy={-11} r={9} fill={skin} stroke="#334155" strokeWidth={1.2} />
+      <rect x={-10} y={-2} width={20} height={22} rx={3} fill={shirt} stroke="#334155" strokeWidth={0.9} />
       <motion.line
-        x1={-8}
-        y1={4}
-        x2={-14}
-        y2={12}
+        x1={-10}
+        y1={5}
+        x2={-17}
+        y2={14}
         stroke="#334155"
-        strokeWidth={2}
+        strokeWidth={2.4}
         strokeLinecap="round"
         animate={working && !injured ? { rotate: [0, -18, 0] } : undefined}
-        style={{ transformOrigin: "-8px 4px" }}
+        style={{ transformOrigin: "-10px 5px" }}
         transition={{ duration: 0.6, repeat: Infinity }}
       />
       <motion.line
-        x1={8}
-        y1={4}
-        x2={14}
-        y2={12}
+        x1={10}
+        y1={5}
+        x2={17}
+        y2={14}
         stroke="#334155"
-        strokeWidth={2}
+        strokeWidth={2.4}
         strokeLinecap="round"
         animate={working && !injured ? { rotate: [0, 18, 0] } : undefined}
-        style={{ transformOrigin: "8px 4px" }}
+        style={{ transformOrigin: "10px 5px" }}
         transition={{ duration: 0.6, repeat: Infinity, delay: 0.15 }}
       />
-      <line x1={-5} y1={16} x2={-6} y2={28} stroke="#334155" strokeWidth={2} strokeLinecap="round" />
-      <line x1={5} y1={16} x2={6} y2={28} stroke="#334155" strokeWidth={2} strokeLinecap="round" />
+      <line x1={-6} y1={20} x2={-7} y2={32} stroke="#334155" strokeWidth={2.4} strokeLinecap="round" />
+      <line x1={6} y1={20} x2={7} y2={32} stroke="#334155" strokeWidth={2.4} strokeLinecap="round" />
       {label ? (
-        <text x={0} y={38} textAnchor="middle" fontSize={8} fontWeight={700} fill={injured ? "#991b1b" : "#334155"}>
+        <text x={0} y={42} textAnchor="middle" fontSize={9} fontWeight={700} fill={injured ? "#991b1b" : "#334155"}>
           {label}
         </text>
       ) : null}
@@ -79,35 +79,35 @@ export function WorkerFigure({
 
 function Station({ x, label, lit, danger }: { x: number; label: string; lit?: boolean; danger?: boolean }) {
   return (
-    <g transform={`translate(${x}, 72)`}>
+    <g transform={`translate(${x}, 66)`}>
       <rect
-        x={-22}
+        x={-24}
         y={0}
-        width={44}
-        height={22}
+        width={48}
+        height={24}
         rx={3}
         fill={danger ? "rgba(185,28,28,0.15)" : lit ? "rgba(0,120,212,0.12)" : "#f1f5f9"}
         stroke={danger ? "#b91c1c" : lit ? "#0078d4" : "#cbd5e1"}
         strokeWidth={lit || danger ? 1.5 : 1}
       />
-      <text x={0} y={14} textAnchor="middle" fontSize={9} fontWeight={700} fill={danger ? "#991b1b" : "#334155"}>
+      <text x={0} y={16} textAnchor="middle" fontSize={10} fontWeight={700} fill={danger ? "#991b1b" : "#334155"}>
         {label}
       </text>
     </g>
   );
 }
 
-function Conveyor({ y = 58 }: { y?: number }) {
+function Conveyor({ y = 52 }: { y?: number }) {
   return (
     <>
-      <rect x={16} y={y} width={208} height={8} rx={2} fill="#64748b" opacity={0.35} />
+      <rect x={12} y={y} width={212} height={9} rx={2} fill="#64748b" opacity={0.35} />
       <motion.line
-        x1={16}
-        y1={y + 4}
+        x1={12}
+        y1={y + 4.5}
         x2={224}
-        y2={y + 4}
+        y2={y + 4.5}
         stroke="#475569"
-        strokeWidth={2}
+        strokeWidth={2.2}
         strokeDasharray="8 6"
         animate={{ strokeDashoffset: [0, -28] }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -116,11 +116,11 @@ function Conveyor({ y = 58 }: { y?: number }) {
   );
 }
 
-function Parcel({ y = 50 }: { y?: number }) {
+function Parcel({ y = 44 }: { y?: number }) {
   return (
     <motion.g animate={{ y: [0, -2, 0] }} transition={{ duration: 0.7, repeat: Infinity }}>
-      <rect x={-8} y={y} width={16} height={12} rx={2} fill="#f59e0b" stroke="#b45309" strokeWidth={0.8} />
-      <line x1={-8} y1={y + 4} x2={8} y2={y + 4} stroke="#b45309" strokeWidth={0.6} opacity={0.6} />
+      <rect x={-9} y={y} width={18} height={13} rx={2} fill="#f59e0b" stroke="#b45309" strokeWidth={0.8} />
+      <line x1={-9} y1={y + 4} x2={9} y2={y + 4} stroke="#b45309" strokeWidth={0.6} opacity={0.6} />
     </motion.g>
   );
 }
@@ -149,8 +149,8 @@ export function Slide05MonoScene() {
 
   return (
     <div className="s05-scene s05-scene--legacy">
-      <svg viewBox="0 0 228 108" className="s05-scene__svg" aria-hidden="true">
-        <Conveyor y={56} />
+      <svg viewBox="0 0 228 92" className="s05-scene__svg" aria-hidden="true">
+        <Conveyor y={50} />
         {TASKS.map((task, i) => (
           <Station key={task} x={STATION_X[i]} label={task} lit={!incident && i === taskIdx} danger={incident} />
         ))}
@@ -165,22 +165,22 @@ export function Slide05MonoScene() {
             >
               <WorkerFigure x={0} tone="legacy" active working label="단일 담당" />
               <motion.rect
-                x={-7}
-                y={46}
-                width={14}
-                height={10}
+                x={-8}
+                y={40}
+                width={16}
+                height={11}
                 rx={1.5}
                 fill="#f59e0b"
                 stroke="#b45309"
                 strokeWidth={0.7}
-                animate={{ y: [46, 44, 46] }}
+                animate={{ y: [40, 38, 40] }}
                 transition={{ duration: 0.5, repeat: Infinity }}
               />
             </motion.g>
           ) : (
             <motion.g key="worker-incident" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <WorkerFigure x={workerX} tone="legacy" injured label="장애 발생" />
-              <text x={114} y={22} textAnchor="middle" fontSize={11} fontWeight={800} fill="#b91c1c">
+              <text x={114} y={18} textAnchor="middle" fontSize={12} fontWeight={800} fill="#b91c1c">
                 ⚠ 전체 라인 마비
               </text>
             </motion.g>
@@ -190,9 +190,9 @@ export function Slide05MonoScene() {
         {incident ? (
           <motion.rect
             x={8}
-            y={8}
+            y={6}
             width={212}
-            height={92}
+            height={84}
             rx={6}
             fill="rgba(185,28,28,0.08)"
             stroke="#fca5a5"
@@ -231,7 +231,7 @@ export function Slide05MsaScene() {
 
   return (
     <div className="s05-scene s05-scene--msa">
-      <svg viewBox="0 0 228 108" className="s05-scene__svg" aria-hidden="true">
+      <svg viewBox="0 0 228 92" className="s05-scene__svg" aria-hidden="true">
         <Conveyor />
         {TASKS.map((task, i) => (
           <Station key={task} x={STATION_X[i]} label={task} lit={boxPos === i && !(swapping && i === 2)} />
@@ -274,13 +274,13 @@ export function Slide05MsaScene() {
 
         {swapping ? (
           <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <rect x={118} y={6} width={52} height={16} rx={8} fill="#10b981" />
-            <text x={144} y={17} textAnchor="middle" fontSize={8} fontWeight={800} fill="#fff">
+            <rect x={118} y={4} width={52} height={16} rx={8} fill="#10b981" />
+            <text x={144} y={15} textAnchor="middle" fontSize={9} fontWeight={800} fill="#fff">
               1:1 교체
             </text>
           </motion.g>
         ) : (
-          <text x={114} y={102} textAnchor="middle" fontSize={8} fill="#10b981" fontWeight={700}>
+          <text x={114} y={90} textAnchor="middle" fontSize={9} fill="#10b981" fontWeight={700}>
             나머지 라인 100% 정상 가동
           </text>
         )}

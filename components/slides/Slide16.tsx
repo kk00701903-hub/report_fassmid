@@ -11,6 +11,13 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
     </div>
     <p class="title-sub">기획·설계·AI 개발·통합·배포·검증까지 AI 도구가 연결된 End-to-End 개발 파이프라인</p>
     <div class="title-line"></div>
+    <div class="core-tools-bar">
+      <span class="core-tools-label">핵심 도구</span>
+      <span class="core-tool-chip jira"><i class="fab fa-jira"></i> Jira</span>
+      <span class="core-tool-chip claude"><i class="fas fa-robot"></i> Claude Code</span>
+      <span class="core-tool-chip gitlab"><i class="fab fa-gitlab"></i> GitLab</span>
+      <span class="core-tool-chip idea"><span class="ij-mark">IJ</span> IntelliJ</span>
+    </div>
   </div>
 
   <div class="body">
@@ -30,7 +37,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
       <!-- 1. Plan -->
       <div class="flow-col col-plan">
         <div class="col-label">PLAN</div>
-        <div class="tool-card jira">
+        <div class="tool-card jira tool-hero tool-hero-a">
           <div class="tool-icon"><i class="fab fa-jira"></i></div>
           <div>
             <div class="tool-name">Jira</div>
@@ -59,7 +66,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
             <p class="tool-use">디자인·영상·문서 편집<br/>브랜드·가이드·산출물</p>
           </div>
         </div>
-        <div class="tool-card claude">
+        <div class="tool-card claude tool-hero tool-hero-b">
           <div class="tool-icon"><i class="fas fa-robot"></i></div>
           <div>
             <div class="tool-name">Claude Code</div>
@@ -86,7 +93,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
               <p class="tool-use">개발 전용 AI IDE</p>
             </div>
           </div>
-          <div class="tool-card idea">
+          <div class="tool-card idea tool-hero tool-hero-d">
             <div class="tool-icon">IJ</div>
             <div>
               <div class="tool-name">IntelliJ</div>
@@ -94,7 +101,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
             </div>
           </div>
         </div>
-        <div class="tool-card claude">
+        <div class="tool-card claude tool-hero tool-hero-c">
           <div class="tool-icon"><i class="fas fa-robot"></i></div>
           <div>
             <div class="tool-name">Claude Code</div>
@@ -106,14 +113,14 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
       <!-- 4. Git -->
       <div class="flow-col col-git">
         <div class="col-label">INTEGRATE</div>
-        <div class="tool-card gitlab">
+        <div class="tool-card gitlab tool-hero tool-hero-e">
           <div class="tool-icon"><i class="fab fa-gitlab"></i></div>
           <div>
             <div class="tool-name">GitLab</div>
             <p class="tool-use">소스코드 버전 관리<br/>MR·Code Review·CI/CD</p>
           </div>
         </div>
-        <div style="font-size:13px;color:var(--ppt-text-3);text-align:center;line-height:1.4;padding:4px 0">
+        <div class="col-git-caption">
           Feature Branch → MR<br/>Quality Gate → Merge
         </div>
       </div>
@@ -121,7 +128,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
       <!-- 5. Done -->
       <div class="flow-col col-done">
         <div class="col-label">DONE</div>
-        <div class="tool-card done">
+        <div class="tool-card done jira tool-hero tool-hero-f">
           <div class="tool-icon"><i class="fas fa-check-double"></i></div>
           <div>
             <div class="tool-name">Jira 완료 처리</div>
@@ -144,22 +151,22 @@ const SLIDE_HTML = `<div class="slide fluent-slide fluent-slide-dense">
     <div class="pipeline">
       <div class="pipe-head"><i class="fas fa-diagram-project"></i> End-to-End 개발 흐름</div>
       <div class="pipe-flow">
-        <div class="pipe-node"><strong>Jira 이슈 등록</strong><span>요구사항·스프린트 할당</span></div>
+        <div class="pipe-node pipe-hero pipe-hero-jira"><strong>Jira 이슈 등록</strong><span>요구사항·스프린트 할당</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
-        <div class="pipe-node"><strong>Figma·Adobe<br/>+ Claude Code</strong><span>UI/UX 설계·코드 초안</span></div>
+        <div class="pipe-node pipe-hero pipe-hero-claude"><strong>Figma·Adobe<br/>+ Claude Code</strong><span>UI/UX 설계·코드 초안</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
         <div class="pipe-node ai"><strong>DGX Spark</strong><span>RAG·GPU 추론</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
-        <div class="pipe-node highlight"><strong>Cursor · IntelliJ<br/>+ Claude Code</strong><span>AI 협업 코딩</span></div>
+        <div class="pipe-node pipe-hero pipe-hero-dev highlight"><strong>IntelliJ<br/>+ Claude Code</strong><span>AI 협업 코딩</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
-        <div class="pipe-node"><strong>GitLab Push/MR</strong><span>리뷰·CI/CD·배포</span></div>
+        <div class="pipe-node pipe-hero pipe-hero-gitlab"><strong>GitLab Push/MR</strong><span>리뷰·CI/CD·배포</span></div>
         <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
-        <div class="pipe-node"><strong>Jira Done</strong><span>검증·회고·다음 Sprint</span></div>
+        <div class="pipe-node pipe-hero pipe-hero-jira"><strong>Jira Done</strong><span>검증·회고·다음 Sprint</span></div>
       </div>
       <div class="pipe-loop">
-        <strong>Human + AI 협업 루프</strong> — 기획(Jira) → 설계(Figma·Adobe·<strong>Claude Code</strong>) →
-        <strong>DGX Spark</strong>가 RAG 컨텍스트를 제공하고 <strong>Claude Code</strong>·<strong>Cursor</strong>가 코드를 생성 →
-        <strong>GitLab</strong> MR·CI/CD → <strong>Jira</strong> 완료 후 다음 스프린트 반복
+        <strong>Human + AI 협업 루프</strong> — 기획(<strong class="hl-jira">Jira</strong>) → 설계(Figma·Adobe·<strong class="hl-claude">Claude Code</strong>) →
+        <strong>DGX Spark</strong> RAG 컨텍스트 → <strong class="hl-idea">IntelliJ</strong>·<strong class="hl-claude">Claude Code</strong> 협업 코딩 →
+        <strong class="hl-gitlab">GitLab</strong> MR·CI/CD → <strong class="hl-jira">Jira</strong> 완료 후 다음 스프린트 반복
       </div>
     </div>
   </div>
