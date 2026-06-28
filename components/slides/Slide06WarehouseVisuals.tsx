@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const SHELF_SLOTS = [
-  { x: 20, y: 38 },
-  { x: 40, y: 38 },
-  { x: 60, y: 38 },
-  { x: 80, y: 38 },
-  { x: 20, y: 54 },
-  { x: 40, y: 54 },
-  { x: 60, y: 54 },
-  { x: 80, y: 54 },
+  { x: 10, y: 26 },
+  { x: 28, y: 26 },
+  { x: 46, y: 26 },
+  { x: 64, y: 26 },
+  { x: 10, y: 40 },
+  { x: 28, y: 40 },
+  { x: 46, y: 40 },
+  { x: 64, y: 40 },
 ] as const;
 
 const CDC_EVENTS = [
@@ -44,12 +44,12 @@ function WarehouseBox({
       : "rgba(0,120,212,0.07)";
 
   const rect = (
-    <rect x={x} y={y} width={16} height={12} rx={2} fill={fill} stroke={stroke} strokeWidth={scanned || active ? 1.6 : 1} />
+    <rect x={x} y={y} width={14} height={10} rx={2} fill={fill} stroke={stroke} strokeWidth={scanned || active ? 1.6 : 1} />
   );
 
   if (active && tone === "batch") {
     return (
-      <motion.g animate={{ scale: [1, 1.08, 1] }} transition={{ duration: 0.5, repeat: Infinity }}>
+      <motion.g animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 0.5, repeat: Infinity }}>
         {rect}
       </motion.g>
     );
@@ -66,34 +66,35 @@ function WarehouseBox({
   return rect;
 }
 
-function CounterWorker({ scanning }: { scanning?: boolean }) {
+function CounterWorker({ scanning, beamTargetX, beamTargetY }: { scanning?: boolean; beamTargetX: number; beamTargetY: number }) {
   return (
-    <g>
-      <circle cx={0} cy={-10} r={7} fill="#fde68a" stroke="#334155" strokeWidth={1} />
-      <rect x={-7} y={-2} width={14} height={16} rx={2} fill="#991b1b" stroke="#334155" strokeWidth={0.8} />
-      <line x1={-5} y1={14} x2={-6} y2={24} stroke="#334155" strokeWidth={2} strokeLinecap="round" />
-      <line x1={5} y1={14} x2={6} y2={24} stroke="#334155" strokeWidth={2} strokeLinecap="round" />
-      <motion.line
-        x1={8}
-        y1={2}
-        x2={22}
-        y2={8}
-        stroke="#334155"
-        strokeWidth={2}
-        strokeLinecap="round"
-        animate={scanning ? { rotate: [0, 12, -8, 0] } : undefined}
-        style={{ transformOrigin: "8px 2px" }}
-        transition={{ duration: 0.7, repeat: Infinity }}
-      />
+    <g transform="translate(2, 51)">
+      <circle cx={0} cy={-7} r={5} fill="#fde68a" stroke="#334155" strokeWidth={0.9} />
+      <rect x={-5} y={-1} width={10} height={11} rx={2} fill="#991b1b" stroke="#334155" strokeWidth={0.7} />
+      <line x1={-3} y1={10} x2={-4} y2={15} stroke="#334155" strokeWidth={1.5} strokeLinecap="round" />
+      <line x1={3} y1={10} x2={4} y2={15} stroke="#334155" strokeWidth={1.5} strokeLinecap="round" />
       {scanning ? (
-        <motion.polygon
-          points="0,0 24,8 0,16"
-          fill="rgba(251,191,36,0.35)"
-          stroke="#fbbf24"
-          strokeWidth={1}
-          animate={{ opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 0.7, repeat: Infinity }}
-        />
+        <>
+          <motion.line
+            x1={4}
+            y1={3}
+            x2={beamTargetX - 2}
+            y2={beamTargetY - 51}
+            stroke="#fbbf24"
+            strokeWidth={1.2}
+            strokeDasharray="3 2"
+            animate={{ opacity: [0.35, 0.9, 0.35] }}
+            transition={{ duration: 0.6, repeat: Infinity }}
+          />
+          <motion.circle
+            cx={beamTargetX - 2}
+            cy={beamTargetY - 51}
+            r={3}
+            fill="rgba(251,191,36,0.45)"
+            animate={{ opacity: [0.3, 0.85, 0.3], r: [2.5, 4, 2.5] }}
+            transition={{ duration: 0.6, repeat: Infinity }}
+          />
+        </>
       ) : null}
     </g>
   );
@@ -106,34 +107,34 @@ function HqBuilding({ x, y, tone, label, sub }: { x: number; y: number; tone: "b
       <rect
         x={0}
         y={0}
-        width={64}
-        height={58}
+        width={62}
+        height={54}
         rx={4}
         fill={tone === "batch" ? "rgba(100,116,139,0.08)" : "rgba(0,120,212,0.08)"}
         stroke={stroke}
         strokeWidth={1.4}
       />
-      <text x={32} y={18} textAnchor="middle" fontSize={10} fontWeight={700} fill="#334155">
+      <text x={31} y={16} textAnchor="middle" fontSize={9} fontWeight={700} fill="#334155">
         {label}
       </text>
-      <text x={32} y={32} textAnchor="middle" fontSize={9} fill={tone === "batch" ? "#991b1b" : "#059669"}>
+      <text x={31} y={28} textAnchor="middle" fontSize={8} fill={tone === "batch" ? "#991b1b" : "#059669"}>
         {sub}
       </text>
       {tone === "cdc" ? (
         <motion.circle
-          cx={32}
-          cy={46}
-          r={6}
+          cx={31}
+          cy={42}
+          r={5}
           fill="#10b981"
-          animate={{ opacity: [0.45, 1, 0.45], r: [6, 7.5, 6] }}
+          animate={{ opacity: [0.45, 1, 0.45], r: [5, 6.5, 5] }}
           transition={{ duration: 1.2, repeat: Infinity }}
         />
       ) : (
         <motion.rect
           x={10}
-          y={42}
-          width={44}
-          height={6}
+          y={38}
+          width={42}
+          height={5}
           rx={2}
           fill="#991b1b"
           animate={{ opacity: [0.2, 0.55, 0.2] }}
@@ -147,11 +148,32 @@ function HqBuilding({ x, y, tone, label, sub }: { x: number; y: number; tone: "b
 function DataPacket({ color, delay = 0 }: { color: string; delay?: number }) {
   return (
     <motion.g
-      animate={{ x: [0, 36], opacity: [0, 1, 1, 0] }}
+      animate={{ x: [0, 34], opacity: [0, 1, 1, 0] }}
       transition={{ duration: 1.1, repeat: Infinity, delay, ease: "easeInOut" }}
     >
-      <rect width={10} height={8} rx={1.5} fill={color} />
+      <rect width={9} height={7} rx={1.5} fill={color} />
     </motion.g>
+  );
+}
+
+function WarehouseHeader({ tone, status }: { tone: "batch" | "cdc"; status: string }) {
+  const stroke = tone === "batch" ? "#991b1b" : "#0078d4";
+  const badgeFill = tone === "batch" ? "#991b1b" : "#10b981";
+
+  return (
+    <>
+      <path d="M0 22 H100" stroke={stroke} strokeWidth={0.8} opacity={0.35} />
+      <text x={6} y={12} fontSize={9} fontWeight={700} fill={tone === "batch" ? "#7f1d1d" : "#0c4a6e"}>
+        물류센터
+      </text>
+      <text x={6} y={19} fontSize={7.5} fill={tone === "batch" ? "#991b1b" : "#0078d4"}>
+        운영 DB
+      </text>
+      <rect x={68} y={3} width={28} height={12} rx={2} fill={badgeFill} />
+      <text x={82} y={11.5} textAnchor="middle" fontSize={7.5} fontWeight={800} fill="#fff">
+        {status}
+      </text>
+    </>
   );
 }
 
@@ -180,48 +202,34 @@ export function Slide06BatchScene() {
 
   const slot = SHELF_SLOTS[scanIdx] ?? SHELF_SLOTS[0];
   const progress = Math.round(((scanIdx + 1) / SHELF_SLOTS.length) * 100);
+  const beamTargetX = slot.x + 7;
+  const beamTargetY = slot.y + 5;
 
   return (
     <div className="s06-scene s06-scene--batch">
-      <svg viewBox="0 0 228 96" className="s06-scene__svg" aria-hidden="true">
-        <rect x={0} y={0} width={228} height={24} rx={4} fill="#1e293b" opacity={0.16} />
+      <svg viewBox="0 0 240 104" className="s06-scene__svg" aria-hidden="true">
+        <rect x={0} y={0} width={240} height={22} rx={4} fill="#1e293b" opacity={0.14} />
         <motion.circle
-          cx={204}
-          cy={12}
-          r={10}
+          cx={214}
+          cy={11}
+          r={8}
           fill="#fbbf24"
           animate={reduceMotion ? undefined : { opacity: [0.5, 0.95, 0.5], scale: [1, 1.08, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         />
-        <text x={192} y={15} fontSize={9} fill="#78716c">
+        <text x={200} y={14} fontSize={8} fill="#78716c">
           🌙 자정
         </text>
-        <text x={8} y={15} fontSize={10} fontWeight={700} fill="#991b1b">
+        <text x={8} y={14} fontSize={9} fontWeight={700} fill="#991b1b">
           야간 Batch · 문 닫고 전수조사
         </text>
 
-        <g transform="translate(8, 26)">
-          <rect x={0} y={0} width={108} height={66} rx={4} fill="rgba(185,28,28,0.06)" stroke="#991b1b" strokeWidth={1.5} />
-          <path d="M0 14 H108" stroke="#991b1b" strokeWidth={0.8} opacity={0.35} />
-          <text x={8} y={11} fontSize={10} fontWeight={700} fill="#7f1d1d">
-            물류센터 (운영 DB)
-          </text>
-          <motion.rect
-            x={76}
-            y={2}
-            width={28}
-            height={11}
-            rx={2}
-            fill="#991b1b"
-            animate={{ opacity: [0.75, 1, 0.75] }}
-            transition={{ duration: 1.2, repeat: Infinity }}
-          />
-          <text x={90} y={10} textAnchor="middle" fontSize={8} fontWeight={800} fill="#fff">
-            CLOSED
-          </text>
+        <g transform="translate(6, 24)">
+          <rect x={0} y={0} width={100} height={68} rx={4} fill="rgba(185,28,28,0.06)" stroke="#991b1b" strokeWidth={1.5} />
+          <WarehouseHeader tone="batch" status="CLOSED" />
 
           {[0, 1, 2, 3].map((i) => (
-            <rect key={`shelf-${i}`} x={14 + i * 24} y={32} width={20} height={3} rx={1} fill="#cbd5e1" opacity={0.7} />
+            <rect key={`shelf-${i}`} x={8 + i * 20} y={22} width={18} height={2} rx={1} fill="#cbd5e1" opacity={0.7} />
           ))}
 
           {SHELF_SLOTS.map((s, i) => (
@@ -235,30 +243,22 @@ export function Slide06BatchScene() {
             />
           ))}
 
-          <motion.g
-            animate={{ x: slot.x + 8, y: slot.y + 16 }}
-            transition={{ type: "spring", stiffness: 110, damping: 15 }}
-          >
-            <CounterWorker scanning={phase === "counting"} />
-          </motion.g>
+          <CounterWorker scanning={phase === "counting"} beamTargetX={beamTargetX} beamTargetY={beamTargetY} />
 
-          <rect x={8} y={74} width={92} height={6} rx={2} fill="#fecaca" />
+          <rect x={24} y={58} width={68} height={4} rx={2} fill="#fecaca" />
           <motion.rect
-            x={8}
-            y={74}
-            height={6}
+            x={24}
+            y={58}
+            height={4}
             rx={2}
             fill="#991b1b"
-            animate={{ width: (92 * progress) / 100 }}
+            animate={{ width: (68 * progress) / 100 }}
             transition={{ duration: 0.25 }}
           />
-          <text x={54} y={72} textAnchor="middle" fontSize={8} fill="#991b1b" fontWeight={700}>
-            전체 재고 {progress}% 재계산…
-          </text>
         </g>
 
         <motion.path
-          d="M118 58 H152"
+          d="M112 58 H148"
           stroke="#991b1b"
           strokeWidth={2}
           markerEnd="url(#s06-arrow-red)"
@@ -267,14 +267,14 @@ export function Slide06BatchScene() {
           transition={{ duration: 0.5, repeat: phase === "reporting" ? Infinity : 0, ease: "linear" }}
         />
         {phase === "reporting" ? (
-          <g transform="translate(118, 54)">
+          <g transform="translate(112, 54)">
             <DataPacket color="#991b1b" delay={0} />
             <DataPacket color="#b91c1c" delay={0.35} />
             <DataPacket color="#dc2626" delay={0.7} />
           </g>
         ) : null}
 
-        <HqBuilding x={158} y={28} tone="batch" label="본사 (분석 DB)" sub="어제 자정 기준" />
+        <HqBuilding x={168} y={30} tone="batch" label="본사 (분석 DB)" sub="어제 자정 기준" />
 
         <defs>
           <marker id="s06-arrow-red" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -287,8 +287,8 @@ export function Slide06BatchScene() {
       </svg>
       <div className={`s06-scene__status ${phase === "reporting" ? "is-warn" : "is-danger"}`}>
         {phase === "reporting"
-          ? "전수조사 완료 → 전일 자정 기준 데이터 일괄 전송 (운영 DB 부하↑)"
-          : `야간 전수조사 진행 — 전 구역 재집계 ${scanIdx + 1}/${SHELF_SLOTS.length}`}
+          ? "전수조사 완료 → 전일 자정 기준 일괄 전송"
+          : `야간 전수조사 ${scanIdx + 1}/${SHELF_SLOTS.length} · 재집계 ${progress}%`}
       </div>
     </div>
   );
@@ -307,15 +307,15 @@ export function Slide06CdcScene() {
 
   return (
     <div className="s06-scene s06-scene--cdc">
-      <svg viewBox="0 0 228 96" className="s06-scene__svg" aria-hidden="true">
-        <rect x={0} y={0} width={228} height={24} rx={4} fill="#e0f2fe" opacity={0.6} />
-        <text x={8} y={15} fontSize={10} fontWeight={700} fill="#0078d4">
+      <svg viewBox="0 0 240 104" className="s06-scene__svg" aria-hidden="true">
+        <rect x={0} y={0} width={240} height={22} rx={4} fill="#e0f2fe" opacity={0.6} />
+        <text x={8} y={14} fontSize={9} fontWeight={700} fill="#0078d4">
           실시간 CDC · 정상 운영 중
         </text>
         <motion.text
-          x={168}
-          y={15}
-          fontSize={9}
+          x={178}
+          y={14}
+          fontSize={8}
           fill="#059669"
           animate={{ opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 1.5, repeat: Infinity }}
@@ -323,76 +323,60 @@ export function Slide06CdcScene() {
           ☀️ 주간 가동
         </motion.text>
 
-        <g transform="translate(8, 26)">
-          <rect x={0} y={0} width={108} height={66} rx={4} fill="rgba(0,120,212,0.05)" stroke="#0078d4" strokeWidth={1.5} />
-          <path d="M0 14 H108" stroke="#0078d4" strokeWidth={0.8} opacity={0.3} />
-          <text x={8} y={11} fontSize={10} fontWeight={700} fill="#0c4a6e">
-            물류센터 (운영 DB)
-          </text>
-          <motion.rect
-            x={76}
-            y={2}
-            width={28}
-            height={11}
-            rx={2}
-            fill="#10b981"
-            animate={{ opacity: [0.8, 1, 0.8] }}
-            transition={{ duration: 1, repeat: Infinity }}
-          />
-          <text x={90} y={10} textAnchor="middle" fontSize={8} fontWeight={800} fill="#fff">
-            OPEN
-          </text>
+        <g transform="translate(6, 24)">
+          <rect x={0} y={0} width={100} height={68} rx={4} fill="rgba(0,120,212,0.05)" stroke="#0078d4" strokeWidth={1.5} />
+          <WarehouseHeader tone="cdc" status="OPEN" />
 
           {[0, 1, 2, 3].map((i) => (
-            <rect key={`cdc-shelf-${i}`} x={14 + i * 24} y={32} width={20} height={3} rx={1} fill="#bae6fd" opacity={0.8} />
+            <rect key={`cdc-shelf-${i}`} x={8 + i * 20} y={22} width={18} height={2} rx={1} fill="#bae6fd" opacity={0.8} />
           ))}
 
           {SHELF_SLOTS.map((s) => (
             <WarehouseBox key={`cdc-${s.x}-${s.y}`} x={s.x} y={s.y} tone="cdc" />
           ))}
 
-          <rect x={88} y={44} width={14} height={22} rx={2} fill="#10b981" opacity={0.85} />
+          {/* 입출고 센서 — 우측 전용 구역 */}
+          <rect x={80} y={24} width={14} height={28} rx={2} fill="rgba(16,185,129,0.12)" stroke="#10b981" strokeWidth={1} />
           <motion.circle
-            cx={95}
-            cy={40}
-            r={6}
+            cx={87}
+            cy={30}
+            r={4}
             fill="#10b981"
-            animate={{ opacity: [0.5, 1, 0.5], r: [6, 8, 6] }}
+            animate={{ opacity: [0.5, 1, 0.5], r: [4, 5.5, 4] }}
             transition={{ duration: 0.9, repeat: Infinity }}
           />
-          <text x={95} y={70} textAnchor="middle" fontSize={8} fill="#059669" fontWeight={700}>
-            입출고 센서
+          <text x={87} y={42} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
+            입·출고
+          </text>
+          <text x={87} y={49} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
+            센서
           </text>
 
           <AnimatePresenceParcel event={event} eventIdx={eventIdx} />
-
-          <motion.rect
-            x={104}
-            y={event.type === "in" ? 40 : 54}
-            width={20}
-            height={11}
-            rx={2}
-            fill={event.type === "in" ? "#10b981" : "#f59e0b"}
-            opacity={0.9}
-            key={`tag-${eventIdx}`}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.9 }}
-            transition={{ duration: 0.25 }}
-          />
-          <text
-            x={114}
-            y={event.type === "in" ? 38 : 52}
-            textAnchor="middle"
-            fontSize={9}
-            fontWeight={700}
-            fill={event.type === "in" ? "#059669" : "#b45309"}
-          >
-            {event.label}
-          </text>
         </g>
 
+        {/* 변동분 라벨 — 창고·본사 사이 */}
+        <motion.g
+          key={`evt-${eventIdx}`}
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.25 }}
+        >
+          <rect
+            x={108}
+            y={46}
+            width={36}
+            height={14}
+            rx={7}
+            fill={event.type === "in" ? "#10b981" : "#f59e0b"}
+          />
+          <text x={126} y={56} textAnchor="middle" fontSize={8} fontWeight={700} fill="#fff">
+            {event.label}
+          </text>
+        </motion.g>
+
         <motion.path
-          d="M118 56 H152"
+          d="M112 58 H148"
           stroke="#10b981"
           strokeWidth={2}
           strokeDasharray="5 3"
@@ -400,16 +384,16 @@ export function Slide06CdcScene() {
           animate={{ strokeDashoffset: [0, -16] }}
           transition={{ duration: 0.7, repeat: Infinity, ease: "linear" }}
         />
-        <g transform="translate(118, 52)">
+        <g transform="translate(112, 54)">
           <DataPacket color="#10b981" delay={0} />
           <DataPacket color="#059669" delay={0.4} />
           <DataPacket color="#34d399" delay={0.8} />
         </g>
 
-        <HqBuilding x={158} y={28} tone="cdc" label="본사 (분석 DB)" sub="실시간 동기화" />
+        <HqBuilding x={168} y={30} tone="cdc" label="본사 (분석 DB)" sub="실시간 동기화" />
       </svg>
       <div className="s06-scene__status is-success">
-        변동분({event.label})만 즉시 동기화 — 전체 재집계 없음 · 운영 DB 부하 최소
+        변동분({event.label})만 즉시 동기화 — 전체 재집계 없음
       </div>
     </div>
   );
@@ -422,9 +406,9 @@ function AnimatePresenceParcel({
   event: (typeof CDC_EVENTS)[number];
   eventIdx: number;
 }) {
-  const startX = event.type === "in" ? 58 : 95;
-  const endX = event.type === "in" ? 88 : 58;
-  const y = 52;
+  const startX = event.type === "in" ? 52 : 87;
+  const endX = event.type === "in" ? 87 : 52;
+  const y = 34;
 
   return (
     <motion.g
@@ -434,20 +418,15 @@ function AnimatePresenceParcel({
       transition={{ duration: 1, ease: "easeInOut" }}
     >
       <rect
-        x={0}
-        y={0}
-        width={14}
-        height={11}
+        x={-6}
+        y={-4}
+        width={12}
+        height={9}
         rx={2}
         fill={event.type === "in" ? "#f59e0b" : "#fb923c"}
         stroke="#b45309"
         strokeWidth={0.8}
       />
-      {event.type === "in" ? (
-        <motion.g animate={{ x: [-4, 0] }} transition={{ duration: 0.3 }}>
-          <rect x={-10} y={2} width={8} height={7} rx={1} fill="#64748b" />
-        </motion.g>
-      ) : null}
     </motion.g>
   );
 }

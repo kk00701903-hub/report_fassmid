@@ -35,9 +35,7 @@ export default function Slide05() {
             <div className="panel panel--legacy">
               <div className="panel-badge panel-badge--warn">현행 · Monolithic</div>
               <h2 className="panel-title">
-                현행 FaSS 구조
-                <br />
-                <span>(단일 모듈 집중 처리)</span>
+                현행 FaSS <span>(단일 모듈 집중)</span>
               </h2>
 
               <Slide05MonoScene />
@@ -53,7 +51,7 @@ export default function Slide05() {
                 <div className="callout-body">
                   <div className="callout-label">운영 리스크</div>
                   <p>
-                    <RichText text="핵심 모듈 장애 시 **물류 라인 전체가 중단**될 수 있으며, 기능 수정·배포 시에도 **시스템 전면 중단**이 수반됩니다." />
+                    <RichText text="핵심 모듈 장애 시 **물류 라인 전체 중단** 가능 — 배포 시 **전면 중단** 수반." />
                   </p>
                 </div>
               </div>
@@ -68,9 +66,7 @@ export default function Slide05() {
             <div className="panel panel--msa">
               <div className="panel-badge panel-badge--pos">차세대 · MSA</div>
               <h2 className="panel-title">
-                차세대 MSA 구조
-                <br />
-                <span>(업무 단위 분리 · 전담 운영)</span>
+                차세대 MSA <span>(업무 단위 분리)</span>
               </h2>
 
               <Slide05MsaScene />
@@ -86,7 +82,7 @@ export default function Slide05() {
                 <div className="callout-body">
                   <div className="callout-label">기대 효과</div>
                   <p>
-                    <RichText text="특정 서비스(예: 포장) 장애 시 **해당 모듈만 교체·배포** 가능하며, **나머지 라인은 무중단**으로 가동을 유지합니다. (장애 격리 · 무중단 배포)" />
+                    <RichText text="특정 서비스 장애 시 **해당 모듈만 교체·배포** — **나머지 라인 무중단** 가동." />
                   </p>
                 </div>
               </div>

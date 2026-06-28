@@ -15,22 +15,6 @@ const SLIDE_HTML = `<div class="section-slide-root section-slide-dense">
   <div class="section-topics-list">
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">IT 시스템 이해하기 — 웹 · 프론트엔드 · WAS · DB</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">핵심 용어집 ① — 클라우드 · 오픈소스 · API</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">핵심 용어집 ② — MSA · 모듈러 모놀리스 · Docker · Kubernetes</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
-      <span class="topic-text">CDC(Change Data Capture)란?</span>
-    </div>
-    <div class="section-topic-item">
-      <div class="topic-dot"></div>
       <span class="topic-text">차세대 FaSS 구축 프로젝트 범위</span>
     </div>
     <div class="section-topic-item">

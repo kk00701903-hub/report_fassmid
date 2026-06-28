@@ -1,3 +1,5 @@
+import { isGlossarySlideId } from "@/lib/slides";
+
 /** 슬라이드 ID(내장 HTML 번호) 기준 PART 구간 정의 */
 
 export type SlidePart = {
@@ -43,9 +45,10 @@ export function isPartDividerTitle(title: string): boolean {
   return /^PART\s+\d+/i.test(title.trim());
 }
 
-/** 표지(1p) 등 PART 미표시 슬라이드 */
+/** 표지(1p) · Glossary 구간 등 PART 미표시 슬라이드 */
 export function getSlidePart(builtinSlideId: number | null): SlidePart | null {
   if (builtinSlideId === null || builtinSlideId <= 1) return null;
+  if (isGlossarySlideId(builtinSlideId)) return null;
 
   const part = SLIDE_PARTS.find(
     (p) => builtinSlideId >= p.startSlideId && builtinSlideId <= p.endSlideId,

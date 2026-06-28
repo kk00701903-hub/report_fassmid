@@ -26,7 +26,7 @@ export type PresentationConfig = {
 const STORAGE_KEY = "fass-presentation-config";
 const TITLE_VERSION_KEY = "fass-presentation-title-version";
 /** slides.ts 제목 변경 시 로컬 설정의 목차 제목을 갱신하기 위한 버전 */
-const CONFIG_TITLE_VERSION = 17;
+const CONFIG_TITLE_VERSION = 19;
 
 export function isSlideVisible(slide: SlideManifestItem): boolean {
   return slide.visible !== false;
@@ -73,9 +73,15 @@ export function getVisibleSlides(config: PresentationConfig): SlideManifestItem[
   return config.slides.filter(isSlideVisible);
 }
 
+function getDefaultSlideOrder() {
+  const main = SLIDES.filter((slide) => !isAppendixSlideId(slide.id));
+  const appendix = SLIDES.filter((slide) => isAppendixSlideId(slide.id));
+  return [...main, ...appendix];
+}
+
 export function createDefaultConfig(): PresentationConfig {
   return {
-    slides: SLIDES.map((slide) => ({
+    slides: getDefaultSlideOrder().map((slide) => ({
       key: `builtin-${slide.id}`,
       title: slide.title,
       type: "builtin" as const,
@@ -124,7 +130,18 @@ export function syncPresentationConfig(config: PresentationConfig): Presentation
     kept.push(slide);
   }
 
-  return normalizePresentationConfig({ slides: kept });
+  const custom = kept.filter((slide) => slide.type === "custom");
+  const builtinById = new Map(
+    kept
+      .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
+      .map((slide) => [slide.slideId, slide]),
+  );
+  const orderedBuiltin = defaults.slides
+    .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
+    .map((slide) => builtinById.get(slide.slideId))
+    .filter((slide): slide is BuiltinSlideItem => Boolean(slide));
+
+  return normalizePresentationConfig({ slides: [...orderedBuiltin, ...custom] });
 }
 
 export function loadPresentationConfig(): PresentationConfig {

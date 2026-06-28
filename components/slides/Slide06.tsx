@@ -36,7 +36,7 @@ export default function Slide06() {
               <div className="panel-badge panel-badge--warn">현행 · Batch 복제</div>
               <h2 className="panel-title">
                 &apos;야간 재고 전수조사&apos;
-                <span> — 매일 야간 전체 데이터 재복제</span>
+                <span>매일 야간 전체 데이터 재복제</span>
               </h2>
 
               <Slide06BatchScene />
@@ -67,8 +67,8 @@ export default function Slide06() {
             <div className="panel panel--cdc">
               <div className="panel-badge panel-badge--pos">차세대 · CDC</div>
               <h2 className="panel-title">
-                &apos;실시간 입출고 센서 보고&apos;
-                <span> — 변동분만 즉시 동기화</span>
+                &apos;실시간 입출고 센서&apos;
+                <span>변동분만 즉시 동기화</span>
               </h2>
 
               <Slide06CdcScene />
