@@ -1,19 +1,8 @@
-/* Slide 13 — PART 02 divider (dark chrome, high-contrast text) */
+/* Slide 13 — PART 02 divider (layout: section-chrome.css) */
 .slide-s13 .section-slide-root {
-  width: 100%;
-  height: 100%;
   background-color: var(--ppt-bg);
   color: #ffffff;
   font-family: var(--ppt-font);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  overflow: hidden;
-  min-height: 0;
-  box-sizing: border-box;
-  padding: 48px 80px;
 }
 
 .slide-s13 .bg-grid-overlay {
@@ -47,28 +36,13 @@
   background: linear-gradient(180deg, transparent 0%, var(--ppt-accent) 40%, var(--ppt-accent) 60%, transparent 100%);
 }
 
-.slide-s13 .section-part-number {
-  font-size: 120px;
-  font-weight: 700;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 240, 255, 0.35);
-  position: absolute;
-  right: 60px;
-  bottom: 40px;
-  user-select: none;
-}
-
 .slide-s13 .section-part-label {
-  font-size: 14px;
-  font-weight: 700;
   color: var(--ppt-accent);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .slide-s13 .section-part-label::after {
@@ -80,43 +54,29 @@
   opacity: 0.5;
 }
 
-.slide-s13 .section-title-ko {
-  font-size: 28px;
+.slide-s13 .section-part-number {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 240, 255, 0.35);
+  position: absolute;
+  user-select: none;
+  line-height: 1;
   font-weight: 700;
+}
+
+.slide-s13 .section-title-ko {
   color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 8px;
+  font-weight: 700;
 }
 
 .slide-s13 .section-title-en {
-  font-size: 18px;
-  font-weight: 500;
   color: #facc15;
-  letter-spacing: 1px;
-  margin-bottom: 40px;
+  font-weight: 500;
 }
 
 .slide-s13 .section-divider-line {
-  width: 80px;
   height: 3px;
   background: linear-gradient(90deg, var(--ppt-accent), transparent);
-  margin-bottom: 36px;
   border-radius: 2px;
-}
-
-.slide-s13 .section-topics-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.slide-s13 .section-topic-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  opacity: 1 !important;
-  animation: none !important;
-  filter: none !important;
 }
 
 .slide-s13 .topic-dot {
@@ -129,8 +89,12 @@
 }
 
 .slide-s13 .topic-text {
-  font-size: 17px;
   color: #e2e8f0;
   font-weight: 500;
-  line-height: 1.45;
+}
+
+.slide-s13 .section-topic-item {
+  opacity: 1 !important;
+  animation: none !important;
+  filter: none !important;
 }

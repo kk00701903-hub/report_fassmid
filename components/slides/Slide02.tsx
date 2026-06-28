@@ -3,7 +3,7 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide02.css";
 
-const SLIDE_HTML = `<div class="section-slide-root">
+const SLIDE_HTML = `<div class="section-slide-root section-slide-dense">
   <div class="bg-grid-overlay"></div>
   <div class="bg-glow-circle"></div>
   <div class="bg-left-bar"></div>
@@ -19,8 +19,6 @@ const SLIDE_HTML = `<div class="section-slide-root">
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-          <div class="section-topic-item">
-      <div class="topic-dot"></div>
       <span class="topic-text">핵심 용어집 ① — 클라우드 · 오픈소스 · API</span>
     </div>
     <div class="section-topic-item">
@@ -31,6 +29,8 @@ const SLIDE_HTML = `<div class="section-slide-root">
       <div class="topic-dot"></div>
       <span class="topic-text">CDC(Change Data Capture)란?</span>
     </div>
+    <div class="section-topic-item">
+      <div class="topic-dot"></div>
       <span class="topic-text">차세대 FaSS 구축 프로젝트 범위</span>
     </div>
     <div class="section-topic-item">

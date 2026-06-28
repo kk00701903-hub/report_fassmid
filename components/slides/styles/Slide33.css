@@ -13,7 +13,7 @@
     justify-content: flex-start;}
 .slide-s33 .finops-content-card-box{flex: 1;
     min-height: 0;
-    overflow: hidden;
+    overflow: visible;
     background-color: var(--fluent-card-bg, #f8f8f8);
     border: 1px solid var(--fluent-border, #d2d0ce);
     border-radius: var(--ppt-radius-lg);
@@ -73,7 +73,7 @@
     border-radius: var(--ppt-radius-sm);
     font-size: 14px;
     font-weight: 600;
-    margin-top: auto;
+    margin-top: 4px;
     text-align: center}
 .slide-s33 .finops-policy-visual-item{background: var(--fluent-surface, #ffffff);
     padding: 8px 12px;
@@ -87,22 +87,17 @@
     white-space: nowrap}
 .slide-s33 .finops-policy-desc-text{font-size: 13px;
     color: var(--fluent-grey-160, #201f1e)}
-.slide-s33 h1.title-main {font-size: 22px;}
-.slide-s33 .sub { font-size: 14px; margin-top: 4px; }
-.slide-s33 .finops-main-content-layout {padding: 2px 24px 6px; gap: 6px; overflow: hidden;}
-.slide-s33 .finops-content-card-box {padding: 8px; gap: 5px;}
-.slide-s33 .finops-card-header-group { gap: 6px; }
-.slide-s33 .finops-card-title-text {font-size: 14px;}
-.slide-s33 .finops-card-body-text {font-size: 12px; line-height: 1.35;}
-.slide-s33 .finops-card-icon-circle { width: 32px; height: 32px; font-size: 16px; }
-.slide-s33 .finops-list-container-group { gap: 3px; margin-top: 2px; }
-.slide-s33 .finops-list-item-row { font-size: 12px; line-height: 1.32; padding-left: 16px; }
-.slide-s33 .finops-policy-visual-item { padding: 6px 10px; gap: 8px; }
-.slide-s33 .finops-policy-time-label { font-size: 13px; }
-.slide-s33 .title-r,
-.slide-s33 .title-region { padding: 8px 28px 4px !important; }
-.slide-s33 .finops-card-divider-line { display: none; }
-.slide-s33 .finops-card-header-group { gap: 4px; }
-.slide-s33 .finops-content-card-box { padding: 6px 8px; }
-.slide-s33 .finops-highlight-badge-tag { font-size: 11px; margin-top: 2px; padding: 2px 8px; background: var(--fluent-blue-light); border-color: rgba(0, 120, 212, 0.28); }
-.slide-s33 .finops-main-content-layout { transform: scale(0.96); transform-origin: top center; flex: 1; min-height: 0; }
+.slide-s33 h1.title-main {font-size: 20px;}
+.slide-s33 .sub { font-size: 13px; margin-top: 2px; }
+.slide-s33 .finops-main-content-layout {padding: 4px 28px 8px; gap: 8px; overflow: hidden; transform: none; flex: 1; min-height: 0; }
+.slide-s33 .finops-column-item-wrapper { min-height: 0; overflow: hidden; }
+.slide-s33 .finops-content-card-box {padding: 8px; gap: 4px; min-height: 0; overflow: hidden; }
+.slide-s33 .finops-card-icon-circle { width: 36px; height: 36px; font-size: 18px; }
+.slide-s33 .finops-card-title-text { font-size: 15px; }
+.slide-s33 .finops-card-body-text { font-size: 12px; line-height: 1.35; }
+.slide-s33 .finops-list-container-group { gap: 4px; margin-top: 2px; }
+.slide-s33 .finops-list-item-row { font-size: 12px; line-height: 1.35; }
+.slide-s33 .finops-policy-visual-item { padding: 4px 8px; gap: 8px; }
+.slide-s33 .finops-policy-time-label { font-size: 11px; }
+.slide-s33 .finops-policy-desc-text { font-size: 11px; line-height: 1.3; }
+.slide-s33 .finops-highlight-badge-tag { font-size: 11px; margin-top: 4px; padding: 2px 8px; background: var(--fluent-blue-light); border-color: rgba(0, 120, 212, 0.28); }

@@ -91,7 +91,7 @@
   z-index: 1;
 }
 
-/* ?€?€ Architecture diagram ?€?€ */
+/* ???? Architecture diagram ???? */
 .slide-s03 .arch-diagram {
   flex: 1 1 auto;
   min-height: 0;
@@ -201,14 +201,22 @@
 
 .slide-s03 .arch-step-badge {
   position: absolute;
-  right: -6px;
-  top: 50%;
-  transform: translate(100%, -50%);
-  font-size: 13px;
+  right: 6px;
+  top: 4px;
+  transform: none;
+  font-size: 12px;
   font-weight: 700;
   color: var(--arch-blue);
   white-space: nowrap;
-  padding-left: 6px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 120, 212, 0.25);
+}
+
+.slide-s03 .arch-fe-stack .browser-mock:nth-child(2) .arch-step-badge {
+  top: auto;
+  bottom: 4px;
 }
 
 /* Mid flow arrows */
@@ -218,7 +226,7 @@
   justify-content: center;
   gap: 18px;
   padding: 0 4px;
-  min-width: 72px;
+  min-width: 88px;
 }
 
 .slide-s03 .arch-flow-row {

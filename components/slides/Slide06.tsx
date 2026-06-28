@@ -24,13 +24,13 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
           <svg class="visual-svg visual-svg--batch" viewBox="0 0 220 118" fill="none">
             <rect x="0" y="0" width="220" height="52" fill="#1e293b" opacity="0.12" rx="4"/>
             <circle cx="192" cy="16" r="9" fill="#fbbf24" opacity="0.55"/>
-            <text x="178" y="20" font-size="7" fill="#78716c" font-family="Segoe UI, sans-serif">자정</text>
-            <text x="8" y="14" font-size="7" fill="#991b1b" font-family="Segoe UI, sans-serif" font-weight="600">야간 Batch</text>
+            <text x="178" y="20" font-size="11" fill="#78716c" font-family="Segoe UI, sans-serif">자정</text>
+            <text x="8" y="14" font-size="11" fill="#991b1b" font-family="Segoe UI, sans-serif" font-weight="600">야간 Batch</text>
 
             <rect x="14" y="28" width="78" height="58" rx="4" stroke="#991b1b" stroke-width="1.4" fill="rgba(185,28,28,0.07)"/>
             <path d="M14 42 L92 42" stroke="#991b1b" stroke-width="1" opacity="0.35"/>
-            <text x="24" y="38" font-size="8" fill="#7f1d1d" font-family="Segoe UI, sans-serif" font-weight="600">물류센터 (운영 DB)</text>
-            <text x="22" y="52" font-size="7" fill="#991b1b" font-family="Segoe UI, sans-serif">문 닫고 전수조사</text>
+            <text x="24" y="38" font-size="11" fill="#7f1d1d" font-family="Segoe UI, sans-serif" font-weight="600">물류센터 (운영 DB)</text>
+            <text x="22" y="52" font-size="11" fill="#991b1b" font-family="Segoe UI, sans-serif">문 닫고 전수조사</text>
             <rect x="22" y="58" width="14" height="11" rx="1" stroke="#991b1b" stroke-width="1"/>
             <rect x="38" y="58" width="14" height="11" rx="1" stroke="#991b1b" stroke-width="1"/>
             <rect x="54" y="58" width="14" height="11" rx="1" stroke="#991b1b" stroke-width="1"/>
@@ -42,13 +42,13 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
             <path d="M40 82 L40 86 M36 84 L44 84" stroke="#991b1b" stroke-width="1"/>
             <circle cx="58" cy="80" r="4" stroke="#991b1b" stroke-width="1"/>
             <path d="M58 84 L58 88 M54 86 L62 86" stroke="#991b1b" stroke-width="1"/>
-            <text x="20" y="98" font-size="6.5" fill="#991b1b" font-family="Segoe UI, sans-serif">전체 재고 다시 계산 → 부하↑</text>
+            <text x="20" y="98" font-size="10" fill="#991b1b" font-family="Segoe UI, sans-serif">전체 재고 다시 계산 → 부하↑</text>
 
             <path d="M98 58 L128 58" stroke="#991b1b" stroke-width="1.5" marker-end="url(#arrow-red)"/>
             <rect x="134" y="36" width="72" height="52" rx="4" stroke="#64748b" stroke-width="1.3" fill="rgba(100,116,139,0.06)"/>
-            <text x="154" y="52" font-size="8" fill="#475569" font-family="Segoe UI, sans-serif" font-weight="600">본사 (분석 DB)</text>
-            <text x="142" y="66" font-size="7" fill="#991b1b" font-family="Segoe UI, sans-serif">어제 자정 기준</text>
-            <text x="142" y="76" font-size="7" fill="#991b1b" font-family="Segoe UI, sans-serif">과거 데이터만 확인</text>
+            <text x="154" y="52" font-size="11" fill="#475569" font-family="Segoe UI, sans-serif" font-weight="600">본사 (분석 DB)</text>
+            <text x="142" y="66" font-size="11" fill="#991b1b" font-family="Segoe UI, sans-serif">어제 자정 기준</text>
+            <text x="142" y="76" font-size="11" fill="#991b1b" font-family="Segoe UI, sans-serif">과거 데이터만 확인</text>
             <rect x="142" y="80" width="56" height="6" rx="2" fill="#991b1b" opacity="0.2"/>
 
             <defs>
@@ -83,12 +83,12 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         <div class="panel-visual" aria-hidden="true">
           <svg class="visual-svg visual-svg--cdc" viewBox="0 0 220 118" fill="none">
             <rect x="0" y="0" width="220" height="52" fill="#e0f2fe" opacity="0.35" rx="4"/>
-            <text x="8" y="14" font-size="7" fill="#0078d4" font-family="Segoe UI, sans-serif" font-weight="600">실시간 CDC</text>
+            <text x="8" y="14" font-size="11" fill="#0078d4" font-family="Segoe UI, sans-serif" font-weight="600">실시간 CDC</text>
 
             <rect x="14" y="28" width="78" height="58" rx="4" stroke="#0078d4" stroke-width="1.4" fill="rgba(0,120,212,0.06)"/>
             <path d="M14 42 L92 42" stroke="#0078d4" stroke-width="1" opacity="0.3"/>
-            <text x="24" y="38" font-size="8" fill="#0c4a6e" font-family="Segoe UI, sans-serif" font-weight="600">물류센터 (운영 DB)</text>
-            <text x="22" y="52" font-size="7" fill="#0078d4" font-family="Segoe UI, sans-serif">정상 운영 · 재고 그대로</text>
+            <text x="24" y="38" font-size="11" fill="#0c4a6e" font-family="Segoe UI, sans-serif" font-weight="600">물류센터 (운영 DB)</text>
+            <text x="22" y="52" font-size="11" fill="#0078d4" font-family="Segoe UI, sans-serif">정상 운영 · 재고 그대로</text>
             <rect x="22" y="58" width="14" height="11" rx="1" stroke="#0078d4" stroke-width="1" opacity="0.5"/>
             <rect x="38" y="58" width="14" height="11" rx="1" stroke="#0078d4" stroke-width="1" opacity="0.5"/>
             <rect x="54" y="58" width="14" height="11" rx="1" stroke="#0078d4" stroke-width="1" opacity="0.5"/>
@@ -99,21 +99,21 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
             <rect x="84" y="52" width="10" height="16" rx="2" fill="#10b981" opacity="0.85"/>
             <circle cx="89" cy="48" r="6" fill="#10b981" opacity="0.75"/>
             <path d="M86 48 L89 45 L92 48" stroke="#fff" stroke-width="1" fill="none"/>
-            <text x="76" y="78" font-size="6.5" fill="#059669" font-family="Segoe UI, sans-serif">스마트 센서</text>
+            <text x="76" y="78" font-size="10" fill="#059669" font-family="Segoe UI, sans-serif">스마트 센서</text>
 
             <rect x="104" y="46" width="16" height="10" rx="2" fill="#10b981" opacity="0.75"/>
-            <text x="106" y="44" font-size="6" fill="#059669" font-family="Segoe UI, sans-serif">+입고</text>
+            <text x="106" y="44" font-size="10" fill="#059669" font-family="Segoe UI, sans-serif">+입고</text>
             <rect x="104" y="62" width="16" height="10" rx="2" fill="#f59e0b" opacity="0.75"/>
-            <text x="106" y="60" font-size="6" fill="#b45309" font-family="Segoe UI, sans-serif">-출고</text>
-            <text x="20" y="98" font-size="6.5" fill="#0078d4" font-family="Segoe UI, sans-serif">변동분만 캡처 → 부하 제로</text>
+            <text x="106" y="60" font-size="10" fill="#b45309" font-family="Segoe UI, sans-serif">-출고</text>
+            <text x="20" y="98" font-size="10" fill="#0078d4" font-family="Segoe UI, sans-serif">변동분만 캡처 → 부하 제로</text>
 
             <path d="M124 56 L152 56" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow-green)"/>
             <circle cx="138" cy="56" r="3" fill="#10b981"/>
 
             <rect x="158" y="34" width="52" height="56" rx="4" stroke="#0078d4" stroke-width="1.3" fill="rgba(0,120,212,0.06)"/>
-            <text x="170" y="50" font-size="8" fill="#0c4a6e" font-family="Segoe UI, sans-serif" font-weight="600">본사 (분석 DB)</text>
-            <text x="164" y="64" font-size="7" fill="#059669" font-family="Segoe UI, sans-serif" font-weight="600">실시간 동기화</text>
-            <text x="164" y="74" font-size="7" fill="#059669" font-family="Segoe UI, sans-serif">1초 전 100% 데이터</text>
+            <text x="170" y="50" font-size="11" fill="#0c4a6e" font-family="Segoe UI, sans-serif" font-weight="600">본사 (분석 DB)</text>
+            <text x="164" y="64" font-size="11" fill="#059669" font-family="Segoe UI, sans-serif" font-weight="600">실시간 동기화</text>
+            <text x="164" y="74" font-size="11" fill="#059669" font-family="Segoe UI, sans-serif">1초 전 100% 데이터</text>
             <circle cx="184" cy="84" r="4" fill="#10b981" opacity="0.8"/>
             <circle cx="184" cy="84" r="7" stroke="#10b981" stroke-width="1" opacity="0.4"/>
 

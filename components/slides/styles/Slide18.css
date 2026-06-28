@@ -30,7 +30,7 @@
 .slide-s18 .s17-progress-pct span{font-size:18px;font-weight:700;margin-left:1px;opacity:.85}
 .slide-s18 .s17-progress-track-wrap{flex:1;min-width:0}
 .slide-s18 .s17-progress-track{position:relative;height:10px;border-radius:999px;
-  background:rgba(100,116,139,.25);overflow:visible;margin-bottom:18px}
+  background:rgba(100,116,139,.25);overflow:visible;margin-bottom:24px}
 .slide-s18 .s17-progress-fill{position:absolute;left:0;top:0;height:100%;border-radius:999px;
   background:linear-gradient(90deg,var(--fluent-blue, #0078d4),var(--fluent-blue, #0078d4));
   box-shadow:0 0 12px rgba(0,120,212,.45)}
@@ -62,7 +62,6 @@
   border-color: rgba(0, 120, 212, 0.75);
   background: linear-gradient(180deg, rgba(255, 192, 0, 0.18), rgba(255, 192, 0, 0.06));
   box-shadow: 0 0 0 1px rgba(255, 192, 0, 0.35), var(--fluent-shadow);
-  z-index: 1;
 }
 .slide-s18 .milestone-card.current .phase-badge { color: var(--fluent-warn); }
 .slide-s18 .milestone-card.current .card-title { color: var(--fluent-grey-160); }
@@ -72,7 +71,7 @@
 .slide-s18 .milestone-card.current .period-m { color: var(--fluent-warn); }
 
 .slide-s18 .current-pill {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.04em;
   padding: 2px 8px;
@@ -118,7 +117,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.slide-s18 .milestone-card.span2 .card-desc { -webkit-line-clamp: 2; }
+.slide-s18 .milestone-card.span2 .card-desc { -webkit-line-clamp: 3; }
+.slide-s18 .milestone-card.p3.current .card-desc { -webkit-line-clamp: 4; }
 .slide-s18 .card-foot { display: flex; justify-content: flex-end; margin-top: auto; }
 .slide-s18 .status-tag { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 10px; }
 .slide-s18 .status-done { background: rgba(16, 124, 16, 0.12); color: var(--fluent-good); }

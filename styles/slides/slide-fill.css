@@ -85,7 +85,7 @@
   margin-top: auto;
 }
 
-/* Cover slide vertical distribution */
+/* Cover slide vertical distribution — details in section-chrome.css */
 [class*="slide-s"] .fass-content-overlay-layer {
   display: flex;
   flex-direction: column;
@@ -98,7 +98,7 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -134,9 +134,4 @@
   flex-shrink: 0;
 }
 
-/* PART divider slides — spread content vertically */
-[class*="slide-s"] .section-slide-root {
-  justify-content: space-between;
-  padding: 48px 80px;
-  box-sizing: border-box;
-}
+/* PART divider slides — layout in section-chrome.css */

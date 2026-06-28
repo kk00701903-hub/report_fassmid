@@ -17,7 +17,7 @@
     font-weight: 600;
     color: var(--fluent-blue, #0078d4);
     margin-bottom: 8px}
-.slide-s30 .roi-asset-value-main{font-family: var(--ppt-font-;display);
+.slide-s30 .roi-asset-value-main{font-family: var(--ppt-font);
     font-size: 90px;
     font-weight: 700;
     color: var(--fluent-blue, #0078d4);
@@ -26,7 +26,8 @@
     align-items: baseline;
     gap: 12px}
 .slide-s30 .roi-asset-value-unit{font-size: 48px;
-    color: var(--fluent-grey-160, #201f1e)}
+    font-weight: 700;
+    color: var(--fluent-blue, #0078d4)}
 .slide-s30 .roi-asset-tagline{font-size: 28px;
     font-weight: 600;
     color: var(--fluent-grey-160, #201f1e);
