@@ -126,8 +126,13 @@
   border-top: 2px dashed rgba(37, 99, 235, 0.45);
 }
 
-.slide-s03 .arch-zone--fe {
+.slide-s03 .arch-zone--fe,
+.slide-s03 .arch-zone--client {
   justify-content: flex-start;
+}
+
+.slide-s03 .arch-zone.is-active .arch-zone-label {
+  color: var(--arch-scope);
 }
 
 .slide-s03 .arch-fe-stack {
@@ -146,6 +151,12 @@
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   overflow: visible;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-s03 .browser-mock.is-lit {
+  border-color: rgba(0, 120, 212, 0.55);
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.12), 0 4px 14px rgba(0, 120, 212, 0.18);
 }
 
 .slide-s03 .browser-chrome {
@@ -199,6 +210,20 @@
   color: #1e293b;
 }
 
+.slide-s03 .browser-result--dim {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.slide-s03 .browser-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  margin-left: 2px;
+  background: var(--arch-blue);
+  vertical-align: middle;
+}
+
 .slide-s03 .arch-step-badge {
   position: absolute;
   right: 6px;
@@ -212,6 +237,13 @@
   background: rgba(255, 255, 255, 0.92);
   border-radius: 4px;
   border: 1px solid rgba(0, 120, 212, 0.25);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.slide-s03 .arch-step-badge.is-on {
+  background: var(--fluent-blue, #0078d4);
+  color: #fff;
+  border-color: var(--fluent-blue, #0078d4);
 }
 
 .slide-s03 .arch-fe-stack .browser-mock:nth-child(2) .arch-step-badge {
@@ -236,6 +268,53 @@
   font-size: 14px;
   font-weight: 700;
   color: var(--arch-blue);
+  position: relative;
+  padding: 4px 0;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.slide-s03 .arch-flow-row.is-active {
+  background: rgba(0, 120, 212, 0.08);
+}
+
+.slide-s03 .arch-flow-packet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fluent-blue, #0078d4);
+  box-shadow: 0 0 8px rgba(0, 120, 212, 0.6);
+  right: 18px;
+}
+
+.slide-s03 .arch-flow-packet--back {
+  left: 18px;
+  right: auto;
+}
+
+.slide-s03 .arch-flow-status {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-height: 36px;
+}
+
+.slide-s03 .arch-flow-status-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fluent-grey-130, #484644);
+  text-align: center;
+  line-height: 1.3;
+  max-width: 88px;
+}
+
+.slide-s03 .arch-live-dot {
+  font-size: 8px;
+  color: #22c55e;
+  line-height: 1;
 }
 
 .slide-s03 .arch-flow-row--req {
@@ -263,6 +342,15 @@
   box-shadow:
     0 0 0 1px rgba(0, 120, 212, 0.12),
     inset 0 0 24px rgba(0, 120, 212, 0.04);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-s03 .arch-zone--be.is-active {
+  border-color: rgba(0, 120, 212, 0.65);
+  box-shadow:
+    0 0 0 1px rgba(0, 120, 212, 0.2),
+    0 0 20px rgba(0, 120, 212, 0.12),
+    inset 0 0 24px rgba(0, 120, 212, 0.06);
 }
 
 .slide-s03 .scope-ribbon {
@@ -297,8 +385,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
   padding: 8px 0 10px;
+}
+
+.slide-s03 .arch-be-unit {
+  display: contents;
 }
 
 .slide-s03 .arch-server {
@@ -308,6 +400,13 @@
   gap: 4px;
   flex: 1;
   min-width: 0;
+  padding: 6px 4px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.slide-s03 .arch-server.is-lit {
+  background: rgba(0, 120, 212, 0.08);
 }
 
 .slide-s03 .server-icon {
@@ -327,6 +426,7 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+.slide-s03 .server-icon--fe .server-blade,
 .slide-s03 .server-icon--web .server-blade {
   background: linear-gradient(180deg, #cbd5e1, #94a3b8);
 }
@@ -376,6 +476,7 @@
   line-height: 1.3;
 }
 
+.slide-s03 .arch-server--fe .server-name,
 .slide-s03 .arch-server--was .server-name {
   color: #60a5fa;
 }
@@ -384,6 +485,11 @@
   font-size: 14px;
   color: var(--fluent-grey-90, #8a8886);
   flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.slide-s03 .arch-connector.is-lit {
+  color: var(--fluent-blue, #0078d4);
 }
 
 /* Notes row */
@@ -447,10 +553,11 @@
   letter-spacing: 0.03em;
 }
 
+.slide-s03 .scope-pill--fe,
 .slide-s03 .scope-pill--web {
-  color: #cbd5e1;
-  background: rgba(148, 163, 184, 0.2);
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.35);
 }
 
 .slide-s03 .scope-pill--was {

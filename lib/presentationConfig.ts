@@ -1,4 +1,4 @@
-import { SLIDES } from "@/lib/slides";
+import { isAppendixSlideId, SLIDES } from "@/lib/slides";
 
 export type BuiltinSlideItem = {
   key: string;
@@ -26,7 +26,7 @@ export type PresentationConfig = {
 const STORAGE_KEY = "fass-presentation-config";
 const TITLE_VERSION_KEY = "fass-presentation-title-version";
 /** slides.ts 제목 변경 시 로컬 설정의 목차 제목을 갱신하기 위한 버전 */
-const CONFIG_TITLE_VERSION = 16;
+const CONFIG_TITLE_VERSION = 17;
 
 export function isSlideVisible(slide: SlideManifestItem): boolean {
   return slide.visible !== false;
@@ -80,7 +80,7 @@ export function createDefaultConfig(): PresentationConfig {
       title: slide.title,
       type: "builtin" as const,
       slideId: slide.id,
-      visible: true,
+      visible: !isAppendixSlideId(slide.id),
     })),
   };
 }

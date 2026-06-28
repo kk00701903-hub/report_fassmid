@@ -3,7 +3,14 @@ export type Slide = {
   title: string;
 };
 
+/** 본편 발표 흐름에서 제외하고 별첨으로만 제공하는 슬라이드 ID */
+export const APPENDIX_SLIDE_IDS = [8] as const;
+
 export const SLIDE_COUNT = 40;
+
+export function isAppendixSlideId(id: number): boolean {
+  return (APPENDIX_SLIDE_IDS as readonly number[]).includes(id);
+}
 
 export const SLIDES: Slide[] = [
   { id: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고" },
@@ -13,7 +20,7 @@ export const SLIDES: Slide[] = [
   { id: 5, title: "핵심 용어집 ② — MSA · 모듈러 모놀리스 · Docker · Kubernetes" },
   { id: 6, title: "CDC(Change Data Capture)란?" },
   { id: 7, title: "차세대 FaSS 구축 프로젝트 범위" },
-  { id: 8, title: "디지털 트렌드 — MSA · Cloud · Open Source · AI" },
+  { id: 8, title: "[별첨] 디지털 트렌드 — MSA · Cloud · Open Source · AI" },
   { id: 9, title: "팀 에이전트 구성 — AI 8인 역할" },
   { id: 10, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)" },
   { id: 11, title: "FaSS 플랫폼 아이덴티티" },

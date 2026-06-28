@@ -9,6 +9,7 @@ import {
   type PresentationConfig,
   type SlideManifestItem,
 } from "@/lib/presentationConfig";
+import { isAppendixSlideId } from "@/lib/slides";
 import { clearSlideCache } from "@/lib/slideCache";
 import {
   exportSlidesToPdf,
@@ -26,6 +27,12 @@ function moveItem<T>(items: T[], from: number, to: number): T[] {
   const [item] = next.splice(from, 1);
   next.splice(to, 0, item);
   return next;
+}
+
+function hiddenSlideLabel(slide: SlideManifestItem): string {
+  if (slide.visible !== false) return "";
+  if (slide.type === "builtin" && isAppendixSlideId(slide.slideId)) return " · 별첨";
+  return " · 발표 숨김";
 }
 
 export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOptionsPanelProps) {
@@ -222,7 +229,7 @@ export default function SlideOptionsPanel({ config, onClose, onApply }: SlideOpt
                     />
                     <span className="options-slide-list__meta">
                       {slide.type === "builtin" ? `슬라이드 ${slide.slideId}` : "업로드 HTML"}
-                      {slide.visible === false ? " · 발표 숨김" : ""}
+                      {hiddenSlideLabel(slide)}
                     </span>
                   </div>
                   <div className="options-slide-list__actions">

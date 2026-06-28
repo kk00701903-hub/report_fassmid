@@ -4,6 +4,7 @@ import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide08.css";
 
 const SLIDE_HTML = `<div class="slide fluent-slide">
+  <div class="appendix-ribbon" aria-label="별첨">별첨</div>
   <div class="title-region">
     <div class="title-header">
       <div class="title-bar"></div>

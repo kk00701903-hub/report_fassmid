@@ -121,8 +121,8 @@
 .slide-s06 .panel {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 12px 14px;
+  gap: 6px;
+  padding: 10px 12px;
   border-radius: 6px;
   box-shadow: var(--fluent-shadow);
   min-height: 0;
@@ -191,6 +191,55 @@
   color: #0c4a6e;
 }
 
+/* Dynamic warehouse scenes */
+.slide-s06 .s06-scene {
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--fluent-shadow);
+  overflow: hidden;
+}
+
+.slide-s06 .s06-scene--batch {
+  border-color: rgba(185, 28, 28, 0.15);
+}
+
+.slide-s06 .s06-scene--cdc {
+  border-color: rgba(0, 120, 212, 0.2);
+}
+
+.slide-s06 .s06-scene__svg {
+  width: 100%;
+  height: 118px;
+  display: block;
+}
+
+.slide-s06 .s06-scene__status {
+  padding: 5px 10px 7px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--fluent-grey-130);
+  border-top: 1px dashed var(--fluent-border);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.slide-s06 .s06-scene__status.is-danger {
+  color: #991b1b;
+  background: rgba(254, 226, 226, 0.5);
+}
+
+.slide-s06 .s06-scene__status.is-warn {
+  color: #b45309;
+  background: rgba(254, 243, 199, 0.55);
+}
+
+.slide-s06 .s06-scene__status.is-success {
+  color: #047857;
+  background: rgba(209, 250, 229, 0.55);
+}
+
 .slide-s06 .panel-visual {
   flex-shrink: 0;
   padding: 4px 0;
@@ -217,8 +266,8 @@
 
 .slide-s06 .panel-analogy {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--fluent-grey-130);
   flex-shrink: 0;
 }
@@ -230,8 +279,8 @@
 
 .slide-s06 .panel-callout {
   display: flex;
-  gap: 10px;
-  padding: 10px 11px;
+  gap: 8px;
+  padding: 8px 10px;
   border-radius: 4px;
   margin-top: auto;
   flex-shrink: 0;
@@ -290,8 +339,8 @@
 
 .slide-s06 .callout-body p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.42;
+  font-size: 12px;
+  line-height: 1.38;
   color: var(--fluent-grey-130);
 }
 
@@ -365,8 +414,8 @@
 
 .slide-s06 .wrapup-text {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--fluent-grey-130);
 }
 

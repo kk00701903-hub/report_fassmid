@@ -221,10 +221,10 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "market-context",
-        title: "디지털 트렌드 — MSA · Cloud · Open Source · AI",
+        title: "[별첨] 디지털 트렌드 — MSA · Cloud · Open Source · AI",
         category: "process",
         summary:
-          "MSA·Cloud·Open Source·AI 네 축이 글로벌 선도 기업의 동시 투자 패러다임으로 자리잡고 있습니다.",
+          "별첨 자료 — MSA·Cloud·Open Source·AI 네 축이 글로벌 선도 기업의 동시 투자 패러다임으로 자리잡고 있습니다. (본편 발표 흐름에서는 제외)",
         process: [
           { step: 1, title: "MSA", description: "도메인 분리·Modular Monolith → MSA 점진 전환" },
           { step: 2, title: "Cloud", description: "Kubernetes·GitOps·FinOps 기반 Cloud-Ready" },
