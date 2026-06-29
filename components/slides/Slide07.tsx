@@ -15,7 +15,7 @@ export default function Slide07() {
             <h1>차세대 FaSS 구축 프로젝트 범위</h1>
           </div>
           <p className="sub">
-            AI 생산성 혁신을 중심에 두고 프론트엔드 · 백엔드 · DB · 보안 · 인프라가 유기적으로 연결되는{" "}
+            AI를 중심 톱니바퀴로 두고 프론트엔드 · 백엔드 · DB · 보안 · 인프라가 서로 맞물려 굴러가는{" "}
             <strong>대형 엔터프라이즈 플랫폼</strong> 전면 재구축
           </p>
           <div className="line" />
@@ -53,7 +53,7 @@ export default function Slide07() {
         </div>
 
         <div className="footer">
-          <strong>프로젝트 성격:</strong> AI를 허브로 각 기술 영역이 방사형으로 연결된{" "}
+          <strong>프로젝트 성격:</strong> AI를 중심축으로 각 기술 영역이 톱니바퀴처럼 맞물려 돌아가는{" "}
           <strong>대형 통합 플랫폼 구축</strong> — 이후 PART에서 각 영역을 상세히 다룹니다.
         </div>
       </div>

@@ -4,9 +4,10 @@ import { useEffect, useState, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const SCENE_WIDTH = 120;
-const SCENE_HEIGHT = 228;
+const SCENE_HEIGHT = 232;
+const HEADER_H = 30;
 const WH_X = 10;
-const WH_Y = 26;
+const WH_Y = HEADER_H + 4;
 const WH_W = 100;
 const WH_H = 102;
 const HQ_Y = 162;
@@ -189,6 +190,58 @@ function WarehouseHeader({ tone, status }: { tone: "batch" | "cdc"; status: stri
   );
 }
 
+function SceneHeaderBatch({ reduceMotion }: { reduceMotion: boolean | null }) {
+  return (
+    <>
+      <rect x={0} y={0} width={SCENE_WIDTH} height={HEADER_H} rx={4} fill="#1e293b" opacity={0.14} />
+      <text x={8} y={12} fontSize={9} fontWeight={700} fill="#991b1b">
+        야간 Batch
+      </text>
+      <text x={8} y={22} fontSize={8.5} fontWeight={600} fill="#7f1d1d">
+        문 닫고 전수조사
+      </text>
+      <g transform={`translate(${SCENE_WIDTH - 8}, 0)`}>
+        <motion.circle
+          cx={0}
+          cy={11}
+          r={6}
+          fill="#fbbf24"
+          animate={reduceMotion ? undefined : { opacity: [0.5, 0.95, 0.5], scale: [1, 1.08, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+        <text x={0} y={24} textAnchor="end" fontSize={7.5} fill="#78716c">
+          🌙 자정
+        </text>
+      </g>
+    </>
+  );
+}
+
+function SceneHeaderCdc() {
+  return (
+    <>
+      <rect x={0} y={0} width={SCENE_WIDTH} height={HEADER_H} rx={4} fill="#e0f2fe" opacity={0.6} />
+      <text x={8} y={12} fontSize={9} fontWeight={700} fill="#0078d4">
+        실시간 CDC
+      </text>
+      <text x={8} y={22} fontSize={8.5} fontWeight={600} fill="#0369a1">
+        정상 운영 중
+      </text>
+      <motion.text
+        x={SCENE_WIDTH - 8}
+        y={17}
+        textAnchor="end"
+        fontSize={7.5}
+        fill="#059669"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+      >
+        ☀️ 주간 가동
+      </motion.text>
+    </>
+  );
+}
+
 function FlowArrow({ tone, animated }: { tone: "batch" | "cdc"; animated?: boolean }) {
   const stroke = tone === "batch" ? "#991b1b" : "#10b981";
   const marker = tone === "batch" ? "url(#s06-arrow-red-down)" : "url(#s06-arrow-green-down)";
@@ -264,21 +317,7 @@ export function Slide06BatchScene() {
         preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
       >
-        <rect x={0} y={0} width={SCENE_WIDTH} height={22} rx={4} fill="#1e293b" opacity={0.14} />
-        <motion.circle
-          cx={SCENE_WIDTH - 26}
-          cy={11}
-          r={8}
-          fill="#fbbf24"
-          animate={reduceMotion ? undefined : { opacity: [0.5, 0.95, 0.5], scale: [1, 1.08, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-        <text x={SCENE_WIDTH - 40} y={14} fontSize={8} fill="#78716c">
-          🌙 자정
-        </text>
-        <text x={8} y={14} fontSize={9} fontWeight={700} fill="#991b1b">
-          야간 Batch · 문 닫고 전수조사
-        </text>
+        <SceneHeaderBatch reduceMotion={reduceMotion} />
 
         <WarehouseInterior tone="batch">
           {SHELF_SLOTS.map((s, i) => (
@@ -354,20 +393,7 @@ export function Slide06CdcScene() {
         preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
       >
-        <rect x={0} y={0} width={SCENE_WIDTH} height={22} rx={4} fill="#e0f2fe" opacity={0.6} />
-        <text x={8} y={14} fontSize={9} fontWeight={700} fill="#0078d4">
-          실시간 CDC · 정상 운영 중
-        </text>
-        <motion.text
-          x={SCENE_WIDTH - 42}
-          y={14}
-          fontSize={8}
-          fill="#059669"
-          animate={{ opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          ☀️ 주간 가동
-        </motion.text>
+        <SceneHeaderCdc />
 
         <WarehouseInterior tone="cdc">
           {SHELF_SLOTS.map((s) => (

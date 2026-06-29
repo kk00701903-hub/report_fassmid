@@ -34,7 +34,7 @@ export default function Slide05() {
             <div className="panel panel--legacy">
               <div className="panel-badge panel-badge--warn">현행 · Monolithic</div>
               <h2 className="panel-title">
-                현행 FaSS <span>(단일 모듈 집중)</span>
+                현행 시스템 아키텍처 <span>(단일 모듈 집중)</span>
               </h2>
 
               <Slide05MonoScene />
@@ -65,7 +65,7 @@ export default function Slide05() {
             <div className="panel panel--msa">
               <div className="panel-badge panel-badge--pos">차세대 · MSA</div>
               <h2 className="panel-title">
-                차세대 MSA <span>(업무 단위 분리)</span>
+                차세대 시스템 아키텍처 <span>(업무 단위 분리)</span>
               </h2>
 
               <Slide05MsaScene />

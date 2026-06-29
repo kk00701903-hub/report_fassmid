@@ -88,7 +88,7 @@ export default function Slide10() {
                 <img
                   alt="FASS 로고"
                   className="fass-identity-logo-image"
-                  src={`${getBasePath()}/assets/slides/fass-logo.png`}
+                  src={`${getBasePath()}/assets/slides/fass-logo-light.png`}
                 />
               </div>
               <h2 className="fass-identity-logo-title">FaSS 로고 디자인 의미</h2>
