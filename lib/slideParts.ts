@@ -1,4 +1,4 @@
-import { isGlossarySlideId } from "@/lib/slides";
+import { GLOSSARY_DIVIDER_SLIDE_ID, isGlossarySlideId } from "@/lib/slides";
 
 /** 슬라이드 ID(내장 HTML 번호) 기준 PART 구간 정의 */
 
@@ -43,6 +43,12 @@ export const SLIDE_PARTS: Array<SlidePart & { startSlideId: number; endSlideId: 
 /** PART 간지 슬라이드(목차 하이라이트용) */
 export function isPartDividerTitle(title: string): boolean {
   return /^PART\s+\d+/i.test(title.trim());
+}
+
+/** PART · Glossary 등 간지 슬라이드(사이드바 붉은색 하이라이트) */
+export function isSidebarDividerSlide(slideId: number | null, title: string): boolean {
+  if (slideId === GLOSSARY_DIVIDER_SLIDE_ID) return true;
+  return isPartDividerTitle(title);
 }
 
 /** 표지(1p) · Glossary 구간 등 PART 미표시 슬라이드 */
