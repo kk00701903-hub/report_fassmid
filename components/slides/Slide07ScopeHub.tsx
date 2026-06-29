@@ -3,219 +3,190 @@
 import { type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-const VIEW_W = 560;
-const VIEW_H = 320;
+const CX = 50;
+const CY = 48;
+const RADIUS = 34;
 
-type GearSpec = {
-  id: string;
-  title: string;
-  subtitle: string;
-  icon: string;
-  cx: number;
-  cy: number;
-  teeth: number;
-  outerR: number;
-  innerR: number;
-  color: string;
-  faceColor: string;
-  clockwise: boolean;
-  duration: number;
-};
-
-const GEARS: GearSpec[] = [
-  {
-    id: "ai",
-    title: "AI",
-    subtitle: "생산성 혁신",
-    icon: "fa-robot",
-    cx: 272,
-    cy: 152,
-    teeth: 12,
-    outerR: 36,
-    innerR: 28,
-    color: "#14b8a6",
-    faceColor: "#0f766e",
-    clockwise: true,
-    duration: 22,
-  },
-  {
-    id: "sec",
-    title: "보안",
-    subtitle: "SSO · RBAC",
-    icon: "fa-shield-halved",
-    cx: 196,
-    cy: 96,
-    teeth: 14,
-    outerR: 42,
-    innerR: 33,
-    color: "#a78bfa",
-    faceColor: "#7c3aed",
-    clockwise: false,
-    duration: 28,
-  },
+const SPOKES = [
   {
     id: "fe",
-    title: "FE",
-    subtitle: "Next.js · React",
+    title: "프론트엔드",
+    subtitle: "Next.js · React · RealGrid",
     icon: "fa-desktop",
-    cx: 348,
-    cy: 94,
-    teeth: 14,
-    outerR: 40,
-    innerR: 31,
-    color: "#94a3b8",
-    faceColor: "#64748b",
-    clockwise: true,
-    duration: 26,
+    color: "#0078d4",
+    angle: -90,
   },
   {
     id: "was",
-    title: "WAS",
-    subtitle: "수주 · 발주 API",
-    icon: "fa-cogs",
-    cx: 378,
-    cy: 162,
-    teeth: 15,
-    outerR: 44,
-    innerR: 34,
-    color: "#78716c",
-    faceColor: "#57534e",
-    clockwise: false,
-    duration: 30,
+    title: "백엔드 (WAS)",
+    subtitle: "수주 · 발주 · 정산 API",
+    icon: "fa-server",
+    color: "#0891b2",
+    angle: -18,
   },
   {
     id: "db",
-    title: "DB",
+    title: "데이터베이스",
     subtitle: "PostgreSQL · CDC",
     icon: "fa-database",
-    cx: 202,
-    cy: 228,
-    teeth: 14,
-    outerR: 40,
-    innerR: 31,
-    color: "#86efac",
-    faceColor: "#059669",
-    clockwise: true,
-    duration: 26,
+    color: "#0b6a0b",
+    angle: 54,
+  },
+  {
+    id: "sec",
+    title: "보안 · 거버넌스",
+    subtitle: "SSO · RBAC · Quality Gate",
+    icon: "fa-shield-halved",
+    color: "#5c2d91",
+    angle: 126,
   },
   {
     id: "infra",
-    title: "Infra",
-    subtitle: "Docker · CI/CD",
+    title: "인프라 · DevOps",
+    subtitle: "Docker · CI/CD · K8s",
     icon: "fa-cloud",
-    cx: 318,
-    cy: 238,
-    teeth: 11,
-    outerR: 30,
-    innerR: 23,
-    color: "#fcd34d",
-    faceColor: "#d97706",
-    clockwise: false,
-    duration: 18,
+    color: "#ca5010",
+    angle: 198,
   },
-];
+] as const;
 
-function buildGearPath(cx: number, cy: number, teeth: number, outerR: number, innerR: number) {
-  const step = (Math.PI * 2) / teeth;
-  const toothHalf = step * 0.24;
-  let d = "";
-
-  for (let i = 0; i < teeth; i++) {
-    const angle = i * step - Math.PI / 2;
-    const innerStart = angle - toothHalf;
-    const outerStart = angle - toothHalf * 0.38;
-    const outerEnd = angle + toothHalf * 0.38;
-    const innerEnd = angle + toothHalf;
-
-    const points: [number, number][] = [
-      [cx + innerR * Math.cos(innerStart), cy + innerR * Math.sin(innerStart)],
-      [cx + outerR * Math.cos(outerStart), cy + outerR * Math.sin(outerStart)],
-      [cx + outerR * Math.cos(outerEnd), cy + outerR * Math.sin(outerEnd)],
-      [cx + innerR * Math.cos(innerEnd), cy + innerR * Math.sin(innerEnd)],
-    ];
-
-    if (i === 0) {
-      d += `M ${points[0][0].toFixed(2)} ${points[0][1].toFixed(2)} `;
-    }
-    for (let j = 1; j < points.length; j++) {
-      d += `L ${points[j][0].toFixed(2)} ${points[j][1].toFixed(2)} `;
-    }
-  }
-
-  return `${d}Z`;
-}
-
-function GearShape({ gear, reduceMotion }: { gear: GearSpec; reduceMotion: boolean | null }) {
-  const path = buildGearPath(gear.cx, gear.cy, gear.teeth, gear.outerR, gear.innerR);
-  const faceR = gear.innerR * 0.62;
-
-  return (
-    <motion.g
-      animate={reduceMotion ? undefined : { rotate: gear.clockwise ? 360 : -360 }}
-      transition={{ duration: gear.duration, repeat: Infinity, ease: "linear" }}
-      style={{ transformOrigin: `${gear.cx}px ${gear.cy}px`, transformBox: "fill-box" as const }}
-    >
-      <path
-        d={path}
-        fill={gear.color}
-        stroke="rgba(255,255,255,0.55)"
-        strokeWidth={1.2}
-        strokeLinejoin="round"
-      />
-      <circle cx={gear.cx} cy={gear.cy} r={faceR + 2} fill="rgba(0,0,0,0.06)" />
-      <circle cx={gear.cx} cy={gear.cy} r={faceR} fill={gear.faceColor} opacity={0.92} />
-    </motion.g>
-  );
+function polar(angleDeg: number, radius: number) {
+  const rad = (angleDeg * Math.PI) / 180;
+  return {
+    x: CX + radius * Math.cos(rad),
+    y: CY + radius * Math.sin(rad),
+  };
 }
 
 export default function Slide07ScopeHub() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="s07-gears" aria-hidden="true">
-      <svg className="s07-gears__svg" viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} preserveAspectRatio="xMidYMid meet">
+    <div className="s07-hub" aria-hidden="true">
+      <svg className="s07-hub__canvas" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <defs>
-          <filter id="s07-gear-shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0f172a" floodOpacity="0.12" />
-          </filter>
+          <radialGradient id="s07-hub-glow" cx="50%" cy="48%" r="42%">
+            <stop offset="0%" stopColor="#0078d4" stopOpacity={0.1} />
+            <stop offset="100%" stopColor="#0078d4" stopOpacity={0} />
+          </radialGradient>
         </defs>
 
-        {GEARS.map((gear) => (
-          <g key={`shadow-${gear.id}`} filter="url(#s07-gear-shadow)">
-            <GearShape gear={gear} reduceMotion={reduceMotion} />
-          </g>
-        ))}
+        <rect x={0} y={0} width={100} height={100} fill="url(#s07-hub-glow)" />
+
+        {!reduceMotion ? (
+          <motion.circle
+            cx={CX}
+            cy={CY}
+            r={11}
+            fill="none"
+            stroke="rgba(0,120,212,0.22)"
+            strokeWidth={0.35}
+            strokeDasharray="2 1.5"
+            animate={{ r: [11, 14.5, 11], opacity: [0.45, 0.15, 0.45] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ) : null}
+
+        {SPOKES.map((spoke, i) => {
+          const end = polar(spoke.angle, RADIUS);
+          return (
+            <g key={spoke.id}>
+              <line
+                x1={CX}
+                y1={CY}
+                x2={end.x}
+                y2={end.y}
+                stroke={spoke.color}
+                strokeWidth={0.45}
+                strokeLinecap="round"
+                opacity={0.35}
+              />
+              <line
+                x1={CX}
+                y1={CY}
+                x2={end.x}
+                y2={end.y}
+                stroke={spoke.color}
+                strokeWidth={0.45}
+                strokeLinecap="round"
+                strokeDasharray="1.8 1.4"
+                opacity={0.55}
+              >
+                {!reduceMotion ? (
+                  <animate attributeName="stroke-dashoffset" from="0" to="-6" dur="2.4s" repeatCount="indefinite" />
+                ) : null}
+              </line>
+              {!reduceMotion ? (
+                <motion.circle
+                  r={0.55}
+                  fill={spoke.color}
+                  animate={{
+                    cx: [CX, end.x],
+                    cy: [CY, end.y],
+                    opacity: [0, 0.85, 0],
+                  }}
+                  transition={{
+                    duration: 2.2,
+                    repeat: Infinity,
+                    delay: i * 0.35,
+                    ease: "easeInOut",
+                  }}
+                />
+              ) : null}
+            </g>
+          );
+        })}
       </svg>
 
-      {GEARS.map((gear, i) => {
-        const leftPct = (gear.cx / VIEW_W) * 100;
-        const topPct = (gear.cy / VIEW_H) * 100;
-        const isCenter = gear.id === "ai";
+      <motion.div
+        className="s07-hub__core"
+        initial={reduceMotion ? false : { scale: 0.92, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="s07-hub__core-ring" aria-hidden="true" />
+        <div className="s07-hub__core-icon">
+          <i className="fas fa-robot" aria-hidden="true" />
+        </div>
+        <div className="s07-hub__core-title">AI</div>
+        <div className="s07-hub__core-sub">생산성 혁신</div>
+        <div className="s07-hub__core-tags">
+          <span>디지털 워커</span>
+          <span>Claude Code</span>
+          <span>PoC · 워룸</span>
+        </div>
+      </motion.div>
 
+      {SPOKES.map((spoke, i) => {
+        const pos = polar(spoke.angle, RADIUS);
         return (
           <motion.div
-            key={gear.id}
-            className={`s07-gear-label${isCenter ? " s07-gear-label--center" : ""}`}
+            key={spoke.id}
+            className="s07-hub__node"
             style={
               {
-                left: `${leftPct}%`,
-                top: `${topPct}%`,
-                "--gear-color": gear.faceColor,
+                left: `${pos.x}%`,
+                top: `${pos.y}%`,
+                "--node-color": spoke.color,
               } as CSSProperties
             }
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.85 }}
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.45, delay: 0.1 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.42, delay: 0.12 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
           >
-            <i className={`fas ${gear.icon}`} aria-hidden="true" />
-            <span className="s07-gear-label__title">{gear.title}</span>
-            <span className="s07-gear-label__sub">{gear.subtitle}</span>
+            <div className="s07-hub__node-icon">
+              <i className={`fas ${spoke.icon}`} aria-hidden="true" />
+            </div>
+            <div className="s07-hub__node-copy">
+              <div className="s07-hub__node-title">{spoke.title}</div>
+              <div className="s07-hub__node-sub">{spoke.subtitle}</div>
+            </div>
           </motion.div>
         );
       })}
 
-      <p className="s07-gears__caption">
-        각 영역이 톱니바퀴처럼 맞물려 <strong>AI 생산성 혁신</strong>을 함께 굴립니다
+      <p className="s07-hub__caption">
+        AI를 허브로 <strong>5대 기술 영역</strong>이 유기적으로 연결되는 통합 플랫폼
       </p>
     </div>
   );
