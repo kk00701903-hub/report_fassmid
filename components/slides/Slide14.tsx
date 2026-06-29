@@ -3,14 +3,14 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide14.css";
 
-const SLIDE_HTML = `<div class="slide fluent-slide">
+const SLIDE_HTML = `<div class="slide sprint-board-slide">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>
       <span class="badge"><span class="pulse"></span> LIVE · 동시 진행</span>
       <h1>스프린트 운영현황</h1>
     </div>
-    <p class="sub">FaSS Platform v3.0 — 19개 Mega-Sprint · ACTIVE 6 · 종료 2 · 예정 11</p>
+    <p class="sub">FaSS Platform v3.0 — 19개 Mega-Sprint · ACTIVE 9 · 종료 2 · 예정 8</p>
     <div class="line"></div>
   </div>
 
@@ -21,7 +21,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
     </div>
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-val">19</div><div class="hstat-lbl">TOTAL</div></div>
-      <div class="hstat hstat--active"><div class="hstat-val">6</div><div class="hstat-lbl">ACTIVE</div></div>
+      <div class="hstat"><div class="hstat-val">9</div><div class="hstat-lbl">ACTIVE</div></div>
       <div class="hstat"><div class="hstat-val">2</div><div class="hstat-lbl">CLOSED</div></div>
     </div>
   </div>
@@ -47,7 +47,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
       <div class="sprint-list">
         <div class="sprint s-done"><span class="sprint-id">S01</span><div class="sprint-body"><div class="sprint-title">개발 명명 규칙 표준화 작업</div><div class="sprint-meta"><span class="sprint-done"><i class="fas fa-check"></i>종료</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S02</span><div class="sprint-body"><div class="sprint-title">개발 환경 및 인프라 기반 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint s-active"><span class="sprint-id">S03</span><div class="sprint-body"><div class="sprint-title">공통 플랫폼 인프라</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S03</span><div class="sprint-body"><div class="sprint-title">공통 플랫폼 인프라</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
       </div>
     </div>
 
@@ -59,7 +59,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
       </div>
       <div class="sprint-list">
         <div class="sprint"><span class="sprint-id">S05</span><div class="sprint-body"><div class="sprint-title">SSO 연동 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint s-active"><span class="sprint-id">S07</span><div class="sprint-body"><div class="sprint-title">권한 관리</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S07</span><div class="sprint-body"><div class="sprint-title">권한 관리</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint s-done"><span class="sprint-id">S08</span><div class="sprint-body"><div class="sprint-title">상태관리 및 API 통신 공통 모듈 개발</div><div class="sprint-meta"><span class="sprint-done"><i class="fas fa-check"></i>종료</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S15</span><div class="sprint-body"><div class="sprint-title">데이터 보안</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
@@ -72,9 +72,9 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         <div class="phase-count">5 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint s-active"><span class="sprint-id">S04</span><div class="sprint-body"><div class="sprint-title">공통 프레임워크 아키텍처</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S04</span><div class="sprint-body"><div class="sprint-title">공통 프레임워크 아키텍처</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S09</span><div class="sprint-body"><div class="sprint-title">공통 UI 컴포넌트 라이브러리 개발</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint s-active"><span class="sprint-id">S10</span><div class="sprint-body"><div class="sprint-title">비즈니스 컴포넌트 개발 가이드</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S10</span><div class="sprint-body"><div class="sprint-title">비즈니스 컴포넌트 개발 가이드</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S11</span><div class="sprint-body"><div class="sprint-title">멀티 컴퍼니 지원</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S16</span><div class="sprint-body"><div class="sprint-title">SSR-RSC 최적화 및 Web Vitals</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
@@ -88,7 +88,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
       </div>
       <div class="sprint-list">
         <div class="sprint"><span class="sprint-id">S12</span><div class="sprint-body"><div class="sprint-title">외부 인터페이스</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint s-active"><span class="sprint-id">S14</span><div class="sprint-body"><div class="sprint-title">AI 연동 모듈 개발</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S14</span><div class="sprint-body"><div class="sprint-title">AI 연동 모듈 개발</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S17</span><div class="sprint-body"><div class="sprint-title">CDC 데이터 동기화 파이프라인 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
     </div>
@@ -100,20 +100,20 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         <div class="phase-count">4 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint"><span class="sprint-id">S18</span><div class="sprint-body"><div class="sprint-title">MSA 전환 로드맵 실행 (Phase 1→2→3)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S19</span><div class="sprint-body"><div class="sprint-title">표준 라이브러리 골든셋 (Golden Set)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S20</span><div class="sprint-body"><div class="sprint-title">SCA 도입 (Nexus IQ — OSS 공급망 보안)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint s-active"><span class="sprint-id">S23</span><div class="sprint-body"><div class="sprint-title">리포트 Tool 도입</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S18</span><div class="sprint-body"><div class="sprint-title">MSA 전환 로드맵 실행 (Phase 1→2→3)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S19</span><div class="sprint-body"><div class="sprint-title">표준 라이브러리 골든셋 (Golden Set)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S20</span><div class="sprint-body"><div class="sprint-title">SCA 도입 (Nexus IQ — OSS 공급망 보안)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint"><span class="sprint-id">S23</span><div class="sprint-body"><div class="sprint-title">리포트 Tool 도입</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <strong>현황 기준:</strong> 별첨 스프린트 백로그 반영 — <strong>S01·S08 종료</strong>, ACTIVE 6건 (S03·S04·S07·S10·S14·S23), FUTURE 11건 (S18~S20 대규모 포함)
+    <strong>현황 기준:</strong> 별첨 스프린트 백로그 반영 — <strong>S01·S08 종료</strong>, ACTIVE 9건 (일반 6 + 대규모 S18~S20·S23), FUTURE 8건 예정
   </div>
 </div>`;
 
-export default function Slide13() {
+export default function Slide14() {
   return (
     <SlideCanvas slideId={14} motion="timeline" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

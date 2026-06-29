@@ -79,40 +79,35 @@ function WarehouseBox({
   return rect;
 }
 
-function CounterWorker({ scanning, beamTargetX, beamTargetY }: { scanning?: boolean; beamTargetX: number; beamTargetY: number }) {
+function WarehouseHeader({ tone }: { tone: "batch" | "cdc" }) {
+  const stroke = tone === "batch" ? "#991b1b" : "#0078d4";
+
   return (
-    <g transform="translate(4, 58)">
-      <circle cx={0} cy={-7} r={5} fill="#fde68a" stroke="#334155" strokeWidth={0.9} />
-      <rect x={-5} y={-1} width={10} height={11} rx={2} fill="#991b1b" stroke="#334155" strokeWidth={0.7} />
-      <line x1={-3} y1={10} x2={-4} y2={15} stroke="#334155" strokeWidth={1.5} strokeLinecap="round" />
-      <line x1={3} y1={10} x2={4} y2={15} stroke="#334155" strokeWidth={1.5} strokeLinecap="round" />
-      {scanning ? (
-        <>
-          <motion.line
-            x1={4}
-            y1={3}
-            x2={beamTargetX - 4}
-            y2={beamTargetY - 58}
-            stroke="#fbbf24"
-            strokeWidth={1.2}
-            strokeDasharray="3 2"
-            animate={{ opacity: [0.35, 0.9, 0.35] }}
-            transition={{ duration: 0.6, repeat: Infinity }}
-          />
-          <motion.circle
-            cx={beamTargetX - 4}
-            cy={beamTargetY - 58}
-            r={3}
-            fill="rgba(251,191,36,0.45)"
-            animate={{ opacity: [0.3, 0.85, 0.3], r: [2.5, 4, 2.5] }}
-            transition={{ duration: 0.6, repeat: Infinity }}
-          />
-        </>
-      ) : null}
-    </g>
+    <>
+      <path d={`M0 24 H${WH_W}`} stroke={stroke} strokeWidth={0.8} opacity={0.35} />
+      <text x={WH_W / 2} y={12} textAnchor="middle" fontSize={10} fontWeight={700} fill={tone === "batch" ? "#7f1d1d" : "#0c4a6e"}>
+        물류센터
+      </text>
+      <text x={WH_W / 2} y={21} textAnchor="middle" fontSize={8} fill={tone === "batch" ? "#991b1b" : "#0078d4"}>
+        운영 DB
+      </text>
+    </>
   );
 }
 
+function StatusBadge({ tone, status }: { tone: "batch" | "cdc"; status: string }) {
+  const fill = tone === "batch" ? "#991b1b" : "#10b981";
+  const badgeW = 30;
+
+  return (
+    <g transform={`translate(${WH_W / 2}, -2)`}>
+      <rect x={-badgeW / 2} y={-10} width={badgeW} height={11} rx={2} fill={fill} />
+      <text x={0} y={-2.5} textAnchor="middle" fontSize={7} fontWeight={800} fill="#fff">
+        {status}
+      </text>
+    </g>
+  );
+}
 function HqBuilding({ tone, label, sub }: { tone: "batch" | "cdc"; label: string; sub: string }) {
   const stroke = tone === "batch" ? "#64748b" : "#0078d4";
   return (
@@ -166,27 +161,6 @@ function VerticalDataPacket({ color, delay = 0 }: { color: string; delay?: numbe
     >
       <rect x={FLOW_X - 4.5} width={9} height={7} rx={1.5} fill={color} />
     </motion.g>
-  );
-}
-
-function WarehouseHeader({ tone, status }: { tone: "batch" | "cdc"; status: string }) {
-  const stroke = tone === "batch" ? "#991b1b" : "#0078d4";
-  const badgeFill = tone === "batch" ? "#991b1b" : "#10b981";
-
-  return (
-    <>
-      <path d={`M0 24 H${WH_W}`} stroke={stroke} strokeWidth={0.8} opacity={0.35} />
-      <text x={WH_W / 2} y={11} textAnchor="middle" fontSize={10} fontWeight={700} fill={tone === "batch" ? "#7f1d1d" : "#0c4a6e"}>
-        물류센터
-      </text>
-      <text x={WH_W / 2} y={20} textAnchor="middle" fontSize={8} fill={tone === "batch" ? "#991b1b" : "#0078d4"}>
-        운영 DB
-      </text>
-      <rect x={WH_W - 32} y={2} width={28} height={12} rx={2} fill={badgeFill} />
-      <text x={WH_W - 18} y={10.5} textAnchor="middle" fontSize={7.5} fontWeight={800} fill="#fff">
-        {status}
-      </text>
-    </>
   );
 }
 
@@ -244,22 +218,32 @@ function SceneHeaderCdc() {
 
 function FlowArrow({ tone, animated }: { tone: "batch" | "cdc"; animated?: boolean }) {
   const stroke = tone === "batch" ? "#991b1b" : "#10b981";
-  const marker = tone === "batch" ? "url(#s06-arrow-red-down)" : "url(#s06-arrow-green-down)";
+  const tipY = FLOW_BOTTOM;
+  const shaftEnd = tipY - 6;
 
   return (
-    <motion.path
-      d={`M${FLOW_X} ${FLOW_TOP} V${FLOW_BOTTOM}`}
-      stroke={stroke}
-      strokeWidth={2}
-      markerEnd={marker}
-      strokeDasharray={tone === "batch" ? "6 4" : "5 3"}
-      animate={animated ? { strokeDashoffset: [0, -20] } : tone === "cdc" ? { strokeDashoffset: [0, -16] } : undefined}
-      transition={{
-        duration: tone === "cdc" ? 0.7 : 0.5,
-        repeat: animated || tone === "cdc" ? Infinity : 0,
-        ease: "linear",
-      }}
-    />
+    <g>
+      <motion.line
+        x1={FLOW_X}
+        y1={FLOW_TOP}
+        x2={FLOW_X}
+        y2={shaftEnd}
+        stroke={stroke}
+        strokeWidth={2.5}
+        strokeLinecap="round"
+        strokeDasharray={tone === "batch" ? "5 4" : undefined}
+        animate={animated ? { strokeDashoffset: [0, -18] } : tone === "cdc" ? { strokeDashoffset: [0, -14] } : undefined}
+        transition={{
+          duration: tone === "cdc" ? 0.7 : 0.5,
+          repeat: animated || tone === "cdc" ? Infinity : 0,
+          ease: "linear",
+        }}
+      />
+      <path
+        d={`M${FLOW_X - 7} ${shaftEnd - 1} L${FLOW_X} ${tipY} L${FLOW_X + 7} ${shaftEnd - 1} Z`}
+        fill={stroke}
+      />
+    </g>
   );
 }
 
@@ -269,8 +253,9 @@ function WarehouseInterior({ tone, children }: { tone: "batch" | "cdc"; children
 
   return (
     <g transform={`translate(${WH_X}, ${WH_Y})`}>
+      <StatusBadge tone={tone} status={tone === "batch" ? "CLOSED" : "OPEN"} />
       <rect x={0} y={0} width={WH_W} height={WH_H} rx={4} fill={tone === "batch" ? "rgba(185,28,28,0.06)" : "rgba(0,120,212,0.05)"} stroke={stroke} strokeWidth={1.5} />
-      <WarehouseHeader tone={tone} status={tone === "batch" ? "CLOSED" : "OPEN"} />
+      <WarehouseHeader tone={tone} />
 
       {[0, 1, 2, 3].map((i) => (
         <rect key={`shelf-${i}`} x={10 + i * 20} y={24} width={18} height={2} rx={1} fill={shelfFill} opacity={0.7} />
@@ -304,10 +289,7 @@ export function Slide06BatchScene() {
     return () => window.clearInterval(id);
   }, [reduceMotion]);
 
-  const slot = SHELF_SLOTS[scanIdx] ?? SHELF_SLOTS[0];
   const progress = Math.round(((scanIdx + 1) / SHELF_SLOTS.length) * 100);
-  const beamTargetX = WH_X + slot.x + 8;
-  const beamTargetY = WH_Y + slot.y + 6;
 
   return (
     <div className="s06-scene s06-scene--batch">
@@ -331,8 +313,6 @@ export function Slide06BatchScene() {
             />
           ))}
 
-          <CounterWorker scanning={phase === "counting"} beamTargetX={beamTargetX} beamTargetY={beamTargetY} />
-
           <rect x={20} y={84} width={60} height={5} rx={2} fill="#fecaca" />
           <motion.rect
             x={20}
@@ -355,15 +335,6 @@ export function Slide06BatchScene() {
         ) : null}
 
         <HqBuilding tone="batch" label="본사 (분석 DB)" sub="어제 자정 기준" />
-
-        <defs>
-          <marker id="s06-arrow-red-down" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto">
-            <path d="M0,0 L6,6 L0,6 Z" fill="#991b1b" />
-          </marker>
-          <marker id="s06-arrow-green-down" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto">
-            <path d="M0,0 L6,6 L0,6 Z" fill="#10b981" />
-          </marker>
-        </defs>
       </svg>
       <div className={`s06-scene__status ${phase === "reporting" ? "is-warn" : "is-danger"}`}>
         {phase === "reporting"
@@ -419,43 +390,15 @@ export function Slide06CdcScene() {
           <AnimatePresenceParcel event={event} eventIdx={eventIdx} />
         </WarehouseInterior>
 
-        <motion.g
-          key={`evt-${eventIdx}`}
-          initial={{ scale: 0.85, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.25 }}
-        >
-          <rect
-            x={FLOW_X - 18}
-            y={(FLOW_TOP + FLOW_BOTTOM) / 2 - 7}
-            width={36}
-            height={14}
-            rx={7}
-            fill={event.type === "in" ? "#10b981" : "#f59e0b"}
-          />
-          <text x={FLOW_X} y={(FLOW_TOP + FLOW_BOTTOM) / 2 + 3} textAnchor="middle" fontSize={8} fontWeight={700} fill="#fff">
-            {event.label}
-          </text>
-        </motion.g>
-
         <FlowArrow tone="cdc" />
         <VerticalDataPacket color="#10b981" delay={0} />
         <VerticalDataPacket color="#059669" delay={0.4} />
         <VerticalDataPacket color="#34d399" delay={0.8} />
 
         <HqBuilding tone="cdc" label="본사 (분석 DB)" sub="실시간 동기화" />
-
-        <defs>
-          <marker id="s06-arrow-red-down" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto">
-            <path d="M0,0 L6,6 L0,6 Z" fill="#991b1b" />
-          </marker>
-          <marker id="s06-arrow-green-down" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto">
-            <path d="M0,0 L6,6 L0,6 Z" fill="#10b981" />
-          </marker>
-        </defs>
       </svg>
       <div className="s06-scene__status is-success">
-        변동분({event.label})만 즉시 동기화 — 전체 재집계 없음
+        변동분만 즉시 동기화 — 전체 재집계 없음
       </div>
     </div>
   );
