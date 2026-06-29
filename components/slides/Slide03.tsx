@@ -12,11 +12,14 @@ export default function Slide03() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>핵심용어집 1번</h1>
+            <h1>핵심용어집 ① — 3Tier 구조 (Web-WAS-DB)</h1>
           </div>
           <p className="sub">
-            <strong>제때 홈페이지(www.jette.co.kr)</strong>를 예로, Client → Web browser → Web Server → WAS →
-            Database 순서로 요청·응답이 흐르는 표준 웹 구조를 봅니다.
+            표준 3Tier(Web · WAS · DB) 웹 구조 개요임
+            <br />
+            Client → Web Server → WAS → Database 순 요청·응답 흐름
+            <br />
+            jette.co.kr 접속 사례로 이해함
           </p>
           <div className="line" />
         </div>

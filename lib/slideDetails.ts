@@ -137,7 +137,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "web-stack-primer",
-        title: "핵심용어집 1번",
+        title: "핵심용어집 ① — 3Tier 구조 (Web-WAS-DB)",
         category: "process",
         summary:
           "웹(프론트엔드)·WAS(백엔드 업무 처리)·DB(데이터 저장) 3층 구조로 IT 시스템을 이해합니다. 이후 아키텍처·기술 스택 장표의 기본 틀입니다.",
@@ -154,7 +154,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "glossary-infra",
-        title: "핵심용어집 2번",
+        title: "핵심용어집 ② — 도커 (Docker) / 컨테이너 (Container)",
         category: "process",
         summary: "클라우드(인터넷 IT 자원), 오픈소스(공개 SW·벤더 탈피), API(시스템 연결 창구), SaaS/ASP(서비스형 제공) 용어 정리입니다.",
         process: [
@@ -170,7 +170,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "glossary-architecture",
-        title: "핵심용어집 3번",
+        title: "핵심용어집 ③ — MSA 구조",
         category: "process",
         summary: "MSA(업무 단위 분리), 모듈러 모놀리스(MSA 전 단계), Docker(컨테이너), Kubernetes(컨테이너 자동 운영) 아키텍처 용어입니다.",
         process: [
@@ -186,7 +186,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "cdc-primer",
-        title: "핵심용어집 4번",
+        title: "핵심용어집 ④ — CDC 방식",
         category: "process",
         summary:
           "현행 Batch(야간 전수 복제)와 CDC(변경분 실시간 전송)를 운영 부하·데이터 신선도 관점에서 비교합니다. Debezium + Kafka 기반 무중단 DB 이관의 핵심 방안입니다.",

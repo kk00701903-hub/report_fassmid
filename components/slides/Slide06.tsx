@@ -21,11 +21,14 @@ export default function Slide06() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>핵심용어집 4번</h1>
+            <h1>핵심용어집 ④ — CDC 방식</h1>
           </div>
           <p className="sub">
-            현행 <strong>Batch(야간 전수 복제)</strong>와 <strong>CDC(변경분 실시간 전송)</strong>를 운영 부하·
-            데이터 신선도 관점에서 비교·검토합니다.
+            Batch(야간 전수 복제) vs CDC(변경분 실시간 전송) 비교함
+            <br />
+            운영 부하 · 데이터 신선도 관점 검토임
+            <br />
+            레거시 DB 무중단 이관 — 핵심 방안 적용의 필요성
           </p>
           <div className="line" />
         </div>

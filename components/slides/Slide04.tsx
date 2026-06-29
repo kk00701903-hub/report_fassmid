@@ -81,11 +81,14 @@ export default function Slide04() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>핵심용어집 2번</h1>
+            <h1>핵심용어집 ② — 도커 (Docker) / 컨테이너 (Container)</h1>
           </div>
           <p className="sub">
-            위쪽은 <strong>제때 물류 현장(배·컨테이너)</strong>, 아래쪽은 <strong>FaSS IT 시스템</strong>입니다.{" "}
-            <strong>표준화 · 이식 · 격리</strong>라는 같은 원리가 IT에도 적용됩니다.
+            선박·컨테이너 물류 운송 ↔ Docker 컨테이너 IT 구조 대응함
+            <br />
+            표준화 · 이식 · 격리 — 동일 원리 적용임
+            <br />
+            물류회사 운송 방식으로 FaSS 배포·운영 이해함
           </p>
           <div className="line" />
         </div>

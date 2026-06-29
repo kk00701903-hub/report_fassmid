@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const TASKS = ["입고", "분류", "포장", "출고"] as const;
-const STATION_Y = [36, 76, 116, 156] as const;
-const CONVEYOR_X = 16;
-const WORKER_X = 34;
-const LABEL_X = 52;
-const SCENE_WIDTH = 88;
-const SCENE_HEIGHT = 196;
+const STATION_Y = [40, 88, 136, 184] as const;
+const CONVEYOR_X = 22;
+const WORKER_X = 46;
+const LABEL_X = 78;
+const SCENE_WIDTH = 120;
+const SCENE_HEIGHT = 220;
 
 type WorkerFigureProps = {
   x?: number;
@@ -105,12 +105,12 @@ function Station({ y, label, lit, danger }: { y: number; label: string; lit?: bo
 function VerticalConveyor() {
   return (
     <>
-      <rect x={CONVEYOR_X} y={24} width={8} height={148} rx={2} fill="#64748b" opacity={0.35} />
+      <rect x={CONVEYOR_X} y={28} width={10} height={168} rx={2} fill="#64748b" opacity={0.35} />
       <motion.line
-        x1={CONVEYOR_X + 4}
-        y1={24}
-        x2={CONVEYOR_X + 4}
-        y2={172}
+        x1={CONVEYOR_X + 5}
+        y1={28}
+        x2={CONVEYOR_X + 5}
+        y2={196}
         stroke="#475569"
         strokeWidth={2}
         strokeDasharray="8 6"
@@ -120,7 +120,7 @@ function VerticalConveyor() {
       {STATION_Y.slice(0, -1).map((y, i) => (
         <g key={TASKS[i]}>
           <line
-            x1={CONVEYOR_X + 8}
+            x1={CONVEYOR_X + 10}
             y1={y + 10}
             x2={LABEL_X - 2}
             y2={STATION_Y[i + 1] - 10}
@@ -130,7 +130,7 @@ function VerticalConveyor() {
             opacity={0.5}
           />
           <polygon
-            points={`${CONVEYOR_X + 10},${(y + STATION_Y[i + 1]) / 2 + 2} ${CONVEYOR_X + 6},${(y + STATION_Y[i + 1]) / 2 - 2} ${CONVEYOR_X + 14},${(y + STATION_Y[i + 1]) / 2 - 2}`}
+            points={`${CONVEYOR_X + 12},${(y + STATION_Y[i + 1]) / 2 + 2} ${CONVEYOR_X + 8},${(y + STATION_Y[i + 1]) / 2 - 2} ${CONVEYOR_X + 16},${(y + STATION_Y[i + 1]) / 2 - 2}`}
             fill="#94a3b8"
             opacity={0.55}
           />
@@ -173,7 +173,12 @@ export function Slide05MonoScene() {
 
   return (
     <div className="s05-scene s05-scene--legacy">
-      <svg viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`} className="s05-scene__svg" aria-hidden="true">
+      <svg
+        viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`}
+        className="s05-scene__svg"
+        preserveAspectRatio="xMidYMid meet"
+        aria-hidden="true"
+      >
         <VerticalConveyor />
         {TASKS.map((task, i) => (
           <Station key={task} y={STATION_Y[i]} label={task} lit={!incident && i === taskIdx} danger={incident} />
@@ -219,8 +224,8 @@ export function Slide05MonoScene() {
           ) : (
             <motion.g key="worker-incident" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <WorkerFigure x={WORKER_X} y={workerY - 20} tone="legacy" injured label="장애" />
-              <rect x={8} y={82} width={72} height={18} rx={9} fill="#b91c1c" />
-              <text x={44} y={94} textAnchor="middle" fontSize={10} fontWeight={800} fill="#fff">
+              <rect x={12} y={96} width={96} height={18} rx={9} fill="#b91c1c" />
+              <text x={60} y={108} textAnchor="middle" fontSize={10} fontWeight={800} fill="#fff">
                 ⚠ 전체 라인 마비
               </text>
             </motion.g>
@@ -256,7 +261,12 @@ export function Slide05MsaScene() {
 
   return (
     <div className="s05-scene s05-scene--msa">
-      <svg viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`} className="s05-scene__svg" aria-hidden="true">
+      <svg
+        viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`}
+        className="s05-scene__svg"
+        preserveAspectRatio="xMidYMid meet"
+        aria-hidden="true"
+      >
         <VerticalConveyor />
         {TASKS.map((task, i) => (
           <Station key={task} y={STATION_Y[i]} label={task} lit={boxPos === i && !(swapping && i === 2)} />

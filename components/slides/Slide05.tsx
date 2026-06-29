@@ -21,11 +21,14 @@ export default function Slide05() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>핵심용어집 3번</h1>
+            <h1>핵심용어집 ③ — MSA 구조</h1>
           </div>
           <p className="sub">
-            현행 <strong>Monolithic</strong>과 차세대 <strong>MSA</strong>를 물류센터 운영·인력 배치 모델에
-            대응시켜 <strong>장애 격리 · 무중단 배포</strong> 관점에서 비교·검토합니다.
+            Monolithic(단일 모듈) vs MSA(업무 분리) 구조 비교함
+            <br />
+            입고 · 분류 · 포장 · 출고 — 물류센터 공정 모델로 이해함
+            <br />
+            장애 격리 · 무중단 배포 관점 검토의 필요성
           </p>
           <div className="line" />
         </div>
