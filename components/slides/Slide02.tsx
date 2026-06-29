@@ -23,7 +23,7 @@ const SLIDE_HTML = `<div class="section-slide-root section-slide-dense">
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">팀 에이전트 구성 — AI 8인 역할</span>
+      <span class="topic-text">별첨 · 팀 에이전트 구성 — AI 8인 역할</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>

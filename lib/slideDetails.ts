@@ -239,7 +239,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "team-agent-roster",
-        title: "팀 에이전트 구성 — AI 8인 역할",
+        title: "[별첨] 팀 에이전트 구성 — AI 8인 역할",
         category: "process",
         summary:
           "루트 Claude 지휘 하에 8명의 전문 AI 에이전트가 Spring·Next.js·인프라·마이그레이션·기획·위키 등 역할별로 위임·조율됩니다.",

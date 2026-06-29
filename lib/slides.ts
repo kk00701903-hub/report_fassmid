@@ -4,7 +4,7 @@ export type Slide = {
 };
 
 /** 본편 발표 흐름에서 제외하고 별첨으로만 제공하는 슬라이드 ID */
-export const APPENDIX_SLIDE_IDS = [8] as const;
+export const APPENDIX_SLIDE_IDS = [8, 9] as const;
 
 /** Digital Insight Glossary 간지 및 용어 풀이 슬라이드 */
 export const GLOSSARY_DIVIDER_SLIDE_ID = 41;
@@ -29,7 +29,6 @@ export const SLIDES: Slide[] = [
   { id: 6, title: "핵심용어집 ④ — CDC 방식" },
   { id: 2, title: "PART 1 - 전략적 비전 및 목표" },
   { id: 7, title: "차세대 FaSS 구축 프로젝트 범위" },
-  { id: 9, title: "팀 에이전트 구성 — AI 8인 역할" },
   { id: 10, title: "FaSS 플랫폼 아이덴티티" },
   { id: 11, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)" },
   { id: 12, title: "Executive Summary - FaSS 플랫폼 구축" },
@@ -62,6 +61,7 @@ export const SLIDES: Slide[] = [
   { id: 39, title: "중장기 목표 2: MSA 전환" },
   { id: 40, title: "맺음말" },
   { id: 8, title: "[별첨] 디지털 트렌드 — MSA · Cloud · Open Source · AI" },
+  { id: 9, title: "[별첨] 팀 에이전트 구성 — AI 8인 역할" },
 ];
 
 export function getSlideById(id: number): Slide | undefined {

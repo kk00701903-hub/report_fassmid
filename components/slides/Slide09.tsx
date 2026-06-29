@@ -92,7 +92,7 @@ export default function Slide09() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">AI WORKFORCE</span>
-            <h1>팀 에이전트 구성 — AI 8인 역할</h1>
+            <h1>[별첨] 팀 에이전트 구성 — AI 8인 역할</h1>
           </div>
           <p className="sub">
             루트 Claude 아래 <strong>8인 에이전트를 세로 목록</strong>으로 편성했습니다. 항목을 클릭해 담당
