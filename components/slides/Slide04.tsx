@@ -81,7 +81,7 @@ export default function Slide04() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>Docker 컨테이너 — 배와 컨테이너로 이해하기</h1>
+            <h1>핵심용어집 2번</h1>
           </div>
           <p className="sub">
             위쪽은 <strong>제때 물류 현장(배·컨테이너)</strong>, 아래쪽은 <strong>FaSS IT 시스템</strong>입니다.{" "}
@@ -94,7 +94,7 @@ export default function Slide04() {
           <section className="s04-tier s04-tier--logistics">
             <header className="s04-tier__header">
               <span className="s04-tier__badge">① 물류 현장</span>
-              <h2 className="s04-tier__title">배와 철제 컨테이너 — 제때가 매일 쓰는 방식</h2>
+              <h2 className="s04-tier__title">선박과 컨테이너 — 물류회사가 쓰는 방식</h2>
             </header>
             <Slide04LogisticsHero />
             <div className="s04-tier__cards">

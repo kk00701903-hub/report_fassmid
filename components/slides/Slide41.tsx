@@ -15,19 +15,19 @@ const SLIDE_HTML = `<div class="section-slide-root section-slide-glossary">
   <div class="section-topics-list">
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">IT 시스템 이해하기 — 웹 · 프론트엔드 · WAS · DB</span>
+      <span class="topic-text">핵심용어집 1번</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">핵심 용어집 ① — 클라우드 · 오픈소스 · API</span>
+      <span class="topic-text">핵심용어집 2번</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">MSA(마이크로서비스) — 아키텍처 전환 검토</span>
+      <span class="topic-text">핵심용어집 3번</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">CDC(Change Data Capture) — 데이터 동기화 전환</span>
+      <span class="topic-text">핵심용어집 4번</span>
     </div>
   </div>
 </div>`;

@@ -21,7 +21,7 @@ export default function Slide06() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>CDC(Change Data Capture) — 데이터 동기화 전환</h1>
+            <h1>핵심용어집 4번</h1>
           </div>
           <p className="sub">
             현행 <strong>Batch(야간 전수 복제)</strong>와 <strong>CDC(변경분 실시간 전송)</strong>를 운영 부하·

@@ -12,7 +12,7 @@ export default function Slide03() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>IT 시스템 이해하기 — Web · WAS · DB</h1>
+            <h1>핵심용어집 1번</h1>
           </div>
           <p className="sub">
             <strong>제때 홈페이지(www.jette.co.kr)</strong>를 예로, Client → Web browser → Web Server → WAS →

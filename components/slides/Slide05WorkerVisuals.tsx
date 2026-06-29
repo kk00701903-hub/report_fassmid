@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const TASKS = ["입고", "분류", "포장", "출고"] as const;
-const STATION_X = [38, 90, 142, 194];
+const STATION_Y = [36, 76, 116, 156] as const;
+const CONVEYOR_X = 16;
+const WORKER_X = 34;
+const LABEL_X = 52;
+const SCENE_WIDTH = 88;
+const SCENE_HEIGHT = 196;
 
 type WorkerFigureProps = {
   x?: number;
@@ -77,50 +82,69 @@ export function WorkerFigure({
   );
 }
 
-function Station({ x, label, lit, danger }: { x: number; label: string; lit?: boolean; danger?: boolean }) {
+function Station({ y, label, lit, danger }: { y: number; label: string; lit?: boolean; danger?: boolean }) {
   return (
-    <g transform={`translate(${x}, 72)`}>
+    <g transform={`translate(${LABEL_X}, ${y})`}>
       <rect
-        x={-22}
-        y={0}
-        width={44}
+        x={0}
+        y={-10}
+        width={34}
         height={20}
         rx={3}
         fill={danger ? "rgba(185,28,28,0.15)" : lit ? "rgba(0,120,212,0.12)" : "#f1f5f9"}
         stroke={danger ? "#b91c1c" : lit ? "#0078d4" : "#cbd5e1"}
         strokeWidth={lit || danger ? 1.5 : 1}
       />
-      <text x={0} y={14} textAnchor="middle" fontSize={9} fontWeight={700} fill={danger ? "#991b1b" : "#334155"}>
+      <text x={17} y={4} textAnchor="middle" fontSize={9} fontWeight={700} fill={danger ? "#991b1b" : "#334155"}>
         {label}
       </text>
     </g>
   );
 }
 
-function Conveyor({ y = 56 }: { y?: number }) {
+function VerticalConveyor() {
   return (
     <>
-      <rect x={14} y={y} width={208} height={8} rx={2} fill="#64748b" opacity={0.35} />
+      <rect x={CONVEYOR_X} y={24} width={8} height={148} rx={2} fill="#64748b" opacity={0.35} />
       <motion.line
-        x1={14}
-        y1={y + 4}
-        x2={222}
-        y2={y + 4}
+        x1={CONVEYOR_X + 4}
+        y1={24}
+        x2={CONVEYOR_X + 4}
+        y2={172}
         stroke="#475569"
         strokeWidth={2}
         strokeDasharray="8 6"
         animate={{ strokeDashoffset: [0, -28] }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       />
+      {STATION_Y.slice(0, -1).map((y, i) => (
+        <g key={TASKS[i]}>
+          <line
+            x1={CONVEYOR_X + 8}
+            y1={y + 10}
+            x2={LABEL_X - 2}
+            y2={STATION_Y[i + 1] - 10}
+            stroke="#94a3b8"
+            strokeWidth={1}
+            strokeDasharray="3 2"
+            opacity={0.5}
+          />
+          <polygon
+            points={`${CONVEYOR_X + 10},${(y + STATION_Y[i + 1]) / 2 + 2} ${CONVEYOR_X + 6},${(y + STATION_Y[i + 1]) / 2 - 2} ${CONVEYOR_X + 14},${(y + STATION_Y[i + 1]) / 2 - 2}`}
+            fill="#94a3b8"
+            opacity={0.55}
+          />
+        </g>
+      ))}
     </>
   );
 }
 
-function Parcel({ y = 48 }: { y?: number }) {
+function Parcel({ y = 28 }: { y?: number }) {
   return (
-    <motion.g animate={{ y: [0, -2, 0] }} transition={{ duration: 0.7, repeat: Infinity }}>
-      <rect x={-9} y={y} width={18} height={13} rx={2} fill="#f59e0b" stroke="#b45309" strokeWidth={0.8} />
-      <line x1={-9} y1={y + 4} x2={9} y2={y + 4} stroke="#b45309" strokeWidth={0.6} opacity={0.6} />
+    <motion.g animate={{ x: [0, -2, 0] }} transition={{ duration: 0.7, repeat: Infinity }}>
+      <rect x={CONVEYOR_X - 1} y={y} width={13} height={18} rx={2} fill="#f59e0b" stroke="#b45309" strokeWidth={0.8} />
+      <line x1={CONVEYOR_X - 1} y1={y + 6} x2={CONVEYOR_X + 12} y2={y + 6} stroke="#b45309" strokeWidth={0.6} opacity={0.6} />
     </motion.g>
   );
 }
@@ -145,22 +169,22 @@ export function Slide05MonoScene() {
     return () => window.clearInterval(id);
   }, [reduceMotion]);
 
-  const workerX = STATION_X[taskIdx];
+  const workerY = STATION_Y[taskIdx];
 
   return (
     <div className="s05-scene s05-scene--legacy">
-      <svg viewBox="0 0 232 96" className="s05-scene__svg" aria-hidden="true">
-        <Conveyor y={54} />
+      <svg viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`} className="s05-scene__svg" aria-hidden="true">
+        <VerticalConveyor />
         {TASKS.map((task, i) => (
-          <Station key={task} x={STATION_X[i]} label={task} lit={!incident && i === taskIdx} danger={incident} />
+          <Station key={task} y={STATION_Y[i]} label={task} lit={!incident && i === taskIdx} danger={incident} />
         ))}
 
         {incident ? (
           <motion.rect
-            x={10}
-            y={4}
-            width={212}
-            height={88}
+            x={4}
+            y={16}
+            width={SCENE_WIDTH - 8}
+            height={SCENE_HEIGHT - 24}
             rx={6}
             fill="rgba(185,28,28,0.08)"
             stroke="#fca5a5"
@@ -175,28 +199,28 @@ export function Slide05MonoScene() {
             <motion.g
               key="worker-active"
               initial={false}
-              animate={{ x: workerX }}
+              animate={{ y: workerY - STATION_Y[0] }}
               transition={{ type: "spring", stiffness: 120, damping: 18 }}
             >
-              <WorkerFigure x={0} y={16} tone="legacy" active working label="단일 담당" />
+              <WorkerFigure x={WORKER_X} y={STATION_Y[0] - 20} tone="legacy" active working label="단일 담당" />
               <motion.rect
-                x={-8}
-                y={36}
-                width={16}
+                x={CONVEYOR_X - 1}
+                y={STATION_Y[0] + 2}
+                width={13}
                 height={11}
                 rx={1.5}
                 fill="#f59e0b"
                 stroke="#b45309"
                 strokeWidth={0.7}
-                animate={{ y: [36, 34, 36] }}
+                animate={{ y: [STATION_Y[0] + 2, STATION_Y[0], STATION_Y[0] + 2] }}
                 transition={{ duration: 0.5, repeat: Infinity }}
               />
             </motion.g>
           ) : (
             <motion.g key="worker-incident" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <WorkerFigure x={workerX} y={16} tone="legacy" injured label="장애" />
-              <rect x={72} y={4} width={88} height={18} rx={9} fill="#b91c1c" />
-              <text x={116} y={16} textAnchor="middle" fontSize={10} fontWeight={800} fill="#fff">
+              <WorkerFigure x={WORKER_X} y={workerY - 20} tone="legacy" injured label="장애" />
+              <rect x={8} y={82} width={72} height={18} rx={9} fill="#b91c1c" />
+              <text x={44} y={94} textAnchor="middle" fontSize={10} fontWeight={800} fill="#fff">
                 ⚠ 전체 라인 마비
               </text>
             </motion.g>
@@ -232,10 +256,10 @@ export function Slide05MsaScene() {
 
   return (
     <div className="s05-scene s05-scene--msa">
-      <svg viewBox="0 0 232 96" className="s05-scene__svg" aria-hidden="true">
-        <Conveyor />
+      <svg viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`} className="s05-scene__svg" aria-hidden="true">
+        <VerticalConveyor />
         {TASKS.map((task, i) => (
-          <Station key={task} x={STATION_X[i]} label={task} lit={boxPos === i && !(swapping && i === 2)} />
+          <Station key={task} y={STATION_Y[i]} label={task} lit={boxPos === i && !(swapping && i === 2)} />
         ))}
 
         {TASKS.map((task, i) => {
@@ -248,7 +272,7 @@ export function Slide05MsaScene() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35 }}
                 >
-                  <WorkerFigure x={STATION_X[i]} y={16} tone="swap" active working />
+                  <WorkerFigure x={WORKER_X} y={STATION_Y[i] - 20} tone="swap" active working />
                 </motion.g>
               </AnimatePresence>
             );
@@ -257,8 +281,8 @@ export function Slide05MsaScene() {
           return (
             <WorkerFigure
               key={task}
-              x={STATION_X[i]}
-              y={16}
+              x={WORKER_X}
+              y={STATION_Y[i] - 20}
               tone="msa"
               active={boxPos === i}
               working={boxPos === i || i !== 2}
@@ -267,16 +291,16 @@ export function Slide05MsaScene() {
         })}
 
         <motion.g
-          animate={{ x: STATION_X[boxPos] }}
+          animate={{ y: STATION_Y[boxPos] - STATION_Y[0] }}
           transition={{ type: "spring", stiffness: 90, damping: 16 }}
         >
-          <Parcel />
+          <Parcel y={STATION_Y[0]} />
         </motion.g>
 
         {swapping ? (
           <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <rect x={108} y={2} width={56} height={16} rx={8} fill="#10b981" />
-            <text x={136} y={13} textAnchor="middle" fontSize={9} fontWeight={800} fill="#fff">
+            <rect x={LABEL_X - 4} y={STATION_Y[2] - 22} width={56} height={16} rx={8} fill="#10b981" />
+            <text x={LABEL_X + 24} y={STATION_Y[2] - 11} textAnchor="middle" fontSize={9} fontWeight={800} fill="#fff">
               1:1 교체
             </text>
           </motion.g>

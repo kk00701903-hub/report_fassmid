@@ -21,7 +21,7 @@ export default function Slide05() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>MSA(마이크로서비스) — 아키텍처 전환 검토</h1>
+            <h1>핵심용어집 3번</h1>
           </div>
           <p className="sub">
             현행 <strong>Monolithic</strong>과 차세대 <strong>MSA</strong>를 물류센터 운영·인력 배치 모델에

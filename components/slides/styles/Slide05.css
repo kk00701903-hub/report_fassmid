@@ -192,7 +192,7 @@
 /* SVG visuals — dynamic worker scenes */
 .slide-s05 .s05-scene {
   min-height: 0;
-  max-height: 118px;
+  max-height: 196px;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
@@ -214,8 +214,8 @@
   flex: 1 1 auto;
   width: 100%;
   min-height: 0;
-  max-height: 96px;
-  height: 96px;
+  max-height: 196px;
+  height: 196px;
   display: block;
 }
 
