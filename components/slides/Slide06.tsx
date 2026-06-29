@@ -24,11 +24,7 @@ export default function Slide06() {
             <h1>핵심용어집 ④ — CDC 방식</h1>
           </div>
           <p className="sub">
-            Batch(야간 전수 복제) vs CDC(변경분 실시간 전송) 비교함
-            <br />
-            운영 부하 · 데이터 신선도 관점 검토임
-            <br />
-            레거시 DB 무중단 이관 — 핵심 방안 적용의 필요성
+            CDC는 야간 전체 복사(Batch) 대신 바뀐 데이터만 실시간으로 옮겨, DB 이관 중에도 서비스를 계속 가동
           </p>
           <div className="line" />
         </div>

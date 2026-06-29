@@ -118,6 +118,7 @@
   gap: 6px;
   align-items: stretch;
   overflow: hidden;
+  min-height: 280px;
 }
 
 .slide-s06 .panel {
@@ -193,10 +194,11 @@
   color: #0c4a6e;
 }
 
-/* Dynamic warehouse scenes */
+/* Dynamic warehouse scenes (vertical flow, fill panel) */
 .slide-s06 .s06-scene {
   min-height: 0;
-  max-height: 118px;
+  height: 100%;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
@@ -218,8 +220,7 @@
   flex: 1 1 auto;
   width: 100%;
   min-height: 0;
-  max-height: 96px;
-  height: 96px;
+  height: 100%;
   display: block;
 }
 

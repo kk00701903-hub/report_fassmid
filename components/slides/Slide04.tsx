@@ -84,11 +84,7 @@ export default function Slide04() {
             <h1>핵심용어집 ② — 도커 (Docker) / 컨테이너 (Container)</h1>
           </div>
           <p className="sub">
-            선박·컨테이너 물류 운송 ↔ Docker 컨테이너 IT 구조 대응함
-            <br />
-            표준화 · 이식 · 격리 — 동일 원리 적용임
-            <br />
-            물류회사 운송 방식으로 FaSS 배포·운영 이해함
+            Docker 컨테이너는 물류 선박·컨테이너처럼 프로그램을 표준 규격으로 묶어 어디서든 같은 방식으로 배포·실행
           </p>
           <div className="line" />
         </div>

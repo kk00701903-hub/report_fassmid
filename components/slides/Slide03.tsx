@@ -15,11 +15,7 @@ export default function Slide03() {
             <h1>핵심용어집 ① — 3Tier 구조 (Web-WAS-DB)</h1>
           </div>
           <p className="sub">
-            표준 3Tier(Web · WAS · DB) 웹 구조 개요임
-            <br />
-            Client → Web Server → WAS → Database 순 요청·응답 흐름
-            <br />
-            jette.co.kr 접속 사례로 이해함
+            하나의 프로그램을 만들기 위해서는 Web · WAS · DB가 화면 · 로직 · 저장을 각각 담당
           </p>
           <div className="line" />
         </div>

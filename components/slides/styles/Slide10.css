@@ -1,64 +1,111 @@
-/* Slide 10 — FaSS identity (extends fluent-primer.css) */
+/* Slide 10 — FaSS identity (backup 10.html layout, white Fluent theme) */
+
+.slide-s10 .fass-identity-slide-root {
+  background: var(--fluent-bg, #f3f2f1);
+}
+
+.slide-s10 .title-region-wrapper {
+  padding: 24px 36px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.slide-s10 .title-region-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-s10 .title-region-bar {
+  width: 4px;
+  height: 32px;
+  background: var(--fluent-blue, #0078d4);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.slide-s10 .title-region-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--fluent-grey-160, #323130);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.slide-s10 .title-region-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--fluent-blue, #0078d4) 0%, transparent 100%);
+  opacity: 0.35;
+}
 
 .slide-s10 .fass-identity-main-container {
-  flex: 1;
+  flex: 1 1 auto;
   min-height: 0;
-  display: flex;
-  padding: 0 32px 14px;
-  gap: 24px;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch;
+  padding: 8px 36px 20px !important;
+  gap: 28px !important;
+  overflow: hidden;
 }
 
 .slide-s10 .fass-identity-left-flow-section {
-  flex: 7;
+  flex: 7 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  gap: 4px;
+  gap: 0;
 }
 
 .slide-s10 .fass-identity-rail-vertical-line {
   position: absolute;
   left: 24px;
-  top: 24px;
-  bottom: 24px;
+  top: 16px;
+  bottom: 16px;
   width: 2px;
-  background: linear-gradient(180deg, var(--fluent-blue) 0%, rgba(0, 120, 212, 0.15) 100%);
+  background: linear-gradient(180deg, var(--fluent-blue, #0078d4) 0%, rgba(0, 120, 212, 0.12) 100%);
+  opacity: 0.45;
   border-radius: 1px;
 }
 
 .slide-s10 .fass-identity-value-item-row {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  padding: 10px 12px;
+  gap: 20px;
+  padding: 12px 0;
   position: relative;
   z-index: 1;
-  border-radius: 8px;
-  border: 1px solid var(--fluent-border);
-  background: var(--fluent-surface);
-  box-shadow: var(--fluent-shadow);
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
   opacity: 1 !important;
   animation: none !important;
   filter: none !important;
 }
 
 .slide-s10 .fass-identity-value-marker {
-  width: 44px;
-  height: 44px;
-  background: var(--fluent-blue-light);
-  border: 2px solid var(--fluent-blue);
+  width: 50px;
+  height: 50px;
+  background: var(--fluent-surface, #ffffff);
+  border: 2px solid var(--fluent-blue, #0078d4);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 120, 212, 0.15);
 }
 
 .slide-s10 .fass-identity-value-marker-letter {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
-  color: var(--fluent-blue);
+  color: var(--fluent-blue, #0078d4);
   line-height: 1;
 }
 
@@ -67,119 +114,113 @@
   flex-direction: column;
   gap: 4px;
   min-width: 0;
+  padding-top: 2px;
 }
 
 .slide-s10 .fass-identity-value-heading-group {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .slide-s10 .fass-identity-value-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: var(--fluent-grey-160);
+  color: var(--fluent-grey-160, #323130);
 }
 
 .slide-s10 .fass-identity-value-subtitle {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  color: var(--fluent-grey-130);
+  color: var(--fluent-blue, #0078d4);
 }
 
 .slide-s10 .fass-identity-value-description {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.48;
-  color: var(--fluent-grey-130);
+  color: var(--fluent-grey-130, #605e5c);
+  margin: 0;
+  max-width: 520px;
 }
 
-.slide-s10 .fass-identity-highlight-text {
-  color: var(--fluent-blue);
+.slide-s10 .fass-identity-value-description strong {
+  color: var(--fluent-blue, #0078d4);
   font-weight: 600;
 }
 
 .slide-s10 .fass-identity-right-vision-section {
-  flex: 5;
+  flex: 5 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 0;
 }
 
 .slide-s10 .fass-identity-logo-info-card {
-  background: var(--fluent-surface);
-  border: 1px solid var(--fluent-border);
-  border-radius: 8px;
+  background: var(--fluent-surface, #ffffff);
+  border: 1px solid var(--fluent-border, #edebe9);
+  border-radius: 12px;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  box-shadow: var(--fluent-shadow);
-  border-top: 3px solid var(--fluent-blue);
+  box-shadow: var(--fluent-shadow, 0 1.6px 3.6px rgba(0, 0, 0, 0.08));
 }
 
 .slide-s10 .fass-identity-logo-visual-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ffffff 0%, var(--fluent-blue-light) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, var(--fluent-blue-light, #eff6fc) 100%);
   border-radius: 8px;
-  padding: 16px;
-  border: 1px solid rgba(0, 120, 212, 0.22);
+  padding: 14px 12px;
+  border: 1px solid rgba(0, 120, 212, 0.18);
 }
 
 .slide-s10 .fass-identity-logo-image {
   display: block;
   width: 100%;
-  max-width: 260px;
+  max-width: 280px;
   height: auto;
   object-fit: contain;
 }
 
 .slide-s10 .fass-identity-logo-title {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
-  color: var(--fluent-grey-160);
+  color: #b45309;
   text-align: center;
+  margin: 0;
 }
 
 .slide-s10 .fass-identity-logo-body-text {
   font-size: 14px;
   line-height: 1.48;
-  color: var(--fluent-grey-130);
+  color: var(--fluent-grey-130, #605e5c);
+}
+
+.slide-s10 .fass-identity-logo-body-text strong {
+  color: var(--fluent-blue, #0078d4);
+  font-weight: 600;
 }
 
 .slide-s10 .fass-identity-logo-keyword-tag {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   padding: 6px 12px;
-  background: var(--fluent-blue-light);
-  border: 1px solid rgba(0, 120, 212, 0.28);
-  border-radius: 6px;
-  color: var(--fluent-blue);
-  font-size: 13px;
+  background: rgba(250, 204, 21, 0.12);
+  border: 1px solid #facc15;
+  border-radius: 4px;
+  color: #a16207;
+  font-size: 14px;
   font-weight: 600;
   margin-top: 4px;
   align-self: flex-start;
 }
 
 .slide-s10 .fass-identity-logo-keyword-tag i {
-  color: var(--fluent-blue);
+  color: #ca8a04;
 }
-
-/* overflow fix — 720px canvas */
-.slide-s10 h1 { font-size: 24px; }
-.slide-s10 .fass-identity-main-container { gap: 12px; padding: 0 28px 4px; }
-.slide-s10 .fass-identity-value-item-row { padding: 5px 8px; gap: 8px; }
-.slide-s10 .fass-identity-value-marker { width: 32px; height: 32px; }
-.slide-s10 .fass-identity-value-marker-letter { font-size: 16px; }
-.slide-s10 .fass-identity-value-title { font-size: 15px; }
-.slide-s10 .fass-identity-value-subtitle { font-size: 13px; }
-.slide-s10 .fass-identity-value-description { font-size: 12px; line-height: 1.35; }
-.slide-s10 .fass-identity-logo-info-card { padding: 8px; gap: 6px; }
-.slide-s10 .fass-identity-logo-visual-wrap { padding: 6px; }
-.slide-s10 .fass-identity-logo-image { max-width: 160px; }
-.slide-s10 .fass-identity-logo-body-text { font-size: 12px; }
-.slide-s10 .fass-identity-logo-keyword-tag { padding: 4px 10px; font-size: 12px; margin-top: 2px; }

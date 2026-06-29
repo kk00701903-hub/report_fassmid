@@ -24,11 +24,7 @@ export default function Slide05() {
             <h1>핵심용어집 ③ — MSA 구조</h1>
           </div>
           <p className="sub">
-            Monolithic(단일 모듈) vs MSA(업무 분리) 구조 비교함
-            <br />
-            입고 · 분류 · 포장 · 출고 — 물류센터 공정 모델로 이해함
-            <br />
-            장애 격리 · 무중단 배포 관점 검토의 필요성
+            MSA는 물류센터처럼 입고·분류·포장·출고를 나눠 맡기고, 한 구간 장애가 전체 공정을 멈추지 않게 하는 구조
           </p>
           <div className="line" />
         </div>
