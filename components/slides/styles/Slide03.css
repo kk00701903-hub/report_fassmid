@@ -101,17 +101,27 @@
   padding: 0 4px;
 }
 
+.slide-s03 .arch-node.is-lit .arch-node__box {
+  border-color: var(--fluent-blue, #0078d4);
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.12);
+}
+
 .slide-s03 .jette-site-mock {
   width: 100%;
   border-radius: 6px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.slide-s03 .jette-site-mock.is-lit,
-.slide-s03 .arch-node.is-lit .jette-site-mock {
-  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.35);
+.slide-s03 .jette-site-mock--active {
+  border-color: var(--node-accent, #0078d4);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--node-accent, #0078d4) 25%, transparent);
+}
+
+.slide-s03 .jette-site-mock--visited {
+  border-color: var(--node-accent, #0078d4);
 }
 
 .slide-s03 .jette-site-mock__chrome {
@@ -152,7 +162,7 @@
 }
 
 .slide-s03 .jette-site-mock__page--server {
-  border: 1px dashed rgba(0, 120, 212, 0.35);
+  border: 1.5px dashed var(--node-accent, rgba(0, 120, 212, 0.55));
   border-radius: 4px;
 }
 
@@ -269,8 +279,9 @@
   gap: 8px;
   padding: 10px 8px 6px;
   border-radius: 12px;
-  border: 1px solid #d2d0ce;
+  border: 2px solid #323130;
   background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .slide-s03 .arch-zone-row {
@@ -284,22 +295,58 @@
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.02em;
-  padding: 4px 0;
-  border-bottom: 2px solid #201f1e;
+  padding: 5px 0;
+  border: 2px solid #323130;
+  border-radius: 6px;
   color: #201f1e;
+  background: #faf9f8;
 }
 
 .slide-s03 .arch-zone-banner--fe {
   border-color: #2563eb;
   color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.06);
 }
 
 .slide-s03 .arch-zone-banner--be {
   border-color: #0078d4;
   color: #0078d4;
+  background: rgba(0, 120, 212, 0.06);
+}
+
+.slide-s03 .arch-pipeline-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  padding: 6px 4px 2px;
+}
+
+.slide-s03 .arch-zone-bg {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-radius: 10px;
+  border: 2px dashed;
+  pointer-events: none;
+}
+
+.slide-s03 .arch-zone-bg--fe {
+  left: 0;
+  width: calc(40% - 4px);
+  border-color: rgba(37, 99, 235, 0.45);
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.slide-s03 .arch-zone-bg--be {
+  right: 0;
+  width: calc(60% - 4px);
+  border-color: rgba(0, 120, 212, 0.45);
+  background: rgba(0, 120, 212, 0.04);
 }
 
 .slide-s03 .arch-pipeline {
+  position: relative;
+  z-index: 1;
   flex: 1;
   min-height: 0;
   display: flex;
@@ -342,7 +389,7 @@
   max-width: 118px;
   min-height: 108px;
   padding: 10px 8px 8px;
-  border: 2px solid #201f1e;
+  border: 2.5px solid var(--node-accent, #323130);
   border-radius: 14px;
   background: #fff;
   display: flex;
@@ -351,7 +398,29 @@
   justify-content: flex-start;
   gap: 4px;
   text-align: center;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.slide-s03 .arch-node--pending .arch-node__box {
+  border-color: color-mix(in srgb, var(--node-accent, #323130) 55%, #323130);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.slide-s03 .arch-node--visited .arch-node__box {
+  border-color: var(--node-accent, #0078d4);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--node-accent, #0078d4) 18%, transparent);
+}
+
+.slide-s03 .arch-node--active .arch-node__box {
+  border-color: var(--node-accent, #0078d4);
+  border-width: 3px;
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--node-accent, #0078d4) 22%, transparent),
+    0 4px 14px color-mix(in srgb, var(--node-accent, #0078d4) 18%, transparent);
 }
 
 .slide-s03 .arch-node--browser .arch-node__box,
@@ -373,18 +442,6 @@
   display: none;
 }
 
-.slide-s03 .arch-node.is-lit .arch-node__box {
-  border-color: var(--fluent-blue, #0078d4);
-  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.12);
-}
-
-.slide-s03 .arch-node__title {
-  font-size: 12px;
-  font-weight: 800;
-  color: #201f1e;
-  line-height: 1.2;
-}
-
 .slide-s03 .arch-node__icon {
   width: 36px;
   height: 36px;
@@ -393,9 +450,9 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: var(--fluent-blue, #0078d4);
-  background: rgba(0, 120, 212, 0.08);
-  border: 1px solid rgba(0, 120, 212, 0.2);
+  color: var(--node-accent, var(--fluent-blue, #0078d4));
+  background: color-mix(in srgb, var(--node-accent, #0078d4) 10%, white);
+  border: 2px solid color-mix(in srgb, var(--node-accent, #0078d4) 35%, #cbd5e1);
 }
 
 .slide-s03 .arch-node__example {
@@ -412,15 +469,60 @@
   text-align: center;
 }
 
+.slide-s03 .arch-node__title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #201f1e;
+  line-height: 1.2;
+}
+
 .slide-s03 .arch-pipe {
+  position: relative;
   flex-shrink: 0;
-  width: 28px;
+  width: 32px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.slide-s03 .arch-pipe__track {
+.slide-s03 .arch-pipe__line {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 50%;
+  height: 3px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: background 0.35s ease;
+}
+
+.slide-s03 .arch-pipe.is-visited .arch-pipe__line {
+  background: linear-gradient(90deg, #94a3b8, #0078d4);
+}
+
+.slide-s03 .arch-pipe.is-active .arch-pipe__line {
+  background: linear-gradient(90deg, #0078d4, #2563eb);
+  box-shadow: 0 0 6px rgba(0, 120, 212, 0.35);
+}
+
+.slide-s03 .arch-pipe__packet {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: #0078d4;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(0, 120, 212, 0.65);
+  z-index: 2;
+}
+
+.slide-s03 .arch-pipe__arrows {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -434,7 +536,8 @@
   line-height: 1;
 }
 
-.slide-s03 .arch-pipe.is-active .arch-pipe__arrow {
+.slide-s03 .arch-pipe.is-active .arch-pipe__arrow,
+.slide-s03 .arch-pipe.is-visited .arch-pipe__arrow {
   color: var(--fluent-blue, #0078d4);
 }
 
@@ -461,7 +564,7 @@
   padding: 6px 10px;
   border-radius: 8px;
   background: rgba(0, 120, 212, 0.06);
-  border: 1px dashed rgba(0, 120, 212, 0.25);
+  border: 2px dashed rgba(0, 120, 212, 0.35);
 }
 
 /* Notes row */

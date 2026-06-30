@@ -3,7 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-const SCENE_WIDTH = 120;
+const SCENE_WIDTH = 132;
 const SCENE_HEIGHT = 232;
 const HEADER_H = 30;
 const WH_X = 10;
@@ -15,6 +15,16 @@ const HQ_H = 56;
 const FLOW_X = WH_X + WH_W / 2;
 const FLOW_TOP = WH_Y + WH_H + 2;
 const FLOW_BOTTOM = HQ_Y - 2;
+
+/** CDC 입·출고 센서 — 물류센터 박스 우측 외부 */
+const SENSOR_W = 16;
+const SENSOR_H = 34;
+const SENSOR_X = WH_X + WH_W + 4;
+const SENSOR_Y = WH_Y + 38;
+const SENSOR_CX = SENSOR_X + SENSOR_W / 2;
+const SENSOR_CY = SENSOR_Y + SENSOR_H / 2;
+const WH_DOCK_X = WH_X + WH_W;
+const WH_DOCK_Y = WH_Y + 52;
 
 const SHELF_SLOTS = [
   { x: 12, y: 28 },
@@ -85,29 +95,55 @@ function WarehouseHeader({ tone }: { tone: "batch" | "cdc" }) {
   return (
     <>
       <path d={`M0 24 H${WH_W}`} stroke={stroke} strokeWidth={0.8} opacity={0.35} />
-      <text x={WH_W / 2} y={12} textAnchor="middle" fontSize={10} fontWeight={700} fill={tone === "batch" ? "#7f1d1d" : "#0c4a6e"}>
+      <text x={WH_W / 2} y={16} textAnchor="middle" fontSize={10} fontWeight={700} fill={tone === "batch" ? "#7f1d1d" : "#0c4a6e"}>
         물류센터
-      </text>
-      <text x={WH_W / 2} y={21} textAnchor="middle" fontSize={8} fill={tone === "batch" ? "#991b1b" : "#0078d4"}>
-        운영 DB
       </text>
     </>
   );
 }
 
-function StatusBadge({ tone, status }: { tone: "batch" | "cdc"; status: string }) {
-  const fill = tone === "batch" ? "#991b1b" : "#10b981";
-  const badgeW = 30;
-
+function CdcIoSensor() {
   return (
-    <g transform={`translate(${WH_W / 2}, -2)`}>
-      <rect x={-badgeW / 2} y={-10} width={badgeW} height={11} rx={2} fill={fill} />
-      <text x={0} y={-2.5} textAnchor="middle" fontSize={7} fontWeight={800} fill="#fff">
-        {status}
+    <g>
+      <line
+        x1={WH_DOCK_X}
+        y1={WH_DOCK_Y}
+        x2={SENSOR_X}
+        y2={SENSOR_CY}
+        stroke="#10b981"
+        strokeWidth={1.2}
+        strokeDasharray="3 2"
+        opacity={0.85}
+      />
+      <circle cx={WH_DOCK_X} cy={WH_DOCK_Y} r={2.2} fill="#10b981" />
+      <rect
+        x={SENSOR_X}
+        y={SENSOR_Y}
+        width={SENSOR_W}
+        height={SENSOR_H}
+        rx={2}
+        fill="rgba(16,185,129,0.12)"
+        stroke="#10b981"
+        strokeWidth={1.2}
+      />
+      <motion.circle
+        cx={SENSOR_CX}
+        cy={SENSOR_Y + 9}
+        r={4}
+        fill="#10b981"
+        animate={{ opacity: [0.5, 1, 0.5], r: [4, 5.5, 4] }}
+        transition={{ duration: 0.9, repeat: Infinity }}
+      />
+      <text x={SENSOR_CX} y={SENSOR_Y + 22} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
+        입·출고
+      </text>
+      <text x={SENSOR_CX} y={SENSOR_Y + 29} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
+        센서
       </text>
     </g>
   );
 }
+
 function HqBuilding({ tone, label, sub }: { tone: "batch" | "cdc"; label: string; sub: string }) {
   const stroke = tone === "batch" ? "#64748b" : "#0078d4";
   return (
@@ -253,7 +289,6 @@ function WarehouseInterior({ tone, children }: { tone: "batch" | "cdc"; children
 
   return (
     <g transform={`translate(${WH_X}, ${WH_Y})`}>
-      <StatusBadge tone={tone} status={tone === "batch" ? "CLOSED" : "OPEN"} />
       <rect x={0} y={0} width={WH_W} height={WH_H} rx={4} fill={tone === "batch" ? "rgba(185,28,28,0.06)" : "rgba(0,120,212,0.05)"} stroke={stroke} strokeWidth={1.5} />
       <WarehouseHeader tone={tone} />
 
@@ -370,25 +405,10 @@ export function Slide06CdcScene() {
           {SHELF_SLOTS.map((s) => (
             <WarehouseBox key={`cdc-${s.x}-${s.y}`} x={s.x} y={s.y} tone="cdc" />
           ))}
-
-          <rect x={82} y={26} width={14} height={32} rx={2} fill="rgba(16,185,129,0.12)" stroke="#10b981" strokeWidth={1} />
-          <motion.circle
-            cx={89}
-            cy={32}
-            r={4}
-            fill="#10b981"
-            animate={{ opacity: [0.5, 1, 0.5], r: [4, 5.5, 4] }}
-            transition={{ duration: 0.9, repeat: Infinity }}
-          />
-          <text x={89} y={44} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
-            입·출고
-          </text>
-          <text x={89} y={51} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
-            센서
-          </text>
-
-          <AnimatePresenceParcel event={event} eventIdx={eventIdx} />
         </WarehouseInterior>
+
+        <CdcIoSensor />
+        <AnimatePresenceParcel event={event} eventIdx={eventIdx} />
 
         <FlowArrow tone="cdc" />
         <VerticalDataPacket color="#10b981" delay={0} />
@@ -411,15 +431,20 @@ function AnimatePresenceParcel({
   event: (typeof CDC_EVENTS)[number];
   eventIdx: number;
 }) {
-  const startX = event.type === "in" ? 54 : 89;
-  const endX = event.type === "in" ? 89 : 54;
-  const y = 36;
+  const shelfX = WH_X + 54;
+  const shelfY = WH_Y + 36;
+  const sensorX = SENSOR_CX;
+  const sensorY = SENSOR_CY;
+  const startX = event.type === "in" ? shelfX : sensorX;
+  const endX = event.type === "in" ? sensorX : shelfX;
+  const startY = event.type === "in" ? shelfY : sensorY;
+  const endY = event.type === "in" ? sensorY : shelfY;
 
   return (
     <motion.g
       key={eventIdx}
-      initial={{ x: startX, y, opacity: 0 }}
-      animate={{ x: [startX, endX], opacity: [0, 1, 1, 0.6] }}
+      initial={{ x: startX, y: startY, opacity: 0 }}
+      animate={{ x: [startX, endX], y: [startY, endY], opacity: [0, 1, 1, 0.6] }}
       transition={{ duration: 1, ease: "easeInOut" }}
     >
       <rect

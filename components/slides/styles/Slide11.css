@@ -1,59 +1,120 @@
-/* Slide 11 — AI Digital Worker (white bg, 3-pillar layout) */
+/* Slide 11 — AI Digital Worker (backup 9.html 3-column layout, white Fluent theme) */
 
+.slide-s11 .dw-slide {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: #ffffff;
+  color: #201f1e;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.slide-s11 .dw-slide::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 620px;
+  height: 240px;
+  background: radial-gradient(ellipse, rgba(0, 120, 212, 0.06) 0%, transparent 72%);
+  pointer-events: none;
+  display: block !important;
+}
+
+/* ── Title (backup 9.html) ── */
 .slide-s11 .title-region {
-  padding: 14px 32px 4px;
+  flex-shrink: 0;
+  padding: 16px 28px 4px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-s11 .title-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.slide-s11 .title-bar {
+  width: 4px;
+  height: 32px;
+  background: #0078d4;
+  border-radius: 2px;
   flex-shrink: 0;
 }
 
+.slide-s11 .title-badge {
+  background: rgba(234, 179, 8, 0.12);
+  color: #b45309;
+  padding: 3px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  white-space: nowrap;
+}
+
 .slide-s11 .title-text {
-  font-size: 22px !important;
+  font-size: 26px !important;
+  font-weight: 700;
+  color: #201f1e;
+  margin: 0;
+  line-height: 1.25;
 }
 
 .slide-s11 .title-sub {
-  font-size: 13px !important;
-  margin-top: 4px !important;
+  font-size: 15px !important;
+  color: #605e5c;
+  padding-left: 16px;
+  margin: 0;
+  line-height: 1.45;
 }
 
 .slide-s11 .title-line {
-  margin-top: 6px !important;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #0078d4 0%, transparent 100%);
+  opacity: 0.35;
+  margin-top: 4px;
 }
 
+/* ── 3-column pillars (override fluent-primer column stack) ── */
 .slide-s11 .main-container {
-  flex: 1 1 auto;
+  flex: 1 1 auto !important;
   min-height: 0;
-  padding: 4px 28px 2px;
-  display: flex;
-  gap: 12px;
-  align-items: stretch;
+  padding: 4px 24px 6px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .slide-s11 .pillar-card {
-  flex: 1;
+  flex: 1 1 0;
   min-width: 0;
   min-height: 0;
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 14px 14px 12px;
+  background: #faf9f8;
+  border: 1px solid #edebe9;
+  border-radius: 16px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   position: relative;
   overflow: hidden;
-}
-
-.slide-s11 .pillar-card.cyan {
-  border: 1px solid rgba(0, 120, 212, 0.32);
-  box-shadow: 0 4px 18px rgba(0, 120, 212, 0.1);
-}
-
-.slide-s11 .pillar-card.amber {
-  border: 1px solid rgba(202, 138, 4, 0.38);
-  box-shadow: 0 4px 18px rgba(202, 138, 4, 0.1);
-}
-
-.slide-s11 .pillar-card.green {
-  border: 1px solid rgba(16, 124, 16, 0.32);
-  box-shadow: 0 4px 18px rgba(16, 124, 16, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
 .slide-s11 .pillar-card::after {
@@ -63,7 +124,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  border-radius: 14px 14px 0 0;
+  border-radius: 16px 16px 0 0;
 }
 
 .slide-s11 .pillar-card.cyan::after {
@@ -78,21 +139,33 @@
   background: #107c10;
 }
 
+.slide-s11 .pillar-card.cyan {
+  border-color: rgba(0, 120, 212, 0.22);
+}
+
+.slide-s11 .pillar-card.amber {
+  border-color: rgba(234, 179, 8, 0.28);
+}
+
+.slide-s11 .pillar-card.green {
+  border-color: rgba(16, 124, 16, 0.22);
+}
+
 .slide-s11 .pillar-icon-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
 }
 
 .slide-s11 .pillar-icon-box {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
+  font-size: 22px;
   flex-shrink: 0;
 }
 
@@ -113,20 +186,23 @@
 
 .slide-s11 .pillar-heading {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .slide-s11 .pillar-title {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   color: #201f1e;
-  line-height: 1.25;
+  line-height: 1.28;
 }
 
 .slide-s11 .pillar-en {
-  font-size: 11px;
-  color: #605e5c;
-  margin-top: 2px;
-  line-height: 1.3;
+  font-size: 13px;
+  color: #8a8886;
+  font-weight: 400;
+  line-height: 1.32;
 }
 
 .slide-s11 .pillar-divider {
@@ -138,17 +214,17 @@
 .slide-s11 .pillar-items {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
   flex: 1 1 auto;
   min-height: 0;
 }
 
 .slide-s11 .pillar-item {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: flex-start;
-  padding: 8px 9px;
-  background: #f8f9fb;
+  padding: 11px 12px;
+  background: #ffffff;
   border-radius: 8px;
   border: 1px solid #edebe9;
   flex: 1 1 0;
@@ -156,10 +232,10 @@
 }
 
 .slide-s11 .pillar-item-icon {
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 2px;
   flex-shrink: 0;
-  width: 16px;
+  width: 18px;
   text-align: center;
 }
 
@@ -177,44 +253,56 @@
 
 .slide-s11 .pillar-item-text {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .slide-s11 .pillar-item-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #201f1e;
   line-height: 1.35;
 }
 
 .slide-s11 .pillar-item-desc {
-  font-size: 11px;
+  font-size: 13px;
   color: #605e5c;
-  line-height: 1.38;
-  margin-top: 2px;
+  line-height: 1.42;
 }
 
+/* ── Bottom banner (backup 9.html) ── */
 .slide-s11 .bottom-banner {
   flex-shrink: 0;
-  margin: 2px 28px 4px;
-  padding: 7px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 120, 212, 0.22);
-  background: linear-gradient(90deg, rgba(234, 179, 8, 0.08) 0%, rgba(0, 120, 212, 0.06) 55%, #ffffff 100%);
+  margin: 0 24px 8px !important;
+  padding: 8px 18px !important;
+  background: linear-gradient(
+    90deg,
+    rgba(234, 179, 8, 0.08) 0%,
+    rgba(0, 120, 212, 0.06) 50%,
+    rgba(255, 255, 255, 0.4) 100%
+  ) !important;
+  border: 1px solid rgba(234, 179, 8, 0.22) !important;
+  border-left: 1px solid rgba(234, 179, 8, 0.22) !important;
+  border-radius: 8px !important;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .slide-s11 .banner-icon {
-  font-size: 16px;
+  font-size: 20px;
   color: #b45309;
   flex-shrink: 0;
 }
 
 .slide-s11 .banner-text {
-  font-size: 11px;
+  font-size: 13px !important;
   color: #484644;
-  line-height: 1.4;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .slide-s11 .banner-text strong {
@@ -225,7 +313,7 @@
 .slide-s11 .banner-logos {
   margin-left: auto;
   display: flex;
-  gap: 6px;
+  gap: 12px;
   align-items: center;
   flex-shrink: 0;
 }
@@ -233,9 +321,9 @@
 .slide-s11 .global-tag {
   background: #ffffff;
   border: 1px solid #d2d0ce;
-  border-radius: 999px;
-  padding: 2px 8px;
-  font-size: 10px;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 13px;
   font-weight: 600;
   color: #605e5c;
   white-space: nowrap;

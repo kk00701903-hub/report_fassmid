@@ -1,52 +1,47 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const NODES = [
   {
     id: "client",
     title: "Client",
-    titleKo: "사용자",
     example: "제때 임직원 · CEO",
     tech: "Browser",
-    zone: "fe" as const,
+    accent: "#6366f1",
     icon: "fa-user-tie",
   },
   {
     id: "browser",
     title: "Web browser",
-    titleKo: "웹 브라우저",
     example: "www.jette.co.kr",
     tech: "Browser",
-    zone: "fe" as const,
+    accent: "#2563eb",
     icon: "fa-globe",
   },
   {
     id: "web",
     title: "Web Server",
-    titleKo: "프론트엔드",
     example: "홈페이지 · UI 화면",
     tech: "Nginx · Next.js",
-    zone: "be" as const,
+    accent: "#0078d4",
     icon: "fa-window-maximize",
   },
   {
     id: "was",
     title: "WAS",
-    titleKo: "업무 서버",
     example: "수주 · 물류 · 정산 API",
     tech: "Java · Spring",
-    zone: "be" as const,
+    accent: "#0891b2",
     icon: "fa-gears",
   },
   {
     id: "db",
     title: "Database",
-    titleKo: "데이터베이스",
     example: "거래 · 재고 · 배송 데이터",
     tech: "PostgreSQL",
-    zone: "be" as const,
+    accent: "#107c10",
     icon: "fa-database",
   },
 ] as const;
@@ -57,14 +52,24 @@ const FLOW_STEPS = [
   "③ Web Server(프론트엔드)가 jette UI 화면을 전달",
   "④ WAS가 물류·주문 업무 로직 처리",
   "⑤ DB에서 재고·배송 데이터 조회 후 화면에 반영",
-];
+] as const;
+
+type NodeState = "pending" | "active" | "visited";
+
+function getNodeState(index: number, activeStep: number): NodeState {
+  if (index === activeStep) return "active";
+  if (index < activeStep) return "visited";
+  return "pending";
+}
 
 function JetteSiteMock({
   variant = "browser",
-  lit = false,
+  state = "pending",
+  accent,
 }: {
   variant?: "browser" | "server";
-  lit?: boolean;
+  state?: NodeState;
+  accent: string;
 }) {
   const site = (
     <div className={`jette-site-mock__page ${variant === "server" ? "jette-site-mock__page--server" : ""}`}>
@@ -89,15 +94,15 @@ function JetteSiteMock({
         <span>유통물류</span>
         <span>수송·배송</span>
       </div>
-      {variant === "server" ? (
-        <div className="jette-site-mock__serve-tag">UI · HTML 전달</div>
-      ) : null}
+      {variant === "server" ? <div className="jette-site-mock__serve-tag">UI · HTML 전달</div> : null}
     </div>
   );
 
+  const cls = `jette-site-mock jette-site-mock--${variant} jette-site-mock--${state}`;
+
   if (variant === "browser") {
     return (
-      <div className={`jette-site-mock jette-site-mock--browser ${lit ? "is-lit" : ""}`}>
+      <div className={cls} style={{ "--node-accent": accent } as CSSProperties}>
         <div className="jette-site-mock__chrome">
           <span className="jette-site-mock__dot" />
           <span className="jette-site-mock__dot" />
@@ -109,24 +114,45 @@ function JetteSiteMock({
     );
   }
 
-  return <div className={`jette-site-mock jette-site-mock--server ${lit ? "is-lit" : ""}`}>{site}</div>;
+  return (
+    <div className={cls} style={{ "--node-accent": accent } as CSSProperties}>
+      {site}
+    </div>
+  );
 }
 
-function BidirectionalArrows({ active }: { active: boolean }) {
+function FlowPipe({
+  active,
+  visited,
+  reduceMotion,
+}: {
+  active: boolean;
+  visited: boolean;
+  reduceMotion: boolean | null;
+}) {
   return (
-    <div className={`arch-pipe ${active ? "is-active" : ""}`}>
-      <div className="arch-pipe__track">
+    <div className={`arch-pipe ${active ? "is-active" : ""} ${visited ? "is-visited" : ""}`}>
+      <div className="arch-pipe__line" aria-hidden="true" />
+      {!reduceMotion && active ? (
+        <motion.span
+          className="arch-pipe__packet"
+          animate={{ left: ["8%", "88%"] }}
+          transition={{ duration: 1.05, repeat: Infinity, ease: "linear" }}
+          aria-hidden="true"
+        />
+      ) : null}
+      <div className="arch-pipe__arrows">
         <motion.span
           className="arch-pipe__arrow arch-pipe__arrow--fwd"
-          animate={active ? { opacity: [0.35, 1, 0.35], x: [0, 3, 0] } : undefined}
-          transition={{ duration: 1.2, repeat: Infinity }}
+          animate={active && !reduceMotion ? { opacity: [0.4, 1, 0.4], x: [0, 4, 0] } : { opacity: visited ? 0.85 : 0.45 }}
+          transition={{ duration: 1.1, repeat: active ? Infinity : 0 }}
         >
           →
         </motion.span>
         <motion.span
           className="arch-pipe__arrow arch-pipe__arrow--back"
-          animate={active ? { opacity: [0.35, 1, 0.35], x: [0, -3, 0] } : undefined}
-          transition={{ duration: 1.2, repeat: Infinity, delay: 0.15 }}
+          animate={active && !reduceMotion ? { opacity: [0.4, 1, 0.4], x: [0, -4, 0] } : { opacity: visited ? 0.85 : 0.45 }}
+          transition={{ duration: 1.1, repeat: active ? Infinity : 0, delay: 0.12 }}
         >
           ←
         </motion.span>
@@ -137,31 +163,41 @@ function BidirectionalArrows({ active }: { active: boolean }) {
 
 function ArchNode({
   node,
-  lit,
+  state,
+  reduceMotion,
 }: {
   node: (typeof NODES)[number];
-  lit: boolean;
+  state: NodeState;
+  reduceMotion: boolean | null;
 }) {
   const isBrowser = node.id === "browser";
   const isWebServer = node.id === "web";
+  const isMock = isBrowser || isWebServer;
 
   return (
     <motion.div
-      className={`arch-node arch-node--${node.id} ${lit ? "is-lit" : ""}`}
-      animate={lit && !isBrowser && !isWebServer ? { scale: [1, 1.03, 1] } : { scale: 1 }}
-      transition={{ duration: 1.4, repeat: lit && !isBrowser && !isWebServer ? Infinity : 0 }}
+      className={`arch-node arch-node--${node.id} arch-node--${state}`}
+      style={{ "--node-accent": node.accent } as CSSProperties}
+      animate={
+        state === "active" && !reduceMotion && !isMock
+          ? { scale: [1, 1.04, 1] }
+          : state === "active" && !reduceMotion
+            ? { scale: [1, 1.02, 1] }
+            : { scale: 1 }
+      }
+      transition={{ duration: 1.25, repeat: state === "active" ? Infinity : 0, ease: "easeInOut" }}
     >
       <div className="arch-node__box">
         <div className="arch-node__title">{node.title}</div>
 
         {isBrowser ? (
-          <JetteSiteMock variant="browser" lit={lit} />
+          <JetteSiteMock variant="browser" state={state} accent={node.accent} />
         ) : isWebServer ? (
-          <JetteSiteMock variant="server" lit={lit} />
+          <JetteSiteMock variant="server" state={state} accent={node.accent} />
         ) : (
           <>
             <div className="arch-node__icon">
-              <i className={`fas ${node.icon}`} />
+              <i className={`fas ${node.icon}`} aria-hidden="true" />
             </div>
             <div className="arch-node__example">{node.example}</div>
           </>
@@ -174,11 +210,14 @@ function ArchNode({
 
 export default function Slide03ArchDiagram() {
   const reduceMotion = useReducedMotion();
-  const [activeHop, setActiveHop] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     if (reduceMotion) return;
-    const id = window.setInterval(() => setActiveHop((v) => (v + 1) % FLOW_STEPS.length), 2200);
+    const id = window.setInterval(
+      () => setActiveStep((v) => (v + 1) % FLOW_STEPS.length),
+      2400,
+    );
     return () => window.clearInterval(id);
   }, [reduceMotion]);
 
@@ -190,13 +229,26 @@ export default function Slide03ArchDiagram() {
           <div className="arch-zone-banner arch-zone-banner--be">Back-End</div>
         </div>
 
-        <div className="arch-pipeline">
-          {NODES.map((node, i) => (
-            <div key={node.id} className={`arch-pipeline__segment arch-pipeline__segment--${node.id}`}>
-              <ArchNode node={node} lit={activeHop === i || activeHop === i - 1} />
-              {i < NODES.length - 1 ? <BidirectionalArrows active={activeHop === i} /> : null}
-            </div>
-          ))}
+        <div className="arch-pipeline-wrap">
+          <div className="arch-zone-bg arch-zone-bg--fe" aria-hidden="true" />
+          <div className="arch-zone-bg arch-zone-bg--be" aria-hidden="true" />
+
+          <div className="arch-pipeline">
+            {NODES.map((node, i) => {
+              const state = getNodeState(i, activeStep);
+              const pipeActive = activeStep === i;
+              const pipeVisited = activeStep > i;
+
+              return (
+                <div key={node.id} className={`arch-pipeline__segment arch-pipeline__segment--${node.id}`}>
+                  <ArchNode node={node} state={state} reduceMotion={reduceMotion} />
+                  {i < NODES.length - 1 ? (
+                    <FlowPipe active={pipeActive} visited={pipeVisited} reduceMotion={reduceMotion} />
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="arch-zone-captions">
@@ -208,13 +260,13 @@ export default function Slide03ArchDiagram() {
       </div>
 
       <motion.div
-        key={activeHop}
+        key={activeStep}
         className="arch-flow-caption"
-        initial={{ opacity: 0, y: 4 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
-        {FLOW_STEPS[activeHop] ?? FLOW_STEPS[0]}
+        {FLOW_STEPS[activeStep]}
       </motion.div>
     </div>
   );

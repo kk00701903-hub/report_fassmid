@@ -83,7 +83,109 @@
   font-size: 20px;
 }
 
-/* ── PART divider slides (2, 13, 22, 27, 36) ── */
+/* ── PART divider slides (2, 13, 22, 27, 36) — backup 2.html typography ── */
+.slide-s02 .section-slide-root,
+.slide-s13 .section-slide-root,
+.slide-s22 .section-slide-root,
+.slide-s27 .section-slide-root,
+.slide-s36 .section-slide-root {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 52px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-s02 .section-part-label,
+.slide-s13 .section-part-label,
+.slide-s22 .section-part-label,
+.slide-s27 .section-part-label,
+.slide-s36 .section-part-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.slide-s02 .section-title-ko,
+.slide-s13 .section-title-ko,
+.slide-s22 .section-title-ko,
+.slide-s27 .section-title-ko,
+.slide-s36 .section-title-ko {
+  font-size: 26px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.slide-s02 .section-title-en,
+.slide-s13 .section-title-en,
+.slide-s22 .section-title-en,
+.slide-s27 .section-title-en,
+.slide-s36 .section-title-en {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+.slide-s02 .section-divider-line,
+.slide-s13 .section-divider-line,
+.slide-s22 .section-divider-line,
+.slide-s27 .section-divider-line,
+.slide-s36 .section-divider-line {
+  width: 80px;
+  height: 3px;
+  margin-bottom: 28px;
+}
+
+.slide-s02 .section-topics-list,
+.slide-s13 .section-topics-list,
+.slide-s22 .section-topics-list,
+.slide-s27 .section-topics-list,
+.slide-s36 .section-topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.slide-s02 .section-topic-item,
+.slide-s13 .section-topic-item,
+.slide-s22 .section-topic-item,
+.slide-s27 .section-topic-item,
+.slide-s36 .section-topic-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.slide-s02 .topic-text,
+.slide-s13 .topic-text,
+.slide-s22 .topic-text,
+.slide-s27 .topic-text,
+.slide-s36 .topic-text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.slide-s02 .section-part-number,
+.slide-s13 .section-part-number,
+.slide-s22 .section-part-number,
+.slide-s27 .section-part-number,
+.slide-s36 .section-part-number {
+  font-size: 120px;
+  right: 48px;
+  bottom: 32px;
+}
+
+/* Legacy generic rules (other section slides) */
 [class*="slide-s"] .section-slide-root {
   width: 100% !important;
   height: 100% !important;
@@ -144,7 +246,7 @@
   bottom: 28px;
 }
 
-/* Dense PART slide (many agenda items) */
+/* Dense PART slide (many agenda items) — neutralized for PART slides above */
 [class*="slide-s"] .section-slide-root.section-slide-dense {
   justify-content: center;
   padding: 24px 36px;
@@ -170,4 +272,9 @@
 [class*="slide-s"] .section-slide-dense .topic-text {
   font-size: 13px;
   line-height: 1.35;
+}
+
+.slide-s02 .section-slide-root.section-slide-dense .topic-text {
+  font-size: 17px;
+  line-height: 1.4;
 }

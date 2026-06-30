@@ -34,7 +34,7 @@ export default function Slide06() {
             <div className="panel panel--legacy">
               <div className="panel-badge panel-badge--warn">현행 · Batch 복제</div>
               <h2 className="panel-title">
-                &apos;야간 재고 전수조사&apos;
+                Close 재고조사 (폐쇄형/정기 재고조사)
                 <span>매일 야간 전체 데이터 재복제</span>
               </h2>
 
@@ -51,7 +51,7 @@ export default function Slide06() {
                 <div className="callout-body">
                   <div className="callout-label">현행 과제</div>
                   <p>
-                    <RichText text="대용량 전수 처리로 **운영 DB 부하**가 발생하며, 본사는 **전일 자정 기준 과거 데이터**에 의존하게 됩니다." />
+                    <RichText text="대용량 전수 처리로 **시스템 부하**가 발생하며, 본사는 **전일 자정 기준 과거 데이터**에 의존하게 됩니다." />
                   </p>
                 </div>
               </div>
@@ -66,7 +66,7 @@ export default function Slide06() {
             <div className="panel panel--cdc">
               <div className="panel-badge panel-badge--pos">차세대 · CDC</div>
               <h2 className="panel-title">
-                &apos;실시간 입출고 센서&apos;
+                Open 재고조사 (개방형/상시 재고조사)
                 <span>변동분만 즉시 동기화</span>
               </h2>
 
@@ -83,7 +83,7 @@ export default function Slide06() {
                 <div className="callout-body">
                   <div className="callout-label">기대 효과</div>
                   <p>
-                    <RichText text="운영 DB에 **실질적 부하 없이** 신·구 시스템을 연동하며, **준실시간 데이터** 기반 의사결정을 지원합니다." />
+                    <RichText text="**실질적 부하 없이** 신·구 시스템을 연동하며, **준실시간 데이터** 기반 의사결정을 지원합니다." />
                   </p>
                 </div>
               </div>

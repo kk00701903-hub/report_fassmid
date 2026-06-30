@@ -47,7 +47,7 @@ const SLIDE_HTML = `<div class="slide sprint-board-slide">
       <div class="sprint-list">
         <div class="sprint s-done"><span class="sprint-id">S01</span><div class="sprint-body"><div class="sprint-title">개발 명명 규칙 표준화 작업</div><div class="sprint-meta"><span class="sprint-done"><i class="fas fa-check"></i>종료</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S02</span><div class="sprint-body"><div class="sprint-title">개발 환경 및 인프라 기반 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S03</span><div class="sprint-body"><div class="sprint-title">공통 플랫폼 인프라</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:0s"><span class="sprint-id">S03</span><div class="sprint-body"><div class="sprint-title">공통 플랫폼 인프라</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
       </div>
     </div>
 
@@ -59,7 +59,7 @@ const SLIDE_HTML = `<div class="slide sprint-board-slide">
       </div>
       <div class="sprint-list">
         <div class="sprint"><span class="sprint-id">S05</span><div class="sprint-body"><div class="sprint-title">SSO 연동 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S07</span><div class="sprint-body"><div class="sprint-title">권한 관리</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:0.25s"><span class="sprint-id">S07</span><div class="sprint-body"><div class="sprint-title">권한 관리</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint s-done"><span class="sprint-id">S08</span><div class="sprint-body"><div class="sprint-title">상태관리 및 API 통신 공통 모듈 개발</div><div class="sprint-meta"><span class="sprint-done"><i class="fas fa-check"></i>종료</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S15</span><div class="sprint-body"><div class="sprint-title">데이터 보안</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
@@ -72,9 +72,9 @@ const SLIDE_HTML = `<div class="slide sprint-board-slide">
         <div class="phase-count">5 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint"><span class="sprint-id">S04</span><div class="sprint-body"><div class="sprint-title">공통 프레임워크 아키텍처</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:0.5s"><span class="sprint-id">S04</span><div class="sprint-body"><div class="sprint-title">공통 프레임워크 아키텍처</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S09</span><div class="sprint-body"><div class="sprint-title">공통 UI 컴포넌트 라이브러리 개발</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S10</span><div class="sprint-body"><div class="sprint-title">비즈니스 컴포넌트 개발 가이드</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:0.75s"><span class="sprint-id">S10</span><div class="sprint-body"><div class="sprint-title">비즈니스 컴포넌트 개발 가이드</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S11</span><div class="sprint-body"><div class="sprint-title">멀티 컴퍼니 지원</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S16</span><div class="sprint-body"><div class="sprint-title">SSR-RSC 최적화 및 Web Vitals</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
@@ -88,7 +88,7 @@ const SLIDE_HTML = `<div class="slide sprint-board-slide">
       </div>
       <div class="sprint-list">
         <div class="sprint"><span class="sprint-id">S12</span><div class="sprint-body"><div class="sprint-title">외부 인터페이스</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S14</span><div class="sprint-body"><div class="sprint-title">AI 연동 모듈 개발</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:1s"><span class="sprint-id">S14</span><div class="sprint-body"><div class="sprint-title">AI 연동 모듈 개발</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
         <div class="sprint"><span class="sprint-id">S17</span><div class="sprint-body"><div class="sprint-title">CDC 데이터 동기화 파이프라인 구축</div><div class="sprint-meta"><span class="sprint-future"><i class="fas fa-clock"></i>예정</span></div></div></div>
       </div>
     </div>
@@ -100,10 +100,10 @@ const SLIDE_HTML = `<div class="slide sprint-board-slide">
         <div class="phase-count">4 Sprints</div>
       </div>
       <div class="sprint-list">
-        <div class="sprint"><span class="sprint-id">S18</span><div class="sprint-body"><div class="sprint-title">MSA 전환 로드맵 실행 (Phase 1→2→3)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S19</span><div class="sprint-body"><div class="sprint-title">표준 라이브러리 골든셋 (Golden Set)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S20</span><div class="sprint-body"><div class="sprint-title">SCA 도입 (Nexus IQ — OSS 공급망 보안)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
-        <div class="sprint"><span class="sprint-id">S23</span><div class="sprint-body"><div class="sprint-title">리포트 Tool 도입</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:1.25s"><span class="sprint-id">S18</span><div class="sprint-body"><div class="sprint-title">MSA 전환 로드맵 실행 (Phase 1→2→3)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:1.5s"><span class="sprint-id">S19</span><div class="sprint-body"><div class="sprint-title">표준 라이브러리 골든셋 (Golden Set)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:1.75s"><span class="sprint-id">S20</span><div class="sprint-body"><div class="sprint-title">SCA 도입 (Nexus IQ — OSS 공급망 보안)</div><div class="sprint-meta"><span class="sprint-tag">대규모</span><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
+        <div class="sprint s-active" style="--s14-active-delay:2s"><span class="sprint-id">S23</span><div class="sprint-body"><div class="sprint-title">리포트 Tool 도입</div><div class="sprint-meta"><span class="sprint-live"><i class="fas fa-circle"></i>진행중</span></div></div></div>
       </div>
     </div>
   </div>

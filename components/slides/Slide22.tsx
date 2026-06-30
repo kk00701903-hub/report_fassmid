@@ -19,11 +19,11 @@ const SLIDE_HTML = `<div class="section-slide-root">
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)</span>
+      <span class="topic-text">아키텍처 원칙 1: 모듈러 모놀리스</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)</span>
+      <span class="topic-text">아키텍처 원칙 2: 무중단 데이터 동기화</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
