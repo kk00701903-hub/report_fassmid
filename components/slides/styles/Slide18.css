@@ -59,27 +59,116 @@
 .slide-s18 .milestone-card.p6{--phase-color:var(--p6)}
 .slide-s18 .milestone-card.p7{--phase-color:var(--p7)}
 .slide-s18 .milestone-card.current {
-  border-color: rgba(0, 120, 212, 0.75);
-  background: linear-gradient(180deg, rgba(255, 192, 0, 0.18), rgba(255, 192, 0, 0.06));
-  box-shadow: 0 0 0 1px rgba(255, 192, 0, 0.35), var(--fluent-shadow);
+  border-color: rgba(202, 80, 16, 0.75);
+  border-top-width: 4px;
+  background: linear-gradient(145deg, #fff4e5 0%, #ffe8cc 38%, #fff9f0 100%);
+  z-index: 2;
+  overflow: hidden;
 }
-.slide-s18 .milestone-card.current .phase-badge { color: var(--fluent-warn); }
-.slide-s18 .milestone-card.current .card-title { color: var(--fluent-grey-160); }
-.slide-s18 .milestone-card.current .card-desc { color: var(--fluent-grey-130); }
-.slide-s18 .milestone-card.current .period { background: rgba(255, 192, 0, 0.15); border-color: rgba(202, 80, 16, 0.35); }
-.slide-s18 .milestone-card.current .period-y,
-.slide-s18 .milestone-card.current .period-m { color: var(--fluent-warn); }
 
-.slide-s18 .current-pill {
-  font-size: 10px;
+.slide-s18 .milestone-card.current--animated {
+  border-top-color: #ca5010;
+}
+
+.slide-s18 .milestone-card.current .current-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid rgba(202, 80, 16, 0.45);
+  pointer-events: none;
+}
+
+.slide-s18 .milestone-card.current .current-shimmer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 42%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.15) 58%,
+    transparent 100%
+  );
+}
+
+.slide-s18 .milestone-card.current .phase-badge--live {
+  background: linear-gradient(135deg, #ca5010 0%, #8a3b00 100%);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(202, 80, 16, 0.35);
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.04em;
+}
+
+.slide-s18 .milestone-card.current .card-title {
+  color: #5c2d00;
+  font-weight: 800;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-s18 .milestone-card.current .card-desc {
+  color: #323130;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-s18 .milestone-card.current .period,
+.slide-s18 .milestone-card.current .period--active {
+  background: #ffffff;
+  border: 1px solid rgba(202, 80, 16, 0.45);
+  position: relative;
+  z-index: 1;
+}
+
+.slide-s18 .milestone-card.current .period-y {
+  color: #ca5010;
+}
+
+.slide-s18 .milestone-card.current .period-m {
+  color: #5c2d00;
+  font-weight: 800;
+}
+
+.slide-s18 .milestone-card.current .status-now {
+  background: linear-gradient(135deg, #ca5010 0%, #8a3b00 100%);
+  color: #ffffff;
+  border: 1px solid #6b2f00;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(202, 80, 16, 0.3);
+}
+
+.slide-s18 .current-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   padding: 2px 8px;
   border-radius: 10px;
-  background: #ffc000;
-  color: #201f1e;
+  background: #201f1e;
+  color: #ffc000;
   margin-left: 4px;
   white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-s18 .current-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffc000;
+  box-shadow: 0 0 6px rgba(255, 192, 0, 0.8);
 }
 
 .slide-s18 .milestone-card.span2 { grid-column: span 2; }
@@ -88,6 +177,8 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 6px 8px;
+  position: relative;
+  z-index: 1;
 }
 .slide-s18 .card-head-left { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; min-width: 0; }
 .slide-s18 .phase-badge { font-size: 13px; font-weight: 700; color: var(--phase-color, var(--fluent-blue)); letter-spacing: 0.02em; }
@@ -119,7 +210,7 @@
 }
 .slide-s18 .milestone-card.span2 .card-desc { -webkit-line-clamp: 3; }
 .slide-s18 .milestone-card.p3.current .card-desc { -webkit-line-clamp: 4; }
-.slide-s18 .card-foot { display: flex; justify-content: flex-end; margin-top: auto; }
+.slide-s18 .card-foot { display: flex; justify-content: flex-end; margin-top: auto; position: relative; z-index: 1; }
 .slide-s18 .status-tag { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 10px; }
 .slide-s18 .status-done { background: rgba(16, 124, 16, 0.12); color: var(--fluent-good); }
 .slide-s18 .status-now { background: rgba(255, 192, 0, 0.2); color: var(--fluent-warn); border: 1px solid rgba(202, 80, 16, 0.35); }
@@ -131,3 +222,9 @@
 .slide-s18 .card-title { font-size: 13px; line-height: 1.28; }
 .slide-s18 .card-desc { font-size: 13px; line-height: 1.38; }
 .slide-s18 .bottom-bar { margin: 6px 32px 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-s18 .milestone-card.current--animated {
+    box-shadow: 0 0 0 2px rgba(202, 80, 16, 0.55), 0 6px 20px rgba(202, 80, 16, 0.22) !important;
+  }
+}
