@@ -16,16 +16,32 @@ const STATUS_LABEL: Record<SprintStatus, string> = {
   active: "진행중",
 };
 
-const STATUS_ICON: Record<SprintStatus, string> = {
+const STATUS_ICON: Record<Exclude<SprintStatus, "active">, string> = {
   closed: "fa-check",
   future: "fa-clock",
-  active: "fa-circle",
 };
 
+const ACTIVE_SPINNER_SRC = `${process.env.NEXT_PUBLIC_BASE_PATH ?? "/report_fassmid"}/slides/assets/active-progress.gif`;
+
 function SprintStatusBadge({ status }: { status: SprintStatus }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <span className={`s14-kanban__badge s14-kanban__badge--${status}`}>
-      <i className={`fas ${STATUS_ICON[status]}`} aria-hidden="true" />
+      {status === "active" ? (
+        reduceMotion ? (
+          <span className="s14-kanban__badge-dot" aria-hidden="true" />
+        ) : (
+          <img
+            src={ACTIVE_SPINNER_SRC}
+            alt=""
+            className="s14-kanban__badge-spinner"
+            aria-hidden="true"
+          />
+        )
+      ) : (
+        <i className={`fas ${STATUS_ICON[status]}`} aria-hidden="true" />
+      )}
       {STATUS_LABEL[status]}
     </span>
   );
@@ -65,9 +81,9 @@ function SprintCard({ sprint, activeIndex }: { sprint: SprintItem; activeIndex?:
                 y: 0,
                 scale: [1, 1.015, 1],
                 boxShadow: [
-                  "0 0 0 1px rgba(11,106,11,0.28), 0 2px 10px rgba(11,106,11,0.12)",
-                  "0 0 0 2px rgba(34,197,94,0.55), 0 0 18px rgba(34,197,94,0.28)",
-                  "0 0 0 1px rgba(11,106,11,0.28), 0 2px 10px rgba(11,106,11,0.12)",
+                  "0 0 0 1px rgba(0,120,212,0.28), 0 2px 10px rgba(0,120,212,0.12)",
+                  "0 0 0 2px rgba(0,120,212,0.55), 0 0 18px rgba(0,120,212,0.28)",
+                  "0 0 0 1px rgba(0,120,212,0.28), 0 2px 10px rgba(0,120,212,0.12)",
                 ],
               }
         }
@@ -157,7 +173,7 @@ export default function Slide14SprintKanban() {
 
       <footer className="footer">
         <strong>현황 기준:</strong> 별첨 스프린트 백로그 반영 — <strong>S01·S08 종료</strong>, ACTIVE
-        9건 (일반 6 + 대규모 S18~S20·S23), FUTURE 8건 예정
+        6건 (S03·S04·S07·S10·S14·S18), FUTURE 11건 (S19·S20·S23 포함)
       </footer>
     </div>
   );

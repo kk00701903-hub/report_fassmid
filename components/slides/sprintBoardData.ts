@@ -17,9 +17,9 @@ export type SprintPhase = {
 
 export const SPRINT_BOARD_STATS = {
   total: 19,
-  active: 9,
+  active: 6,
   closed: 2,
-  future: 8,
+  future: 11,
 } as const;
 
 export const SPRINT_PHASES: SprintPhase[] = [
@@ -77,9 +77,9 @@ export const SPRINT_PHASES: SprintPhase[] = [
     phaseName: "전략·품질·Tool",
     sprints: [
       { id: "S18", title: "MSA 전환 로드맵 실행 (Phase 1→2→3)", status: "active", tag: "대규모" },
-      { id: "S19", title: "표준 라이브러리 골든셋 (Golden Set)", status: "active", tag: "대규모" },
-      { id: "S20", title: "SCA 도입 (Nexus IQ — OSS 공급망 보안)", status: "active", tag: "대규모" },
-      { id: "S23", title: "리포트 Tool 도입", status: "active" },
+      { id: "S19", title: "표준 라이브러리 골든셋 (Golden Set)", status: "future", tag: "대규모" },
+      { id: "S20", title: "SCA 도입 (Nexus IQ — OSS 공급망 보안)", status: "future", tag: "대규모" },
+      { id: "S23", title: "리포트 Tool 도입", status: "future" },
     ],
   },
 ];

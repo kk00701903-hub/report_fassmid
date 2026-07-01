@@ -334,7 +334,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "19개 스프린트 운영 현황",
         category: "process",
         summary:
-          "별첨 백로그 기준 19개 Mega-Sprint — S01·S08 종료, ACTIVE 6건 (S03·S04·S07·S10·S14·S23), FUTURE 11건 (S18~S20 대규모 포함).",
+          "별첨 백로그 기준 19개 Mega-Sprint — S01·S08 종료, ACTIVE 6건 (S03·S04·S07·S10·S14·S18), FUTURE 11건 (S19·S20·S23 포함).",
         links: [{ label: "FaSS Sprint Backlog", href: "https://kk00701903-hub.github.io/sprint-backlog/" }],
         preview: {
           type: "sprint-backlog",
@@ -343,8 +343,8 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         },
         process: [
           { step: 1, title: "종료", description: "S01 개발 명명 규칙 표준화 · S08 상태관리·API 통신 공통 모듈" },
-          { step: 2, title: "진행중", description: "S03·S04·S07·S10·S14·S23 — ACTIVE 6건 (깜빡임 표시)" },
-          { step: 3, title: "예정", description: "S02·S05·S09·S11·S12·S15·S16·S17 및 S18~S20 대규모 — FUTURE 11건" },
+          { step: 2, title: "진행중", description: "S03·S04·S07·S10·S14·S18 — ACTIVE 6건 (파란 강조·스피너 표시)" },
+          { step: 3, title: "예정", description: "S02·S05·S09·S11·S12·S15·S16·S17·S19·S20·S23 — FUTURE 11건" },
         ],
       },
     ],

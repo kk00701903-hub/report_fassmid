@@ -7,6 +7,9 @@
   --ppt-text-2: #484644;
   --ppt-text-3: #605e5c;
   --ppt-accent: #0078d4;
+  --ppt-active: #0078d4;
+  --ppt-active-light: #2b88d8;
+  --ppt-active-bg: #eff6fc;
   --ppt-good: #0b6a0b;
   --ppt-good-light: #22c55e;
   --p0: #0078d4;
@@ -36,7 +39,7 @@
   pointer-events: none;
   background:
     radial-gradient(ellipse at 12% 0%, rgba(0, 120, 212, 0.04) 0%, transparent 42%),
-    radial-gradient(ellipse at 88% 100%, rgba(11, 106, 11, 0.04) 0%, transparent 38%);
+    radial-gradient(ellipse at 88% 100%, rgba(0, 120, 212, 0.04) 0%, transparent 38%);
 }
 
 .slide-s14 .title-r {
@@ -66,9 +69,9 @@
   font-weight: 700;
   padding: 3px 9px;
   border-radius: 12px;
-  background: rgba(11, 106, 11, 0.1);
-  border: 1px solid rgba(11, 106, 11, 0.4);
-  color: var(--ppt-good);
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid rgba(0, 120, 212, 0.4);
+  color: var(--ppt-active);
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -78,7 +81,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--ppt-good);
+  background: var(--ppt-active);
   animation: s14-pulse 1.4s ease-in-out infinite;
 }
 
@@ -149,10 +152,10 @@
 }
 
 .slide-s14 .s14-kanban__stat--total .s14-kanban__stat-val { color: var(--ppt-accent); }
-.slide-s14 .s14-kanban__stat--active .s14-kanban__stat-val { color: var(--ppt-good); }
+.slide-s14 .s14-kanban__stat--active .s14-kanban__stat-val { color: var(--ppt-active); }
 .slide-s14 .s14-kanban__stat--active {
-  border-color: rgba(11, 106, 11, 0.35);
-  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+  border-color: rgba(0, 120, 212, 0.35);
+  background: linear-gradient(180deg, #eff6fc 0%, #ffffff 100%);
 }
 .slide-s14 .s14-kanban__stat--closed .s14-kanban__stat-val { color: #605e5c; }
 .slide-s14 .s14-kanban__stat--future .s14-kanban__stat-val { color: #004578; }
@@ -349,12 +352,25 @@
 
 .slide-s14 .s14-kanban__badge--active {
   color: #ffffff;
-  background: var(--ppt-good);
-  border: 1px solid #084808;
+  background: var(--ppt-active);
+  border: 1px solid #004578;
 }
 
-.slide-s14 .s14-kanban__badge--active i {
-  animation: s14-pulse 1.4s ease-in-out infinite;
+.slide-s14 .s14-kanban__badge-spinner {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.slide-s14 .s14-kanban__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  flex-shrink: 0;
+  display: none;
 }
 
 .slide-s14 .s14-kanban__card--closed {
@@ -368,14 +384,14 @@
 
 /* ── ACTIVE card animations ── */
 .slide-s14 .s14-kanban__card--active {
-  background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);
-  border-color: rgba(11, 106, 11, 0.45);
+  background: linear-gradient(135deg, #ffffff 0%, #eff6fc 100%);
+  border-color: rgba(0, 120, 212, 0.45);
   z-index: 1;
 }
 
 .slide-s14 .s14-kanban__card--active::before {
   width: 3px;
-  background: var(--ppt-good);
+  background: var(--ppt-active);
   opacity: 1;
   animation: s14-active-bar 2.6s ease-in-out infinite;
   animation-delay: var(--s14-active-delay, 0s);
@@ -389,9 +405,9 @@
   background: linear-gradient(
     105deg,
     transparent 0%,
-    rgba(34, 197, 94, 0.08) 45%,
-    rgba(34, 197, 94, 0.18) 50%,
-    rgba(34, 197, 94, 0.08) 55%,
+    rgba(0, 120, 212, 0.08) 45%,
+    rgba(0, 120, 212, 0.18) 50%,
+    rgba(0, 120, 212, 0.08) 55%,
     transparent 100%
   );
   transform: translateX(-120%);
@@ -407,11 +423,11 @@
   padding: 1.5px;
   background: linear-gradient(
     90deg,
-    #084808,
-    #22c55e,
-    #4ade80,
-    #22c55e,
-    #084808
+    #004578,
+    #0078d4,
+    #2b88d8,
+    #0078d4,
+    #004578
   );
   background-size: 200% 100%;
   animation: s14-border-flow 2.8s linear infinite;
@@ -428,7 +444,7 @@
 
 @keyframes s14-active-bar {
   0%, 100% { opacity: 0.85; box-shadow: none; }
-  50% { opacity: 1; box-shadow: 0 0 8px rgba(34, 197, 94, 0.55); }
+  50% { opacity: 1; box-shadow: 0 0 8px rgba(0, 120, 212, 0.55); }
 }
 
 @keyframes s14-shimmer {
@@ -442,13 +458,13 @@
 }
 
 .slide-s14 .s14-kanban__card--active .s14-kanban__card-id {
-  background: rgba(11, 106, 11, 0.1);
-  color: var(--ppt-good);
-  border-color: var(--ppt-good);
+  background: rgba(0, 120, 212, 0.1);
+  color: var(--ppt-active);
+  border-color: var(--ppt-active);
 }
 
 .slide-s14 .s14-kanban__card--active .s14-kanban__card-title {
-  color: #0b3d0b;
+  color: #004578;
   font-weight: 700;
 }
 
@@ -474,14 +490,21 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slide-s14 .badge .pulse,
-  .slide-s14 .s14-kanban__badge--active i,
   .slide-s14 .s14-kanban__card--active::before,
   .slide-s14 .s14-kanban__card-glow,
   .slide-s14 .s14-kanban__card-border {
     animation: none !important;
   }
 
+  .slide-s14 .s14-kanban__badge-spinner {
+    display: none;
+  }
+
+  .slide-s14 .s14-kanban__badge--active .s14-kanban__badge-dot {
+    display: block;
+  }
+
   .slide-s14 .s14-kanban__card--active {
-    box-shadow: 0 0 0 2px rgba(11, 106, 11, 0.4), 0 2px 10px rgba(11, 106, 11, 0.14) !important;
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.4), 0 2px 10px rgba(0, 120, 212, 0.14) !important;
   }
 }
