@@ -1,8 +1,10 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const STATIONS = ["입고", "분류", "포장", "출고"] as const;
+
+const PKG_TRAVEL = { duration: 3.2, repeat: Infinity, ease: "linear" as const };
 
 function PackageBox({ className = "" }: { className?: string }) {
   return (
@@ -10,6 +12,33 @@ function PackageBox({ className = "" }: { className?: string }) {
       <div className="s05-package__strap" />
       <div className="s05-package__seam" />
     </div>
+  );
+}
+
+function FlowingPackage({ delay }: { delay: number }) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <PackageBox className={`s05-package--flow s05-package--delay-${delay}`} />;
+  }
+
+  return (
+    <motion.div
+      className="s05-package s05-package--motion"
+      style={{ position: "absolute", left: "50%", marginLeft: -17, top: 0 }}
+      initial={{ y: -44, opacity: 0 }}
+      animate={{ y: [-44, 268], opacity: [0, 1, 1, 0] }}
+      transition={{
+        duration: PKG_TRAVEL.duration,
+        repeat: Infinity,
+        ease: PKG_TRAVEL.ease,
+        delay: delay * 1.05,
+        times: [0, 0.1, 0.88, 1],
+      }}
+    >
+      <div className="s05-package__strap" />
+      <div className="s05-package__seam" />
+    </motion.div>
   );
 }
 
@@ -29,24 +58,27 @@ function StationPill({
 }
 
 function ConveyorBelt({ variant }: { variant: "stalled" | "flowing" }) {
+  const flowing = variant === "flowing";
+
   return (
     <div className={`s05-belt s05-belt--${variant}`}>
       <div className="s05-belt__cap s05-belt__cap--top" />
       <div className="s05-belt__cap s05-belt__cap--bottom" />
       <div className="s05-belt__track">
         <div className="s05-belt__slats" />
-        {variant === "stalled" ? (
+        {flowing ? (
+          <>
+            <FlowingPackage delay={0} />
+            <FlowingPackage delay={1} />
+            <FlowingPackage delay={2} />
+            <FlowingPackage delay={3} />
+          </>
+        ) : (
           <>
             <PackageBox className="s05-package--stuck s05-package--pos-1" />
             <PackageBox className="s05-package--stuck s05-package--pos-2" />
             <PackageBox className="s05-package--stuck s05-package--pos-3" />
             <div className="s05-belt__stall-overlay" />
-          </>
-        ) : (
-          <>
-            <PackageBox className="s05-package--flow s05-package--delay-0" />
-            <PackageBox className="s05-package--flow s05-package--delay-1" />
-            <PackageBox className="s05-package--flow s05-package--delay-2" />
           </>
         )}
       </div>
@@ -59,6 +91,7 @@ export function Slide05MonoScene() {
 
   return (
     <div className={`s05-scene s05-scene--legacy${reduceMotion ? " s05-scene--static" : ""}`}>
+      <div className="s05-scene__corner-tag s05-scene__corner-tag--danger">단일 담당</div>
       <div className="s05-scene__stage">
         <ConveyorBelt variant="stalled" />
 
@@ -76,7 +109,6 @@ export function Slide05MonoScene() {
                 <i className="fas fa-xmark" aria-hidden="true" />
               </span>
             </div>
-            <span className="s05-worker__label">단일 담당</span>
           </div>
         </div>
 
@@ -99,6 +131,9 @@ export function Slide05MsaScene() {
 
   return (
     <div className={`s05-scene s05-scene--msa${reduceMotion ? " s05-scene--static" : ""}`}>
+      <div className="s05-scene__corner-tag s05-scene__corner-tag--swap">
+        <i className="fas fa-rotate" aria-hidden="true" /> 1:1 교체
+      </div>
       <div className="s05-scene__stage">
         <ConveyorBelt variant="flowing" />
 
@@ -121,9 +156,6 @@ export function Slide05MsaScene() {
           </div>
           <div className="s05-worker-row">
             <div className="s05-worker s05-worker--swap">
-              <span className="s05-worker__swap-tag">
-                <i className="fas fa-rotate" aria-hidden="true" /> 1:1 교체
-              </span>
               <div className="s05-worker__avatar">
                 <i className="fas fa-user-gear" aria-hidden="true" />
               </div>

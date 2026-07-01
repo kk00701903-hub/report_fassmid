@@ -6,8 +6,10 @@ import SlidePartIndicator from "@/components/SlidePartIndicator";
 import SlideOptionsPanel from "@/components/SlideOptionsPanel";
 import { usePresentationConfigState } from "@/hooks/usePresentationConfig";
 import SlideStage, { SLIDE_ASPECT, SLIDE_HEIGHT, SLIDE_WIDTH } from "@/components/SlideStage";
+import { PresentationMotionProvider } from "@/components/presentation/PresentationMotionContext";
 import SlideParticlesProvider from "@/components/slides/motion/SlideParticlesProvider";
 import { getBasePath } from "@/lib/basePath";
+import { restartSlideAnimations } from "@/lib/restartSlideAnimations";
 import { getBuiltinSlideId, isSlideVisible, type PresentationConfig, type SlideManifestItem } from "@/lib/presentationConfig";
 import { prefetchSlides } from "@/lib/slideCache";
 import { getSlideComponent } from "@/lib/slideRegistry";
@@ -54,6 +56,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [motionEpoch, setMotionEpoch] = useState(0);
 
   const slideCount = config?.slides.length ?? 0;
   const currentItem = config?.slides[currentIndex];
@@ -144,7 +147,16 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
   useEffect(() => {
     function handleFullscreenChange() {
-      setIsFullscreen(document.fullscreenElement?.id === "presentation-shell");
+      const nextFullscreen = document.fullscreenElement?.id === "presentation-shell";
+      setIsFullscreen(nextFullscreen);
+      setMotionEpoch((epoch) => epoch + 1);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const shell = document.getElementById("presentation-shell");
+          if (shell) restartSlideAnimations(shell);
+        });
+      });
     }
 
     document.addEventListener("fullscreenchange", handleFullscreenChange);
@@ -233,6 +245,17 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       window.removeEventListener("resize", syncScale);
     };
   }, [updateScale, slideLoading, sidebarOpen, currentIndex, isFullscreen]);
+
+  useEffect(() => {
+    if (!isFullscreen) return;
+
+    const timer = window.setTimeout(() => {
+      const shell = document.getElementById("presentation-shell");
+      if (shell) restartSlideAnimations(shell);
+    }, 200);
+
+    return () => window.clearTimeout(timer);
+  }, [isFullscreen, scale]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -324,6 +347,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
   return (
     <SlideParticlesProvider>
+    <PresentationMotionProvider motionEpoch={motionEpoch} isFullscreen={isFullscreen}>
     <div
       id="presentation-shell"
       className={`presentation-shell presentation-shell--projector ${sidebarOpen ? "presentation-shell--sidebar-open" : ""} ${isFullscreen ? "presentation-shell--fullscreen" : ""}`}
@@ -497,6 +521,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
         <SlideOptionsPanel config={config} onClose={() => setShowOptions(false)} onApply={handleConfigApply} />
       ) : null}
     </div>
+    </PresentationMotionProvider>
     </SlideParticlesProvider>
   );
 }

@@ -5,6 +5,15 @@ import Slide18CollaborationFlow from "@/components/slides/Slide18CollaborationFl
 import Slide18WorkLanes from "@/components/slides/Slide18WorkLanes";
 import "./styles/Slide19.css";
 
+/** 담당자명 기본(검정) 표시 — 그 외 인원은 파란색 강조 */
+const DEFAULT_NAME_COLOR = new Set(["오준열", "한성민"]);
+
+function isBlueName(name: string): boolean {
+  const normalized = name.replace(/\s+/g, "");
+  if (normalized === "시스템사업부장") return false;
+  return !DEFAULT_NAME_COLOR.has(name);
+}
+
 const ORG_ROWS = [
   {
     role: "최고 의사결정",
@@ -28,7 +37,7 @@ const ORG_ROWS = [
   },
   {
     role: "FE 엔지니어",
-    names: ["심지훈", "오준열", "이지상"],
+    names: ["심지훈", "오준열", "한성민", "이지상"],
     tasks: ["프론트엔드 및 UX 표준 구현", "AI 연동 RAG 환경 및 인터페이스 구축"],
   },
 ] as const;
@@ -142,13 +151,16 @@ export default function Slide19() {
                         {"names" in row ? (
                           <div className="names">
                             {row.names.map((n) => (
-                              <span key={n} className="name">
+                              <span key={n} className={`name${isBlueName(n) ? " name--blue" : ""}`}>
                                 {n}
                               </span>
                             ))}
                           </div>
                         ) : (
-                          <span className="name" style={{ whiteSpace: "pre-line" }}>
+                          <span
+                            className={`name${isBlueName(row.name) ? " name--blue" : ""}`}
+                            style={{ whiteSpace: "pre-line" }}
+                          >
                             {row.name}
                           </span>
                         )}

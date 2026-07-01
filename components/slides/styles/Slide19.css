@@ -718,6 +718,10 @@
   line-height: 1.3;
 }
 
+.slide-s19 .name--blue {
+  color: #0078d4;
+}
+
 .slide-s19 .names .name {
   display: block;
 }

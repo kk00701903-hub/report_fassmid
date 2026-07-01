@@ -198,6 +198,18 @@
   line-height: 1.28;
 }
 
+.slide-s11 .pillar-card.cyan .pillar-title {
+  color: #0078d4;
+}
+
+.slide-s11 .pillar-card.amber .pillar-title {
+  color: #b45309;
+}
+
+.slide-s11 .pillar-card.green .pillar-title {
+  color: #107c10;
+}
+
 .slide-s11 .pillar-en {
   font-size: 13px;
   color: #8a8886;

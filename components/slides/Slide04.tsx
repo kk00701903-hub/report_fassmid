@@ -16,7 +16,6 @@ const CONCEPTS = [
     en: "Standardization",
     variant: "standard" as const,
     logistics: "쌀·TV·부품 등 **내용물이 달라도** 같은 크기 **철제 컨테이너**에 싣습니다. 어디서든 같은 방식으로 옮깁니다.",
-    system: "WEB·API·DB **동일 Docker 규격**으로 묶어 배포.",
   },
   {
     num: "02",
@@ -24,7 +23,6 @@ const CONCEPTS = [
     en: "Portability",
     variant: "port" as const,
     logistics: "부산항에 실은 컨테이너를 **다시 포장하지 않고** 배·열차·트럭에 **그대로** 연결해 운송합니다.",
-    system: "개발 검증 **그대로** 운영·클라우드 실행.",
   },
   {
     num: "03",
@@ -32,7 +30,6 @@ const CONCEPTS = [
     en: "Isolation",
     variant: "isolated" as const,
     logistics: "냉동 식품과 일반 화물을 **컨테이너를 나눠** 섞이거나 오염되지 않게 운반합니다.",
-    system: "주문·재고 **분리 실행** — 장애 **격리**.",
   },
 ] as const;
 
@@ -66,9 +63,11 @@ function TierConceptCard({
       <div className={`s04-concept-card__visual s04-concept-card__visual--${tier}`}>
         {isLogistics ? <MiniShipScene variant={item.variant} /> : <MiniDockerScene variant={item.variant} />}
       </div>
-      <p className="s04-concept-card__text">
-        <RichText text={isLogistics ? item.logistics : item.system} />
-      </p>
+      {isLogistics ? (
+        <p className="s04-concept-card__text">
+          <RichText text={item.logistics} />
+        </p>
+      ) : null}
     </div>
   );
 }

@@ -2538,6 +2538,19 @@ button {
   opacity: 1;
 }
 
+/* Keep diagram loops running after fullscreen scale change */
+.presentation-shell--fullscreen .slide-motion-orchestrator,
+.presentation-shell--fullscreen .slide-stage__canvas {
+  backface-visibility: hidden;
+}
+
+.presentation-shell--fullscreen .slide-motion-entered [data-motion] *,
+.presentation-shell--fullscreen .slide-motion-entered .s05-package--flow,
+.presentation-shell--fullscreen .slide-motion-entered .s05-package--motion,
+.presentation-shell--fullscreen .slide-motion-entered .s05-belt__slats {
+  animation-play-state: running !important;
+}
+
 .projector-fullscreen-exit {
   position: fixed;
   top: 12px;

@@ -3,6 +3,8 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { useReducedMotion } from "framer-motion";
 
+import { usePresentationMotion } from "@/components/presentation/PresentationMotionContext";
+
 type SlideMotionReadyContextValue = {
   entered: boolean;
 };
@@ -28,10 +30,12 @@ export function useSlideMotionEntered() {
 /**
  * Defers diagram loops until the slide entrance animation has finished and layout
  * has settled — avoids empty SVG paths and motion that never starts during blur.
+ * Re-runs when presentation fullscreen / scale changes (motionEpoch).
  */
 export function useSlideDiagramMotion(enabled = true) {
   const reduceMotion = useReducedMotion();
   const entered = useSlideMotionEntered();
+  const { motionEpoch } = usePresentationMotion();
   const [layoutReady, setLayoutReady] = useState(false);
 
   useEffect(() => {
@@ -46,14 +50,14 @@ export function useSlideDiagramMotion(enabled = true) {
     const raf1 = requestAnimationFrame(() => {
       requestAnimationFrame(markReady);
     });
-    const timer = window.setTimeout(markReady, 120);
+    const timer = window.setTimeout(markReady, motionEpoch > 0 ? 80 : 120);
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(raf1);
       window.clearTimeout(timer);
     };
-  }, [enabled, reduceMotion, entered]);
+  }, [enabled, reduceMotion, entered, motionEpoch]);
 
   const ready = enabled && entered && layoutReady && !reduceMotion;
 

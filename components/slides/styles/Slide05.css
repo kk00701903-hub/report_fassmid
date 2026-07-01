@@ -215,6 +215,7 @@
 
 /* ── Scene (conveyor + workers) ── */
 .slide-s05 .s05-scene {
+  position: relative;
   flex: 1;
   min-height: 0;
   margin: 0 10px;
@@ -222,6 +223,40 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.slide-s05 .s05-scene__corner-tag {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 7px 14px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.12);
+  letter-spacing: -0.01em;
+}
+
+.slide-s05 .s05-scene__corner-tag--danger {
+  color: var(--s05-legacy-red);
+  background: #fff;
+  border: 1.5px solid #f5c2c2;
+}
+
+.slide-s05 .s05-scene__corner-tag--swap {
+  color: #047857;
+  background: #ecfdf5;
+  border: 1.5px solid #6ee7b7;
+}
+
+.slide-s05 .s05-scene__corner-tag--swap i {
+  font-size: 14px;
+  color: #059669;
 }
 
 .slide-s05 .s05-scene--legacy {
@@ -319,6 +354,11 @@
   animation: s05-slat-down var(--s05-slat-dur) linear infinite;
 }
 
+.slide-s05 .s05-belt--stalled .s05-belt__slats {
+  animation: s05-slat-down calc(var(--s05-slat-dur) * 2.2) linear infinite;
+  opacity: 0.65;
+}
+
 .slide-s05 .s05-belt__stall-overlay {
   position: absolute;
   inset: 0;
@@ -360,6 +400,14 @@
 .slide-s05 .s05-package--stuck {
   filter: grayscale(0.55) brightness(0.97);
   opacity: 0.72;
+}
+
+.slide-s05 .s05-scene:not(.s05-scene--static) .s05-package--stuck {
+  animation: s05-pkg-stuck-shake 1.5s ease-in-out infinite;
+}
+
+.slide-s05 .s05-package--motion {
+  will-change: top, opacity;
 }
 
 .slide-s05 .s05-package--pos-1 {
@@ -764,6 +812,19 @@
   }
 }
 
+@keyframes s05-pkg-stuck-shake {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-3px);
+  }
+  70% {
+    transform: translateY(2px);
+  }
+}
+
 @keyframes s05-danger-pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.45);
@@ -788,16 +849,16 @@
 
 .slide-s05 .s05-scene--static .s05-belt__slats,
 .slide-s05 .s05-scene--static .s05-package--flow,
-.slide-s05 .s05-scene--static .s05-worker--injured .s05-worker__avatar,
-.slide-s05 .s05-scene--static .s05-worker__swap-tag {
+.slide-s05 .s05-scene--static .s05-package--stuck,
+.slide-s05 .s05-scene--static .s05-worker--injured .s05-worker__avatar {
   animation: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .slide-s05 .s05-belt__slats,
   .slide-s05 .s05-package--flow,
-  .slide-s05 .s05-worker--injured .s05-worker__avatar,
-  .slide-s05 .s05-worker__swap-tag {
+  .slide-s05 .s05-package--stuck,
+  .slide-s05 .s05-worker--injured .s05-worker__avatar {
     animation: none !important;
   }
 }

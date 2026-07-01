@@ -10,6 +10,8 @@ const CX = 50;
 const CY = 50;
 const CORE_R = 16;
 const NODE_R = 40;
+/** 선 끝은 카드보다 약간 바깥 — 조인트가 선과 맞닿도록 */
+const LINE_R = NODE_R + 1.2;
 
 const SPOKES = [
   {
@@ -19,6 +21,8 @@ const SPOKES = [
     icon: "fa-desktop",
     color: "#0078d4",
     angle: -90,
+    anchorInset: 0,
+    nudgePx: [0, 0] as const,
   },
   {
     id: "was",
@@ -27,6 +31,8 @@ const SPOKES = [
     icon: "fa-server",
     color: "#0891b2",
     angle: -18,
+    anchorInset: 3.8,
+    nudgePx: [-7, 3] as const,
   },
   {
     id: "db",
@@ -35,6 +41,8 @@ const SPOKES = [
     icon: "fa-database",
     color: "#0b6a0b",
     angle: 54,
+    anchorInset: 3.5,
+    nudgePx: [-5, -7] as const,
   },
   {
     id: "sec",
@@ -43,6 +51,8 @@ const SPOKES = [
     icon: "fa-shield-halved",
     color: "#5c2d91",
     angle: 126,
+    anchorInset: 3.5,
+    nudgePx: [4, -8] as const,
   },
   {
     id: "infra",
@@ -51,6 +61,8 @@ const SPOKES = [
     icon: "fa-cloud",
     color: "#ca5010",
     angle: 198,
+    anchorInset: 3.8,
+    nudgePx: [7, 2] as const,
   },
 ] as const;
 
@@ -62,31 +74,46 @@ function polar(angleDeg: number, radius: number) {
   };
 }
 
+function cardAnchor(angleDeg: number, inset: number, nudgePx: readonly [number, number]) {
+  const base = polar(angleDeg, NODE_R - inset);
+  return { x: base.x, y: base.y, nudgePx };
+}
+
 type Attachment = {
   transform: string;
   transformOrigin: string;
   join: "top" | "right" | "bottom" | "left";
 };
 
-/** 허브 중심 방향 기준 — 선 끝(anchor)에 카드 안쪽 모서리가 닿도록 */
+/** 허브 중심 방향 — 선 끝(anchor)에 카드 안쪽 모서리가 닿도록 (각도 기반 4방) */
 function getAttachment(angleDeg: number): Attachment {
-  const sin = Math.sin((angleDeg * Math.PI) / 180);
-  const cos = Math.cos((angleDeg * Math.PI) / 180);
+  const rad = (angleDeg * Math.PI) / 180;
+  const cos = Math.cos(rad);
+  const sin = Math.sin(rad);
+  const absCos = Math.abs(cos);
+  const absSin = Math.abs(sin);
 
-  if (sin < -0.5) {
+  if (absCos > absSin) {
+    if (cos > 0) {
+      return { transform: "translate(0%, -50%)", transformOrigin: "0% 50%", join: "left" };
+    }
+    return { transform: "translate(-100%, -50%)", transformOrigin: "100% 50%", join: "right" };
+  }
+
+  if (sin < 0) {
     return { transform: "translate(-50%, -100%)", transformOrigin: "50% 100%", join: "bottom" };
   }
-  if (sin > 0.5) {
-    return { transform: "translate(-50%, 0%)", transformOrigin: "50% 0%", join: "top" };
-  }
-  if (cos > 0) {
-    return { transform: "translate(0%, -50%)", transformOrigin: "0% 50%", join: "left" };
-  }
-  return { transform: "translate(-100%, -50%)", transformOrigin: "100% 50%", join: "right" };
+  return { transform: "translate(-50%, 0%)", transformOrigin: "50% 0%", join: "top" };
 }
 
-function cardPlacement(angleDeg: number): Attachment {
-  return getAttachment(angleDeg);
+/** 비스듬한 스포크에서 조인트를 선 방향으로 살짝 이동 */
+function getJoinShift(angleDeg: number, join: Attachment["join"]): { x: number; y: number } {
+  const rad = (angleDeg * Math.PI) / 180;
+  const along = 5;
+  if (join === "left" || join === "right") {
+    return { x: 0, y: along * Math.sin(rad) };
+  }
+  return { x: along * Math.cos(rad), y: 0 };
 }
 
 export default function Slide07ScopeHub() {
@@ -117,7 +144,7 @@ export default function Slide07ScopeHub() {
 
           {SPOKES.map((spoke, spokeIdx) => {
             const start = polar(spoke.angle, CORE_R);
-            const end = polar(spoke.angle, NODE_R);
+            const end = polar(spoke.angle, LINE_R);
             const lit = animating && activeIdx === spokeIdx;
             return (
               <g key={spoke.id}>
@@ -181,8 +208,10 @@ export default function Slide07ScopeHub() {
         </div>
 
         {SPOKES.map((spoke, i) => {
-          const anchor = polar(spoke.angle, NODE_R);
-          const placement = cardPlacement(spoke.angle);
+          const anchor = cardAnchor(spoke.angle, spoke.anchorInset, spoke.nudgePx);
+          const placement = getAttachment(spoke.angle);
+          const [nudgeX, nudgeY] = anchor.nudgePx;
+          const joinShift = getJoinShift(spoke.angle, placement.join);
 
           return (
             <div
@@ -191,11 +220,13 @@ export default function Slide07ScopeHub() {
               data-join={placement.join}
               style={
                 {
-                  left: `${anchor.x}%`,
-                  top: `${anchor.y}%`,
+                  left: `calc(${anchor.x}% + ${nudgeX}px)`,
+                  top: `calc(${anchor.y}% + ${nudgeY}px)`,
                   transform: placement.transform,
                   transformOrigin: placement.transformOrigin,
                   "--node-color": spoke.color,
+                  "--join-x": `${joinShift.x}px`,
+                  "--join-y": `${joinShift.y}px`,
                 } as CSSProperties
               }
             >
