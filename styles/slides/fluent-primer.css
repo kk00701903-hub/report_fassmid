@@ -262,21 +262,22 @@
 
 [class*="slide-s"] .fluent-slide .pillar-card,
 [class*="slide-s"] .fluent-slide .milestone-card,
-[class*="slide-s"] .fluent-slide .war-room-feature-card,
-[class*="slide-s"] .fluent-slide .migration-node-box,
-[class*="slide-s"] .fluent-slide .migration-engine-box,
-[class*="slide-s"] .fluent-slide .migration-impact-card,
-[class*="slide-s"] .fluent-slide .roi-asset-evidence-card,
-[class*="slide-s"] .fluent-slide .engine-evidence-card,
-[class*="slide-s"] .fluent-slide .fass-identity-value-item-row,
-[class*="slide-s"] .fluent-slide .fass-identity-logo-info-card,
-[class*="slide-s"] .fluent-slide .finops-content-card-box,
-[class*="slide-s"] .fluent-slide .compare-card,
-[class*="slide-s"] .fluent-slide .cat-card,
-[class*="slide-s"] .fluent-slide .role-card,
-[class*="slide-s"] .fluent-slide .concept-box,
-[class*="slide-s"] .fluent-slide .reason-card,
-[class*="slide-s"] .fluent-slide .diagram-card {
+/* Block card CSS keyframes only during entrance — diagram loops run after .slide-motion-entered */
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .war-room-feature-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .migration-node-box,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .migration-engine-box,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .migration-impact-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .roi-asset-evidence-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .engine-evidence-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .fass-identity-value-item-row,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .fass-identity-logo-info-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .finops-content-card-box,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .compare-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .cat-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .role-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .concept-box,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .reason-card,
+.slide-motion-content:not(.slide-motion-entered) [class*="slide-s"] .fluent-slide .diagram-card {
   animation: none !important;
 }
 

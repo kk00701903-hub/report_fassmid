@@ -1,6 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+
+import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
 
 const CONTAINER_COLORS = ["#e74c3c", "#2563eb", "#f59e0b"] as const;
 
@@ -69,7 +71,12 @@ export function DockerContainer({
   width = 52,
   height = 28,
   lit = false,
-}: DockerContainerProps) {
+  labelSize = 8,
+}: DockerContainerProps & { labelSize?: number }) {
+  const barY = Math.round(height * 0.38);
+  const barH = Math.max(10, Math.round(height * 0.34));
+  const labelY = barY + barH / 2 + labelSize * 0.38;
+
   return (
     <g transform={`translate(${x}, ${y})`} className={lit ? "s04-lit" : undefined}>
       <rect
@@ -77,18 +84,25 @@ export function DockerContainer({
         y={0}
         width={width}
         height={height}
-        rx={3}
+        rx={4}
         fill="#f8fafc"
-        stroke={lit ? "#0078d4" : "#94a3b8"}
-        strokeWidth={lit ? 2 : 1.2}
+        stroke={lit ? "#0078d4" : "#64748b"}
+        strokeWidth={lit ? 2 : 1.4}
       />
-      <rect x={0} y={0} width={width} height={7} rx={3} fill="#0078d4" />
-      <rect x={0} y={5} width={width} height={2} fill="#005a9e" />
-      <circle cx={8} cy={3.5} r={2.2} fill="#fff" opacity={0.9} />
-      <circle cx={13} cy={3.5} r={2.2} fill="#fff" opacity={0.65} />
-      <rect x={6} y={12} width={width - 12} height={10} rx={1.5} fill={color} opacity={0.85} />
+      <rect x={0} y={0} width={width} height={Math.round(height * 0.26)} rx={4} fill="#0078d4" />
+      <rect x={0} y={Math.round(height * 0.2)} width={width} height={3} fill="#005a9e" />
+      <circle cx={10} cy={Math.round(height * 0.13)} r={2.8} fill="#fff" opacity={0.92} />
+      <circle cx={16} cy={Math.round(height * 0.13)} r={2.8} fill="#fff" opacity={0.68} />
+      <rect x={8} y={barY} width={width - 16} height={barH} rx={2} fill={color} opacity={0.9} />
       {label ? (
-        <text x={width / 2} y={height - 4} textAnchor="middle" fontSize={8} fontWeight={700} fill="#334155">
+        <text
+          x={width / 2}
+          y={labelY}
+          textAnchor="middle"
+          fontSize={labelSize}
+          fontWeight={700}
+          fill="#1e293b"
+        >
           {label}
         </text>
       ) : null}
@@ -147,10 +161,10 @@ export function MiniDockerScene({ variant }: { variant: "standard" | "port" | "i
   if (variant === "standard") {
     return (
       <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-        <DockerContainer color={CONTAINER_COLORS[0]} x={8} y={18} width={30} height={24} label="FaSS-WEB" />
-        <DockerContainer color={CONTAINER_COLORS[1]} x={42} y={18} width={30} height={24} label="FaSS-API" />
-        <DockerContainer color={CONTAINER_COLORS[2]} x={76} y={18} width={30} height={24} label="FaSS-DB" />
-        <text x={60} y={12} textAnchor="middle" fontSize={8} fill="#0078d4">
+        <DockerContainer color={CONTAINER_COLORS[0]} x={8} y={18} width={32} height={26} label="FaSS-WEB" labelSize={9} />
+        <DockerContainer color={CONTAINER_COLORS[1]} x={42} y={18} width={32} height={26} label="FaSS-API" labelSize={9} />
+        <DockerContainer color={CONTAINER_COLORS[2]} x={76} y={18} width={32} height={26} label="FaSS-DB" labelSize={9} />
+        <text x={60} y={12} textAnchor="middle" fontSize={9} fill="#0078d4">
           같은 Docker 규격
         </text>
       </svg>
@@ -196,7 +210,7 @@ export function MiniDockerScene({ variant }: { variant: "standard" | "port" | "i
 
 /** 상단 — 실제 배·컨테이너 물류 현장 */
 export function Slide04LogisticsHero() {
-  const reduceMotion = useReducedMotion();
+  const { animating } = useSlideDiagramMotion();
 
   return (
     <div className="s04-tier-hero s04-tier-hero--logistics">
@@ -207,15 +221,15 @@ export function Slide04LogisticsHero() {
           fill="#93c5fd"
           opacity={0.45}
           animate={
-            reduceMotion
-              ? undefined
-              : {
+            animating
+              ? {
                   d: [
                     "M0 68 Q160 62 320 68 T640 68 L640 88 L0 88 Z",
                     "M0 68 Q160 74 320 68 T640 68 L640 88 L0 88 Z",
                     "M0 68 Q160 62 320 68 T640 68 L640 88 L0 88 Z",
                   ],
                 }
+              : undefined
           }
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -250,38 +264,54 @@ export function Slide04LogisticsHero() {
 
 /** 하단 — FaSS 시스템(서버·Docker) */
 export function Slide04SystemHero() {
-  const reduceMotion = useReducedMotion();
+  const { animating } = useSlideDiagramMotion();
   const labels = ["FaSS-WEB", "FaSS-API", "FaSS-DB"] as const;
+  const containerW = 62;
+  const containerH = 42;
+  const containerY = 30;
+  const containerXs = [118, 196, 274, 352] as const;
 
   return (
     <div className="s04-tier-hero s04-tier-hero--system">
-      <svg viewBox="0 0 640 88" className="s04-tier-hero__svg" aria-hidden="true">
-        <rect x={0} y={0} width={640} height={88} rx={6} fill="#f0f9ff" />
-        <rect x={80} y={58} width={480} height={22} rx={4} fill="#e2e8f0" stroke="#94a3b8" strokeWidth={1.2} />
-        <rect x={92} y={64} width={10} height={10} rx={1} fill="#22c55e" />
-        <rect x={106} y={64} width={10} height={10} rx={1} fill="#22c55e" />
-        <rect x={120} y={64} width={10} height={10} rx={1} fill="#22c55e" />
-        <text x={320} y={72} textAnchor="middle" fontSize={10} fill="#64748b">
-          FaSS 운영 서버 / 클라우드
+      <svg viewBox="0 0 640 112" className="s04-tier-hero__svg" aria-hidden="true">
+        <rect x={0} y={0} width={640} height={112} rx={8} fill="#f0f9ff" />
+
+        <text x={320} y={20} textAnchor="middle" fontSize={12} fontWeight={700} fill="#0078d4">
+          프로그램마다 Docker 컨테이너로 묶어 · 어디서든 같은 방식으로 실행·배포
         </text>
-        <DockerContainer color={CONTAINER_COLORS[0]} x={148} y={22} width={52} height={30} label={labels[0]} />
-        <DockerContainer color={CONTAINER_COLORS[1]} x={220} y={22} width={52} height={30} label={labels[1]} />
-        <DockerContainer color={CONTAINER_COLORS[2]} x={292} y={22} width={52} height={30} label={labels[2]} />
-        <DockerContainer color="#10b981" x={364} y={22} width={52} height={30} label="FaSS-Batch" />
+
+        {containerXs.map((x, i) => (
+          <DockerContainer
+            key={labels[i] ?? "batch"}
+            color={i < 3 ? CONTAINER_COLORS[i] : "#10b981"}
+            x={x}
+            y={containerY}
+            width={containerW}
+            height={containerH}
+            label={i < 3 ? labels[i] : "FaSS-Batch"}
+            labelSize={10}
+          />
+        ))}
+
         <motion.g
-          animate={reduceMotion ? undefined : { opacity: [0.45, 1, 0.45] }}
+          animate={animating ? { opacity: [0.55, 1, 0.55] } : undefined}
           transition={{ duration: 2.5, repeat: Infinity }}
         >
-          <rect x={520} y={18} width={88} height={36} rx={4} fill="#dbeafe" stroke="#0078d4" strokeWidth={1} />
-          <text x={564} y={32} textAnchor="middle" fontSize={9} fontWeight={700} fill="#0078d4">
+          <rect x={488} y={26} width={112} height={50} rx={6} fill="#dbeafe" stroke="#0078d4" strokeWidth={1.5} />
+          <text x={544} y={46} textAnchor="middle" fontSize={11} fontWeight={800} fill="#0078d4">
             Kubernetes
           </text>
-          <text x={564} y={44} textAnchor="middle" fontSize={8} fill="#64748b">
+          <text x={544} y={62} textAnchor="middle" fontSize={10} fontWeight={600} fill="#334155">
             자동 배치·복제
           </text>
         </motion.g>
-        <text x={320} y={14} textAnchor="middle" fontSize={10} fontWeight={700} fill="#0078d4">
-          프로그램마다 Docker 컨테이너로 묶어 · 어디서든 같은 방식으로 실행·배포
+
+        <rect x={72} y={82} width={496} height={26} rx={6} fill="#e2e8f0" stroke="#64748b" strokeWidth={1.4} />
+        <rect x={86} y={90} width={12} height={12} rx={2} fill="#22c55e" />
+        <rect x={102} y={90} width={12} height={12} rx={2} fill="#22c55e" />
+        <rect x={118} y={90} width={12} height={12} rx={2} fill="#22c55e" />
+        <text x={340} y={99} textAnchor="middle" fontSize={11} fontWeight={700} fill="#334155">
+          FaSS 운영 서버 / 클라우드
         </text>
       </svg>
     </div>

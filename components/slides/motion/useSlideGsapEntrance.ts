@@ -101,6 +101,7 @@ export function useSlideGsapEntrance(
 
     return () => {
       root.classList.remove("slide-dynamic-sweep-active", "slide-gsap-complete");
+      root.classList.remove("slide-motion-entered");
       ctx.revert();
     };
   }, [containerRef, profile, slideKey]);

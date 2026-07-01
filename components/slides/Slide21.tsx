@@ -4,7 +4,7 @@ import SlideCanvas from "@/components/slides/SlideCanvas";
 import Slide21CdcPipelineVisual from "@/components/slides/Slide21CdcPipelineVisual";
 import "./styles/Slide21.css";
 
-export default function Slide20() {
+export default function Slide21() {
   return (
     <SlideCanvas slideId={21} motion="pipeline" motionTier="medium">
       <div className="poc-slide-root fluent-slide">

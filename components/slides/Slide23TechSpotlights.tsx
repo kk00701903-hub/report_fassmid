@@ -3,6 +3,8 @@
 import type { CSSProperties, FC } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
+
 type SpotlightId = "devops" | "docker" | "gitlab" | "nextjs" | "gateway";
 
 type SpotlightDef = {
@@ -280,7 +282,8 @@ const ANIM_MAP: Record<SpotlightId, FC<{ active: boolean }>> = {
 
 export function SpotlightTile({ def, index }: { def: SpotlightDef; index: number }) {
   const reduce = useReducedMotion();
-  const active = !reduce;
+  const { animating } = useSlideDiagramMotion();
+  const active = animating && !reduce;
   const Anim = ANIM_MAP[def.id];
 
   return (

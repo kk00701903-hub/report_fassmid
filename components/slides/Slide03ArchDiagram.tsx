@@ -3,6 +3,8 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
+
 const NODES = [
   {
     id: "client",
@@ -210,16 +212,17 @@ function ArchNode({
 
 export default function Slide03ArchDiagram() {
   const reduceMotion = useReducedMotion();
+  const { ready } = useSlideDiagramMotion();
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || !ready) return;
     const id = window.setInterval(
       () => setActiveStep((v) => (v + 1) % FLOW_STEPS.length),
       2400,
     );
     return () => window.clearInterval(id);
-  }, [reduceMotion]);
+  }, [reduceMotion, ready]);
 
   return (
     <div className="arch-stack">

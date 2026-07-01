@@ -35,7 +35,7 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
     particles: "flow",
     titleSelectors: TITLE,
     staggerSelectors:
-      ".trend-card, .tool-card, .layer, .term, .scope-card, .flow-col, .cat-card, .summary-column-item, .flow-step, .phase, .scenario-step, .glossary-card, .war-room-feature-card, .poc-flow-item, .chip, .stat-box, .std-pill, .layer-box, .fass-identity-value-item-row, .flow-node, .s23-spot-tile, .s17-step-card, .s17-scenario__item, .s17-detail, .s17-scenario, .s17-panels > *",
+      ".trend-card, .tool-card, .layer, .term, .scope-card, .flow-col, .cat-card, .summary-column-item, .flow-step, .phase, .scenario-step, .glossary-card, .war-room-feature-card, .s20-card, .poc-flow-item, .chip, .stat-box, .std-pill, .layer-box, .fass-identity-value-item-row, .flow-node, .s23-spot-tile, .s17-step-card, .s17-scenario__item, .s17-detail, .s17-scenario, .s17-panels > *",
     countSelectors: COUNTS,
     accentSweep: false,
   },

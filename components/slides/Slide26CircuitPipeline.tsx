@@ -11,6 +11,8 @@ import {
   type CSSProperties,
 } from "react";
 
+import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
+
 type NodeDef = {
   id: string;
   label: string;
@@ -343,7 +345,7 @@ function PhaseConnector({ label, animating }: { label: string; animating: boolea
 
 export default function Slide26CircuitPipeline() {
   const reduceMotion = useReducedMotion();
-  const animating = !reduceMotion;
+  const { animating, ready } = useSlideDiagramMotion();
   const [activePhase, setActivePhase] = useState(0);
   const pipelineRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Map<NodeKey, HTMLDivElement>>(new Map());
@@ -407,10 +409,12 @@ export default function Slide26CircuitPipeline() {
   }, []);
 
   useLayoutEffect(() => {
+    if (!ready) return;
     recomputePaths();
-  }, [recomputePaths, layoutTick, activePhase]);
+  }, [recomputePaths, layoutTick, activePhase, ready]);
 
   useEffect(() => {
+    if (!ready) return;
     const root = pipelineRef.current;
     if (!root) return;
 
@@ -436,13 +440,13 @@ export default function Slide26CircuitPipeline() {
       window.removeEventListener("resize", onResize);
       window.clearTimeout(id);
     };
-  }, [recomputePaths]);
+  }, [recomputePaths, ready]);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || !ready) return;
     const id = window.setInterval(() => setActivePhase((v) => (v + 1) % PHASES.length), 2800);
     return () => window.clearInterval(id);
-  }, [reduceMotion]);
+  }, [reduceMotion, ready]);
 
   return (
     <div ref={pipelineRef} className="circuit-pipeline">

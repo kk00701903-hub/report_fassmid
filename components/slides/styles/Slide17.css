@@ -11,8 +11,8 @@
   box-sizing: border-box;
   display: grid;
   grid-template-rows: auto auto auto minmax(0, 1fr) auto;
-  gap: 8px;
-  padding: 18px var(--s17-pad-x) 10px;
+  gap: 6px;
+  padding: 14px var(--s17-pad-x) 6px;
   background: #ffffff;
   color: #201f1e;
   overflow: hidden;
@@ -53,17 +53,17 @@
 
 .slide-s17 .s17-header__title {
   margin: 0;
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
   color: #201f1e;
 }
 
 .slide-s17 .s17-header__sub {
-  margin: 4px 0 0;
+  margin: 3px 0 0;
   padding-left: 14px;
-  font-size: 12.5px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.42;
   color: #484644;
 }
 
@@ -112,7 +112,7 @@
 .slide-s17 .s17-step-card {
   flex: 1;
   min-width: 0;
-  padding: 7px 6px 8px;
+  padding: 8px 6px 9px;
   border: 1px solid #e1dfdd;
   border-radius: 8px;
   border-top: 3px solid var(--step-accent, #0078d4);
@@ -159,7 +159,7 @@
 }
 
 .slide-s17 .s17-step-card__name {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 800;
   line-height: 1.25;
   color: #201f1e;
@@ -182,7 +182,7 @@
 /* ── Active phase detail strip ── */
 .slide-s17 .s17-detail {
   flex-shrink: 0;
-  padding: 10px 14px;
+  padding: 11px 14px 12px;
   border-radius: 10px;
   border: 1px solid #e1dfdd;
   border-left: 4px solid var(--step-accent, #0078d4);
@@ -228,9 +228,9 @@
 }
 
 .slide-s17 .s17-detail__desc {
-  margin: 0 0 6px;
+  margin: 0 0 7px;
   padding-left: 38px;
-  font-size: 12px;
+  font-size: 12.5px;
   line-height: 1.45;
   color: #484644;
 }
@@ -253,25 +253,29 @@
   white-space: nowrap;
 }
 
-/* ── Two-panel body ── */
+/* ── Two-panel body — fills remaining vertical space ── */
 .slide-s17 .s17-panels {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 10px;
   min-height: 0;
+  height: 100%;
   min-width: 0;
+  align-items: stretch;
+  align-content: stretch;
 }
 
 .slide-s17 .s17-scenario,
 .slide-s17 .s17-analogy {
   min-height: 0;
+  height: 100%;
   min-width: 0;
   display: flex;
   flex-direction: column;
   border: 1px solid #e1dfdd;
   border-radius: 10px;
   background: #ffffff;
-  padding: 10px 12px;
+  padding: 11px 12px 12px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   animation: none !important;
 }
@@ -322,21 +326,23 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   flex: 1;
   min-height: 0;
+  justify-content: space-between;
 }
 
 .slide-s17 .s17-scenario__item {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
+  grid-template-columns: 74px minmax(0, 1fr);
   gap: 8px;
-  align-items: start;
-  padding: 6px 8px;
+  align-items: center;
+  padding: 8px 10px;
   border-radius: 7px;
   border: 1px solid #edebe9;
   background: #faf9f8;
-  flex-shrink: 0;
+  flex: 1 1 0;
+  min-height: 0;
   animation: none !important;
 }
 
@@ -365,8 +371,8 @@
 
 .slide-s17 .s17-scenario__text {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
+  font-size: 12.5px;
+  line-height: 1.42;
   color: #484644;
 }
 
@@ -379,9 +385,10 @@
 .slide-s17 .s17-analogy__grid {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   flex: 1;
   min-height: 0;
+  justify-content: space-between;
 }
 
 .slide-s17 .s17-analogy__head-row,
@@ -404,11 +411,13 @@
 }
 
 .slide-s17 .s17-analogy__row {
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-radius: 6px;
   background: #faf9f8;
   border: 1px solid #edebe9;
-  flex-shrink: 0;
+  flex: 1 1 0;
+  min-height: 0;
+  align-content: center;
   animation: none !important;
 }
 
@@ -424,8 +433,8 @@
 }
 
 .slide-s17 .s17-analogy__text {
-  font-size: 12px;
-  line-height: 1.35;
+  font-size: 12.5px;
+  line-height: 1.38;
   color: #484644;
 }
 
@@ -435,17 +444,17 @@
   border-color: rgba(202, 138, 4, 0.35);
 }
 
-/* ── Footer ── */
+/* ── Footer — flush to slide bottom, visually weighted ── */
 .slide-s17 .s17-footer {
   flex-shrink: 0;
   margin: 0;
-  padding: 7px 12px;
+  padding: 10px 14px;
   border-radius: 0 8px 8px 0;
   border-left: 3px solid #0078d4;
-  background: rgba(250, 204, 21, 0.06);
-  font-size: 12px;
-  line-height: 1.45;
-  color: #484644;
+  background: linear-gradient(90deg, rgba(250, 204, 21, 0.1), rgba(250, 204, 21, 0.04));
+  font-size: 13px;
+  line-height: 1.48;
+  color: #323130;
 }
 
 .slide-s17 .s17-footer strong {

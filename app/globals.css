@@ -2291,7 +2291,8 @@ button {
   position: absolute;
   inset: 0;
   z-index: 15;
-  display: flex;
+  display: grid;
+  grid-template-columns: 18% 1fr 18%;
   pointer-events: none;
 }
 
@@ -2304,12 +2305,11 @@ button {
 }
 
 .projector-click-zone--prev {
-  width: 20%;
-  flex-shrink: 0;
+  grid-column: 1;
 }
 
 .projector-click-zone--next {
-  flex: 1;
+  grid-column: 3;
 }
 
 .projector-click-zone:disabled {

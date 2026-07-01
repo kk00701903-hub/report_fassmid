@@ -108,21 +108,37 @@
   color: var(--fluent-grey-160, #201f1e);
 }
 
-/* AI-centered radial hub — clean white cards + colored spokes */
+/* AI-centered radial hub — square stage keeps SVG % coords aligned with node cards */
 .slide-s07 .s07-hub {
   flex: 1 1 auto;
   min-height: 0;
   min-width: 0;
-  position: relative;
-  width: min(100%, 100%);
-  max-height: 100%;
-  aspect-ratio: 1;
-  align-self: center;
-  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
   border-radius: 12px;
   border: 1px solid rgba(0, 120, 212, 0.14);
+  background: #ffffff;
+  box-shadow: 0 2px 14px rgba(0, 90, 158, 0.05);
+  overflow: hidden;
+  padding: 8px 10px 8px;
+  box-sizing: border-box;
+}
+
+.slide-s07 .s07-hub__stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  align-self: center;
+  border-radius: 10px;
   background:
-    radial-gradient(circle at 50% 48%, rgba(0, 120, 212, 0.05) 0%, transparent 58%),
+    radial-gradient(circle at 50% 50%, rgba(0, 120, 212, 0.06) 0%, transparent 62%),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -137,11 +153,8 @@
       rgba(0, 120, 212, 0.045) 19px,
       rgba(0, 120, 212, 0.045) 20px
     ),
-    #ffffff;
-  box-shadow: 0 2px 14px rgba(0, 90, 158, 0.05);
+    #fafcff;
   overflow: visible;
-  padding: 10px 10px 34px;
-  box-sizing: border-box;
 }
 
 .slide-s07 .s07-hub__canvas {
@@ -164,19 +177,19 @@
 .slide-s07 .s07-hub__core {
   position: relative;
   transform-origin: center center;
-  width: 92px;
-  height: 92px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 10px 8px;
+  padding: 8px 6px;
   color: #ffffff;
   background: radial-gradient(circle at 35% 28%, #5eb3f6 0%, #0078d4 52%, #004578 100%);
   box-shadow:
-    0 0 0 4px rgba(0, 120, 212, 0.1),
+    0 0 0 4px rgba(0, 120, 212, 0.12),
     0 8px 22px rgba(0, 74, 140, 0.24);
 }
 
@@ -208,12 +221,12 @@
 
 .slide-s07 .s07-hub__node-join {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   background: #ffffff;
-  border: 2px solid var(--node-color, #0078d4);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9);
+  border: 2.5px solid var(--node-color, #0078d4);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.95);
   z-index: 2;
   pointer-events: none;
 }
@@ -252,15 +265,15 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 7px;
   width: max-content;
-  max-width: 142px;
-  padding: 9px 10px 9px 8px;
+  max-width: 128px;
+  padding: 8px 9px 8px 7px;
   border-radius: 10px;
   background: #ffffff;
   border: 1px solid #e8e8e8;
   border-left: 4px solid var(--node-color, #0078d4);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
   transform-origin: inherit;
   overflow: hidden;
 }
@@ -305,17 +318,13 @@
 }
 
 .slide-s07 .s07-hub__caption {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 10px;
+  flex-shrink: 0;
   margin: 0;
   text-align: center;
   font-size: 11px;
   color: #484644;
-  z-index: 3;
   letter-spacing: 0.01em;
-  padding: 6px 10px;
+  padding: 5px 10px;
   border-radius: 8px;
   background: rgba(239, 246, 252, 0.95);
   border: 1px solid rgba(0, 120, 212, 0.14);
