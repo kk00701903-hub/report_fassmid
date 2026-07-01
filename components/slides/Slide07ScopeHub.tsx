@@ -62,30 +62,31 @@ function polar(angleDeg: number, radius: number) {
   };
 }
 
-type CardPlacement = {
+type Attachment = {
   transform: string;
   transformOrigin: string;
+  join: "top" | "right" | "bottom" | "left";
 };
 
-/** spoke id별 — 선 끝(anchor)에 카드 안쪽 모서리가 닿도록 */
-const PLACEMENT_BY_ID: Record<(typeof SPOKES)[number]["id"], CardPlacement> = {
-  fe: { transform: "translate(-50%, -100%)", transformOrigin: "50% 100%" },
-  was: { transform: "translate(0%, -50%)", transformOrigin: "0% 50%" },
-  db: { transform: "translate(-50%, 0%)", transformOrigin: "50% 0%" },
-  sec: { transform: "translate(-100%, 0%)", transformOrigin: "100% 0%" },
-  infra: { transform: "translate(-100%, -50%)", transformOrigin: "100% 50%" },
-};
-
-function cardPlacement(spokeId: (typeof SPOKES)[number]["id"], angleDeg: number): CardPlacement {
-  if (PLACEMENT_BY_ID[spokeId]) return PLACEMENT_BY_ID[spokeId];
-
-  const cos = Math.cos((angleDeg * Math.PI) / 180);
+/** 허브 중심 방향 기준 — 선 끝(anchor)에 카드 안쪽 모서리가 닿도록 */
+function getAttachment(angleDeg: number): Attachment {
   const sin = Math.sin((angleDeg * Math.PI) / 180);
+  const cos = Math.cos((angleDeg * Math.PI) / 180);
 
-  if (sin < -0.75) return { transform: "translate(-50%, -100%)", transformOrigin: "50% 100%" };
-  if (sin > 0.75) return { transform: "translate(-50%, 0%)", transformOrigin: "50% 0%" };
-  if (cos > 0.45) return { transform: "translate(0%, -50%)", transformOrigin: "0% 50%" };
-  return { transform: "translate(-100%, -50%)", transformOrigin: "100% 50%" };
+  if (sin < -0.5) {
+    return { transform: "translate(-50%, -100%)", transformOrigin: "50% 100%", join: "bottom" };
+  }
+  if (sin > 0.5) {
+    return { transform: "translate(-50%, 0%)", transformOrigin: "50% 0%", join: "top" };
+  }
+  if (cos > 0) {
+    return { transform: "translate(0%, -50%)", transformOrigin: "0% 50%", join: "left" };
+  }
+  return { transform: "translate(-100%, -50%)", transformOrigin: "100% 50%", join: "right" };
+}
+
+function cardPlacement(angleDeg: number): Attachment {
+  return getAttachment(angleDeg);
 }
 
 export default function Slide07ScopeHub() {
@@ -149,7 +150,7 @@ export default function Slide07ScopeHub() {
                     }}
                   />
                 ) : (
-                  <circle cx={end.x} cy={end.y} r={1.6} fill="#ffffff" stroke={spoke.color} strokeWidth={0.45} />
+                  <circle cx={end.x} cy={end.y} r={2.2} fill="#ffffff" stroke={spoke.color} strokeWidth={0.5} />
                 )}
               </g>
             );
@@ -181,12 +182,13 @@ export default function Slide07ScopeHub() {
 
         {SPOKES.map((spoke, i) => {
           const anchor = polar(spoke.angle, NODE_R);
-          const placement = cardPlacement(spoke.id, spoke.angle);
+          const placement = cardPlacement(spoke.angle);
 
           return (
             <div
               key={spoke.id}
               className={`s07-hub__node-wrap s07-hub__node-wrap--${spoke.id}`}
+              data-join={placement.join}
               style={
                 {
                   left: `${anchor.x}%`,

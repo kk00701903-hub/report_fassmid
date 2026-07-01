@@ -217,12 +217,14 @@
 .slide-s07 .s07-hub__node-wrap {
   position: absolute;
   z-index: 3;
+  width: max-content;
+  max-width: 132px;
 }
 
 .slide-s07 .s07-hub__node-join {
   position: absolute;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #ffffff;
   border: 2.5px solid var(--node-color, #0078d4);
@@ -231,31 +233,25 @@
   pointer-events: none;
 }
 
-.slide-s07 .s07-hub__node-wrap--fe .s07-hub__node-join {
+.slide-s07 .s07-hub__node-wrap[data-join="bottom"] .s07-hub__node-join {
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 50%);
 }
 
-.slide-s07 .s07-hub__node-wrap--was .s07-hub__node-join {
-  left: 0;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.slide-s07 .s07-hub__node-wrap--db .s07-hub__node-join {
+.slide-s07 .s07-hub__node-wrap[data-join="top"] .s07-hub__node-join {
   left: 50%;
   top: 0;
   transform: translate(-50%, -50%);
 }
 
-.slide-s07 .s07-hub__node-wrap--sec .s07-hub__node-join {
-  right: 0;
-  top: 0;
-  transform: translate(50%, -50%);
+.slide-s07 .s07-hub__node-wrap[data-join="left"] .s07-hub__node-join {
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.slide-s07 .s07-hub__node-wrap--infra .s07-hub__node-join {
+.slide-s07 .s07-hub__node-wrap[data-join="right"] .s07-hub__node-join {
   right: 0;
   top: 50%;
   transform: translate(50%, -50%);

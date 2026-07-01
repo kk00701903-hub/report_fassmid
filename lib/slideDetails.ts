@@ -374,31 +374,12 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         title: "AI-Augmented 개발 워크플로우",
         category: "process",
         summary:
-          "기획·설계·AI 개발·통합·배포·검증까지 AI 도구가 연결된 End-to-End 개발 파이프라인. Claude Code·DGX Spark·GitLab CI가 단일 흐름으로 통합됩니다.",
+          "TFT가 실제 사용하는 유료·상용 개발 툴(Jira, Figma, Adobe, Claude Code, Cursor, DGX Spark, GitLab CI 등)의 역할과 단계별 활용을 세부 설명하는 장표입니다.",
         process: [
-          { step: 1, title: "기획·설계", description: "요구사항·API 스펙·UI 와이어프레임 정의" },
-          { step: 2, title: "AI 개발", description: "Claude Code·DGX 기반 코드·테스트·문서 생성" },
-          { step: 3, title: "통합·배포", description: "GitLab CI Quality Gate 통과 후 스테이징·운영 반영" },
+          { step: 1, title: "기획·설계", description: "Jira — 백로그·스프린트 / Figma·Adobe — UI·UX 설계" },
+          { step: 2, title: "AI 개발", description: "Claude Code·Cursor·DGX Spark — 코드·테스트·문서 생성" },
+          { step: 3, title: "통합·배포", description: "GitLab CI/CD — MR·Quality Gate·스테이징·운영 반영" },
           { step: 4, title: "검증", description: "Human-in-the-loop 품질 검수·회귀 테스트" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 17,
-    topics: [
-      {
-        id: "e2e-flow-primer",
-        title: "End-to-End 개발 흐름 — 5단계 한눈에 (보조 설명)",
-        category: "process",
-        summary:
-          "AI-Augmented 워크플로우(15p)의 5단계를 경영진 관점에서 풀어쓴 보조 장표입니다. 기획→설계→AI 개발→통합·배포→검증이 매 스프린트마다 반복되는 End-to-End 흐름입니다.",
-        process: [
-          { step: 1, title: "기획·관리", description: "Jira 백로그·스프린트 — 무엇을 언제까지 할지 확정" },
-          { step: 2, title: "설계·UI/UX", description: "Figma·API 스펙 — 화면·데이터 구조 설계도 확정" },
-          { step: 3, title: "AI 개발", description: "Claude Code·DGX — 코드·테스트·문서 생성, 사람 검수" },
-          { step: 4, title: "통합·배포", description: "GitLab CI/CD — 빌드·테스트·스테이징·운영 반영" },
-          { step: 5, title: "검증·완료", description: "QA·회귀 테스트·Human-in-the-loop 후 Done 처리" },
         ],
       },
     ],

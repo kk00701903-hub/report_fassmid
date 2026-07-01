@@ -16,7 +16,7 @@ const CONCEPTS = [
     en: "Standardization",
     variant: "standard" as const,
     logistics: "쌀·TV·부품 등 **내용물이 달라도** 같은 크기 **철제 컨테이너**에 싣습니다. 어디서든 같은 방식으로 옮깁니다.",
-    system: "FaSS-WEB·API·DB 등 **프로그램마다** 같은 **Docker 컨테이너 규격**으로 묶어 배포합니다.",
+    system: "WEB·API·DB **동일 Docker 규격**으로 묶어 배포.",
   },
   {
     num: "02",
@@ -24,7 +24,7 @@ const CONCEPTS = [
     en: "Portability",
     variant: "port" as const,
     logistics: "부산항에 실은 컨테이너를 **다시 포장하지 않고** 배·열차·트럭에 **그대로** 연결해 운송합니다.",
-    system: "개발실에서 검증한 그대로 **운영 서버·클라우드**에 옮겨 실행합니다. 환경 차이로 인한 오류를 줄입니다.",
+    system: "개발 검증 **그대로** 운영·클라우드 실행.",
   },
   {
     num: "03",
@@ -32,7 +32,7 @@ const CONCEPTS = [
     en: "Isolation",
     variant: "isolated" as const,
     logistics: "냉동 식품과 일반 화물을 **컨테이너를 나눠** 섞이거나 오염되지 않게 운반합니다.",
-    system: "주문·재고 등 **프로그램을 분리** 실행합니다. 하나에 문제가 생겨도 **다른 프로그램은 정상** 동작합니다.",
+    system: "주문·재고 **분리 실행** — 장애 **격리**.",
   },
 ] as const;
 

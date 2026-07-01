@@ -9,14 +9,14 @@
 .slide-s28 .sub{font-size:13px;color:var(--fluent-grey-130, #484644);margin-top:4px;padding-left:14px;line-height:1.4}
 .slide-s28 .line{height:1px;margin-top:8px;background:linear-gradient(90deg,var(--fluent-blue, #0078d4),transparent);opacity:.35}
 
-.slide-s28 .engine-main-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 36px 20px;gap:18px;position:relative;z-index:1}
+.slide-s28 .engine-main-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 36px 16px;gap:12px;position:relative;z-index:1}
 
-.slide-s28 .engine-focus-wrapper{flex:1;min-height:0;display:flex;align-items:stretch;gap:28px}
+.slide-s28 .engine-focus-wrapper{flex:1;min-height:200px;display:flex;align-items:stretch;gap:28px}
 
 /* ── Hero panel: 차세대 영업 핵심 IT 엔진 ── */
 .slide-s28 .engine-highlight-left{
-  flex:3;position:relative;min-height:0;min-width:0;
-  border-radius:20px;overflow:hidden;isolation:isolate;
+  flex:3;position:relative;min-height:220px;min-width:0;
+  border-radius:20px;overflow:visible;isolation:isolate;
   background:
     linear-gradient(145deg, #003966 0%, #004578 38%, #0078d4 100%);
   box-shadow:
@@ -70,23 +70,25 @@
 
 .slide-s28 .engine-hero-body{
   position:relative;z-index:1;
-  display:flex;flex-direction:column;justify-content:center;gap:8px;
-  padding:26px 28px 24px;
+  display:flex;flex-direction:column;justify-content:flex-start;gap:6px;
+  padding:20px 24px 22px;
+  min-height:100%;
+  box-sizing:border-box;
 }
 
 .slide-s28 .engine-icon-box{
-  width:56px;height:56px;border-radius:14px;
+  width:48px;height:48px;border-radius:14px;
   background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);
-  display:flex;align-items:center;justify-content:center;font-size:26px;color:#ffffff;
+  display:flex;align-items:center;justify-content:center;font-size:22px;color:#ffffff;
   box-shadow:0 8px 24px rgba(0,36,72,.28), 0 0 0 1px rgba(255,255,255,.08) inset;
-  margin-bottom:4px;
+  margin-bottom:2px;
 }
 .slide-s28 .engine-label-top{
-  font-size:13px;font-weight:700;color:rgba(255,255,255,.82);
+  font-size:12px;font-weight:700;color:rgba(255,255,255,.82);
   letter-spacing:.14em;text-transform:uppercase;
 }
 .slide-s28 .engine-value-main{
-  font-size:34px;font-weight:800;line-height:1.22;color:#ffffff;
+  font-size:28px;font-weight:800;line-height:1.2;color:#ffffff;
   text-shadow:0 2px 18px rgba(0,36,72,.35);
 }
 .slide-s28 .engine-value-accent{
@@ -96,18 +98,21 @@
   filter:drop-shadow(0 1px 0 rgba(0,36,72,.45));
 }
 .slide-s28 .engine-tagline{
-  font-size:15px;font-weight:600;color:rgba(255,255,255,.92);line-height:1.5;margin-top:4px;
+  font-size:14px;font-weight:600;color:rgba(255,255,255,.92);line-height:1.45;margin-top:2px;
   max-width:34ch;
 }
-.slide-s28 .engine-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.slide-s28 .engine-pill-row{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;
+  flex-shrink:0;position:relative;z-index:2;
+}
 .slide-s28 .engine-pill{
-  font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;
+  font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
-  color:#ffffff;white-space:nowrap;
+  color:#ffffff;white-space:nowrap;line-height:1.35;
   backdrop-filter:blur(6px);
   box-shadow:0 2px 8px rgba(0,36,72,.18);
 }
-.slide-s28 .engine-pill i{margin-right:6px;color:#ffd335;font-size:13px}
+.slide-s28 .engine-pill i{margin-right:5px;color:#ffd335;font-size:12px}
 
 .slide-s28 .engine-description-right{
   flex:2;background:var(--fluent-blue-light,#deecf9);
@@ -119,9 +124,9 @@
 .slide-s28 .engine-desc-title{font-size:20px;font-weight:600;color:var(--fluent-grey-160, #201f1e);margin:0}
 .slide-s28 .engine-desc-body{font-size:16px;line-height:1.58;color:var(--fluent-grey-130, #484644);margin:0}
 
-.slide-s28 .engine-evidence-grid{flex-shrink:0;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:auto}
+.slide-s28 .engine-evidence-grid{flex-shrink:0;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:auto}
 .slide-s28 .engine-evidence-card{background:var(--fluent-surface, #ffffff);border:1px solid var(--fluent-border, #d2d0ce);border-radius:var(--ppt-radius-md);
-  padding:12px 14px;display:flex;align-items:flex-start;gap:12px;min-height:0;
+  padding:10px 12px;display:flex;align-items:flex-start;gap:10px;min-height:0;
   border-top:3px solid var(--c,var(--fluent-blue, #0078d4))}
 .slide-s28 .engine-evidence-card.s1{grid-column:span 2;--c:var(--c1)}
 .slide-s28 .engine-evidence-card.s2{grid-column:span 2;--c:var(--c2)}

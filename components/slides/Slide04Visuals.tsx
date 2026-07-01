@@ -277,7 +277,7 @@ export function Slide04SystemHero() {
         <rect x={0} y={0} width={640} height={112} rx={8} fill="#f0f9ff" />
 
         <text x={320} y={20} textAnchor="middle" fontSize={12} fontWeight={700} fill="#0078d4">
-          프로그램마다 Docker 컨테이너로 묶어 · 어디서든 같은 방식으로 실행·배포
+          프로그램별 Docker 컨테이너 · 동일 규격 실행·배포
         </text>
 
         {containerXs.map((x, i) => (

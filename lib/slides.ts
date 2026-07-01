@@ -36,7 +36,6 @@ export const SLIDES: Slide[] = [
   { id: 14, title: "스프린트 운영현황" },
   { id: 15, title: "타사 프로젝트 비교" },
   { id: 16, title: "AI-Augmented 개발 워크플로우" },
-  { id: 17, title: "End-to-End 개발 흐름 — 5단계 한눈에 (보조 설명)" },
   { id: 18, title: "프로젝트 진행경과 마일스톤" },
   { id: 19, title: "최적화 방안 1. AI 디지털 워커 활용" },
   { id: 20, title: "최적화 방안 2. 애자일 워룸 운영" },

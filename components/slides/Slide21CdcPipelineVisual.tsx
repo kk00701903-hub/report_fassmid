@@ -138,46 +138,50 @@ export default function Slide21CdcPipelineVisual() {
           </g>
 
           {/* Debezium + Kafka hub */}
-          <g transform="translate(108, 30)">
+          <g transform="translate(108, 28)">
             <motion.rect
               x={0}
               y={0}
               width={104}
-              height={74}
+              height={76}
               rx={12}
               fill={hubActive ? "#eff6fc" : "#ffffff"}
               stroke={hubActive ? "#0078d4" : "#b4d6fa"}
               strokeWidth={hubActive ? 2.5 : 1.5}
               animate={hubActive && animating ? { scale: [1, 1.02, 1] } : { scale: 1 }}
-              style={{ transformOrigin: "52px 37px" }}
+              style={{ transformOrigin: "52px 38px" }}
               transition={{ duration: 1.2, repeat: hubActive && animating ? Infinity : 0 }}
             />
             <rect x={0} y={0} width={104} height={4} rx={12} fill="#0078d4" />
             <rect x={52} y={0} width={52} height={4} rx={12} fill="#5c2d91" />
 
-            <rect x={10} y={12} width={40} height={50} rx={8} fill={debeziumActive ? "#deecf9" : "#f3f9fd"} stroke={debeziumActive ? "#0078d4" : "#c7e0f4"} strokeWidth={debeziumActive ? 2 : 1} />
-            <text x={30} y={30} textAnchor="middle" fontSize={14}>
+            <rect x={10} y={12} width={40} height={54} rx={8} fill={debeziumActive ? "#deecf9" : "#f3f9fd"} stroke={debeziumActive ? "#0078d4" : "#c7e0f4"} strokeWidth={debeziumActive ? 2 : 1} />
+            <text x={30} y={28} textAnchor="middle" fontSize={14}>
               ⚡
             </text>
-            <text x={30} y={44} textAnchor="middle" fontSize={9} fontWeight={800} fill="#004578">
-              Debezium
-            </text>
-            <text x={30} y={55} textAnchor="middle" fontSize={7.5} fontWeight={600} fill="#605e5c">
-              CDC
+            <text x={30} y={42} textAnchor="middle" fontSize={8.5} fontWeight={800} fill="#004578">
+              <tspan x={30} dy={0}>
+                Debezium
+              </tspan>
+              <tspan x={30} dy={12} fontSize={7.5} fontWeight={600} fill="#605e5c">
+                CDC
+              </tspan>
             </text>
 
-            <rect x={54} y={12} width={40} height={50} rx={8} fill={kafkaActive ? "#ede7f6" : "#faf6ff"} stroke={kafkaActive ? "#5c2d91" : "#d4c4e8"} strokeWidth={kafkaActive ? 2 : 1} />
-            <text x={74} y={30} textAnchor="middle" fontSize={14}>
+            <rect x={54} y={12} width={40} height={54} rx={8} fill={kafkaActive ? "#ede7f6" : "#faf6ff"} stroke={kafkaActive ? "#5c2d91" : "#d4c4e8"} strokeWidth={kafkaActive ? 2 : 1} />
+            <text x={74} y={28} textAnchor="middle" fontSize={14}>
               📨
             </text>
-            <text x={74} y={44} textAnchor="middle" fontSize={9} fontWeight={800} fill="#3b1d5c">
-              Kafka
-            </text>
-            <text x={74} y={55} textAnchor="middle" fontSize={7.5} fontWeight={600} fill="#605e5c">
-              Stream
+            <text x={74} y={42} textAnchor="middle" fontSize={8.5} fontWeight={800} fill="#3b1d5c">
+              <tspan x={74} dy={0}>
+                Kafka
+              </tspan>
+              <tspan x={74} dy={12} fontSize={7.5} fontWeight={600} fill="#605e5c">
+                Stream
+              </tspan>
             </text>
 
-            <text x={52} y={70} textAnchor="middle" fontSize={8} fontWeight={700} fill="#484644">
+            <text x={52} y={72} textAnchor="middle" fontSize={8} fontWeight={700} fill="#484644">
               CDC · Event Stream
             </text>
           </g>
