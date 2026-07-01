@@ -101,8 +101,7 @@ const SLIDE_HTML = `<div class="msa-slide-root fluent-slide">
 
   <div class="bottom-bar">
     <div class="bottom-bar-icon"><i class="fas fa-flag-checkered"></i></div>
-    <div class="bottom-bar-text">MSA는 선택이 아닌 필수</div>
-    <div class="bottom-bar-sub">— FaSS 플랫폼이 진정한 'AI 디지털 물류 엔진'으로 거듭나기 위한 최종 아키텍처 목적지</div>
+    <div class="bottom-bar-sub">FaSS 플랫폼이 진정한 'AI 디지털 물류 엔진'으로 거듭나기 위한 최종 아키텍처 목적지</div>
   </div>
 </div>`;
 

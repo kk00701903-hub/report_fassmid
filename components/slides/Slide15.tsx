@@ -40,14 +40,14 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
       <div class="compare-side compare-side--ours">
         <div class="compare-side__header">
           <div class="compare-label compare-label--ours"><span class="fass-mark">FaSS</span> 당사 차세대</div>
-          <div class="compare-company ours">소규모 TFT (AI도구 협업)</div>
+          <div class="compare-company ours">차세대 웹프레임워크 TFT</div>
           <p class="compare-scope">차세대 웹프레임워크 TFT 중심 · AI 도구로 생산성 보완</p>
         </div>
         <ul class="metric-list">
           <li class="metric-item"><span>총 투입 인력</span><strong>핵심 7명 (+ AI 8)</strong></li>
           <li class="metric-item"><span>진행 기간</span><strong>1.5년</strong></li>
           <li class="metric-item"><span>총 투입 규모</span><strong>108 M/M</strong></li>
-          <li class="metric-item"><span>조직 형태</span><strong>소규모 TFT (AI도구 협업)</strong></li>
+          <li class="metric-item"><span>조직 형태</span><strong>차세대 웹프레임워크 TFT</strong></li>
         </ul>
       </div>
     </div>
@@ -65,7 +65,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
           <tr>
             <td><strong>조직 형태</strong></td>
             <td>대형 전담 조직</td>
-            <td>소규모 TFT (AI도구 협업)</td>
+            <td>차세대 웹프레임워크 TFT</td>
           </tr>
           <tr>
             <td><strong>시사점</strong></td>

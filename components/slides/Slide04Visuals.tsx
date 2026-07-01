@@ -161,9 +161,9 @@ export function MiniDockerScene({ variant }: { variant: "standard" | "port" | "i
   if (variant === "standard") {
     return (
       <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-        <DockerContainer color={CONTAINER_COLORS[0]} x={8} y={18} width={32} height={26} label="FaSS-WEB" labelSize={9} />
-        <DockerContainer color={CONTAINER_COLORS[1]} x={42} y={18} width={32} height={26} label="FaSS-API" labelSize={9} />
-        <DockerContainer color={CONTAINER_COLORS[2]} x={76} y={18} width={32} height={26} label="FaSS-DB" labelSize={9} />
+        <DockerContainer color={CONTAINER_COLORS[0]} x={8} y={18} width={32} height={26} />
+        <DockerContainer color={CONTAINER_COLORS[1]} x={42} y={18} width={32} height={26} />
+        <DockerContainer color={CONTAINER_COLORS[2]} x={76} y={18} width={32} height={26} />
         <text x={60} y={12} textAnchor="middle" fontSize={9} fill="#0078d4">
           같은 Docker 규격
         </text>
@@ -265,7 +265,6 @@ export function Slide04LogisticsHero() {
 /** 하단 — FaSS 시스템(서버·Docker) */
 export function Slide04SystemHero() {
   const { animating } = useSlideDiagramMotion();
-  const labels = ["FaSS-WEB", "FaSS-API", "FaSS-DB"] as const;
   const containerW = 62;
   const containerH = 42;
   const containerY = 30;
@@ -282,14 +281,12 @@ export function Slide04SystemHero() {
 
         {containerXs.map((x, i) => (
           <DockerContainer
-            key={labels[i] ?? "batch"}
+            key={x}
             color={i < 3 ? CONTAINER_COLORS[i] : "#10b981"}
             x={x}
             y={containerY}
             width={containerW}
             height={containerH}
-            label={i < 3 ? labels[i] : "FaSS-Batch"}
-            labelSize={10}
           />
         ))}
 
