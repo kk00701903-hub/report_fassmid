@@ -38,9 +38,14 @@
 [data-motion="cards"] .flow-strip,
 [data-motion="timeline"] .milestone-grid,
 [data-motion="timeline"] .board,
+[data-motion="timeline"] .s14-kanban__board,
 [data-motion="roadmap"] .roadmap-visual-track-container,
+[data-motion="roadmap"] .s37-roadmap-track,
+[data-motion="roadmap"] .roadmap-track-slot,
 [data-motion="architecture"] .flow-strip,
-[data-motion="architecture"] .migration-pipeline-container {
+[data-motion="architecture"] .migration-pipeline-container,
+[data-motion="pipeline"] .circuit-pipeline,
+[data-motion="pipeline"] .s16-workflow {
   position: relative;
   overflow: hidden;
 }
@@ -50,9 +55,14 @@
 [data-motion="cards"] .flow-strip::after,
 [data-motion="timeline"] .milestone-grid::after,
 [data-motion="timeline"] .board::after,
+[data-motion="timeline"] .s14-kanban__board::after,
 [data-motion="roadmap"] .roadmap-visual-track-container::after,
+[data-motion="roadmap"] .s37-roadmap-track::after,
+[data-motion="roadmap"] .roadmap-track-slot::after,
 [data-motion="architecture"] .flow-strip::after,
-[data-motion="architecture"] .migration-pipeline-container::after {
+[data-motion="architecture"] .migration-pipeline-container::after,
+[data-motion="pipeline"] .circuit-pipeline::after,
+[data-motion="pipeline"] .s16-workflow::after {
   content: "";
   position: absolute;
   top: 0;
@@ -90,14 +100,21 @@
 [data-motion="pipeline"] .cicd-step,
 [data-motion="timeline"] .milestone-card,
 [data-motion="timeline"] .phase-col,
+[data-motion="timeline"] .s14-kanban__card,
+[data-motion="timeline"] .s14-kanban__col,
 [data-motion="roadmap"] .roadmap-step-node,
 [data-motion="roadmap"] .roadmap-data-table tbody tr,
 [data-motion="roadmap"] .roadmap-strategy-card,
+[data-motion="roadmap"] .s37-milestone,
 [data-motion="innovation"] .strat,
 [data-motion="innovation"] .concept-box,
 [data-motion="innovation"] .role-card,
 [data-motion="innovation"] .engine-panel,
+[data-motion="innovation"] .engine-evidence-card,
+[data-motion="innovation"] .fass-smart-logistics-action-item-card,
 [data-motion="innovation"] .roi-asset-evidence-card,
+[data-motion="innovation"] .quality-pipeline-step-card,
+[data-motion="innovation"] .proto-card,
 [data-motion="innovation"] .finops-content-card-box,
 [data-motion="innovation"] .finops-column-item-wrapper,
 [data-motion="architecture"] .flow-node,
@@ -114,10 +131,16 @@
 [data-motion="compare"] .metric-item,
 [data-motion="pipeline"] .node,
 [data-motion="pipeline"] .pill,
+[data-motion="pipeline"] .circuit-phase,
+[data-motion="pipeline"] .circuit-node,
 [data-motion="cards"] .std-pill,
 [data-motion="cards"] .stat-box,
 [data-motion="cards"] .chip,
 [data-motion="cards"] .layer-box,
+[data-motion="cards"] .flow-node,
+[data-motion="cards"] .s23-spot-tile,
+[data-motion="cards"] .s17-step-card,
+[data-motion="cards"] .s17-scenario__item,
 [data-motion="innovation"] .etag,
 [data-motion="innovation"] .strat-num,
 [data-motion="closing"] .closing-milestone-item,

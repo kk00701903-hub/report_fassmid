@@ -3,14 +3,13 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-const SCENE_WIDTH = 132;
-const SCENE_HEIGHT = 232;
-const HEADER_H = 30;
+const SCENE_WIDTH = 124;
+const SCENE_HEIGHT = 210;
 const WH_X = 10;
-const WH_Y = HEADER_H + 4;
-const WH_W = 100;
+const WH_Y = 6;
+const WH_W = 92;
 const WH_H = 102;
-const HQ_Y = 162;
+const HQ_Y = 148;
 const HQ_H = 56;
 const FLOW_X = WH_X + WH_W / 2;
 const FLOW_TOP = WH_Y + WH_H + 2;
@@ -200,55 +199,41 @@ function VerticalDataPacket({ color, delay = 0 }: { color: string; delay?: numbe
   );
 }
 
-function SceneHeaderBatch({ reduceMotion }: { reduceMotion: boolean | null }) {
+function SceneLegendBatch({ reduceMotion }: { reduceMotion: boolean | null }) {
   return (
-    <>
-      <rect x={0} y={0} width={SCENE_WIDTH} height={HEADER_H} rx={4} fill="#1e293b" opacity={0.14} />
-      <text x={8} y={12} fontSize={9} fontWeight={700} fill="#991b1b">
-        야간 Batch
-      </text>
-      <text x={8} y={22} fontSize={8.5} fontWeight={600} fill="#7f1d1d">
-        문 닫고 전수조사
-      </text>
-      <g transform={`translate(${SCENE_WIDTH - 8}, 0)`}>
-        <motion.circle
-          cx={0}
-          cy={11}
-          r={6}
-          fill="#fbbf24"
-          animate={reduceMotion ? undefined : { opacity: [0.5, 0.95, 0.5], scale: [1, 1.08, 1] }}
+    <aside className="s06-scene__legend s06-scene__legend--batch" aria-label="야간 Batch 설명">
+      <span className="s06-scene__legend-kicker">운영 방식</span>
+      <span className="s06-scene__legend-title">야간 Batch</span>
+      <span className="s06-scene__legend-desc">문 닫고 전수조사</span>
+      <span className="s06-scene__legend-meta">
+        <motion.span
+          className="s06-scene__legend-dot s06-scene__legend-dot--moon"
+          animate={reduceMotion ? undefined : { opacity: [0.55, 1, 0.55], scale: [1, 1.08, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
+          aria-hidden="true"
         />
-        <text x={0} y={24} textAnchor="end" fontSize={7.5} fill="#78716c">
-          🌙 자정
-        </text>
-      </g>
-    </>
+        자정 일괄 전송
+      </span>
+    </aside>
   );
 }
 
-function SceneHeaderCdc() {
+function SceneLegendCdc() {
   return (
-    <>
-      <rect x={0} y={0} width={SCENE_WIDTH} height={HEADER_H} rx={4} fill="#e0f2fe" opacity={0.6} />
-      <text x={8} y={12} fontSize={9} fontWeight={700} fill="#0078d4">
-        실시간 CDC
-      </text>
-      <text x={8} y={22} fontSize={8.5} fontWeight={600} fill="#0369a1">
-        정상 운영 중
-      </text>
-      <motion.text
-        x={SCENE_WIDTH - 8}
-        y={17}
-        textAnchor="end"
-        fontSize={7.5}
-        fill="#059669"
-        animate={{ opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        ☀️ 주간 가동
-      </motion.text>
-    </>
+    <aside className="s06-scene__legend s06-scene__legend--cdc" aria-label="실시간 CDC 설명">
+      <span className="s06-scene__legend-kicker">운영 방식</span>
+      <span className="s06-scene__legend-title">실시간 CDC</span>
+      <span className="s06-scene__legend-desc">정상 운영 중</span>
+      <span className="s06-scene__legend-meta">
+        <motion.span
+          className="s06-scene__legend-dot s06-scene__legend-dot--day"
+          animate={{ opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          aria-hidden="true"
+        />
+        주간 가동 · 변동분만
+      </span>
+    </aside>
   );
 }
 
@@ -328,15 +313,15 @@ export function Slide06BatchScene() {
 
   return (
     <div className="s06-scene s06-scene--batch">
-      <svg
-        viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`}
-        className="s06-scene__svg"
-        preserveAspectRatio="xMidYMid meet"
-        aria-hidden="true"
-      >
-        <SceneHeaderBatch reduceMotion={reduceMotion} />
-
-        <WarehouseInterior tone="batch">
+      <SceneLegendBatch reduceMotion={reduceMotion} />
+      <div className="s06-scene__diagram">
+        <svg
+          viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`}
+          className="s06-scene__svg"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <WarehouseInterior tone="batch">
           {SHELF_SLOTS.map((s, i) => (
             <WarehouseBox
               key={`${s.x}-${s.y}`}
@@ -370,11 +355,12 @@ export function Slide06BatchScene() {
         ) : null}
 
         <HqBuilding tone="batch" label="본사 (분석 DB)" sub="어제 자정 기준" />
-      </svg>
-      <div className={`s06-scene__status ${phase === "reporting" ? "is-warn" : "is-danger"}`}>
-        {phase === "reporting"
-          ? "전수조사 완료 → 전일 자정 기준 일괄 전송"
-          : `야간 전수조사 ${scanIdx + 1}/${SHELF_SLOTS.length} · 재집계 ${progress}%`}
+        </svg>
+        <div className={`s06-scene__status ${phase === "reporting" ? "is-warn" : "is-danger"}`}>
+          {phase === "reporting"
+            ? "전수조사 완료 → 전일 자정 기준 일괄 전송"
+            : `야간 전수조사 ${scanIdx + 1}/${SHELF_SLOTS.length} · 재집계 ${progress}%`}
+        </div>
       </div>
     </div>
   );
@@ -393,15 +379,15 @@ export function Slide06CdcScene() {
 
   return (
     <div className="s06-scene s06-scene--cdc">
-      <svg
-        viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`}
-        className="s06-scene__svg"
-        preserveAspectRatio="xMidYMid meet"
-        aria-hidden="true"
-      >
-        <SceneHeaderCdc />
-
-        <WarehouseInterior tone="cdc">
+      <SceneLegendCdc />
+      <div className="s06-scene__diagram">
+        <svg
+          viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`}
+          className="s06-scene__svg"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <WarehouseInterior tone="cdc">
           {SHELF_SLOTS.map((s) => (
             <WarehouseBox key={`cdc-${s.x}-${s.y}`} x={s.x} y={s.y} tone="cdc" />
           ))}
@@ -416,9 +402,8 @@ export function Slide06CdcScene() {
         <VerticalDataPacket color="#34d399" delay={0.8} />
 
         <HqBuilding tone="cdc" label="본사 (분석 DB)" sub="실시간 동기화" />
-      </svg>
-      <div className="s06-scene__status is-success">
-        변동분만 즉시 동기화 — 전체 재집계 없음
+        </svg>
+        <div className="s06-scene__status is-success">변동분만 즉시 동기화 — 전체 재집계 없음</div>
       </div>
     </div>
   );

@@ -8,7 +8,6 @@ const SLIDE_HTML = `<div class="slide fluent-slide quality-slide">
 <div class="title-r">
 <div class="title-row">
 <div class="bar"></div>
-<span class="badge">BUSINESS INNOVATION</span>
 <h1 class="title-main">비즈니스 혁신5: Zero-Defect 코드 품질 통제 체계</h1>
 </div>
 <p class="sub">AI 가속 CI/CD + SonarQube 정적 분석 — 무결점 코드 품질 통제 체계</p>

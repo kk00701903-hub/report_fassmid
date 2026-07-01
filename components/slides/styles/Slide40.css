@@ -1,171 +1,310 @@
-.slide-s40 .fass-closing-slide-root{width:100%;height:100%;
-    background-color: var(--fluent-bg, #ffffff);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    color: var(--fluent-grey-160, #201f1e)}
+/* Slide 40 — Closing (backup 38.html layout, white Fluent theme) */
 
-.slide-s40 .title-region-wrapper{display: flex;
-    flex-direction: column;
-    gap: 8px}
-.slide-s40 .title-horizontal-group{display: flex;
-    align-items: center;
-    gap: 12px}
-.slide-s40 .title-accent-bar{width: 4px;
-    height: 32px;
-    background: var(--fluent-blue, #0078d4);
-    border-radius: 2px}
-.slide-s40 .title-main-text{font-family: var(--ppt-font-display);
-    font-size:26px;
-    font-weight: 700;
-    color: var(--fluent-grey-160, #201f1e);
-    margin: 0}
-.slide-s40 .title-sub-text{font-size: 14px;
-    color: var(--fluent-grey-130, #484644);
-    padding-left: 16px;
-    margin-top: 6px;
-    line-height: 1.45}
-.slide-s40 .title-gradient-line{height: 1px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--fluent-blue, #0078d4) 0%, transparent 100%);
-    opacity: 0.3;
-    margin-top: 8px}
-
-.slide-s40 .fass-closing-content-body{flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    padding: 8px 40px 12px 40px;
-    gap: 18px}
-.slide-s40 .closing-visionary-left-group{flex: 1.15;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    gap: 12px;
-    min-height: 0}
-.slide-s40 .closing-visionary-right-group{flex: 0.85;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: center;
-    text-align: center;
-    padding: 20px 18px;
-    border-radius: var(--ppt-radius-lg);
-    border: 1px solid rgba(0, 120, 212, 0.25);
-    background: radial-gradient(circle at center, rgba(0, 120, 212, 0.08) 0%, rgba(20, 27, 45, 0.6) 70%)}
-
-.slide-s40 .vision-pillar-grid{display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    min-height: 0;
-    gap: 8px;
-    justify-content: space-between}
-.slide-s40 .vision-pillar-card{display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 10px 12px;
-    background: var(--fluent-card-bg, #f8f8f8);
-  box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));
-    border: 1px solid var(--fluent-border, #d2d0ce);
-    border-radius: var(--ppt-radius-md);
-    border-left: 3px solid var(--vc, var(--fluent-blue, #0078d4))}
-.slide-s40 .vision-pillar-icon{width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: var(--fluent-surface, #ffffff);
-    border: 1px solid var(--fluent-border, #d2d0ce);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--vc, var(--fluent-blue, #0078d4));
-    font-size: 17px;
-    flex-shrink: 0}
-.slide-s40 .vision-pillar-body{min-width: 0}
-.slide-s40 .vision-pillar-tag{font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--vc, var(--fluent-blue, #0078d4));
-    margin-bottom: 2px}
-.slide-s40 .vision-pillar-title{font-size: 15px;
-    font-weight: 700;
-    color: var(--fluent-grey-160, #201f1e);
-    line-height: 1.35;
-    margin-bottom: 3px}
-.slide-s40 .vision-pillar-desc{font-size: 13px;
-    color: var(--fluent-grey-130, #484644);
-    line-height: 1.45}
-.slide-s40 .closing-commitment-bar{flex-shrink: 0;
-    margin: auto 40px 14px;
-    padding: 10px 16px;
-    border-left: 3px solid var(--fluent-blue, #0078d4);
-    border-radius: 0 10px 10px 0;
-    background: rgba(250, 204, 21, 0.06);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap}
-.slide-s40 .closing-commitment-bar strong{color: var(--fluent-blue, #0078d4)}
-.slide-s40 .closing-commitment-bar span{font-size: 13px; color: var(--fluent-grey-130, #484644); line-height: 1.45}
-.slide-s40 .commit-pill{font-size: 14px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 12px;
-    background: var(--fluent-surface, #ffffff);
-    border: 1px solid var(--fluent-border, #d2d0ce);
-    color: var(--fluent-grey-160, #201f1e);
-    white-space: nowrap}
-
-.slide-s40 .closing-anchor-keyword-wrapper{display: flex;
-    flex-direction: column;
-    gap: 8px}
-.slide-s40 .closing-anchor-top-label{font-size: 18px;
-    font-weight: 600;
-    color: var(--fluent-blue, #0078d4);
-    letter-spacing: 4px;
-    text-transform: uppercase}
-.slide-s40 .closing-anchor-main-keyword{font-size: 64px;
-    font-weight: 700;
-    color: var(--fluent-grey-160, #201f1e);
-    line-height: 1;
-    margin: 10px 0;
-    text-shadow: 0 0 30px rgba(0, 120, 212, 0.3)}
-.slide-s40 .closing-anchor-accent-keyword{font-size: 48px;
-    font-weight: 700;
-    color: var(--fluent-blue, #0078d4);
-    line-height: 1}
-.slide-s40 .closing-anchor-divider{width: 60px;
-    height: 4px;
-    background: var(--fluent-blue, #0078d4);
-    margin: 32px auto;
-    border-radius: 2px}
-.slide-s40 .closing-anchor-stat-group{display: flex;
-    flex-direction: column;
-    gap: 4px}
-.slide-s40 .closing-anchor-stat-value{font-size: 32px;
-    font-weight: 700;
-    color: var(--fluent-grey-160, #201f1e)}
-.slide-s40 .closing-anchor-stat-label{font-size: 16px;
-    color: var(--fluent-grey-90, #8a8886)}
-.slide-s40 ul{list-style: none}
-
-/* UX compact ??closing slide fit 960×720 */
-.slide-s40 .fass-closing-slide-root {overflow: hidden;
+.slide-s40 .fass-closing-slide-root {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #201f1e;
+  overflow: hidden;
   min-height: 0;
-  box-sizing: border-box;}
-.slide-s40 .title-region-wrapper {gap: 4px;}
-.slide-s40 .title-main-text {font-size: 24px;}
-.slide-s40 .title-sub-text {font-size: 14px; margin-top: 4px;}
-.slide-s40 .fass-closing-content-body {gap: 12px;}
-.slide-s40 .vision-pillar-grid {gap: 5px;}
-.slide-s40 .vision-pillar-card {padding: 7px 10px; gap: 8px;}
-.slide-s40 .vision-pillar-title {font-size: 13.5px;}
-.slide-s40 .vision-pillar-desc {font-size: 14px; line-height: 1.35;}
-.slide-s40 .closing-visionary-right-group {padding: 12px 14px;}
-.slide-s40 .closing-anchor-main-keyword {font-size: 48px; margin: 6px 0;}
-.slide-s40 .closing-anchor-accent-keyword {font-size: 36px;}
-.slide-s40 .closing-anchor-divider {margin: 16px auto;}
-.slide-s40 .closing-anchor-stat-value {font-size: 26px;}
-.slide-s40 .closing-commitment-bar {margin: 0 28px 8px; padding: 7px 12px; gap: 10px;}
-.slide-s40 .closing-commitment-bar span {font-size: 14px;}
+  box-sizing: border-box;
+}
+
+/* ── Title ── */
+.slide-s40 .title-region-wrapper {
+  flex-shrink: 0;
+  padding: 32px 40px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slide-s40 .title-horizontal-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-s40 .title-accent-bar {
+  width: 4px;
+  height: 32px;
+  background: #0078d4;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.slide-s40 .title-main-text {
+  font-family: var(--ppt-font-display, "Noto Sans KR", sans-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #201f1e;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.slide-s40 .title-sub-text {
+  font-size: 14px;
+  color: #484644;
+  padding-left: 16px;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.slide-s40 .title-gradient-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #0078d4 0%, transparent 100%);
+  opacity: 0.3;
+  margin-top: 4px;
+}
+
+/* ── Main body ── */
+.slide-s40 .fass-closing-content-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 8px 40px 12px;
+  gap: 18px;
+}
+
+.slide-s40 .closing-visionary-left-group {
+  flex: 1.15;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-height: 0;
+}
+
+.slide-s40 .vision-pillar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+  justify-content: center;
+}
+
+.slide-s40 .vision-pillar-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  background: #faf9f8;
+  border: 1px solid #edebe9;
+  border-radius: 8px;
+  border-left: 3px solid var(--vc, #0078d4);
+}
+
+.slide-s40 .vision-pillar-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #edebe9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vc, #0078d4);
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.slide-s40 .vision-pillar-body {
+  min-width: 0;
+}
+
+.slide-s40 .vision-pillar-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vc, #0078d4);
+  margin-bottom: 2px;
+}
+
+.slide-s40 .vision-pillar-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #201f1e;
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+
+.slide-s40 .vision-pillar-desc {
+  font-size: 13px;
+  color: #484644;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Right anchor panel ── */
+.slide-s40 .closing-visionary-right-group {
+  flex: 0.85;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 120, 212, 0.22);
+  background: radial-gradient(circle at center, #deecf9 0%, #ffffff 72%);
+  box-shadow: 0 2px 12px rgba(0, 120, 212, 0.08);
+}
+
+.slide-s40 .closing-anchor-keyword-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.slide-s40 .closing-anchor-top-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0078d4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.slide-s40 .closing-anchor-main-keyword {
+  font-size: 52px;
+  font-weight: 800;
+  color: #201f1e;
+  line-height: 1;
+  margin: 8px 0 0;
+}
+
+.slide-s40 .closing-anchor-accent-keyword {
+  font-size: 40px;
+  font-weight: 800;
+  color: #0078d4;
+  line-height: 1;
+}
+
+.slide-s40 .closing-anchor-divider {
+  width: 60px;
+  height: 4px;
+  background: #0078d4;
+  margin: 20px auto;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+.slide-s40 .closing-anchor-stat-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.slide-s40 .closing-anchor-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #201f1e;
+}
+
+.slide-s40 .closing-anchor-stat-value--accent {
+  color: #0078d4;
+}
+
+.slide-s40 .closing-anchor-stat-label {
+  font-size: 14px;
+  color: #605e5c;
+}
+
+.slide-s40 .closing-check-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+.slide-s40 .closing-check-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: #484644;
+  line-height: 1.45;
+}
+
+.slide-s40 .closing-check-item i {
+  color: #107c10;
+  margin-top: 3px;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+.slide-s40 .closing-vision-quote-text {
+  margin: 16px 0 0;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.5;
+  color: #201f1e;
+}
+
+.slide-s40 .closing-vision-quote-text strong {
+  color: #ca5010;
+  font-weight: 700;
+}
+
+/* ── Commitment bar ── */
+.slide-s40 .closing-commitment-bar {
+  flex-shrink: 0;
+  margin: 0 40px 14px;
+  padding: 10px 16px;
+  border-left: 3px solid #ca5010;
+  border-radius: 0 10px 10px 0;
+  background: #fff4ce;
+  border: 1px solid rgba(202, 80, 16, 0.2);
+  border-left-width: 3px;
+  border-left-color: #ca5010;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.slide-s40 .closing-commitment-bar strong {
+  color: #8a3b00;
+  font-size: 13px;
+}
+
+.slide-s40 .commit-pill {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #edebe9;
+  color: #323130;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.slide-s40 .commit-pill i {
+  font-size: 12px;
+}
+
+.slide-s40 .commit-pill:nth-child(2) i {
+  color: #0078d4;
+}
+.slide-s40 .commit-pill:nth-child(3) i {
+  color: #107c10;
+}
+.slide-s40 .commit-pill:nth-child(4) i {
+  color: #ca5010;
+}

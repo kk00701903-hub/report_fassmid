@@ -11,22 +11,111 @@
 
 .slide-s28 .engine-main-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 36px 20px;gap:18px;position:relative;z-index:1}
 
-.slide-s28 .engine-focus-wrapper{flex:1;min-height:0;display:flex;align-items:center;gap:28px}
-.slide-s28 .engine-highlight-left{flex:3;display:flex;flex-direction:column;justify-content:center;gap:8px}
-.slide-s28 .engine-icon-box{width:56px;height:56px;border-radius:14px;background:rgba(0, 120, 212,.15);border:1px solid rgba(0, 120, 212,.35);
-  display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--fluent-blue, #0078d4);
-  box-shadow:0 0 24px rgba(0, 120, 212,.2);margin-bottom:4px}
-.slide-s28 .engine-label-top{font-size:18px;font-weight:600;color:var(--fluent-blue, #0078d4);letter-spacing:.08em;text-transform:uppercase}
-.slide-s28 .engine-value-main{font-size:34px;font-weight:700;line-height:1.25;color:var(--fluent-grey-160, #201f1e)}
-.slide-s28 .engine-value-accent{color:var(--fluent-blue, #0078d4)}
-.slide-s28 .engine-tagline{font-size:17px;font-weight:600;color:var(--fluent-grey-160, #201f1e);line-height:1.45;margin-top:4px}
-.slide-s28 .engine-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.slide-s28 .engine-pill{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;
-  background:var(--fluent-surface, #ffffff);border:1px solid var(--fluent-border, #d2d0ce);color:var(--fluent-grey-130, #484644);white-space:nowrap}
-.slide-s28 .engine-pill i{margin-right:6px;color:var(--fluent-blue, #0078d4);font-size: 14px}
+.slide-s28 .engine-focus-wrapper{flex:1;min-height:0;display:flex;align-items:stretch;gap:28px}
 
-.slide-s28 .engine-description-right{flex:2;background:rgba(255,255,255,.03);border-left:2px solid var(--fluent-blue, #0078d4);
-  padding:20px 22px;display:flex;flex-direction:column;gap:12px;min-height:0}
+/* ── Hero panel: 차세대 영업 핵심 IT 엔진 ── */
+.slide-s28 .engine-highlight-left{
+  flex:3;position:relative;min-height:0;min-width:0;
+  border-radius:20px;overflow:hidden;isolation:isolate;
+  background:
+    linear-gradient(145deg, #003966 0%, #004578 38%, #0078d4 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.18) inset,
+    0 18px 40px rgba(0,71,120,.22),
+    0 0 0 1px rgba(0,120,212,.35);
+}
+
+.slide-s28 .engine-hero-deco{
+  position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+}
+
+.slide-s28 .engine-hero-deco__orb{
+  position:absolute;border-radius:50%;filter:blur(1px);
+}
+.slide-s28 .engine-hero-deco__orb--1{
+  width:220px;height:220px;top:-72px;right:-48px;
+  background:radial-gradient(circle at 35% 35%, rgba(255,255,255,.28) 0%, rgba(255,255,255,.04) 42%, transparent 68%);
+  opacity:.95;
+}
+.slide-s28 .engine-hero-deco__orb--2{
+  width:160px;height:160px;bottom:-56px;left:-36px;
+  background:radial-gradient(circle, rgba(0,188,242,.35) 0%, rgba(0,120,212,.08) 45%, transparent 70%);
+}
+
+.slide-s28 .engine-hero-deco__ring{
+  position:absolute;width:280px;height:280px;top:50%;right:-92px;transform:translateY(-58%);
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 0 0 24px rgba(255,255,255,.03),
+    0 0 0 48px rgba(255,255,255,.02);
+  opacity:.85;
+}
+
+.slide-s28 .engine-hero-deco__slash{
+  position:absolute;inset:-20% -10%;
+  background:linear-gradient(118deg, transparent 42%, rgba(255,255,255,.07) 49.5%, rgba(255,255,255,.03) 50.5%, transparent 58%);
+  transform:rotate(-6deg);
+}
+
+.slide-s28 .engine-hero-deco__grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:radial-gradient(ellipse 85% 75% at 18% 62%, #000 20%, transparent 72%);
+  opacity:.55;
+}
+
+.slide-s28 .engine-hero-body{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;justify-content:center;gap:8px;
+  padding:26px 28px 24px;
+}
+
+.slide-s28 .engine-icon-box{
+  width:56px;height:56px;border-radius:14px;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);
+  display:flex;align-items:center;justify-content:center;font-size:26px;color:#ffffff;
+  box-shadow:0 8px 24px rgba(0,36,72,.28), 0 0 0 1px rgba(255,255,255,.08) inset;
+  margin-bottom:4px;
+}
+.slide-s28 .engine-label-top{
+  font-size:13px;font-weight:700;color:rgba(255,255,255,.82);
+  letter-spacing:.14em;text-transform:uppercase;
+}
+.slide-s28 .engine-value-main{
+  font-size:34px;font-weight:800;line-height:1.22;color:#ffffff;
+  text-shadow:0 2px 18px rgba(0,36,72,.35);
+}
+.slide-s28 .engine-value-accent{
+  color:#ffd335;
+  background:linear-gradient(90deg, #ffe566 0%, #ffd335 55%, #ffb900 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,36,72,.45));
+}
+.slide-s28 .engine-tagline{
+  font-size:15px;font-weight:600;color:rgba(255,255,255,.92);line-height:1.5;margin-top:4px;
+  max-width:34ch;
+}
+.slide-s28 .engine-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.slide-s28 .engine-pill{
+  font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+  color:#ffffff;white-space:nowrap;
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 8px rgba(0,36,72,.18);
+}
+.slide-s28 .engine-pill i{margin-right:6px;color:#ffd335;font-size:13px}
+
+.slide-s28 .engine-description-right{
+  flex:2;background:var(--fluent-blue-light,#deecf9);
+  border-left:3px solid var(--fluent-blue,#0078d4);
+  border-radius:0 16px 16px 0;
+  padding:20px 22px;display:flex;flex-direction:column;gap:12px;min-height:0;
+  box-shadow:0 4px 16px rgba(0,120,212,.08);
+}
 .slide-s28 .engine-desc-title{font-size:20px;font-weight:600;color:var(--fluent-grey-160, #201f1e);margin:0}
 .slide-s28 .engine-desc-body{font-size:16px;line-height:1.58;color:var(--fluent-grey-130, #484644);margin:0}
 

@@ -8,7 +8,6 @@ const SLIDE_HTML = `<div class="roi-asset-slide-root fluent-slide" style="overfl
 <div class="title-r">
 <div class="title-row">
 <div class="bar"></div>
-<span class="badge">BUSINESS INNOVATION</span>
 <h1 class="title-main">비즈니스 혁신3: 전략적 수익화 IT 플랫폼 확보</h1>
 </div>
 <p class="sub">내재화 기술 자산 가치 극대화 — ASP 수익화를 위한 전략적 IT 플랫폼</p>
@@ -19,11 +18,22 @@ const SLIDE_HTML = `<div class="roi-asset-slide-root fluent-slide" style="overfl
 <!-- Top Focus Statement Section -->
 <div class="roi-asset-focus-wrapper">
 <div class="roi-asset-highlight-left">
+<div class="roi-asset-hero-panel">
+<div class="roi-asset-hero-deco" aria-hidden="true">
+<span class="roi-asset-hero-deco__orb roi-asset-hero-deco__orb--1"></span>
+<span class="roi-asset-hero-deco__orb roi-asset-hero-deco__orb--2"></span>
+<span class="roi-asset-hero-deco__ring"></span>
+<span class="roi-asset-hero-deco__slash"></span>
+<span class="roi-asset-hero-deco__grid"></span>
+</div>
+<div class="roi-asset-hero-body">
 <div class="roi-asset-label-top">내재화 기술 자산 가치</div>
 <div class="roi-asset-value-main">
             100 <span class="roi-asset-value-unit">억 원+</span>
 </div>
 <p class="roi-asset-tagline">IT 부서를 넘어, 회사의 핵심 수익 파이프라인(Profit Center)으로 격상</p>
+</div>
+</div>
 </div>
 <div class="roi-asset-description-right">
 <h2 class="roi-asset-desc-title">비즈니스 모델의 근본적 전환</h2>
@@ -68,7 +78,7 @@ const SLIDE_HTML = `<div class="roi-asset-slide-root fluent-slide" style="overfl
 </div>
 </div>`;
 
-export default function Slide29() {
+export default function Slide30() {
   return (
     <SlideCanvas slideId={30} motion="innovation" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

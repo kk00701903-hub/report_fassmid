@@ -15,6 +15,13 @@
   border-left: 4px solid var(--ppt-k8s);
   padding: 16px 18px;
   border-radius: var(--ppt-radius-md);}
+.slide-s38 .k8s-analogy-tag{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ppt-k8s); background: rgba(50, 108, 229, 0.1);
+  border: 1px solid rgba(50, 108, 229, 0.28); border-radius: 999px;
+  padding: 3px 10px; margin-bottom: 10px;
+}
 .slide-s38 .k8s-summary-title{font-size: 17px; font-weight: 700; color: var(--ppt-k8s); margin-bottom: 8px; line-height: 1.35;}
 .slide-s38 .k8s-summary-desc{font-size: 14px; color: var(--fluent-grey-130, #484644); line-height: 1.5;}
 .slide-s38 .k8s-summary-desc b{color: var(--fluent-grey-160, #201f1e); font-weight: 600;}

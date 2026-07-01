@@ -7,16 +7,23 @@ const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>
-      <span class="badge">BUSINESS INNOVATION</span>
       <h1 class="title-main">비즈니스 혁신1: 차세대 영업 핵심 IT 엔진 보유</h1>
     </div>
-    <p class="sub">차세대 웹 아키텍처 기반 — 영업 경쟁력 · 운영 효율 · 데이터 의사결정 · 안정성 · FinOps 5대 전략</p>
+    <p class="sub">차세대 웹 아키텍처 기반 — 영업 경쟁력 · 운영 효율 · 데이터 의사결정 · 안정성 · Cloud-Ready 5대 전략</p>
     <div class="line"></div>
   </div>
 
   <div class="engine-main-content">
     <div class="engine-focus-wrapper">
       <div class="engine-highlight-left">
+        <div class="engine-hero-deco" aria-hidden="true">
+          <span class="engine-hero-deco__orb engine-hero-deco__orb--1"></span>
+          <span class="engine-hero-deco__orb engine-hero-deco__orb--2"></span>
+          <span class="engine-hero-deco__ring"></span>
+          <span class="engine-hero-deco__slash"></span>
+          <span class="engine-hero-deco__grid"></span>
+        </div>
+        <div class="engine-hero-body">
         <div class="engine-icon-box"><i class="fas fa-rocket"></i></div>
         <div class="engine-label-top">Core IT Engine</div>
         <div class="engine-value-main">차세대 영업<br/><span class="engine-value-accent">핵심 IT 엔진</span></div>
@@ -25,15 +32,16 @@ const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
           <span class="engine-pill"><i class="fas fa-cubes"></i>모듈형 배포</span>
           <span class="engine-pill"><i class="fas fa-plug"></i>API 통합</span>
           <span class="engine-pill"><i class="fas fa-shield-halved"></i>Zero-Defect</span>
-          <span class="engine-pill"><i class="fas fa-coins"></i>FinOps</span>
+          <span class="engine-pill"><i class="fas fa-cloud"></i>Cloud-Ready</span>
+        </div>
         </div>
       </div>
       <div class="engine-description-right">
         <h2 class="engine-desc-title">5대 전략 프레임워크</h2>
         <p class="engine-desc-body">
           차세대 웹 아키텍처는 기능 단위 모듈화 배포, 최신 프레임워크 기반 성능 개선, 유연한 API·데이터 연동,
-          무결점(Zero-Defect) 품질 통제, FinOps 기반 클라우드 비용 최적화를 하나의 IT 엔진으로 통합합니다.
-          시장 변화에 즉각 대응하고, 운영 효율과 데이터 기반 의사결정, 시스템 안정성, 경영 효율화를 동시에 실현하는
+          무결점(Zero-Defect) 품질 통제, Cloud-Ready 확장 구조를 하나의 IT 엔진으로 통합합니다.
+          시장 변화에 즉각 대응하고, 운영 효율과 데이터 기반 의사결정, 시스템 안정성, 중장기 플랫폼 성장성을 동시에 실현하는
           FaSS 차세대 플랫폼의 비즈니스 혁신 기반입니다.
         </p>
       </div>
@@ -77,12 +85,12 @@ const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
         </div>
       </div>
       <div class="engine-evidence-card s5">
-        <div class="engine-card-icon-box"><i class="fas fa-piggy-bank"></i></div>
+        <div class="engine-card-icon-box"><i class="fas fa-cloud-arrow-up"></i></div>
         <div class="engine-card-text-group">
           <div class="engine-card-num">전략 5</div>
-          <div class="engine-card-heading">클라우드 예산 최적화</div>
-          <div class="engine-card-subtext">FinOps 관점 예산 절감 훈련·운영 프로세스 최적화 추진</div>
-          <div class="engine-card-accent-label">경영 성과·비용 효율 직결</div>
+          <div class="engine-card-heading">Cloud-Ready · 확장성 확보</div>
+          <div class="engine-card-subtext">Docker·K8s 표준 기반으로 기능·트래픽 단위 확장, ASP/SaaS 전환 대비</div>
+          <div class="engine-card-accent-label">중장기 플랫폼 성장성</div>
         </div>
       </div>
     </div>

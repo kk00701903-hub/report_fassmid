@@ -8,7 +8,6 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 <div class="title-r">
 <div class="title-row">
 <div class="bar"></div>
-<span class="badge">BUSINESS INNOVATION</span>
 <h1 class="title-main">비즈니스 혁신7: DGX·Claude Code 오케스트레이션 및 프로세스 지침</h1>
 </div>
 <p class="sub">오케스트레이션·프로세스 지침 기반 지능형 코드 변환 — 외주 인력 0 M/M 마이그레이션</p>

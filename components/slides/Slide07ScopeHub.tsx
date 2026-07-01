@@ -93,62 +93,18 @@ export default function Slide07ScopeHub() {
     <div className="s07-hub" aria-hidden="true">
       <svg className="s07-hub__canvas" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <defs>
-          <radialGradient id="s07-hub-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#0078d4" stopOpacity={0.12} />
-            <stop offset="55%" stopColor="#0078d4" stopOpacity={0.04} />
-            <stop offset="100%" stopColor="#0078d4" stopOpacity={0} />
-          </radialGradient>
-          {SPOKES.map((spoke) => (
-            <linearGradient
-              key={`grad-${spoke.id}`}
-              id={`s07-spoke-${spoke.id}`}
-              gradientUnits="userSpaceOnUse"
-              x1={String(CX)}
-              y1={String(CY)}
-              x2={String(polar(spoke.angle, NODE_R).x)}
-              y2={String(polar(spoke.angle, NODE_R).y)}
-            >
-              <stop offset="0%" stopColor={spoke.color} stopOpacity={0.55} />
-              <stop offset="100%" stopColor={spoke.color} stopOpacity={0.95} />
-            </linearGradient>
-          ))}
+          <pattern id="s07-grid" width="4" height="4" patternUnits="userSpaceOnUse">
+            <path d="M 4 0 L 0 0 0 4" fill="none" stroke="rgba(0,120,212,0.07)" strokeWidth="0.15" />
+          </pattern>
         </defs>
 
-        <rect x={0} y={0} width={100} height={100} fill="url(#s07-hub-glow)" />
+        <rect x={0} y={0} width={100} height={100} fill="url(#s07-grid)" />
 
-        <circle
-          cx={CX}
-          cy={CY}
-          r={CORE_R + 7}
-          fill="none"
-          stroke="rgba(0,120,212,0.08)"
-          strokeWidth={0.35}
-        />
-        <circle
-          cx={CX}
-          cy={CY}
-          r={NODE_R - 2}
-          fill="none"
-          stroke="rgba(0,120,212,0.06)"
-          strokeWidth={0.25}
-          strokeDasharray="1.2 1.8"
-        />
+        <circle cx={CX} cy={CY} r={CORE_R + 9} fill="none" stroke="rgba(0,120,212,0.1)" strokeWidth={0.28} />
+        <circle cx={CX} cy={CY} r={CORE_R + 14} fill="none" stroke="rgba(0,120,212,0.06)" strokeWidth={0.22} />
+        <circle cx={CX} cy={CY} r={NODE_R - 1} fill="none" stroke="rgba(0,120,212,0.05)" strokeWidth={0.2} />
 
-        {!reduceMotion ? (
-          <motion.circle
-            cx={CX}
-            cy={CY}
-            r={CORE_R + 2}
-            fill="none"
-            stroke="rgba(0,120,212,0.25)"
-            strokeWidth={0.3}
-            strokeDasharray="2 1.5"
-            animate={{ r: [CORE_R + 2, CORE_R + 6, CORE_R + 2], opacity: [0.5, 0.12, 0.5] }}
-            transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ) : null}
-
-        {SPOKES.map((spoke, i) => {
+        {SPOKES.map((spoke) => {
           const start = polar(spoke.angle, CORE_R);
           const end = polar(spoke.angle, NODE_R);
           return (
@@ -158,31 +114,12 @@ export default function Slide07ScopeHub() {
                 y1={start.y}
                 x2={end.x}
                 y2={end.y}
-                stroke={`url(#s07-spoke-${spoke.id})`}
-                strokeWidth={0.55}
+                stroke={spoke.color}
+                strokeWidth={0.42}
                 strokeLinecap="round"
+                opacity={0.88}
               />
-              <circle cx={end.x} cy={end.y} r={1.1} fill={spoke.color} opacity={0.95} />
-              <circle cx={end.x} cy={end.y} r={2.2} fill="none" stroke={spoke.color} strokeWidth={0.35} opacity={0.45} />
-              {!reduceMotion ? (
-                <motion.circle
-                  r={0.65}
-                  fill="#ffffff"
-                  stroke={spoke.color}
-                  strokeWidth={0.35}
-                  animate={{
-                    cx: [start.x, end.x],
-                    cy: [start.y, end.y],
-                    opacity: [0, 1, 0],
-                  }}
-                  transition={{
-                    duration: 2.4,
-                    repeat: Infinity,
-                    delay: i * 0.32,
-                    ease: "easeInOut",
-                  }}
-                />
-              ) : null}
+              <circle cx={end.x} cy={end.y} r={1.35} fill="#ffffff" stroke={spoke.color} strokeWidth={0.38} />
             </g>
           );
         })}
@@ -191,12 +128,10 @@ export default function Slide07ScopeHub() {
       <div className="s07-hub__core-wrap">
         <motion.div
           className="s07-hub__core"
-          initial={reduceMotion ? false : { scale: 0.9, opacity: 0 }}
+          initial={reduceMotion ? false : { scale: 0.94, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="s07-hub__core-ring" aria-hidden="true" />
-          <div className="s07-hub__core-glow" aria-hidden="true" />
           <div className="s07-hub__core-icon">
             <i className="fas fa-robot" aria-hidden="true" />
           </div>

@@ -1,7 +1,15 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Fragment, useEffect, useRef, useState } from "react";
+import {
+  Fragment,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 
 type NodeDef = {
   id: string;
@@ -22,6 +30,20 @@ type PhaseDef = {
   flows: { from: string; to: string; label?: string }[];
 };
 
+type NodeKey = `${number}:${string}`;
+
+type PipePath = {
+  id: string;
+  d: string;
+  delay: number;
+  phaseIdx: number;
+  trunk?: boolean;
+  trunkFrom?: number;
+  trunkTo?: number;
+  sx: number;
+  sy: number;
+};
+
 const PHASES: PhaseDef[] = [
   {
     num: 1,
@@ -30,8 +52,20 @@ const PHASES: PhaseDef[] = [
     color: "var(--ppt-accent-2, #ca5010)",
     layout: "stack",
     nodes: [
-      { id: "dev", label: "Developer", sub: "Git Push · Merge Request", icon: "fas fa-code-branch", color: "var(--ppt-accent-2, #ca5010)" },
-      { id: "gitlab", label: "GitLab", sub: "소스 저장소 · 파이프라인 트리거", icon: "fab fa-gitlab", color: "var(--c-gitlab, #fc6d26)" },
+      {
+        id: "dev",
+        label: "Developer",
+        sub: "Git Push · Merge Request",
+        icon: "fas fa-code-branch",
+        color: "var(--ppt-accent-2, #ca5010)",
+      },
+      {
+        id: "gitlab",
+        label: "GitLab",
+        sub: "소스 저장소 · 파이프라인 트리거",
+        icon: "fab fa-gitlab",
+        color: "var(--c-gitlab, #fc6d26)",
+      },
     ],
     flows: [{ from: "dev", to: "gitlab", label: "push / webhook" }],
   },
@@ -42,16 +76,30 @@ const PHASES: PhaseDef[] = [
     layout: "dense",
     nodes: [
       { id: "gci", label: "GitLab CI", icon: "fas fa-gears", color: "var(--c-gitlab, #fc6d26)" },
-      { id: "sonar", label: "SonarQube", sub: "Gate", icon: "fas fa-magnifying-glass-chart", color: "var(--c-sonar, #4e9bcd)" },
-      { id: "jenkins", label: "Jenkins", sub: "보조", icon: "fab fa-jenkins", color: "var(--c-jenkins, #d33833)", aux: true },
+      {
+        id: "sonar",
+        label: "SonarQube",
+        sub: "Gate",
+        icon: "fas fa-magnifying-glass-chart",
+        color: "var(--c-sonar, #4e9bcd)",
+      },
+      {
+        id: "jenkins",
+        label: "Jenkins",
+        sub: "보조",
+        icon: "fab fa-jenkins",
+        color: "var(--c-jenkins, #d33833)",
+        aux: true,
+      },
       { id: "docker", label: "Docker", icon: "fab fa-docker", color: "var(--c-docker, #2496ed)" },
       { id: "nexus", label: "Nexus", icon: "fas fa-warehouse", color: "var(--c-nexus, #5c6bc0)" },
     ],
     flows: [
-      { from: "gci", to: "docker", label: "push" },
-      { from: "sonar", to: "nexus" },
+      { from: "gci", to: "docker", label: "build" },
+      { from: "gci", to: "sonar", label: "scan" },
       { from: "jenkins", to: "docker" },
-      { from: "gci", to: "sonar" },
+      { from: "sonar", to: "nexus" },
+      { from: "docker", to: "nexus", label: "push" },
     ],
   },
   {
@@ -61,9 +109,27 @@ const PHASES: PhaseDef[] = [
     color: "var(--c-argo, #ef7b4d)",
     layout: "split",
     nodes: [
-      { id: "argo", label: "Argo CD", sub: "GitOps Sync · 자동 배포", icon: "fas fa-ship", color: "var(--c-argo, #ef7b4d)" },
-      { id: "fass", label: "FaSS Runtime", sub: "On-Prem · Docker 환경 운영", icon: "fas fa-server", color: "var(--ppt-good, #107c10)" },
-      { id: "rollout", label: "무중단 롤아웃", sub: "Blue-Green · Canary 전략", icon: "fas fa-rotate", color: "var(--ppt-accent, #0078d4)" },
+      {
+        id: "argo",
+        label: "Argo CD",
+        sub: "GitOps Sync · 자동 배포",
+        icon: "fas fa-ship",
+        color: "var(--c-argo, #ef7b4d)",
+      },
+      {
+        id: "fass",
+        label: "FaSS Runtime",
+        sub: "On-Prem · Docker 환경 운영",
+        icon: "fas fa-server",
+        color: "var(--ppt-good, #107c10)",
+      },
+      {
+        id: "rollout",
+        label: "무중단 롤아웃",
+        sub: "Blue-Green · Canary 전략",
+        icon: "fas fa-rotate",
+        color: "var(--ppt-accent, #0078d4)",
+      },
     ],
     flows: [
       { from: "argo", to: "fass", label: "rolling deploy" },
@@ -72,39 +138,124 @@ const PHASES: PhaseDef[] = [
   },
 ];
 
-function CircuitTrace({
-  d,
-  color,
-  delay,
-  active,
+const TRUNK_FLOWS = [
+  { from: { phase: 0, node: "gitlab" }, to: { phase: 1, node: "gci" }, label: "CI\n시작" },
+  { from: { phase: 1, node: "nexus" }, to: { phase: 2, node: "argo" }, label: "CD\n배포" },
+] as const;
+
+function nodeKey(phaseIdx: number, nodeId: string): NodeKey {
+  return `${phaseIdx}:${nodeId}`;
+}
+
+function getAnchors(from: DOMRect, to: DOMRect, root: DOMRect) {
+  const fx = from.left - root.left;
+  const fy = from.top - root.top;
+  const tx = to.left - root.left;
+  const ty = to.top - root.top;
+  const fcx = fx + from.width / 2;
+  const fcy = fy + from.height / 2;
+  const tcx = tx + to.width / 2;
+  const tcy = ty + to.height / 2;
+  const dx = tcx - fcx;
+  const dy = tcy - fcy;
+
+  if (Math.abs(dx) >= Math.abs(dy)) {
+    if (dx >= 0) {
+      return { x1: fx + from.width, y1: fcy, x2: tx, y2: tcy };
+    }
+    return { x1: fx, y1: fcy, x2: tx + to.width, y2: tcy };
+  }
+
+  if (dy >= 0) {
+    return { x1: fcx, y1: fy + from.height, x2: tcx, y2: ty };
+  }
+  return { x1: fcx, y1: fy, x2: tcx, y2: ty + to.height };
+}
+
+function buildPipePath(x1: number, y1: number, x2: number, y2: number): string {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+
+  if (Math.abs(dx) < 4 && Math.abs(dy) < 4) {
+    return `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+  }
+
+  if (Math.abs(dx) >= Math.abs(dy) * 0.55) {
+    const midX = x1 + dx / 2;
+    return `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${midX.toFixed(1)} ${y1.toFixed(1)} L ${midX.toFixed(1)} ${y2.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+  }
+
+  const midY = y1 + dy / 2;
+  return `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x1.toFixed(1)} ${midY.toFixed(1)} L ${x2.toFixed(1)} ${midY.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+}
+
+function FlowPipe({
+  pipe,
+  lit,
+  animating,
 }: {
-  d: string;
-  color: string;
-  delay: number;
-  active: boolean;
+  pipe: PipePath;
+  lit: boolean;
+  animating: boolean;
 }) {
+  const stroke = lit ? "#0078d4" : "#5a9fd4";
+  const glow = lit ? "rgba(0,120,212,0.55)" : "rgba(0,120,212,0.2)";
+
   return (
-    <g>
-      <path d={d} fill="none" stroke={color} strokeWidth={2} opacity={0.15} strokeLinecap="round" />
-      <motion.path
-        d={d}
+    <g className="circuit-pipe">
+      <path
+        d={pipe.d}
         fill="none"
-        stroke={color}
-        strokeWidth={2.5}
+        stroke={stroke}
+        strokeWidth={lit ? 5 : 4}
         strokeLinecap="round"
-        strokeDasharray="6 5"
-        animate={active ? { strokeDashoffset: [0, -22] } : { strokeDashoffset: 0 }}
-        transition={{ duration: 0.8, repeat: active ? Infinity : 0, ease: "linear", delay }}
+        strokeLinejoin="round"
+        opacity={0.14}
       />
-      {active ? (
-        <motion.circle
-          r={4}
-          fill={color}
-          filter="url(#s26-pulse-glow)"
-          animate={{ offsetDistance: ["0%", "100%"] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay }}
-          style={{ offsetPath: `path('${d}')`, offsetRotate: "0deg" }}
-        />
+      <path
+        d={pipe.d}
+        fill="none"
+        stroke={stroke}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={lit ? 0.45 : 0.28}
+      />
+      {animating ? (
+        <>
+          <motion.path
+            d={pipe.d}
+            fill="none"
+            stroke={stroke}
+            strokeWidth={lit ? 3 : 2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="10 7"
+            animate={{ strokeDashoffset: [0, -34] }}
+            transition={{
+              duration: lit ? 0.85 : 1.25,
+              repeat: Infinity,
+              ease: "linear",
+              delay: pipe.delay,
+            }}
+          />
+          <motion.circle
+            r={lit ? 4.5 : 3.5}
+            fill={stroke}
+            filter={`url(#s26-flow-glow)`}
+            style={{ offsetPath: `path('${pipe.d}')`, offsetRotate: "0deg" }}
+            animate={{ offsetDistance: ["0%", "100%"] }}
+            transition={{
+              duration: lit ? 1.6 : 2.4,
+              repeat: Infinity,
+              ease: "linear",
+              delay: pipe.delay,
+            }}
+          />
+        </>
+      ) : null}
+      {lit ? (
+        <circle cx={pipe.sx} cy={pipe.sy} r={3} fill={stroke} opacity={0.85} style={{ filter: `drop-shadow(0 0 4px ${glow})` }} />
       ) : null}
     </g>
   );
@@ -112,66 +263,21 @@ function CircuitTrace({
 
 function PhaseCircuitPanel({
   phase,
+  phaseIdx,
   active,
   animating,
+  registerNode,
 }: {
   phase: PhaseDef;
+  phaseIdx: number;
   active: boolean;
   animating: boolean;
+  registerNode: (key: NodeKey, el: HTMLDivElement | null) => void;
 }) {
-  const boardRef = useRef<HTMLDivElement>(null);
-  const nodeRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const [paths, setPaths] = useState<{ d: string; delay: number }[]>([]);
-
-  useEffect(() => {
-    const compute = () => {
-      const board = boardRef.current;
-      if (!board) return;
-
-      const boardRect = board.getBoundingClientRect();
-      const next = phase.flows
-        .map((flow, idx) => {
-          const fromEl = nodeRefs.current[flow.from];
-          const toEl = nodeRefs.current[flow.to];
-          if (!fromEl || !toEl) return null;
-
-          const a = fromEl.getBoundingClientRect();
-          const b = toEl.getBoundingClientRect();
-          const x1 = a.left + a.width / 2 - boardRect.left;
-          const y1 = a.bottom - boardRect.top - 2;
-          const x2 = b.left + b.width / 2 - boardRect.left;
-          const y2 = b.top - boardRect.top + 2;
-          const midY = (y1 + y2) / 2;
-
-          let d: string;
-          if (Math.abs(x2 - x1) < 8) {
-            d = `M ${x1} ${y1} L ${x2} ${y2}`;
-          } else if (y2 > y1 + 8) {
-            d = `M ${x1} ${y1} L ${x1} ${midY} L ${x2} ${midY} L ${x2} ${y2}`;
-          } else {
-            d = `M ${x1} ${y1} L ${x2} ${y2}`;
-          }
-
-          return { d, delay: idx * 0.18 };
-        })
-        .filter(Boolean) as { d: string; delay: number }[];
-
-      setPaths(next);
-    };
-
-    compute();
-    window.addEventListener("resize", compute);
-    const id = window.setTimeout(compute, 120);
-    return () => {
-      window.removeEventListener("resize", compute);
-      window.clearTimeout(id);
-    };
-  }, [phase.flows, phase.nodes]);
-
   return (
     <motion.article
       className={`circuit-phase circuit-phase--${phase.layout}${active ? " circuit-phase--active" : ""}`}
-      style={{ "--ph": phase.color } as React.CSSProperties}
+      style={{ "--ph": phase.color } as CSSProperties}
       animate={
         active && animating
           ? { boxShadow: "0 0 26px rgba(0,120,212,0.2), 0 0 0 1px rgba(0,120,212,0.38)" }
@@ -188,38 +294,16 @@ function PhaseCircuitPanel({
         {active && animating ? <span className="circuit-phase__live">● LIVE</span> : null}
       </div>
 
-      <div ref={boardRef} className="circuit-phase__board">
-        <svg className="circuit-phase__svg" aria-hidden="true">
-          <defs>
-            <filter id="s26-pulse-glow" x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur stdDeviation="2.5" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-          {paths.map((path, i) => (
-            <CircuitTrace
-              key={`${path.d}-${i}`}
-              d={path.d}
-              color={active ? "#0078d4" : "#94a3b8"}
-              delay={path.delay}
-              active={animating}
-            />
-          ))}
-        </svg>
-
+      <div className="circuit-phase__board">
         <div className={`circuit-phase__body circuit-phase__body--${phase.layout}`}>
           {phase.nodes.map((node) => (
             <div
               key={node.id}
-              ref={(el) => {
-                nodeRefs.current[node.id] = el;
-              }}
+              ref={(el) => registerNode(nodeKey(phaseIdx, node.id), el)}
               className={`circuit-node${node.aux ? " circuit-node--aux" : ""}${active ? " circuit-node--lit" : ""}`}
-              style={{ "--nc": node.color } as React.CSSProperties}
+              style={{ "--nc": node.color } as CSSProperties}
             >
+              <div className="circuit-node__port circuit-node__port--in" aria-hidden="true" />
               <div className="circuit-node__icon">
                 <i className={node.icon} />
               </div>
@@ -227,6 +311,7 @@ function PhaseCircuitPanel({
                 <div className="circuit-node__name">{node.label}</div>
                 {node.sub ? <div className="circuit-node__sub">{node.sub}</div> : null}
               </div>
+              <div className="circuit-node__port circuit-node__port--out" aria-hidden="true" />
             </div>
           ))}
         </div>
@@ -239,28 +324,14 @@ function PhaseConnector({ label, animating }: { label: string; animating: boolea
   const lines = label.split("\n");
   return (
     <div className="circuit-connector">
-      <svg viewBox="0 0 52 72" className="circuit-connector__svg" aria-hidden="true">
-        <motion.path
-          d="M 6 36 H 46"
-          fill="none"
-          stroke="#0078d4"
-          strokeWidth={2.5}
-          strokeLinecap="round"
-          strokeDasharray="7 5"
-          animate={animating ? { strokeDashoffset: [0, -24] } : { strokeDashoffset: 0 }}
-          transition={{ duration: 0.75, repeat: Infinity, ease: "linear" }}
-        />
+      <div className="circuit-connector__lane" aria-hidden="true">
         {animating ? (
-          <motion.circle
-            r={4.5}
-            fill="#38bdf8"
-            cy={36}
-            animate={{ cx: [6, 46, 46], opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1.3, repeat: Infinity, ease: "easeInOut" }}
-          />
+          <>
+            <span className="circuit-connector__dot circuit-connector__dot--a" />
+            <span className="circuit-connector__dot circuit-connector__dot--b" />
+          </>
         ) : null}
-        <polygon points="46,31 52,36 46,41" fill="#0078d4" />
-      </svg>
+      </div>
       <span className="circuit-connector__label">
         {lines.map((line) => (
           <span key={line}>{line}</span>
@@ -272,8 +343,100 @@ function PhaseConnector({ label, animating }: { label: string; animating: boolea
 
 export default function Slide26CircuitPipeline() {
   const reduceMotion = useReducedMotion();
-  const [activePhase, setActivePhase] = useState(0);
   const animating = !reduceMotion;
+  const [activePhase, setActivePhase] = useState(0);
+  const pipelineRef = useRef<HTMLDivElement>(null);
+  const nodeRefs = useRef<Map<NodeKey, HTMLDivElement>>(new Map());
+  const [pipes, setPipes] = useState<PipePath[]>([]);
+  const [layoutTick, setLayoutTick] = useState(0);
+
+  const registerNode = useCallback((key: NodeKey, el: HTMLDivElement | null) => {
+    if (el) {
+      nodeRefs.current.set(key, el);
+      window.requestAnimationFrame(() => setLayoutTick((v) => v + 1));
+    } else {
+      nodeRefs.current.delete(key);
+    }
+  }, []);
+
+  const recomputePaths = useCallback(() => {
+    const root = pipelineRef.current;
+    if (!root) return;
+
+    const rootRect = root.getBoundingClientRect();
+    const next: PipePath[] = [];
+
+    PHASES.forEach((phase, phaseIdx) => {
+      phase.flows.forEach((flow, idx) => {
+        const fromEl = nodeRefs.current.get(nodeKey(phaseIdx, flow.from));
+        const toEl = nodeRefs.current.get(nodeKey(phaseIdx, flow.to));
+        if (!fromEl || !toEl) return;
+
+        const anchors = getAnchors(fromEl.getBoundingClientRect(), toEl.getBoundingClientRect(), rootRect);
+        next.push({
+          id: `p${phaseIdx}-${flow.from}-${flow.to}`,
+          d: buildPipePath(anchors.x1, anchors.y1, anchors.x2, anchors.y2),
+          delay: idx * 0.12,
+          phaseIdx,
+          sx: anchors.x1,
+          sy: anchors.y1,
+        });
+      });
+    });
+
+    TRUNK_FLOWS.forEach((flow, idx) => {
+      const fromEl = nodeRefs.current.get(nodeKey(flow.from.phase, flow.from.node));
+      const toEl = nodeRefs.current.get(nodeKey(flow.to.phase, flow.to.node));
+      if (!fromEl || !toEl) return;
+
+      const anchors = getAnchors(fromEl.getBoundingClientRect(), toEl.getBoundingClientRect(), rootRect);
+      next.push({
+        id: `trunk-${flow.from.node}-${flow.to.node}`,
+        d: buildPipePath(anchors.x1, anchors.y1, anchors.x2, anchors.y2),
+        delay: 0.35 + idx * 0.2,
+        phaseIdx: flow.to.phase,
+        trunk: true,
+        trunkFrom: flow.from.phase,
+        trunkTo: flow.to.phase,
+        sx: anchors.x1,
+        sy: anchors.y1,
+      });
+    });
+
+    setPipes(next);
+  }, []);
+
+  useLayoutEffect(() => {
+    recomputePaths();
+  }, [recomputePaths, layoutTick, activePhase]);
+
+  useEffect(() => {
+    const root = pipelineRef.current;
+    if (!root) return;
+
+    const ro = new ResizeObserver(() => {
+      window.requestAnimationFrame(() => setLayoutTick((v) => v + 1));
+    });
+
+    ro.observe(root);
+    nodeRefs.current.forEach((el) => ro.observe(el));
+
+    const onResize = () => setLayoutTick((v) => v + 1);
+    window.addEventListener("resize", onResize);
+
+    const fontsReady = document.fonts?.ready;
+    if (fontsReady) {
+      fontsReady.then(() => setLayoutTick((v) => v + 1)).catch(() => undefined);
+    }
+
+    const id = window.setTimeout(() => setLayoutTick((v) => v + 1), 180);
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", onResize);
+      window.clearTimeout(id);
+    };
+  }, [recomputePaths]);
 
   useEffect(() => {
     if (reduceMotion) return;
@@ -282,12 +445,36 @@ export default function Slide26CircuitPipeline() {
   }, [reduceMotion]);
 
   return (
-    <div className="circuit-pipeline">
+    <div ref={pipelineRef} className="circuit-pipeline">
+      <svg className="circuit-pipeline__wires" aria-hidden="true">
+        <defs>
+          <filter id="s26-flow-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        {pipes.map((pipe) => {
+          const lit = pipe.trunk
+            ? activePhase >= (pipe.trunkFrom ?? pipe.phaseIdx) && activePhase <= (pipe.trunkTo ?? pipe.phaseIdx)
+            : activePhase === pipe.phaseIdx;
+          return <FlowPipe key={pipe.id} pipe={pipe} lit={lit} animating={animating} />;
+        })}
+      </svg>
+
       {PHASES.map((phase, idx) => (
         <Fragment key={phase.num}>
-          <PhaseCircuitPanel phase={phase} active={activePhase === idx} animating={animating} />
+          <PhaseCircuitPanel
+            phase={phase}
+            phaseIdx={idx}
+            active={activePhase === idx}
+            animating={animating}
+            registerNode={registerNode}
+          />
           {idx < PHASES.length - 1 ? (
-            <PhaseConnector label={idx === 0 ? "CI\n시작" : "CD\n배포"} animating={animating} />
+            <PhaseConnector label={TRUNK_FLOWS[idx]?.label ?? ""} animating={animating} />
           ) : null}
         </Fragment>
       ))}

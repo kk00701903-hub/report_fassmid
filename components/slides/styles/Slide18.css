@@ -6,6 +6,13 @@
   overflow: hidden;
   min-height: 0;
   box-sizing: border-box;
+  --p1: #5b9bd5;
+  --p2: #70ad47;
+  --p3: #ca5010;
+  --p4: #8064a2;
+  --p5: #4bacc6;
+  --p6: #9bbb59;
+  --p7: #0078d4;
 }
 .slide-s18 .title-region { flex-shrink: 0; }
 .slide-s18 .title-header { display: flex; align-items: center; gap: 12px; }
@@ -46,6 +53,10 @@
 .slide-s18 .s17-progress-desc strong{color:var(--fluent-grey-160, #201f1e);font-weight:700}
 .slide-s18 .content{flex:1;min-height:0;padding:10px 36px 12px;display:flex;flex-direction:column}
 .slide-s18 .milestone-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:10px}
+.slide-s18 .milestone-grid--3d {
+  perspective: 1100px;
+  perspective-origin: 50% 42%;
+}
 .slide-s18 .milestone-card{background:var(--fluent-card-bg, #f8f8f8);
   box-shadow: var(--fluent-shadow, 0 2px 8px rgba(0,0,0,0.08));border:1px solid var(--fluent-border, #d2d0ce);border-radius:12px;
   padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:0;
@@ -209,7 +220,164 @@
   overflow: hidden;
 }
 .slide-s18 .milestone-card.span2 .card-desc { -webkit-line-clamp: 3; }
-.slide-s18 .milestone-card.p3.current .card-desc { -webkit-line-clamp: 4; }
+.slide-s18 .milestone-card.current--3d {
+  border-top-width: 5px;
+  transform-style: preserve-3d;
+  z-index: 3;
+}
+
+.slide-s18 .milestone-card.current--3d .current-depth-shadow {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -6px;
+  height: 12px;
+  border-radius: 0 0 50% 50%;
+  background: radial-gradient(ellipse at center, rgba(138, 59, 0, 0.35) 0%, transparent 72%);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.slide-s18 .milestone-card.p3.current .card-desc {
+  padding-right: 92px;
+  -webkit-line-clamp: 4;
+}
+
+/* ── 3단계 입체 비주얼 ── */
+.slide-s18 .s18-p3-visual {
+  position: absolute;
+  right: 6px;
+  bottom: 24px;
+  width: 96px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.slide-s18 .s18-p3-visual__scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 420px;
+}
+
+.slide-s18 .s18-p3-plate {
+  position: absolute;
+  left: 50%;
+  width: 54px;
+  height: 54px;
+  margin-left: -27px;
+  border-radius: 9px;
+  transform: rotateX(62deg) rotateZ(45deg);
+  border: 2px solid rgba(202, 80, 16, 0.45);
+  box-shadow:
+    5px 5px 0 rgba(138, 59, 0, 0.22),
+    0 10px 18px rgba(202, 80, 16, 0.18);
+}
+
+.slide-s18 .s18-p3-plate--base {
+  bottom: 2px;
+  z-index: 1;
+  background: linear-gradient(145deg, #ffd699 0%, #ffb347 100%);
+}
+
+.slide-s18 .s18-p3-plate--mid {
+  bottom: 14px;
+  z-index: 2;
+  background: linear-gradient(145deg, #ffe8b3 0%, #ffc56d 100%);
+  opacity: 0.94;
+}
+
+.slide-s18 .s18-p3-plate--top {
+  bottom: 26px;
+  z-index: 3;
+  background: linear-gradient(145deg, #fff4e0 0%, #ffd27a 100%);
+  border-color: rgba(202, 80, 16, 0.65);
+}
+
+.slide-s18 .s18-p3-core {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #ffffff;
+  background: linear-gradient(145deg, #ca5010 0%, #8a3b00 100%);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 6px 14px rgba(202, 80, 16, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  z-index: 5;
+  transform-style: preserve-3d;
+}
+
+.slide-s18 .s18-p3-orbit {
+  position: absolute;
+  inset: 8px 12px 16px;
+  transform-origin: center center;
+  z-index: 4;
+}
+
+.slide-s18 .s18-p3-orbit__dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  border-radius: 50%;
+  background: #ffc000;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 192, 0, 0.75);
+}
+
+.slide-s18 .s18-p3-tag {
+  position: absolute;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 2px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.slide-s18 .s18-p3-tag--arch {
+  top: 0;
+  left: 0;
+  color: #5c2d00;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(202, 80, 16, 0.35);
+}
+
+.slide-s18 .s18-p3-tag--poc {
+  right: 0;
+  bottom: 8px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ca5010, #8a3b00);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.slide-s18 .milestone-card.current--3d .card-head,
+.slide-s18 .milestone-card.current--3d .card-title,
+.slide-s18 .milestone-card.current--3d .card-desc,
+.slide-s18 .milestone-card.current--3d .card-foot {
+  position: relative;
+  z-index: 3;
+}
+
+.slide-s18 .milestone-card.current--3d {
+  animation: none !important;
+}
 .slide-s18 .card-foot { display: flex; justify-content: flex-end; margin-top: auto; position: relative; z-index: 1; }
 .slide-s18 .status-tag { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 10px; }
 .slide-s18 .status-done { background: rgba(16, 124, 16, 0.12); color: var(--fluent-good); }
@@ -226,5 +394,9 @@
 @media (prefers-reduced-motion: reduce) {
   .slide-s18 .milestone-card.current--animated {
     box-shadow: 0 0 0 2px rgba(202, 80, 16, 0.55), 0 6px 20px rgba(202, 80, 16, 0.22) !important;
+  }
+
+  .slide-s18 .milestone-card.current--3d {
+    transform: none !important;
   }
 }

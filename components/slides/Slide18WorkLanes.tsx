@@ -22,49 +22,56 @@ const DOC_LINES = [
 
 const cycleMs = 4200;
 
-export default function Slide18WorkLanes() {
+type Slide18WorkLanesProps = {
+  /** true면 3개 레인을 동시에 강조 (Slide19 백업 레이아웃) */
+  allActive?: boolean;
+};
+
+export default function Slide18WorkLanes({ allActive = false }: Slide18WorkLanesProps) {
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (allActive || reduceMotion) return;
     const id = window.setInterval(() => setActive((v) => (v + 1) % 3), cycleMs);
     return () => window.clearInterval(id);
-  }, [reduceMotion]);
+  }, [reduceMotion, allActive]);
+
+  const isActive = (index: number) => (allActive ? true : active === index);
 
   return (
     <div className="s18-lanes">
       <LaneCard
         id="code"
-        active={active === 0}
+        active={isActive(0)}
         icon="fa-code"
         title="코딩 지원"
         foot="Claude Code · Cursor — 보일러플레이트·단위테스트 자동 생성"
         color="var(--s18-code)"
       >
-        <CodeLane reduceMotion={!!reduceMotion} active={active === 0} />
+        <CodeLane reduceMotion={!!reduceMotion} active={isActive(0)} />
       </LaneCard>
 
       <LaneCard
         id="design"
-        active={active === 1}
+        active={isActive(1)}
         icon="fa-palette"
         title="디자인 지원"
         foot="Figma · Adobe — 컴포넌트·스토리북·가이드 정리"
         color="var(--s18-design)"
       >
-        <DesignLane reduceMotion={!!reduceMotion} active={active === 1} />
+        <DesignLane reduceMotion={!!reduceMotion} active={isActive(1)} />
       </LaneCard>
 
       <LaneCard
         id="doc"
-        active={active === 2}
+        active={isActive(2)}
         icon="fa-file-lines"
         title="문서 작업"
         foot="README · Wiki · API Doc — 회의록·RAG 컨텍스트 자동 작성"
         color="var(--s18-doc)"
       >
-        <DocLane reduceMotion={!!reduceMotion} active={active === 2} />
+        <DocLane reduceMotion={!!reduceMotion} active={isActive(2)} />
       </LaneCard>
     </div>
   );
@@ -93,8 +100,11 @@ function LaneCard({
       style={{ "--lane-color": color } as React.CSSProperties}
       animate={
         active
-          ? { scale: 1.02, boxShadow: "0 0 0 1px rgba(0,240,255,0.35), 0 8px 24px rgba(0,0,0,0.25)" }
-          : { scale: 1, boxShadow: "0 0 0 1px transparent, 0 2px 8px rgba(0,0,0,0.12)" }
+          ? {
+              scale: 1.01,
+              boxShadow: "0 0 0 1px rgba(0,120,212,0.28), 0 4px 14px rgba(0,120,212,0.1)",
+            }
+          : { scale: 1, boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }
       }
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >

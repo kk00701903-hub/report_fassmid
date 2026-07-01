@@ -83,7 +83,7 @@
   border: none;
   background: transparent;
   box-shadow: none;
-  opacity: 1 !important;
+}
   animation: none !important;
   filter: none !important;
 }

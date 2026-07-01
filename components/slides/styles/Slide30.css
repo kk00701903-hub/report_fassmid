@@ -1,85 +1,254 @@
-/* Slide 30 ??ROI asset platform (extends fluent-primer.css) */
+/* Slide 30 — ROI asset platform (white slide + dark hero for 100억+) */
 
-.slide-s30 .roi-asset-main-content {flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 0 40px 24px 40px;
-    gap: 24px}
-.slide-s30 .roi-asset-focus-wrapper{flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 32px}
-.slide-s30 .roi-asset-highlight-left{flex: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center}
-.slide-s30 .roi-asset-label-top{font-size: 22px;
-    font-weight: 600;
-    color: var(--fluent-blue, #0078d4);
-    margin-bottom: 8px}
-.slide-s30 .roi-asset-value-main{font-family: var(--ppt-font);
-    font-size: 90px;
-    font-weight: 700;
-    color: var(--fluent-blue, #0078d4);
-    line-height: 1;
-    display: flex;
-    align-items: baseline;
-    gap: 12px}
-.slide-s30 .roi-asset-value-unit{font-size: 48px;
-    font-weight: 700;
-    color: var(--fluent-blue, #0078d4)}
-.slide-s30 .roi-asset-tagline{font-size: 28px;
-    font-weight: 600;
-    color: var(--fluent-grey-160, #201f1e);
-    margin-top: 16px}
-.slide-s30 .roi-asset-description-right {
-    flex: 2;
-    background: var(--fluent-blue-light);
-    border: 1px solid rgba(0, 120, 212, 0.22);
-    border-left: 3px solid var(--fluent-blue);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    border-radius: 8px;
+.slide-s30 .roi-asset-slide-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #201f1e;
+  overflow: hidden;
+  min-height: 0;
+  box-sizing: border-box;
 }
-.slide-s30 .roi-asset-desc-title{font-size: 22px;
-    font-weight: 600;
-    color: var(--fluent-grey-160, #201f1e)}
-.slide-s30 .roi-asset-desc-body{font-size: 18px;
-    line-height: 1.6;
-    color: var(--fluent-grey-130, #484644)}
 
-.slide-s30 .roi-asset-evidence-strip{display: flex;
-    gap: 20px;
-    margin-top: auto}
-.slide-s30 .roi-asset-evidence-card{flex: 1;
-    background: var(--fluent-surface, #ffffff);
-    border: 1px solid var(--fluent-border, #d2d0ce);
-    border-radius: var(--ppt-radius-md);
-    padding: 14px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    transition: transform 0.3s ease}
-.slide-s30 .roi-asset-card-icon-box{width: 48px;
-    height: 48px;
-    background: rgba(0, 120, 212, 0.1);
-    border-radius: var(--ppt-radius-sm);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--fluent-blue, #0078d4);
-    font-size: 20px}
-.slide-s30 .roi-asset-card-text-group{display: flex;
-    flex-direction: column;
-    gap: 4px}
-.slide-s30 .roi-asset-card-heading{font-size: 20px;
-    font-weight: 600;
-    color: var(--fluent-grey-160, #201f1e)}
-.slide-s30 .roi-asset-card-subtext{font-size: 16px;
-    color: var(--fluent-grey-130, #484644)}
-.slide-s30 .roi-asset-card-accent-label{font-size: 14px;
-    font-weight: 600;
-    color: var(--fluent-good, #107c10);
-    margin-top: 4px}
+.slide-s30 .roi-asset-main-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px 24px;
+  gap: 24px;
+}
+
+.slide-s30 .roi-asset-focus-wrapper {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+}
+
+/* ── 100억+ dark hero panel ── */
+.slide-s30 .roi-asset-highlight-left {
+  flex: 3;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-s30 .roi-asset-hero-panel {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(145deg, #0f0f0f 0%, #1a1a1a 42%, #252423 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 20px 44px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(0, 0, 0, 0.65);
+}
+
+.slide-s30 .roi-asset-hero-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.slide-s30 .roi-asset-hero-deco__orb {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.slide-s30 .roi-asset-hero-deco__orb--1 {
+  width: 240px;
+  height: 240px;
+  top: -80px;
+  right: -60px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 68%);
+}
+
+.slide-s30 .roi-asset-hero-deco__orb--2 {
+  width: 180px;
+  height: 180px;
+  bottom: -70px;
+  left: -40px;
+  background: radial-gradient(circle, rgba(255, 211, 53, 0.18) 0%, rgba(255, 211, 53, 0.04) 42%, transparent 70%);
+}
+
+.slide-s30 .roi-asset-hero-deco__ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  right: -100px;
+  transform: translateY(-55%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 0 28px rgba(255, 255, 255, 0.02),
+    0 0 0 56px rgba(255, 255, 255, 0.01);
+}
+
+.slide-s30 .roi-asset-hero-deco__slash {
+  position: absolute;
+  inset: -25% -15%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.06) 49%,
+    rgba(255, 255, 255, 0.02) 51%,
+    transparent 60%
+  );
+  transform: rotate(-8deg);
+}
+
+.slide-s30 .roi-asset-hero-deco__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 80% 70% at 20% 55%, #000 15%, transparent 72%);
+  opacity: 0.5;
+}
+
+.slide-s30 .roi-asset-hero-body {
+  position: relative;
+  z-index: 1;
+  padding: 28px 32px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.slide-s30 .roi-asset-label-top {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.slide-s30 .roi-asset-value-main {
+  font-family: var(--ppt-font, "Noto Sans KR", sans-serif);
+  font-size: 88px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.slide-s30 .roi-asset-value-unit {
+  font-size: 44px;
+  font-weight: 800;
+  color: #ffd335;
+  background: linear-gradient(90deg, #ffe566 0%, #ffd335 55%, #ffb900 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.5));
+}
+
+.slide-s30 .roi-asset-tagline {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  margin-top: 14px;
+  line-height: 1.45;
+  max-width: 28ch;
+}
+
+.slide-s30 .roi-asset-description-right {
+  flex: 2;
+  background: #deecf9;
+  border: 1px solid rgba(0, 120, 212, 0.22);
+  border-left: 3px solid #0078d4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.slide-s30 .roi-asset-desc-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #201f1e;
+  margin: 0;
+}
+
+.slide-s30 .roi-asset-desc-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #484644;
+  margin: 0;
+}
+
+.slide-s30 .roi-asset-evidence-strip {
+  display: flex;
+  gap: 20px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.slide-s30 .roi-asset-evidence-card {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #d2d0ce;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.slide-s30 .roi-asset-card-icon-box {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 120, 212, 0.1);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0078d4;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.slide-s30 .roi-asset-card-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.slide-s30 .roi-asset-card-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #201f1e;
+}
+
+.slide-s30 .roi-asset-card-subtext {
+  font-size: 14px;
+  color: #484644;
+  line-height: 1.4;
+}
+
+.slide-s30 .roi-asset-card-accent-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #107c10;
+  margin-top: 4px;
+}

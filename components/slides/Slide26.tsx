@@ -4,7 +4,7 @@ import SlideCanvas from "@/components/slides/SlideCanvas";
 import Slide26CircuitPipeline from "@/components/slides/Slide26CircuitPipeline";
 import "./styles/Slide26.css";
 
-export default function Slide25() {
+export default function Slide26() {
   return (
     <SlideCanvas slideId={26} motion="pipeline" motionTier="medium">
       <div className="slide fluent-slide">

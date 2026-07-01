@@ -16,32 +16,35 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide">
   <div class="k8s-main-wrapper">
     <div class="k8s-left-column">
       <div class="k8s-summary-card">
-        <div class="k8s-summary-title">Docker 컨테이너를<br/>K8s가 자동으로 배치·운영</div>
+        <span class="k8s-analogy-tag"><i class="fas fa-tower-broadcast"></i> 물류 비유</span>
+        <div class="k8s-summary-title">표준 컨테이너 화물을<br/>중앙 관제소가 자동 배치·운영</div>
         <p class="k8s-summary-desc">
-          Cloud-Ready(원칙 2)로 패키징된 FaSS 모듈을 <b>Kubernetes</b> 클러스터에 올려
-          배포·확장·복구를 플랫폼이 대신 수행합니다.
+          FaSS 업무 모듈을 <b>Docker 컨테이너</b>(표준 규격 화물)로 포장하면,
+          <b>Kubernetes(K8s)</b>는 전국 물류망의 <b>중앙 관제소</b>와 같습니다.
+          어느 터미널(서버)에 적재할지, 물량(트래픽)이 늘면 차량을 추가할지,
+          문제 화물은 교체할지 — <b>사람이 일일이 지시하지 않아도</b> 관제소가 24시간 자동 통제합니다.
         </p>
       </div>
       <div class="k8s-feature-list">
         <div class="k8s-feature-item">
-          <div class="k8s-feature-icon"><i class="fas fa-sitemap"></i></div>
+          <div class="k8s-feature-icon"><i class="fas fa-tower-broadcast"></i></div>
           <div class="k8s-feature-text">
-            <strong>오케스트레이션</strong>
-            <span>Control Plane이 Pod(컨테이너 묶음)를 노드에 최적 배치</span>
+            <strong>중앙 배치 — 관제소 지시</strong>
+            <span>빈 터미널·최적 경로를 찾아 컨테이너 화물을 자동 적재 (Scheduler)</span>
           </div>
         </div>
         <div class="k8s-feature-item">
-          <div class="k8s-feature-icon"><i class="fas fa-expand"></i></div>
+          <div class="k8s-feature-icon"><i class="fas fa-truck-ramp-box"></i></div>
           <div class="k8s-feature-text">
-            <strong>자동 확장 (HPA)</strong>
-            <span>부하 증가 시 Pod·노드를 Scale-out</span>
+            <strong>수요 대응 — 물량 확장</strong>
+            <span>주문·접속 급증 시 동일 화물을 추가 투입해 병목 해소 (HPA)</span>
           </div>
         </div>
         <div class="k8s-feature-item">
-          <div class="k8s-feature-icon"><i class="fas fa-heart-pulse"></i></div>
+          <div class="k8s-feature-icon"><i class="fas fa-rotate"></i></div>
           <div class="k8s-feature-text">
-            <strong>자기 치유</strong>
-            <span>장애 Pod 자동 재시작·무중단 Rolling Update</span>
+            <strong>이상 대응 — 자동 복구</strong>
+            <span>손상·지연 화물 감지 시 즉시 재배치·교체, 서비스 중단 최소화</span>
           </div>
         </div>
       </div>
@@ -58,14 +61,14 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide">
           <div class="k8s-cluster-label"><i class="fab fa-docker"></i> Kubernetes Cluster (K8s)</div>
 
           <div class="k8s-control-plane">
-            <div class="k8s-cp-cell">API Server<em>배포 요청 수신</em></div>
-            <div class="k8s-cp-cell">Scheduler<em>Pod → Node 배치</em></div>
-            <div class="k8s-cp-cell">Controller<em>상태 유지·복구</em></div>
+            <div class="k8s-cp-cell">관제 접수<em>배송·배치 요청 수신</em></div>
+            <div class="k8s-cp-cell">배치 지시<em>터미널·경로 자동 배정</em></div>
+            <div class="k8s-cp-cell">상태 감시<em>이상 화물 재배치·복구</em></div>
           </div>
 
           <div class="k8s-orchestrate-band">
             <span class="k8s-orchestrate-line"></span>
-            <i class="fas fa-arrows-spin"></i> Container Orchestration
+            <i class="fas fa-tower-broadcast"></i> 중앙 관제소 — Container Orchestration
             <span class="k8s-orchestrate-line"></span>
           </div>
 
@@ -101,11 +104,11 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide">
   </div>
 
   <p class="k8s-bottom-caption">
-    <strong>Kubernetes(K8s)</strong> — 컨테이너화된 애플리케이션의 배포·스케일링·네트워킹·가용성을 자동화하는 컨테이너 오케스트레이션 플랫폼. FaSS 모듈(Docker)을 Pod 단위로 클러스터에 올려 트래픽·장애에 탄력적으로 대응합니다.
+    <strong>한 줄 요약</strong> — 프로그램을 표준 컨테이너 화물로 포장(Docker)하고, K8s 중앙 관제소가 적재·증차·교체를 자동 통제해 FaSS 전체 물류(IT) 운영을 안정적으로 유지합니다.
   </p>
 </div>`;
 
-export default function Slide37() {
+export default function Slide38() {
   return (
     <SlideCanvas slideId={38} motion="architecture" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

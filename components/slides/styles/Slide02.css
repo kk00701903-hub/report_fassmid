@@ -86,7 +86,5 @@
 }
 
 .slide-s02 .section-topic-item {
-  opacity: 1 !important;
   animation: none !important;
-  filter: none !important;
 }

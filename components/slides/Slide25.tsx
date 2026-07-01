@@ -8,7 +8,7 @@ const SLIDE_HTML = `<div class="migration-slide-root fluent-slide" style="overfl
 <div class="title-region-wrapper">
 <div class="title-main-header">
 <div class="title-accent-bar"></div>
-<h1 class="title-text-content">아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)</h1>
+<h1 class="title-text-content">아키텍처 원칙 2: 무중단 데이터 동기화 <span class="title-text-en">(Zero-downtime migration)</span></h1>
 </div>
 <div class="title-underline-gradient"></div>
 <p class="title-subtitle-text">

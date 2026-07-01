@@ -89,10 +89,18 @@ export function useSlideGsapEntrance(
           root.classList.add("slide-dynamic-sweep-active");
         }, 0.1);
       }
+
+      const animatedEls = [...titles, ...items];
+      if (animatedEls.length) {
+        tl.eventCallback("onComplete", () => {
+          gsap.set(animatedEls, { opacity: 1, clearProps: "transform,scale,willChange" });
+          root.classList.add("slide-gsap-complete");
+        });
+      }
     }, root);
 
     return () => {
-      root.classList.remove("slide-dynamic-sweep-active");
+      root.classList.remove("slide-dynamic-sweep-active", "slide-gsap-complete");
       ctx.revert();
     };
   }, [containerRef, profile, slideKey]);

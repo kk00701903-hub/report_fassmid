@@ -35,21 +35,23 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
     particles: "flow",
     titleSelectors: TITLE,
     staggerSelectors:
-      ".trend-card, .tool-card, .layer, .term, .scope-card, .flow-col, .cat-card, .summary-column-item, .flow-step, .phase, .scenario-step, .glossary-card, .war-room-feature-card, .poc-flow-item, .chip, .stat-box, .std-pill, .layer-box, .fass-identity-value-item-row",
+      ".trend-card, .tool-card, .layer, .term, .scope-card, .flow-col, .cat-card, .summary-column-item, .flow-step, .phase, .scenario-step, .glossary-card, .war-room-feature-card, .poc-flow-item, .chip, .stat-box, .std-pill, .layer-box, .fass-identity-value-item-row, .flow-node, .s23-spot-tile, .s17-step-card, .s17-scenario__item, .s17-detail, .s17-scenario, .s17-panels > *",
     countSelectors: COUNTS,
     accentSweep: false,
   },
   timeline: {
     particles: "flow",
     titleSelectors: TITLE,
-    staggerSelectors: ".milestone-card, .phase-col, .sprint, .hero, .phase-head",
+    staggerSelectors:
+      ".milestone-card, .phase-col, .sprint, .hero, .phase-head, .s14-kanban__col, .s14-kanban__card, .s14-kanban__stat",
     countSelectors: COUNTS,
     accentSweep: false,
   },
   pipeline: {
     particles: "flow",
     titleSelectors: TITLE,
-    staggerSelectors: ".phase-step, .flow-col, .pipe-node, .cicd-step, .node, .pill, .arrow-row",
+    staggerSelectors:
+      ".phase-step, .flow-col, .pipe-node, .cicd-step, .node, .pill, .arrow-row, .circuit-phase, .circuit-node, .gitops-strip, .s16-flow-col, .s16-tool-card, .s16-phase-strip__item, .s16-pipeline__flow > *",
     countSelectors: COUNTS,
     accentSweep: true,
   },
@@ -64,7 +66,7 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
     particles: "spark",
     titleSelectors: TITLE,
     staggerSelectors:
-      ".strat-box, .strat, .concept-box, .role-card, .engine-panel, .roi-asset-evidence-card, .finops-content-card-box, .finops-column-item-wrapper, .ai-innovation-stat-label-top, .agent-demo-panel, .etag",
+      ".strat-box, .strat, .concept-box, .role-card, .engine-panel, .engine-evidence-card, .engine-highlight-left, .engine-pill, .roi-asset-evidence-card, .roi-asset-hero-panel, .finops-content-card-box, .finops-column-item-wrapper, .ai-innovation-stat-label-top, .ai-innovation-left-stat-column, .ai-innovation-right-content-column, .fass-smart-logistics-action-item-card, .fass-smart-logistics-paradigm-text-box, .quality-pipeline-step-card, .proto-card, .proto-arch-box, .proto-pipe-node, .agent-demo-panel, .etag",
     countSelectors: COUNTS,
     accentSweep: true,
   },
@@ -79,7 +81,8 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
   roadmap: {
     particles: "flow",
     titleSelectors: TITLE,
-    staggerSelectors: ".roadmap-step-node, .roadmap-strategy-card, .roadmap-data-table tbody tr, .roadmap-content-item",
+    staggerSelectors:
+      ".roadmap-step-node, .roadmap-strategy-card, .roadmap-data-table tbody tr, .roadmap-content-item, .s37-milestone, .roadmap-track-slot",
     countSelectors: COUNTS,
     accentSweep: true,
   },

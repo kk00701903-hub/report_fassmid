@@ -803,13 +803,13 @@ public void importDailyShipments() {
         title: "차세대 영업 핵심 IT 엔진 5대 전략",
         category: "process",
         summary:
-          "민첩성·기술 부채 해소·데이터 의사결정·Zero-Defect 안정성·FinOps를 통한 비즈니스 혁신 전략입니다.",
+          "민첩성·기술 부채 해소·데이터 의사결정·Zero-Defect 안정성·Cloud-Ready 확장성을 통한 비즈니스 혁신 전략입니다.",
         process: [
           { step: 1, title: "민첩성", description: "모듈화 배포로 시장·고객 요구 즉각 대응" },
           { step: 2, title: "업무 효율", description: "최신 웹 프레임워크로 응답 속도·생산성 향상" },
           { step: 3, title: "데이터 의사결정", description: "API 통합·실시간 데이터 가시화" },
           { step: 4, title: "안정성", description: "Zero-Defect 품질 통제로 장애 사전 차단" },
-          { step: 5, title: "FinOps", description: "클라우드 예산 최적화·경영 성과 연계" },
+          { step: 5, title: "Cloud-Ready", description: "K8s·컨테이너 표준으로 확장·ASP/SaaS 전환 대비" },
         ],
       },
     ],

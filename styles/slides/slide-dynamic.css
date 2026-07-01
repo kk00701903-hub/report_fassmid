@@ -97,9 +97,13 @@
 /* Motion-type accent pulses on key blocks */
 [data-dynamic-motion="pipeline"] .pipe-node,
 [data-dynamic-motion="pipeline"] .phase-step,
+[data-dynamic-motion="pipeline"] .circuit-phase,
 [data-dynamic-motion="timeline"] .milestone-card,
+[data-dynamic-motion="timeline"] .s14-kanban__card,
 [data-dynamic-motion="roadmap"] .roadmap-node-circle,
+[data-dynamic-motion="roadmap"] .s37-milestone,
 [data-dynamic-motion="innovation"] .finops-card-icon-circle,
+[data-dynamic-motion="innovation"] .engine-evidence-card,
 [data-dynamic-motion="architecture"] .flow-node {
   transition: box-shadow 0.35s ease, transform 0.35s ease;
 }

@@ -3,24 +3,23 @@
 import SlideCanvas from "@/components/slides/SlideCanvas";
 import "./styles/Slide39.css";
 
-const SLIDE_HTML = `<div class="slide fluent-slide">
-  <div class="title-r">
-    <div class="title-row">
-      <div class="bar"></div>
-      <span class="badge">ULTIMATE GOAL</span>
-      <h1>중장기 목표 2: MSA 전환</h1>
+const SLIDE_HTML = `<div class="msa-slide-root fluent-slide">
+  <div class="title-region">
+    <div class="title-header">
+      <div class="title-bar"></div>
+      <span class="title-badge">ULTIMATE GOAL</span>
+      <h1 class="title-text">중장기 목표 2: MSA 전환</h1>
     </div>
-    <div class="line"></div>
+    <div class="title-line"></div>
   </div>
+
   <div class="main-container">
-    <!-- Left: Diagram -->
     <div class="left-col">
       <div class="diagram-card">
         <div class="diagram-label">
           <i class="fas fa-project-diagram"></i> Strangler Fig Pattern — 점진적 신규 시스템 확대
         </div>
         <div class="diagram-stages">
-          <!-- Stage 1 -->
           <div class="stage-row">
             <div class="stage-label-col">현재<br/>(Phase 1)</div>
             <div class="stage-blocks">
@@ -29,8 +28,10 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
               <div class="block-legacy block-new" style="flex:1.2; height:44px;">FaSS<br/>V3.0</div>
             </div>
           </div>
-          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:13px; margin-left:4px;">AI 접목 신규 시스템 점진적 확대</span></div>
-          <!-- Stage 2 -->
+          <div class="stage-arrow-row">
+            <i class="fas fa-chevron-down"></i>
+            <span>AI 접목 신규 시스템 점진적 확대</span>
+          </div>
           <div class="stage-row">
             <div class="stage-label-col">전환기<br/>(Phase 2)</div>
             <div class="stage-blocks">
@@ -41,8 +42,10 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
               <div class="block-legacy block-ai" style="flex:1.3; height:44px;">AI<br/>Service</div>
             </div>
           </div>
-          <div class="stage-arrow-row"><i class="fas fa-chevron-down"></i><span style="font-size:13px; margin-left:4px;">레거시 완전 제거 — 완전한 MSA 구현</span></div>
-          <!-- Stage 3 -->
+          <div class="stage-arrow-row">
+            <i class="fas fa-chevron-down"></i>
+            <span>레거시 완전 제거 — 완전한 MSA 구현</span>
+          </div>
           <div class="stage-row">
             <div class="stage-label-col">최종<br/>(MSA)</div>
             <div class="stage-blocks">
@@ -54,13 +57,12 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
           </div>
         </div>
         <div class="strangler-note">
-          <i class="fas fa-leaf" style="color:var(--ppt-accent);"></i>
-          &nbsp;기존 시스템을 한 번에 교체하지 않고, 신규 AI 접목 시스템부터 독립 서비스로 래핑하여 점진적으로 레거시를 대체
+          <i class="fas fa-leaf"></i>
+          기존 시스템을 한 번에 교체하지 않고, 신규 AI 접목 시스템부터 독립 서비스로 래핑하여 점진적으로 레거시를 대체
         </div>
       </div>
     </div>
 
-    <!-- Right: Reasons + Trade-off -->
     <div class="right-col">
       <div class="section-title">
         <i class="fas fa-bullseye"></i> FaSS 최종 목표 — MSA가 반드시 필요한 3가지 이유
@@ -70,25 +72,24 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
           <div class="reason-num">1</div>
           <div class="reason-content">
             <div class="reason-title">볼륨 성장 → 무중단 배포 필수</div>
-            <div class="reason-desc">유통물류 유저 및 트래픽이 커질수록, 특정 모듈 배포 시 전체 시스템을 중단할 수 없음. MSA는 모듈별 독립 배포로 <span style="color:var(--ppt-accent); font-weight:600;">365일 무중단 운영</span>을 보장합니다.</div>
+            <div class="reason-desc">유통물류 유저 및 트래픽이 커질수록, 특정 모듈 배포 시 전체 시스템을 중단할 수 없음. MSA는 모듈별 독립 배포로 <span class="reason-accent">365일 무중단 운영</span>을 보장합니다.</div>
           </div>
         </div>
         <div class="reason-card">
           <div class="reason-num">2</div>
           <div class="reason-content">
             <div class="reason-title">부분 장애 → 전체 마비 리스크 차단</div>
-            <div class="reason-desc">시스템 규모가 커질수록 단일 서비스 오류가 전 시스템을 마비시키는 위험이 급증함. MSA의 서킷 브레이커 패턴으로 <span style="color:var(--ppt-accent); font-weight:600;">장애 격리(Fault Isolation)</span> 를 실현합니다.</div>
+            <div class="reason-desc">시스템 규모가 커질수록 단일 서비스 오류가 전 시스템을 마비시키는 위험이 급증함. MSA의 서킷 브레이커 패턴으로 <span class="reason-accent">장애 격리(Fault Isolation)</span> 를 실현합니다.</div>
           </div>
         </div>
         <div class="reason-card">
           <div class="reason-num">3</div>
           <div class="reason-content">
             <div class="reason-title">AI 서비스 — 단일 시스템 내 동시 운영 불가</div>
-            <div class="reason-desc">AI 추론 엔진(수요예측·RAG)은 막대한 CPU/GPU 자원을 요구함. 단일 시스템에서 AI와 비즈니스 로직을 공존시키면 서로 자원 충돌. <span style="color:var(--ppt-accent-2); font-weight:600;">AI 서비스 독립 분리</span>가 핵심 전제 조건입니다.</div>
+            <div class="reason-desc">AI 추론 엔진(수요예측·RAG)은 막대한 CPU/GPU 자원을 요구함. 단일 시스템에서 AI와 비즈니스 로직을 공존시키면 서로 자원 충돌. <span class="reason-accent-warn">AI 서비스 독립 분리</span>가 핵심 전제 조건입니다.</div>
           </div>
         </div>
       </div>
-      <!-- Trade-off note -->
       <div class="tradeoff-box">
         <div class="tradeoff-icon"><i class="fas fa-balance-scale"></i></div>
         <div class="tradeoff-text">
@@ -98,7 +99,6 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
     </div>
   </div>
 
-  <!-- Bottom bar -->
   <div class="bottom-bar">
     <div class="bottom-bar-icon"><i class="fas fa-flag-checkered"></i></div>
     <div class="bottom-bar-text">MSA는 선택이 아닌 필수</div>
@@ -106,7 +106,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
   </div>
 </div>`;
 
-export default function Slide38() {
+export default function Slide39() {
   return (
     <SlideCanvas slideId={39} motion="architecture" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

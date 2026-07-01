@@ -8,7 +8,6 @@ const SLIDE_HTML = `<div class="slide fluent-slide" style="overflow: hidden;">
 <div class="title-r">
 <div class="title-row">
 <div class="bar"></div>
-<span class="badge">BUSINESS INNOVATION</span>
 <h1 class="title-main">비즈니스 혁신6: FinOps 관점에서의 클라우드 전환 대비</h1>
 </div>
 <p class="sub">유휴 자원 자동 셧다운 등 비용 최적화 습관을 자산화하여, ASP 공급 시 수익성을 극대화합니다.</p>

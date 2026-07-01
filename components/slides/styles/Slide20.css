@@ -1,99 +1,150 @@
-/* Slide 20 — War room (extends fluent-primer.css) */
+/* Slide 20 — Agile war room (backup 18.html layout, white Fluent theme) */
 
-.slide-s20 .war-room-slide-root {
-  display: flex;
-  flex-direction: column;
+.slide-s20 .slide-motion-content > div {
   height: 100%;
   min-height: 0;
-  overflow: hidden;
 }
 
+.slide-s20 .war-room-slide-root {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  color: #201f1e;
+  box-sizing: border-box;
+}
+
+/* ── Title ── */
 .slide-s20 .title-region-container {
   flex-shrink: 0;
-  padding: 0;
+  padding: 22px 36px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
+.slide-s20 .title-region-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-s20 .title-region-bar {
+  width: 4px;
+  height: 32px;
+  background: #0078d4;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.slide-s20 .title-region-text {
+  font-size: 26px;
+  font-weight: 700;
+  color: #201f1e;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.slide-s20 .title-region-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #0078d4 0%, transparent 100%);
+  opacity: 0.35;
+}
+
+/* ── Main 2-column body ── */
 .slide-s20 .war-room-content-wrapper {
   flex: 1;
   min-height: 0;
   display: flex;
-  flex-direction: column;
-  padding: 4px 24px 8px;
-  gap: 8px;
-}
-
-.slide-s20 .war-room-columns {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  gap: 10px;
+  flex-direction: row;
   align-items: stretch;
+  gap: 14px;
+  padding: 6px 36px 8px;
 }
 
 .slide-s20 .war-room-left-column,
 .slide-s20 .war-room-right-column {
   flex: 1;
+  min-width: 0;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 8px;
+  justify-content: center;
+  gap: 14px;
 }
 
+/* ── Feature cards ── */
 .slide-s20 .war-room-feature-card {
-  background: var(--fluent-surface, #ffffff);
-  border: 1px solid var(--fluent-border, #d2d0ce);
-  border-radius: var(--ppt-radius-lg);
-  padding: 8px 10px;
+  flex: 1;
+  min-height: 0;
+  background: #ffffff;
+  border: 1px solid #e1dfdd;
+  border-radius: 12px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  flex: 1 1 0;
-  min-height: 0;
-  overflow: hidden;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  animation: none !important;
 }
 
 .slide-s20 .war-room-card-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .slide-s20 .war-room-card-icon {
-  font-size: 18px;
-  color: var(--fluent-blue, #0078d4);
-  width: 32px;
-  height: 32px;
+  font-size: 20px;
+  color: #0078d4;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 120, 212, 0.1);
-  border-radius: var(--ppt-radius-md);
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
 .slide-s20 .war-room-card-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
-  color: var(--fluent-grey-160, #201f1e);
-  line-height: 1.25;
+  color: #201f1e;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .slide-s20 .war-room-card-body {
   flex: 1;
   min-height: 0;
-  font-size: 11px;
-  line-height: 1.35;
-  color: var(--fluent-grey-130, #484644);
-  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #484644;
+}
+
+.slide-s20 .war-room-location-tag {
+  font-size: 13px;
+  color: #ca5010;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.slide-s20 .war-room-location-tag i {
+  margin-right: 4px;
 }
 
 .slide-s20 .war-room-highlight-item {
   display: flex;
   align-items: flex-start;
-  gap: 6px;
-  margin-bottom: 3px;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
 .slide-s20 .war-room-highlight-item:last-child {
@@ -101,98 +152,130 @@
 }
 
 .slide-s20 .war-room-highlight-bullet {
-  color: var(--fluent-blue, #0078d4);
-  margin-top: 2px;
-  font-size: 11px;
+  color: #0078d4;
+  margin-top: 4px;
+  font-size: 13px;
   flex-shrink: 0;
+}
+
+.slide-s20 .s20-link {
+  color: #0078d4;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.slide-s20 .s20-link:hover {
+  text-decoration: underline;
 }
 
 .slide-s20 .war-room-badge-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin-top: auto;
   flex-shrink: 0;
-  padding-top: 4px;
 }
 
 .slide-s20 .war-room-status-badge {
   background: #f3f2f1;
-  border: 1px solid var(--fluent-blue, #0078d4);
-  color: var(--fluent-blue, #0078d4);
-  padding: 3px 10px;
+  border: 1px solid #0078d4;
+  color: #0078d4;
+  padding: 3px 12px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.3;
   white-space: nowrap;
 }
 
-.slide-s20 .war-room-location-tag {
-  font-size: 11px;
-  color: var(--fluent-blue, #0078d4);
-  font-weight: 600;
-  margin-bottom: 3px;
-  display: block;
+.slide-s20 .war-room-status-badge--warn {
+  border-color: #ca5010;
+  color: #8a4114;
+  background: #fdebd3;
+}
+
+.slide-s20 .war-room-status-badge--good {
+  border-color: #107c10;
+  color: #0b6a0b;
+  background: #dff6dd;
 }
 
 .slide-s20 .war-room-dashboard-preview {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   margin-top: auto;
   flex-shrink: 0;
-  padding-top: 4px;
 }
 
 .slide-s20 .war-room-dashboard-box {
   flex: 1;
-  min-height: 34px;
-  height: auto;
-  background: var(--fluent-card-bg, #f8f8f8);
-  border: 1px dashed var(--fluent-border, #d2d0ce);
-  border-radius: var(--ppt-radius-sm);
+  min-height: 56px;
+  background: #faf9f8;
+  border: 1px dashed #c8c6c4;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  padding: 4px 6px;
+  gap: 3px;
+  padding: 6px 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.slide-s20 .war-room-dashboard-box--blue {
+  border-color: #0078d4;
+}
+
+.slide-s20 .war-room-dashboard-box--good {
+  border-color: #107c10;
+}
+
+.slide-s20 .war-room-dashboard-box--good .war-room-dashboard-value {
+  color: #107c10;
+}
+
+.slide-s20 a.war-room-dashboard-box:hover {
+  background: #eff6fc;
 }
 
 .slide-s20 .war-room-dashboard-label {
-  font-size: 10px;
-  color: var(--fluent-grey-90, #8a8886);
+  font-size: 11px;
+  color: #8a8886;
   text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .slide-s20 .war-room-dashboard-value {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--fluent-blue, #0078d4);
+  color: #0078d4;
 }
 
+/* ── Daily scrum banner ── */
 .slide-s20 .war-room-dailyscrum-banner {
   flex-shrink: 0;
-  margin: 0;
-  background: linear-gradient(90deg, rgba(0, 120, 212, 0.08) 0%, rgba(167, 139, 250, 0.06) 100%);
+  margin: 0 36px 12px;
+  background: linear-gradient(90deg, rgba(0, 120, 212, 0.08) 0%, rgba(135, 100, 184, 0.06) 100%);
   border: 1px solid rgba(0, 120, 212, 0.35);
-  border-radius: var(--ppt-radius-lg);
-  padding: 6px 10px;
+  border-radius: 12px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .slide-s20 .war-room-dailyscrum-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--ppt-radius-md);
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
   background: rgba(0, 120, 212, 0.12);
-  color: var(--fluent-blue, #0078d4);
+  color: #0078d4;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 20px;
   flex-shrink: 0;
 }
 
@@ -202,48 +285,37 @@
 }
 
 .slide-s20 .war-room-dailyscrum-title {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--fluent-grey-160, #201f1e);
-  margin-bottom: 2px;
+  color: #201f1e;
+  margin-bottom: 3px;
 }
 
 .slide-s20 .war-room-dailyscrum-desc {
-  font-size: 11px;
-  color: var(--fluent-grey-130, #484644);
-  line-height: 1.32;
+  font-size: 12px;
+  color: #484644;
+  line-height: 1.4;
+  margin: 0;
 }
 
 .slide-s20 .war-room-dailyscrum-link {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 10px;
-  border-radius: var(--ppt-radius-md);
-  background: rgba(0, 120, 212, 0.12);
-  border: 1px solid var(--fluent-blue, #0078d4);
-  color: var(--fluent-blue, #0078d4);
-  font-size: 11px;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid #0078d4;
+  color: #0078d4;
+  font-size: 13px;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .slide-s20 .war-room-dailyscrum-link:hover {
-  background: var(--fluent-blue);
+  background: #0078d4;
   color: #ffffff;
-}
-
-/* KPI badge contrast */
-.slide-s20 .war-room-status-badge[style*="fluent-warn"] {
-  border-color: var(--fluent-warn, #ca5010) !important;
-  color: #8a4114 !important;
-  background: #fdebd3;
-}
-
-.slide-s20 .war-room-status-badge[style*="fluent-good"] {
-  border-color: var(--fluent-good, #107c10) !important;
-  color: #0b6a0b !important;
-  background: #dff6dd;
 }

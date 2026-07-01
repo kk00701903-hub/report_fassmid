@@ -15,12 +15,23 @@
 /* Circuit pipeline grid */
 .slide-s26 .circuit-pipeline{
   flex:1;min-height:0;display:grid;grid-template-columns:1fr 52px 1fr 52px 1fr;gap:0;align-items:stretch;
+  position:relative;
+}
+
+.slide-s26 .circuit-pipeline__wires{
+  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;overflow:visible;
+}
+
+.slide-s26 .circuit-pipe path,
+.slide-s26 .circuit-pipe circle{
+  vector-effect:non-scaling-stroke;
 }
 
 .slide-s26 .circuit-phase{
   background:linear-gradient(160deg,var(--fluent-card-bg,#f8f8f8),#fff);
   border:1px solid var(--fluent-border,#d2d0ce);border-radius:14px;padding:10px 10px 8px;
-  display:flex;flex-direction:column;gap:6px;min-height:0;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:6px;min-height:0;position:relative;overflow:visible;
+  z-index:2;
 }
 .slide-s26 .circuit-phase::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ph);border-radius:14px 14px 0 0;
@@ -47,10 +58,11 @@
 .slide-s26 .circuit-phase__board{
   flex:1;min-height:0;position:relative;border-radius:10px;
   background:linear-gradient(180deg,rgba(0,120,212,.04) 0%,rgba(0,0,0,.02) 100%);
-  border:1px dashed rgba(0,120,212,.18);padding:8px 6px;overflow:hidden;
+  border:1px dashed rgba(0,120,212,.18);padding:8px 6px;overflow:visible;
 }
+
 .slide-s26 .circuit-phase__svg{
-  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;
+  display:none;
 }
 
 .slide-s26 .circuit-phase__body{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px;height:100%;min-height:0}
@@ -71,8 +83,16 @@
 .slide-s26 .circuit-node{
   display:flex;align-items:center;gap:7px;padding:7px 8px;
   background:var(--fluent-surface,#fff);border:1px solid var(--fluent-border,#d2d0ce);
-  border-radius:10px;border-left:3px solid var(--nc);position:relative;z-index:1;
+  border-radius:10px;border-left:3px solid var(--nc);position:relative;z-index:5;
 }
+.slide-s26 .circuit-node__port{
+  position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;
+  background:#0078d4;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,120,212,.45);
+  opacity:0;pointer-events:none;
+}
+.slide-s26 .circuit-node--lit .circuit-node__port{opacity:1}
+.slide-s26 .circuit-node__port--in{left:-5px}
+.slide-s26 .circuit-node__port--out{right:-5px}
 .slide-s26 .circuit-node--aux{opacity:.92;border-style:dashed;grid-column:1/-1;padding:5px 8px}
 .slide-s26 .circuit-node--lit{
   box-shadow:0 0 12px rgba(0,120,212,.15);
@@ -92,8 +112,28 @@
 
 .slide-s26 .circuit-connector{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;
+  z-index:3;
 }
-.slide-s26 .circuit-connector__svg{width:52px;height:72px;flex-shrink:0}
+.slide-s26 .circuit-connector__lane{
+  width:100%;height:72px;position:relative;
+  background:linear-gradient(90deg,transparent,rgba(0,120,212,.06),transparent);
+}
+.slide-s26 .circuit-connector__dot{
+  position:absolute;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;
+  background:#0078d4;box-shadow:0 0 8px rgba(0,120,212,.55);
+}
+.slide-s26 .circuit-connector__dot--a{
+  left:8%;animation:s26ConnFlow 1.4s linear infinite;
+}
+.slide-s26 .circuit-connector__dot--b{
+  left:8%;animation:s26ConnFlow 1.4s linear infinite;animation-delay:.45s;opacity:.65;
+}
+@keyframes s26ConnFlow{
+  0%{left:8%;opacity:.35}
+  50%{opacity:1}
+  100%{left:88%;opacity:.35}
+}
+.slide-s26 .circuit-connector__svg{display:none}
 .slide-s26 .circuit-connector__label{
   font-size:11px;font-weight:800;text-align:center;line-height:1.2;color:var(--fluent-blue,#0078d4);
   display:flex;flex-direction:column;gap:1px;

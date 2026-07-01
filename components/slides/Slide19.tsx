@@ -1,7 +1,8 @@
 "use client";
 
 import SlideCanvas from "@/components/slides/SlideCanvas";
-import Slide19DigitalWorkerPanel from "@/components/slides/Slide19DigitalWorkerPanel";
+import Slide18CollaborationFlow from "@/components/slides/Slide18CollaborationFlow";
+import Slide18WorkLanes from "@/components/slides/Slide18WorkLanes";
 import "./styles/Slide19.css";
 
 const ORG_ROWS = [
@@ -32,10 +33,10 @@ const ORG_ROWS = [
   },
 ] as const;
 
-export default function Slide18() {
+export default function Slide19() {
   return (
     <SlideCanvas slideId={19} motion="innovation" motionTier="medium">
-      <div className="slide fluent-slide">
+      <div className="slide fluent-slide s19-root">
         <header className="title-region">
           <div className="title-header">
             <div className="title-bar" />
@@ -46,21 +47,89 @@ export default function Slide18() {
         </header>
 
         <div className="body">
-          <section className="worker-col" aria-label="AI 디지털 워커 생성 데모">
-            <Slide19DigitalWorkerPanel />
+          <section className="left-col" aria-label="AI 디지털 워커 협업">
+            <div className="strat-panel">
+              <div className="panel-head">
+                <i className="fas fa-robot" aria-hidden="true" /> AI 디지털 워커 — TFT 보조
+              </div>
+              <div className="strat-row">
+                <div className="strat-box">
+                  <div className="strat-ico">
+                    <i className="fas fa-robot" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <div className="strat-t">24/7 디지털 워커</div>
+                    <p className="strat-d">코드·문서·테스트 등 반복 업무 AI 상시 지원</p>
+                  </div>
+                </div>
+                <div className="strat-box">
+                  <div className="strat-ico">
+                    <i className="fas fa-user-check" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <div className="strat-t">Human-in-the-loop</div>
+                    <p className="strat-d">설계·품질·의사결정은 TFT가 최종 통제</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="anim-panel">
+              <Slide18CollaborationFlow />
+              <Slide18WorkLanes allActive />
+            </div>
+
+            <div className="wf-strip">
+              <span>
+                인간 <strong>7</strong>
+              </span>
+              <div className="wf-mini">
+                <span className="wf-dot h">
+                  <i className="fas fa-user" aria-hidden="true" />
+                </span>
+                <span className="wf-dot h">
+                  <i className="fas fa-user" aria-hidden="true" />
+                </span>
+                <span className="wf-dot h">
+                  <i className="fas fa-user" aria-hidden="true" />
+                </span>
+                <span className="wf-ellipsis">···</span>
+              </div>
+              <span>+</span>
+              <span>
+                AI <strong>8</strong>
+              </span>
+              <div className="wf-mini">
+                <span className="wf-dot a">
+                  <i className="fas fa-robot" aria-hidden="true" />
+                </span>
+                <span className="wf-dot a">
+                  <i className="fas fa-robot" aria-hidden="true" />
+                </span>
+                <span className="wf-dot a">
+                  <i className="fas fa-robot" aria-hidden="true" />
+                </span>
+                <span className="wf-ellipsis">···</span>
+              </div>
+              <span>=</span>
+              <span className="wf-eq">15</span>
+              <span className="wf-caption">
+                TFT급 추진력 · <strong>지시→AI실행→Human검토</strong> 루프
+              </span>
+            </div>
           </section>
 
           <aside className="org-panel">
             <div className="org-head">
-              <i className="fas fa-sitemap" /> 차세대 FaSS TFT — 핵심 조직
+              <i className="fas fa-sitemap" aria-hidden="true" /> 차세대 FaSS TFT — 핵심 조직
             </div>
             <div className="table-wrap">
               <table>
                 <thead>
                   <tr>
-                    <th style={{ width: "24%" }}>역할</th>
-                    <th style={{ width: "18%" }}>담당자</th>
-                    <th style={{ width: "58%" }}>주요 업무</th>
+                    <th style={{ width: "23%" }}>역할</th>
+                    <th style={{ width: "17%" }}>담당자</th>
+                    <th style={{ width: "60%" }}>주요 업무</th>
                   </tr>
                 </thead>
                 <tbody>

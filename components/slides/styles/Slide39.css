@@ -1,36 +1,103 @@
-/* Slide 39 — MSA migration goal (extends fluent-primer.css) */
+/* Slide 39 — MSA transition (backup 37.html layout, white Fluent theme) */
+
+.slide-s39 .msa-slide-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #201f1e;
+  overflow: hidden;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* ── Title ── */
+.slide-s39 .title-region {
+  flex-shrink: 0;
+  padding: 28px 40px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slide-s39 .title-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.slide-s39 .title-bar {
+  width: 4px;
+  height: 32px;
+  background: #0078d4;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.slide-s39 .title-badge {
+  background: rgba(0, 120, 212, 0.1);
+  color: #0078d4;
+  padding: 3px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(0, 120, 212, 0.35);
+  white-space: nowrap;
+}
+
+.slide-s39 .title-text {
+  font-family: var(--ppt-font-display, "Noto Sans KR", sans-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #201f1e;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.slide-s39 .title-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #0078d4 0%, transparent 100%);
+  opacity: 0.3;
+}
+
+/* ── Main 2-column ── */
 .slide-s39 .main-container {
-  gap: 20px;
+  flex: 1;
+  min-height: 0;
+  padding: 10px 40px 12px;
+  display: flex;
+  gap: 24px;
 }
 
 .slide-s39 .left-col {
   flex: 1.1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 0;
 }
 
 .slide-s39 .diagram-card {
   flex: 1;
   min-height: 0;
-  background: var(--fluent-surface);
-  border: 1px solid var(--fluent-border);
-  box-shadow: var(--fluent-shadow);
-  border-radius: 8px;
-  padding: 14px 16px;
+  background: #faf9f8;
+  border: 1px solid #edebe9;
+  border-radius: 16px;
+  padding: 14px 18px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  border-top: 3px solid var(--fluent-blue);
 }
 
 .slide-s39 .diagram-label {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  color: var(--fluent-blue);
+  color: #0078d4;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -38,6 +105,7 @@
 
 .slide-s39 .diagram-stages {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -52,22 +120,23 @@
 
 .slide-s39 .stage-label-col {
   width: 58px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
   font-weight: 700;
-  color: var(--fluent-grey-90);
+  color: #605e5c;
   text-align: center;
   line-height: 1.3;
 }
 
 .slide-s39 .stage-blocks {
   flex: 1;
+  min-width: 0;
   display: flex;
   gap: 5px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .slide-s39 .block-legacy {
@@ -75,41 +144,42 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
-  padding: 5px 6px;
+  padding: 5px 4px;
   text-align: center;
   line-height: 1.3;
 }
 
 .slide-s39 .block-lg {
-  background: var(--fluent-card-bg);
-  border: 1px solid var(--fluent-border);
-  color: var(--fluent-grey-130);
+  background: #f3f2f1;
+  border: 1px solid #c8c6c4;
+  color: #605e5c;
 }
 
 .slide-s39 .block-new {
-  background: rgba(0, 120, 212, 0.1);
-  border: 1px solid rgba(0, 120, 212, 0.35);
-  color: var(--fluent-blue);
+  background: #deecf9;
+  border: 1px solid rgba(0, 120, 212, 0.4);
+  color: #004578;
 }
 
 .slide-s39 .block-ai {
-  background: rgba(0, 120, 212, 0.1);
-  border: 1px solid rgba(0, 120, 212, 0.35);
-  color: var(--fluent-blue);
+  background: #fde7d9;
+  border: 1px solid rgba(202, 80, 16, 0.45);
+  color: #8a3b00;
 }
 
 .slide-s39 .block-msa {
-  background: rgba(16, 124, 16, 0.1);
-  border: 1px solid rgba(16, 124, 16, 0.35);
-  color: var(--fluent-good);
+  background: #dff6dd;
+  border: 1px solid rgba(16, 124, 16, 0.45);
+  color: #0b5a0b;
 }
 
 .slide-s39 .arrow-right {
-  color: var(--fluent-grey-90);
+  color: #8a8886;
   font-size: 12px;
+  flex-shrink: 0;
 }
 
 .slide-s39 .stage-arrow-row {
@@ -117,113 +187,145 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
-  color: var(--fluent-blue);
-  opacity: 0.6;
+  color: #0078d4;
+  opacity: 0.75;
+  font-size: 12px;
 }
 
 .slide-s39 .strangler-note {
   font-size: 12px;
-  color: var(--fluent-grey-130);
+  color: #484644;
   text-align: center;
-  padding: 6px 8px;
-  background: var(--fluent-blue-light);
-  border-radius: 6px;
-  border: 1px dashed rgba(0, 120, 212, 0.25);
+  padding: 6px 10px;
+  background: #deecf9;
+  border-radius: 4px;
+  border: 1px dashed rgba(0, 120, 212, 0.35);
+  line-height: 1.45;
 }
 
+.slide-s39 .strangler-note i {
+  color: #107c10;
+  margin-right: 4px;
+}
+
+/* ── Right column ── */
 .slide-s39 .right-col {
   flex: 1.3;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 0;
 }
 
 .slide-s39 .section-title {
   font-size: 15px;
   font-weight: 700;
-  color: var(--fluent-blue);
+  color: #ca5010;
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .slide-s39 .reasons-grid {
   display: flex;
   flex-direction: column;
   gap: 7px;
+  flex: 1;
+  min-height: 0;
 }
 
 .slide-s39 .reason-card {
-  background: var(--fluent-surface);
-  border: 1px solid var(--fluent-border);
-  border-left: 3px solid var(--fluent-blue);
+  background: #ffffff;
+  border: 1px solid #edebe9;
+  border-left: 3px solid #0078d4;
   border-radius: 8px;
-  padding: 10px 14px;
+  padding: 9px 14px;
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  box-shadow: var(--fluent-shadow);
 }
 
 .slide-s39 .reason-num {
   width: 28px;
   height: 28px;
-  background: var(--fluent-blue-light);
-  border: 1px solid rgba(0, 120, 212, 0.3);
+  background: #deecf9;
+  border: 1px solid rgba(0, 120, 212, 0.35);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--fluent-blue);
+  color: #0078d4;
   flex-shrink: 0;
+}
+
+.slide-s39 .reason-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
 .slide-s39 .reason-title {
   font-size: 14px;
   font-weight: 700;
-  color: var(--fluent-grey-160);
+  color: #201f1e;
+  line-height: 1.35;
 }
 
 .slide-s39 .reason-desc {
-  font-size: 13px;
-  color: var(--fluent-grey-130);
+  font-size: 12px;
+  color: #484644;
   line-height: 1.45;
 }
 
+.slide-s39 .reason-accent {
+  color: #0078d4;
+  font-weight: 600;
+}
+
+.slide-s39 .reason-accent-warn {
+  color: #ca5010;
+  font-weight: 600;
+}
+
 .slide-s39 .tradeoff-box {
-  background: var(--fluent-blue-light);
-  border: 1px solid rgba(0, 120, 212, 0.28);
-  border-left: 3px solid var(--fluent-warn);
+  flex-shrink: 0;
+  background: linear-gradient(90deg, rgba(209, 52, 56, 0.06) 0%, rgba(253, 231, 217, 0.5) 100%);
+  border-left: 3px solid #ca5010;
   border-radius: 0 8px 8px 0;
-  padding: 10px 14px;
+  padding: 9px 14px;
   display: flex;
   gap: 12px;
   align-items: flex-start;
 }
 
 .slide-s39 .tradeoff-icon {
-  color: var(--fluent-warn);
+  color: #ca5010;
   font-size: 18px;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .slide-s39 .tradeoff-text {
-  font-size: 13px;
-  color: var(--fluent-grey-130);
-  line-height: 1.45;
+  font-size: 12px;
+  color: #484644;
+  line-height: 1.5;
 }
 
 .slide-s39 .tradeoff-text strong {
-  color: var(--fluent-grey-160);
+  color: #201f1e;
+  font-weight: 700;
 }
 
+/* ── Bottom bar ── */
 .slide-s39 .bottom-bar {
   flex-shrink: 0;
-  margin: 0 32px 12px;
+  padding: 8px 40px 12px;
+  background: linear-gradient(90deg, #deecf9 0%, transparent 100%);
+  border-top: 1px solid rgba(0, 120, 212, 0.18);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -231,17 +333,18 @@
 }
 
 .slide-s39 .bottom-bar-icon {
-  color: var(--fluent-blue);
+  color: #0078d4;
   font-size: 16px;
+  flex-shrink: 0;
 }
 
 .slide-s39 .bottom-bar-text {
   font-size: 14px;
-  color: var(--fluent-grey-160);
-  font-weight: 600;
+  color: #201f1e;
+  font-weight: 700;
 }
 
 .slide-s39 .bottom-bar-sub {
-  font-size: 13px;
-  color: var(--fluent-grey-130);
+  font-size: 12px;
+  color: #484644;
 }

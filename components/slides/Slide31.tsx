@@ -7,7 +7,6 @@ const SLIDE_HTML = `<div class="slide fluent-slide proto-slide">
   <div class="title-r">
     <div class="title-row">
       <div class="bar"></div>
-      <span class="badge">BUSINESS INNOVATION</span>
       <h1 class="title-main">비즈니스 혁신4: 프로토타입 엔진을 통한 아키텍처 내재화</h1>
     </div>
     <p class="sub"><strong>JTGS 통합 프로토타입</strong> — 제한된 환경에서 차세대 스택을 검증하고, 당사 기술 업그레이드와 시행착오를 최소화하는 내재화 과정</p>

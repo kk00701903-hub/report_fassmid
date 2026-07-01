@@ -267,6 +267,7 @@
 [class*="slide-s"] .fluent-slide .migration-engine-box,
 [class*="slide-s"] .fluent-slide .migration-impact-card,
 [class*="slide-s"] .fluent-slide .roi-asset-evidence-card,
+[class*="slide-s"] .fluent-slide .engine-evidence-card,
 [class*="slide-s"] .fluent-slide .fass-identity-value-item-row,
 [class*="slide-s"] .fluent-slide .fass-identity-logo-info-card,
 [class*="slide-s"] .fluent-slide .finops-content-card-box,
@@ -277,8 +278,6 @@
 [class*="slide-s"] .fluent-slide .reason-card,
 [class*="slide-s"] .fluent-slide .diagram-card {
   animation: none !important;
-  opacity: 1 !important;
-  filter: none !important;
 }
 
 .slide-s22 .section-slide-root,
@@ -288,9 +287,7 @@
 
 .slide-s22 .section-topic-item,
 .slide-s36 .section-topic-item {
-  opacity: 1 !important;
   animation: none !important;
-  filter: none !important;
 }
 
 .slide-s22 .topic-text,
@@ -359,9 +356,7 @@
 .slide-s27 .section-topic-item,
 .slide-s36 .section-topic-item,
 .slide-s41 .section-topic-item {
-  opacity: 1 !important;
   animation: none !important;
-  filter: none !important;
 }
 
 .slide-s02 .topic-text,
