@@ -11,7 +11,7 @@
 .slide-s01 .fass-report-slide-root {
   background-color: var(--ppt-bg);
   position: relative;
-  display: grid;
+  display: grid !important;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   font-family: var(--ppt-font-body);
@@ -83,7 +83,7 @@
   font-family: var(--ppt-font-display, var(--ppt-font));
   font-size: 26px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--ppt-text-1);
   margin: 0;
 }
@@ -93,11 +93,11 @@
 }
 
 .slide-s01 .fass-subtitle-description-text {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--ppt-accent-2);
-  line-height: 1.4;
-  max-width: 800px;
+  line-height: 1.45;
+  max-width: 720px;
   margin: 0;
 }
 

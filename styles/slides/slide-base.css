@@ -39,7 +39,6 @@
   flex: 1 1 auto;
 }
 
-[class*="slide-s"]:not(.slide-s01) .fass-report-slide-root,
 [class*="slide-s"] .section-slide-root,
 [class*="slide-s"] .slide-root,
 [class*="slide-s"] .slide,

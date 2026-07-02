@@ -34,6 +34,13 @@
 }
 
 /* ── Cover (slide 1) ── */
+/* ── Cover (slide 1) — grid stacks background + overlay in one cell */
+.slide-canvas-root.slide-s01 .fass-report-slide-root {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
 [class*="slide-s"] .fass-report-slide-root {
   width: 100% !important;
   height: 100% !important;
