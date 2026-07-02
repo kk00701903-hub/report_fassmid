@@ -72,7 +72,7 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: 4px 36px 12px !important;
+  padding: 2px 36px 6px !important;
   overflow: hidden;
 }
 
@@ -82,7 +82,8 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
+  justify-content: flex-start;
 }
 
 /* ── Phase strip ── */
@@ -90,6 +91,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  margin-bottom: 0;
 }
 
 .slide-s16 .s16-phase-strip__item {
@@ -103,7 +105,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-  padding: 6px 4px;
+  padding: 5px 4px;
   border-radius: 8px;
   font-size: 12px;
   font-weight: 700;
@@ -167,11 +169,11 @@
 
 /* ── Flow board + spine ── */
 .slide-s16 .s16-flow-board {
-  flex: 1;
+  flex: 1 1 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
   position: relative;
   overflow: hidden;
 }
@@ -179,8 +181,8 @@
 .slide-s16 .s16-flow-spine {
   position: relative;
   flex-shrink: 0;
-  height: 28px;
-  margin: 0 4px;
+  height: 22px;
+  margin: 0 4px 1px;
   overflow: visible;
   z-index: 2;
 }
@@ -321,7 +323,7 @@
 
 /* ── 5-column pipeline ── */
 .slide-s16 .s16-flow-pipeline {
-  flex: 1;
+  flex: 1 1 auto;
   min-height: 0;
   min-width: 0;
   display: flex;
@@ -333,6 +335,7 @@
 .slide-s16 .s16-flow-segment {
   flex: 1 1 0;
   min-width: 0;
+  min-height: 0;
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -345,14 +348,16 @@
 .slide-s16 .s16-flow-col {
   flex: 1 1 auto;
   min-width: 0;
+  min-height: 0;
+  height: 100%;
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   background: #faf9f8;
   border: 1px solid #edebe9;
   border-radius: 12px;
-  padding: 7px 6px 8px;
+  padding: 6px 6px 7px;
   position: relative;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   transition: border-color 0.35s;
@@ -484,6 +489,11 @@
 }
 
 /* ── Tool cards ── */
+.slide-s16 .s16-flow-col:not(.s16-flow-col--dev) > .s16-tool-card {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 .slide-s16 .s16-tool-card {
   background: #ffffff;
   border: 1px solid #edebe9;
@@ -629,7 +639,8 @@
   font-size: 12px;
   font-weight: 600;
   color: #004578;
-  padding: 4px 10px;
+  padding: 3px 10px;
+  margin-top: 1px;
   border-radius: 8px;
   background: linear-gradient(90deg, rgba(0, 82, 204, 0.06), rgba(0, 120, 212, 0.1), rgba(0, 82, 204, 0.06));
   border: 1px solid rgba(0, 120, 212, 0.18);
@@ -641,7 +652,8 @@
   background: #faf9f8;
   border: 1px solid #edebe9;
   border-radius: 11px;
-  padding: 8px 12px 9px;
+  padding: 7px 12px 8px;
+  margin-top: 1px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   position: relative;
   overflow: hidden;

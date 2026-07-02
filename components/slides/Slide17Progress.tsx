@@ -49,7 +49,7 @@ export default function Slide17Progress() {
                 r={RING_R}
                 fill="none"
                 stroke="#0078d4"
-                strokeWidth="3.5"
+                strokeWidth="4"
                 strokeLinecap="round"
                 transform="rotate(-90 22 22)"
                 strokeDasharray={RING_C}
@@ -64,8 +64,9 @@ export default function Slide17Progress() {
             </div>
           </div>
           <div className="s17-progress__hero-copy">
-            <strong>{p.elapsedDays}일</strong> 경과
-            <span>
+            <strong>{p.elapsedDays}일</strong>
+            <span className="s17-progress__hero-elapsed">경과</span>
+            <span className="s17-progress__hero-total">
               전체 {p.totalDays}일 중
             </span>
           </div>
@@ -81,6 +82,12 @@ export default function Slide17Progress() {
           </div>
 
           <div className="s17-progress__track">
+            <div className="s17-progress__track-rail" aria-hidden="true" />
+            <div
+              className="s17-progress__proto-zone"
+              style={{ width: `${p.prototypePercent}%` }}
+              aria-hidden="true"
+            />
             <motion.div
               className="s17-progress__fill"
               initial={{ width: 0 }}
