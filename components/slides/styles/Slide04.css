@@ -1,5 +1,45 @@
 /* Slide 04 — Docker: logistics tier (top) + system tier (bottom) */
 
+.slide-s04 .title-r {
+  flex-shrink: 0;
+}
+
+.slide-s04 .title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.slide-s04 .bar,
+.slide-s04 .badge {
+  flex-shrink: 0;
+}
+
+.slide-s04 .badge {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.slide-s04 h1 {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.slide-s04 .sub {
+  font-size: 13px;
+  margin-top: 5px;
+  padding-left: 16px;
+  line-height: 1.4;
+}
+
 .slide-s04 .fluent-slide .body {
   gap: 5px;
   padding: 0 32px 8px;

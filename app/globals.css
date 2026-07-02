@@ -42,6 +42,18 @@ button {
   font: inherit;
 }
 
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+html.custom-cursor-active input,
+html.custom-cursor-active textarea,
+html.custom-cursor-active select,
+html.custom-cursor-active [contenteditable="true"] {
+  cursor: auto !important;
+}
+
 .presentation-shell {
   min-height: 100vh;
   display: flex;
@@ -2288,6 +2300,10 @@ button {
   border: none;
   transform-origin: top left;
   background: transparent;
+}
+
+.presentation-shell--projector .slide-stage__iframe {
+  pointer-events: none;
 }
 
 .projector-viewport .slide-stage__canvas {

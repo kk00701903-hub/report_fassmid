@@ -5,7 +5,7 @@ import DetailContent from "@/components/DetailContent";
 import LegacyDetailRedirect from "@/components/LegacyDetailRedirect";
 import { getDetailTopic, getSlideDetails, getAllDetailParams } from "@/lib/slideDetails";
 import { isLegacySlideId, getLegacyDetailParams, resolveSlideId } from "@/lib/slideRedirects";
-import { getSlideById, isValidSlideId } from "@/lib/slides";
+import { getPageForSlideId, getSlideById, isValidSlideId } from "@/lib/slides";
 
 type DetailPageProps = {
   params: Promise<{
@@ -50,6 +50,8 @@ export default async function SlideDetailPage({ params }: DetailPageProps) {
   const topic = getDetailTopic(slideId, detailId);
   const slide = getSlideById(slideId);
   const allTopics = getSlideDetails(slideId)?.topics ?? [];
+  const slidePage = getPageForSlideId(slideId);
+  const slideHref = slidePage > 0 ? `/slides/${slidePage}/` : `/slides/${slideId}/`;
 
   if (!topic) {
     notFound();
@@ -60,13 +62,13 @@ export default async function SlideDetailPage({ params }: DetailPageProps) {
       <header className="detail-page__header">
         <div>
           <p className="detail-page__breadcrumb">
-            <Link href={`/slides/${slideId}/`}>슬라이드 {slideId}</Link>
+            <Link href={slideHref}>슬라이드 {slidePage > 0 ? slidePage : slideId}</Link>
             <span aria-hidden="true"> / </span>
             <span>{slide?.title}</span>
           </p>
           <h1>개발자 상세 자료</h1>
         </div>
-        <Link href={`/slides/${slideId}/`} className="detail-page__back">
+        <Link href={slideHref} className="detail-page__back">
           <i className="fa-solid fa-arrow-left" aria-hidden="true" />
           슬라이드로 돌아가기
         </Link>

@@ -48,16 +48,20 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0.7) 40%, transparent 100%);
-  padding: 60px 56px;
+  padding: 48px 56px 36px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   overflow: hidden;
 }
 
+.slide-s01 .fass-cover-top {
+  flex-shrink: 0;
+}
+
 .slide-s01 .fass-top-header-section {
   flex-shrink: 0;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .slide-s01 .fass-company-brand-label {
@@ -76,18 +80,11 @@
   background-color: var(--ppt-accent);
 }
 
-.slide-s01 .fass-title-content-wrapper {
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
 .slide-s01 .fass-title-main-heading {
   font-family: var(--ppt-font-display, var(--ppt-font));
   font-size: 26px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--ppt-text-1);
   margin: 0;
 }
@@ -96,23 +93,40 @@
   color: var(--ppt-accent);
 }
 
+.slide-s01 .fass-cover-middle {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  padding: 12px 0 20px;
+}
+
 .slide-s01 .fass-subtitle-description-text {
   font-size: 24px;
   font-weight: 600;
   color: var(--ppt-accent-2);
-  line-height: 1.4;
+  line-height: 1.45;
   max-width: 800px;
   margin: 0;
 }
 
+.slide-s01 .fass-cover-bottom {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
 .slide-s01 .fass-vision-statement-container {
   flex-shrink: 0;
-  margin-top: 60px;
-  padding: 24px;
+  margin-top: 0;
+  padding: 22px 24px;
   background-color: rgba(30, 38, 56, 0.6);
   border-left: 4px solid var(--ppt-accent);
   border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
-  max-width: 720px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .slide-s01 .fass-vision-slogan-label {
@@ -133,7 +147,7 @@
 
 .slide-s01 .fass-footer-info-group {
   flex-shrink: 0;
-  margin-top: auto;
+  margin-top: 0;
   display: flex;
   gap: 40px;
   align-items: flex-end;

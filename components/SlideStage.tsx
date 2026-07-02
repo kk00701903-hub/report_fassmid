@@ -8,6 +8,7 @@ import {
   type LazyExoticComponent,
 } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { updateCursorPosition } from "@/lib/cursorPosition";
 
 export const SLIDE_WIDTH = 960;
 export const SLIDE_HEIGHT = 720;
@@ -90,6 +91,7 @@ const SlideStage = forwardRef<HTMLDivElement, SlideStageProps>(function SlideSta
           width: frameWidth,
           height: frameHeight,
         }}
+        onPointerMove={(event) => updateCursorPosition(event.clientX, event.clientY)}
       >
         {isCustom ? (
           <iframe
@@ -152,7 +154,11 @@ const SlideStage = forwardRef<HTMLDivElement, SlideStageProps>(function SlideSta
         ) : null}
 
         {onPrev && onNext ? (
-          <div className="projector-click-layer" aria-hidden="true">
+          <div
+            className="projector-click-layer"
+            aria-hidden="true"
+            onPointerMove={(event) => updateCursorPosition(event.clientX, event.clientY)}
+          >
             <button
               type="button"
               className="projector-click-zone projector-click-zone--prev"

@@ -80,12 +80,15 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0.7) 40%, transparent 100%);
-  padding: 60px 56px;
+  padding: 48px 56px 36px;
   display: flex;
   flex-direction: column;
 }
+.fass-cover-top {
+  flex-shrink: 0;
+}
 .fass-top-header-section {
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 .fass-company-brand-label {
   font-size: 24px;
@@ -106,6 +109,19 @@ body {
   display: flex;
   gap: 24px;
 }
+.fass-cover-middle {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  padding: 12px 0 20px;
+}
+.fass-cover-bottom {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
 .fass-title-main-heading {
   font-family: var(--ppt-font-display);
   font-size: 26px;
@@ -125,12 +141,14 @@ body {
   max-width: 800px;
 }
 .fass-vision-statement-container {
-  margin-top: 60px;
-  padding: 24px;
+  margin-top: 0;
+  padding: 22px 24px;
   background-color: rgba(30, 38, 56, 0.6);
   border-left: 4px solid var(--ppt-accent);
   border-radius: 0 var(--ppt-radius-md) var(--ppt-radius-md) 0;
-  max-width: 720px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .fass-vision-slogan-label {
   font-size: 14px;
@@ -147,7 +165,7 @@ body {
   line-height: 1.6;
 }
 .fass-footer-info-group {
-  margin-top: auto;
+  margin-top: 0;
   display: flex;
   gap: 40px;
   align-items: flex-end;
@@ -181,20 +199,23 @@ html {
 <img alt="FaSS Platform Background" class="fass-background-image-element" src="https://agents-download.skywork.ai/image/ppt/7467390590712455169/03c74e0b26cc32ff7c809ac5088e2e3b.png"/>
 </div>
 <div class="fass-content-overlay-layer">
+<div class="fass-cover-top">
 <div class="fass-top-header-section">
 <div class="fass-company-brand-label">
 <div class="fass-brand-accent-bar"></div>
           (주)제때
         </div>
 </div>
-<div class="fass-title-content-wrapper">
 <h1 class="fass-title-main-heading">
           차세대 <span>FaSS 플랫폼</span> 구축<br/>중간 보고
         </h1>
+</div>
+<div class="fass-cover-middle">
 <p class="fass-subtitle-description-text">
           "AI와 결합된 디지털 물류의 표준, IT를 넘어 회사의 새로운 수익을 창출하다"
         </p>
 </div>
+<div class="fass-cover-bottom">
 <div class="fass-vision-statement-container">
 <div class="fass-vision-slogan-label">Vision Slogan</div>
 <div class="fass-vision-content-text">
@@ -209,6 +230,7 @@ html {
 <div class="fass-info-item-box">
 <div class="fass-info-label-text">Date</div>
 <div class="fass-info-value-text">2026. 7.7</div>
+</div>
 </div>
 </div>
 </div>

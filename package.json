@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "validate:deck": "node scripts/validate-deck.mjs",
     "audit:slides": "npm run build && node scripts/audit-react-slides.mjs",
     "audit:motion": "npm run build && node scripts/audit-slide-motion.mjs"
   },

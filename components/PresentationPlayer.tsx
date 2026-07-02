@@ -376,7 +376,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
             <li key={item.key}>
               <button
                 type="button"
-                className={`${index === currentIndex ? "is-active" : ""}${!isSlideVisible(item) ? " is-hidden-slide" : ""}${isSidebarDividerSlide(getBuiltinSlideId(item), item.title) ? " is-part-divider" : ""}`}
+                className={`${index === currentIndex ? "is-active" : ""}${!isSlideVisible(item) ? " is-hidden-slide" : ""}${isSidebarDividerSlide(getBuiltinSlideId(item)) ? " is-part-divider" : ""}`}
                 onClick={() => goToIndex(index, index > currentIndex ? "forward" : "back")}
               >
                 <span className="slide-sidebar__number">{index + 1}</span>

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { getBasePath } from "@/lib/basePath";
+import { getPageForSlideId } from "@/lib/slides";
 
 type LegacySlideRedirectProps = {
   targetSlideId: number;
@@ -10,7 +11,9 @@ type LegacySlideRedirectProps = {
 export default function LegacySlideRedirect({ targetSlideId }: LegacySlideRedirectProps) {
   useEffect(() => {
     const basePath = getBasePath();
-    window.location.replace(`${basePath}/slides/${targetSlideId}/`);
+    const page = getPageForSlideId(targetSlideId);
+    const destination = page > 0 ? page : targetSlideId;
+    window.location.replace(`${basePath}/slides/${destination}/`);
   }, [targetSlideId]);
 
   return (

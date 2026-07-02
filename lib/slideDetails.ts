@@ -170,7 +170,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "glossary-architecture",
-        title: "추진 방향성 설명 ③ — MSA 구조",
+        title: "추진 방향성 설명 ③ — MSA 구조 (물류작업 예시)",
         category: "process",
         summary: "MSA(업무 단위 분리), 모듈러 모놀리스(MSA 전 단계), Docker(컨테이너), Kubernetes(컨테이너 자동 운영) 아키텍처 용어입니다.",
         process: [
@@ -186,7 +186,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "cdc-primer",
-        title: "핵심용어집 ④ — CDC 방식",
+        title: "핵심용어집 ④ — CDC 방식 (물류 재고조사 예시)",
         category: "process",
         summary:
           "현행 Batch(야간 전수 복제)와 CDC(변경분 실시간 전송)를 운영 부하·데이터 신선도 관점에서 비교합니다. Debezium + Kafka 기반 무중단 DB 이관의 핵심 방안입니다.",

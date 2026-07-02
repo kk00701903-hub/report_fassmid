@@ -1,4 +1,4 @@
-import { isAppendixSlideId, SLIDES } from "@/lib/slides";
+import { DECK_MANIFEST, isAppendixRole } from "@/lib/deckManifest";
 
 export type BuiltinSlideItem = {
   key: string;
@@ -25,8 +25,8 @@ export type PresentationConfig = {
 
 const STORAGE_KEY = "fass-presentation-config";
 const TITLE_VERSION_KEY = "fass-presentation-title-version";
-/** slides.ts 제목 변경 시 로컬 설정의 목차 제목을 갱신하기 위한 버전 */
-const CONFIG_TITLE_VERSION = 24;
+/** deckManifest 제목·순서 변경 시 로컬 설정을 갱신하기 위한 버전 */
+const CONFIG_TITLE_VERSION = 25;
 
 export function isSlideVisible(slide: SlideManifestItem): boolean {
   return slide.visible !== false;
@@ -73,72 +73,82 @@ export function getVisibleSlides(config: PresentationConfig): SlideManifestItem[
   return config.slides.filter(isSlideVisible);
 }
 
-function getDefaultSlideOrder() {
-  const main = SLIDES.filter((slide) => !isAppendixSlideId(slide.id));
-  const appendix = SLIDES.filter((slide) => isAppendixSlideId(slide.id));
-  return [...main, ...appendix];
+function manifestEntryToBuiltin(entry: (typeof DECK_MANIFEST)[number]): BuiltinSlideItem {
+  const defaultVisible = entry.defaultVisible ?? !isAppendixRole(entry.role);
+  return {
+    key: `builtin-${entry.slideId}`,
+    title: entry.title,
+    type: "builtin",
+    slideId: entry.slideId,
+    visible: defaultVisible,
+  };
 }
 
 export function createDefaultConfig(): PresentationConfig {
   return {
-    slides: getDefaultSlideOrder().map((slide) => ({
-      key: `builtin-${slide.id}`,
-      title: slide.title,
-      type: "builtin" as const,
-      slideId: slide.id,
-      visible: !isAppendixSlideId(slide.id),
-    })),
+    slides: DECK_MANIFEST.map(manifestEntryToBuiltin),
   };
 }
 
-/** 저장된 설정을 현재 빌트인 슬라이드 목록과 맞춥니다 (삭제·추가된 슬라이드 반영). */
+function getDefaultBuiltinOrder(): number[] {
+  return DECK_MANIFEST.map((entry) => entry.slideId);
+}
+
+/** 저장된 설정을 현재 빌트인 슬라이드 목록과 맞춥니다 (삭제·추가된 슬라이드 반영, 순서 보존). */
 export function syncPresentationConfig(config: PresentationConfig): PresentationConfig {
   const defaults = createDefaultConfig();
   const migrated = config.slides.map(migrateSlideItem);
-  const validIds = new Set(
-    defaults.slides
-      .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
-      .map((slide) => slide.slideId),
-  );
+  const defaultOrder = getDefaultBuiltinOrder();
+  const validIds = new Set(defaultOrder);
   const defaultById = new Map(
     defaults.slides
       .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
       .map((slide) => [slide.slideId, slide]),
   );
 
-  const kept: SlideManifestItem[] = [];
-  const seenBuiltin = new Set<number>();
+  const savedOrder: number[] = [];
+  const savedById = new Map<number, BuiltinSlideItem>();
+  const custom: CustomSlideItem[] = [];
 
   for (const slide of migrated) {
     if (slide.type === "custom") {
-      kept.push(slide);
+      custom.push(slide);
       continue;
     }
     if (!validIds.has(slide.slideId)) continue;
 
-    seenBuiltin.add(slide.slideId);
+    if (!savedById.has(slide.slideId)) {
+      savedOrder.push(slide.slideId);
+    }
     const fresh = defaultById.get(slide.slideId)!;
-    kept.push({
+    savedById.set(slide.slideId, {
       ...fresh,
       title: fresh.title,
       visible: slide.visible,
     });
   }
 
-  for (const slide of defaults.slides) {
-    if (slide.type !== "builtin" || seenBuiltin.has(slide.slideId)) continue;
-    kept.push(slide);
+  for (const slideId of defaultOrder) {
+    if (savedById.has(slideId)) continue;
+
+    const fresh = defaultById.get(slideId)!;
+    const defaultIdx = defaultOrder.indexOf(slideId);
+    let insertAt = savedOrder.length;
+
+    for (let i = 0; i < savedOrder.length; i++) {
+      const savedDefaultIdx = defaultOrder.indexOf(savedOrder[i]);
+      if (savedDefaultIdx > defaultIdx) {
+        insertAt = i;
+        break;
+      }
+    }
+
+    savedOrder.splice(insertAt, 0, slideId);
+    savedById.set(slideId, fresh);
   }
 
-  const custom = kept.filter((slide) => slide.type === "custom");
-  const builtinById = new Map(
-    kept
-      .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
-      .map((slide) => [slide.slideId, slide]),
-  );
-  const orderedBuiltin = defaults.slides
-    .filter((slide): slide is BuiltinSlideItem => slide.type === "builtin")
-    .map((slide) => builtinById.get(slide.slideId))
+  const orderedBuiltin = savedOrder
+    .map((slideId) => savedById.get(slideId))
     .filter((slide): slide is BuiltinSlideItem => Boolean(slide));
 
   return normalizePresentationConfig({ slides: [...orderedBuiltin, ...custom] });

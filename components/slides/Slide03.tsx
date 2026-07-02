@@ -15,7 +15,7 @@ export default function Slide03() {
             <h1>추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)</h1>
           </div>
           <p className="sub">
-            하나의 프로그램을 만들기 위해서는 Web · WAS · DB가 화면 · 로직 · 저장을 각각 담당
+            당사의 웹프레임워크는 크게 WEB · WAS · DB로 구분되며 전체 영역이 프로젝트 영역임
           </p>
           <div className="line" />
         </div>

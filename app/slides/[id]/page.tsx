@@ -7,7 +7,12 @@ import {
   isLegacySlideId,
   resolveSlideId,
 } from "@/lib/slideRedirects";
-import { getSlideById, isValidSlideId, SLIDES } from "@/lib/slides";
+import {
+  getDeckEntryAtPage,
+  getDeckEntryBySlideId,
+  getDeckLength,
+  isValidPageNumber,
+} from "@/lib/slides";
 
 type SlidePageProps = {
   params: Promise<{
@@ -16,38 +21,46 @@ type SlidePageProps = {
 };
 
 export function generateStaticParams() {
-  return [
-    ...SLIDES.map((slide) => ({ id: String(slide.id) })),
-    ...getLegacySlideIds().map((id) => ({ id: String(id) })),
-  ];
+  const pages = Array.from({ length: getDeckLength() }, (_, index) => ({
+    id: String(index + 1),
+  }));
+
+  return [...pages, ...getLegacySlideIds().map((id) => ({ id: String(id) }))];
 }
 
 export async function generateMetadata({ params }: SlidePageProps): Promise<Metadata> {
   const { id } = await params;
-  const slideId = Number(id);
-  const resolvedId = resolveSlideId(slideId);
+  const pageNumber = Number(id);
 
-  if (!isValidSlideId(resolvedId) && !isLegacySlideId(slideId)) {
+  if (isLegacySlideId(pageNumber)) {
+    const targetId = resolveSlideId(pageNumber);
+    const entry = getDeckEntryBySlideId(targetId);
+    return {
+      title: entry?.title ?? `슬라이드 ${targetId}`,
+    };
+  }
+
+  if (!isValidPageNumber(pageNumber)) {
     return { title: "슬라이드를 찾을 수 없습니다" };
   }
 
-  const slide = getSlideById(resolvedId);
+  const entry = getDeckEntryAtPage(pageNumber);
   return {
-    title: slide?.title ?? `슬라이드 ${resolvedId}`,
+    title: entry?.title ?? `슬라이드 ${pageNumber}`,
   };
 }
 
 export default async function SlidePage({ params }: SlidePageProps) {
   const { id } = await params;
-  const slideId = Number(id);
+  const pageNumber = Number(id);
 
-  if (isLegacySlideId(slideId)) {
-    return <LegacySlideRedirect targetSlideId={resolveSlideId(slideId)} />;
+  if (isLegacySlideId(pageNumber)) {
+    return <LegacySlideRedirect targetSlideId={resolveSlideId(pageNumber)} />;
   }
 
-  if (!isValidSlideId(slideId)) {
+  if (!isValidPageNumber(pageNumber)) {
     notFound();
   }
 
-  return <PresentationPlayer initialSlideId={slideId} />;
+  return <PresentationPlayer initialSlideId={pageNumber} />;
 }
