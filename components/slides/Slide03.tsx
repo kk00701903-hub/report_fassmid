@@ -12,7 +12,7 @@ export default function Slide03() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>핵심용어집 ① — 3Tier 구조 (Web-WAS-DB)</h1>
+            <h1>추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)</h1>
           </div>
           <p className="sub">
             하나의 프로그램을 만들기 위해서는 Web · WAS · DB가 화면 · 로직 · 저장을 각각 담당

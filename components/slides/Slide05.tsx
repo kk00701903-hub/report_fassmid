@@ -22,7 +22,7 @@ export default function Slide05() {
             <div className="s05-head__bar" />
             <span className="s05-head__badge">C-LEVEL PRIMER</span>
             <h1 className="s05-head__title">
-              핵심용어집 ③ <span className="s05-head__dash">—</span> MSA 구조
+              추진 방향성 설명 ③ <span className="s05-head__dash">—</span> MSA 구조
             </h1>
           </div>
           <p className="s05-head__sub">

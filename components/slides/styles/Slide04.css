@@ -177,58 +177,6 @@
   display: block;
 }
 
-.slide-s04 .s04-concept-card__text {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--fluent-grey-130, #484644);
-  flex-shrink: 0;
-}
-
-.slide-s04 .s04-concept-card__text strong {
-  font-weight: 700;
-  color: var(--fluent-grey-160, #201f1e);
-}
-
-.slide-s04 .s04-tier-bridge {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 12px;
-}
-
-.slide-s04 .s04-tier-bridge__line {
-  flex: 1;
-  height: 0;
-  border-top: 2px dashed rgba(0, 120, 212, 0.35);
-}
-
-.slide-s04 .s04-tier-bridge__pill {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--fluent-grey-130, #484644);
-  background: #fff;
-  border: 1px solid rgba(0, 120, 212, 0.35);
-  box-shadow: 0 1px 4px rgba(0, 120, 212, 0.1);
-}
-
-.slide-s04 .s04-tier-bridge__pill strong {
-  font-weight: 800;
-  color: var(--fluent-blue, #0078d4);
-}
-
-.slide-s04 .s04-tier-bridge__pill i {
-  font-size: 10px;
-  color: var(--fluent-blue, #0078d4);
-}
-
 .slide-s04 .k8s-banner {
   flex-shrink: 0;
   padding: 7px 12px;

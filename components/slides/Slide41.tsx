@@ -15,15 +15,15 @@ const SLIDE_HTML = `<div class="section-slide-root section-slide-glossary">
   <div class="section-topics-list">
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">핵심용어집 ① — 3Tier 구조</span>
+      <span class="topic-text">추진 방향성 설명 ① — 3Tier 구조</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">핵심용어집 ② — 도커 / 컨테이너</span>
+      <span class="topic-text">추진 방향성 설명 ② — 도커 / 컨테이너</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>
-      <span class="topic-text">핵심용어집 ③ — MSA 구조</span>
+      <span class="topic-text">추진 방향성 설명 ③ — MSA 구조</span>
     </div>
     <div class="section-topic-item">
       <div class="topic-dot"></div>

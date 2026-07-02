@@ -23,9 +23,9 @@ export function isGlossarySlideId(id: number): boolean {
 export const SLIDES: Slide[] = [
   { id: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고" },
   { id: 41, title: "Digital Insight Glossary" },
-  { id: 3, title: "핵심용어집 ① — 3Tier 구조 (Web-WAS-DB)" },
-  { id: 4, title: "핵심용어집 ② — 도커 (Docker) / 컨테이너 (Container)" },
-  { id: 5, title: "핵심용어집 ③ — MSA 구조" },
+  { id: 3, title: "추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)" },
+  { id: 4, title: "추진 방향성 설명 ② — 도커 (Docker) / 컨테이너 (Container)" },
+  { id: 5, title: "추진 방향성 설명 ③ — MSA 구조" },
   { id: 6, title: "핵심용어집 ④ — CDC 방식" },
   { id: 2, title: "PART 1 - 전략적 비전 및 목표" },
   { id: 7, title: "차세대 FaSS 구축 프로젝트 범위" },

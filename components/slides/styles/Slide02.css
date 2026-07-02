@@ -1,4 +1,10 @@
 /* Slide 02 — PART 01 divider (layout: section-chrome.css) */
+.slide-s02 .section-slide-root {
+  background-color: var(--ppt-bg);
+  color: #ffffff;
+  font-family: var(--ppt-font);
+}
+
 .slide-s02 .bg-grid-overlay {
   position: absolute;
   inset: 0;
