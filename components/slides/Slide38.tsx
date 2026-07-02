@@ -22,7 +22,7 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide">
           FaSS 업무 모듈을 <b>Docker 컨테이너</b>(표준 규격 화물)로 포장하면,
           <b>Kubernetes(K8s)</b>는 전국 물류망의 <b>중앙 관제소</b>와 같습니다.
           어느 터미널(서버)에 적재할지, 물량(트래픽)이 늘면 차량을 추가할지,
-          문제 화물은 교체할지 — <b>사람이 일일이 지시하지 않아도</b> 관제소가 24시간 자동 통제합니다.
+          문제 화물은 교체할지 — <b class="k8s-emphasis-red">사람이 일일이 지시하지 않아도</b> 관제소가 24시간 자동 통제합니다.
         </p>
       </div>
       <div class="k8s-feature-list">

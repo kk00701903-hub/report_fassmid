@@ -3,7 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-const SCENE_WIDTH = 124;
+const SCENE_WIDTH = 140;
 const SCENE_HEIGHT = 210;
 const WH_X = 10;
 const WH_Y = 6;
@@ -22,6 +22,8 @@ const SENSOR_X = WH_X + WH_W + 4;
 const SENSOR_Y = WH_Y + 38;
 const SENSOR_CX = SENSOR_X + SENSOR_W / 2;
 const SENSOR_CY = SENSOR_Y + SENSOR_H / 2;
+const SENSOR_LABEL_X = SENSOR_X + SENSOR_W + 5;
+const SENSOR_LABEL_Y = SENSOR_CY + 2;
 const WH_DOCK_X = WH_X + WH_W;
 const WH_DOCK_Y = WH_Y + 52;
 
@@ -133,11 +135,11 @@ function CdcIoSensor() {
         animate={{ opacity: [0.5, 1, 0.5], r: [4, 5.5, 4] }}
         transition={{ duration: 0.9, repeat: Infinity }}
       />
-      <text x={SENSOR_CX} y={SENSOR_Y + 22} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
+      <text x={SENSOR_LABEL_X} y={SENSOR_LABEL_Y - 3} textAnchor="start" fontSize={6.5} fill="#059669" fontWeight={700}>
         입·출고
       </text>
-      <text x={SENSOR_CX} y={SENSOR_Y + 29} textAnchor="middle" fontSize={6.5} fill="#059669" fontWeight={700}>
-        센서
+      <text x={SENSOR_LABEL_X} y={SENSOR_LABEL_Y + 5} textAnchor="start" fontSize={6.5} fill="#059669" fontWeight={700}>
+        센터
       </text>
     </g>
   );

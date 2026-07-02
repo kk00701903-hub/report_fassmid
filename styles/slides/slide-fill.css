@@ -46,10 +46,29 @@
 [class*="slide-s"] .finops-main-content-layout,
 [class*="slide-s"] .migration-content-wrapper,
 [class*="slide-s"] .roadmap-content-container,
-[class*="slide-s"] .k8s-main-wrapper {
+[class*="slide-s"] .k8s-main-wrapper,
+[class*="slide-s"] .fass-architecture-main-container,
+[class*="slide-s"] .engine-main-content,
+[class*="slide-s"] .roi-asset-main-content,
+[class*="slide-s"] .quality-content-main-wrapper,
+[class*="slide-s"] .fass-smart-logistics-content-wrapper,
+[class*="slide-s"] .proto-main,
+[class*="slide-s"] .main-body,
+[class*="slide-s"] .poc-main-content,
+[class*="slide-s"] .fass-closing-content-body,
+[class*="slide-s"] .fass-summary-content-wrapper,
+[class*="slide-s"] .ax-platform-body,
+[class*="slide-s"] .ax-gtm-phases,
+[class*="slide-s"] .fass-identity-main-container {
   flex: 1 1 auto;
   min-height: 0;
   align-items: stretch;
+}
+
+/* Slide 23 — flow strip + spotlight ribbon fixed height; grid fills remaining body */
+[class*="slide-s"] .body > .flow-strip,
+[class*="slide-s"] .body > .s23-spotlight-ribbon {
+  flex-shrink: 0;
 }
 
 [class*="slide-s"] .content > .flow-main,
@@ -85,15 +104,15 @@
   margin-top: auto;
 }
 
-/* Cover slide vertical distribution — details in section-chrome.css */
-[class*="slide-s"] .fass-content-overlay-layer {
+/* Cover slide vertical distribution — slide 1 uses Slide01.css (backup 1.html) */
+[class*="slide-s"]:not(.slide-s01) .fass-content-overlay-layer {
   display: flex;
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
 }
 
-[class*="slide-s"] .fass-title-content-wrapper {
+[class*="slide-s"]:not(.slide-s01) .fass-title-content-wrapper {
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -102,7 +121,7 @@
   gap: 16px;
 }
 
-[class*="slide-s"] .fass-vision-statement-container {
+[class*="slide-s"]:not(.slide-s01) .fass-vision-statement-container {
   margin-top: 0;
 }
 

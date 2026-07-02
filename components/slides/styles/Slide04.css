@@ -73,8 +73,9 @@
 
 .slide-s04 .s04-tier-hero--system .s04-tier-hero__svg {
   height: 82px;
-  border-color: rgba(0, 120, 212, 0.2);
-  background: #f0f9ff;
+  border-color: rgba(0, 90, 158, 0.4);
+  background: #dbeafe;
+  filter: contrast(1.06) saturate(1.1);
 }
 
 .slide-s04 .s04-tier__cards {
@@ -144,20 +145,26 @@
 .slide-s04 .s04-concept-card__visual {
   flex-shrink: 0;
   border-radius: 5px;
-  padding: 2px 4px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background: #f8fafc;
+  padding: 6px 8px;
+  border: 1px solid rgba(51, 65, 85, 0.22);
+  background: #f1f5f9;
 }
 
 .slide-s04 .s04-concept-card__visual--system {
-  background: linear-gradient(180deg, #f0f9ff, #e0f2fe);
-  border-color: rgba(0, 120, 212, 0.15);
+  background: linear-gradient(180deg, #dbeafe, #bfdbfe);
+  border-color: rgba(0, 90, 158, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .slide-s04 .s04-mini-scene {
   width: 100%;
-  height: 46px;
+  height: 50px;
   display: block;
+}
+
+.slide-s04 .s04-mini-scene--docker {
+  height: 62px;
+  filter: contrast(1.08) saturate(1.12);
 }
 
 .slide-s04 .s04-concept-card__text {

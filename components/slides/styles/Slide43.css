@@ -1,0 +1,285 @@
+/* Slide 43 — AX platform go-to-market roadmap */
+
+.slide-s43 .ax-gtm-slide-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--fluent-bg, #ffffff);
+  color: var(--fluent-grey-160, #201f1e);
+  overflow: hidden;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.slide-s43 .title-r {
+  flex-shrink: 0;
+  padding: 20px 36px 6px;
+}
+
+.slide-s43 .title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.slide-s43 .bar {
+  width: 4px;
+  height: 28px;
+  background: var(--fluent-blue, #0078d4);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.slide-s43 .badge {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid rgba(0, 120, 212, 0.35);
+  color: var(--fluent-blue, #0078d4);
+}
+
+.slide-s43 .ax-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fluent-grey-90, #605e5c);
+}
+
+.slide-s43 h1.title-main {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 8px 0 0;
+}
+
+.slide-s43 .sub {
+  font-size: 13px;
+  color: var(--fluent-grey-130, #484644);
+  margin-top: 4px;
+  line-height: 1.4;
+  max-width: 900px;
+}
+
+.slide-s43 .line {
+  height: 1px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, var(--fluent-blue, #0078d4), transparent);
+  opacity: 0.35;
+}
+
+.slide-s43 .ax-gtm-phases {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  padding: 10px 36px 8px;
+  overflow: hidden;
+}
+
+.slide-s43 .ax-gtm-chevron {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  align-self: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #dbe4f0;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fluent-blue, #0078d4);
+  font-size: 11px;
+}
+
+.slide-s43 .ax-gtm-phase-card {
+  flex: 1;
+  min-width: 0;
+  background: var(--fluent-surface, #ffffff);
+  border: 1px solid var(--fluent-border, #edebe9);
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-s43 .ax-gtm-phase-card.is-featured {
+  background: linear-gradient(180deg, #fbfdff, #f4f8ff);
+  border: 1.5px solid #c7dbf7;
+  box-shadow: 0 8px 22px rgba(0, 120, 212, 0.12);
+}
+
+.slide-s43 .ax-gtm-phase-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.slide-s43 .ax-gtm-phase-card__phase {
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--fluent-blue, #0078d4);
+}
+
+.slide-s43 .ax-gtm-phase-card__badge {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--fluent-blue, #0078d4);
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid rgba(0, 120, 212, 0.28);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.slide-s43 .ax-gtm-phase-card.is-featured .ax-gtm-phase-card__badge {
+  color: #3730a3;
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.slide-s43 .ax-gtm-phase-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.slide-s43 .ax-gtm-phase-card__icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 15px;
+  background: linear-gradient(150deg, #0078d4, #004578);
+  box-shadow: 0 8px 18px rgba(0, 120, 212, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+}
+
+.slide-s43 .ax-gtm-phase-card.is-featured .ax-gtm-phase-card__icon {
+  background: linear-gradient(150deg, #004578, #0078d4);
+}
+
+.slide-s43 .ax-gtm-phase-card__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--fluent-grey-160, #201f1e);
+  letter-spacing: -0.02em;
+}
+
+.slide-s43 .ax-gtm-phase-card__subtitle {
+  font-size: 11px;
+  color: var(--fluent-grey-90, #605e5c);
+  font-weight: 600;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  margin-top: 2px;
+}
+
+.slide-s43 .ax-gtm-phase-card__audience {
+  font-size: 11px;
+  font-weight: 700;
+  color: #323130;
+  background: #f3f2f1;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+.slide-s43 .ax-gtm-phase-card.is-featured .ax-gtm-phase-card__audience {
+  color: #004578;
+  background: #deecf9;
+  border-color: #c7dbf7;
+}
+
+.slide-s43 .ax-gtm-phase-card__desc {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fluent-grey-130, #484644);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.slide-s43 .ax-gtm-phase-card__desc strong {
+  color: var(--fluent-grey-160, #201f1e);
+  font-weight: 700;
+}
+
+.slide-s43 .ax-gtm-phase-card.is-featured .ax-gtm-phase-card__desc {
+  color: #5b708c;
+}
+
+.slide-s43 .ax-gtm-phase-card.is-featured .ax-gtm-phase-card__desc strong {
+  color: #004578;
+}
+
+.slide-s43 .ax-gtm-footer {
+  flex-shrink: 0;
+  margin: 0 36px 12px;
+  display: flex;
+  align-items: stretch;
+  background: var(--fluent-surface, #ffffff);
+  border: 1px solid var(--fluent-border, #edebe9);
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+
+.slide-s43 .ax-gtm-footer__item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  min-width: 0;
+}
+
+.slide-s43 .ax-gtm-footer__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.slide-s43 .ax-gtm-footer__label i {
+  color: var(--fluent-blue, #0078d4);
+  font-size: 14px;
+}
+
+.slide-s43 .ax-gtm-footer__label span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--fluent-blue, #0078d4);
+}
+
+.slide-s43 .ax-gtm-footer__item p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--fluent-grey-130, #484644);
+}
+
+.slide-s43 .ax-gtm-footer__item strong {
+  color: var(--fluent-grey-160, #201f1e);
+  font-weight: 700;
+}
+
+.slide-s43 .ax-gtm-footer__divider {
+  width: 1px;
+  background: var(--fluent-border, #edebe9);
+}

@@ -415,31 +415,14 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
                   direction={direction}
                   title={currentItem?.title}
                   onReady={handleSlideReady}
+                  onPrev={!slideLoading && !error ? goPrev : undefined}
+                  onNext={!slideLoading && !error ? goNext : undefined}
+                  canGoPrev={canGoPrev}
+                  canGoNext={canGoNext}
                 />
                 {slideLoading ? (
                   <div className="slide-viewer slide-viewer--loading slide-viewer--overlay">
                     <p>슬라이드를 불러오는 중...</p>
-                  </div>
-                ) : null}
-
-                {!slideLoading && !error ? (
-                  <div className="projector-click-layer" aria-hidden="true">
-                    <button
-                      type="button"
-                      className="projector-click-zone projector-click-zone--prev"
-                      onClick={goPrev}
-                      disabled={!canGoPrev}
-                      tabIndex={-1}
-                      aria-hidden="true"
-                    />
-                    <button
-                      type="button"
-                      className="projector-click-zone projector-click-zone--next"
-                      onClick={goNext}
-                      disabled={!canGoNext}
-                      tabIndex={-1}
-                      aria-hidden="true"
-                    />
                   </div>
                 ) : null}
               </>

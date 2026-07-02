@@ -4,7 +4,6 @@
   background-color: #ffffff;
   color: #201f1e;
   font-family: var(--ppt-font, "Noto Sans KR", sans-serif);
-  padding: 0 72px !important;
 }
 
 .slide-s22 .bg-grid-overlay {
@@ -78,7 +77,6 @@
 .slide-s22 .section-title-en {
   color: #ca5010;
   font-weight: 500;
-  margin-bottom: 36px !important;
   position: relative;
   z-index: 1;
 }

@@ -17,14 +17,8 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 <!-- Left Visual Column -->
 <div class="architecture-left-visual-column">
 <div class="architecture-visual-card-item">
-<div class="architecture-visual-label-group">
-<span class="architecture-visual-badge-cyan">FaSS V3.0 Phase 1 Architecture</span>
-<div style="font-size: 14px;color: var(--ppt-text-3);">
-<i class="fas fa-microchip"></i> On-Premise Optimized
-              </div>
-</div>
 <div class="architecture-diagram-container">
-<div style="margin-bottom: 8px;font-size:13px;font-weight: 600;color: var(--ppt-text-2);">
+<div class="architecture-diagram-label">
                 [ 논리적 MSA 구현 ]
               </div>
 <div class="architecture-physical-server-box">
@@ -69,7 +63,7 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 </div>
 </div>
 </div>
-<div style="font-size:13px;color: var(--ppt-text-3);text-align: center;">
+<div class="architecture-diagram-footnote">
               * 물리적 통합 운영 + 논리적 격리로 안정성·비용 동시 확보
             </div>
 <div class="architecture-mini-strategy">

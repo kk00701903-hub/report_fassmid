@@ -10,7 +10,7 @@ export const APPENDIX_SLIDE_IDS = [8, 9] as const;
 export const GLOSSARY_DIVIDER_SLIDE_ID = 41;
 export const GLOSSARY_CONTENT_SLIDE_IDS = [3, 4, 5, 6] as const;
 
-export const SLIDE_COUNT = 41;
+export const SLIDE_COUNT = 43;
 
 export function isAppendixSlideId(id: number): boolean {
   return (APPENDIX_SLIDE_IDS as readonly number[]).includes(id);
@@ -61,6 +61,8 @@ export const SLIDES: Slide[] = [
   { id: 40, title: "맺음말" },
   { id: 8, title: "[별첨] 디지털 트렌드 — MSA · Cloud · Open Source · AI" },
   { id: 9, title: "[별첨] 팀 에이전트 구성 — AI 8인 역할" },
+  { id: 42, title: "사내 AX 가속기: Agent Studio" },
+  { id: 43, title: "AX 플랫폼 사업화 로드맵" },
 ];
 
 export function getSlideById(id: number): Slide | undefined {

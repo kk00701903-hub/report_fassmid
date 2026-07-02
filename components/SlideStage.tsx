@@ -24,10 +24,27 @@ type SlideStageProps = {
   title?: string;
   slideKey?: string;
   onReady?: () => void;
+  onPrev?: () => void;
+  onNext?: () => void;
+  canGoPrev?: boolean;
+  canGoNext?: boolean;
 };
 
 const SlideStage = forwardRef<HTMLDivElement, SlideStageProps>(function SlideStage(
-  { SlideComponent, src, srcDoc, scale, direction, title = "슬라이드", slideKey = "slide", onReady },
+  {
+    SlideComponent,
+    src,
+    srcDoc,
+    scale,
+    direction,
+    title = "슬라이드",
+    slideKey = "slide",
+    onReady,
+    onPrev,
+    onNext,
+    canGoPrev = false,
+    canGoNext = false,
+  },
   ref,
 ) {
   const reduceMotion = useReducedMotion();
@@ -131,6 +148,29 @@ const SlideStage = forwardRef<HTMLDivElement, SlideStageProps>(function SlideSta
                 </motion.div>
               </AnimatePresence>
             </div>
+          </div>
+        ) : null}
+
+        {onPrev && onNext ? (
+          <div className="projector-click-layer" aria-hidden="true">
+            <button
+              type="button"
+              className="projector-click-zone projector-click-zone--prev"
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={onPrev}
+              disabled={!canGoPrev}
+              tabIndex={-1}
+              aria-hidden="true"
+            />
+            <button
+              type="button"
+              className="projector-click-zone projector-click-zone--next"
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={onNext}
+              disabled={!canGoNext}
+              tabIndex={-1}
+              aria-hidden="true"
+            />
           </div>
         ) : null}
       </div>

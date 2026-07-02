@@ -20,9 +20,8 @@
 }
 
 .slide-motion-diagram-root {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
+  /* Passthrough wrapper for motion remount — must not break cover/PART fill layout */
+  display: contents;
 }
 
 .slide-dynamic-particles {

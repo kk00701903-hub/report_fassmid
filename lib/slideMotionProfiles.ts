@@ -66,7 +66,7 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
     particles: "spark",
     titleSelectors: TITLE,
     staggerSelectors:
-      ".strat-box, .strat, .concept-box, .role-card, .engine-panel, .engine-evidence-card, .engine-highlight-left, .engine-pill, .roi-asset-evidence-card, .roi-asset-hero-panel, .finops-content-card-box, .finops-column-item-wrapper, .ai-innovation-stat-label-top, .ai-innovation-left-stat-column, .ai-innovation-right-content-column, .fass-smart-logistics-action-item-card, .fass-smart-logistics-paradigm-text-box, .quality-pipeline-step-card, .proto-card, .proto-arch-box, .proto-pipe-node, .agent-demo-panel, .etag",
+      ".strat-box, .strat, .concept-box, .role-card, .engine-panel, .engine-evidence-card, .engine-highlight-left, .engine-pill, .roi-asset-evidence-card, .roi-asset-hero-panel, .finops-content-card-box, .finops-column-item-wrapper, .ai-innovation-stat-label-top, .ai-innovation-left-stat-column, .ai-innovation-right-content-column, .fass-smart-logistics-action-item-card, .fass-smart-logistics-paradigm-text-box, .quality-pipeline-step-card, .proto-card, .proto-arch-box, .proto-pipe-node, .agent-demo-panel, .etag, .ax-value-card, .ax-workflow-node, .ax-proof-strip",
     countSelectors: COUNTS,
     accentSweep: true,
   },
@@ -82,7 +82,7 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
     particles: "flow",
     titleSelectors: TITLE,
     staggerSelectors:
-      ".roadmap-step-node, .roadmap-strategy-card, .roadmap-data-table tbody tr, .roadmap-content-item, .s37-milestone, .roadmap-track-slot",
+      ".roadmap-step-node, .roadmap-strategy-card, .roadmap-data-table tbody tr, .roadmap-content-item, .s37-milestone, .roadmap-track-slot, .ax-gtm-phase-card, .ax-gtm-footer",
     countSelectors: COUNTS,
     accentSweep: true,
   },

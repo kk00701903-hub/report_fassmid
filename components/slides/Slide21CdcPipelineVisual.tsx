@@ -159,11 +159,11 @@ export default function Slide21CdcPipelineVisual() {
             <text x={30} y={28} textAnchor="middle" fontSize={14}>
               ⚡
             </text>
-            <text x={30} y={42} textAnchor="middle" fontSize={8.5} fontWeight={800} fill="#004578">
+            <text x={30} y={42} textAnchor="middle" fontSize={7} fontWeight={800} fill="#004578">
               <tspan x={30} dy={0}>
                 Debezium
               </tspan>
-              <tspan x={30} dy={12} fontSize={7.5} fontWeight={600} fill="#605e5c">
+              <tspan x={30} dy={11} fontSize={7} fontWeight={600} fill="#605e5c">
                 CDC
               </tspan>
             </text>
@@ -179,10 +179,6 @@ export default function Slide21CdcPipelineVisual() {
               <tspan x={74} dy={12} fontSize={7.5} fontWeight={600} fill="#605e5c">
                 Stream
               </tspan>
-            </text>
-
-            <text x={52} y={72} textAnchor="middle" fontSize={8} fontWeight={700} fill="#484644">
-              CDC · Event Stream
             </text>
           </g>
 

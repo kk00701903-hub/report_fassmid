@@ -2225,6 +2225,7 @@ button {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-width: 0;
   height: 100vh;
   height: 100dvh;
@@ -2237,6 +2238,8 @@ button {
   justify-content: center;
   padding: 6px 12px;
   min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .projector-viewport {
@@ -2267,6 +2270,17 @@ button {
   position: relative;
   flex-shrink: 0;
   overflow: hidden;
+  background: #ffffff;
+}
+
+/* Click zones follow slide frame — not letterbox outside 4:3 canvas */
+.slide-stage__frame .projector-click-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  display: grid;
+  grid-template-columns: 18% 1fr;
+  pointer-events: none;
 }
 
 .projector-viewport .slide-stage__iframe {
@@ -2287,13 +2301,23 @@ button {
   min-height: 0;
 }
 
-.projector-click-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 15;
-  display: grid;
-  grid-template-columns: 18% 1fr 18%;
-  pointer-events: none;
+/* Presentation: clicks advance slides — avoid text caret on slide copy */
+.presentation-shell--projector .slide-stage__canvas,
+.presentation-shell--projector .slide-stage__iframe {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.presentation-shell--projector .slide-stage__canvas * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.presentation-shell--projector .slide-stage__canvas input,
+.presentation-shell--projector .slide-stage__canvas textarea,
+.presentation-shell--projector .slide-stage__canvas [contenteditable="true"] {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .projector-click-zone {
@@ -2302,6 +2326,8 @@ button {
   cursor: pointer;
   padding: 0;
   pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .projector-click-zone--prev {
@@ -2309,7 +2335,7 @@ button {
 }
 
 .projector-click-zone--next {
-  grid-column: 3;
+  grid-column: 2;
 }
 
 .projector-click-zone:disabled {
@@ -2367,6 +2393,12 @@ button {
   min-height: 44px;
   border-top: 1px solid var(--border);
   background: rgba(10, 14, 26, 0.95);
+  width: min(100%, calc((100dvh - 48px) * 4 / 3));
+  box-sizing: border-box;
+}
+
+.presentation-shell--sidebar-open .projector-footer {
+  width: min(calc(100vw - 300px), calc((100dvh - 48px) * 4 / 3));
 }
 
 .projector-footer__btn--settings {

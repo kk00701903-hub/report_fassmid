@@ -22,7 +22,7 @@ export default function AuditSlideView({ slideId }: AuditSlideViewProps) {
         height: 720,
         overflow: "hidden",
         margin: 0,
-        background: "#0a0e1a",
+        background: "#ffffff",
       }}
     >
       <Suspense fallback={null}>

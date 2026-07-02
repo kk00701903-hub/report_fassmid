@@ -3,6 +3,8 @@
   background-color: var(--ppt-bg);
   color: #ffffff;
   font-family: var(--ppt-font);
+  padding-bottom: 48px;
+  box-sizing: border-box;
 }
 
 .slide-s36 .bg-grid-overlay {
@@ -61,6 +63,7 @@
   user-select: none;
   line-height: 1;
   font-weight: 700;
+  bottom: 52px;
 }
 
 .slide-s36 .section-title-ko {

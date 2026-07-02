@@ -3,7 +3,8 @@
  */
 
 /* dangerouslySetInnerHTML wrapper must fill SlideCanvas (same as .fluent-slide) */
-[class*="slide-s"] .slide-motion-content > div {
+[class*="slide-s"] .slide-motion-content > div,
+[class*="slide-s"] .slide-motion-diagram-root > div {
   width: 100%;
   height: 100%;
   min-height: 0;
@@ -12,10 +13,24 @@
   flex: 1;
 }
 
+[class*="slide-s"] .slide-motion-content > div:has(.fluent-slide) {
+  background: #ffffff;
+}
+
 [class*="slide-s"] .slide-motion-content > div:has(.fass-report-slide-root),
-[class*="slide-s"] .slide-motion-content > div:has(.section-slide-root) {
+[class*="slide-s"] .slide-motion-content > div:has(.section-slide-root),
+[class*="slide-s"] .slide-motion-diagram-root > div:has(.fass-report-slide-root),
+[class*="slide-s"] .slide-motion-diagram-root > div:has(.section-slide-root) {
   width: 100%;
   height: 100%;
+}
+
+/* Cover + PART dividers — block wrapper preserves grid/flex layout inside */
+[class*="slide-s"] .slide-motion-content > div:has(.fass-report-slide-root),
+[class*="slide-s"] .slide-motion-content > div:has(.section-slide-root),
+[class*="slide-s"] .slide-motion-diagram-root > div:has(.fass-report-slide-root),
+[class*="slide-s"] .slide-motion-diagram-root > div:has(.section-slide-root) {
+  display: block;
 }
 
 /* ── Cover (slide 1) ── */
@@ -25,7 +40,7 @@
   min-height: 0;
 }
 
-[class*="slide-s"] .fass-content-overlay-layer {
+[class*="slide-s"]:not(.slide-s01) .fass-content-overlay-layer {
   width: 100%;
   height: 100%;
   padding: 32px 36px;
@@ -35,12 +50,12 @@
   overflow: hidden;
 }
 
-[class*="slide-s"] .fass-top-header-section {
+[class*="slide-s"]:not(.slide-s01) .fass-top-header-section {
   flex-shrink: 0;
   margin-bottom: 0;
 }
 
-[class*="slide-s"] .fass-title-content-wrapper {
+[class*="slide-s"]:not(.slide-s01) .fass-title-content-wrapper {
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -49,46 +64,47 @@
   gap: 16px;
 }
 
-[class*="slide-s"] .fass-title-main-heading {
+[class*="slide-s"]:not(.slide-s01) .fass-title-main-heading {
   font-size: 28px;
   line-height: 1.2;
 }
 
-[class*="slide-s"] .fass-subtitle-description-text {
+[class*="slide-s"]:not(.slide-s01) .fass-subtitle-description-text {
   font-size: 17px;
   font-weight: 600;
   line-height: 1.45;
   max-width: 100%;
 }
 
-[class*="slide-s"] .fass-vision-statement-container {
+[class*="slide-s"]:not(.slide-s01) .fass-vision-statement-container {
   flex-shrink: 0;
   margin-top: 0;
   padding: 16px 18px;
   max-width: 100%;
 }
 
-[class*="slide-s"] .fass-vision-content-text {
+[class*="slide-s"]:not(.slide-s01) .fass-vision-content-text {
   font-size: 15px;
   line-height: 1.5;
 }
 
-[class*="slide-s"] .fass-footer-info-group {
+[class*="slide-s"]:not(.slide-s01) .fass-footer-info-group {
   flex-shrink: 0;
   margin-top: 0;
   gap: 32px;
 }
 
-[class*="slide-s"] .fass-company-brand-label {
+[class*="slide-s"]:not(.slide-s01) .fass-company-brand-label {
   font-size: 20px;
 }
 
-/* ── PART divider slides (2, 13, 22, 27, 36) — backup 2.html typography ── */
+/* ── PART divider slides — backup 2.html layout & typography ── */
 .slide-s02 .section-slide-root,
 .slide-s13 .section-slide-root,
 .slide-s22 .section-slide-root,
 .slide-s27 .section-slide-root,
-.slide-s36 .section-slide-root {
+.slide-s36 .section-slide-root,
+.slide-s41 .section-slide-root {
   width: 100% !important;
   height: 100% !important;
   min-height: 0;
@@ -96,7 +112,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 24px 52px;
+  padding: 0 80px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -106,10 +122,12 @@
 .slide-s13 .section-part-label,
 .slide-s22 .section-part-label,
 .slide-s27 .section-part-label,
-.slide-s36 .section-part-label {
+.slide-s36 .section-part-label,
+.slide-s41 .section-part-label {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 4px;
+  text-transform: uppercase;
   margin-bottom: 16px;
 }
 
@@ -117,8 +135,10 @@
 .slide-s13 .section-title-ko,
 .slide-s22 .section-title-ko,
 .slide-s27 .section-title-ko,
-.slide-s36 .section-title-ko {
+.slide-s36 .section-title-ko,
+.slide-s41 .section-title-ko {
   font-size: 26px;
+  font-weight: 700;
   line-height: 1.2;
   margin-bottom: 8px;
 }
@@ -127,28 +147,31 @@
 .slide-s13 .section-title-en,
 .slide-s22 .section-title-en,
 .slide-s27 .section-title-en,
-.slide-s36 .section-title-en {
+.slide-s36 .section-title-en,
+.slide-s41 .section-title-en {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 1px;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .slide-s02 .section-divider-line,
 .slide-s13 .section-divider-line,
 .slide-s22 .section-divider-line,
 .slide-s27 .section-divider-line,
-.slide-s36 .section-divider-line {
+.slide-s36 .section-divider-line,
+.slide-s41 .section-divider-line {
   width: 80px;
   height: 3px;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
 .slide-s02 .section-topics-list,
 .slide-s13 .section-topics-list,
 .slide-s22 .section-topics-list,
 .slide-s27 .section-topics-list,
-.slide-s36 .section-topics-list {
+.slide-s36 .section-topics-list,
+.slide-s41 .section-topics-list {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -159,7 +182,8 @@
 .slide-s13 .section-topic-item,
 .slide-s22 .section-topic-item,
 .slide-s27 .section-topic-item,
-.slide-s36 .section-topic-item {
+.slide-s36 .section-topic-item,
+.slide-s41 .section-topic-item {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -169,7 +193,8 @@
 .slide-s13 .topic-text,
 .slide-s22 .topic-text,
 .slide-s27 .topic-text,
-.slide-s36 .topic-text {
+.slide-s36 .topic-text,
+.slide-s41 .topic-text {
   font-size: 17px;
   font-weight: 400;
   line-height: 1.4;
@@ -179,102 +204,11 @@
 .slide-s13 .section-part-number,
 .slide-s22 .section-part-number,
 .slide-s27 .section-part-number,
-.slide-s36 .section-part-number {
+.slide-s36 .section-part-number,
+.slide-s41 .section-part-number {
   font-size: 120px;
-  right: 48px;
-  bottom: 32px;
-}
-
-/* Legacy generic rules (other section slides) */
-[class*="slide-s"] .section-slide-root {
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  padding: 32px 36px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-}
-
-[class*="slide-s"] .section-part-label {
-  font-size: 13px;
-  letter-spacing: 3px;
-  margin-bottom: 12px;
-}
-
-[class*="slide-s"] .section-title-ko {
-  font-size: 28px;
-  line-height: 1.22;
-  margin-bottom: 6px;
-}
-
-[class*="slide-s"] .section-title-en {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-[class*="slide-s"] .section-divider-line {
-  width: 72px;
-  margin-bottom: 18px;
-}
-
-[class*="slide-s"] .section-topics-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-[class*="slide-s"] .section-topic-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-[class*="slide-s"] .topic-text {
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-[class*="slide-s"] .section-part-number {
-  font-size: 96px;
-  right: 36px;
-  bottom: 28px;
-}
-
-/* Dense PART slide (many agenda items) — neutralized for PART slides above */
-[class*="slide-s"] .section-slide-root.section-slide-dense {
-  justify-content: center;
-  padding: 24px 36px;
-}
-
-[class*="slide-s"] .section-slide-dense .section-title-ko {
-  font-size: 24px;
-}
-
-[class*="slide-s"] .section-slide-dense .section-title-en {
-  font-size: 14px;
-  margin-bottom: 14px;
-}
-
-[class*="slide-s"] .section-slide-dense .section-divider-line {
-  margin-bottom: 12px;
-}
-
-[class*="slide-s"] .section-slide-dense .section-topics-list {
-  gap: 7px;
-}
-
-[class*="slide-s"] .section-slide-dense .topic-text {
-  font-size: 13px;
-  line-height: 1.35;
-}
-
-.slide-s02 .section-slide-root.section-slide-dense .topic-text {
-  font-size: 17px;
-  line-height: 1.4;
+  font-weight: 700;
+  line-height: 1;
+  right: 60px;
+  bottom: 40px;
 }

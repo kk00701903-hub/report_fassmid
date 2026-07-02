@@ -66,7 +66,7 @@ function Chip({
 export default function Slide23() {
   return (
     <SlideCanvas slideId={23} motion="cards" motionTier="medium">
-      <div className="slide fluent-slide">
+      <div className="tech-stack-slide-root fluent-slide">
         <div className="title-r">
           <div className="title-row">
             <div className="bar" />

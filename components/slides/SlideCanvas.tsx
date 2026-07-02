@@ -51,6 +51,7 @@ const SlideCanvas = forwardRef<HTMLDivElement, SlideCanvasProps>(function SlideC
         position: "relative",
         overflow: "hidden",
         flexShrink: 0,
+        background: "#ffffff",
         ...style,
       }}
     >

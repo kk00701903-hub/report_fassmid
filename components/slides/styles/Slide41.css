@@ -1,8 +1,8 @@
 /* Slide 41 — Digital Insight Glossary divider (backup 간지 typography) */
 
 .slide-s41 .section-slide-root {
-  padding: 24px 52px;
-  align-items: flex-start;
+  background-color: var(--ppt-bg);
+  color: #ffffff;
 }
 
 .slide-s41 .bg-grid-overlay {
@@ -41,10 +41,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 16px;
 }
 
 .slide-s41 .section-part-label::after {
@@ -63,41 +59,21 @@
   user-select: none;
   line-height: 1;
   font-weight: 700;
-  font-size: 120px;
-  right: 48px;
-  bottom: 32px;
 }
 
 .slide-s41 .section-title-ko {
   color: #ffffff;
   font-weight: 700;
-  font-size: 26px;
-  line-height: 1.2;
-  margin-bottom: 8px;
 }
 
 .slide-s41 .section-title-en {
   color: #93c5fd;
   font-weight: 500;
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin-bottom: 32px;
 }
 
 .slide-s41 .section-divider-line {
-  width: 80px;
-  height: 3px;
-  margin-bottom: 28px;
   background: linear-gradient(90deg, #0078d4, transparent);
   border-radius: 2px;
-}
-
-.slide-s41 .section-topics-list {
-  gap: 14px;
-}
-
-.slide-s41 .section-topic-item {
-  gap: 14px;
 }
 
 .slide-s41 .topic-dot {
@@ -111,7 +87,5 @@
 
 .slide-s41 .topic-text {
   color: #e2e8f0;
-  font-size: 17px;
   font-weight: 400;
-  line-height: 1.4;
 }

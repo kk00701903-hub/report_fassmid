@@ -7,6 +7,7 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide">
 <div class="title-r">
   <div class="title-row">
     <div class="bar"></div>
+    <span class="badge">BUSINESS INNOVATION</span>
     <h1 class="title-main">비즈니스 혁신2: AI 지능형 물류 플랫폼으로의 전환</h1>
   </div>
   <p class="sub">단순 기록/조회에서 데이터 기반 예측·자동화 시스템으로의 전환</p>

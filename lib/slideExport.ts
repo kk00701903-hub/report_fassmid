@@ -232,8 +232,19 @@ function shouldIgnoreElement(element: Element): boolean {
   return element instanceof HTMLIFrameElement || element instanceof HTMLVideoElement;
 }
 
-function prepareRootForCapture(root: HTMLElement, pageOrigin: string, background: string): void {
-  normalizeSlideLayout(root, background);
+function getCaptureBackground(root: HTMLElement): string {
+  if (
+    root.matches(".section-slide-root, .fass-report-slide-root") ||
+    root.querySelector(".section-slide-root, .fass-report-slide-root")
+  ) {
+    return CAPTURE_BACKGROUNDS.default;
+  }
+  return "#ffffff";
+}
+
+function prepareRootForCapture(root: HTMLElement, pageOrigin: string, background?: string): void {
+  const bg = background ?? getCaptureBackground(root);
+  normalizeSlideLayout(root, bg);
   sanitizeRootForCapture(root, pageOrigin);
 }
 
@@ -243,7 +254,8 @@ async function captureElementAsDataUrl(
   colorMode: CaptureColorMode,
 ): Promise<string> {
   const pageOrigin = window.location.origin;
-  prepareRootForCapture(root, pageOrigin, CAPTURE_BACKGROUNDS.default);
+  const captureBg = getCaptureBackground(root);
+  prepareRootForCapture(root, pageOrigin, captureBg);
 
   const { default: html2canvas } = await import("html2canvas");
   const canvas = await html2canvas(root, {
@@ -256,12 +268,12 @@ async function captureElementAsDataUrl(
     allowTaint: true,
     foreignObjectRendering: false,
     logging: false,
-    backgroundColor: CAPTURE_BACKGROUNDS.default,
+    backgroundColor: captureBg,
     ignoreElements: shouldIgnoreElement,
     onclone: (clonedDoc) => {
       const clonedRoot = findSlideRoot(clonedDoc);
       if (clonedRoot) {
-        prepareRootForCapture(clonedRoot, pageOrigin, CAPTURE_BACKGROUNDS.default);
+        prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
       }
     },
   });
@@ -327,9 +339,11 @@ async function captureCustomSlideIframe(
     const pageOrigin = iframe.contentWindow?.location.origin ?? window.location.origin;
     const root = getSlideRoot(doc, slideLabel);
 
+    const captureBg = getCaptureBackground(root);
+
     doc.documentElement.style.overflow = "hidden";
-    doc.body.style.cssText = `margin:0;padding:0;width:${SLIDE_W}px;height:${SLIDE_H}px;overflow:hidden;background:${CAPTURE_BACKGROUNDS.default}`;
-    prepareRootForCapture(root, pageOrigin, CAPTURE_BACKGROUNDS.default);
+    doc.body.style.cssText = `margin:0;padding:0;width:${SLIDE_W}px;height:${SLIDE_H}px;overflow:hidden;background:${captureBg}`;
+    prepareRootForCapture(root, pageOrigin, captureBg);
 
     const { default: html2canvas } = await import("html2canvas");
     const canvas = await html2canvas(root, {
@@ -342,12 +356,12 @@ async function captureCustomSlideIframe(
       allowTaint: true,
       foreignObjectRendering: false,
       logging: false,
-      backgroundColor: CAPTURE_BACKGROUNDS.default,
+      backgroundColor: captureBg,
       ignoreElements: shouldIgnoreElement,
       onclone: (clonedDoc) => {
         const clonedRoot = findSlideRoot(clonedDoc);
         if (clonedRoot) {
-          prepareRootForCapture(clonedRoot, pageOrigin, CAPTURE_BACKGROUNDS.default);
+          prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
         }
       },
     });

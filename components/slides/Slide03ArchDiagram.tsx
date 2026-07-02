@@ -9,7 +9,7 @@ const NODES = [
   {
     id: "client",
     title: "Client",
-    example: "제때 임직원",
+    example: "당사 임직원",
     tech: "Browser",
     accent: "#6366f1",
     icon: "fa-user-tie",

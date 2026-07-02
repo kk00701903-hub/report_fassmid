@@ -54,6 +54,7 @@ function SprintCard({ sprint, activeIndex }: { sprint: SprintItem; activeIndex?:
 
   const cardInner = (
     <>
+      {isActive ? <span className="s14-kanban__card-bg" aria-hidden="true" /> : null}
       {isActive ? <span className="s14-kanban__card-glow" aria-hidden="true" /> : null}
       {isActive ? <span className="s14-kanban__card-border" aria-hidden="true" /> : null}
       <span className="s14-kanban__card-id">{sprint.id}</span>
@@ -78,20 +79,20 @@ function SprintCard({ sprint, activeIndex }: { sprint: SprintItem; activeIndex?:
             ? { opacity: 1, y: 0 }
             : {
                 opacity: 1,
-                y: 0,
-                scale: [1, 1.015, 1],
+                y: [0, -2, 0],
+                scale: [1, 1.02, 1],
                 boxShadow: [
-                  "0 0 0 1px rgba(0,120,212,0.28), 0 2px 10px rgba(0,120,212,0.12)",
-                  "0 0 0 2px rgba(0,120,212,0.55), 0 0 18px rgba(0,120,212,0.28)",
-                  "0 0 0 1px rgba(0,120,212,0.28), 0 2px 10px rgba(0,120,212,0.12)",
+                  "0 0 0 2px rgba(0,120,212,0.45), 0 4px 16px rgba(0,120,212,0.22)",
+                  "0 0 0 3px rgba(0,120,212,0.7), 0 6px 22px rgba(0,120,212,0.35)",
+                  "0 0 0 2px rgba(0,120,212,0.45), 0 4px 16px rgba(0,120,212,0.22)",
                 ],
               }
         }
         transition={{
           opacity: { duration: 0.35, delay },
-          y: { duration: 0.35, delay },
-          scale: { duration: 2.6, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
-          boxShadow: { duration: 2.6, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
+          y: { duration: 2.2, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
+          scale: { duration: 2.2, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
+          boxShadow: { duration: 2.2, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
         }}
       >
         {cardInner}

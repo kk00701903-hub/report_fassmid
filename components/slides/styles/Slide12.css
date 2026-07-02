@@ -103,9 +103,43 @@
 
 .slide-s12 .summary-column-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   flex-shrink: 0;
+}
+
+.slide-s12 .summary-column-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.slide-s12 .summary-column-step {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0078d4;
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid rgba(0, 120, 212, 0.28);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+.slide-s12 .summary-column-item:nth-child(2) .summary-column-step {
+  color: #5c2d91;
+  background: rgba(92, 45, 145, 0.1);
+  border-color: rgba(92, 45, 145, 0.28);
+}
+
+.slide-s12 .summary-column-item:nth-child(3) .summary-column-step {
+  color: #107c10;
+  background: rgba(16, 124, 16, 0.1);
+  border-color: rgba(16, 124, 16, 0.28);
 }
 
 .slide-s12 .summary-column-icon {

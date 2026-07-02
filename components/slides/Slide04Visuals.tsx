@@ -85,23 +85,26 @@ export function DockerContainer({
         width={width}
         height={height}
         rx={4}
-        fill="#f8fafc"
-        stroke={lit ? "#0078d4" : "#64748b"}
-        strokeWidth={lit ? 2 : 1.4}
+        fill="#f1f5f9"
+        stroke={lit ? "#005a9e" : "#334155"}
+        strokeWidth={lit ? 2.4 : 2}
       />
       <rect x={0} y={0} width={width} height={Math.round(height * 0.26)} rx={4} fill="#0078d4" />
-      <rect x={0} y={Math.round(height * 0.2)} width={width} height={3} fill="#005a9e" />
-      <circle cx={10} cy={Math.round(height * 0.13)} r={2.8} fill="#fff" opacity={0.92} />
-      <circle cx={16} cy={Math.round(height * 0.13)} r={2.8} fill="#fff" opacity={0.68} />
-      <rect x={8} y={barY} width={width - 16} height={barH} rx={2} fill={color} opacity={0.9} />
+      <rect x={0} y={Math.round(height * 0.2)} width={width} height={3} fill="#004578" />
+      <circle cx={10} cy={Math.round(height * 0.13)} r={2.8} fill="#fff" opacity={1} />
+      <circle cx={16} cy={Math.round(height * 0.13)} r={2.8} fill="#fff" opacity={0.85} />
+      <rect x={8} y={barY} width={width - 16} height={barH} rx={2} fill={color} />
       {label ? (
         <text
           x={width / 2}
           y={labelY}
           textAnchor="middle"
           fontSize={labelSize}
-          fontWeight={700}
-          fill="#1e293b"
+          fontWeight={800}
+          fill="#fff"
+          stroke="#0f172a"
+          strokeWidth={0.35}
+          paintOrder="stroke"
         >
           {label}
         </text>
@@ -160,11 +163,11 @@ export function MiniShipScene({ variant }: { variant: "standard" | "port" | "iso
 export function MiniDockerScene({ variant }: { variant: "standard" | "port" | "isolated" }) {
   if (variant === "standard") {
     return (
-      <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-        <DockerContainer color={CONTAINER_COLORS[0]} x={8} y={18} width={32} height={26} />
-        <DockerContainer color={CONTAINER_COLORS[1]} x={42} y={18} width={32} height={26} />
-        <DockerContainer color={CONTAINER_COLORS[2]} x={76} y={18} width={32} height={26} />
-        <text x={60} y={12} textAnchor="middle" fontSize={9} fill="#0078d4">
+      <svg viewBox="0 0 120 56" className="s04-mini-scene s04-mini-scene--docker" aria-hidden="true">
+        <DockerContainer color={CONTAINER_COLORS[0]} x={4} y={14} width={36} height={30} />
+        <DockerContainer color={CONTAINER_COLORS[1]} x={42} y={14} width={36} height={30} />
+        <DockerContainer color={CONTAINER_COLORS[2]} x={80} y={14} width={36} height={30} />
+        <text x={60} y={10} textAnchor="middle" fontSize={10} fontWeight={800} fill="#004578">
           같은 Docker 규격
         </text>
       </svg>
@@ -173,23 +176,23 @@ export function MiniDockerScene({ variant }: { variant: "standard" | "port" | "i
 
   if (variant === "port") {
     return (
-      <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-        <rect x={6} y={30} width={28} height={18} rx={3} fill="#e2e8f0" stroke="#94a3b8" />
-        <text x={20} y={42} textAnchor="middle" fontSize={7} fill="#64748b">
+      <svg viewBox="0 0 120 56" className="s04-mini-scene s04-mini-scene--docker" aria-hidden="true">
+        <rect x={2} y={28} width={32} height={22} rx={3} fill="#e2e8f0" stroke="#334155" strokeWidth={1.8} />
+        <text x={18} y={42} textAnchor="middle" fontSize={9} fontWeight={700} fill="#1e293b">
           개발실
         </text>
-        <path d="M38 38 H48" stroke="#0078d4" strokeWidth={1.5} markerEnd="url(#s04-arrow)" />
-        <rect x={50} y={30} width={28} height={18} rx={3} fill="#dbeafe" stroke="#0078d4" />
-        <text x={64} y={42} textAnchor="middle" fontSize={7} fill="#0078d4">
+        <path d="M36 38 H46" stroke="#005a9e" strokeWidth={2.6} markerEnd="url(#s04-arrow)" />
+        <rect x={48} y={28} width={32} height={22} rx={3} fill="#bfdbfe" stroke="#005a9e" strokeWidth={2} />
+        <text x={64} y={42} textAnchor="middle" fontSize={9} fontWeight={800} fill="#004578">
           운영 서버
         </text>
-        <DockerContainer color={CONTAINER_COLORS[0]} x={84} y={16} width={28} height={22} label="동일" />
+        <DockerContainer color={CONTAINER_COLORS[0]} x={84} y={12} width={32} height={26} label="동일" labelSize={10} />
         <defs>
-          <marker id="s04-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#0078d4" />
+          <marker id="s04-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#005a9e" />
           </marker>
         </defs>
-        <text x={60} y={10} textAnchor="middle" fontSize={8} fill="#0078d4">
+        <text x={60} y={10} textAnchor="middle" fontSize={9} fontWeight={800} fill="#004578">
           테스트 그대로 이전
         </text>
       </svg>
@@ -197,11 +200,11 @@ export function MiniDockerScene({ variant }: { variant: "standard" | "port" | "i
   }
 
   return (
-    <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-      <DockerContainer color="#8b5cf6" x={10} y={18} width={34} height={26} label="주문" />
-      <DockerContainer color="#06b6d4" x={68} y={18} width={34} height={26} label="재고" />
-      <line x1={52} y1={12} x2={52} y2={48} stroke="#0078d4" strokeWidth={1.5} strokeDasharray="3 2" opacity={0.5} />
-      <text x={60} y={10} textAnchor="middle" fontSize={8} fill="#0078d4">
+    <svg viewBox="0 0 120 56" className="s04-mini-scene s04-mini-scene--docker" aria-hidden="true">
+      <DockerContainer color="#7c3aed" x={6} y={14} width={40} height={30} label="주문" labelSize={10} />
+      <DockerContainer color="#0891b2" x={70} y={14} width={40} height={30} label="재고" labelSize={10} />
+      <line x1={52} y1={10} x2={52} y2={48} stroke="#005a9e" strokeWidth={2.4} strokeDasharray="4 3" />
+      <text x={60} y={8} textAnchor="middle" fontSize={9} fontWeight={800} fill="#004578">
         서로 영향 없음
       </text>
     </svg>
@@ -273,9 +276,9 @@ export function Slide04SystemHero() {
   return (
     <div className="s04-tier-hero s04-tier-hero--system">
       <svg viewBox="0 0 640 112" className="s04-tier-hero__svg" aria-hidden="true">
-        <rect x={0} y={0} width={640} height={112} rx={8} fill="#f0f9ff" />
+        <rect x={0} y={0} width={640} height={112} rx={8} fill="#dbeafe" />
 
-        <text x={320} y={20} textAnchor="middle" fontSize={12} fontWeight={700} fill="#0078d4">
+        <text x={320} y={20} textAnchor="middle" fontSize={12} fontWeight={800} fill="#004578">
           프로그램별 Docker 컨테이너 · 동일 규격 실행·배포
         </text>
 
@@ -294,16 +297,16 @@ export function Slide04SystemHero() {
           animate={animating ? { opacity: [0.55, 1, 0.55] } : undefined}
           transition={{ duration: 2.5, repeat: Infinity }}
         >
-          <rect x={488} y={26} width={112} height={50} rx={6} fill="#dbeafe" stroke="#0078d4" strokeWidth={1.5} />
-          <text x={544} y={46} textAnchor="middle" fontSize={11} fontWeight={800} fill="#0078d4">
+          <rect x={488} y={26} width={112} height={50} rx={6} fill="#bfdbfe" stroke="#005a9e" strokeWidth={2.2} />
+          <text x={544} y={46} textAnchor="middle" fontSize={11} fontWeight={800} fill="#004578">
             Kubernetes
           </text>
-          <text x={544} y={62} textAnchor="middle" fontSize={10} fontWeight={600} fill="#334155">
+          <text x={544} y={62} textAnchor="middle" fontSize={10} fontWeight={700} fill="#1e293b">
             자동 배치·복제
           </text>
         </motion.g>
 
-        <rect x={72} y={82} width={496} height={26} rx={6} fill="#e2e8f0" stroke="#64748b" strokeWidth={1.4} />
+        <rect x={72} y={82} width={496} height={26} rx={6} fill="#cbd5e1" stroke="#334155" strokeWidth={2} />
         <rect x={86} y={90} width={12} height={12} rx={2} fill="#22c55e" />
         <rect x={102} y={90} width={12} height={12} rx={2} fill="#22c55e" />
         <rect x={118} y={90} width={12} height={12} rx={2} fill="#22c55e" />

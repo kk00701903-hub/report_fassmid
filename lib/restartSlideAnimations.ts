@@ -8,6 +8,9 @@ export function restartSlideAnimations(root: ParentNode = document) {
     [
       "[data-motion] *",
       ".slide-motion-entered *",
+      ".s16-flow-spine__fill.is-animated",
+      ".s16-flow-spine__token.is-animated",
+      ".s16-flow-connector__packet.is-animated",
       ".s05-package--flow",
       ".s05-package--motion",
       ".s05-belt__slats",

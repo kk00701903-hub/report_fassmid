@@ -2,6 +2,7 @@
 
 export type SummaryColumnData = {
   id: "progress" | "roadmap" | "infra";
+  step: string;
   icon: string;
   title: string;
   highlight: string;
@@ -22,7 +23,10 @@ export function Slide12SummaryBoard({ columns }: { columns: SummaryColumnData[] 
             <div className="summary-column-icon">
               <i className={col.icon} aria-hidden="true" />
             </div>
-            <div className="summary-column-title">{col.title}</div>
+            <div className="summary-column-heading">
+              <span className="summary-column-step">{col.step}</span>
+              <div className="summary-column-title">{col.title}</div>
+            </div>
           </div>
 
           <div className="summary-list-container">

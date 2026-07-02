@@ -3,6 +3,7 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
 import {
   WORKFLOW_PHASES,
   WORKFLOW_PHASE_STEPS,
@@ -124,22 +125,19 @@ function PhaseColumn({
 function FlowConnector({
   active,
   visited,
+  animating,
   reduceMotion,
 }: {
   active: boolean;
   visited: boolean;
+  animating: boolean;
   reduceMotion: boolean | null;
 }) {
   return (
     <div className={`s16-flow-connector${active ? " is-active" : ""}${visited ? " is-visited" : ""}`}>
       <div className="s16-flow-connector__line" aria-hidden="true" />
-      {!reduceMotion && active ? (
-        <motion.span
-          className="s16-flow-connector__packet"
-          animate={{ left: ["6%", "88%"] }}
-          transition={{ duration: 0.95, repeat: Infinity, ease: "linear" }}
-          aria-hidden="true"
-        />
+      {animating && active ? (
+        <span className="s16-flow-connector__packet is-animated" aria-hidden="true" />
       ) : null}
       <motion.span
         className="s16-flow-connector__arrow"
@@ -155,43 +153,35 @@ function FlowConnector({
   );
 }
 
-function FlowSpine({ activeStep, reduceMotion }: { activeStep: number; reduceMotion: boolean | null }) {
+function FlowSpine({
+  activeStep,
+  spineAnimating,
+}: {
+  activeStep: number;
+  spineAnimating: boolean;
+}) {
   const segmentCount = WORKFLOW_PHASES.length;
   const progress = (activeStep + 0.5) / segmentCount;
+  const tokenLeft = `${Math.max(2, Math.min(96, progress * 100))}%`;
 
   return (
     <div className="s16-flow-spine" aria-hidden="true">
       <div className="s16-flow-spine__track">
-        <motion.div
-          className="s16-flow-spine__fill"
-          animate={{ scaleX: reduceMotion ? progress : [0.08, 1, 0.08] }}
-          transition={
-            reduceMotion
-              ? { duration: 0 }
-              : { duration: 10, repeat: Infinity, ease: "linear", times: [0, 0.92, 1] }
-          }
-          style={{ transformOrigin: "left center" }}
+        <div
+          className={`s16-flow-spine__fill${spineAnimating ? " is-animated" : ""}`}
+          style={spineAnimating ? undefined : { transform: `scaleX(${Math.max(0.08, progress)})` }}
         />
       </div>
 
-      {!reduceMotion ? (
-        <motion.div
-          className="s16-flow-spine__token"
-          animate={{ left: ["2%", "96%"] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        >
-          <span className="s16-flow-spine__token-icon">
-            <i className="fab fa-jira" aria-hidden="true" />
-          </span>
-          <span className="s16-flow-spine__token-label">Flow</span>
-        </motion.div>
-      ) : (
-        <div className="s16-flow-spine__token" style={{ left: `${progress * 100}%` }}>
-          <span className="s16-flow-spine__token-icon">
-            <i className="fab fa-jira" aria-hidden="true" />
-          </span>
-        </div>
-      )}
+      <div
+        className={`s16-flow-spine__token${spineAnimating ? " is-animated" : ""}`}
+        style={spineAnimating ? undefined : { left: tokenLeft }}
+      >
+        <span className="s16-flow-spine__token-icon">
+          <i className="fab fa-jira" aria-hidden="true" />
+        </span>
+        <span className="s16-flow-spine__token-label">Flow</span>
+      </div>
 
       {WORKFLOW_PHASES.map((phase, i) => (
         <div
@@ -208,17 +198,19 @@ const PIPELINE_ACTIVE_INDEX = [0, 1, 3, 4, 5] as const;
 
 export default function Slide16WorkflowFlow() {
   const reduceMotion = useReducedMotion();
+  const { animating } = useSlideDiagramMotion();
+  const spineAnimating = !reduceMotion;
   const [activeStep, setActiveStep] = useState(0);
   const pipelineActive = PIPELINE_ACTIVE_INDEX[activeStep] ?? activeStep;
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (!animating) return;
     const id = window.setInterval(
       () => setActiveStep((v) => (v + 1) % WORKFLOW_PHASES.length),
       2000,
     );
     return () => window.clearInterval(id);
-  }, [reduceMotion]);
+  }, [animating]);
 
   return (
     <div className="s16-workflow">
@@ -242,7 +234,7 @@ export default function Slide16WorkflowFlow() {
       </div>
 
       <div className="s16-flow-board">
-        <FlowSpine activeStep={activeStep} reduceMotion={reduceMotion} />
+        <FlowSpine activeStep={activeStep} spineAnimating={spineAnimating} />
 
         <div className="s16-flow-pipeline">
           {WORKFLOW_PHASES.map((phase, i) => {
@@ -254,7 +246,12 @@ export default function Slide16WorkflowFlow() {
               <div key={phase.id} className="s16-flow-segment">
                 <PhaseColumn phase={phase} state={state} reduceMotion={reduceMotion} />
                 {i < WORKFLOW_PHASES.length - 1 ? (
-                  <FlowConnector active={pipeActive} visited={pipeVisited} reduceMotion={reduceMotion} />
+                  <FlowConnector
+                    active={pipeActive}
+                    visited={pipeVisited}
+                    animating={animating}
+                    reduceMotion={reduceMotion}
+                  />
                 ) : null}
               </div>
             );

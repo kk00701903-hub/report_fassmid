@@ -7,6 +7,7 @@ import "./styles/Slide12.css";
 const COLUMNS: SummaryColumnData[] = [
   {
     id: "progress",
+    step: "STEP 1",
     icon: "fas fa-chart-line",
     title: "진척 현황",
     highlight: "기술 내재화를 통한 SI 비용 80억 방어",
@@ -33,6 +34,7 @@ const COLUMNS: SummaryColumnData[] = [
   },
   {
     id: "roadmap",
+    step: "STEP 2",
     icon: "fa-solid fa-map",
     title: "전략 로드맵",
     highlight: "빅뱅 방식 지양을 통한 무중단 비즈니스 보장",
@@ -59,6 +61,7 @@ const COLUMNS: SummaryColumnData[] = [
   },
   {
     id: "infra",
+    step: "STEP 3",
     icon: "fas fa-cloud",
     title: "인프라 방향성",
     highlight: "IT를 '비용 부서'에서 '수익 파이프라인'으로 격상",

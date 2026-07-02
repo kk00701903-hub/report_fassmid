@@ -5,13 +5,11 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
 
-/** viewBox 0–100 기준 허브 기하 */
+/** viewBox 0–100 기준 허브 기하 (첨부 레퍼런스 펜타곤 배치) */
 const CX = 50;
 const CY = 50;
-const CORE_R = 16;
-const NODE_R = 40;
-/** 선 끝은 카드보다 약간 바깥 — 조인트가 선과 맞닿도록 */
-const LINE_R = NODE_R + 1.2;
+const RING_R = 23.5;
+const LINE_R = 36.5;
 
 const SPOKES = [
   {
@@ -21,8 +19,6 @@ const SPOKES = [
     icon: "fa-desktop",
     color: "#0078d4",
     angle: -90,
-    anchorInset: 0,
-    nudgePx: [0, 0] as const,
   },
   {
     id: "was",
@@ -31,8 +27,6 @@ const SPOKES = [
     icon: "fa-server",
     color: "#0891b2",
     angle: -18,
-    anchorInset: 3.8,
-    nudgePx: [-7, 3] as const,
   },
   {
     id: "db",
@@ -41,8 +35,6 @@ const SPOKES = [
     icon: "fa-database",
     color: "#0b6a0b",
     angle: 54,
-    anchorInset: 3.5,
-    nudgePx: [-5, -7] as const,
   },
   {
     id: "sec",
@@ -51,8 +43,6 @@ const SPOKES = [
     icon: "fa-shield-halved",
     color: "#5c2d91",
     angle: 126,
-    anchorInset: 3.5,
-    nudgePx: [4, -8] as const,
   },
   {
     id: "infra",
@@ -61,10 +51,10 @@ const SPOKES = [
     icon: "fa-cloud",
     color: "#ca5010",
     angle: 198,
-    anchorInset: 3.8,
-    nudgePx: [7, 2] as const,
   },
 ] as const;
+
+const SEGMENT_ARC = 62;
 
 function polar(angleDeg: number, radius: number) {
   const rad = (angleDeg * Math.PI) / 180;
@@ -74,9 +64,12 @@ function polar(angleDeg: number, radius: number) {
   };
 }
 
-function cardAnchor(angleDeg: number, inset: number, nudgePx: readonly [number, number]) {
-  const base = polar(angleDeg, NODE_R - inset);
-  return { x: base.x, y: base.y, nudgePx };
+function describeArc(radius: number, startDeg: number, endDeg: number) {
+  const start = polar(startDeg, radius);
+  const end = polar(endDeg, radius);
+  const sweep = endDeg - startDeg;
+  const largeArc = Math.abs(sweep) > 180 ? 1 : 0;
+  return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArc} 1 ${end.x} ${end.y}`;
 }
 
 type Attachment = {
@@ -85,7 +78,6 @@ type Attachment = {
   join: "top" | "right" | "bottom" | "left";
 };
 
-/** 허브 중심 방향 — 선 끝(anchor)에 카드 안쪽 모서리가 닿도록 (각도 기반 4방) */
 function getAttachment(angleDeg: number): Attachment {
   const rad = (angleDeg * Math.PI) / 180;
   const cos = Math.cos(rad);
@@ -106,16 +98,6 @@ function getAttachment(angleDeg: number): Attachment {
   return { transform: "translate(-50%, 0%)", transformOrigin: "50% 0%", join: "top" };
 }
 
-/** 비스듬한 스포크에서 조인트를 선 방향으로 살짝 이동 */
-function getJoinShift(angleDeg: number, join: Attachment["join"]): { x: number; y: number } {
-  const rad = (angleDeg * Math.PI) / 180;
-  const along = 5;
-  if (join === "left" || join === "right") {
-    return { x: 0, y: along * Math.sin(rad) };
-  }
-  return { x: along * Math.cos(rad), y: 0 };
-}
-
 export default function Slide07ScopeHub() {
   const reduceMotion = useReducedMotion();
   const { animating, ready } = useSlideDiagramMotion();
@@ -132,42 +114,72 @@ export default function Slide07ScopeHub() {
       <div className="s07-hub__stage" aria-hidden="true">
         <svg className="s07-hub__canvas" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
           <defs>
-            <pattern id="s07-grid" width="4" height="4" patternUnits="userSpaceOnUse">
-              <path d="M 4 0 L 0 0 0 4" fill="none" stroke="rgba(0,120,212,0.07)" strokeWidth="0.15" />
+            <pattern id="s07-grid" width="5" height="5" patternUnits="userSpaceOnUse">
+              <path d="M 5 0 L 0 0 0 5" fill="none" stroke="rgba(0,120,212,0.11)" strokeWidth="0.22" />
             </pattern>
+            <radialGradient id="s07-hub-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="rgba(0,120,212,0.14)" />
+              <stop offset="70%" stopColor="rgba(0,120,212,0.03)" />
+              <stop offset="100%" stopColor="rgba(0,120,212,0)" />
+            </radialGradient>
           </defs>
 
           <rect x={0} y={0} width={100} height={100} fill="url(#s07-grid)" />
+          <rect x={0} y={0} width={100} height={100} fill="url(#s07-hub-glow)" />
 
-          <circle cx={CX} cy={CY} r={CORE_R + 8} fill="none" stroke="rgba(0,120,212,0.1)" strokeWidth={0.28} />
-          <circle cx={CX} cy={CY} r={CORE_R + 12} fill="none" stroke="rgba(0,120,212,0.06)" strokeWidth={0.22} />
+          <circle cx={CX} cy={CY} r={RING_R + 4.5} fill="none" stroke="rgba(0,120,212,0.08)" strokeWidth={0.35} />
+          <circle cx={CX} cy={CY} r={RING_R + 7.5} fill="none" stroke="rgba(0,120,212,0.05)" strokeWidth={0.28} />
 
           {SPOKES.map((spoke, spokeIdx) => {
-            const start = polar(spoke.angle, CORE_R);
+            const half = SEGMENT_ARC / 2;
+            const lit = animating && activeIdx === spokeIdx;
+            return (
+              <path
+                key={`${spoke.id}-arc`}
+                d={describeArc(RING_R, spoke.angle - half, spoke.angle + half)}
+                fill="none"
+                stroke={spoke.color}
+                strokeWidth={lit ? 1.15 : 0.85}
+                strokeLinecap="round"
+                opacity={lit ? 1 : 0.82}
+              />
+            );
+          })}
+
+          {SPOKES.map((spoke, spokeIdx) => {
+            const ringPt = polar(spoke.angle, RING_R);
             const end = polar(spoke.angle, LINE_R);
             const lit = animating && activeIdx === spokeIdx;
             return (
               <g key={spoke.id}>
                 <line
-                  x1={start.x}
-                  y1={start.y}
+                  x1={ringPt.x}
+                  y1={ringPt.y}
                   x2={end.x}
                   y2={end.y}
                   stroke={spoke.color}
-                  strokeWidth={lit ? 0.75 : 0.55}
+                  strokeWidth={lit ? 0.8 : 0.62}
                   strokeLinecap="round"
-                  opacity={lit ? 1 : 0.72}
+                  opacity={lit ? 1 : 0.78}
+                />
+                <circle
+                  cx={ringPt.x}
+                  cy={ringPt.y}
+                  r={lit ? 1.55 : 1.35}
+                  fill="#ffffff"
+                  stroke={spoke.color}
+                  strokeWidth={0.55}
                 />
                 {animating ? (
                   <motion.circle
-                    r={1.4}
+                    r={1.2}
                     fill="#ffffff"
                     stroke={spoke.color}
                     strokeWidth={0.45}
                     animate={{
-                      cx: [start.x, end.x],
-                      cy: [start.y, end.y],
-                      opacity: lit ? [0.35, 1, 0.35] : [0.2, 0.55, 0.2],
+                      cx: [ringPt.x, end.x],
+                      cy: [ringPt.y, end.y],
+                      opacity: lit ? [0.4, 1, 0.4] : [0.25, 0.6, 0.25],
                     }}
                     transition={{
                       duration: lit ? 1.4 : 2.2,
@@ -177,7 +189,7 @@ export default function Slide07ScopeHub() {
                     }}
                   />
                 ) : (
-                  <circle cx={end.x} cy={end.y} r={2.2} fill="#ffffff" stroke={spoke.color} strokeWidth={0.5} />
+                  <circle cx={end.x} cy={end.y} r={2} fill="#ffffff" stroke={spoke.color} strokeWidth={0.55} />
                 )}
               </g>
             );
@@ -188,11 +200,7 @@ export default function Slide07ScopeHub() {
           <motion.div
             className="s07-hub__core"
             initial={reduceMotion ? false : { scale: 0.94, opacity: 0 }}
-            animate={
-              animating
-                ? { scale: [1, 1.05, 1], opacity: 1 }
-                : { scale: 1, opacity: 1 }
-            }
+            animate={animating ? { scale: [1, 1.04, 1], opacity: 1 } : { scale: 1, opacity: 1 }}
             transition={
               animating
                 ? { scale: { duration: 2.6, repeat: Infinity, ease: "easeInOut" }, opacity: { duration: 0.45 } }
@@ -208,10 +216,8 @@ export default function Slide07ScopeHub() {
         </div>
 
         {SPOKES.map((spoke, i) => {
-          const anchor = cardAnchor(spoke.angle, spoke.anchorInset, spoke.nudgePx);
+          const anchor = polar(spoke.angle, LINE_R);
           const placement = getAttachment(spoke.angle);
-          const [nudgeX, nudgeY] = anchor.nudgePx;
-          const joinShift = getJoinShift(spoke.angle, placement.join);
 
           return (
             <div
@@ -220,13 +226,11 @@ export default function Slide07ScopeHub() {
               data-join={placement.join}
               style={
                 {
-                  left: `calc(${anchor.x}% + ${nudgeX}px)`,
-                  top: `calc(${anchor.y}% + ${nudgeY}px)`,
+                  left: `${anchor.x}%`,
+                  top: `${anchor.y}%`,
                   transform: placement.transform,
                   transformOrigin: placement.transformOrigin,
                   "--node-color": spoke.color,
-                  "--join-x": `${joinShift.x}px`,
-                  "--join-y": `${joinShift.y}px`,
                 } as CSSProperties
               }
             >
@@ -234,10 +238,10 @@ export default function Slide07ScopeHub() {
               <motion.div
                 className="s07-hub__node"
                 style={{ "--node-color": spoke.color } as CSSProperties}
-                initial={reduceMotion ? false : { opacity: 0, scale: 0.88 }}
+                initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
                 animate={
                   animating && activeIdx === i
-                    ? { opacity: 1, scale: [1, 1.04, 1] }
+                    ? { opacity: 1, scale: [1, 1.03, 1] }
                     : { opacity: 1, scale: 1 }
                 }
                 transition={

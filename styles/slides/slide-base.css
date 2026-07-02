@@ -6,15 +6,59 @@
   --slide-sub-size: 13px;
 }
 
-[class*="slide-s"] .fass-report-slide-root,
+/* Fluent/content slides — paint white under motion layers (prevents dark letterboxing) */
+[class*="slide-s"].slide-canvas-root {
+  background: #ffffff;
+}
+
+[class*="slide-s"].slide-canvas-root:has(.section-slide-root),
+[class*="slide-s"].slide-canvas-root:has(.fass-report-slide-root) {
+  background: transparent;
+}
+
+[class*="slide-s"] .slide-canvas-inner,
+[class*="slide-s"] .slide-motion-orchestrator,
+[class*="slide-s"] .slide-motion-content {
+  background: #ffffff;
+}
+
+[class*="slide-s"] .slide-canvas-root:has(.section-slide-root) .slide-canvas-inner,
+[class*="slide-s"] .slide-canvas-root:has(.section-slide-root) .slide-motion-orchestrator,
+[class*="slide-s"] .slide-canvas-root:has(.section-slide-root) .slide-motion-content,
+[class*="slide-s"] .slide-canvas-root:has(.fass-report-slide-root) .slide-canvas-inner,
+[class*="slide-s"] .slide-canvas-root:has(.fass-report-slide-root) .slide-motion-orchestrator,
+[class*="slide-s"] .slide-canvas-root:has(.fass-report-slide-root) .slide-motion-content {
+  background: transparent;
+}
+
+[class*="slide-s"] .slide-canvas-root:has(.fluent-slide) .slide-motion-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  flex: 1 1 auto;
+}
+
+[class*="slide-s"]:not(.slide-s01) .fass-report-slide-root,
 [class*="slide-s"] .section-slide-root,
 [class*="slide-s"] .slide-root,
 [class*="slide-s"] .slide,
+[class*="slide-s"] .fass-slide-root,
 [class*="slide-s"] .migration-slide-root,
+[class*="slide-s"] .engine-slide-root,
+[class*="slide-s"] .roi-asset-slide-root,
+[class*="slide-s"] .poc-slide-root,
+[class*="slide-s"] .roadmap-slide-root,
+[class*="slide-s"] .war-room-slide-root,
+[class*="slide-s"] .msa-slide-root,
+[class*="slide-s"] .ax-platform-slide-root,
+[class*="slide-s"] .ax-gtm-slide-root,
 [class*="slide-s"] .slide-root-container,
 [class*="slide-s"] .fass-summary-slide-root,
 [class*="slide-s"] .fass-identity-slide-root,
-[class*="slide-s"] .fass-closing-slide-root {
+[class*="slide-s"] .fass-closing-slide-root,
+[class*="slide-s"] .tech-stack-slide-root,
+[class*="slide-s"] .sprint-board-slide {
   width: 100% !important;
   height: 100% !important;
   max-width: 100%;
