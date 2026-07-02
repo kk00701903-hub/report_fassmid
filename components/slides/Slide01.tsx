@@ -23,14 +23,14 @@ const SLIDE_HTML = `<div class="fass-report-slide-root" style="overflow: hidden;
 <p class="fass-subtitle-description-text">
           "AI와 결합된 디지털 물류의 표준, IT를 넘어 회사의 새로운 수익을 창출하다"
         </p>
-</div>
-<div class="fass-cover-bottom">
 <div class="fass-vision-statement-container">
 <div class="fass-vision-slogan-label">Vision Slogan</div>
 <div class="fass-vision-content-text">
           상용 솔루션의 종속을 끊고, AI와 글로벌 웹 표준으로 무장한 독자적 비즈니스 엔진의 성공적 안착
         </div>
 </div>
+</div>
+<div class="fass-cover-bottom">
 <div class="fass-footer-info-group">
 <div class="fass-info-item-box">
 <div class="fass-info-label-text">Department</div>

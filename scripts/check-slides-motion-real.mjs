@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 /**
- * Full-deck motion audit — verifies every slide's GSAP entrance motion runs
- * (Tier A) and, for slides with a registered dynamic diagram, that the
- * looping/continuous animation actually changes over time (Tier B).
+ * Verifies Tier B (looping/continuous) motion on the *real* production
+ * routes — /slides/{page}/ — as rendered inside PresentationPlayer /
+ * SlideStage, rather than the isolated /audit/{slideId}/ routes.
+ *
+ * This exists because SlideStage wraps every slide in AnimatePresence +
+ * Suspense, which previously froze looping animations even though the
+ * isolated /audit/ routes (no AnimatePresence/Suspense wrapper) reported
+ * them as fine. See SlideStage.tsx for the root-cause note.
  *
  * Requires: npm run build
- * Usage: node scripts/audit-slide-motion.mjs [baseUrl]
+ * Usage: node scripts/check-slides-motion-real.mjs [baseUrl]
  */
 import { chromium } from "playwright";
 import { existsSync, writeFileSync } from "node:fs";
@@ -17,16 +22,11 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const OUT_DIR = join(ROOT, "out");
 const BASE_PATH = "/report_fassmid";
-const DEFAULT_PORT = Number(process.env.MOTION_AUDIT_PORT ?? "4179");
+const DEFAULT_PORT = Number(process.env.MOTION_AUDIT_PORT ?? "4180");
 
 const { DECK_MANIFEST } = await import(pathToFileURL(join(ROOT, "lib", "deckManifest.ts")));
 const { SLIDE_MOTION_AUDIT_TARGETS } = await import(
   pathToFileURL(join(ROOT, "lib", "slideMotionAuditTargets.ts"))
-);
-const { SLIDE_MOTION_PROFILES } = await import(pathToFileURL(join(ROOT, "lib", "slideMotionProfiles.ts")));
-
-const TITLE_SELECTOR = [...new Set(Object.values(SLIDE_MOTION_PROFILES).map((p) => p.titleSelectors))].join(
-  ", ",
 );
 
 const TARGET_BY_SLIDE_ID = new Map(SLIDE_MOTION_AUDIT_TARGETS.map((t) => [t.slideId, t]));
@@ -35,7 +35,6 @@ const DECK_ENTRIES = DECK_MANIFEST.map((entry, index) => ({
   page: index + 1,
   slideId: entry.slideId,
   title: entry.title,
-  role: entry.role,
 }));
 
 async function startStaticServer(port) {
@@ -84,25 +83,6 @@ async function sampleStyle(page, selector, properties) {
 function styleChanged(before, after) {
   if (!before || !after) return false;
   return Object.keys(before).some((key) => before[key] !== after[key]);
-}
-
-async function checkTierA(page) {
-  const canvasFound = await page
-    .waitForSelector(".slide-canvas-root", { timeout: 20_000, state: "attached" })
-    .then(() => true)
-    .catch(() => false);
-
-  if (!canvasFound) return { canvasFound: false, entered: false, titleOpacityOk: null };
-
-  await page.waitForSelector(".slide-motion-entered", { timeout: 12_000 }).catch(() => undefined);
-  await page.waitForTimeout(1600);
-
-  return page.evaluate((titleSelector) => {
-    const entered = Boolean(document.querySelector(".slide-motion-entered"));
-    const title = document.querySelector(titleSelector);
-    const titleOpacityOk = title ? Number(window.getComputedStyle(title).opacity) > 0.5 : null;
-    return { canvasFound: true, entered, titleOpacityOk };
-  }, TITLE_SELECTOR);
 }
 
 async function checkTierB(page, target) {
@@ -184,63 +164,43 @@ async function main() {
   });
   const page = await context.newPage();
 
+  const entriesWithTargets = DECK_ENTRIES.filter((e) => TARGET_BY_SLIDE_ID.has(e.slideId));
   const results = [];
 
-  for (const entry of DECK_ENTRIES) {
-    const url = `${baseUrl}/audit/${entry.slideId}/`;
+  for (const entry of entriesWithTargets) {
+    const url = `${baseUrl}/slides/${entry.page}/`;
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
+    await page.waitForSelector(".slide-canvas-root", { timeout: 20_000, state: "attached" }).catch(() => undefined);
+    await page.waitForTimeout(1500);
 
-    const tierA = await checkTierA(page);
     const target = TARGET_BY_SLIDE_ID.get(entry.slideId);
-    const tierB = tierA.canvasFound ? await checkTierB(page, target) : null;
+    const tierB = await checkTierB(page, target);
 
-    results.push({
-      page: entry.page,
-      slideId: entry.slideId,
-      title: entry.title,
-      role: entry.role,
-      tierA,
-      tierB,
-    });
+    results.push({ page: entry.page, slideId: entry.slideId, title: entry.title, tierB });
   }
 
   await browser.close();
   server.close();
 
-  const outFile = join(ROOT, "slide-motion-audit-full.json");
+  const outFile = join(ROOT, "slide-motion-real-routes.json");
   writeFileSync(outFile, JSON.stringify(results, null, 2));
 
-  const tierAFailures = results.filter((r) => !r.tierA.canvasFound || !r.tierA.entered || r.tierA.titleOpacityOk === false);
-  const tierBFailures = results.filter((r) => r.tierB && !r.tierB.moving);
-
   for (const r of results) {
-    const aStatus = !r.tierA.canvasFound
-      ? "NO-CANVAS"
-      : !r.tierA.entered
-        ? "NOT-ENTERED"
-        : r.tierA.titleOpacityOk === false
-          ? "TITLE-HIDDEN"
-          : "OK";
-    const bStatus = r.tierB ? (r.tierB.moving ? "OK" : "FAIL") : "n/a";
-    console.log(`page ${String(r.page).padStart(2, " ")} (slide ${r.slideId}) — Tier A: ${aStatus} · Tier B: ${bStatus} — ${r.title}`);
+    const status = r.tierB?.moving ? "OK" : "FAIL";
+    console.log(`page ${String(r.page).padStart(2, " ")} (slide ${r.slideId}) — Tier B on /slides/: ${status} — ${r.title}`);
   }
 
-  console.log(`\n${results.length} slides audited.`);
+  const failures = results.filter((r) => !r.tierB?.moving);
+  console.log(`\n${results.length} slides with registered Tier B targets checked on real /slides/ routes.`);
 
-  if (tierAFailures.length || tierBFailures.length) {
-    if (tierAFailures.length) {
-      console.error(`\n${tierAFailures.length} slide(s) failed Tier A (entrance motion):`);
-      for (const r of tierAFailures) console.error(`  - page ${r.page} (slide ${r.slideId}) ${r.title}`);
-    }
-    if (tierBFailures.length) {
-      console.error(`\n${tierBFailures.length} slide(s) failed Tier B (looping diagram motion):`);
-      for (const r of tierBFailures) console.error(`  - page ${r.page} (slide ${r.slideId}) ${r.title}`);
-    }
+  if (failures.length) {
+    console.error(`\n${failures.length} slide(s) still frozen on real routes:`);
+    for (const r of failures) console.error(`  - page ${r.page} (slide ${r.slideId}) ${r.title}`);
     console.error(`\nSee ${outFile} for details.`);
     process.exit(1);
   }
 
-  console.log("\nAll slides pass Tier A entrance motion, and all registered Tier B diagrams show motion.");
+  console.log("\nAll registered Tier B diagrams show motion on the real /slides/ routes.");
 }
 
 main().catch((err) => {

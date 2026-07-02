@@ -211,14 +211,6 @@ html.custom-cursor-active [contenteditable="true"] {
   align-items: stretch;
 }
 
-.slide-stage--enter-forward {
-  animation: slideEnterForward 0.38s ease-out;
-}
-
-.slide-stage--enter-back {
-  animation: slideEnterBack 0.38s ease-out;
-}
-
 .slide-stage__hit-zone {
   position: absolute;
   top: 0;
@@ -284,24 +276,6 @@ html.custom-cursor-active [contenteditable="true"] {
 
 .presentation-shell--present.presentation-shell--chrome-visible .slide-nav {
   bottom: 3px;
-}
-
-@keyframes slideEnterForward {
-  from {
-    opacity: 0.35;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideEnterBack {
-  from {
-    opacity: 0.35;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .slide-viewer {

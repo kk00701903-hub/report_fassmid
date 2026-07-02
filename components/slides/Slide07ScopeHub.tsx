@@ -67,6 +67,7 @@ export default function Slide07ScopeHub() {
       role="img"
       aria-label="AI 생산성 혁신을 중심으로 프론트엔드, 백엔드, 데이터베이스, 보안·거버넌스, 인프라·DevOps가 연결된 통합 플랫폼 다이어그램"
     >
+      <div className="s07-hub__stage">
       <svg className="s07-hub__canvas" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
           <radialGradient id="s07-hub-glow" cx="50%" cy="48%" r="42%">
@@ -79,6 +80,7 @@ export default function Slide07ScopeHub() {
 
         {!reduceMotion ? (
           <motion.circle
+            className="s07-hub__pulse-ring"
             cx={CX}
             cy={CY}
             r={12}
@@ -184,6 +186,11 @@ export default function Slide07ScopeHub() {
           </motion.div>
         );
       })}
+      </div>
+
+      <div className="s07-hub__caption">
+        AI를 허브로 <strong>5대 기술 영역</strong>이 유기적으로 연결되는 통합 플랫폼
+      </div>
     </div>
   );
 }

@@ -187,8 +187,7 @@
   z-index: 2;
 }
 
-.slide-motion-entered .slide-s16 .s16-flow-spine__fill.is-animated,
-.slide-motion-entered .slide-s16 .s16-flow-spine__runner.is-animated {
+.slide-motion-entered .slide-s16 .s16-flow-spine__fill.is-animated {
   animation-play-state: running;
 }
 
@@ -222,80 +221,6 @@
   0% { transform: scaleX(0.04); }
   90% { transform: scaleX(1); }
   100% { transform: scaleX(0.04); }
-}
-
-.slide-s16 .s16-flow-spine__runner {
-  position: absolute;
-  top: 50%;
-  left: 2%;
-  transform: translate(-8%, -50%);
-  z-index: 3;
-  width: max-content;
-  pointer-events: none;
-}
-
-.slide-s16 .s16-flow-spine__runner.is-animated {
-  animation: s16-spine-runner 8s linear infinite;
-  will-change: left, transform;
-}
-
-@keyframes s16-spine-runner {
-  0% {
-    left: 2%;
-    transform: translate(-8%, -50%);
-  }
-  90% {
-    left: 96%;
-    transform: translate(-92%, -50%);
-  }
-  100% {
-    left: 2%;
-    transform: translate(-8%, -50%);
-  }
-}
-
-.slide-s16 .s16-flow-spine__token {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 8px 3px 4px;
-  border-radius: 999px;
-  background: #ffffff;
-  border: 2px solid var(--c-jira);
-  box-shadow:
-    0 0 0 2px rgba(0, 82, 204, 0.12),
-    0 4px 14px rgba(0, 82, 204, 0.28);
-  white-space: nowrap;
-}
-
-.slide-s16 .s16-flow-spine__runner.is-animated .s16-flow-spine__token-icon {
-  animation: s16-flow-icon-pulse 1.2s ease-in-out infinite;
-}
-
-@keyframes s16-flow-icon-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 82, 204, 0); }
-  50% { transform: scale(1.08); box-shadow: 0 0 10px rgba(0, 82, 204, 0.45); }
-}
-
-.slide-s16 .s16-flow-spine__token-icon {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--c-jira);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  transform-origin: center center;
-}
-
-.slide-s16 .s16-flow-spine__token-label {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: var(--c-jira);
-  text-transform: uppercase;
 }
 
 .slide-s16 .s16-flow-spine__dot {
@@ -775,8 +700,6 @@
 @media (prefers-reduced-motion: reduce) {
   .slide-s16 .s16-pipeline::after,
   .slide-s16 .s16-flow-spine__fill.is-animated,
-  .slide-s16 .s16-flow-spine__runner.is-animated,
-  .slide-s16 .s16-flow-spine__runner.is-animated .s16-flow-spine__token-icon,
   .slide-s16 .s16-flow-connector__packet.is-animated {
     animation: none !important;
   }

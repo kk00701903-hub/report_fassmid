@@ -112,6 +112,10 @@ export default function Slide05() {
             </div>
           </section>
         </div>
+
+        <p className="s05-abbr-note" aria-label="MSA 약어 설명">
+          ※ MSA — Microservices Architecture (마이크로서비스 아키텍처)
+        </p>
       </div>
     </SlideCanvas>
   );

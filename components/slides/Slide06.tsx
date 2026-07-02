@@ -21,7 +21,7 @@ export default function Slide06() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>핵심용어집 ④ — CDC 방식 (물류 재고조사 예시)</h1>
+            <h1>추진 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)</h1>
           </div>
           <p className="sub">
             CDC는 야간 전체 복사(Batch) 대신 바뀐 데이터만 실시간으로 옮겨, DB 이관 중에도 서비스를 계속 가동
@@ -100,6 +100,10 @@ export default function Slide06() {
             </p>
           </div>
         </div>
+
+        <p className="s06-abbr-note" aria-label="CDC 약어 설명">
+          ※ CDC — Change Data Capture (변경 데이터 캡처)
+        </p>
       </div>
     </SlideCanvas>
   );

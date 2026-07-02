@@ -22,7 +22,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
   const { id, detailId } = await params;
   const slideId = Number(id);
-  const resolvedId = resolveSlideId(slideId);
+  // Current slide IDs always take priority — the legacy table predates slides
+  // being added beyond the old 1–36 deck and its range now overlaps valid IDs.
+  const resolvedId = isValidSlideId(slideId) ? slideId : resolveSlideId(slideId);
   const topic = getDetailTopic(resolvedId, detailId);
 
   if (!topic) {
@@ -37,13 +39,13 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
 export default async function SlideDetailPage({ params }: DetailPageProps) {
   const { id, detailId } = await params;
   const slideId = Number(id);
-  const resolvedId = resolveSlideId(slideId);
 
-  if (isLegacySlideId(slideId)) {
-    return <LegacyDetailRedirect targetSlideId={resolvedId} detailId={detailId} />;
-  }
-
+  // Current slide IDs always take priority — the legacy table predates slides
+  // being added beyond the old 1–36 deck and its range now overlaps valid IDs.
   if (!isValidSlideId(slideId)) {
+    if (isLegacySlideId(slideId)) {
+      return <LegacyDetailRedirect targetSlideId={resolveSlideId(slideId)} detailId={detailId} />;
+    }
     notFound();
   }
 

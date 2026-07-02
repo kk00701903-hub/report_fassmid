@@ -34,11 +34,6 @@ export type DeckSlideEntry = {
 export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고", role: "cover" },
   { slideId: 10, title: "FaSS 플랫폼 아이덴티티", role: "content" },
-  { slideId: 41, title: "Digital Insight Glossary", role: "glossary-divider" },
-  { slideId: 3, title: "추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)", role: "glossary" },
-  { slideId: 4, title: "추진 방향성 설명 ② — 도커 (Docker) / 컨테이너 (Container)", role: "glossary" },
-  { slideId: 5, title: "추진 방향성 설명 ③ — MSA 구조 (물류작업 예시)", role: "glossary" },
-  { slideId: 6, title: "핵심용어집 ④ — CDC 방식 (물류 재고조사 예시)", role: "glossary" },
   {
     slideId: 2,
     title: "PART 1 - 전략적 비전 및 목표",
@@ -49,6 +44,8 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   },
   { slideId: 7, title: "차세대 FaSS 구축 프로젝트 범위", role: "content" },
   { slideId: 11, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)", role: "content" },
+  { slideId: 42, title: "사내 AX 가속기: Agent Studio", role: "content" },
+  { slideId: 43, title: "AX 플랫폼 사업화 로드맵", role: "content" },
   { slideId: 12, title: "Executive Summary - FaSS 플랫폼 구축", role: "content" },
   {
     slideId: 13,
@@ -117,8 +114,11 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     role: "appendix",
     defaultVisible: false,
   },
-  { slideId: 42, title: "사내 AX 가속기: Agent Studio", role: "content" },
-  { slideId: 43, title: "AX 플랫폼 사업화 로드맵", role: "content" },
+  { slideId: 41, title: "Digital Insight Glossary", role: "glossary-divider" },
+  { slideId: 3, title: "추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)", role: "glossary" },
+  { slideId: 4, title: "추진 방향성 설명 ② — 도커 (Docker) / 컨테이너 (Container)", role: "glossary" },
+  { slideId: 5, title: "추진 방향성 설명 ③ — MSA 구조 (물류작업 예시)", role: "glossary" },
+  { slideId: 6, title: "추진 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)", role: "glossary" },
 ];
 
 const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing"]);

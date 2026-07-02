@@ -32,6 +32,15 @@ export async function generateMetadata({ params }: SlidePageProps): Promise<Meta
   const { id } = await params;
   const pageNumber = Number(id);
 
+  // Current page numbers always take priority — the legacy table predates the
+  // page-based routing scheme and its 1–36 range now overlaps valid pages.
+  if (isValidPageNumber(pageNumber)) {
+    const entry = getDeckEntryAtPage(pageNumber);
+    return {
+      title: entry?.title ?? `슬라이드 ${pageNumber}`,
+    };
+  }
+
   if (isLegacySlideId(pageNumber)) {
     const targetId = resolveSlideId(pageNumber);
     const entry = getDeckEntryBySlideId(targetId);
@@ -40,27 +49,22 @@ export async function generateMetadata({ params }: SlidePageProps): Promise<Meta
     };
   }
 
-  if (!isValidPageNumber(pageNumber)) {
-    return { title: "슬라이드를 찾을 수 없습니다" };
-  }
-
-  const entry = getDeckEntryAtPage(pageNumber);
-  return {
-    title: entry?.title ?? `슬라이드 ${pageNumber}`,
-  };
+  return { title: "슬라이드를 찾을 수 없습니다" };
 }
 
 export default async function SlidePage({ params }: SlidePageProps) {
   const { id } = await params;
   const pageNumber = Number(id);
 
+  // Current page numbers always take priority — the legacy table predates the
+  // page-based routing scheme and its 1–36 range now overlaps valid pages.
+  if (isValidPageNumber(pageNumber)) {
+    return <PresentationPlayer initialSlideId={pageNumber} />;
+  }
+
   if (isLegacySlideId(pageNumber)) {
     return <LegacySlideRedirect targetSlideId={resolveSlideId(pageNumber)} />;
   }
 
-  if (!isValidPageNumber(pageNumber)) {
-    notFound();
-  }
-
-  return <PresentationPlayer initialSlideId={pageNumber} />;
+  notFound();
 }

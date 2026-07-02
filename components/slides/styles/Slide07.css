@@ -113,7 +113,8 @@
   flex: 1 1 auto;
   min-height: 0;
   min-width: 0;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   border-radius: 12px;
   border: 1px solid rgba(0, 120, 212, 0.18);
@@ -125,11 +126,35 @@
   background-size: 22px 22px, 22px 22px, 100% 100%;
   box-shadow: 0 2px 16px rgba(0, 90, 158, 0.07);
   overflow: hidden;
-  padding: 8px;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+.slide-s07 .s07-hub__stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  position: relative;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.slide-s07 .s07-hub__caption {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-top: 1px solid rgba(0, 120, 212, 0.14);
+  background: var(--fluent-blue-light, #eff6fc);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fluent-grey-130, #484644);
+  text-align: center;
+}
+
+.slide-s07 .s07-hub__caption strong {
+  color: var(--fluent-blue, #0078d4);
+  font-weight: 800;
 }
 
 .slide-s07 .s07-hub__canvas {

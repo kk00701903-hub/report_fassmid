@@ -162,7 +162,6 @@ function FlowSpine({
 }) {
   const segmentCount = WORKFLOW_PHASES.length;
   const progress = (activeStep + 0.5) / segmentCount;
-  const tokenLeft = `${Math.max(2, Math.min(96, progress * 100))}%`;
   const fillScale = Math.max(0.08, progress);
 
   return (
@@ -172,18 +171,6 @@ function FlowSpine({
           className={`s16-flow-spine__fill${spineAnimating ? " is-animated" : ""}`}
           style={spineAnimating ? undefined : { transform: `scaleX(${fillScale})` }}
         />
-      </div>
-
-      <div
-        className={`s16-flow-spine__runner${spineAnimating ? " is-animated" : ""}`}
-        style={spineAnimating ? undefined : { left: tokenLeft }}
-      >
-        <div className="s16-flow-spine__token">
-          <span className="s16-flow-spine__token-icon">
-            <i className="fab fa-jira" aria-hidden="true" />
-          </span>
-          <span className="s16-flow-spine__token-label">Flow</span>
-        </div>
       </div>
 
       {WORKFLOW_PHASES.map((phase, i) => (

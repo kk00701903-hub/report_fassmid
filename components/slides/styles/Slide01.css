@@ -96,7 +96,9 @@
 .slide-s01 .fass-cover-middle {
   flex: 1 1 auto;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
   min-height: 0;
   padding: 12px 0 20px;
 }
