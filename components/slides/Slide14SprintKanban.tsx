@@ -1,6 +1,5 @@
 "use client";
 
-import { type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import {
@@ -54,9 +53,6 @@ function SprintCard({ sprint, activeIndex }: { sprint: SprintItem; activeIndex?:
 
   const cardInner = (
     <>
-      {isActive ? <span className="s14-kanban__card-bg" aria-hidden="true" /> : null}
-      {isActive ? <span className="s14-kanban__card-glow" aria-hidden="true" /> : null}
-      {isActive ? <span className="s14-kanban__card-border" aria-hidden="true" /> : null}
       <span className="s14-kanban__card-id">{sprint.id}</span>
       <div className="s14-kanban__card-body">
         <div className="s14-kanban__card-title">{sprint.title}</div>
@@ -72,27 +68,18 @@ function SprintCard({ sprint, activeIndex }: { sprint: SprintItem; activeIndex?:
     return (
       <motion.article
         className={`s14-kanban__card s14-kanban__card--active s14-kanban__card--${sprint.status}`}
-        style={{ "--s14-active-delay": `${delay}s` } as CSSProperties}
         initial={reduceMotion ? false : { opacity: 0, y: 4 }}
         animate={
           reduceMotion
             ? { opacity: 1, y: 0 }
             : {
                 opacity: 1,
-                y: [0, -2, 0],
-                scale: [1, 1.02, 1],
-                boxShadow: [
-                  "0 0 0 2px rgba(0,120,212,0.45), 0 4px 16px rgba(0,120,212,0.22)",
-                  "0 0 0 3px rgba(0,120,212,0.7), 0 6px 22px rgba(0,120,212,0.35)",
-                  "0 0 0 2px rgba(0,120,212,0.45), 0 4px 16px rgba(0,120,212,0.22)",
-                ],
+                y: [0, -1, 0],
               }
         }
         transition={{
           opacity: { duration: 0.35, delay },
-          y: { duration: 2.2, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
-          scale: { duration: 2.2, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
-          boxShadow: { duration: 2.2, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
+          y: { duration: 2.4, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut", delay },
         }}
       >
         {cardInner}

@@ -52,28 +52,62 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
       </div>
     </div>
 
-    <div class="table-wrap">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>비교 항목</th>
-            <th>삼성E&amp;A (참고)</th>
-            <th>당사 FaSS TFT</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>조직 형태</strong></td>
-            <td>대형 전담 조직</td>
-            <td>차세대 웹프레임워크 TFT</td>
-          </tr>
-          <tr>
-            <td><strong>시사점</strong></td>
-            <td>유사 범위 프로젝트의 규모 감각 확보</td>
-            <td>동일 산출물 대비 M/M·일정 효율 극대화</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="insight-panel">
+      <div class="insight-panel__head">
+        <div class="insight-panel__head-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+        <div>
+          <div class="insight-panel__title">핵심 비교 요약</div>
+          <div class="insight-panel__sub">규모·조직 관점에서의 시사점을 한눈에 정리</div>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+        <div class="insight-grid__labels" aria-hidden="true">
+          <span class="insight-grid__corner"></span>
+          <span class="insight-grid__col-label insight-grid__col-label--peer">
+            <i class="fa-solid fa-building"></i> 삼성E&amp;A (참고)
+          </span>
+          <span class="insight-grid__col-label insight-grid__col-label--ours">
+            <span class="fass-mark fass-mark--sm">FaSS</span> 당사 TFT
+          </span>
+        </div>
+
+        <article class="insight-row">
+          <div class="insight-dim">
+            <span class="insight-dim__icon"><i class="fa-solid fa-sitemap"></i></span>
+            <div>
+              <strong>조직 형태</strong>
+              <span>운영·추진 체계</span>
+            </div>
+          </div>
+          <div class="insight-cell insight-cell--peer">
+            <span class="insight-cell__tag">참고</span>
+            <p>대형 전담 조직</p>
+          </div>
+          <div class="insight-cell insight-cell--ours">
+            <span class="insight-cell__tag insight-cell__tag--ours">당사</span>
+            <p>차세대 웹프레임워크 TFT</p>
+          </div>
+        </article>
+
+        <article class="insight-row">
+          <div class="insight-dim">
+            <span class="insight-dim__icon insight-dim__icon--gold"><i class="fa-solid fa-lightbulb"></i></span>
+            <div>
+              <strong>시사점</strong>
+              <span>벤치마크에서 얻는 교훈</span>
+            </div>
+          </div>
+          <div class="insight-cell insight-cell--peer">
+            <span class="insight-cell__tag">참고</span>
+            <p>유사 범위 프로젝트의 <em>규모 감각</em> 확보</p>
+          </div>
+          <div class="insight-cell insight-cell--ours">
+            <span class="insight-cell__tag insight-cell__tag--ours">당사</span>
+            <p>동일 산출물 대비 <em>M/M·일정 효율</em> 극대화</p>
+          </div>
+        </article>
+      </div>
     </div>
 
     <div class="footnote">
@@ -83,7 +117,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
   </div>
 </div>`;
 
-export default function Slide14() {
+export default function Slide15() {
   return (
     <SlideCanvas slideId={15} motion="compare" motionTier="medium">
       <div dangerouslySetInnerHTML={{ __html: SLIDE_HTML }} />

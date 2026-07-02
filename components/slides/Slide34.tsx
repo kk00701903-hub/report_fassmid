@@ -17,12 +17,19 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 <div class="ai-innovation-hero-main-layout">
 <!-- Left Column: Stat Anchor -->
 <div class="ai-innovation-left-stat-column">
+<div class="ai-stat-panel">
+<div class="ai-stat-panel__head">
+<span class="ai-stat-panel__badge"><i class="fas fa-users-slash"></i> COST DEFENSE</span>
 <div class="ai-innovation-stat-label-top">외주 개발 인력 투입 최소화</div>
-<div style="display: flex; align-items: baseline;">
+</div>
+<div class="ai-stat-panel__hero">
+<div class="ai-stat-panel__value-row">
 <span class="ai-innovation-hero-stat-number">0</span>
 <span class="ai-innovation-stat-unit-text">M/M</span>
 </div>
-<div class="ai-innovation-stat-description-box">
+<span class="ai-stat-panel__hero-caption">외주 Man-Month 투입</span>
+</div>
+<div class="ai-stat-panel__impact ai-innovation-stat-description-box">
 <p class="ai-innovation-stat-impact-summary">
             과거 수백 명의 하급 인력이 수행하던<br/>
             수작업 마이그레이션을 AI가 전담
@@ -30,6 +37,7 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 <p class="ai-innovation-stat-impact-subtext">
             * 인건비 획기적 방어 및 휴먼 에러 원천 차단
           </p>
+</div>
 </div>
 </div>
 <!-- Right Column: Content Area -->

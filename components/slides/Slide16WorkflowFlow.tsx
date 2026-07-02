@@ -163,24 +163,27 @@ function FlowSpine({
   const segmentCount = WORKFLOW_PHASES.length;
   const progress = (activeStep + 0.5) / segmentCount;
   const tokenLeft = `${Math.max(2, Math.min(96, progress * 100))}%`;
+  const fillScale = Math.max(0.08, progress);
 
   return (
     <div className="s16-flow-spine" aria-hidden="true">
       <div className="s16-flow-spine__track">
         <div
           className={`s16-flow-spine__fill${spineAnimating ? " is-animated" : ""}`}
-          style={spineAnimating ? undefined : { transform: `scaleX(${Math.max(0.08, progress)})` }}
+          style={spineAnimating ? undefined : { transform: `scaleX(${fillScale})` }}
         />
       </div>
 
       <div
-        className={`s16-flow-spine__token${spineAnimating ? " is-animated" : ""}`}
+        className={`s16-flow-spine__runner${spineAnimating ? " is-animated" : ""}`}
         style={spineAnimating ? undefined : { left: tokenLeft }}
       >
-        <span className="s16-flow-spine__token-icon">
-          <i className="fab fa-jira" aria-hidden="true" />
-        </span>
-        <span className="s16-flow-spine__token-label">Flow</span>
+        <div className="s16-flow-spine__token">
+          <span className="s16-flow-spine__token-icon">
+            <i className="fab fa-jira" aria-hidden="true" />
+          </span>
+          <span className="s16-flow-spine__token-label">Flow</span>
+        </div>
       </div>
 
       {WORKFLOW_PHASES.map((phase, i) => (
@@ -198,8 +201,8 @@ const PIPELINE_ACTIVE_INDEX = [0, 1, 3, 4, 5] as const;
 
 export default function Slide16WorkflowFlow() {
   const reduceMotion = useReducedMotion();
-  const { animating } = useSlideDiagramMotion();
-  const spineAnimating = !reduceMotion;
+  const { animating, ready } = useSlideDiagramMotion();
+  const spineAnimating = Boolean(animating && !reduceMotion);
   const [activeStep, setActiveStep] = useState(0);
   const pipelineActive = PIPELINE_ACTIVE_INDEX[activeStep] ?? activeStep;
 
@@ -234,7 +237,7 @@ export default function Slide16WorkflowFlow() {
       </div>
 
       <div className="s16-flow-board">
-        <FlowSpine activeStep={activeStep} spineAnimating={spineAnimating} />
+        <FlowSpine key={ready ? "flow-run" : "flow-idle"} activeStep={activeStep} spineAnimating={spineAnimating} />
 
         <div className="s16-flow-pipeline">
           {WORKFLOW_PHASES.map((phase, i) => {

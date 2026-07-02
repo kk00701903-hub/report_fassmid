@@ -19,38 +19,340 @@
 .slide-s18 .title-region { padding-bottom: 2px; }
 .slide-s18 .s17-progress {
   flex-shrink: 0;
-  margin: 2px 32px 0;
-  padding: 4px 12px 6px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(0, 120, 212, 0.12), rgba(0, 120, 212, 0.04));
-  border: 1px solid rgba(0, 120, 212, 0.28);
+  margin: 4px 32px 0;
+  padding: 10px 14px 12px;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(0, 120, 212, 0.1) 0%, rgba(255, 255, 255, 0.98) 42%, rgba(239, 246, 252, 0.95) 100%);
+  border: 1px solid rgba(0, 120, 212, 0.22);
+  box-shadow: 0 4px 18px rgba(0, 90, 158, 0.08);
 }
-.slide-s18 .s17-progress-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
-.slide-s18 .s17-progress-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--fluent-grey-160, #201f1e)}
-.slide-s18 .s17-progress-title i{color:var(--fluent-blue, #0078d4);font-size:14px}
-.slide-s18 .s17-progress-ontrack{font-size: 13px;font-weight:700;padding:3px 8px;border-radius:999px;
-  background:rgba(34,197,94,.18);color:var(--fluent-good, #107c10);border:1px solid rgba(34,197,94,.35)}
-.slide-s18 .s17-progress-asof{font-size: 13px;color:var(--fluent-grey-90, #8a8886);font-variant-numeric:tabular-nums;white-space:nowrap}
-.slide-s18 .s17-progress-body{display:flex;align-items:center;gap:14px}
-.slide-s18 .s17-progress-pct{flex-shrink:0;font-size:36px;font-weight:800;line-height:1;color:var(--fluent-blue, #0078d4);
-  font-variant-numeric:tabular-nums;min-width:72px;text-align:center}
-.slide-s18 .s17-progress-pct span{font-size:18px;font-weight:700;margin-left:1px;opacity:.85}
-.slide-s18 .s17-progress-track-wrap{flex:1;min-width:0}
-.slide-s18 .s17-progress-track{position:relative;height:10px;border-radius:999px;
-  background:rgba(100,116,139,.25);overflow:visible;margin-bottom:24px}
-.slide-s18 .s17-progress-fill{position:absolute;left:0;top:0;height:100%;border-radius:999px;
-  background:linear-gradient(90deg,var(--fluent-blue, #0078d4),var(--fluent-blue, #0078d4));
-  box-shadow:0 0 12px rgba(0,120,212,.45)}
-.slide-s18 .s17-progress-marker{position:absolute;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:3px;z-index:2}
-.slide-s18 .s17-marker-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--ppt-bg);box-shadow:0 0 0 1px rgba(255,255,255,.25)}
-.slide-s18 .s17-progress-marker--proto .s17-marker-dot{background:var(--fluent-good, #107c10)}
-.slide-s18 .s17-progress-marker--today .s17-marker-dot{background:var(--fluent-blue, #0078d4);box-shadow:0 0 10px rgba(250,204,21,.55)}
-.slide-s18 .s17-marker-label{position:absolute;top:14px;font-size: 14px;font-weight:700;white-space:nowrap;color:var(--fluent-grey-130, #484644)}
-.slide-s18 .s17-progress-marker--proto .s17-marker-label{color:var(--fluent-good, #107c10)}
-.slide-s18 .s17-progress-marker--today .s17-marker-label{color:var(--fluent-blue, #0078d4)}
-.slide-s18 .s17-progress-axis{display:flex;justify-content:flex-end;font-size: 14px;color:var(--fluent-grey-90, #8a8886);font-variant-numeric:tabular-nums;margin-top:-10px}
-.slide-s18 .s17-progress-desc{margin:6px 0 0;font-size: 13px;line-height:1.45;color:var(--fluent-grey-130, #484644)}
-.slide-s18 .s17-progress-desc strong{color:var(--fluent-grey-160, #201f1e);font-weight:700}
+
+.slide-s18 .s17-progress__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.slide-s18 .s17-progress__title-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slide-s18 .s17-progress__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #0078d4;
+  background: rgba(0, 120, 212, 0.12);
+  border: 1px solid rgba(0, 120, 212, 0.22);
+  flex-shrink: 0;
+}
+
+.slide-s18 .s17-progress__title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #201f1e;
+  line-height: 1.2;
+}
+
+.slide-s18 .s17-progress__subtitle {
+  font-size: 11px;
+  color: #605e5c;
+  margin-top: 2px;
+}
+
+.slide-s18 .s17-progress__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.slide-s18 .s17-progress__ontrack {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(16, 124, 16, 0.1);
+  color: #0b6a0b;
+  border: 1px solid rgba(16, 124, 16, 0.28);
+  white-space: nowrap;
+}
+
+.slide-s18 .s17-progress__ontrack i {
+  font-size: 11px;
+}
+
+.slide-s18 .s17-progress__asof {
+  font-size: 11px;
+  color: #8a8886;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.slide-s18 .s17-progress__body {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.slide-s18 .s17-progress__hero {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 2px;
+  min-width: 88px;
+}
+
+.slide-s18 .s17-progress__ring {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.slide-s18 .s17-progress__ring svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.slide-s18 .s17-progress__ring-bg {
+  fill: none;
+  stroke: #e1dfdd;
+  stroke-width: 3.5;
+}
+
+.slide-s18 .s17-progress__pct {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0078d4;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.slide-s18 .s17-progress__pct span {
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 1px;
+  opacity: 0.85;
+}
+
+.slide-s18 .s17-progress__hero-copy {
+  text-align: center;
+  font-size: 11px;
+  color: #605e5c;
+  line-height: 1.35;
+}
+
+.slide-s18 .s17-progress__hero-copy strong {
+  display: block;
+  font-size: 13px;
+  color: #201f1e;
+  font-weight: 800;
+}
+
+.slide-s18 .s17-progress__timeline {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 2px;
+}
+
+.slide-s18 .s17-progress__axis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #8a8886;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide-s18 .s17-progress__axis-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #605e5c;
+}
+
+.slide-s18 .s17-progress__axis-start i {
+  font-size: 9px;
+  color: #0078d4;
+}
+
+.slide-s18 .s17-progress__track {
+  position: relative;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #edebe9 0%, #e1dfdd 100%);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: visible;
+  margin: 28px 0 22px;
+}
+
+.slide-s18 .s17-progress__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #004578 0%, #0078d4 55%, #2b88d8 100%);
+  box-shadow: 0 0 14px rgba(0, 120, 212, 0.35);
+}
+
+.slide-s18 .s17-progress__marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  z-index: 2;
+  min-width: 0;
+}
+
+.slide-s18 .s17-progress__marker-pin {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.slide-s18 .s17-progress__marker--proto .s17-progress__marker-pin {
+  background: linear-gradient(145deg, #22c55e, #0b6a0b);
+}
+
+.slide-s18 .s17-progress__marker--today .s17-progress__marker-pin {
+  background: linear-gradient(145deg, #2b88d8, #0078d4);
+  animation: s17-today-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes s17-today-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.45), 0 2px 8px rgba(0, 0, 0, 0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 120, 212, 0.12), 0 2px 10px rgba(0, 120, 212, 0.28); }
+}
+
+.slide-s18 .s17-progress__marker-label {
+  position: absolute;
+  top: -22px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.slide-s18 .s17-progress__marker--proto .s17-progress__marker-label {
+  color: #0b6a0b;
+}
+
+.slide-s18 .s17-progress__marker--today .s17-progress__marker-label {
+  color: #0078d4;
+}
+
+.slide-s18 .s17-progress__marker-date {
+  position: absolute;
+  top: 18px;
+  font-size: 9px;
+  font-weight: 600;
+  color: #8a8886;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide-s18 .s17-progress__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 120, 212, 0.12);
+}
+
+.slide-s18 .s17-progress__stat {
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #edebe9;
+  min-width: 0;
+}
+
+.slide-s18 .s17-progress__stat-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a8886;
+  margin-bottom: 3px;
+}
+
+.slide-s18 .s17-progress__stat strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #201f1e;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide-s18 .s17-progress__stat strong em {
+  font-style: normal;
+  font-weight: 600;
+  color: #605e5c;
+}
+
+.slide-s18 .s17-progress__stat--good {
+  background: rgba(16, 124, 16, 0.06);
+  border-color: rgba(16, 124, 16, 0.22);
+}
+
+.slide-s18 .s17-progress__stat--good strong {
+  color: #0b6a0b;
+}
+
+.slide-s18 .s17-progress__stat--accent {
+  background: rgba(0, 120, 212, 0.06);
+  border-color: rgba(0, 120, 212, 0.22);
+}
+
+.slide-s18 .s17-progress__stat--accent strong {
+  color: #004578;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-s18 .s17-progress__marker--today .s17-progress__marker-pin {
+    animation: none;
+  }
+}
+
 .slide-s18 .content{flex:1;min-height:0;padding:10px 36px 12px;display:flex;flex-direction:column}
 .slide-s18 .milestone-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:10px}
 .slide-s18 .milestone-grid--3d {

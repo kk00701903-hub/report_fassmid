@@ -1,15 +1,27 @@
-/* Slide 29 — AI smart logistics (backup 27.html → white Fluent theme) */
+/* Slide 29 — AI smart logistics (backup 27.html layout, white Fluent theme) */
+
+.slide-s29.slide-canvas-root {
+  background: #ffffff !important;
+}
+
+.slide-s29 .slide-motion-content > div,
+.slide-s29 .slide-motion-diagram-root > div {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
 
 .slide-s29 .fass-slide-root {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: var(--fluent-bg, #ffffff);
-  color: var(--fluent-grey-160, #201f1e);
+  background: #ffffff;
+  color: #201f1e;
   overflow: hidden;
   min-height: 0;
   box-sizing: border-box;
+  font-family: var(--ppt-font-body, "Noto Sans KR", sans-serif);
 }
 
 .slide-s29 .title-r {
@@ -29,7 +41,7 @@
 .slide-s29 .bar {
   width: 4px;
   height: 30px;
-  background: var(--fluent-blue, #0078d4);
+  background: #0078d4;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -41,7 +53,7 @@
   border-radius: 12px;
   background: rgba(0, 120, 212, 0.1);
   border: 1px solid rgba(0, 120, 212, 0.35);
-  color: var(--fluent-blue, #0078d4);
+  color: #0078d4;
   letter-spacing: 0.02em;
 }
 
@@ -50,13 +62,13 @@
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
-  color: var(--fluent-grey-160, #201f1e);
+  color: #201f1e;
 }
 
 .slide-s29 .sub {
   font-size: 13px;
-  color: var(--fluent-grey-130, #484644);
-  margin-top: 4px;
+  color: #484644;
+  margin: 4px 0 0;
   padding-left: 14px;
   line-height: 1.4;
 }
@@ -64,7 +76,7 @@
 .slide-s29 .line {
   height: 1px;
   margin-top: 8px;
-  background: linear-gradient(90deg, var(--fluent-blue, #0078d4), transparent);
+  background: linear-gradient(90deg, #0078d4, transparent);
   opacity: 0.35;
 }
 
@@ -94,22 +106,22 @@
 
 .slide-s29 .fass-smart-logistics-concept-label {
   font-size: 14px;
-  font-weight: 700;
-  color: var(--fluent-blue, #0078d4);
+  font-weight: 600;
+  color: #0078d4;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .slide-s29 .fass-smart-logistics-concept-description {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
-  color: var(--fluent-grey-160, #201f1e);
+  color: #201f1e;
   margin: 0;
 }
 
 .slide-s29 .fass-smart-logistics-concept-highlight {
-  color: var(--fluent-orange, #ca5010);
+  color: #ca5010;
 }
 
 .slide-s29 .fass-smart-logistics-visual-image-box {
@@ -118,8 +130,8 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--fluent-border, #d2d0ce);
-  background: var(--fluent-grey-20, #f3f2f1);
+  border: 1px solid #d2d0ce;
+  background: #f3f2f1;
 }
 
 .slide-s29 .fass-smart-logistics-visual-image-box img {
@@ -140,10 +152,10 @@
 }
 
 .slide-s29 .fass-smart-logistics-action-item-card {
-  background: var(--fluent-surface, #ffffff);
+  background: #ffffff;
   padding: 14px 18px;
   border-radius: 16px;
-  border: 1px solid var(--fluent-border, #d2d0ce);
+  border: 1px solid #d2d0ce;
   display: flex;
   flex-direction: column;
   gap: 13px;
@@ -161,21 +173,21 @@
 .slide-s29 .fass-smart-logistics-card-icon {
   width: 48px;
   height: 48px;
-  background: var(--fluent-grey-20, #f3f2f1);
+  background: #f3f2f1;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  color: var(--fluent-blue, #0078d4);
-  border: 1px solid var(--fluent-blue, #0078d4);
+  color: #0078d4;
+  border: 1px solid #0078d4;
   flex-shrink: 0;
 }
 
 .slide-s29 .fass-smart-logistics-card-title {
   font-size: 22px;
-  font-weight: 700;
-  color: var(--fluent-grey-160, #201f1e);
+  font-weight: 600;
+  color: #201f1e;
   line-height: 1.3;
   margin: 0;
 }
@@ -183,11 +195,11 @@
 .slide-s29 .fass-smart-logistics-card-body {
   font-size: 15px;
   line-height: 1.45;
-  color: var(--fluent-grey-130, #484644);
+  color: #484644;
 }
 
 .slide-s29 .fass-smart-logistics-card-body b {
-  color: var(--fluent-grey-160, #201f1e);
+  color: #201f1e;
   font-weight: 700;
 }
 
@@ -198,18 +210,18 @@
   gap: 8px;
   padding: 6px 16px;
   background: rgba(16, 124, 16, 0.08);
-  border: 1px solid var(--fluent-green, #107c10);
+  border: 1px solid #107c10;
   border-radius: 4px;
   width: fit-content;
 }
 
 .slide-s29 .fass-smart-logistics-impact-badge i {
-  color: var(--fluent-green, #107c10);
+  color: #107c10;
   font-size: 14px;
 }
 
 .slide-s29 .fass-smart-logistics-impact-text {
   font-size: 16px;
-  font-weight: 700;
-  color: var(--fluent-green, #107c10);
+  font-weight: 600;
+  color: #107c10;
 }

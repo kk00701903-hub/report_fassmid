@@ -102,7 +102,7 @@ export const WORKFLOW_PHASES: WorkflowPhase[] = [
       {
         id: "idea",
         name: "IntelliJ",
-        use: "웹 개발 전용 IDE",
+        use: "웹 개발 IDE",
         iconText: "IJ",
         theme: "idea",
       },

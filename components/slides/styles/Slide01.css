@@ -1,4 +1,8 @@
-/* Slide 01 — cover (backup public/slides/1.html layout & typography) */
+/* Slide 01 — cover (backup public/slides/1.html @ 960×720) */
+
+.slide-s01.slide-canvas-root {
+  background: #0a0e1a !important;
+}
 
 .slide-s01 .slide-motion-content > div,
 .slide-s01 .slide-motion-diagram-root > div {
@@ -83,7 +87,7 @@
   font-family: var(--ppt-font-display, var(--ppt-font));
   font-size: 26px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--ppt-text-1);
   margin: 0;
 }
@@ -93,11 +97,11 @@
 }
 
 .slide-s01 .fass-subtitle-description-text {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--ppt-accent-2);
-  line-height: 1.45;
-  max-width: 720px;
+  line-height: 1.4;
+  max-width: 800px;
   margin: 0;
 }
 

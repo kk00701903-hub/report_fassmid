@@ -37,6 +37,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide proto-slide">
     <div class="proto-main">
       <div class="proto-sandbox">
         <div class="proto-sandbox-tag"><i class="fas fa-shield-halved"></i> JTGS 격리 샌드박스 — 비즈니스 리스크 최소화</div>
+        <div class="proto-arch-stack">
         <div class="proto-arch-row">
           <div class="proto-arch-box"><i class="fab fa-react"></i><span class="proto-arch-t">Next.js UI</span><span class="proto-arch-s">RSC · RealGrid</span></div>
           <span class="proto-arch-arrow"><i class="fas fa-chevron-right"></i></span>
@@ -48,6 +49,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide proto-slide">
           <div class="proto-arch-box"><i class="fas fa-shuffle"></i><span class="proto-arch-t">API Gateway</span></div>
           <span class="proto-arch-arrow"><i class="fas fa-arrows-left-right"></i></span>
           <div class="proto-arch-box"><i class="fas fa-database"></i><span class="proto-arch-t">PostgreSQL</span></div>
+        </div>
         </div>
       </div>
 

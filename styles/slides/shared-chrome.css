@@ -89,7 +89,7 @@
   letter-spacing: 0.02em;
 }
 
-.slide-s01 h1,
+.slide-s01 h1:not(.fass-title-main-heading),
 .slide-s01 .title-text,
 .slide-s02 h1,
 .slide-s02 .title-text,

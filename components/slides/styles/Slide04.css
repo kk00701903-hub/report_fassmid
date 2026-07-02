@@ -150,21 +150,10 @@
   background: #f1f5f9;
 }
 
-.slide-s04 .s04-concept-card__visual--system {
-  background: linear-gradient(180deg, #dbeafe, #bfdbfe);
-  border-color: rgba(0, 90, 158, 0.45);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-}
-
 .slide-s04 .s04-mini-scene {
   width: 100%;
   height: 50px;
   display: block;
-}
-
-.slide-s04 .s04-mini-scene--docker {
-  height: 62px;
-  filter: contrast(1.08) saturate(1.12);
 }
 
 .slide-s04 .s04-concept-card__text {

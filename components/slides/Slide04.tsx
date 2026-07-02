@@ -1,12 +1,7 @@
 "use client";
 
 import SlideCanvas from "@/components/slides/SlideCanvas";
-import {
-  MiniDockerScene,
-  MiniShipScene,
-  Slide04LogisticsHero,
-  Slide04SystemHero,
-} from "@/components/slides/Slide04Visuals";
+import { MiniShipScene, Slide04LogisticsHero, Slide04SystemHero } from "@/components/slides/Slide04Visuals";
 import "./styles/Slide04.css";
 
 const CONCEPTS = [
@@ -60,13 +55,15 @@ function TierConceptCard({
           <span className="s04-concept-card__en">{item.en}</span>
         </div>
       </div>
-      <div className={`s04-concept-card__visual s04-concept-card__visual--${tier}`}>
-        {isLogistics ? <MiniShipScene variant={item.variant} /> : <MiniDockerScene variant={item.variant} />}
-      </div>
       {isLogistics ? (
-        <p className="s04-concept-card__text">
-          <RichText text={item.logistics} />
-        </p>
+        <>
+          <div className="s04-concept-card__visual s04-concept-card__visual--logistics">
+            <MiniShipScene variant={item.variant} />
+          </div>
+          <p className="s04-concept-card__text">
+            <RichText text={item.logistics} />
+          </p>
+        </>
       ) : null}
     </div>
   );
@@ -119,11 +116,6 @@ export default function Slide04() {
               <h2 className="s04-tier__title">FaSS Docker 컨테이너 — 위와 같은 원리를 IT에 적용</h2>
             </header>
             <Slide04SystemHero />
-            <div className="s04-tier__cards">
-              {CONCEPTS.map((item) => (
-                <TierConceptCard key={`system-${item.num}`} item={item} tier="system" />
-              ))}
-            </div>
           </section>
 
           <div className="k8s-banner">

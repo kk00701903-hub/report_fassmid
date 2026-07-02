@@ -318,17 +318,18 @@
 }
 
 .slide-s23 .s23-spot-label {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
-  color: var(--spot-color);
+  color: #ffffff;
   line-height: 1.15;
   text-align: center;
+  letter-spacing: 0.01em;
 }
 
 .slide-s23 .s23-spot-sub {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
-  color: #484644;
+  color: rgba(255, 255, 255, 0.88);
   line-height: 1.2;
   text-align: center;
   white-space: nowrap;

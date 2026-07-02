@@ -65,15 +65,6 @@ export default function Slide18CollaborationFlow() {
           </AnimatePresence>
         </div>
 
-        <div className="s18-arrow-bridge">
-          <motion.div
-            className="s18-arrow-beam"
-            animate={reduceMotion ? undefined : { scaleX: [0.4, 1, 0.4], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1.4, repeat: Infinity }}
-          />
-          <i className="fas fa-caret-right" />
-        </div>
-
         <motion.div
           className="s18-ai"
           animate={

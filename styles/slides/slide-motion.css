@@ -128,6 +128,7 @@
 [data-motion="architecture"] .migration-engine-box,
 [data-motion="compare"] .compare-card,
 [data-motion="compare"] .compare-table tbody tr,
+[data-motion="compare"] .insight-row,
 [data-motion="compare"] .metric-item,
 [data-motion="pipeline"] .node,
 [data-motion="pipeline"] .pill,
@@ -171,6 +172,7 @@
 [data-motion] .role-card:nth-child(1),
 [data-motion] .compare-card:nth-child(1),
 [data-motion] .compare-table tbody tr:nth-child(1),
+[data-motion] .insight-row:nth-child(2),
 [data-motion] .vision-pillar-card:nth-child(1) { animation-delay: 0s; }
 
 [data-motion] .section-topic-item:nth-child(2),
@@ -195,6 +197,7 @@
 [data-motion] .role-card:nth-child(2),
 [data-motion] .compare-card:nth-child(3),
 [data-motion] .compare-table tbody tr:nth-child(2),
+[data-motion] .insight-row:nth-child(3),
 [data-motion] .vision-pillar-card:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
 
 [data-motion] .section-topic-item:nth-child(3),

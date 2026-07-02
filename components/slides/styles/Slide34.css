@@ -44,36 +44,134 @@
   overflow: visible;
 }
 
-.slide-s34 .ai-innovation-left-stat-column{flex: 2;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start}
-.slide-s34 .ai-innovation-stat-label-top{font-size: 18px;
-    font-weight: 600;
-    color: var(--fluent-grey-130, #484644);
-    margin-bottom: 8px}
-.slide-s34 .ai-innovation-hero-stat-number{font-size: 80px;
-    font-weight: 700;
-    color: var(--fluent-blue, #0078d4);
-    line-height: 1;
-    letter-spacing: -4px}
-.slide-s34 .ai-innovation-stat-unit-text{font-size: 28px;
-    font-weight: 600;
-    color: var(--fluent-blue, #0078d4);
-    margin-left: 12px}
-.slide-s34 .ai-innovation-stat-description-box{margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--fluent-border, #d2d0ce);
-    width: 100%}
-.slide-s34 .ai-innovation-stat-impact-summary{font-size: 18px;
-    font-weight: 600;
-    color: var(--fluent-grey-160, #201f1e);
-    line-height: 1.4}
-.slide-s34 .ai-innovation-stat-impact-subtext{font-size: 14px;
-    color: var(--fluent-grey-130, #484644);
-    margin-top: 8px}
+.slide-s34 .ai-innovation-left-stat-column {
+  flex: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.slide-s34 .ai-stat-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  border: 1px solid var(--fluent-border, #d2d0ce);
+  border-left: 4px solid var(--fluent-blue, #0078d4);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--fluent-surface, #ffffff);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.slide-s34 .ai-stat-panel__head {
+  flex-shrink: 0;
+  padding: 14px 16px 12px;
+  background: linear-gradient(180deg, #f3f2f1 0%, #faf9f8 100%);
+  border-bottom: 1px solid var(--fluent-border, #d2d0ce);
+}
+
+.slide-s34 .ai-stat-panel__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--fluent-blue, #0078d4);
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid rgba(0, 120, 212, 0.28);
+  margin-bottom: 8px;
+}
+
+.slide-s34 .ai-stat-panel__badge i {
+  font-size: 11px;
+}
+
+.slide-s34 .ai-innovation-stat-label-top {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--fluent-grey-160, #201f1e);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.slide-s34 .ai-stat-panel__hero {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 16px 18px;
+  background: linear-gradient(145deg, rgba(0, 120, 212, 0.1) 0%, rgba(0, 120, 212, 0.04) 100%);
+  border-bottom: 1px solid rgba(0, 120, 212, 0.15);
+}
+
+.slide-s34 .ai-stat-panel__value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.slide-s34 .ai-innovation-hero-stat-number {
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--fluent-blue, #0078d4);
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+.slide-s34 .ai-innovation-stat-unit-text {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--fluent-blue, #0078d4);
+  margin-left: 10px;
+}
+
+.slide-s34 .ai-stat-panel__hero-caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fluent-grey-130, #484644);
+  letter-spacing: 0.02em;
+}
+
+.slide-s34 .ai-stat-panel__impact,
+.slide-s34 .ai-innovation-stat-description-box {
+  flex: 1;
+  margin-top: 0;
+  padding: 14px 16px 16px;
+  border-top: none;
+  width: 100%;
+  background: rgba(16, 124, 16, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.slide-s34 .ai-innovation-stat-impact-summary {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fluent-grey-160, #201f1e);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.slide-s34 .ai-innovation-stat-impact-subtext {
+  font-size: 13px;
+  color: var(--fluent-grey-130, #484644);
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(16, 124, 16, 0.2);
+  line-height: 1.4;
+}
 
 .slide-s34 .ai-innovation-right-content-column{flex: 3;
     min-width: 0;

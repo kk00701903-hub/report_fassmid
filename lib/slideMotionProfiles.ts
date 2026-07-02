@@ -58,7 +58,7 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
   compare: {
     particles: "grid",
     titleSelectors: TITLE,
-    staggerSelectors: ".compare-card, .compare-table tbody tr, .metric-item, .ref-badge",
+    staggerSelectors: ".compare-card, .compare-table tbody tr, .insight-row, .metric-item, .ref-badge",
     countSelectors: COUNTS,
     accentSweep: false,
   },

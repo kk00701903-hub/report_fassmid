@@ -64,7 +64,8 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         </div>
       </div>
 
-      <div class="hub-center">
+      <div class="hub-center hub-center--hi">
+        <span class="hub-ribbon"><i class="fas fa-star"></i> 실전 훈련장 HUB</span>
         <i class="fas fa-cubes hub-icon"></i>
         <div class="hub-title">실전 훈련장<br/>SiteFramework</div>
         <div class="hub-sub">이론 교육이 아닌<br/>실제 코드·배포·관제 실습</div>
