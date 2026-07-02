@@ -1,30 +1,36 @@
 /* Slide 04 — Docker: logistics tier (top) + system tier (bottom) */
 
+.slide-s04 .fluent-slide .body {
+  gap: 5px;
+  padding: 0 32px 8px;
+}
+
 .slide-s04 .body {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .slide-s04 .s04-tier {
-  flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 6px 8px 5px;
+  gap: 6px;
+  padding: 8px 10px 8px;
   border-radius: 10px;
   border: 1px solid var(--fluent-border, #d2d0ce);
 }
 
 .slide-s04 .s04-tier--logistics {
+  flex: 1.25;
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
   border-color: rgba(100, 116, 139, 0.35);
 }
 
 .slide-s04 .s04-tier--system {
+  flex: 1;
   background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
   border-color: rgba(0, 120, 212, 0.28);
 }
@@ -65,14 +71,23 @@
 
 .slide-s04 .s04-tier-hero__svg {
   width: 100%;
-  height: 58px;
+  height: 64px;
   display: block;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+.slide-s04 .s04-tier-hero--system {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .slide-s04 .s04-tier-hero--system .s04-tier-hero__svg {
-  height: 82px;
+  flex: 1;
+  height: auto;
+  min-height: 108px;
   border-color: rgba(0, 90, 158, 0.4);
   background: #dbeafe;
   filter: contrast(1.06) saturate(1.1);
@@ -83,15 +98,16 @@
   min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
+  gap: 8px;
+  align-items: stretch;
 }
 
 .slide-s04 .s04-concept-card {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   min-height: 0;
-  padding: 6px 7px;
+  padding: 10px 9px;
   border-radius: 8px;
   border: 1px solid var(--fluent-border, #d2d0ce);
   background: #fff;
@@ -114,11 +130,11 @@
 }
 
 .slide-s04 .s04-concept-card__num {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   color: var(--fluent-blue, #0078d4);
   background: rgba(0, 120, 212, 0.1);
-  padding: 2px 7px;
+  padding: 3px 8px;
   border-radius: 4px;
   flex-shrink: 0;
 }
@@ -130,38 +146,43 @@
 
 .slide-s04 .s04-concept-card__title {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .slide-s04 .s04-concept-card__en {
   display: block;
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--fluent-grey-90, #8a8886);
 }
 
 .slide-s04 .s04-concept-card__visual {
-  flex-shrink: 0;
-  border-radius: 5px;
-  padding: 6px 8px;
+  flex: 1;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 8px 10px;
   border: 1px solid rgba(51, 65, 85, 0.22);
   background: #f1f5f9;
 }
 
 .slide-s04 .s04-mini-scene {
   width: 100%;
-  height: 50px;
+  height: 100%;
+  min-height: 78px;
+  max-height: 92px;
   display: block;
 }
 
 .slide-s04 .s04-concept-card__text {
   margin: 0;
-  font-size: 11px;
-  line-height: 1.38;
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--fluent-grey-130, #484644);
-  flex: 1;
+  flex-shrink: 0;
 }
 
 .slide-s04 .s04-concept-card__text strong {
@@ -210,8 +231,9 @@
 
 .slide-s04 .k8s-banner {
   flex-shrink: 0;
-  padding: 8px 12px;
+  padding: 7px 12px;
   gap: 10px;
+  margin-bottom: 0;
 }
 
 .slide-s04 .k8s-icon {

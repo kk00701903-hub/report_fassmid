@@ -53,7 +53,7 @@ export function ShippingContainer({
       <rect x={2} y={2} width={6} height={6} fill="#64748b" stroke="#334155" strokeWidth={0.6} />
       <rect x={width - 8} y={2} width={6} height={6} fill="#64748b" stroke="#334155" strokeWidth={0.6} />
       {label ? (
-        <text x={width / 2} y={height / 2 + 4} textAnchor="middle" fontSize={9} fontWeight={700} fill="#fff">
+        <text x={width / 2} y={height / 2 + 4} textAnchor="middle" fontSize={10} fontWeight={700} fill="#fff">
           {label}
         </text>
       ) : null}
@@ -116,11 +116,11 @@ export function DockerContainer({
 export function MiniShipScene({ variant }: { variant: "standard" | "port" | "isolated" }) {
   if (variant === "standard") {
     return (
-      <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-        <ShippingContainer color={CONTAINER_COLORS[0]} x={8} y={18} width={30} height={22} label="쌀" />
-        <ShippingContainer color={CONTAINER_COLORS[1]} x={42} y={18} width={30} height={22} label="TV" />
-        <ShippingContainer color={CONTAINER_COLORS[2]} x={76} y={18} width={30} height={22} label="부품" />
-        <text x={60} y={12} textAnchor="middle" fontSize={8} fill="#64748b">
+      <svg viewBox="0 0 120 70" className="s04-mini-scene" aria-hidden="true">
+        <ShippingContainer color={CONTAINER_COLORS[0]} x={6} y={22} width={34} height={26} label="쌀" />
+        <ShippingContainer color={CONTAINER_COLORS[1]} x={42} y={22} width={34} height={26} label="TV" />
+        <ShippingContainer color={CONTAINER_COLORS[2]} x={78} y={22} width={34} height={26} label="부품" />
+        <text x={60} y={14} textAnchor="middle" fontSize={10} fontWeight={700} fill="#64748b">
           같은 크기 · 같은 규격
         </text>
       </svg>
@@ -129,19 +129,19 @@ export function MiniShipScene({ variant }: { variant: "standard" | "port" | "iso
 
   if (variant === "port") {
     return (
-      <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-        <text x={14} y={10} fontSize={7} fill="#64748b">
+      <svg viewBox="0 0 120 70" className="s04-mini-scene" aria-hidden="true">
+        <text x={14} y={12} fontSize={9} fontWeight={700} fill="#64748b">
           부산항
         </text>
-        <path d="M4 42 Q30 38 60 42 T116 42 L116 48 L4 48 Z" fill="#bfdbfe" opacity={0.5} />
-        <path d="M18 40 L60 28 L102 40 L96 44 L24 44 Z" fill="#64748b" />
-        <ShippingContainer color={CONTAINER_COLORS[0]} x={28} y={14} width={24} height={18} />
-        <path d="M104 36 L112 32 L112 40 Z" fill="#0078d4" />
-        <rect x={106} y={38} width={10} height={8} rx={1} fill="#475569" />
-        <text x={111} y={10} fontSize={7} fill="#64748b">
+        <path d="M4 50 Q30 46 60 50 T116 50 L116 58 L4 58 Z" fill="#bfdbfe" opacity={0.5} />
+        <path d="M18 48 L60 34 L102 48 L96 52 L24 52 Z" fill="#64748b" />
+        <ShippingContainer color={CONTAINER_COLORS[0]} x={26} y={18} width={28} height={22} />
+        <path d="M104 44 L112 40 L112 48 Z" fill="#0078d4" />
+        <rect x={106} y={46} width={12} height={10} rx={1} fill="#475569" />
+        <text x={111} y={12} fontSize={9} fontWeight={700} fill="#64748b">
           트럭
         </text>
-        <text x={60} y={52} textAnchor="middle" fontSize={7} fill="#334155">
+        <text x={60} y={66} textAnchor="middle" fontSize={9} fontWeight={700} fill="#334155">
           재적재 없이 그대로 연결
         </text>
       </svg>
@@ -149,11 +149,11 @@ export function MiniShipScene({ variant }: { variant: "standard" | "port" | "iso
   }
 
   return (
-    <svg viewBox="0 0 120 56" className="s04-mini-scene" aria-hidden="true">
-      <ShippingContainer color="#8b5cf6" x={10} y={20} width={34} height={24} label="냉동" />
-      <ShippingContainer color="#06b6d4" x={68} y={20} width={34} height={24} label="일반" />
-      <line x1={52} y1={14} x2={52} y2={48} stroke="#cbd5e1" strokeWidth={1.5} strokeDasharray="3 2" />
-      <text x={60} y={12} textAnchor="middle" fontSize={8} fill="#64748b">
+    <svg viewBox="0 0 120 70" className="s04-mini-scene" aria-hidden="true">
+      <ShippingContainer color="#8b5cf6" x={8} y={24} width={38} height={28} label="냉동" />
+      <ShippingContainer color="#06b6d4" x={68} y={24} width={38} height={28} label="일반" />
+      <line x1={52} y1={16} x2={52} y2={58} stroke="#cbd5e1" strokeWidth={2} strokeDasharray="3 2" />
+      <text x={60} y={14} textAnchor="middle" fontSize={10} fontWeight={700} fill="#64748b">
         컨테이너 분리
       </text>
     </svg>
@@ -268,17 +268,17 @@ export function Slide04LogisticsHero() {
 /** 하단 — FaSS 시스템(서버·Docker) */
 export function Slide04SystemHero() {
   const { animating } = useSlideDiagramMotion();
-  const containerW = 62;
-  const containerH = 42;
-  const containerY = 30;
-  const containerXs = [118, 196, 274, 352] as const;
+  const containerW = 68;
+  const containerH = 48;
+  const containerY = 34;
+  const containerXs = [108, 188, 268, 348] as const;
 
   return (
     <div className="s04-tier-hero s04-tier-hero--system">
-      <svg viewBox="0 0 640 112" className="s04-tier-hero__svg" aria-hidden="true">
-        <rect x={0} y={0} width={640} height={112} rx={8} fill="#dbeafe" />
+      <svg viewBox="0 0 640 148" className="s04-tier-hero__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <rect x={0} y={0} width={640} height={148} rx={8} fill="#dbeafe" />
 
-        <text x={320} y={20} textAnchor="middle" fontSize={12} fontWeight={800} fill="#004578">
+        <text x={320} y={24} textAnchor="middle" fontSize={14} fontWeight={800} fill="#004578">
           프로그램별 Docker 컨테이너 · 동일 규격 실행·배포
         </text>
 
@@ -290,6 +290,7 @@ export function Slide04SystemHero() {
             y={containerY}
             width={containerW}
             height={containerH}
+            labelSize={10}
           />
         ))}
 
@@ -297,20 +298,20 @@ export function Slide04SystemHero() {
           animate={animating ? { opacity: [0.55, 1, 0.55] } : undefined}
           transition={{ duration: 2.5, repeat: Infinity }}
         >
-          <rect x={488} y={26} width={112} height={50} rx={6} fill="#bfdbfe" stroke="#005a9e" strokeWidth={2.2} />
-          <text x={544} y={46} textAnchor="middle" fontSize={11} fontWeight={800} fill="#004578">
+          <rect x={468} y={30} width={128} height={58} rx={8} fill="#bfdbfe" stroke="#005a9e" strokeWidth={2.4} />
+          <text x={532} y={54} textAnchor="middle" fontSize={13} fontWeight={800} fill="#004578">
             Kubernetes
           </text>
-          <text x={544} y={62} textAnchor="middle" fontSize={10} fontWeight={700} fill="#1e293b">
+          <text x={532} y={72} textAnchor="middle" fontSize={11} fontWeight={700} fill="#1e293b">
             자동 배치·복제
           </text>
         </motion.g>
 
-        <rect x={72} y={82} width={496} height={26} rx={6} fill="#cbd5e1" stroke="#334155" strokeWidth={2} />
-        <rect x={86} y={90} width={12} height={12} rx={2} fill="#22c55e" />
-        <rect x={102} y={90} width={12} height={12} rx={2} fill="#22c55e" />
-        <rect x={118} y={90} width={12} height={12} rx={2} fill="#22c55e" />
-        <text x={340} y={99} textAnchor="middle" fontSize={11} fontWeight={700} fill="#334155">
+        <rect x={56} y={104} width={528} height={34} rx={8} fill="#cbd5e1" stroke="#334155" strokeWidth={2} />
+        <rect x={72} y={114} width={14} height={14} rx={2} fill="#22c55e" />
+        <rect x={90} y={114} width={14} height={14} rx={2} fill="#22c55e" />
+        <rect x={108} y={114} width={14} height={14} rx={2} fill="#22c55e" />
+        <text x={340} y={125} textAnchor="middle" fontSize={13} fontWeight={700} fill="#334155">
           FaSS 운영 서버 / 클라우드
         </text>
       </svg>
