@@ -60,8 +60,8 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 19, title: "최적화 방안 1. AI 디지털 워커 활용", role: "content" },
   { slideId: 42, title: "#. Agent Studio", role: "content" },
   { slideId: 43, title: "#. AX 플랫폼", role: "content" },
-  { slideId: 20, title: "최적화 방안 2. 애자일 워룸 운영", role: "content" },
-  { slideId: 21, title: "최적화 방안 3. 사전 POC 운영", role: "content" },
+  { slideId: 20, title: "최적화 방안 2. 애자일 (Agile) 방식 개발 추진", role: "content" },
+  { slideId: 21, title: "최적화 방안 3. 사전 기술검증 시스템 운영 (POC)", role: "content" },
   {
     slideId: 22,
     title: "PART 3 - 기술 스택 및 아키텍처",

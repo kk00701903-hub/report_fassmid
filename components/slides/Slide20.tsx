@@ -12,7 +12,7 @@ export default function Slide20() {
         <header className="s20-head">
           <div className="s20-head__row">
             <div className="s20-head__bar" />
-            <h1 className="s20-head__title">최적화 방안 2. 애자일 워룸 운영</h1>
+            <h1 className="s20-head__title">최적화 방안 2. 애자일 (Agile) 방식 개발 추진</h1>
           </div>
           <div className="s20-head__line" />
         </header>
@@ -28,7 +28,7 @@ export default function Slide20() {
               </header>
               <div className="s20-card__body">
                 <span className="s20-location">
-                  <i className="fas fa-location-dot" aria-hidden="true" /> 남양주 1공장 2층 프로젝트룸
+                  <i className="fas fa-location-dot" aria-hidden="true" /> 남양주 1공장 2층 프로젝트 룸 (애자일 워룸 운영)
                 </span>
                 <div className="s20-bullet">
                   <i className="fas fa-check" aria-hidden="true" />
@@ -56,6 +56,13 @@ export default function Slide20() {
                 <h2 className="s20-card__title">의사결정 리드타임 제로화</h2>
               </header>
               <div className="s20-card__body">
+                <div className="s20-bullet">
+                  <i className="fas fa-circle-arrow-right" aria-hidden="true" />
+                  <span>
+                    <strong>시스템사업부장 중심의 Lightning-fast 의사결정</strong> — 현장 즉결 승인으로
+                    결재·대기 병목 제거
+                  </span>
+                </div>
                 <div className="s20-bullet">
                   <i className="fas fa-circle-arrow-right" aria-hidden="true" />
                   <span>현장 즉결 처리 체계 도입으로 프로젝트 지연 요소 선제적 차단</span>

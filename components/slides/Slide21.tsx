@@ -11,8 +11,12 @@ export default function Slide21() {
         <div className="title-region-wrapper">
           <div className="title-region-header">
             <div className="title-region-bar" />
-            <h1 className="title-region-text">최적화 방안 3. 사전 POC 운영</h1>
+            <h1 className="title-region-text">최적화 방안 3. 사전 기술검증 시스템 운영 (POC)</h1>
           </div>
+          <p className="title-region-sub">
+            <strong>POC</strong>(Proof of Concept, 개념 증명) — 본격 구축 전 핵심 기술을 소규모로 선제 검증하는
+            사전 기술검증 체계
+          </p>
           <div className="title-region-line" />
         </div>
 

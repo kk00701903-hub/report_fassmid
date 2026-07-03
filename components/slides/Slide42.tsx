@@ -30,7 +30,10 @@ export default function Slide42() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">INTERNAL AX</span>
-            <h1>코드 없이 구축하는 사내 AI 에이전트</h1>
+            <h1>
+              코드 없이 구축하는 사내 AI 에이전트{" "}
+              <span className="title-tail">No-code 워크플로우 시연</span>
+            </h1>
           </div>
           <p className="sub">
             현업이 직접 워크플로우를 설계하고, 전사에 공유하며 사내 시스템을 자동화하는 통합 플랫폼.

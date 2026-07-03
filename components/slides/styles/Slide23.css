@@ -276,6 +276,7 @@
   width: 52px;
   height: 52px;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .slide-s23 .s23-spot-svg {
@@ -330,6 +331,12 @@
 .slide-s23 .cat-card.core {
   border-color: rgba(0, 120, 212, 0.45);
   box-shadow: 0 0 20px rgba(0, 120, 212, 0.1);
+}
+
+.slide-s23 .cat-card.core .core-visual {
+  flex: 1;
+  min-height: 0;
+  align-self: stretch;
 }
 
 .slide-s23 .cat-head {
@@ -455,6 +462,7 @@
   border: 1px dashed rgba(0, 120, 212, 0.25);
   flex-shrink: 0;
   font-size: 10px;
+  overflow: hidden;
 }
 
 .slide-s23 .core-visual--next {

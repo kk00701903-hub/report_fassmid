@@ -424,7 +424,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "fass-daily-scrum",
-        title: "최적화 방안 2. 애자일 워룸 운영",
+        title: "최적화 방안 2. 애자일 (Agile) 방식 개발 추진",
         category: "process",
         summary:
           "차세대 FaSS TFT 애자일 운영 허브. 일일 스크럼·태스크 기록과 Analytics 대시보드로 워룸에서 진척·블로커·완료율을 실시간 공유합니다.",
@@ -472,7 +472,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "poc-cdc-validation",
-        title: "최적화 방안 3. 사전 POC 운영",
+        title: "최적화 방안 3. 사전 기술검증 시스템 운영 (POC)",
         category: "process",
         summary:
           "AI 아이디어 스파크 포인트 관리 시스템 PoC로 데이터 마이그레이션 리스크를 선제 검증했습니다. Oracle→PostgreSQL CDC 파이프라인(Debezium·Kafka) 구축 및 0.1초 내 실시간 동기화를 확인했습니다.",

@@ -16,15 +16,6 @@ const INFRA_CHIPS = [
   { icon: "fas fa-bolt", label: "Redis" },
 ];
 
-const FW_CHIPS = [
-  { icon: "fas fa-n", label: "Next.js", muted: true },
-  { icon: "fab fa-react", label: "React 19" },
-  { icon: "fas fa-wind", label: "Tailwind CSS" },
-  { icon: "fas fa-table", label: "RealGrid" },
-  { icon: "fas fa-atom", label: "Atomic Design" },
-  { icon: "fas fa-leaf", label: "Spring Batch" },
-];
-
 const SEC_CHIPS = [
   { icon: "fas fa-key", label: "Keycloak" },
   { icon: "fas fa-id-card", label: "JWT" },
@@ -136,13 +127,6 @@ export default function Slide23() {
                 <div className="layer-box l2">Component<br />RealGrid · Tailwind</div>
                 <span className="layer-arrow">▶</span>
                 <div className="layer-box l3">Batch<br />Spring Batch</div>
-              </div>
-              <div className="cat-body">
-                <div className="chips">
-                  {FW_CHIPS.map((c) => (
-                    <Chip key={c.label} {...c} />
-                  ))}
-                </div>
               </div>
             </div>
 

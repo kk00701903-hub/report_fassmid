@@ -214,27 +214,19 @@ function NextJsAnim({ active }: { active: boolean }) {
       <text x={32} y={40} textAnchor="middle" fontSize={22} fontWeight={800} fill="#ffffff" fontFamily="Arial, sans-serif">
         N
       </text>
-      <motion.circle
-        cx={32}
-        cy={32}
-        r={30}
-        fill="none"
-        stroke="#0078d4"
-        strokeWidth={2}
-        strokeDasharray="6 4"
-        animate={active ? { rotate: 360 } : {}}
-        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        style={{ transformOrigin: "32px 32px" }}
-      />
-      <motion.circle
-        cx={32}
-        cy={8}
-        r={4}
-        fill="#0078d4"
-        animate={active ? { rotate: 360 } : {}}
-        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        style={{ transformOrigin: "32px 32px" }}
-      />
+      {active ? (
+        <motion.circle
+          cx={32}
+          cy={32}
+          r={28}
+          fill="none"
+          stroke="#0078d4"
+          strokeWidth={1.5}
+          opacity={0.45}
+          animate={{ opacity: [0.25, 0.55, 0.25] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ) : null}
     </svg>
   );
 }
