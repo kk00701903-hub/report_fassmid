@@ -111,7 +111,8 @@
 .slide-s22 .section-slide-root,
 .slide-s27 .section-slide-root,
 .slide-s36 .section-slide-root,
-.slide-s41 .section-slide-root {
+.slide-s41 .section-slide-root,
+.slide-s44 .section-slide-root {
   width: 100% !important;
   height: 100% !important;
   min-height: 0;
@@ -130,7 +131,8 @@
 .slide-s22 .section-part-label,
 .slide-s27 .section-part-label,
 .slide-s36 .section-part-label,
-.slide-s41 .section-part-label {
+.slide-s41 .section-part-label,
+.slide-s44 .section-part-label {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 4px;
@@ -143,7 +145,8 @@
 .slide-s22 .section-title-ko,
 .slide-s27 .section-title-ko,
 .slide-s36 .section-title-ko,
-.slide-s41 .section-title-ko {
+.slide-s41 .section-title-ko,
+.slide-s44 .section-title-ko {
   font-size: 26px;
   font-weight: 700;
   line-height: 1.2;
@@ -155,7 +158,8 @@
 .slide-s22 .section-title-en,
 .slide-s27 .section-title-en,
 .slide-s36 .section-title-en,
-.slide-s41 .section-title-en {
+.slide-s41 .section-title-en,
+.slide-s44 .section-title-en {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -167,7 +171,8 @@
 .slide-s22 .section-divider-line,
 .slide-s27 .section-divider-line,
 .slide-s36 .section-divider-line,
-.slide-s41 .section-divider-line {
+.slide-s41 .section-divider-line,
+.slide-s44 .section-divider-line {
   width: 80px;
   height: 3px;
   margin-bottom: 36px;
@@ -178,7 +183,8 @@
 .slide-s22 .section-topics-list,
 .slide-s27 .section-topics-list,
 .slide-s36 .section-topics-list,
-.slide-s41 .section-topics-list {
+.slide-s41 .section-topics-list,
+.slide-s44 .section-topics-list {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -190,7 +196,8 @@
 .slide-s22 .section-topic-item,
 .slide-s27 .section-topic-item,
 .slide-s36 .section-topic-item,
-.slide-s41 .section-topic-item {
+.slide-s41 .section-topic-item,
+.slide-s44 .section-topic-item {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -201,7 +208,8 @@
 .slide-s22 .topic-text,
 .slide-s27 .topic-text,
 .slide-s36 .topic-text,
-.slide-s41 .topic-text {
+.slide-s41 .topic-text,
+.slide-s44 .topic-text {
   font-size: 17px;
   font-weight: 400;
   line-height: 1.4;
@@ -212,7 +220,8 @@
 .slide-s22 .section-part-number,
 .slide-s27 .section-part-number,
 .slide-s36 .section-part-number,
-.slide-s41 .section-part-number {
+.slide-s41 .section-part-number,
+.slide-s44 .section-part-number {
   font-size: 120px;
   font-weight: 700;
   line-height: 1;

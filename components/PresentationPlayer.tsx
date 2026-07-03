@@ -145,10 +145,23 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
     }
   }, []);
 
+  const exitFullscreen = useCallback(async () => {
+    if (!document.fullscreenElement) return;
+
+    try {
+      await document.exitFullscreen();
+    } catch {
+      /* fullscreen blocked */
+    }
+  }, []);
+
+  const [fullscreenMenu, setFullscreenMenu] = useState<{ x: number; y: number } | null>(null);
+
   useEffect(() => {
     function handleFullscreenChange() {
       const nextFullscreen = document.fullscreenElement?.id === "presentation-shell";
       setIsFullscreen(nextFullscreen);
+      if (!nextFullscreen) setFullscreenMenu(null);
       setMotionEpoch((epoch) => epoch + 1);
 
       requestAnimationFrame(() => {
@@ -287,7 +300,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
         if (config) goToIndex(findLastVisibleIndex(config.slides), "forward");
       }
 
-      if (event.key.toLowerCase() === "f") {
+      if (event.key.toLowerCase() === "f" && !document.fullscreenElement) {
         event.preventDefault();
         void toggleFullscreen();
       }
@@ -334,6 +347,43 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
       viewport.removeEventListener("touchend", handleTouchEnd);
     };
   }, [goNext, goPrev]);
+
+  useEffect(() => {
+    if (!isFullscreen) return;
+
+    const shell = document.getElementById("presentation-shell");
+    if (!shell) return;
+
+    const menuWidth = 188;
+    const menuHeight = 48;
+
+    function handleContextMenu(event: MouseEvent) {
+      event.preventDefault();
+      const x = Math.max(8, Math.min(event.clientX, window.innerWidth - menuWidth - 8));
+      const y = Math.max(8, Math.min(event.clientY, window.innerHeight - menuHeight - 8));
+      setFullscreenMenu({ x, y });
+    }
+
+    function dismissMenu() {
+      setFullscreenMenu(null);
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") dismissMenu();
+    }
+
+    shell.addEventListener("contextmenu", handleContextMenu);
+    window.addEventListener("click", dismissMenu);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", dismissMenu);
+
+    return () => {
+      shell.removeEventListener("contextmenu", handleContextMenu);
+      window.removeEventListener("click", dismissMenu);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", dismissMenu);
+    };
+  }, [isFullscreen]);
 
   if (!isReady || !config) {
     return (
@@ -391,7 +441,7 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
           ))}
         </ol>
         <div className="slide-sidebar__footer">
-          <button type="button" className="slide-sidebar__footer-btn" onClick={() => void toggleFullscreen()} title="전체화면 (F)">
+          <button type="button" className="slide-sidebar__footer-btn" onClick={() => void toggleFullscreen()} title="전체화면 (F) · 종료 Esc">
             <i className="fa-solid fa-expand" aria-hidden="true" />
           </button>
         </div>
@@ -471,8 +521,8 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
             type="button"
             className="projector-footer__btn projector-footer__btn--fullscreen"
             onClick={() => void toggleFullscreen()}
-            title={isFullscreen ? "전체화면 종료 (F)" : "전체화면 (F)"}
-            aria-label={isFullscreen ? "전체화면 종료" : "전체화면"}
+            title={isFullscreen ? "전체화면 종료 (Esc)" : "전체화면 (F)"}
+            aria-label={isFullscreen ? "전체화면 종료 (Esc)" : "전체화면"}
           >
             <i className={`fa-solid ${isFullscreen ? "fa-compress" : "fa-expand"}`} aria-hidden="true" />
             <span>{isFullscreen ? "종료" : "전체화면"}</span>
@@ -487,17 +537,29 @@ export default function PresentationPlayer({ initialSlideId }: PresentationPlaye
 
       <SlideDetailButtons slideIndex={currentIndex} manifestItem={currentItem} />
 
-      {isFullscreen ? (
-        <button
-          type="button"
-          className="projector-fullscreen-exit"
-          onClick={() => void toggleFullscreen()}
-          title="전체화면 종료 (F)"
-          aria-label="전체화면 종료"
+      {fullscreenMenu && isFullscreen ? (
+        <div
+          className="projector-fullscreen-context-menu"
+          style={{ left: fullscreenMenu.x, top: fullscreenMenu.y }}
+          role="menu"
+          aria-label="전체화면 메뉴"
+          onClick={(event) => event.stopPropagation()}
+          onContextMenu={(event) => event.preventDefault()}
         >
-          <i className="fa-solid fa-compress" aria-hidden="true" />
-          <span>전체화면 종료</span>
-        </button>
+          <button
+            type="button"
+            role="menuitem"
+            className="projector-fullscreen-context-menu__item"
+            onClick={() => {
+              setFullscreenMenu(null);
+              void exitFullscreen();
+            }}
+          >
+            <i className="fa-solid fa-compress" aria-hidden="true" />
+            <span>전체화면 종료</span>
+            <kbd className="projector-fullscreen-context-menu__hint">Esc</kbd>
+          </button>
+        </div>
       ) : null}
 
       {showOptions ? (

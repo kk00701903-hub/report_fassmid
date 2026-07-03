@@ -14,6 +14,7 @@ export type DeckSlideRole =
   | "glossary-divider"
   | "glossary"
   | "part-divider"
+  | "appendix-divider"
   | "content"
   | "appendix"
   | "closing";
@@ -103,6 +104,13 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 39, title: "중장기 목표 2: MSA 전환", role: "content" },
   { slideId: 40, title: "맺음말", role: "closing" },
   {
+    slideId: 44,
+    title: "별첨",
+    role: "appendix-divider",
+    partTitleKo: "별첨",
+    partTitleEn: "Appendix — Supplementary Reference Materials",
+  },
+  {
     slideId: 8,
     title: "[별첨] 디지털 트렌드 — MSA · Cloud · Open Source · AI",
     role: "appendix",
@@ -167,7 +175,12 @@ export function getPartTopicTitles(partNumber: number): string[] {
   const titles: string[] = [];
   for (let i = dividerIndex + 1; i < DECK_MANIFEST.length; i++) {
     const entry = DECK_MANIFEST[i];
-    if (entry.role === "part-divider" || entry.role === "glossary-divider" || entry.role === "appendix") {
+    if (
+      entry.role === "part-divider" ||
+      entry.role === "glossary-divider" ||
+      entry.role === "appendix-divider" ||
+      entry.role === "appendix"
+    ) {
       break;
     }
     if (TOPIC_ROLES.has(entry.role)) {
@@ -180,4 +193,9 @@ export function getPartTopicTitles(partNumber: number): string[] {
 /** Glossary 간지 목차 */
 export function getGlossaryTopicTitles(): string[] {
   return DECK_MANIFEST.filter((entry) => entry.role === "glossary").map((entry) => entry.title);
+}
+
+/** 별첨 간지 목차 */
+export function getAppendixTopicTitles(): string[] {
+  return DECK_MANIFEST.filter((entry) => entry.role === "appendix").map((entry) => entry.title);
 }

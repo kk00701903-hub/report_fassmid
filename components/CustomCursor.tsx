@@ -11,9 +11,6 @@ import {
 import "./CustomCursor.css";
 
 const SPRING_MAIN = { stiffness: 700, damping: 32, mass: 0.35 };
-const SPRING_TRAIL_1 = { stiffness: 420, damping: 28, mass: 0.5 };
-const SPRING_TRAIL_2 = { stiffness: 280, damping: 26, mass: 0.65 };
-const SPRING_TRAIL_3 = { stiffness: 180, damping: 24, mass: 0.8 };
 
 function useCursorEnabled(): boolean {
   const [enabled, setEnabled] = useState(false);
@@ -27,8 +24,26 @@ function useCursorEnabled(): boolean {
   return enabled;
 }
 
+function usePresentationFullscreen(): boolean {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    function sync() {
+      setIsFullscreen(document.fullscreenElement?.id === "presentation-shell");
+    }
+
+    sync();
+    document.addEventListener("fullscreenchange", sync);
+    return () => document.removeEventListener("fullscreenchange", sync);
+  }, []);
+
+  return isFullscreen;
+}
+
 export default function CustomCursor() {
-  const enabled = useCursorEnabled();
+  const deviceEnabled = useCursorEnabled();
+  const isPresentationFullscreen = usePresentationFullscreen();
+  const enabled = deviceEnabled && isPresentationFullscreen;
   const [mounted, setMounted] = useState(false);
   const cursor = useSyncExternalStore(subscribeCursorPosition, getCursorPosition, () => ({
     x: 0,
@@ -41,12 +56,6 @@ export default function CustomCursor() {
 
   const xMain = useSpring(x, SPRING_MAIN);
   const yMain = useSpring(y, SPRING_MAIN);
-  const xTrail1 = useSpring(x, SPRING_TRAIL_1);
-  const yTrail1 = useSpring(y, SPRING_TRAIL_1);
-  const xTrail2 = useSpring(x, SPRING_TRAIL_2);
-  const yTrail2 = useSpring(y, SPRING_TRAIL_2);
-  const xTrail3 = useSpring(x, SPRING_TRAIL_3);
-  const yTrail3 = useSpring(y, SPRING_TRAIL_3);
 
   useEffect(() => {
     setMounted(true);
@@ -83,7 +92,8 @@ export default function CustomCursor() {
   }, [cursor.visible, cursor.x, cursor.y, x, y]);
 
   const rootClassName = useMemo(
-    () => `custom-cursor-root${cursor.visible ? "" : " is-hidden"}`,
+    () =>
+      `custom-cursor-root custom-cursor-root--presentation${cursor.visible ? "" : " is-hidden"}`,
     [cursor.visible],
   );
 
@@ -91,21 +101,6 @@ export default function CustomCursor() {
 
   return (
     <div className={rootClassName} aria-hidden="true">
-      <motion.span
-        className="custom-cursor-trail custom-cursor-trail--3"
-        style={{ x: xTrail3, y: yTrail3 }}
-        aria-hidden="true"
-      />
-      <motion.span
-        className="custom-cursor-trail custom-cursor-trail--2"
-        style={{ x: xTrail2, y: yTrail2 }}
-        aria-hidden="true"
-      />
-      <motion.span
-        className="custom-cursor-trail custom-cursor-trail--1"
-        style={{ x: xTrail1, y: yTrail1 }}
-        aria-hidden="true"
-      />
       <motion.span className="custom-cursor-dot" style={{ x: xMain, y: yMain }} aria-hidden="true" />
     </div>
   );

@@ -22,6 +22,10 @@ export const APPENDIX_SLIDE_IDS = DECK_MANIFEST.filter((entry) => isAppendixRole
 export const GLOSSARY_DIVIDER_SLIDE_ID =
   DECK_MANIFEST.find((entry) => entry.role === "glossary-divider")?.slideId ?? 41;
 
+/** 별첨 간지 슬라이드 */
+export const APPENDIX_DIVIDER_SLIDE_ID =
+  DECK_MANIFEST.find((entry) => entry.role === "appendix-divider")?.slideId ?? 44;
+
 export const GLOSSARY_CONTENT_SLIDE_IDS = DECK_MANIFEST.filter((entry) => entry.role === "glossary").map(
   (entry) => entry.slideId,
 ) as readonly number[];

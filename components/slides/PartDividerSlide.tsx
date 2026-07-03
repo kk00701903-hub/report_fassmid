@@ -1,7 +1,7 @@
 "use client";
 
 type PartDividerSlideProps = {
-  variant: "part" | "glossary";
+  variant: "part" | "glossary" | "appendix";
   partNumber?: number;
   titleKo: string;
   titleEn: string;
@@ -16,13 +16,23 @@ export default function PartDividerSlide({
   topics,
 }: PartDividerSlideProps) {
   const partLabel =
-    variant === "glossary" ? "DIGITAL INSIGHT" : `PART ${String(partNumber ?? 0).padStart(2, "0")}`;
+    variant === "glossary"
+      ? "DIGITAL INSIGHT"
+      : variant === "appendix"
+        ? "APPENDIX"
+        : `PART ${String(partNumber ?? 0).padStart(2, "0")}`;
   const partNumberDisplay =
-    variant === "glossary" ? "G" : String(partNumber ?? 0).padStart(2, "0");
+    variant === "glossary" ? "G" : variant === "appendix" ? "A" : String(partNumber ?? 0).padStart(2, "0");
 
   return (
     <div
-      className={`section-slide-root${variant === "glossary" ? " section-slide-glossary" : ""}`}
+      className={`section-slide-root${
+        variant === "glossary"
+          ? " section-slide-glossary"
+          : variant === "appendix"
+            ? " section-slide-appendix"
+            : ""
+      }`}
     >
       <div className="bg-grid-overlay" aria-hidden="true" />
       <div className="bg-glow-circle" aria-hidden="true" />

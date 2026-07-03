@@ -4,8 +4,9 @@ import { type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const CX = 50;
-const CY = 48;
-const RADIUS = 35;
+const CY = 50;
+const RADIUS = 36;
+const CORE_R = 11.5;
 
 const SPOKES: ReadonlyArray<{
   id: string;
@@ -68,6 +69,21 @@ function polar(angleDeg: number, radius: number) {
   };
 }
 
+function lineEndpoints(angleDeg: number) {
+  const rad = (angleDeg * Math.PI) / 180;
+  const end = polar(angleDeg, RADIUS);
+  const start = {
+    x: CX + CORE_R * Math.cos(rad),
+    y: CY + CORE_R * Math.sin(rad),
+  };
+  const nodeHalf = 7.2;
+  const endOnSquare = {
+    x: end.x - nodeHalf * Math.cos(rad),
+    y: end.y - nodeHalf * Math.sin(rad),
+  };
+  return { start, end: endOnSquare };
+}
+
 export default function Slide07ScopeHub() {
   const reduceMotion = useReducedMotion();
 
@@ -78,127 +94,98 @@ export default function Slide07ScopeHub() {
       aria-label="AI 생산성 혁신을 중심으로 프론트엔드, 백엔드, 데이터베이스, 보안·거버넌스, 인프라·DevOps가 연결된 통합 플랫폼 다이어그램"
     >
       <div className="s07-hub__stage">
-      <svg className="s07-hub__canvas" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <defs>
-          <radialGradient id="s07-hub-glow" cx="50%" cy="48%" r="42%">
-            <stop offset="0%" stopColor="#0078d4" stopOpacity={0.12} />
-            <stop offset="100%" stopColor="#0078d4" stopOpacity={0} />
-          </radialGradient>
-        </defs>
+        <svg className="s07-hub__canvas" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <radialGradient id="s07-hub-glow" cx="50%" cy="50%" r="45%">
+              <stop offset="0%" stopColor="#0078d4" stopOpacity={0.1} />
+              <stop offset="100%" stopColor="#0078d4" stopOpacity={0} />
+            </radialGradient>
+          </defs>
 
-        <rect x={0} y={0} width={100} height={100} fill="url(#s07-hub-glow)" />
+          <rect x={0} y={0} width={100} height={100} fill="url(#s07-hub-glow)" />
 
-        {!reduceMotion ? (
-          <motion.circle
-            className="s07-hub__pulse-ring"
+          {!reduceMotion ? (
+            <motion.circle
+              className="s07-hub__pulse-ring"
+              cx={CX}
+              cy={CY}
+              r={CORE_R + 1.5}
+              fill="none"
+              stroke="rgba(0,120,212,0.22)"
+              strokeWidth={0.35}
+              animate={{ r: [CORE_R + 1.5, CORE_R + 4, CORE_R + 1.5], opacity: [0.45, 0.12, 0.45] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+          ) : null}
+
+          {SPOKES.map((spoke) => {
+            const { start, end } = lineEndpoints(spoke.angle);
+            return (
+              <line
+                key={spoke.id}
+                x1={start.x}
+                y1={start.y}
+                x2={end.x}
+                y2={end.y}
+                stroke={spoke.color}
+                strokeWidth={0.65}
+                strokeLinecap="square"
+                opacity={0.72}
+              />
+            );
+          })}
+
+          <circle
             cx={CX}
             cy={CY}
-            r={12}
-            fill="none"
-            stroke="rgba(0,120,212,0.2)"
-            strokeWidth={0.4}
-            strokeDasharray="2 1.5"
-            animate={{ r: [12, 15.5, 12], opacity: [0.5, 0.18, 0.5] }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            r={CORE_R}
+            fill="#ffffff"
+            stroke="#0078d4"
+            strokeWidth={0.55}
           />
-        ) : null}
+        </svg>
+
+        <motion.div
+          className="s07-hub__core"
+          initial={reduceMotion ? false : { scale: 0.94, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="s07-hub__core-icon">
+            <i className="fas fa-robot" aria-hidden="true" />
+          </div>
+          <div className="s07-hub__core-title">AI</div>
+          <div className="s07-hub__core-sub">생산성 혁신</div>
+        </motion.div>
 
         {SPOKES.map((spoke, i) => {
-          const end = polar(spoke.angle, RADIUS);
+          const pos = polar(spoke.angle, RADIUS);
           return (
-            <g key={spoke.id}>
-              <line
-                x1={CX}
-                y1={CY}
-                x2={end.x}
-                y2={end.y}
-                stroke={spoke.color}
-                strokeWidth={0.55}
-                strokeLinecap="round"
-                opacity={0.28}
-              />
-              <line
-                x1={CX}
-                y1={CY}
-                x2={end.x}
-                y2={end.y}
-                stroke={spoke.color}
-                strokeWidth={0.5}
-                strokeLinecap="round"
-                strokeDasharray="2 1.6"
-                opacity={0.62}
-              >
-                {!reduceMotion ? (
-                  <animate attributeName="stroke-dashoffset" from="0" to="-7" dur="2.4s" repeatCount="indefinite" />
-                ) : null}
-              </line>
-              <circle cx={end.x} cy={end.y} r={0.75} fill={spoke.color} opacity={0.85} />
-              {!reduceMotion ? (
-                <motion.circle
-                  r={0.65}
-                  fill={spoke.color}
-                  animate={{
-                    cx: [CX, end.x],
-                    cy: [CY, end.y],
-                    opacity: [0, 0.9, 0],
-                  }}
-                  transition={{
-                    duration: 2.2,
-                    repeat: Infinity,
-                    delay: i * 0.35,
-                    ease: "easeInOut",
-                  }}
-                />
-              ) : null}
-            </g>
-          );
-        })}
-      </svg>
-
-      <motion.div
-        className="s07-hub__core"
-        initial={reduceMotion ? false : { scale: 0.92, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="s07-hub__core-ring" aria-hidden="true" />
-        <div className="s07-hub__core-icon">
-          <i className="fas fa-robot" aria-hidden="true" />
-        </div>
-        <div className="s07-hub__core-title">AI</div>
-        <div className="s07-hub__core-sub">생산성 혁신</div>
-      </motion.div>
-
-      {SPOKES.map((spoke, i) => {
-        const pos = polar(spoke.angle, RADIUS);
-        return (
-          <motion.div
-            key={spoke.id}
-            className="s07-hub__node"
-            style={
-              {
-                left: `${pos.x}%`,
-                top: `${pos.y}%`,
-                "--node-color": spoke.color,
-              } as CSSProperties
-            }
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.42, delay: 0.12 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="s07-hub__node-icon">
-              <i className={`fas ${spoke.icon}`} aria-hidden="true" />
-            </div>
-            <div className="s07-hub__node-copy">
+            <motion.div
+              key={spoke.id}
+              className="s07-hub__node"
+              style={
+                {
+                  left: `${pos.x}%`,
+                  top: `${pos.y}%`,
+                  "--node-color": spoke.color,
+                } as CSSProperties
+              }
+              initial={reduceMotion ? false : { opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="s07-hub__node-icon">
+                <i className={`fas ${spoke.icon}`} aria-hidden="true" />
+              </div>
               <div className="s07-hub__node-title">{spoke.title}</div>
               {spoke.descriptor ? (
                 <div className="s07-hub__node-hint">{spoke.descriptor}</div>
               ) : null}
               <div className="s07-hub__node-sub">{spoke.subtitle}</div>
-            </div>
-          </motion.div>
-        );
-      })}
+            </motion.div>
+          );
+        })}
       </div>
 
       <div className="s07-hub__caption">

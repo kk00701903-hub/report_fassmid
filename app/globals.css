@@ -2572,29 +2572,62 @@ html.custom-cursor-active [contenteditable="true"] {
   animation-play-state: running !important;
 }
 
-.projector-fullscreen-exit {
+.projector-fullscreen-context-menu {
   position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 250;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 8px;
+  z-index: 300;
+  min-width: 188px;
+  padding: 6px;
+  border-radius: 10px;
   border: 1px solid var(--border);
-  background: rgba(10, 14, 26, 0.9);
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 13px;
-  opacity: 0.5;
-  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  background: rgba(10, 14, 26, 0.96);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
-.projector-fullscreen-exit:hover {
-  opacity: 1;
-  border-color: var(--accent);
+.projector-fullscreen-context-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.projector-fullscreen-context-menu__item:hover,
+.projector-fullscreen-context-menu__item:focus-visible {
+  background: rgba(0, 120, 212, 0.16);
   color: var(--accent);
+  outline: none;
+}
+
+.projector-fullscreen-context-menu__item i {
+  width: 16px;
+  color: var(--accent);
+  text-align: center;
+}
+
+.projector-fullscreen-context-menu__hint {
+  margin-left: auto;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.2;
+}
+
+html.custom-cursor-active .projector-fullscreen-context-menu,
+html.custom-cursor-active .projector-fullscreen-context-menu * {
+  cursor: pointer !important;
 }
 
 html:has(.presentation-shell--projector),

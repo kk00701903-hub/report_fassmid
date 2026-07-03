@@ -25,7 +25,9 @@ function buildSlidePartsFromManifest(): Array<SlidePart & { startSlideId: number
 
     for (let j = i + 1; j < DECK_MANIFEST.length; j++) {
       const next = DECK_MANIFEST[j];
-      if (next.role === "part-divider" || next.role === "glossary-divider") break;
+      if (next.role === "part-divider" || next.role === "glossary-divider" || next.role === "appendix-divider") {
+        break;
+      }
       if (next.role === "content" || next.role === "closing") {
         endSlideId = next.slideId;
       }
@@ -47,7 +49,7 @@ function buildSlidePartsFromManifest(): Array<SlidePart & { startSlideId: number
 export function isSidebarDividerSlide(slideId: number | null): boolean {
   if (slideId === null) return false;
   const entry = getDeckEntryBySlideId(slideId);
-  return entry?.role === "glossary-divider" || entry?.role === "part-divider";
+  return entry?.role === "glossary-divider" || entry?.role === "appendix-divider" || entry?.role === "part-divider";
 }
 
 /** 표지 · Glossary 구간 등 PART 미표시 슬라이드 */
@@ -66,6 +68,7 @@ export function getSlidePart(builtinSlideId: number | null): SlidePart | null {
   if (
     entry.role === "cover" ||
     entry.role === "glossary-divider" ||
+    entry.role === "appendix-divider" ||
     entry.role === "glossary" ||
     entry.role === "appendix"
   ) {
@@ -77,7 +80,7 @@ export function getSlidePart(builtinSlideId: number | null): SlidePart | null {
     if (prev.role === "part-divider" && prev.partNumber) {
       return { partNumber: prev.partNumber, title: prev.partTitleKo ?? prev.title };
     }
-    if (prev.role === "glossary-divider") break;
+    if (prev.role === "glossary-divider" || prev.role === "appendix-divider") break;
   }
 
   return null;
