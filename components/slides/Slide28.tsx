@@ -37,21 +37,12 @@ const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
         </div>
       </div>
       <div class="engine-description-right">
-        <h2 class="engine-desc-title">5대 전략 프레임워크</h2>
+        <h2 class="engine-desc-title"><i class="fas fa-lightbulb" aria-hidden="true"></i> 사업 확장 관점</h2>
         <p class="engine-desc-body">
-          차세대 웹 아키텍처는 기능 단위 모듈화 배포, 최신 프레임워크 기반 성능 개선, 유연한 API·데이터 연동,
-          무결점(Zero-Defect) 품질 통제, Cloud-Ready 확장 구조를 하나의 IT 엔진으로 통합합니다.
-          시장 변화에 즉각 대응하고, 운영 효율과 데이터 기반 의사결정, 시스템 안정성, 중장기 플랫폼 성장성을 동시에 실현하는
-          FaSS 차세대 플랫폼의 비즈니스 혁신 기반입니다.
+          당사 유통물류 및 3PL 고객사에 <strong>IT 컨설팅 개념</strong>으로 당사 차세대 프레임워크를 도입하고,
+          <strong>AI 워크플로우 자동화 툴</strong>을 제공한다면 <strong>고부가가치 물류</strong>를 실현할 수 있으며
+          <strong>락인(Lock-in) 효과</strong>도 기대할 수 있습니다.
         </p>
-        <div class="engine-insight-box">
-          <div class="engine-insight-label"><i class="fas fa-lightbulb"></i> 사업 확장 관점</div>
-          <p class="engine-insight-text">
-            당사 유통물류 및 3PL 고객사에 <strong>IT 컨설팅 개념</strong>으로 당사 차세대 프레임워크를 도입하고,
-            <strong>AI 워크플로우 자동화 툴</strong>을 제공한다면 <strong>고부가가치 물류</strong>를 실현할 수 있으며
-            <strong>락인(Lock-in) 효과</strong>도 기대할 수 있습니다.
-          </p>
-        </div>
       </div>
     </div>
 

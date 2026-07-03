@@ -30,9 +30,8 @@ export default function Slide42() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">INTERNAL AX</span>
-            <span className="ax-kicker">사내 AX 가속기</span>
+            <h1>코드 없이 구축하는 사내 AI 에이전트</h1>
           </div>
-          <h1 className="title-main">코드 없이 구축하는 사내 AI 에이전트</h1>
           <p className="sub">
             현업이 직접 워크플로우를 설계하고, 전사에 공유하며 사내 시스템을 자동화하는 통합 플랫폼.
           </p>

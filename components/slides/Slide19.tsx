@@ -136,9 +136,9 @@ export default function Slide19() {
               <table>
                 <thead>
                   <tr>
-                    <th style={{ width: "23%" }}>역할</th>
-                    <th style={{ width: "17%" }}>담당자</th>
-                    <th style={{ width: "60%" }}>주요 업무</th>
+                    <th style={{ width: "22%" }}>역할</th>
+                    <th style={{ width: "16%" }}>담당자</th>
+                    <th style={{ width: "62%" }}>주요 업무</th>
                   </tr>
                 </thead>
                 <tbody>

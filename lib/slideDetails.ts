@@ -371,7 +371,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "ai-augmented-workflow",
-        title: "AI-Augmented 개발 워크플로우",
+        title: "AI 협력 개발 워크플로우 (AI-Augmented)",
         category: "process",
         summary:
           "TFT가 실제 사용하는 유료·상용 개발 툴(Jira, Figma, Adobe, Claude Code, Cursor, DGX Spark, GitLab CI 등)의 역할과 단계별 활용을 세부 설명하는 장표입니다.",
@@ -781,16 +781,15 @@ public void importDailyShipments() {
     topics: [
       {
         id: "business-innovation-engine",
-        title: "차세대 영업 핵심 IT 엔진 5대 전략",
+        title: "사업 확장 관점",
         category: "process",
         summary:
-          "민첩성·기술 부채 해소·데이터 의사결정·Zero-Defect 안정성·Cloud-Ready 확장성을 통한 비즈니스 혁신 전략입니다.",
+          "유통물류·3PL 고객사에 차세대 프레임워크와 AI 워크플로우 자동화를 IT 컨설팅으로 제공해 고부가가치 물류와 락인 효과를 확보하는 전략입니다.",
         process: [
-          { step: 1, title: "민첩성", description: "모듈화 배포로 시장·고객 요구 즉각 대응" },
-          { step: 2, title: "업무 효율", description: "최신 웹 프레임워크로 응답 속도·생산성 향상" },
-          { step: 3, title: "데이터 의사결정", description: "API 통합·실시간 데이터 가시화" },
-          { step: 4, title: "안정성", description: "Zero-Defect 품질 통제로 장애 사전 차단" },
-          { step: 5, title: "Cloud-Ready", description: "K8s·컨테이너 표준으로 확장·ASP/SaaS 전환 대비" },
+          { step: 1, title: "프레임워크 도입", description: "3PL·유통물류 고객사에 차세대 FaSS 프레임워크 IT 컨설팅 제공" },
+          { step: 2, title: "AI 자동화", description: "AI 워크플로우 자동화 툴로 운영 효율·부가가치 제고" },
+          { step: 3, title: "고부가가치 물류", description: "기술 자산 기반 차별화된 물류 서비스 실현" },
+          { step: 4, title: "락인 효과", description: "플랫폼·도구 의존 구조로 중장기 고객 관계 강화" },
         ],
       },
     ],

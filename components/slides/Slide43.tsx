@@ -61,9 +61,8 @@ export default function Slide43() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">GO-TO-MARKET</span>
-            <span className="ax-kicker">사업화 로드맵</span>
+            <h1>사내 도구를 넘어, 상용 플랫폼으로</h1>
           </div>
-          <h1 className="title-main">사내 도구를 넘어, 상용 플랫폼으로</h1>
           <p className="sub">
             원하는 LLM 사용 가능, 워크플로우의 API 발행, SaaS·온프렘(on-prem) 이중 모드로 시장을 확장하는
             사업화 전략.

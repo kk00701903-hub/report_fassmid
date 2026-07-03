@@ -101,7 +101,7 @@ export default function Slide14SprintKanban() {
         <div className="title-row">
           <div className="bar" />
           <span className="badge">SPRINT CYCLE</span>
-          <h1>단계별 실행주기 (스프린트) 운영현황</h1>
+          <h1>단계별 실행주기 (Sprint) 운영현황</h1>
         </div>
         <p className="sub">
           FaSS Platform v3.0 — {SPRINT_BOARD_STATS.total}개 Mega-Sprint · ACTIVE{" "}

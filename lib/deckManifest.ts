@@ -45,9 +45,9 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     partTitleEn: "Strategic Vision & Objectives",
   },
   { slideId: 7, title: "차세대 FaSS 구축 프로젝트 범위", role: "content" },
-  { slideId: 14, title: "단계별 실행주기 (스프린트) 운영현황", role: "content" },
+  { slideId: 14, title: "단계별 실행주기 (Sprint) 운영현황", role: "content" },
   { slideId: 15, title: "타사 프로젝트 비교", role: "content" },
-  { slideId: 16, title: "AI-Augmented 개발 워크플로우", role: "content" },
+  { slideId: 16, title: "AI 협력 개발 워크플로우 (AI-Augmented)", role: "content" },
   {
     slideId: 13,
     title: "PART 2 - 프로젝트 진행 경과 및 방향성",
@@ -58,8 +58,8 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   },
   { slideId: 18, title: "프로젝트 진행경과 마일스톤", role: "content" },
   { slideId: 19, title: "최적화 방안 1. AI 디지털 워커 활용", role: "content" },
-  { slideId: 42, title: "#. 사내 AX 가속기: Agent Studio", role: "content" },
-  { slideId: 43, title: "#. AX 플랫폼 사업화 로드맵", role: "content" },
+  { slideId: 42, title: "#. Agent Studio", role: "content" },
+  { slideId: 43, title: "#. AX 플랫폼", role: "content" },
   { slideId: 20, title: "최적화 방안 2. 애자일 워룸 운영", role: "content" },
   { slideId: 21, title: "최적화 방안 3. 사전 POC 운영", role: "content" },
   {
@@ -71,9 +71,9 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     partTitleEn: "Tech Stack & Architecture",
   },
   { slideId: 23, title: "핵심 기술 스택", role: "content" },
-  { slideId: 24, title: "아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)", role: "content" },
-  { slideId: 25, title: "아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)", role: "content" },
-  { slideId: 26, title: "아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)", role: "content" },
+  { slideId: 3, title: "추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)", role: "glossary" },
+  { slideId: 4, title: "추진 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)", role: "glossary" },
+  { slideId: 5, title: "추진 방향성 설명 ③ — MSA 구조 (물류작업 예시)", role: "glossary" },
   {
     slideId: 27,
     title: "PART 4 - 혁신 및 검증",
@@ -102,9 +102,6 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 38, title: "중장기 목표 1: Kubernetes 운영", role: "content" },
   { slideId: 39, title: "중장기 목표 2: MSA 전환", role: "content" },
   { slideId: 40, title: "맺음말", role: "closing" },
-  { slideId: 3, title: "추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)", role: "glossary" },
-  { slideId: 4, title: "추진 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)", role: "glossary" },
-  { slideId: 5, title: "추진 방향성 설명 ③ — MSA 구조 (물류작업 예시)", role: "glossary" },
   { slideId: 6, title: "추진 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)", role: "glossary" },
   {
     slideId: 9,
@@ -113,6 +110,9 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     defaultVisible: false,
   },
   { slideId: 12, title: "Executive Summary - FaSS 플랫폼 구축", role: "content" },
+  { slideId: 24, title: "아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)", role: "content" },
+  { slideId: 25, title: "아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)", role: "content" },
+  { slideId: 26, title: "아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)", role: "content" },
 ];
 
 const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing"]);
