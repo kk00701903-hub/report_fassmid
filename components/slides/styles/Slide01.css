@@ -55,13 +55,25 @@
   overflow: hidden;
 }
 
-.slide-s01 .fass-cover-top {
-  flex-shrink: 0;
+.slide-s01 .fass-cover-middle {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  min-height: 0;
+  padding: 12px 0 20px;
+}
+
+.slide-s01 .fass-cover-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .slide-s01 .fass-top-header-section {
   flex-shrink: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .slide-s01 .fass-company-brand-label {
@@ -91,16 +103,6 @@
 
 .slide-s01 .fass-title-main-heading span {
   color: var(--ppt-accent);
-}
-
-.slide-s01 .fass-cover-middle {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  min-height: 0;
-  padding: 12px 0 20px;
 }
 
 .slide-s01 .fass-subtitle-description-text {
