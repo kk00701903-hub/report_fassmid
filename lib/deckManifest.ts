@@ -36,7 +36,6 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고", role: "cover" },
   { slideId: 10, title: "FaSS 플랫폼 아이덴티티", role: "content" },
   { slideId: 11, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)", role: "content" },
-  { slideId: 12, title: "Executive Summary - FaSS 플랫폼 구축", role: "content" },
   {
     slideId: 2,
     title: "PART 1 - 전략적 비전 및 목표",
@@ -113,6 +112,7 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     role: "appendix",
     defaultVisible: false,
   },
+  { slideId: 12, title: "Executive Summary - FaSS 플랫폼 구축", role: "content" },
 ];
 
 const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing"]);
