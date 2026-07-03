@@ -89,47 +89,9 @@
 
 .slide-s23 .line {
   height: 1px;
-  margin-top: 6px;
+  margin-top: 8px;
   background: linear-gradient(90deg, var(--fluent-blue, #0078d4), transparent);
   opacity: 0.35;
-}
-
-.slide-s23 .std-pills {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-  padding-left: 14px;
-}
-
-.slide-s23 .std-pill {
-  font-size: 13px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 14px;
-  background: var(--fluent-surface, #ffffff);
-  border: 1px solid var(--fluent-border, #d2d0ce);
-  color: var(--fluent-grey-130, #484644);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.slide-s23 .std-pill i {
-  color: var(--fluent-blue, #0078d4);
-  font-size: 13px;
-}
-
-.slide-s23 .std-pill--hero {
-  border-color: #0078d4;
-  background: #deecf9;
-  color: #004578;
-  font-weight: 700;
-  box-shadow: 0 0 0 1px rgba(0, 120, 212, 0.2);
-}
-
-.slide-s23 .std-pill--hero i {
-  color: #004578;
 }
 
 .slide-s23 .body {
@@ -150,28 +112,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 5px 10px;
+  gap: 12px;
+  padding: 20px 18px;
+  min-height: 84px;
   background: #f3f2f1;
   border: 1px solid #c8c6c4;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .slide-s23 .flow-node {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 8px;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 10px;
   background: var(--fluent-surface, #ffffff);
   border: 1px solid var(--fluent-border, #d2d0ce);
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   white-space: nowrap;
+  min-height: 48px;
+  box-sizing: border-box;
 }
 
 .slide-s23 .flow-node i {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .slide-s23 .flow-node.n1 {
@@ -242,7 +208,8 @@
 
 .slide-s23 .flow-arrow {
   color: var(--fluent-grey-90, #8a8886);
-  font-size: 12px;
+  font-size: 16px;
+  flex-shrink: 0;
 }
 
 /* ── Spotlight ribbon (animated hero tiles) ── */

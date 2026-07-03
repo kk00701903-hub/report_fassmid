@@ -2,8 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import Slide18Phase3Visual from "@/components/slides/Slide18Phase3Visual";
-
 type Milestone = {
   id: string;
   phase: string;
@@ -133,12 +131,10 @@ function PeriodBadge({
 
 function MilestoneCard({ item }: { item: Milestone }) {
   const reduceMotion = useReducedMotion();
-  const isPhase3 = item.phaseClass === "p3" && item.current;
   const cardClass = [
     "milestone-card",
     item.phaseClass,
     item.current ? "current current--animated" : "",
-    isPhase3 ? "current--3d" : "",
     item.span2 ? "span2" : "",
   ]
     .filter(Boolean)
@@ -160,8 +156,6 @@ function MilestoneCard({ item }: { item: Milestone }) {
             animate={reduceMotion ? undefined : { x: ["-120%", "120%"] }}
             transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.6 }}
           />
-          {isPhase3 ? <span className="current-depth-shadow" aria-hidden="true" /> : null}
-          {isPhase3 ? <Slide18Phase3Visual /> : null}
         </>
       ) : null}
 
@@ -193,7 +187,7 @@ function MilestoneCard({ item }: { item: Milestone }) {
       </div>
 
       <div className="card-title">{item.title}</div>
-      <p className="card-desc">{item.desc}</p>
+      <p className="card-desc"><span>{item.desc}</span></p>
       <div className="card-foot">
         {item.current ? (
           <motion.span
@@ -214,35 +208,23 @@ function MilestoneCard({ item }: { item: Milestone }) {
     return (
       <motion.article
         className={cardClass}
-        style={isPhase3 ? { transformStyle: "preserve-3d" } : undefined}
-        initial={{ opacity: 0, scale: 0.96, y: 6 }}
+        initial={{ opacity: 0, scale: 0.97, y: 6 }}
         animate={{
           opacity: 1,
-          scale: reduceMotion ? 1 : isPhase3 ? [1, 1.03, 1] : [1, 1.02, 1],
-          y: reduceMotion ? 0 : isPhase3 ? [0, -5, 0] : 0,
-          rotateX: reduceMotion || !isPhase3 ? 0 : [2, -1.5, 2],
-          rotateY: reduceMotion || !isPhase3 ? 0 : [-2.5, 2.5, -2.5],
+          scale: 1,
+          y: 0,
           boxShadow: reduceMotion
             ? "0 0 0 2px rgba(202, 80, 16, 0.55), 0 6px 20px rgba(202, 80, 16, 0.22)"
-            : isPhase3
-              ? [
-                  "0 0 0 2px rgba(202, 80, 16, 0.45), 0 8px 18px rgba(202, 80, 16, 0.2), 0 18px 36px rgba(138, 59, 0, 0.12)",
-                  "0 0 0 3px rgba(202, 80, 16, 0.7), 0 14px 28px rgba(202, 80, 16, 0.32), 0 24px 48px rgba(138, 59, 0, 0.18)",
-                  "0 0 0 2px rgba(202, 80, 16, 0.45), 0 8px 18px rgba(202, 80, 16, 0.2), 0 18px 36px rgba(138, 59, 0, 0.12)",
-                ]
-              : [
-                  "0 0 0 2px rgba(202, 80, 16, 0.4), 0 4px 14px rgba(202, 80, 16, 0.16)",
-                  "0 0 0 3px rgba(202, 80, 16, 0.65), 0 8px 24px rgba(202, 80, 16, 0.28)",
-                  "0 0 0 2px rgba(202, 80, 16, 0.4), 0 4px 14px rgba(202, 80, 16, 0.16)",
-                ],
+            : [
+                "0 0 0 2px rgba(202, 80, 16, 0.4), 0 4px 14px rgba(202, 80, 16, 0.16)",
+                "0 0 0 3px rgba(202, 80, 16, 0.6), 0 8px 22px rgba(202, 80, 16, 0.26)",
+                "0 0 0 2px rgba(202, 80, 16, 0.4), 0 4px 14px rgba(202, 80, 16, 0.16)",
+              ],
         }}
         transition={{
           opacity: { duration: 0.45 },
-          y: { duration: isPhase3 ? 3.2 : 0.45, repeat: isPhase3 && !reduceMotion ? Infinity : 0, ease: "easeInOut" },
-          scale: { duration: isPhase3 ? 3.2 : 2.6, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut" },
-          rotateX: { duration: 4.5, repeat: reduceMotion || !isPhase3 ? 0 : Infinity, ease: "easeInOut" },
-          rotateY: { duration: 5.2, repeat: reduceMotion || !isPhase3 ? 0 : Infinity, ease: "easeInOut" },
-          boxShadow: { duration: 2.6, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut" },
+          scale: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+          boxShadow: { duration: 2.8, repeat: reduceMotion ? 0 : Infinity, ease: "easeInOut" },
         }}
       >
         {cardInner}

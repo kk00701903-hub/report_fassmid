@@ -2158,6 +2158,32 @@ html.custom-cursor-active [contenteditable="true"] {
   color: var(--text);
 }
 
+.slide-sidebar__list button.is-cover-highlight {
+  border-color: rgba(59, 130, 246, 0.55);
+  background: rgba(59, 130, 246, 0.14);
+}
+
+.slide-sidebar__list button.is-cover-highlight .slide-sidebar__number,
+.slide-sidebar__list button.is-cover-highlight .slide-sidebar__title {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.slide-sidebar__list button.is-cover-highlight:hover {
+  border-color: rgba(96, 165, 250, 0.8);
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.slide-sidebar__list button.is-cover-highlight.is-active {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.26);
+}
+
+.slide-sidebar__list button.is-cover-highlight.is-active .slide-sidebar__number,
+.slide-sidebar__list button.is-cover-highlight.is-active .slide-sidebar__title {
+  color: #93c5fd;
+}
+
 .slide-sidebar__list button.is-part-divider {
   border-color: rgba(239, 68, 68, 0.4);
   background: rgba(239, 68, 68, 0.1);

@@ -28,7 +28,7 @@ const TITLE_VERSION_KEY = "fass-presentation-title-version";
 /** deckManifest 제목·순서 변경 시 로컬 설정을 갱신하기 위한 버전
  *  ⚠️ deckManifest 순서/제목을 바꿀 때마다 이 값을 반드시 올려야
  *  기존 사용자 localStorage 저장 순서가 새 manifest로 재동기화됩니다. */
-const CONFIG_TITLE_VERSION = 30;
+const CONFIG_TITLE_VERSION = 31;
 
 export function isSlideVisible(slide: SlideManifestItem): boolean {
   return slide.visible !== false;

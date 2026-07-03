@@ -74,20 +74,6 @@ export default function Slide23() {
             <h1>핵심 기술 스택</h1>
           </div>
           <p className="sub">차세대 FaSS 플랫폼 — 4개 영역 · 선정 기술 스택</p>
-          <div className="std-pills">
-            <span className="std-pill">
-              <i className="fab fa-java" aria-hidden="true" /> Java 21
-            </span>
-            <span className="std-pill std-pill--hero">
-              <i className="fab fa-react" aria-hidden="true" /> Next.js · React 19
-            </span>
-            <span className="std-pill">
-              <i className="fas fa-database" aria-hidden="true" /> PostgreSQL
-            </span>
-            <span className="std-pill std-pill--hero">
-              <i className="fab fa-docker" aria-hidden="true" /> Docker · K8s Ready
-            </span>
-          </div>
           <div className="line" />
         </div>
 
