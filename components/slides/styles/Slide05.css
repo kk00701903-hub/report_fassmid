@@ -439,15 +439,31 @@
 
 .slide-s05 .s05-package--flow {
   top: 0;
+  z-index: 1;
   animation: s05-pkg-down var(--s05-pkg-dur) linear infinite;
+  will-change: transform, opacity;
+}
+
+.slide-s05 .s05-belt--stalled .s05-package--flow {
+  animation-duration: calc(var(--s05-pkg-dur) * 2.6);
+  filter: grayscale(0.55) brightness(0.97);
+  opacity: 0.78;
+}
+
+.slide-s05 .s05-package--delay-0 {
+  animation-delay: 0s;
 }
 
 .slide-s05 .s05-package--delay-1 {
-  animation-delay: -1.13s;
+  animation-delay: -0.85s;
 }
 
 .slide-s05 .s05-package--delay-2 {
-  animation-delay: -2.26s;
+  animation-delay: -1.7s;
+}
+
+.slide-s05 .s05-package--delay-3 {
+  animation-delay: -2.55s;
 }
 
 /* Legacy bracket + single worker */

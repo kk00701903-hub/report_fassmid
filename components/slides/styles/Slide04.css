@@ -4,33 +4,37 @@
   flex-shrink: 0;
 }
 
-.slide-s04 .title-row {
+.slide-s04 .fluent-slide .title-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
   flex-wrap: nowrap;
 }
 
-.slide-s04 .bar,
-.slide-s04 .badge {
+.slide-s04 .fluent-slide .title-row .bar {
   flex-shrink: 0;
+  height: 26px;
 }
 
-.slide-s04 .badge {
-  font-size: 12px;
+.slide-s04 .fluent-slide .title-row .badge {
+  flex-shrink: 0;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 4px 10px;
+  letter-spacing: 0.03em;
+  padding: 3px 7px;
   border-radius: 4px;
+  white-space: nowrap;
 }
 
-.slide-s04 h1 {
-  font-size: 21px;
+.slide-s04 .fluent-slide .title-row h1 {
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.15;
   margin: 0;
   flex: 1 1 auto;
   min-width: 0;
+  white-space: nowrap;
+  letter-spacing: -0.03em;
 }
 
 .slide-s04 .sub {
@@ -122,6 +126,7 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
+  margin-top: 3px;
 }
 
 .slide-s04 .s04-tier-hero--system .s04-tier-hero__svg {

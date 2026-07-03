@@ -154,7 +154,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "glossary-infra",
-        title: "추진 방향성 설명 ② — 도커 (Docker) / 컨테이너 (Container)",
+        title: "추진 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)",
         category: "process",
         summary: "클라우드(인터넷 IT 자원), 오픈소스(공개 SW·벤더 탈피), API(시스템 연결 창구), SaaS/ASP(서비스형 제공) 용어 정리입니다.",
         process: [

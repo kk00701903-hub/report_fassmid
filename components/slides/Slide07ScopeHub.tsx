@@ -7,10 +7,19 @@ const CX = 50;
 const CY = 48;
 const RADIUS = 35;
 
-const SPOKES = [
+const SPOKES: ReadonlyArray<{
+  id: string;
+  title: string;
+  subtitle: string;
+  descriptor?: string;
+  icon: string;
+  color: string;
+  angle: number;
+}> = [
   {
     id: "fe",
     title: "프론트엔드",
+    descriptor: "눈에 보이는 부분",
     subtitle: "Next.js · React · RealGrid",
     icon: "fa-desktop",
     color: "#0078d4",
@@ -19,6 +28,7 @@ const SPOKES = [
   {
     id: "was",
     title: "백엔드 (WAS)",
+    descriptor: "눈에 보이지 않는 부분",
     subtitle: "수주 · 발주 · 정산 API",
     icon: "fa-server",
     color: "#0891b2",
@@ -181,6 +191,9 @@ export default function Slide07ScopeHub() {
             </div>
             <div className="s07-hub__node-copy">
               <div className="s07-hub__node-title">{spoke.title}</div>
+              {spoke.descriptor ? (
+                <div className="s07-hub__node-hint">{spoke.descriptor}</div>
+              ) : null}
               <div className="s07-hub__node-sub">{spoke.subtitle}</div>
             </div>
           </motion.div>

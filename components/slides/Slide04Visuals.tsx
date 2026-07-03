@@ -270,7 +270,7 @@ export function Slide04SystemHero() {
   const { animating } = useSlideDiagramMotion();
   const containerW = 68;
   const containerH = 48;
-  const containerY = 34;
+  const containerY = 42;
   const containerXs = [108, 188, 268, 348] as const;
 
   return (
@@ -298,11 +298,11 @@ export function Slide04SystemHero() {
           animate={animating ? { opacity: [0.55, 1, 0.55] } : undefined}
           transition={{ duration: 2.5, repeat: Infinity }}
         >
-          <rect x={468} y={30} width={128} height={58} rx={8} fill="#bfdbfe" stroke="#005a9e" strokeWidth={2.4} />
-          <text x={532} y={54} textAnchor="middle" fontSize={13} fontWeight={800} fill="#004578">
+          <rect x={468} y={34} width={128} height={58} rx={8} fill="#bfdbfe" stroke="#005a9e" strokeWidth={2.4} />
+          <text x={532} y={58} textAnchor="middle" fontSize={13} fontWeight={800} fill="#004578">
             Kubernetes
           </text>
-          <text x={532} y={72} textAnchor="middle" fontSize={11} fontWeight={700} fill="#1e293b">
+          <text x={532} y={76} textAnchor="middle" fontSize={11} fontWeight={700} fill="#1e293b">
             자동 배치·복제
           </text>
         </motion.g>

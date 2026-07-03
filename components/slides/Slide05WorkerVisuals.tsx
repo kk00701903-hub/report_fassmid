@@ -1,10 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 
 const STATIONS = ["입고", "분류", "포장", "출고"] as const;
-
-const PKG_TRAVEL = { duration: 3.2, repeat: Infinity, ease: "linear" as const };
 
 function PackageBox({ className = "" }: { className?: string }) {
   return (
@@ -16,30 +14,7 @@ function PackageBox({ className = "" }: { className?: string }) {
 }
 
 function FlowingPackage({ delay }: { delay: number }) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return <PackageBox className={`s05-package--flow s05-package--delay-${delay}`} />;
-  }
-
-  return (
-    <motion.div
-      className="s05-package s05-package--motion"
-      style={{ position: "absolute", left: "50%", marginLeft: -17, top: 0 }}
-      initial={{ y: -44, opacity: 0 }}
-      animate={{ y: [-44, 268], opacity: [0, 1, 1, 0] }}
-      transition={{
-        duration: PKG_TRAVEL.duration,
-        repeat: Infinity,
-        ease: PKG_TRAVEL.ease,
-        delay: delay * 1.05,
-        times: [0, 0.1, 0.88, 1],
-      }}
-    >
-      <div className="s05-package__strap" />
-      <div className="s05-package__seam" />
-    </motion.div>
-  );
+  return <PackageBox className={`s05-package--flow s05-package--delay-${delay}`} />;
 }
 
 function StationPill({
@@ -75,9 +50,9 @@ function ConveyorBelt({ variant }: { variant: "stalled" | "flowing" }) {
           </>
         ) : (
           <>
-            <PackageBox className="s05-package--stuck s05-package--pos-1" />
-            <PackageBox className="s05-package--stuck s05-package--pos-2" />
-            <PackageBox className="s05-package--stuck s05-package--pos-3" />
+            <FlowingPackage delay={0} />
+            <FlowingPackage delay={1} />
+            <FlowingPackage delay={2} />
             <div className="s05-belt__stall-overlay" />
           </>
         )}

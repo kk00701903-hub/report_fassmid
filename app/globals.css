@@ -2568,7 +2568,6 @@ html.custom-cursor-active [contenteditable="true"] {
 
 .presentation-shell--fullscreen .slide-motion-entered [data-motion] *,
 .presentation-shell--fullscreen .slide-motion-entered .s05-package--flow,
-.presentation-shell--fullscreen .slide-motion-entered .s05-package--motion,
 .presentation-shell--fullscreen .slide-motion-entered .s05-belt__slats {
   animation-play-state: running !important;
 }

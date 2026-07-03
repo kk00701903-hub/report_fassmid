@@ -32,7 +32,7 @@ export const SLIDE_MOTION_AUDIT_TARGETS: MotionAuditTarget[] = [
   {
     slideId: 5,
     kind: "style",
-    selector: ".s05-package--motion",
+    selector: ".s05-belt--flowing .s05-package--flow",
     label: "MSA conveyor package travel",
     properties: ["transform", "opacity"],
   },
