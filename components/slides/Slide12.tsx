@@ -95,7 +95,7 @@ export default function Slide12() {
         <div className="title-region-container">
           <div className="title-region-header">
             <div className="title-region-bar" />
-            <h1 className="title-region-text">Executive Summary - FaSS 플랫폼 구축</h1>
+            <h1 className="title-region-text">#. 별첨 Executive Summary - FaSS 플랫폼 구축</h1>
           </div>
           <div className="title-region-line" />
         </div>

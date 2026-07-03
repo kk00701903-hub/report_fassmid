@@ -11,7 +11,7 @@ export default function Slide26() {
         <div className="title-region-wrapper">
           <div className="title-region-header">
             <div className="title-region-bar" />
-            <h1 className="title-region-text">아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)</h1>
+            <h1 className="title-region-text">#. 별첨 아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)</h1>
           </div>
           <div className="title-region-line" />
         </div>

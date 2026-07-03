@@ -8,7 +8,7 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 <div class="title-region-wrapper">
 <div class="title-region-header">
 <div class="title-region-bar"></div>
-<h1 class="title-region-text">아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)</h1>
+<h1 class="title-region-text">#. 별첨 아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)</h1>
 </div>
 <div class="title-region-line"></div>
 </div>

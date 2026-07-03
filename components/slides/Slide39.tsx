@@ -8,7 +8,7 @@ const SLIDE_HTML = `<div class="msa-slide-root fluent-slide">
     <div class="title-header">
       <div class="title-bar"></div>
       <span class="title-badge">ULTIMATE GOAL</span>
-      <h1 class="title-text">중장기 목표 2: MSA 전환</h1>
+      <h1 class="title-text">#. 별첨 중장기 목표 2: MSA 전환</h1>
     </div>
     <div class="title-line"></div>
   </div>

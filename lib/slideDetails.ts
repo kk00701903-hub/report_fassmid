@@ -186,7 +186,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "cdc-primer",
-        title: "추진 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)",
+        title: "기술 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)",
         category: "process",
         summary:
           "현행 Batch(야간 전수 복제)와 CDC(변경분 실시간 전송)를 운영 부하·데이터 신선도 관점에서 비교합니다. Debezium + Kafka 기반 무중단 DB 이관의 핵심 방안입니다.",
@@ -239,7 +239,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "team-agent-roster",
-        title: "[별첨] 팀 에이전트 구성 — AI 8인 역할",
+        title: "#. 별첨 팀 에이전트 구성 — AI 8인 역할",
         category: "process",
         summary:
           "루트 Claude 지휘 하에 8명의 전문 AI 에이전트가 Spring·Next.js·인프라·마이그레이션·기획·위키 등 역할별로 위임·조율됩니다.",

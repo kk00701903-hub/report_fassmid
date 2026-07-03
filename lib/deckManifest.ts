@@ -74,6 +74,7 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 3, title: "기술 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)", role: "glossary" },
   { slideId: 4, title: "기술 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)", role: "glossary" },
   { slideId: 5, title: "기술 방향성 설명 ③ — MSA 구조 (물류작업 예시)", role: "glossary" },
+  { slideId: 6, title: "기술 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)", role: "glossary" },
   {
     slideId: 27,
     title: "PART 4 - 혁신 및 검증",
@@ -107,19 +108,18 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     partTitleKo: "별첨",
     partTitleEn: "Appendix — Supplementary Reference Materials",
   },
-  { slideId: 6, title: "기술 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)", role: "appendix", defaultVisible: true },
+  { slideId: 12, title: "#. 별첨 Executive Summary - FaSS 플랫폼 구축", role: "appendix", defaultVisible: true },
   {
     slideId: 9,
-    title: "[별첨] 팀 에이전트 구성 — AI 8인 역할",
+    title: "#. 별첨 팀 에이전트 구성 — AI 8인 역할",
     role: "appendix",
     defaultVisible: false,
   },
-  { slideId: 12, title: "Executive Summary - FaSS 플랫폼 구축", role: "appendix", defaultVisible: true },
-  { slideId: 24, title: "아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)", role: "appendix", defaultVisible: true },
-  { slideId: 25, title: "아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)", role: "appendix", defaultVisible: true },
-  { slideId: 26, title: "아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)", role: "appendix", defaultVisible: true },
-  { slideId: 38, title: "중장기 목표 1: Kubernetes 운영", role: "appendix", defaultVisible: true },
-  { slideId: 39, title: "중장기 목표 2: MSA 전환", role: "appendix", defaultVisible: true },
+  { slideId: 24, title: "#. 별첨 아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)", role: "appendix", defaultVisible: true },
+  { slideId: 25, title: "#. 별첨 아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)", role: "appendix", defaultVisible: true },
+  { slideId: 26, title: "#. 별첨 아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)", role: "appendix", defaultVisible: true },
+  { slideId: 38, title: "#. 별첨 중장기 목표 1: Kubernetes 운영", role: "appendix", defaultVisible: true },
+  { slideId: 39, title: "#. 별첨 중장기 목표 2: MSA 전환", role: "appendix", defaultVisible: true },
 ];
 
 const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing"]);
