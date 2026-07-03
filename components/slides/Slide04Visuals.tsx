@@ -114,12 +114,35 @@ export function DockerContainer({
 }
 
 export function MiniShipScene({ variant }: { variant: "standard" | "port" | "isolated" }) {
+  const { animating } = useSlideDiagramMotion();
+
   if (variant === "standard") {
+    // 표준화 — 세 컨테이너가 같은 규격으로 순서대로 내려앉음
     return (
       <svg viewBox="0 0 120 70" className="s04-mini-scene" aria-hidden="true">
-        <ShippingContainer color={CONTAINER_COLORS[0]} x={6} y={22} width={34} height={26} label="쌀" />
-        <ShippingContainer color={CONTAINER_COLORS[1]} x={42} y={22} width={34} height={26} label="TV" />
-        <ShippingContainer color={CONTAINER_COLORS[2]} x={78} y={22} width={34} height={26} label="부품" />
+        {[6, 42, 78].map((x, i) => (
+          <motion.g
+            key={x}
+            initial={false}
+            animate={animating ? { y: [-14, 0], opacity: [0, 1] } : { y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: animating ? i * 0.45 : 0,
+              repeat: animating ? Infinity : 0,
+              repeatDelay: 1.6,
+              ease: "easeOut",
+            }}
+          >
+            <ShippingContainer
+              color={CONTAINER_COLORS[i]}
+              x={x}
+              y={22}
+              width={34}
+              height={26}
+              label={["쌀", "TV", "부품"][i]}
+            />
+          </motion.g>
+        ))}
         <text x={60} y={14} textAnchor="middle" fontSize={10} fontWeight={700} fill="#64748b">
           같은 크기 · 같은 규격
         </text>
@@ -128,6 +151,7 @@ export function MiniShipScene({ variant }: { variant: "standard" | "port" | "iso
   }
 
   if (variant === "port") {
+    // 이식성 — 컨테이너가 배에서 트럭으로 그대로 이동
     return (
       <svg viewBox="0 0 120 70" className="s04-mini-scene" aria-hidden="true">
         <text x={14} y={12} fontSize={9} fontWeight={700} fill="#64748b">
@@ -135,12 +159,24 @@ export function MiniShipScene({ variant }: { variant: "standard" | "port" | "iso
         </text>
         <path d="M4 50 Q30 46 60 50 T116 50 L116 58 L4 58 Z" fill="#bfdbfe" opacity={0.5} />
         <path d="M18 48 L60 34 L102 48 L96 52 L24 52 Z" fill="#64748b" />
-        <ShippingContainer color={CONTAINER_COLORS[0]} x={26} y={18} width={28} height={22} />
         <path d="M104 44 L112 40 L112 48 Z" fill="#0078d4" />
         <rect x={106} y={46} width={12} height={10} rx={1} fill="#475569" />
         <text x={111} y={12} fontSize={9} fontWeight={700} fill="#64748b">
           트럭
         </text>
+        <motion.g
+          initial={false}
+          animate={animating ? { x: [0, 74], y: [0, 22], opacity: [1, 1, 0] } : { x: 0, y: 0, opacity: 1 }}
+          transition={{
+            duration: 1.8,
+            times: [0, 0.8, 1],
+            repeat: animating ? Infinity : 0,
+            repeatDelay: 0.6,
+            ease: "easeInOut",
+          }}
+        >
+          <ShippingContainer color={CONTAINER_COLORS[0]} x={26} y={18} width={28} height={22} />
+        </motion.g>
         <text x={60} y={66} textAnchor="middle" fontSize={9} fontWeight={700} fill="#334155">
           재적재 없이 그대로 연결
         </text>
@@ -148,11 +184,34 @@ export function MiniShipScene({ variant }: { variant: "standard" | "port" | "iso
     );
   }
 
+  // 격리 — 한쪽 장애(흔들림)가 반대편으로 전파되지 않음
   return (
     <svg viewBox="0 0 120 70" className="s04-mini-scene" aria-hidden="true">
-      <ShippingContainer color="#8b5cf6" x={8} y={24} width={38} height={28} label="냉동" />
+      <motion.g
+        initial={false}
+        animate={animating ? { x: [0, -1.5, 1.5, -1.5, 0], rotate: [0, -1.5, 1.5, -1.5, 0] } : {}}
+        transition={{
+          duration: 0.6,
+          repeat: animating ? Infinity : 0,
+          repeatDelay: 1.4,
+          ease: "easeInOut",
+        }}
+        style={{ transformOrigin: "27px 38px" }}
+      >
+        <ShippingContainer color="#8b5cf6" x={8} y={24} width={38} height={28} label="냉동" />
+      </motion.g>
       <ShippingContainer color="#06b6d4" x={68} y={24} width={38} height={28} label="일반" />
-      <line x1={52} y1={16} x2={52} y2={58} stroke="#cbd5e1" strokeWidth={2} strokeDasharray="3 2" />
+      <motion.line
+        x1={52}
+        y1={16}
+        x2={52}
+        y2={58}
+        stroke="#cbd5e1"
+        strokeWidth={2}
+        strokeDasharray="3 2"
+        animate={animating ? { stroke: ["#cbd5e1", "#22c55e", "#cbd5e1"] } : undefined}
+        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+      />
       <text x={60} y={14} textAnchor="middle" fontSize={10} fontWeight={700} fill="#64748b">
         컨테이너 분리
       </text>
@@ -283,15 +342,26 @@ export function Slide04SystemHero() {
         </text>
 
         {containerXs.map((x, i) => (
-          <DockerContainer
+          <motion.g
             key={x}
-            color={i < 3 ? CONTAINER_COLORS[i] : "#10b981"}
-            x={x}
-            y={containerY}
-            width={containerW}
-            height={containerH}
-            labelSize={10}
-          />
+            initial={false}
+            animate={animating ? { y: [0, -3, 0] } : undefined}
+            transition={{
+              duration: 1.6,
+              delay: i * 0.2,
+              repeat: animating ? Infinity : 0,
+              ease: "easeInOut",
+            }}
+          >
+            <DockerContainer
+              color={i < 3 ? CONTAINER_COLORS[i] : "#10b981"}
+              x={x}
+              y={containerY}
+              width={containerW}
+              height={containerH}
+              labelSize={10}
+            />
+          </motion.g>
         ))}
 
         <motion.g
@@ -306,6 +376,18 @@ export function Slide04SystemHero() {
             자동 배치·복제
           </text>
         </motion.g>
+
+        {/* K8s가 컨테이너를 운영 서버로 자동 배치하는 흐름 */}
+        <line x1={320} y1={92} x2={320} y2={104} stroke="#005a9e" strokeWidth={2} strokeDasharray="4 3" opacity={0.5} />
+        {animating ? (
+          <motion.circle
+            cx={320}
+            r={4.5}
+            fill="#0078d4"
+            animate={{ cy: [92, 104], opacity: [0, 1, 0] }}
+            transition={{ duration: 1.1, repeat: Infinity, ease: "easeIn" }}
+          />
+        ) : null}
 
         <rect x={56} y={104} width={528} height={34} rx={8} fill="#cbd5e1" stroke="#334155" strokeWidth={2} />
         <rect x={72} y={114} width={14} height={14} rx={2} fill="#22c55e" />
