@@ -96,15 +96,12 @@ export default function Slide14SprintKanban() {
   let activeCounter = 0;
 
   return (
-    <div className="sprint-board-slide">
+    <div className="slide fluent-slide sprint-board-slide">
       <header className="title-r">
         <div className="title-row">
           <div className="bar" />
-          <span className="badge">
-            <span className="pulse" />
-            LIVE · 동시 진행
-          </span>
-          <h1>스프린트 운영현황</h1>
+          <span className="badge">SPRINT CYCLE</span>
+          <h1>단계별 실행주기 (스프린트) 운영현황</h1>
         </div>
         <p className="sub">
           FaSS Platform v3.0 — {SPRINT_BOARD_STATS.total}개 Mega-Sprint · ACTIVE{" "}

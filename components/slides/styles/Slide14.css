@@ -44,7 +44,7 @@
 
 .slide-s14 .title-r {
   flex-shrink: 0;
-  padding: 16px 28px 4px;
+  padding: 14px 36px 8px;
   position: relative;
   z-index: 1;
 }
@@ -52,42 +52,26 @@
 .slide-s14 .title-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .slide-s14 .bar {
   width: 4px;
-  height: 28px;
+  height: 32px;
   background: var(--ppt-accent);
   border-radius: 2px;
   flex-shrink: 0;
 }
 
 .slide-s14 .badge {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 12px;
+  padding: 3px 10px;
+  border-radius: 4px;
   background: rgba(0, 120, 212, 0.1);
-  border: 1px solid rgba(0, 120, 212, 0.4);
+  border: 1px solid rgba(0, 120, 212, 0.35);
   color: var(--ppt-active);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.slide-s14 .badge .pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--ppt-active);
-  animation: s14-pulse 1.4s ease-in-out infinite;
-}
-
-@keyframes s14-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.85); }
 }
 
 .slide-s14 h1 {
@@ -99,15 +83,21 @@
 }
 
 .slide-s14 .sub {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ppt-text-2) !important;
-  margin-top: 3px;
-  padding-left: 14px;
+  margin-top: 6px;
+  padding-left: 16px;
+  line-height: 1.45;
+}
+
+.slide-s14 .sub strong {
+  color: var(--ppt-text-1);
+  font-weight: 600;
 }
 
 .slide-s14 .line {
   height: 1px;
-  margin-top: 6px;
+  margin-top: 8px;
   background: linear-gradient(90deg, var(--ppt-accent), transparent);
   opacity: 0.35;
 }

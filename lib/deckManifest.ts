@@ -35,6 +35,7 @@ export type DeckSlideEntry = {
 export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 1, title: "(주)제때 차세대 FaSS 플랫폼 구축 중간 보고", role: "cover" },
   { slideId: 10, title: "FaSS 플랫폼 아이덴티티", role: "content" },
+  { slideId: 11, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)", role: "content" },
   { slideId: 12, title: "Executive Summary - FaSS 플랫폼 구축", role: "content" },
   {
     slideId: 2,
@@ -45,12 +46,9 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     partTitleEn: "Strategic Vision & Objectives",
   },
   { slideId: 7, title: "차세대 FaSS 구축 프로젝트 범위", role: "content" },
-  { slideId: 14, title: "스프린트 운영현황", role: "content" },
+  { slideId: 14, title: "단계별 실행주기 (스프린트) 운영현황", role: "content" },
   { slideId: 15, title: "타사 프로젝트 비교", role: "content" },
   { slideId: 16, title: "AI-Augmented 개발 워크플로우", role: "content" },
-  { slideId: 11, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)", role: "content" },
-  { slideId: 42, title: "사내 AX 가속기: Agent Studio", role: "content" },
-  { slideId: 43, title: "AX 플랫폼 사업화 로드맵", role: "content" },
   {
     slideId: 13,
     title: "PART 2 - 프로젝트 진행 경과 및 방향성",
@@ -61,6 +59,8 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   },
   { slideId: 18, title: "프로젝트 진행경과 마일스톤", role: "content" },
   { slideId: 19, title: "최적화 방안 1. AI 디지털 워커 활용", role: "content" },
+  { slideId: 42, title: "#. 사내 AX 가속기: Agent Studio", role: "content" },
+  { slideId: 43, title: "#. AX 플랫폼 사업화 로드맵", role: "content" },
   { slideId: 20, title: "최적화 방안 2. 애자일 워룸 운영", role: "content" },
   { slideId: 21, title: "최적화 방안 3. 사전 POC 운영", role: "content" },
   {
