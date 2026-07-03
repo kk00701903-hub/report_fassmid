@@ -47,12 +47,26 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0.7) 40%, transparent 100%);
-  padding: 48px 56px 36px;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 14, 26, 0.95) 0%,
+    rgba(10, 14, 26, 0.82) 52%,
+    rgba(10, 14, 26, 0.55) 100%
+  );
+  padding: 48px 48px 36px 56px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 28px;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.slide-s01 .fass-cover-main {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .slide-s01 .fass-cover-top {
@@ -172,4 +186,72 @@
   font-size: 18px;
   font-weight: 600;
   color: var(--ppt-text-1);
+}
+
+/* ── Cover slide TOC (blue highlight) ── */
+.slide-s01 .fass-cover-toc {
+  flex: 0 0 300px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 18px;
+  border-radius: var(--ppt-radius-lg);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  background: linear-gradient(
+    160deg,
+    rgba(30, 58, 138, 0.42) 0%,
+    rgba(15, 23, 42, 0.72) 100%
+  );
+  box-shadow:
+    0 8px 32px rgba(15, 23, 42, 0.45),
+    inset 0 1px 0 rgba(96, 165, 250, 0.12);
+}
+
+.slide-s01 .fass-cover-toc__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #93c5fd;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.28);
+}
+
+.slide-s01 .fass-cover-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slide-s01 .fass-cover-toc__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px 10px 14px;
+  border-radius: var(--ppt-radius-md);
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  border-left: 3px solid #3b82f6;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.18) 0%,
+    rgba(37, 99, 235, 0.06) 100%
+  );
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.06);
+}
+
+.slide-s01 .fass-cover-toc__part {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #60a5fa;
+}
+
+.slide-s01 .fass-cover-toc__title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #dbeafe;
 }

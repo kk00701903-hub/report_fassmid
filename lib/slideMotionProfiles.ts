@@ -20,7 +20,7 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
   cover: {
     particles: "spark",
     titleSelectors: `${TITLE}, .fass-subtitle-text`,
-    staggerSelectors: ".fass-info-item-box, .fass-vision-statement-container, .fass-top-header-section > *",
+    staggerSelectors: ".fass-info-item-box, .fass-vision-statement-container, .fass-top-header-section > *, .fass-cover-toc__item",
     countSelectors: COUNTS,
     accentSweep: true,
   },
@@ -58,7 +58,8 @@ export const SLIDE_MOTION_PROFILES: Record<SlideMotionType, SlideMotionProfile> 
   compare: {
     particles: "grid",
     titleSelectors: TITLE,
-    staggerSelectors: ".compare-card, .compare-table tbody tr, .insight-row, .metric-item, .ref-badge",
+    staggerSelectors:
+      ".compare-card, .compare-table tbody tr, .insight-row, .metric-item, .ref-badge, .compare-side, .compare-panels > .panel, .panel-divider, .panel-callout, .wrapup-box, .s05-panel, .s05-wrapup__item, .s04-concept-card",
     countSelectors: COUNTS,
     accentSweep: false,
   },

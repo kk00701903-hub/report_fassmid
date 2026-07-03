@@ -130,6 +130,14 @@
 [data-motion="compare"] .compare-table tbody tr,
 [data-motion="compare"] .insight-row,
 [data-motion="compare"] .metric-item,
+[data-motion="compare"] .compare-side,
+[data-motion="compare"] .compare-panels > .panel,
+[data-motion="compare"] .panel-divider,
+[data-motion="compare"] .panel-callout,
+[data-motion="compare"] .wrapup-box,
+[data-motion="compare"] .s05-panel,
+[data-motion="compare"] .s05-wrapup__item,
+[data-motion="compare"] .s04-concept-card,
 [data-motion="pipeline"] .node,
 [data-motion="pipeline"] .pill,
 [data-motion="pipeline"] .circuit-phase,
@@ -343,11 +351,15 @@
 }
 
 /* ── Comparison — our column emphasis ── */
-[data-motion="compare"] .compare-card--ours {
+[data-motion="compare"] .compare-card--ours,
+[data-motion="compare"] .panel--cdc,
+[data-motion="compare"] .s05-panel--msa {
   animation: motionComparePulse var(--motion-duration) var(--motion-ease) infinite;
 }
 
-[data-motion="compare"] .vs-badge {
+[data-motion="compare"] .vs-badge,
+[data-motion="compare"] .divider-badge,
+[data-motion="compare"] .s05-vs__badge {
   animation: motionChevron 2.4s var(--motion-ease) infinite;
 }
 
@@ -358,8 +370,32 @@
 
 /* ── Cover keywords (legacy + vision) ── */
 [data-motion="cover"] .cover-keyword-item {
-  animation: motionStepGlow var(--motion-duration) var(--motion-ease) infinite;
+  animation: motionCoverTocGlow var(--motion-duration) var(--motion-ease) infinite;
 }
+
+@keyframes motionCoverTocGlow {
+  0%, 100% {
+    border-color: rgba(59, 130, 246, 0.22);
+    border-left-color: #3b82f6;
+    box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.06);
+  }
+  50% {
+    border-color: rgba(96, 165, 250, 0.55);
+    border-left-color: #60a5fa;
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.22);
+    background: linear-gradient(
+      90deg,
+      rgba(59, 130, 246, 0.28) 0%,
+      rgba(37, 99, 235, 0.1) 100%
+    );
+  }
+}
+
+[data-motion="cover"] .fass-cover-toc__item:nth-child(1) { animation-delay: 0s; }
+[data-motion="cover"] .fass-cover-toc__item:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="cover"] .fass-cover-toc__item:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="cover"] .fass-cover-toc__item:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+[data-motion="cover"] .fass-cover-toc__item:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
 
 [data-motion="cover"] .fass-title-main-heading span {
   animation: motionTextShine 5s var(--motion-ease) infinite;
@@ -491,6 +527,16 @@
 [data-motion="compare"] .metric-item:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
 [data-motion="compare"] .metric-item:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
 [data-motion="compare"] .metric-item:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+
+[data-motion="compare"] .compare-panels > .panel:nth-child(1),
+[data-motion="compare"] .s05-compare > .s05-panel:nth-child(1) { animation-delay: 0s; }
+[data-motion="compare"] .compare-panels > .panel:nth-child(3),
+[data-motion="compare"] .s05-compare > .s05-panel:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+[data-motion="compare"] .wrapup-box,
+[data-motion="compare"] .s05-wrapup { animation-delay: calc(var(--motion-stagger) * 3); }
+[data-motion="compare"] .s04-concept-card:nth-child(1) { animation-delay: 0s; }
+[data-motion="compare"] .s04-concept-card:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+[data-motion="compare"] .s04-concept-card:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
 
 [data-motion="part"] .section-topic-item:nth-child(1) .topic-dot { animation-delay: 0s; }
 [data-motion="part"] .section-topic-item:nth-child(2) .topic-dot { animation-delay: calc(var(--motion-stagger) * 1); }

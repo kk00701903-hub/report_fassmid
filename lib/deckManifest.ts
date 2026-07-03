@@ -45,6 +45,8 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   },
   { slideId: 7, title: "차세대 FaSS 구축 프로젝트 범위", role: "content" },
   { slideId: 11, title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)", role: "content" },
+  { slideId: 42, title: "사내 AX 가속기: Agent Studio", role: "content" },
+  { slideId: 43, title: "AX 플랫폼 사업화 로드맵", role: "content" },
   { slideId: 12, title: "Executive Summary - FaSS 플랫폼 구축", role: "content" },
   {
     slideId: 13,
@@ -55,12 +57,10 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     partTitleEn: "Project Progress & Direction",
   },
   { slideId: 14, title: "스프린트 운영현황", role: "content" },
-  { slideId: 15, title: "타사 프로젝트 비교", role: "content" },
-  { slideId: 16, title: "AI-Augmented 개발 워크플로우", role: "content" },
-  { slideId: 42, title: "사내 AX 가속기: Agent Studio", role: "content" },
-  { slideId: 43, title: "AX 플랫폼 사업화 로드맵", role: "content" },
   { slideId: 18, title: "프로젝트 진행경과 마일스톤", role: "content" },
   { slideId: 19, title: "최적화 방안 1. AI 디지털 워커 활용", role: "content" },
+  { slideId: 15, title: "타사 프로젝트 비교", role: "content" },
+  { slideId: 16, title: "AI-Augmented 개발 워크플로우", role: "content" },
   { slideId: 20, title: "최적화 방안 2. 애자일 워룸 운영", role: "content" },
   { slideId: 21, title: "최적화 방안 3. 사전 POC 운영", role: "content" },
   {
@@ -103,30 +103,16 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 38, title: "중장기 목표 1: Kubernetes 운영", role: "content" },
   { slideId: 39, title: "중장기 목표 2: MSA 전환", role: "content" },
   { slideId: 40, title: "맺음말", role: "closing" },
-  {
-    slideId: 44,
-    title: "별첨",
-    role: "appendix-divider",
-    partTitleKo: "별첨",
-    partTitleEn: "Appendix — Supplementary Reference Materials",
-  },
-  {
-    slideId: 8,
-    title: "[별첨] 디지털 트렌드 — MSA · Cloud · Open Source · AI",
-    role: "appendix",
-    defaultVisible: false,
-  },
+  { slideId: 3, title: "추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)", role: "glossary" },
+  { slideId: 4, title: "추진 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)", role: "glossary" },
+  { slideId: 5, title: "추진 방향성 설명 ③ — MSA 구조 (물류작업 예시)", role: "glossary" },
+  { slideId: 6, title: "추진 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)", role: "glossary" },
   {
     slideId: 9,
     title: "[별첨] 팀 에이전트 구성 — AI 8인 역할",
     role: "appendix",
     defaultVisible: false,
   },
-  { slideId: 41, title: "Digital Insight Glossary", role: "glossary-divider" },
-  { slideId: 3, title: "추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)", role: "glossary" },
-  { slideId: 4, title: "추진 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)", role: "glossary" },
-  { slideId: 5, title: "추진 방향성 설명 ③ — MSA 구조 (물류작업 예시)", role: "glossary" },
-  { slideId: 6, title: "추진 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)", role: "glossary" },
 ];
 
 const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing"]);
@@ -198,4 +184,12 @@ export function getGlossaryTopicTitles(): string[] {
 /** 별첨 간지 목차 */
 export function getAppendixTopicTitles(): string[] {
   return DECK_MANIFEST.filter((entry) => entry.role === "appendix").map((entry) => entry.title);
+}
+
+/** 표지 목차 — PART 간지 항목 (manifest 순서) */
+export function getPartDividerEntries(): DeckSlideEntry[] {
+  return DECK_MANIFEST.filter(
+    (entry): entry is DeckSlideEntry & { partNumber: number } =>
+      entry.role === "part-divider" && typeof entry.partNumber === "number",
+  );
 }
