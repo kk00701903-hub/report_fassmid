@@ -109,12 +109,6 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
     partTitleEn: "Appendix — Supplementary Reference Materials",
   },
   { slideId: 12, title: "#. 별첨 Executive Summary - FaSS 플랫폼 구축", role: "appendix", defaultVisible: true },
-  {
-    slideId: 9,
-    title: "#. 별첨 팀 에이전트 구성 — AI 8인 역할",
-    role: "appendix",
-    defaultVisible: false,
-  },
   { slideId: 24, title: "#. 별첨 아키텍처 원칙 1: 모듈러 모놀리스 (안정성 극대화)", role: "appendix", defaultVisible: true },
   { slideId: 25, title: "#. 별첨 아키텍처 원칙 2: 무중단 데이터 동기화 (Zero-downtime migration)", role: "appendix", defaultVisible: true },
   { slideId: 26, title: "#. 별첨 아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)", role: "appendix", defaultVisible: true },

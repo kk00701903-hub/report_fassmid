@@ -1,4 +1,4 @@
-/* Slide 40 — Closing (backup 38.html content, white Fluent theme) */
+/* Slide 40 — Closing (맺음말) */
 
 .slide-s40 .fass-closing-slide-root {
   width: 100%;
@@ -16,21 +16,21 @@
 /* ── Title ── */
 .slide-s40 .title-region-wrapper {
   flex-shrink: 0;
-  padding: 22px 40px 8px;
+  padding: 10px 32px 4px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .slide-s40 .title-horizontal-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .slide-s40 .title-accent-bar {
   width: 4px;
-  height: 30px;
+  height: 28px;
   background: #0078d4;
   border-radius: 2px;
   flex-shrink: 0;
@@ -38,41 +38,38 @@
 
 .slide-s40 .title-main-text {
   font-family: var(--ppt-font-display, "Noto Sans KR", sans-serif);
-  font-size: 25px;
+  font-size: 26px;
   font-weight: 700;
   color: #201f1e;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .slide-s40 .title-sub-text {
   font-size: 13px;
   color: #484644;
-  padding-left: 16px;
+  padding-left: 14px;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .slide-s40 .title-gradient-line {
   height: 1px;
   width: 100%;
   background: linear-gradient(90deg, #0078d4 0%, transparent 100%);
-  opacity: 0.3;
+  opacity: 0.35;
   margin-top: 4px;
 }
 
-/* ── Main body: robust 2-column grid ──
-   Higher specificity than fluent-primer's global
-   `[class*="slide-s"] .fluent-slide .fass-closing-content-body` (which forces flex/column). */
+/* ── Main body ── */
 .slide-s40 .fass-closing-slide-root.fluent-slide .fass-closing-content-body {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  grid-auto-flow: column;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: stretch;
-  padding: 8px 40px 8px;
-  gap: 16px;
+  padding: 6px 32px 6px;
+  gap: 12px;
   overflow: hidden;
 }
 
@@ -81,51 +78,56 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .slide-s40 .vision-pillar-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 6px;
 }
 
 .slide-s40 .vision-pillar-card {
   display: flex;
-  gap: 11px;
-  align-items: flex-start;
-  padding: 9px 12px;
-  background: #faf9f8;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #faf9f8 100%);
   border: 1px solid #edebe9;
-  border-radius: 8px;
-  border-left: 3px solid var(--vc, #0078d4);
+  border-radius: 10px;
+  border-left: 4px solid var(--vc, #0078d4);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  min-height: 0;
 }
 
 .slide-s40 .vision-pillar-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 9px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   background: #ffffff;
-  border: 1px solid #edebe9;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--vc, #0078d4);
-  font-size: 16px;
+  font-size: 17px;
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 120, 212, 0.08);
 }
 
 .slide-s40 .vision-pillar-body {
   min-width: 0;
+  flex: 1;
 }
 
 .slide-s40 .vision-pillar-tag {
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--vc, #0078d4);
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .slide-s40 .vision-pillar-title {
@@ -139,8 +141,12 @@
 .slide-s40 .vision-pillar-desc {
   font-size: 12px;
   color: #484644;
-  line-height: 1.4;
+  line-height: 1.42;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ── Right anchor panel ── */
@@ -149,54 +155,57 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 16px 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 120, 212, 0.22);
-  background: radial-gradient(circle at center, #deecf9 0%, #ffffff 72%);
-  box-shadow: 0 2px 12px rgba(0, 120, 212, 0.08);
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 120, 212, 0.25);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0, 120, 212, 0.12) 0%, transparent 55%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  box-shadow: 0 4px 16px rgba(0, 120, 212, 0.1);
   overflow: hidden;
 }
 
 .slide-s40 .closing-anchor-keyword-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .slide-s40 .closing-anchor-top-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #0078d4;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .slide-s40 .closing-anchor-main-keyword {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 800;
   color: #201f1e;
   line-height: 1.05;
-  margin: 6px 0 0;
+  margin: 4px 0 0;
 }
 
 .slide-s40 .closing-anchor-accent-keyword {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 800;
   color: #0078d4;
   line-height: 1.05;
 }
 
 .slide-s40 .closing-anchor-divider {
-  width: 56px;
+  width: 48px;
   height: 3px;
-  background: #0078d4;
-  margin: 14px auto;
+  background: linear-gradient(90deg, transparent, #0078d4, transparent);
+  margin: 8px auto;
   border-radius: 2px;
-  opacity: 0.85;
+  flex-shrink: 0;
 }
 
 .slide-s40 .closing-anchor-stat-group {
@@ -204,10 +213,11 @@
   flex-direction: column;
   gap: 2px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .slide-s40 .closing-anchor-stat-value {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #201f1e;
 }
@@ -217,17 +227,20 @@
 }
 
 .slide-s40 .closing-anchor-stat-label {
-  font-size: 13px;
+  font-size: 12px;
   color: #605e5c;
 }
 
 .slide-s40 .closing-check-list {
-  margin-top: 14px;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  justify-content: center;
+  gap: 7px;
   width: 100%;
   text-align: left;
+  padding: 4px 0;
 }
 
 .slide-s40 .closing-check-item {
@@ -236,22 +249,33 @@
   align-items: flex-start;
   font-size: 12px;
   color: #484644;
-  line-height: 1.4;
+  line-height: 1.42;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 120, 212, 0.1);
 }
 
 .slide-s40 .closing-check-item i {
   color: #107c10;
-  margin-top: 3px;
+  margin-top: 2px;
   flex-shrink: 0;
   font-size: 11px;
 }
 
 .slide-s40 .closing-vision-quote-text {
-  margin: 14px 0 0;
-  font-size: 13px;
+  margin: 0;
+  padding: 8px 10px;
+  font-size: 12px;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #201f1e;
+  border-radius: 8px;
+  background: rgba(202, 80, 16, 0.06);
+  border: 1px solid rgba(202, 80, 16, 0.15);
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .slide-s40 .closing-vision-quote-text strong {
@@ -262,15 +286,15 @@
 /* ── Commitment bar ── */
 .slide-s40 .closing-commitment-bar {
   flex-shrink: 0;
-  margin: 0 40px 14px;
-  padding: 9px 16px;
+  margin: 0 32px 10px;
+  padding: 10px 14px;
   border-radius: 0 10px 10px 0;
-  background: #fff4ce;
-  border: 1px solid rgba(202, 80, 16, 0.2);
-  border-left: 3px solid #ca5010;
+  background: linear-gradient(90deg, #fff4ce, #fffbf0);
+  border: 1px solid rgba(202, 80, 16, 0.22);
+  border-left: 4px solid #ca5010;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -282,7 +306,7 @@
 .slide-s40 .commit-pill {
   font-size: 12px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 5px 11px;
   border-radius: 12px;
   background: #ffffff;
   border: 1px solid #edebe9;
@@ -291,6 +315,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .slide-s40 .commit-pill i {
