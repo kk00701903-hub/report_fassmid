@@ -12,7 +12,7 @@ export default function Slide03() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>추진 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)</h1>
+            <h1>기술 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)</h1>
           </div>
           <p className="sub">
             당사의 웹프레임워크는 크게 WEB · WAS · DB로 구분되며 전체 영역이 프로젝트 영역임

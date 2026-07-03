@@ -50,7 +50,7 @@ export default function Slide04() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>추진 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)</h1>
+            <h1>기술 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)</h1>
           </div>
           <p className="sub">
             Docker 컨테이너는 물류 선박·컨테이너처럼 프로그램을 표준 규격으로 묶어 어디서든 같은 방식으로 배포 (업그레이드)·실행
