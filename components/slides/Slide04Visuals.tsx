@@ -382,6 +382,7 @@ export function Slide04SystemHero() {
         {animating ? (
           <motion.circle
             cx={320}
+            cy={92}
             r={4.5}
             fill="#0078d4"
             animate={{ cy: [92, 104], opacity: [0, 1, 0] }}
