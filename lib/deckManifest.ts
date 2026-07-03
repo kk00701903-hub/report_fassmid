@@ -88,8 +88,8 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 30, title: "비즈니스 혁신3: 전략적 수익화 IT 플랫폼 확보", role: "content" },
   { slideId: 31, title: "비즈니스 혁신4: 프로토타입 엔진을 통한 아키텍처 내재화", role: "content" },
   { slideId: 32, title: "비즈니스 혁신5: Zero-Defect 코드 품질 통제 체계", role: "content" },
-  { slideId: 33, title: "비즈니스 혁신6: FinOps·클라우드 비용 최적화", role: "content" },
-  { slideId: 34, title: "비즈니스 혁신7: DGX·Claude Code 오케스트레이션 및 프로세스 지침", role: "content" },
+  { slideId: 33, title: "비즈니스 혁신6: 클라우드 전환을 위한 교두보", role: "content" },
+  { slideId: 34, title: "AI 오케스트레이션", role: "content" },
   { slideId: 35, title: "비즈니스 혁신8: 빌더형 인재 육성", role: "content" },
   {
     slideId: 36,

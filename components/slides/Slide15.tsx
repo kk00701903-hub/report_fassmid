@@ -21,34 +21,47 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
     </div>
 
     <div class="compare-grid">
-      <div class="compare-side compare-side--peer">
-        <div class="compare-side__header">
-          <div class="compare-label">타사 사례 (참고)</div>
-          <div class="compare-company peer">삼성E&amp;A (삼성엔지니어링)</div>
-          <p class="compare-scope">70명 규모 인력이 2년간 진행한 대규모 엔지니어링·플랫폼 프로젝트</p>
+      <div class="compare-headers">
+        <div class="compare-side compare-side--peer">
+          <div class="compare-side__header">
+            <div class="compare-label">타사 사례 (참고)</div>
+            <div class="compare-company peer">삼성E&amp;A (삼성엔지니어링)</div>
+            <p class="compare-scope">70명 규모 인력이 2년간 진행한 대규모 엔지니어링·플랫폼 프로젝트</p>
+          </div>
         </div>
-        <ul class="metric-list">
-          <li class="metric-item"><span>총 투입 인력</span><strong>70명</strong></li>
-          <li class="metric-item"><span>진행 기간</span><strong>2년</strong></li>
-          <li class="metric-item"><span>총 투입 규모</span><strong>1,680 M/M</strong></li>
-          <li class="metric-item"><span>조직 형태</span><strong>대형 전담 조직</strong></li>
-        </ul>
+
+        <div class="vs-col vs-col--head"><div class="vs-badge">VS</div></div>
+
+        <div class="compare-side compare-side--ours">
+          <div class="compare-side__header">
+            <div class="compare-label compare-label--ours"><span class="fass-mark">FaSS</span> 당사 차세대</div>
+            <div class="compare-company ours">차세대 웹프레임워크 TFT</div>
+            <p class="compare-scope">차세대 웹프레임워크 TFT 중심 · AI 도구로 생산성 보완</p>
+          </div>
+        </div>
       </div>
 
-      <div class="vs-col"><div class="vs-badge">VS</div></div>
-
-      <div class="compare-side compare-side--ours">
-        <div class="compare-side__header">
-          <div class="compare-label compare-label--ours"><span class="fass-mark">FaSS</span> 당사 차세대</div>
-          <div class="compare-company ours">차세대 웹프레임워크 TFT</div>
-          <p class="compare-scope">차세대 웹프레임워크 TFT 중심 · AI 도구로 생산성 보완</p>
+      <div class="compare-metrics">
+        <div class="compare-metrics__row">
+          <div class="metric-item metric-item--peer"><span>총 투입 인력</span><strong>70명</strong></div>
+          <div class="vs-col vs-col--metric" aria-hidden="true"></div>
+          <div class="metric-item metric-item--ours"><span>총 투입 인력</span><strong>핵심 7명 (+ AI 8)</strong></div>
         </div>
-        <ul class="metric-list">
-          <li class="metric-item"><span>총 투입 인력</span><strong>핵심 7명 (+ AI 8)</strong></li>
-          <li class="metric-item"><span>진행 기간</span><strong>1.5년</strong></li>
-          <li class="metric-item"><span>총 투입 규모</span><strong>108 M/M</strong></li>
-          <li class="metric-item"><span>조직 형태</span><strong>차세대 웹프레임워크 TFT</strong></li>
-        </ul>
+        <div class="compare-metrics__row">
+          <div class="metric-item metric-item--peer"><span>진행 기간</span><strong>2년</strong></div>
+          <div class="vs-col vs-col--metric" aria-hidden="true"></div>
+          <div class="metric-item metric-item--ours"><span>진행 기간</span><strong>1.5년</strong></div>
+        </div>
+        <div class="compare-metrics__row">
+          <div class="metric-item metric-item--peer"><span>총 투입 규모</span><strong>1,680 M/M</strong></div>
+          <div class="vs-col vs-col--metric" aria-hidden="true"></div>
+          <div class="metric-item metric-item--ours"><span>총 투입 규모</span><strong>108 M/M</strong></div>
+        </div>
+        <div class="compare-metrics__row compare-metrics__row--last">
+          <div class="metric-item metric-item--peer"><span>조직 형태</span><strong>대형 전담 조직</strong></div>
+          <div class="vs-col vs-col--metric" aria-hidden="true"></div>
+          <div class="metric-item metric-item--ours"><span>조직 형태</span><strong>차세대 웹프레임워크 TFT</strong></div>
+        </div>
       </div>
     </div>
 

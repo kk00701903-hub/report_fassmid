@@ -44,6 +44,14 @@ const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
           시장 변화에 즉각 대응하고, 운영 효율과 데이터 기반 의사결정, 시스템 안정성, 중장기 플랫폼 성장성을 동시에 실현하는
           FaSS 차세대 플랫폼의 비즈니스 혁신 기반입니다.
         </p>
+        <div class="engine-insight-box">
+          <div class="engine-insight-label"><i class="fas fa-lightbulb"></i> 사업 확장 관점</div>
+          <p class="engine-insight-text">
+            당사 유통물류 및 3PL 고객사에 <strong>IT 컨설팅 개념</strong>으로 당사 차세대 프레임워크를 도입하고,
+            <strong>AI 워크플로우 자동화 툴</strong>을 제공한다면 <strong>고부가가치 물류</strong>를 실현할 수 있으며
+            <strong>락인(Lock-in) 효과</strong>도 기대할 수 있습니다.
+          </p>
+        </div>
       </div>
     </div>
 
