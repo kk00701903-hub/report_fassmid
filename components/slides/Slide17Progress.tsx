@@ -26,7 +26,7 @@ export default function Slide17Progress() {
         <div className="s17-progress__meta">
           <span className="s17-progress__ontrack">
             <i className="fas fa-circle-check" aria-hidden="true" />
-            계획 대비 동일 속도
+            계획 대비 정상 진행
           </span>
           <span className="s17-progress__asof">기준일 {p.asOfLabel}</span>
         </div>
@@ -66,9 +66,7 @@ export default function Slide17Progress() {
           <div className="s17-progress__hero-copy">
             <strong>{p.elapsedDays}일</strong>
             <span className="s17-progress__hero-elapsed">경과</span>
-            <span className="s17-progress__hero-total">
-              전체 {p.totalDays}일 중
-            </span>
+            <span className="s17-progress__hero-total">전체 {p.totalDays}일 중</span>
           </div>
         </motion.div>
 
@@ -76,16 +74,19 @@ export default function Slide17Progress() {
           <div className="s17-progress__axis">
             <span className="s17-progress__axis-start">
               <i className="fas fa-flag-checkered" aria-hidden="true" />
-              {p.startLabel}
+              착수 {p.startLabel}
             </span>
-            <span className="s17-progress__axis-end">{p.endLabel}</span>
+            <span className="s17-progress__axis-end">
+              라이브 {p.liveLabel}
+              <i className="fas fa-flag" aria-hidden="true" />
+            </span>
           </div>
 
           <div className="s17-progress__track">
             <div className="s17-progress__track-rail" aria-hidden="true" />
             <div
-              className="s17-progress__proto-zone"
-              style={{ width: `${p.prototypePercent}%` }}
+              className="s17-progress__planned"
+              style={{ left: `${p.percent}%`, width: `${100 - p.percent}%` }}
               aria-hidden="true"
             />
             <motion.div
@@ -94,22 +95,35 @@ export default function Slide17Progress() {
               animate={{ width: `${p.percent}%` }}
               transition={{ duration: reduceMotion ? 0 : 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             />
+
+            <div
+              className="s17-progress__marker s17-progress__marker--today"
+              style={{ left: `${p.percent}%` }}
+            >
+              <span className="s17-progress__marker-label">현재</span>
+              <span className="s17-progress__marker-pin">
+                <i className="fas fa-location-dot" aria-hidden="true" />
+              </span>
+              <span className="s17-progress__marker-date">{p.asOfLabel}</span>
+            </div>
+
             <div
               className="s17-progress__marker s17-progress__marker--proto"
               style={{ left: `${p.prototypePercent}%` }}
             >
+              <span className="s17-progress__marker-label">프로토타입</span>
               <span className="s17-progress__marker-pin">
                 <i className="fas fa-flask" aria-hidden="true" />
               </span>
-              <span className="s17-progress__marker-label">프로토타입</span>
               <span className="s17-progress__marker-date">{p.prototypeLabel}</span>
             </div>
-            <div className="s17-progress__marker s17-progress__marker--today" style={{ left: `${p.percent}%` }}>
+
+            <div className="s17-progress__marker s17-progress__marker--live" style={{ left: "100%" }}>
+              <span className="s17-progress__marker-label">라이브</span>
               <span className="s17-progress__marker-pin">
-                <i className="fas fa-location-dot" aria-hidden="true" />
+                <i className="fas fa-rocket" aria-hidden="true" />
               </span>
-              <span className="s17-progress__marker-label">현재</span>
-              <span className="s17-progress__marker-date">{p.asOfLabel}</span>
+              <span className="s17-progress__marker-date">{p.liveLabel}</span>
             </div>
           </div>
         </div>
@@ -117,24 +131,26 @@ export default function Slide17Progress() {
 
       <div className="s17-progress__stats">
         <div className="s17-progress__stat">
-          <span className="s17-progress__stat-label">착수</span>
+          <span className="s17-progress__stat-label">본격 착수</span>
           <strong>{p.startLabel}</strong>
         </div>
-        <div className="s17-progress__stat s17-progress__stat--good">
-          <span className="s17-progress__stat-label">프로토타입 구간</span>
-          <strong>
-            100% 완료 <em>({p.prototypeDays}일)</em>
-          </strong>
-        </div>
-        <div className="s17-progress__stat">
-          <span className="s17-progress__stat-label">경과 / 전체</span>
-          <strong>
-            {p.elapsedDays}일 / {p.totalDays}일
-          </strong>
-        </div>
         <div className="s17-progress__stat s17-progress__stat--accent">
-          <span className="s17-progress__stat-label">계획 대비</span>
-          <strong>동일 {p.percent}% 진행</strong>
+          <span className="s17-progress__stat-label">현재 진척 ({p.asOfLabel})</span>
+          <strong>
+            {p.percent}% <em>({p.elapsedDays}일 경과)</em>
+          </strong>
+        </div>
+        <div className="s17-progress__stat s17-progress__stat--proto">
+          <span className="s17-progress__stat-label">프로토타입 예정</span>
+          <strong>
+            {p.prototypeLabel} <em>(D-{p.daysToPrototype})</em>
+          </strong>
+        </div>
+        <div className="s17-progress__stat s17-progress__stat--live">
+          <span className="s17-progress__stat-label">라이브 예정</span>
+          <strong>
+            {p.liveLabel} <em>(D-{p.daysToLive})</em>
+          </strong>
         </div>
       </div>
     </section>

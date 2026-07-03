@@ -6,12 +6,12 @@
   overflow: hidden;
   min-height: 0;
   box-sizing: border-box;
-  --p1: #5b9bd5;
-  --p2: #70ad47;
-  --p3: #ca5010;
-  --p4: #8064a2;
-  --p5: #4bacc6;
-  --p6: #9bbb59;
+  --p1: #0078d4;
+  --p2: #0078d4;
+  --p3: #0078d4;
+  --p4: #0078d4;
+  --p5: #0078d4;
+  --p6: #0078d4;
   --p7: #0078d4;
 }
 .slide-s18 .title-region { flex-shrink: 0; }
@@ -239,9 +239,9 @@
 
 .slide-s18 .s17-progress__track {
   position: relative;
-  height: 14px;
+  height: 12px;
   border-radius: 999px;
-  margin: 24px 0 20px;
+  margin: 34px 0 32px;
   overflow: visible;
 }
 
@@ -249,17 +249,26 @@
   position: absolute;
   inset: 0;
   border-radius: 999px;
-  background: linear-gradient(180deg, #f3f2f1 0%, #e1dfdd 100%);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #f3f2f1 0%, #e6e4e2 100%);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.slide-s18 .s17-progress__proto-zone {
+/* 예정 구간 (현재 이후 ~ 라이브) */
+.slide-s18 .s17-progress__planned {
   position: absolute;
-  left: 0;
   top: 0;
   height: 100%;
-  border-radius: 999px 0 0 999px;
-  background: linear-gradient(90deg, rgba(34, 197, 94, 0.28) 0%, rgba(34, 197, 94, 0.08) 100%);
+  border-radius: 0 999px 999px 0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 120, 212, 0.1) 0,
+      rgba(0, 120, 212, 0.1) 6px,
+      rgba(0, 120, 212, 0.04) 6px,
+      rgba(0, 120, 212, 0.04) 12px
+    );
+  border: 1px dashed rgba(0, 120, 212, 0.3);
+  border-left: none;
   pointer-events: none;
   z-index: 0;
 }
@@ -270,9 +279,9 @@
   top: 0;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #004578 0%, #0078d4 48%, #42a5f5 100%);
+  background: linear-gradient(90deg, #004578 0%, #0078d4 55%, #2b88d8 100%);
   box-shadow:
-    0 0 16px rgba(0, 120, 212, 0.35),
+    0 0 14px rgba(0, 120, 212, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   z-index: 1;
 }
@@ -281,11 +290,7 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   z-index: 3;
-  min-width: 0;
 }
 
 .slide-s18 .s17-progress__marker-pin {
@@ -302,29 +307,47 @@
   position: relative;
 }
 
-.slide-s18 .s17-progress__marker-pin::after {
-  content: "";
+.slide-s18 .s17-progress__marker-label {
   position: absolute;
   left: 50%;
-  top: 100%;
-  width: 2px;
-  height: 6px;
-  margin-left: -1px;
-  margin-top: 1px;
-  background: currentColor;
-  opacity: 0.35;
-  border-radius: 1px;
+  bottom: calc(100% + 7px);
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-.slide-s18 .s17-progress__marker--proto .s17-progress__marker-pin {
-  background: linear-gradient(145deg, #34d399, #0b6a0b);
-  color: #0b6a0b;
+.slide-s18 .s17-progress__marker-date {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 7px);
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  color: #605e5c;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid #edebe9;
 }
 
+/* 현재 — 진한 블루 + 펄스 */
 .slide-s18 .s17-progress__marker--today .s17-progress__marker-pin {
-  background: linear-gradient(145deg, #5eb3f6, #0078d4);
-  color: #0078d4;
+  background: linear-gradient(145deg, #2b88d8, #0078d4);
+  color: #ffffff;
   animation: s17-today-pulse 2.4s ease-in-out infinite;
+}
+
+.slide-s18 .s17-progress__marker--today .s17-progress__marker-label {
+  color: #ffffff;
+  background: linear-gradient(135deg, #0078d4, #004578);
 }
 
 @keyframes s17-today-pulse {
@@ -340,40 +363,55 @@
   }
 }
 
-.slide-s18 .s17-progress__marker-label {
-  position: absolute;
-  top: -24px;
-  font-size: 10px;
-  font-weight: 800;
-  white-space: nowrap;
-  letter-spacing: 0.02em;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.92);
+/* 프로토타입 — 예정(점선 링), 상단 2단 배치로 현재 라벨과 겹침 방지 */
+.slide-s18 .s17-progress__marker--proto .s17-progress__marker-pin {
+  background: #ffffff;
+  border: 2.5px dashed #0078d4;
+  color: #0078d4;
 }
 
 .slide-s18 .s17-progress__marker--proto .s17-progress__marker-label {
-  color: #0b6a0b;
-  border: 1px solid rgba(16, 124, 16, 0.2);
-}
-
-.slide-s18 .s17-progress__marker--today .s17-progress__marker-label {
+  bottom: calc(100% + 24px);
   color: #0078d4;
-  border: 1px solid rgba(0, 120, 212, 0.2);
+  border: 1px solid rgba(0, 120, 212, 0.28);
 }
 
-.slide-s18 .s17-progress__marker-date {
+.slide-s18 .s17-progress__marker--proto .s17-progress__marker-label::after {
+  content: "";
   position: absolute;
-  top: 20px;
-  font-size: 9px;
-  font-weight: 700;
-  color: #605e5c;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-  padding: 2px 5px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #edebe9;
+  left: 50%;
+  top: 100%;
+  width: 1.5px;
+  height: 17px;
+  margin-left: -0.75px;
+  background: rgba(0, 120, 212, 0.3);
+}
+
+.slide-s18 .s17-progress__marker--proto .s17-progress__marker-date {
+  color: #0078d4;
+  border-color: rgba(0, 120, 212, 0.28);
+}
+
+/* 라이브 — 목표(진한 네이비), 우측 끝 안쪽 정렬 */
+.slide-s18 .s17-progress__marker--live .s17-progress__marker-pin {
+  background: linear-gradient(145deg, #0078d4, #002d4d);
+  color: #ffffff;
+}
+
+.slide-s18 .s17-progress__marker--live .s17-progress__marker-label {
+  left: auto;
+  right: -2px;
+  transform: none;
+  color: #ffffff;
+  background: linear-gradient(135deg, #004578, #002d4d);
+}
+
+.slide-s18 .s17-progress__marker--live .s17-progress__marker-date {
+  left: auto;
+  right: -2px;
+  transform: none;
+  color: #004578;
+  border-color: rgba(0, 69, 120, 0.28);
 }
 
 .slide-s18 .s17-progress__stats {
@@ -421,22 +459,10 @@
   font-size: 10px;
 }
 
-.slide-s18 .s17-progress__stat--good {
-  background: linear-gradient(180deg, rgba(16, 124, 16, 0.08) 0%, rgba(16, 124, 16, 0.04) 100%);
-  border-color: rgba(16, 124, 16, 0.24);
-}
-
-.slide-s18 .s17-progress__stat--good .s17-progress__stat-label {
-  color: #0b6a0b;
-}
-
-.slide-s18 .s17-progress__stat--good strong {
-  color: #0b6a0b;
-}
-
 .slide-s18 .s17-progress__stat--accent {
-  background: linear-gradient(180deg, rgba(0, 120, 212, 0.08) 0%, rgba(0, 120, 212, 0.03) 100%);
-  border-color: rgba(0, 120, 212, 0.24);
+  background: linear-gradient(180deg, rgba(0, 120, 212, 0.12) 0%, rgba(0, 120, 212, 0.04) 100%);
+  border-color: rgba(0, 120, 212, 0.32);
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.12);
 }
 
 .slide-s18 .s17-progress__stat--accent .s17-progress__stat-label {
@@ -445,6 +471,33 @@
 
 .slide-s18 .s17-progress__stat--accent strong {
   color: #004578;
+}
+
+.slide-s18 .s17-progress__stat--proto {
+  background: linear-gradient(180deg, rgba(0, 120, 212, 0.06) 0%, rgba(0, 120, 212, 0.02) 100%);
+  border-color: rgba(0, 120, 212, 0.2);
+  border-style: dashed;
+}
+
+.slide-s18 .s17-progress__stat--proto .s17-progress__stat-label {
+  color: #0078d4;
+}
+
+.slide-s18 .s17-progress__stat--proto strong {
+  color: #005a9e;
+}
+
+.slide-s18 .s17-progress__stat--live {
+  background: linear-gradient(180deg, rgba(0, 69, 120, 0.1) 0%, rgba(0, 69, 120, 0.03) 100%);
+  border-color: rgba(0, 69, 120, 0.28);
+}
+
+.slide-s18 .s17-progress__stat--live .s17-progress__stat-label {
+  color: #004578;
+}
+
+.slide-s18 .s17-progress__stat--live strong {
+  color: #002d4d;
 }
 
 @media (prefers-reduced-motion: reduce) {
