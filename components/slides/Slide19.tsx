@@ -51,7 +51,6 @@ export default function Slide19() {
             <div className="title-bar" />
             <h1 className="title-main">최적화 방안 1. AI 디지털 워커 활용</h1>
           </div>
-          <p className="title-sub">인간 7 + AI 8 = 15명 TFT급 추진력</p>
           <div className="title-line" />
         </header>
 

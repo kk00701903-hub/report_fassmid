@@ -137,8 +137,12 @@ export default function Slide17Progress() {
         <div className="s17-progress__stat s17-progress__stat--accent">
           <span className="s17-progress__stat-label">현재 진척 ({p.asOfLabel})</span>
           <strong>
-            {p.percent}% <em>({p.elapsedDays}일 경과)</em>
+            <mark className="s17-progress__hl">{p.percent}%</mark>{" "}
+            <em>({p.elapsedDays}일 경과)</em>
           </strong>
+          <span className="s17-progress__stat-plan">
+            계획 진척 {p.plannedPercent}% · 정상
+          </span>
         </div>
         <div className="s17-progress__stat s17-progress__stat--proto">
           <span className="s17-progress__stat-label">프로토타입 예정</span>

@@ -473,6 +473,25 @@
   color: #004578;
 }
 
+.slide-s18 .s17-progress__hl {
+  background: linear-gradient(180deg, #ffe27a 0%, #ffd23f 100%);
+  color: #3a2c00;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(202, 138, 4, 0.3);
+}
+
+.slide-s18 .s17-progress__stat-plan {
+  display: block;
+  margin-top: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #0078d4;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
 .slide-s18 .s17-progress__stat--proto {
   background: linear-gradient(180deg, rgba(0, 120, 212, 0.06) 0%, rgba(0, 120, 212, 0.02) 100%);
   border-color: rgba(0, 120, 212, 0.2);

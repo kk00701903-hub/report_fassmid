@@ -1,4 +1,4 @@
-/* Slide 40 — Closing (backup 38.html layout, white Fluent theme) */
+/* Slide 40 — Closing (backup 38.html content, white Fluent theme) */
 
 .slide-s40 .fass-closing-slide-root {
   width: 100%;
@@ -16,10 +16,10 @@
 /* ── Title ── */
 .slide-s40 .title-region-wrapper {
   flex-shrink: 0;
-  padding: 32px 40px 12px;
+  padding: 22px 40px 8px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .slide-s40 .title-horizontal-group {
@@ -30,7 +30,7 @@
 
 .slide-s40 .title-accent-bar {
   width: 4px;
-  height: 32px;
+  height: 30px;
   background: #0078d4;
   border-radius: 2px;
   flex-shrink: 0;
@@ -38,7 +38,7 @@
 
 .slide-s40 .title-main-text {
   font-family: var(--ppt-font-display, "Noto Sans KR", sans-serif);
-  font-size: 26px;
+  font-size: 25px;
   font-weight: 700;
   color: #201f1e;
   margin: 0;
@@ -46,11 +46,11 @@
 }
 
 .slide-s40 .title-sub-text {
-  font-size: 14px;
+  font-size: 13px;
   color: #484644;
   padding-left: 16px;
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .slide-s40 .title-gradient-line {
@@ -61,41 +61,40 @@
   margin-top: 4px;
 }
 
-/* ── Main body ── */
-.slide-s40 .fass-closing-content-body {
+/* ── Main body: robust 2-column grid ──
+   Higher specificity than fluent-primer's global
+   `[class*="slide-s"] .fluent-slide .fass-closing-content-body` (which forces flex/column). */
+.slide-s40 .fass-closing-slide-root.fluent-slide .fass-closing-content-body {
   flex: 1;
   min-height: 0;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-auto-flow: column;
   align-items: stretch;
-  padding: 8px 40px 12px;
-  gap: 18px;
+  padding: 8px 40px 8px;
+  gap: 16px;
+  overflow: hidden;
 }
 
 .slide-s40 .closing-visionary-left-group {
-  flex: 1.15;
   min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
-  min-height: 0;
 }
 
 .slide-s40 .vision-pillar-grid {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1;
-  min-height: 0;
-  justify-content: center;
 }
 
 .slide-s40 .vision-pillar-card {
   display: flex;
-  gap: 12px;
+  gap: 11px;
   align-items: flex-start;
-  padding: 10px 12px;
+  padding: 9px 12px;
   background: #faf9f8;
   border: 1px solid #edebe9;
   border-radius: 8px;
@@ -103,16 +102,16 @@
 }
 
 .slide-s40 .vision-pillar-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   background: #ffffff;
   border: 1px solid #edebe9;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--vc, #0078d4);
-  font-size: 17px;
+  font-size: 16px;
   flex-shrink: 0;
 }
 
@@ -121,54 +120,55 @@
 }
 
 .slide-s40 .vision-pillar-tag {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--vc, #0078d4);
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .slide-s40 .vision-pillar-title {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #201f1e;
-  line-height: 1.35;
+  line-height: 1.3;
   margin-bottom: 3px;
 }
 
 .slide-s40 .vision-pillar-desc {
-  font-size: 13px;
+  font-size: 12px;
   color: #484644;
-  line-height: 1.45;
+  line-height: 1.4;
   margin: 0;
 }
 
 /* ── Right anchor panel ── */
 .slide-s40 .closing-visionary-right-group {
-  flex: 0.85;
   min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px 18px;
+  padding: 16px 16px;
   border-radius: 16px;
   border: 1px solid rgba(0, 120, 212, 0.22);
   background: radial-gradient(circle at center, #deecf9 0%, #ffffff 72%);
   box-shadow: 0 2px 12px rgba(0, 120, 212, 0.08);
+  overflow: hidden;
 }
 
 .slide-s40 .closing-anchor-keyword-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   align-items: center;
 }
 
 .slide-s40 .closing-anchor-top-label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   color: #0078d4;
   letter-spacing: 0.2em;
@@ -176,25 +176,25 @@
 }
 
 .slide-s40 .closing-anchor-main-keyword {
-  font-size: 52px;
+  font-size: 40px;
   font-weight: 800;
   color: #201f1e;
-  line-height: 1;
-  margin: 8px 0 0;
+  line-height: 1.05;
+  margin: 6px 0 0;
 }
 
 .slide-s40 .closing-anchor-accent-keyword {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 800;
   color: #0078d4;
-  line-height: 1;
+  line-height: 1.05;
 }
 
 .slide-s40 .closing-anchor-divider {
-  width: 60px;
-  height: 4px;
+  width: 56px;
+  height: 3px;
   background: #0078d4;
-  margin: 20px auto;
+  margin: 14px auto;
   border-radius: 2px;
   opacity: 0.85;
 }
@@ -202,12 +202,12 @@
 .slide-s40 .closing-anchor-stat-group {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   align-items: center;
 }
 
 .slide-s40 .closing-anchor-stat-value {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #201f1e;
 }
@@ -217,15 +217,15 @@
 }
 
 .slide-s40 .closing-anchor-stat-label {
-  font-size: 14px;
+  font-size: 13px;
   color: #605e5c;
 }
 
 .slide-s40 .closing-check-list {
-  margin-top: 16px;
+  margin-top: 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
   text-align: left;
 }
@@ -234,21 +234,21 @@
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  font-size: 13px;
+  font-size: 12px;
   color: #484644;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .slide-s40 .closing-check-item i {
   color: #107c10;
   margin-top: 3px;
   flex-shrink: 0;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .slide-s40 .closing-vision-quote-text {
-  margin: 16px 0 0;
-  font-size: 14px;
+  margin: 14px 0 0;
+  font-size: 13px;
   font-style: normal;
   line-height: 1.5;
   color: #201f1e;
@@ -263,13 +263,11 @@
 .slide-s40 .closing-commitment-bar {
   flex-shrink: 0;
   margin: 0 40px 14px;
-  padding: 10px 16px;
-  border-left: 3px solid #ca5010;
+  padding: 9px 16px;
   border-radius: 0 10px 10px 0;
   background: #fff4ce;
   border: 1px solid rgba(202, 80, 16, 0.2);
-  border-left-width: 3px;
-  border-left-color: #ca5010;
+  border-left: 3px solid #ca5010;
   display: flex;
   align-items: center;
   gap: 12px;

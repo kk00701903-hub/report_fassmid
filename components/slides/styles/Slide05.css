@@ -318,51 +318,58 @@
   border-color: #9fd89f;
 }
 
-/* Belt */
+/* Belt — vertical conveyor with roller drums + downward chevrons */
 .slide-s05 .s05-belt {
   position: relative;
-  width: 44px;
+  width: 58px;
   height: 100%;
   max-height: 248px;
   min-height: 200px;
   flex-shrink: 0;
-  border-radius: 22px;
-  background: #334155;
-  box-shadow:
-    inset 0 0 0 2px #223047,
-    0 6px 14px rgba(15, 23, 42, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.slide-s05 .s05-belt__cap {
+/* Roller drums (top/bottom cylinders) */
+.slide-s05 .s05-belt__roller {
+  position: relative;
+  flex-shrink: 0;
+  height: 16px;
+  margin: 0 -5px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #1f2b3e 0%, #46587390 18%, #7d8ea8 50%, #46587390 82%, #1f2b3e 100%);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+  z-index: 3;
+}
+
+.slide-s05 .s05-belt__roller-core {
   position: absolute;
-  left: 3px;
-  right: 3px;
-  height: 8px;
-  border-radius: 5px;
-  background: linear-gradient(#5a6b82, #3d4d63);
-  z-index: 2;
-}
-
-.slide-s05 .s05-belt__cap--top {
-  top: 3px;
-}
-
-.slide-s05 .s05-belt__cap--bottom {
-  bottom: 3px;
+  inset: 4px 10px;
+  border-radius: 6px;
+  background: repeating-linear-gradient(90deg, #2d3c54 0 3px, #5b6d88 3px 6px);
+  opacity: 0.9;
 }
 
 .slide-s05 .s05-belt__track {
-  position: absolute;
-  inset: 4px;
-  border-radius: 18px;
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin: -4px 0;
+  border-radius: 6px;
   overflow: hidden;
-  background: #8a99ad;
+  background: linear-gradient(90deg, #263447 0%, #3c4c64 12%, #46586f 50%, #3c4c64 88%, #263447 100%);
+  box-shadow:
+    inset 2px 0 4px rgba(0, 0, 0, 0.35),
+    inset -2px 0 4px rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
 .slide-s05 .s05-belt__slats {
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(180deg, #5f6f84 0 3px, #93a1b4 3px 18px);
+  background: repeating-linear-gradient(180deg, #35435c 0 3px, #4a5c78 3px 20px);
+  opacity: 0.85;
 }
 
 .slide-s05 .s05-belt--flowing .s05-belt__slats {
@@ -371,13 +378,33 @@
 
 .slide-s05 .s05-belt--stalled .s05-belt__slats {
   animation: s05-slat-down calc(var(--s05-slat-dur) * 2.2) linear infinite;
-  opacity: 0.65;
+  opacity: 0.55;
+}
+
+/* Downward direction chevrons (▼) scrolling toward the bottom */
+.slide-s05 .s05-belt__chevrons {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='58' height='24' viewBox='0 0 58 24'%3E%3Cpath d='M12 5 L29 16 L46 5' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 100% 24px;
+  background-repeat: repeat-y;
+  pointer-events: none;
+}
+
+.slide-s05 .s05-belt--flowing .s05-belt__chevrons {
+  animation: s05-chevron-down 0.9s linear infinite;
+}
+
+.slide-s05 .s05-belt--stalled .s05-belt__chevrons {
+  animation: s05-chevron-down calc(0.9s * 2.4) linear infinite;
+  opacity: 0.5;
 }
 
 .slide-s05 .s05-belt__stall-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(220, 38, 38, 0.1);
+  background: rgba(220, 38, 38, 0.16);
+  z-index: 2;
 }
 
 /* Packages */
@@ -822,7 +849,16 @@
     background-position: 0 0;
   }
   to {
-    background-position: 0 18px;
+    background-position: 0 20px;
+  }
+}
+
+@keyframes s05-chevron-down {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 24px;
   }
 }
 
@@ -879,6 +915,7 @@
 }
 
 .slide-s05 .s05-scene--static .s05-belt__slats,
+.slide-s05 .s05-scene--static .s05-belt__chevrons,
 .slide-s05 .s05-scene--static .s05-package--flow,
 .slide-s05 .s05-scene--static .s05-package--stuck,
 .slide-s05 .s05-scene--static .s05-worker--injured .s05-worker__avatar {
@@ -887,6 +924,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slide-s05 .s05-belt__slats,
+  .slide-s05 .s05-belt__chevrons,
   .slide-s05 .s05-package--flow,
   .slide-s05 .s05-package--stuck,
   .slide-s05 .s05-worker--injured .s05-worker__avatar {

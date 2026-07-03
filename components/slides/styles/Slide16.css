@@ -25,10 +25,10 @@
   font-family: var(--ppt-font-body, "Noto Sans KR", sans-serif);
 }
 
-/* ── Title (align with Slide07 / Slide14 fluent pattern) ── */
+/* ── Title (enlarged to fill space freed by removed subtitle) ── */
 .slide-s16 .title-r {
   flex-shrink: 0;
-  padding: 14px 36px 8px;
+  padding: 26px 36px 16px;
   position: relative;
   z-index: 1;
 }
@@ -36,52 +36,39 @@
 .slide-s16 .title-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .slide-s16 .bar {
-  width: 4px;
-  height: 32px;
+  width: 5px;
+  height: 40px;
   background: #0078d4;
-  border-radius: 2px;
+  border-radius: 3px;
   flex-shrink: 0;
 }
 
 .slide-s16 .badge {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 4px;
+  padding: 5px 14px;
+  border-radius: 5px;
   background: rgba(0, 120, 212, 0.1);
   border: 1px solid rgba(0, 120, 212, 0.35);
   color: #0078d4;
 }
 
 .slide-s16 h1 {
-  font-size: 24px !important;
+  font-size: 32px !important;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
   margin: 0;
   color: #201f1e !important;
 }
 
-.slide-s16 .sub {
-  font-size: 13px;
-  color: #484644 !important;
-  margin-top: 6px;
-  padding-left: 16px;
-  line-height: 1.45;
-}
-
-.slide-s16 .sub strong {
-  color: #201f1e;
-  font-weight: 600;
-}
-
 .slide-s16 .line {
-  height: 1px;
-  margin-top: 8px;
+  height: 2px;
+  margin-top: 14px;
   background: linear-gradient(90deg, #0078d4, transparent);
   opacity: 0.35;
 }

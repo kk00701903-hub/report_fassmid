@@ -34,28 +34,23 @@ function StationPill({
 
 function ConveyorBelt({ variant }: { variant: "stalled" | "flowing" }) {
   const flowing = variant === "flowing";
+  const packages = flowing ? [0, 1, 2, 3] : [0, 1, 2];
 
   return (
     <div className={`s05-belt s05-belt--${variant}`}>
-      <div className="s05-belt__cap s05-belt__cap--top" />
-      <div className="s05-belt__cap s05-belt__cap--bottom" />
+      <div className="s05-belt__roller s05-belt__roller--top" aria-hidden="true">
+        <span className="s05-belt__roller-core" />
+      </div>
       <div className="s05-belt__track">
-        <div className="s05-belt__slats" />
-        {flowing ? (
-          <>
-            <FlowingPackage delay={0} />
-            <FlowingPackage delay={1} />
-            <FlowingPackage delay={2} />
-            <FlowingPackage delay={3} />
-          </>
-        ) : (
-          <>
-            <FlowingPackage delay={0} />
-            <FlowingPackage delay={1} />
-            <FlowingPackage delay={2} />
-            <div className="s05-belt__stall-overlay" />
-          </>
-        )}
+        <div className="s05-belt__slats" aria-hidden="true" />
+        <div className="s05-belt__chevrons" aria-hidden="true" />
+        {packages.map((delay) => (
+          <FlowingPackage key={delay} delay={delay} />
+        ))}
+        {!flowing && <div className="s05-belt__stall-overlay" />}
+      </div>
+      <div className="s05-belt__roller s05-belt__roller--bottom" aria-hidden="true">
+        <span className="s05-belt__roller-core" />
       </div>
     </div>
   );

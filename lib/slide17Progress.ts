@@ -26,6 +26,8 @@ export const SLIDE17_PROGRESS = {
   totalDays,
   /** 전체 로드맵 대비 시간 진척률 (2026.07.07 기준) */
   percent: Math.round((elapsedDays / totalDays) * 100),
+  /** 기준일 계획 진척률 — 시간 경과 기준 계획선과 일치 (정상 진행) */
+  plannedPercent: Math.round((elapsedDays / totalDays) * 100),
   /** 프로토타입 목표일이 전체 일정에서 차지하는 비율 */
   prototypePercent: Math.round((prototypeDays / totalDays) * 1000) / 10,
   /** 프로토타입까지 남은 일수 (기준일 기준) */

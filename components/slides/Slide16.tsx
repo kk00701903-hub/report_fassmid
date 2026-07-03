@@ -14,10 +14,6 @@ export default function Slide16() {
             <span className="badge">AI WORKFLOW</span>
             <h1>AI 협력 개발 워크플로우 (AI-Augmented)</h1>
           </div>
-          <p className="sub">
-            TFT가 실제 사용하는 <strong>유료·상용 개발 툴</strong>의 역할과 활용을 단계별로 세부 설명하는
-            페이지 — Jira · Figma · Claude Code · GitLab CI 등
-          </p>
           <div className="line" />
         </div>
 
