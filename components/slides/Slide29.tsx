@@ -49,7 +49,7 @@ export default function Slide29() {
               </div>
               <div className="fass-smart-logistics-card-body">
                 차세대 FaSS는 <b>웹(Next.js)</b> 기반으로 구성되어 AI 연동성이 뛰어납니다. 표준{" "}
-                <b>REST/OpenAPI</b>를 다수 제공해 일반 사용자도 회사 데이터에 쉽게 접근하고, AI·업무
+                <b>REST/OpenAPI</b>를 다수 제공해 현업 사용자도 회사 데이터에 쉽게 접근하고, AI·업무
                 앱이 동일 API로 물류·재고 데이터를 활용할 수 있습니다.
               </div>
               <div className="fass-smart-logistics-impact-badge">
@@ -74,6 +74,11 @@ export default function Slide29() {
                 <span className="fass-smart-logistics-impact-text">검토 리드타임 60% 이상 단축 예상</span>
               </div>
             </div>
+
+            <p className="fass-smart-logistics-rag-note">
+              ※ RAG(Retrieval-Augmented Generation) — 검색 증강 생성. 사내 문서·데이터를 검색해 근거로
+              삼아 답변하는 AI 방식
+            </p>
           </div>
         </div>
       </div>

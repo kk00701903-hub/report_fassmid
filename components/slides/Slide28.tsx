@@ -39,7 +39,7 @@ const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
       <div class="engine-description-right">
         <h2 class="engine-desc-title"><i class="fas fa-lightbulb" aria-hidden="true"></i> 사업 확장 관점</h2>
         <p class="engine-desc-body">
-          당사 유통물류 및 3PL 고객사에 <strong>IT 컨설팅 개념</strong>으로 당사 차세대 프레임워크를 도입하고,
+          당사 유통물류 및 3PL 고객사에 <strong>IT 컨설팅 개념</strong>으로 당사 차세대 프레임워크를 제공하고,
           <strong>AI 워크플로우 자동화 툴</strong>을 제공한다면 <strong>고부가가치 물류</strong>를 실현할 수 있으며
           <strong>락인(Lock-in) 효과</strong>도 기대할 수 있습니다.
         </p>
