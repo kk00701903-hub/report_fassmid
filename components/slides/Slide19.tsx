@@ -178,6 +178,8 @@ export default function Slide19() {
             </div>
           </aside>
         </div>
+
+        <span className="s19-footnote">※ 24/7 — 하루 24시간 · 주 7일 상시(연중무휴) 가동</span>
       </div>
     </SlideCanvas>
   );

@@ -26,6 +26,18 @@
   flex-direction: column;
   overflow: hidden;
   box-sizing: border-box;
+  position: relative;
+}
+
+.slide-s19 .s19-footnote {
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #8a8886;
+  letter-spacing: -0.01em;
+  pointer-events: none;
 }
 
 /* ── Title ── */
