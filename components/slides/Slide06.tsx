@@ -21,7 +21,7 @@ export default function Slide06() {
           <div className="title-row">
             <div className="bar" />
             <span className="badge">C-LEVEL PRIMER</span>
-            <h1>기술 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)</h1>
+            <h1>핵심 기술 방향성 ④ — CDC 방식 (물류 재고조사 예시)</h1>
           </div>
           <p className="sub">
             CDC는 야간 전체 복사(Batch) 대신 바뀐 데이터만 실시간으로 옮겨, DB 이관 중에도 서비스를 계속 가동

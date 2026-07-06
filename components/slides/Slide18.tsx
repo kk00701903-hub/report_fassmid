@@ -26,6 +26,9 @@ export default function Slide17() {
         <Slide17Progress />
         <Slide18MilestoneBoard />
         <div dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
+        <p className="s18-abbr-note" aria-label="PoC 약어 설명">
+          ※ PoC — Proof of Concept (개념 증명)
+        </p>
       </div>
     </SlideCanvas>
   );

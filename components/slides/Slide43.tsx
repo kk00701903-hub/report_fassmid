@@ -40,7 +40,7 @@ export default function Slide43() {
             <h1>비즈니스 성장 전략: 내부 검증에서 상용 플랫폼으로</h1>
           </div>
           <p className="sub">
-            당사의 IT 기술력을 바탕으로 독자적인 사업 운영을 위한 클라우드 독립 기반 마련.
+            당사의 IT 기술력을 바탕으로 독자적인 ASP (소프트웨어서비스 임대) 사업운영을 위한 클라우드 독립기반 마련.
           </p>
           <div className="line" />
         </div>

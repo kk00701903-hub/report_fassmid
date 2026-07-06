@@ -49,7 +49,7 @@ export default function Slide19() {
         <header className="title-region">
           <div className="title-header">
             <div className="title-bar" />
-            <h1 className="title-main">최적화 방안 1. AI 디지털 워커 활용</h1>
+            <h1 className="title-main">최적화 방안 1. AI 디지털 워커 활용 (당사 자체개발)</h1>
           </div>
           <div className="title-line" />
         </header>

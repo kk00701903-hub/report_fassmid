@@ -137,7 +137,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "web-stack-primer",
-        title: "기술 방향성 설명 ① — 3Tier 구조 (Web-WAS-DB)",
+        title: "핵심 기술 방향성 ① — 3Tier 구조 (Web-WAS-DB)",
         category: "process",
         summary:
           "웹(프론트엔드)·WAS(백엔드 업무 처리)·DB(데이터 저장) 3층 구조로 IT 시스템을 이해합니다. 이후 아키텍처·기술 스택 장표의 기본 틀입니다.",
@@ -154,7 +154,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "glossary-infra",
-        title: "기술 방향성 설명 ② — 도커 (Docker) (물류 컨테이너 예시)",
+        title: "핵심 기술 방향성 ② — 도커 (Docker) (물류 컨테이너 예시)",
         category: "process",
         summary: "클라우드(인터넷 IT 자원), 오픈소스(공개 SW·벤더 탈피), API(시스템 연결 창구), SaaS/ASP(서비스형 제공) 용어 정리입니다.",
         process: [
@@ -170,7 +170,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "glossary-architecture",
-        title: "기술 방향성 설명 ③ — MSA 구조 (물류작업 예시)",
+        title: "핵심 기술 방향성 ③ — MSA 구조 (물류작업 예시)",
         category: "process",
         summary: "MSA(업무 단위 분리), 모듈러 모놀리스(MSA 전 단계), Docker(컨테이너), Kubernetes(컨테이너 자동 운영) 아키텍처 용어입니다.",
         process: [
@@ -186,7 +186,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "cdc-primer",
-        title: "기술 방향성 설명 ④ — CDC 방식 (물류 재고조사 예시)",
+        title: "핵심 기술 방향성 ④ — CDC 방식 (물류 재고조사 예시)",
         category: "process",
         summary:
           "현행 Batch(야간 전수 복제)와 CDC(변경분 실시간 전송)를 운영 부하·데이터 신선도 관점에서 비교합니다. Debezium + Kafka 기반 무중단 DB 이관의 핵심 방안입니다.",
@@ -407,7 +407,7 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     topics: [
       {
         id: "ai-digital-worker",
-        title: "최적화 방안 1. AI 디지털 워커 활용",
+        title: "최적화 방안 1. AI 디지털 워커 활용 (당사 자체개발)",
         category: "process",
         summary:
           "인간 핵심 7명과 AI 보조 인력 8명이 협업합니다. 총 15명 규모 TFT와 동등한 추진력으로 코드·문서·테스트는 AI가 24/7 지원하고, 설계·의사결정·품질 검수는 Human-in-the-loop로 통제합니다.",
