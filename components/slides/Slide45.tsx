@@ -7,13 +7,13 @@ import "./styles/Slide45.css";
 const SEATS = [
   { role: "대표이사님", accent: "head" },
   { role: "관리담당 전무님", accent: "left" },
+  { role: "운영담당", accent: "right" },
   { role: "시스템 사업부장", accent: "left" },
+  { role: "경영기획팀장", accent: "right" },
+  { role: "영업지원팀장", accent: "right" },
   { role: "기충영 프로", accent: "left" },
   { role: "김희찬 프로", accent: "left" },
   { role: "송민준 프로", accent: "left" },
-  { role: "운영담당", accent: "right" },
-  { role: "경영기획팀장", accent: "right" },
-  { role: "영업지원팀장", accent: "right" },
   { role: "발표자 (정보전략팀장)", accent: "speaker" },
 ] as const;
 
@@ -35,7 +35,7 @@ export default function Slide45() {
             <img
               className="s45-image"
               src={`${getBasePath()}/assets/slides/seat-map.png`}
-              alt="자세대 정기전략 TF 중간보고 회의 좌석 배치도"
+              alt="회의 좌석 배치도"
             />
           </figure>
 
