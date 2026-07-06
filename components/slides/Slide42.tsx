@@ -36,7 +36,7 @@ export default function Slide42() {
             </h1>
           </div>
           <p className="sub">
-            현업이 직접 워크플로우를 설계하고, 전사에 공유하며 사내 시스템을 자동화하는 통합 플랫폼.
+            아키텍처 설계부터 UI/UX까지 직접 개발(In-house Development)한 자체 솔루션.
           </p>
           <div className="line" />
         </div>

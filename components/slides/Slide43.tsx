@@ -64,8 +64,7 @@ export default function Slide43() {
             <h1>사내 도구를 넘어, 상용 플랫폼으로</h1>
           </div>
           <p className="sub">
-            원하는 LLM 사용 가능, 워크플로우의 API 발행, SaaS·온프렘(on-prem) 이중 모드로 시장을 확장하는
-            사업화 전략.
+            당사의 IT 기술력을 통한 고객사 제공 (SaaS) 및 고부가 가치 (&amp; Lock In) 물류/유통전략 추진.
           </p>
           <div className="line" />
         </div>
