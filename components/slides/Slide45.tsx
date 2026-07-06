@@ -5,16 +5,16 @@ import { getBasePath } from "@/lib/basePath";
 import "./styles/Slide45.css";
 
 const SEATS = [
-  { role: "대표이사님", desc: "상석 · 최고 의사결정", accent: "head" },
-  { role: "관리담당 전무님", desc: "관리 총괄", accent: "left" },
-  { role: "시스템 사업부장", desc: "사업 부문 총괄", accent: "left" },
-  { role: "기충영 프로", desc: "프로젝트 리더", accent: "left" },
-  { role: "김희찬 프로", desc: "BE 엔지니어", accent: "left" },
-  { role: "송민준 프로", desc: "BE 엔지니어", accent: "left" },
-  { role: "운영담당", desc: "운영 지원", accent: "right" },
-  { role: "경영기획팀장", desc: "경영 기획", accent: "right" },
-  { role: "영업지원팀장", desc: "영업 지원", accent: "right" },
-  { role: "발표자 (정보전략팀장)", desc: "중간보고 발표", accent: "speaker" },
+  { role: "대표이사님", accent: "head" },
+  { role: "관리담당 전무님", accent: "left" },
+  { role: "시스템 사업부장", accent: "left" },
+  { role: "기충영 프로", accent: "left" },
+  { role: "김희찬 프로", accent: "left" },
+  { role: "송민준 프로", accent: "left" },
+  { role: "운영담당", accent: "right" },
+  { role: "경영기획팀장", accent: "right" },
+  { role: "영업지원팀장", accent: "right" },
+  { role: "발표자 (정보전략팀장)", accent: "speaker" },
 ] as const;
 
 export default function Slide45() {
@@ -48,13 +48,9 @@ export default function Slide45() {
                 <li key={seat.role} className={`s45-legend-item s45-legend-item--${seat.accent}`}>
                   <span className="s45-legend-dot" aria-hidden="true" />
                   <span className="s45-legend-role">{seat.role}</span>
-                  <span className="s45-legend-desc">{seat.desc}</span>
                 </li>
               ))}
             </ul>
-            <div className="s45-legend-foot">
-              <i className="fas fa-desktop" aria-hidden="true" /> 정면 스크린 · 상석 기준 좌우 배치
-            </div>
           </aside>
         </div>
       </div>
