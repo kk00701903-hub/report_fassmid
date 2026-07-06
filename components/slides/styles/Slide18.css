@@ -613,11 +613,11 @@
 }
 
 .slide-s18 .milestone-card.current .period-y {
-  color: #ca5010;
+  color: #000000;
 }
 
 .slide-s18 .milestone-card.current .period-m {
-  color: #5c2d00;
+  color: #000000;
   font-weight: 800;
 }
 
@@ -678,10 +678,10 @@
   font-variant-numeric: tabular-nums;
   justify-self: end;
 }
-.slide-s18 .period-y { font-size: 13px; font-weight: 800; color: var(--fluent-blue); }
+.slide-s18 .period-y { font-size: 13px; font-weight: 800; color: #000000; }
 .slide-s18 .period-dot,
-.slide-s18 .period-sep { font-size: 13px; color: var(--fluent-grey-90); }
-.slide-s18 .period-m { font-size: 13px; font-weight: 800; color: var(--fluent-grey-160); }
+.slide-s18 .period-sep { font-size: 13px; color: #000000; }
+.slide-s18 .period-m { font-size: 13px; font-weight: 800; color: #000000; }
 .slide-s18 .card-title { font-size: 14px; font-weight: 700; line-height: 1.35; color: var(--fluent-grey-160); }
 .slide-s18 .card-desc {
   font-size: 13px;
