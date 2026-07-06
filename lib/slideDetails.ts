@@ -375,6 +375,26 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
         category: "process",
         summary:
           "TFT가 실제 사용하는 유료·상용 개발 툴(Jira, Figma, Adobe, Claude Code, Cursor, DGX Spark, GitLab CI 등)의 역할과 단계별 활용을 세부 설명하는 장표입니다.",
+        sections: [
+          {
+            title: "라이선스별 연간 투자비용",
+            icon: "fa-solid fa-won-sign",
+            table: {
+              caption: "단위: 원 / VAT 제외 · 환율은 결제일자 기준",
+              headers: ["제품명", "주요 용도", "연간 금액(원)"],
+              rows: [
+                ["Jira", "프로젝트·업무 관리", "1,804,176"],
+                ["GitLab", "소스코드 버전 관리", "3,789,198"],
+                ["IntelliJ", "웹 개발 전용 IDE", "5,922,532"],
+                ["Figma", "화면설계·스토리보드 편집", "972,840"],
+                ["Cursor", "개발 전용 AI IDE", "885,312"],
+                ["Adobe", "디자인·영상·문서 편집", "1,248,000"],
+                ["전체 합계", "—", "14,622,058"],
+              ],
+            },
+            note: "비용 산식 = 구독료 × 환율(결제일자 기준). Adobe는 원화 결제.",
+          },
+        ],
         process: [
           { step: 1, title: "기획·설계", description: "Jira — 백로그·스프린트 / Figma·Adobe — UI·UX 설계" },
           { step: 2, title: "AI 개발", description: "Claude Code·Cursor·DGX Spark — 코드·테스트·문서 생성" },
