@@ -116,7 +116,7 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 39, title: "#. 별첨 중장기 목표 2: MSA 전환", role: "appendix", defaultVisible: true },
 ];
 
-const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing"]);
+const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing", "glossary"]);
 
 export function getDeckLength(): number {
   return DECK_MANIFEST.length;
@@ -152,7 +152,7 @@ export function getPartDividerEntry(partNumber: number): DeckSlideEntry | undefi
   );
 }
 
-/** PART 간지 목차 — 해당 PART의 content·closing 슬라이드 제목 (manifest 순서) */
+/** PART 간지 목차 — 해당 PART의 content·closing·glossary 슬라이드 제목 (manifest 순서) */
 export function getPartTopicTitles(partNumber: number): string[] {
   const dividerIndex = DECK_MANIFEST.findIndex(
     (entry) => entry.role === "part-divider" && entry.partNumber === partNumber,
