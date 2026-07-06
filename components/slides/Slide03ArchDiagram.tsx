@@ -4,6 +4,18 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
+import { hexToRgbTriplet, mixHex } from "@/lib/cssColor";
+
+/** color-mix 없이 캡처 안전한 accent 파생 변수 묶음 */
+function nodeAccentVars(accent: string): CSSProperties {
+  return {
+    "--node-accent": accent,
+    "--node-accent-rgb": hexToRgbTriplet(accent),
+    "--node-accent-pending": mixHex(accent, "#323130", 0.55),
+    "--node-accent-icon-bg": mixHex(accent, "#ffffff", 0.1),
+    "--node-accent-icon-border": mixHex(accent, "#cbd5e1", 0.35),
+  } as CSSProperties;
+}
 
 const NODES = [
   {
@@ -104,7 +116,7 @@ function JetteSiteMock({
 
   if (variant === "browser") {
     return (
-      <div className={cls} style={{ "--node-accent": accent } as CSSProperties}>
+      <div className={cls} style={nodeAccentVars(accent)}>
         <div className="jette-site-mock__chrome">
           <span className="jette-site-mock__dot" />
           <span className="jette-site-mock__dot" />
@@ -117,7 +129,7 @@ function JetteSiteMock({
   }
 
   return (
-    <div className={cls} style={{ "--node-accent": accent } as CSSProperties}>
+    <div className={cls} style={nodeAccentVars(accent)}>
       {site}
     </div>
   );
@@ -179,7 +191,7 @@ function ArchNode({
   return (
     <motion.div
       className={`arch-node arch-node--${node.id} arch-node--${state}`}
-      style={{ "--node-accent": node.accent } as CSSProperties}
+      style={nodeAccentVars(node.accent)}
       animate={
         state === "active" && !reduceMotion && !isMock
           ? { scale: [1, 1.04, 1] }

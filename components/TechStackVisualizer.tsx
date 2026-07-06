@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FASS_BACKLOG_URL, FASS_TECH_LAYERS, type TechStackLayer } from "@/lib/fassTechStack";
+import { hexToRgbTriplet } from "@/lib/cssColor";
 
 type TechStackVisualizerProps = {
   layers?: TechStackLayer[] | "fass-full";
@@ -37,7 +38,7 @@ export default function TechStackVisualizer({ layers = "fass-full" }: TechStackV
             role="tab"
             aria-selected={layer.id === activeId}
             className={`detail-tech-stack__tab${layer.id === activeId ? " is-active" : ""}`}
-            style={{ "--layer-accent": layer.accent } as React.CSSProperties}
+            style={{ "--layer-accent": layer.accent, "--layer-accent-rgb": hexToRgbTriplet(layer.accent) } as React.CSSProperties}
             onClick={() => setActiveId(layer.id)}
           >
             <i className={layer.icon} aria-hidden="true" />
@@ -50,7 +51,7 @@ export default function TechStackVisualizer({ layers = "fass-full" }: TechStackV
         <div
           key={active.id}
           className="detail-tech-stack__panel detail-tech-stack__panel--animate"
-          style={{ "--layer-accent": active.accent } as React.CSSProperties}
+          style={{ "--layer-accent": active.accent, "--layer-accent-rgb": hexToRgbTriplet(active.accent) } as React.CSSProperties}
         >
           <div className="detail-tech-stack__panel-header">
             <i className={active.icon} aria-hidden="true" />

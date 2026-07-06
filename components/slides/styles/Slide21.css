@@ -166,7 +166,7 @@
     transition: border-color 0.3s ease, background 0.3s ease;
 }
 .slide-s21 .poc-stack-chip--hero{
-    border-color: color-mix(in srgb, var(--chip-accent, #0078d4) 35%, #e1dfdd);
+    border-color: var(--chip-border, #92bbda);
 }
 .slide-s21 .poc-stack-chip--active{
     border-color: var(--chip-accent, #0078d4);

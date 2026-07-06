@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { hexToRgbTriplet } from "@/lib/cssColor";
 import {
   FASS_MILESTONE_PHASES,
   FASS_SCHEDULE_MONTHS,
@@ -78,7 +79,7 @@ export default function MilestoneVisualizer({ phases = "fass-full" }: MilestoneV
               <button
                 type="button"
                 className={`detail-milestones__phase-label${phase.id === activeId ? " is-active" : ""}`}
-                style={{ "--phase-accent": phase.accent } as React.CSSProperties}
+                style={{ "--phase-accent": phase.accent, "--phase-accent-rgb": hexToRgbTriplet(phase.accent) } as React.CSSProperties}
                 onClick={() => setActiveId(phase.id)}
               >
                 <span className="detail-milestones__phase-num">{phase.phase}</span>
@@ -99,6 +100,7 @@ export default function MilestoneVisualizer({ phases = "fass-full" }: MilestoneV
                       style={
                         {
                           "--phase-accent": phase.accent,
+                          "--phase-accent-rgb": hexToRgbTriplet(phase.accent),
                           left: `${left}%`,
                           width: `${width}%`,
                           top: `${topPx}px`,
@@ -122,7 +124,7 @@ export default function MilestoneVisualizer({ phases = "fass-full" }: MilestoneV
         <div
           key={active.id}
           className="detail-milestones__panel detail-milestones__panel--animate"
-          style={{ "--phase-accent": active.accent } as React.CSSProperties}
+          style={{ "--phase-accent": active.accent, "--phase-accent-rgb": hexToRgbTriplet(active.accent) } as React.CSSProperties}
         >
           <div className="detail-milestones__panel-header">
             <span className="detail-milestones__panel-phase">{active.phase}</span>

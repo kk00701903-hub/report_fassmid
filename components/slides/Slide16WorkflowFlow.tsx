@@ -4,6 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionReadyContext";
+import { hexToRgbTriplet } from "@/lib/cssColor";
 import {
   WORKFLOW_PHASES,
   WORKFLOW_PHASE_STEPS,
@@ -60,7 +61,7 @@ function PhaseColumn({
   return (
     <motion.div
       className={`s16-flow-col s16-flow-col--${phase.phaseKey} s16-flow-col--${state}`}
-      style={{ "--col-accent": phase.accent } as CSSProperties}
+      style={{ "--col-accent": phase.accent, "--col-accent-rgb": hexToRgbTriplet(phase.accent) } as CSSProperties}
       animate={
         state === "active" && !reduceMotion
           ? {

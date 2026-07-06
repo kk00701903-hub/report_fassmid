@@ -3,6 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState, type CSSProperties } from "react";
 
+import { mixHex } from "@/lib/cssColor";
+
 const STACK = [
   { id: "oracle", label: "Oracle", sub: "Legacy Source", color: "#c2410c", bg: "#fff7ed" },
   { id: "debezium", label: "Debezium", sub: "CDC Capture", color: "#0078d4", bg: "#eff6fc", hero: true },
@@ -234,7 +236,7 @@ export default function Slide21CdcPipelineVisual() {
             <motion.div
               key={item.id}
               className={`poc-stack-chip${"hero" in item && item.hero ? " poc-stack-chip--hero" : ""}${active ? " poc-stack-chip--active" : ""}`}
-              style={{ "--chip-accent": item.color, "--chip-bg": item.bg } as CSSProperties}
+              style={{ "--chip-accent": item.color, "--chip-bg": item.bg, "--chip-border": mixHex(item.color, "#e1dfdd", 0.35) } as CSSProperties}
               animate={
                 active && animating
                   ? { scale: 1.03, boxShadow: `0 0 0 2px ${item.color}` }

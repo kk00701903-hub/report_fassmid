@@ -10,6 +10,16 @@
   --c-claude: #c15f3c;
   --c-dgx: #5a8f00;
   --c-good: #107c10;
+
+  /* rgb 트리플릿 — capture-safe rgba() 알파용 (color-mix 대체) */
+  --c-jira-rgb: 0, 82, 204;
+  --c-gitlab-rgb: 226, 67, 41;
+  --c-idea-rgb: 8, 124, 250;
+  --c-figma-rgb: 151, 71, 255;
+  --c-adobe-rgb: 235, 16, 0;
+  --c-cursor-rgb: 15, 23, 42;
+  --c-claude-rgb: 193, 95, 60;
+  --c-good-rgb: 16, 124, 16;
 }
 
 .slide-s16 .wf-slide {
@@ -332,7 +342,7 @@
 
 .slide-s16 .s16-flow-col--active::before {
   height: 4px;
-  box-shadow: 0 0 8px color-mix(in srgb, var(--col-accent) 50%, transparent);
+  box-shadow: 0 0 8px rgba(var(--col-accent-rgb, 0, 120, 212), 0.5);
 }
 
 .slide-s16 .s16-flow-col__label {
@@ -476,7 +486,12 @@
   justify-content: center;
   font-size: 13px;
   font-weight: 800;
-  background: color-mix(in srgb, var(--tool-color) 12%, #ffffff);
+  background-color: #ffffff;
+  background-image: linear-gradient(
+    0deg,
+    rgba(var(--tool-color-rgb, 0, 120, 212), 0.12),
+    rgba(var(--tool-color-rgb, 0, 120, 212), 0.12)
+  );
   color: var(--tool-color);
 }
 
@@ -510,14 +525,14 @@
   font-size: 10px;
 }
 
-.slide-s16 .s16-tool-card--jira { --tool-color: var(--c-jira); }
-.slide-s16 .s16-tool-card--figma { --tool-color: var(--c-figma); }
-.slide-s16 .s16-tool-card--adobe { --tool-color: var(--c-adobe); }
-.slide-s16 .s16-tool-card--idea { --tool-color: var(--c-idea); }
-.slide-s16 .s16-tool-card--cursor { --tool-color: var(--c-cursor); }
-.slide-s16 .s16-tool-card--claude { --tool-color: var(--c-claude); }
-.slide-s16 .s16-tool-card--gitlab { --tool-color: var(--c-gitlab); }
-.slide-s16 .s16-tool-card--done { --tool-color: var(--c-good); }
+.slide-s16 .s16-tool-card--jira { --tool-color: var(--c-jira); --tool-color-rgb: var(--c-jira-rgb); }
+.slide-s16 .s16-tool-card--figma { --tool-color: var(--c-figma); --tool-color-rgb: var(--c-figma-rgb); }
+.slide-s16 .s16-tool-card--adobe { --tool-color: var(--c-adobe); --tool-color-rgb: var(--c-adobe-rgb); }
+.slide-s16 .s16-tool-card--idea { --tool-color: var(--c-idea); --tool-color-rgb: var(--c-idea-rgb); }
+.slide-s16 .s16-tool-card--cursor { --tool-color: var(--c-cursor); --tool-color-rgb: var(--c-cursor-rgb); }
+.slide-s16 .s16-tool-card--claude { --tool-color: var(--c-claude); --tool-color-rgb: var(--c-claude-rgb); }
+.slide-s16 .s16-tool-card--gitlab { --tool-color: var(--c-gitlab); --tool-color-rgb: var(--c-gitlab-rgb); }
+.slide-s16 .s16-tool-card--done { --tool-color: var(--c-good); --tool-color-rgb: var(--c-good-rgb); }
 
 /* ── DGX hub ── */
 .slide-s16 .s16-dgx-hub {
