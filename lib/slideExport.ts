@@ -443,6 +443,45 @@ function prepareRootForCapture(root: HTMLElement, pageOrigin: string, background
   sanitizeRootForCapture(root, pageOrigin);
 }
 
+/**
+ * 캡처 동안 `CanvasRenderingContext2D.prototype.createPattern`을 임시 래핑한다.
+ *
+ * html2canvas의 URL 배경 렌더 경로는 `createPattern(resizeImage(image, w, h), 'repeat')`
+ * 를 가드 없이 호출한다. `resizeImage`는 목표 크기가 원본과 같으면 원본을 그대로
+ * 반환하므로, `url()` 배경 이미지의 고유 크기가 0(예: Chrome이 SVG data URI 배경을
+ * 0-크기로 로드하는 알려진 이슈)이면 0-크기 canvas가 넘어가
+ * "The image argument is a canvas element with a width or height of 0" 예외가 난다.
+ * 0-크기 소스가 오면 1x1 투명 패턴으로 대체해 예외를 원천 차단한다(아티팩트 없음).
+ *
+ * html2canvas의 렌더 canvas는 메인 `document`에서 생성되므로 메인 윈도우 프로토타입
+ * 한 곳만 패치하면 builtin/iframe 경로 모두 커버된다. 끝나면 반드시 원복한다.
+ */
+async function withCreatePatternGuard<T>(fn: () => Promise<T>): Promise<T> {
+  const proto = CanvasRenderingContext2D.prototype;
+  const original = proto.createPattern;
+  proto.createPattern = function (
+    this: CanvasRenderingContext2D,
+    image: CanvasImageSource,
+    repetition: string | null,
+  ): CanvasPattern | null {
+    const w = (image as CanvasImageSource & { width?: number }).width;
+    const h = (image as CanvasImageSource & { height?: number }).height;
+    if (!w || !h) {
+      const safe = document.createElement("canvas");
+      safe.width = 1;
+      safe.height = 1;
+      return original.call(this, safe, repetition);
+    }
+    return original.call(this, image, repetition);
+  } as typeof proto.createPattern;
+
+  try {
+    return await fn();
+  } finally {
+    proto.createPattern = original;
+  }
+}
+
 async function captureElementAsDataUrl(
   root: HTMLElement,
   slideLabel: string,
@@ -453,26 +492,28 @@ async function captureElementAsDataUrl(
   prepareRootForCapture(root, pageOrigin, captureBg);
 
   const { default: html2canvas } = await import("html2canvas");
-  const canvas = await html2canvas(root, {
-    width: SLIDE_W,
-    height: SLIDE_H,
-    windowWidth: SLIDE_W,
-    windowHeight: SLIDE_H,
-    scale: 1,
-    useCORS: false,
-    allowTaint: true,
-    foreignObjectRendering: false,
-    logging: false,
-    backgroundColor: captureBg,
-    ignoreElements: shouldIgnoreElement,
-    onclone: (clonedDoc) => {
-      const clonedRoot = findSlideRoot(clonedDoc);
-      if (clonedRoot) {
-        prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
-        neutralizeModernColors(clonedRoot);
-      }
-    },
-  });
+  const canvas = await withCreatePatternGuard(() =>
+    html2canvas(root, {
+      width: SLIDE_W,
+      height: SLIDE_H,
+      windowWidth: SLIDE_W,
+      windowHeight: SLIDE_H,
+      scale: 1,
+      useCORS: false,
+      allowTaint: true,
+      foreignObjectRendering: false,
+      logging: false,
+      backgroundColor: captureBg,
+      ignoreElements: shouldIgnoreElement,
+      onclone: (clonedDoc) => {
+        const clonedRoot = findSlideRoot(clonedDoc);
+        if (clonedRoot) {
+          prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
+          neutralizeModernColors(clonedRoot);
+        }
+      },
+    }),
+  );
 
   if (canvas.width === 0 || canvas.height === 0) {
     throw new Error(`캡처 결과가 비어 있습니다 (${slideLabel})`);
@@ -543,26 +584,28 @@ async function captureCustomSlideIframe(
     prepareRootForCapture(root, pageOrigin, captureBg);
 
     const { default: html2canvas } = await import("html2canvas");
-    const canvas = await html2canvas(root, {
-      width: SLIDE_W,
-      height: SLIDE_H,
-      windowWidth: SLIDE_W,
-      windowHeight: SLIDE_H,
-      scale: 1,
-      useCORS: false,
-      allowTaint: true,
-      foreignObjectRendering: false,
-      logging: false,
-      backgroundColor: captureBg,
-      ignoreElements: shouldIgnoreElement,
-      onclone: (clonedDoc) => {
-        const clonedRoot = findSlideRoot(clonedDoc);
-        if (clonedRoot) {
-          prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
-          neutralizeModernColors(clonedRoot);
-        }
-      },
-    });
+    const canvas = await withCreatePatternGuard(() =>
+      html2canvas(root, {
+        width: SLIDE_W,
+        height: SLIDE_H,
+        windowWidth: SLIDE_W,
+        windowHeight: SLIDE_H,
+        scale: 1,
+        useCORS: false,
+        allowTaint: true,
+        foreignObjectRendering: false,
+        logging: false,
+        backgroundColor: captureBg,
+        ignoreElements: shouldIgnoreElement,
+        onclone: (clonedDoc) => {
+          const clonedRoot = findSlideRoot(clonedDoc);
+          if (clonedRoot) {
+            prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
+            neutralizeModernColors(clonedRoot);
+          }
+        },
+      }),
+    );
 
     if (canvas.width === 0 || canvas.height === 0) {
       throw new Error(`캡처 결과가 비어 있습니다 (${slideLabel})`);
