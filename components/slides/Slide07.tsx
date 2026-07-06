@@ -25,7 +25,7 @@ export default function Slide07() {
           <div className="scope-banner">
             <i className="fas fa-layer-group" />
             <p>
-              <strong>단순 화면 개편이 아닙니다.</strong> 수주·발주·정산·물류·유통 전 영역을 차세대 웹 표준과 AI
+              <strong>프로젝트 범위 대규모 확장</strong> 수주·발주·정산·물류·유통 전 영역을 차세대 웹 표준과 AI
               협업 체제로 <strong>일괄 전환</strong>하는 전략 프로젝트입니다.
             </p>
           </div>
