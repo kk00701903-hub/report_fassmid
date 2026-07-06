@@ -97,6 +97,35 @@ async function waitForElementRender(root: HTMLElement): Promise<void> {
   ]);
 }
 
+/** slideMotionProfiles의 COUNTS 와 동일 — CountUp 숫자 애니메이션 대상 */
+const COUNT_ANIM_SELECTOR =
+  ".hstat-val, .stat-val, .ai-innovation-hero-stat-number, .closing-anchor-stat-value, .roadmap-strategy-desc strong";
+
+/**
+ * 등장 애니메이션(framer opacity, GSAP stagger, CountUp 숫자)이 최종 상태로
+ * 정착할 때까지 대기한다. `revealAnimatedElements`가 opacity는 강제로 복원하지만,
+ * CountUp 숫자는 최종값을 알 수 없어 복원할 수 없으므로 실제로 정착될 시간을 준다.
+ */
+async function waitForEntranceSettle(root: HTMLElement): Promise<void> {
+  const view = root.ownerDocument?.defaultView ?? window;
+  const sleep = (ms: number) => new Promise<void>((r) => view.setTimeout(r, ms));
+
+  const hasCounts = Boolean(root.querySelector(COUNT_ANIM_SELECTOR));
+  const minWait = hasCounts ? 2200 : 0;
+  const start = Date.now();
+  const deadline = start + 2800;
+
+  while (Date.now() < deadline) {
+    const mc = root.querySelector<HTMLElement>(".slide-motion-content");
+    const opacity = mc ? parseFloat(view.getComputedStyle(mc).opacity || "1") : 1;
+    const gsapSettled = !mc || mc.classList.contains("slide-gsap-complete");
+    if (opacity >= 0.99 && gsapSettled && Date.now() - start >= minWait) break;
+    await sleep(100);
+  }
+
+  await sleep(150);
+}
+
 async function waitForStylesheets(doc: Document): Promise<void> {
   const links = Array.from(doc.querySelectorAll('link[rel="stylesheet"]'));
 
@@ -208,6 +237,78 @@ function sanitizeCanvasElements(root: HTMLElement): void {
   });
 }
 
+/**
+ * 장식용 다이나믹 레이어 제거.
+ *
+ * `.slide-dynamic-scanlines`는 `repeating-linear-gradient` 배경을 쓰는데,
+ * html2canvas가 이를 타일링하려고 `createPattern()`을 호출하다가 특정 배율에서
+ * 0 크기 캔버스를 만들어 예외("width or height of 0")를 던진다. 이 레이어들은
+ * 모두 pointer-events:none·저투명도 장식이라 캡처 결과에 영향이 거의 없으므로
+ * 캡처 직전 제거한다.
+ */
+const DECORATIVE_CAPTURE_SELECTOR =
+  ".slide-dynamic-particles, .slide-dynamic-aurora, .slide-dynamic-scanlines";
+
+function removeDecorativeLayers(root: HTMLElement): void {
+  root.querySelectorAll(DECORATIVE_CAPTURE_SELECTOR).forEach((el) => el.remove());
+  root
+    .querySelectorAll(".slide-dynamic-sweep-active")
+    .forEach((el) => el.classList.remove("slide-dynamic-sweep-active"));
+}
+
+/**
+ * 크기가 0인 요소의 background-image를 제거한다. html2canvas는 배경 그라디언트를
+ * createPattern으로 타일링하는데, 요소 박스가 0 크기면 0 크기 패턴 캔버스가 되어
+ * 예외가 발생한다. 남아있는 반복 그라디언트/배경에 대한 보강 방어.
+ */
+function neutralizeZeroSizeBackgrounds(root: HTMLElement): void {
+  const view = root.ownerDocument?.defaultView;
+  if (!view) return;
+  const els = [root, ...Array.from(root.querySelectorAll<HTMLElement>("*"))];
+  for (const el of els) {
+    const cs = view.getComputedStyle(el);
+    if (cs.backgroundImage === "none") continue;
+    const rect = el.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) {
+      el.style.backgroundImage = "none";
+    }
+  }
+}
+
+/**
+ * 등장 애니메이션 초기 상태를 최종(보이는) 상태로 강제한다.
+ *
+ * 슬라이드는 오프스크린에서 새로 렌더링된 직후 캡처되는데, 그 시점에는
+ * framer-motion(`.slide-motion-content`: opacity 0→1, scale, blur)과 GSAP
+ * 등장 애니메이션(`gsap.from(..., { opacity: 0, y, scale })`)이 초기 상태라
+ * 콘텐츠가 투명(opacity 0)하게 잡혀 결과물이 백지가 된다. 애니메이션 라이브러리는
+ * 인라인 스타일로 opacity/transform을 세팅하므로, 캡처 클론에서 이를 최종 상태로
+ * 되돌린다. 클론은 라이브 DOM과 분리돼 있어 rAF 루프가 다시 덮어쓰지 않는다.
+ */
+function revealAnimatedElements(root: HTMLElement): void {
+  const motionContents = root.querySelectorAll<HTMLElement>(".slide-motion-content");
+  motionContents.forEach((el) => {
+    el.style.opacity = "1";
+    el.style.transform = "none";
+    el.style.filter = "none";
+    el.style.removeProperty("will-change");
+  });
+
+  // GSAP `from` 등으로 opacity가 1 미만인 인라인 요소를 최종 상태로 복원.
+  // (정적 배치용 transform은 보통 opacity가 1이므로 건드리지 않는다.)
+  const all = [root, ...Array.from(root.querySelectorAll<HTMLElement>("*"))];
+  for (const el of all) {
+    const inlineOpacity = el.style.opacity;
+    if (inlineOpacity === "" || inlineOpacity === "1") continue;
+    const numeric = Number(inlineOpacity);
+    if (Number.isNaN(numeric) || numeric >= 1) continue;
+    el.style.opacity = "1";
+    el.style.removeProperty("transform");
+    el.style.removeProperty("filter");
+    el.style.removeProperty("will-change");
+  }
+}
+
 function stripAnimations(root: HTMLElement): void {
   if (root.querySelector("style[data-export-capture]")) return;
 
@@ -219,8 +320,11 @@ function stripAnimations(root: HTMLElement): void {
 }
 
 function sanitizeRootForCapture(root: HTMLElement, pageOrigin: string): void {
+  removeDecorativeLayers(root);
+  revealAnimatedElements(root);
   sanitizeImagesInRoot(root, pageOrigin);
   sanitizeCanvasElements(root);
+  neutralizeZeroSizeBackgrounds(root);
   stripAnimations(root);
   root.querySelectorAll("iframe, video").forEach((el) => el.remove());
 }
@@ -405,6 +509,7 @@ async function captureBuiltinSlideReact(
     await new Promise((r) => window.setTimeout(r, 100));
     const slideRoot = getSlideRoot(container, slideLabel);
     await waitForElementRender(slideRoot);
+    await waitForEntranceSettle(slideRoot);
     return await captureElementAsDataUrl(slideRoot, slideLabel, colorMode);
   } finally {
     root.unmount();
