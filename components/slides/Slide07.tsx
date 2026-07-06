@@ -16,7 +16,7 @@ export default function Slide07() {
           </div>
           <p className="sub">
             AI 생산성 혁신을 중심에 두고 프론트엔드 · 백엔드 · DB · 보안 · 인프라가 유기적으로 연결되는{" "}
-            <strong>대형 엔터프라이즈 플랫폼</strong> 전면 재구축
+            <strong>대형 엔터프라이즈 플랫폼</strong>
           </p>
           <div className="line" />
         </div>

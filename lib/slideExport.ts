@@ -225,6 +225,69 @@ function sanitizeRootForCapture(root: HTMLElement, pageOrigin: string): void {
   root.querySelectorAll("iframe, video").forEach((el) => el.remove());
 }
 
+/**
+ * 최신 브라우저는 `color-mix(in srgb, ...)` 등을 계산값에서 `color(srgb r g b / a)`
+ * 형태로 직렬화한다. html2canvas 는 이 `color()` 함수를 파싱하지 못하고
+ * "Attempting to parse an unsupported color function 'color'" 예외를 던지므로,
+ * 캡처 직전 클론 트리에서 해당 값을 rgb(a)로 치환한다.
+ */
+const COLOR_CAPTURE_PROPS = [
+  "color",
+  "background-color",
+  "background-image",
+  "border-top-color",
+  "border-right-color",
+  "border-bottom-color",
+  "border-left-color",
+  "outline-color",
+  "box-shadow",
+  "fill",
+  "stroke",
+  "text-decoration-color",
+  "-webkit-text-fill-color",
+  "column-rule-color",
+  "caret-color",
+] as const;
+
+function convertModernColor(value: string): string {
+  if (!value || !value.includes("color(")) return value;
+  return value.replace(
+    /color\(\s*[a-z0-9-]+\s+([^)]+)\)/gi,
+    (match, body: string) => {
+      const [componentsRaw, alphaRaw] = body.split("/");
+      const nums = componentsRaw.trim().split(/\s+/).map((n) => parseFloat(n));
+      if (nums.length < 3 || nums.some((n) => Number.isNaN(n))) return match;
+      const alpha = alphaRaw !== undefined ? parseFloat(alphaRaw) : 1;
+      const to255 = (n: number) => Math.round(Math.min(1, Math.max(0, n)) * 255);
+      const [r, g, b] = [to255(nums[0]), to255(nums[1]), to255(nums[2])];
+      return alpha >= 1 || Number.isNaN(alpha)
+        ? `rgb(${r}, ${g}, ${b})`
+        : `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    },
+  );
+}
+
+function neutralizeModernColors(root: HTMLElement): void {
+  const view = root.ownerDocument?.defaultView;
+  if (!view) return;
+
+  const elements: HTMLElement[] = [
+    root,
+    ...Array.from(root.querySelectorAll<HTMLElement>("*")),
+  ];
+
+  for (const el of elements) {
+    if (!el.style) continue;
+    const computed = view.getComputedStyle(el);
+    for (const prop of COLOR_CAPTURE_PROPS) {
+      const val = computed.getPropertyValue(prop);
+      if (val && val.includes("color(")) {
+        el.style.setProperty(prop, convertModernColor(val));
+      }
+    }
+  }
+}
+
 function shouldIgnoreElement(element: Element): boolean {
   if (element instanceof HTMLCanvasElement) {
     return element.width === 0 || element.height === 0;
@@ -274,6 +337,7 @@ async function captureElementAsDataUrl(
       const clonedRoot = findSlideRoot(clonedDoc);
       if (clonedRoot) {
         prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
+        neutralizeModernColors(clonedRoot);
       }
     },
   });
@@ -362,6 +426,7 @@ async function captureCustomSlideIframe(
         const clonedRoot = findSlideRoot(clonedDoc);
         if (clonedRoot) {
           prepareRootForCapture(clonedRoot, pageOrigin, getCaptureBackground(clonedRoot));
+          neutralizeModernColors(clonedRoot);
         }
       },
     });
