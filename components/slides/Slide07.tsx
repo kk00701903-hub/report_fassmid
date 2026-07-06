@@ -15,8 +15,8 @@ export default function Slide07() {
             <h1>차세대 FaSS 구축 프로젝트 범위</h1>
           </div>
           <p className="sub">
-            AI 생산성 혁신을 중심에 두고 프론트엔드 · 백엔드 · DB · 보안 · 인프라가 유기적으로 연결되는{" "}
-            <strong>대형 엔터프라이즈 플랫폼</strong>
+            AI 생산성 혁신을 중심으로 <strong>기술 아키텍처</strong>가 유기적으로 연결되는 대형 엔터프라이즈
+            플랫폼 생태계
           </p>
           <div className="line" />
         </div>

@@ -10,7 +10,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
       <span class="badge">BENCHMARK</span>
       <h1>타사 프로젝트 비교</h1>
     </div>
-    <p class="sub">동일 시기·유사 범위 엔터프라이즈 플랫폼 구축 사례를 벤치마크로 참고합니다. (내부 전략 수립용)</p>
+    <p class="sub">다수의 IT 기업이나 대기업들도 기술적 난제와 비용 효율성으로 자체 웹프레임워크를 보유하기 어려운 상황임</p>
     <div class="line"></div>
   </div>
 
