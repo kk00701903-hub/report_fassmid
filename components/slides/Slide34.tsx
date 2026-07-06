@@ -10,7 +10,7 @@ const SLIDE_HTML = `<div class="fass-slide-root fluent-slide" style="overflow: h
 <div class="bar"></div>
 <h1 class="title-main">비즈니스 혁신7: AI 오케스트레이션</h1>
 </div>
-<p class="sub">오케스트레이션·프로세스 지침 기반 지능형 코드 변환 — 외주 인력 0 M/M 마이그레이션</p>
+<p class="sub">AI 오케스트레이션 도입: 외주개발비 80억 원 전액 절감 및 디자이너 인건비 66% 절감 (6개월 → 2개월)</p>
 <div class="line"></div>
 </div>
 <!-- Main Content: AI Impact Hero Layout -->

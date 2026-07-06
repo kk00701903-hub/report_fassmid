@@ -136,7 +136,7 @@
 .slide-s37 .s37-roadmap-track {
   width: 100%;
   position: relative;
-  padding: 18px 14px 10px;
+  padding: 28px 14px 10px;
   border-radius: 12px;
   border: 1px solid #edebe9;
   background: #faf9f8;
@@ -147,7 +147,7 @@
   position: absolute;
   left: 14%;
   right: 14%;
-  top: 38px;
+  top: 41px;
   height: 2px;
   z-index: 0;
 }
@@ -204,12 +204,11 @@
 }
 
 .slide-s37 .s37-milestone__marker-wrap {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 5px;
-  min-height: 52px;
-  justify-content: flex-end;
+  justify-content: center;
+  height: 28px;
 }
 
 .slide-s37 .s37-milestone__marker {
@@ -251,6 +250,10 @@
 }
 
 .slide-s37 .s37-milestone__live {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -260,6 +263,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--s37-live);
   background: var(--s37-live-soft);
   border: 1px solid rgba(16, 124, 16, 0.35);

@@ -19,7 +19,7 @@
 .slide-s35 .concept-title{font-size:14px; font-weight:700; line-height:1.35; color:var(--fluent-grey-160, #201f1e);}
 .slide-s35 .concept-box.old .concept-title{color:var(--fluent-grey-160, #201f1e);}
 .slide-s35 .concept-kw{font-style:normal; font-weight:700;}
-.slide-s35 .concept-box.old .concept-kw{color:#CBD5E1;}
+.slide-s35 .concept-box.old .concept-kw{color:#000;}
 .slide-s35 .concept-box.new .concept-kw{color:var(--fluent-grey-160, #201f1e);}
 .slide-s35 .concept-analogy{font-size: 14px; color:var(--fluent-blue, #0078d4); font-weight:600; line-height:1.35;}
 .slide-s35 .concept-list{list-style:none; display:flex; flex-direction:column; gap:3px;}

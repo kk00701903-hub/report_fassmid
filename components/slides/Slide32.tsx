@@ -10,7 +10,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide quality-slide">
 <div class="bar"></div>
 <h1 class="title-main">비즈니스 혁신5: Zero-Defect 코드 품질 통제 체계</h1>
 </div>
-<p class="sub">AI 가속 CI/CD + SonarQube 정적 분석 — 무결점 코드 품질 통제 체계</p>
+<p class="sub">AI 자동 품질 게이트 도입을 통해, 무결점 서비스 운영을 위한 기술적 신뢰도를 확보합니다.</p>
 <div class="line"></div>
 </div>
 <!-- Content Area -->

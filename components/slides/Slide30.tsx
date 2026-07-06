@@ -10,7 +10,7 @@ const SLIDE_HTML = `<div class="roi-asset-slide-root fluent-slide" style="overfl
 <div class="bar"></div>
 <h1 class="title-main">비즈니스 혁신3: 전략적 수익화 IT 플랫폼 확보</h1>
 </div>
-<p class="sub">내재화 기술 자산 가치 극대화 — ASP 수익화를 위한 전략적 IT 플랫폼</p>
+<p class="sub">IT 인프라를 자산화하고, 비즈니스 수익 창출을 위한 미래 성장 동력 마련</p>
 <div class="line"></div>
 </div>
 <!-- Main Content Body -->
