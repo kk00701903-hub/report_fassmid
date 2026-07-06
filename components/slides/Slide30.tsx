@@ -38,7 +38,7 @@ const SLIDE_HTML = `<div class="roi-asset-slide-root fluent-slide" style="overfl
 <div class="roi-asset-description-right">
 <h2 class="roi-asset-desc-title">비즈니스 모델의 근본적 전환</h2>
 <p class="roi-asset-desc-body">
-            대규모 외주 SI에 의존하던 과거 방식에서 탈피하여, 독자적인 기술 스택과 AI 에이전트를 결합한 차세대 FaSS 플랫폼을 완성했습니다. 이는 단순한 시스템 구축을 넘어, 유관 기업 및 중소 물류사에 즉각 공급 가능한 '패키지형 자산'을 확보했음을 의미합니다.
+            대규모 외주 SI에 의존하던 과거 방식에서 탈피하여, 독자적인 기술 스택과 AI 에이전트를 결합한 차세대 FaSS 플랫폼을 완성했습니다. 이는 단순한 시스템 구축을 넘어, 유관 기업 및 중소 물류사에 즉각 공급 가능한 <strong class="roi-asset-desc-kw">패키지형 자산</strong>을 확보했음을 의미합니다.
           </p>
 </div>
 </div>

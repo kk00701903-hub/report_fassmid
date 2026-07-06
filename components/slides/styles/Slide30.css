@@ -195,6 +195,14 @@
   margin: 0;
 }
 
+.slide-s30 .roi-asset-desc-body .roi-asset-desc-kw {
+  color: #004578;
+  font-weight: 700;
+  background: rgba(0, 120, 212, 0.14);
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
 .slide-s30 .roi-asset-evidence-strip {
   display: flex;
   gap: 20px;

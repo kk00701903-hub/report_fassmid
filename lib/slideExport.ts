@@ -231,24 +231,6 @@ function sanitizeRootForCapture(root: HTMLElement, pageOrigin: string): void {
  * "Attempting to parse an unsupported color function 'color'" 예외를 던지므로,
  * 캡처 직전 클론 트리에서 해당 값을 rgb(a)로 치환한다.
  */
-const COLOR_CAPTURE_PROPS = [
-  "color",
-  "background-color",
-  "background-image",
-  "border-top-color",
-  "border-right-color",
-  "border-bottom-color",
-  "border-left-color",
-  "outline-color",
-  "box-shadow",
-  "fill",
-  "stroke",
-  "text-decoration-color",
-  "-webkit-text-fill-color",
-  "column-rule-color",
-  "caret-color",
-] as const;
-
 function convertModernColor(value: string): string {
   if (!value || !value.includes("color(")) return value;
   return value.replace(
@@ -267,24 +249,70 @@ function convertModernColor(value: string): string {
   );
 }
 
+const PSEUDO_ELEMENTS = ["::before", "::after"] as const;
+
+/**
+ * Collects every longhand property whose computed value still contains an
+ * unsupported `color()` / `color-mix()` serialization. Scanning the full
+ * declaration list (instead of a fixed whitelist) guarantees we also catch
+ * shorthands like `filter`, `mask`, `background`, gradients, etc.
+ */
+function collectModernColorDecls(computed: CSSStyleDeclaration): Array<[string, string]> {
+  const decls: Array<[string, string]> = [];
+  for (let i = 0; i < computed.length; i++) {
+    const prop = computed.item(i);
+    if (!prop) continue;
+    const val = computed.getPropertyValue(prop);
+    if (val && val.includes("color(")) {
+      decls.push([prop, convertModernColor(val)]);
+    }
+  }
+  return decls;
+}
+
 function neutralizeModernColors(root: HTMLElement): void {
-  const view = root.ownerDocument?.defaultView;
-  if (!view) return;
+  const doc = root.ownerDocument;
+  const view = doc?.defaultView;
+  if (!view || !doc) return;
 
   const elements: HTMLElement[] = [
     root,
     ...Array.from(root.querySelectorAll<HTMLElement>("*")),
   ];
 
+  const pseudoRules: string[] = [];
+  let pseudoSeq = 0;
+
   for (const el of elements) {
     if (!el.style) continue;
+
     const computed = view.getComputedStyle(el);
-    for (const prop of COLOR_CAPTURE_PROPS) {
-      const val = computed.getPropertyValue(prop);
-      if (val && val.includes("color(")) {
-        el.style.setProperty(prop, convertModernColor(val));
+    for (const [prop, converted] of collectModernColorDecls(computed)) {
+      el.style.setProperty(prop, converted);
+    }
+
+    // Pseudo-elements cannot receive inline styles, so collect targeted overrides
+    // into an injected stylesheet keyed by a unique data attribute.
+    for (const pseudo of PSEUDO_ELEMENTS) {
+      const pseudoComputed = view.getComputedStyle(el, pseudo);
+      const content = pseudoComputed.getPropertyValue("content");
+      if (!content || content === "none" || content === "normal") continue;
+
+      const decls = collectModernColorDecls(pseudoComputed);
+      if (decls.length > 0) {
+        const marker = `data-export-neu-${pseudoSeq++}`;
+        el.setAttribute(marker, "");
+        const body = decls.map(([prop, converted]) => `${prop}: ${converted} !important;`).join("");
+        pseudoRules.push(`[${marker}]${pseudo}{${body}}`);
       }
     }
+  }
+
+  if (pseudoRules.length > 0) {
+    const style = doc.createElement("style");
+    style.setAttribute("data-export-neu-pseudo", "true");
+    style.textContent = pseudoRules.join("\n");
+    (doc.head ?? root).prepend(style);
   }
 }
 

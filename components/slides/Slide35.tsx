@@ -10,7 +10,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
       <span class="badge">BUSINESS INNOVATION</span>
       <h1 class="title-main">비즈니스 혁신8: 빌더형 인재 육성</h1>
     </div>
-    <p class="sub"><strong>빌더형 인재</strong>란? 완성된 시스템만 쓰는 사람이 아니라, AI와 함께 <strong style="color:var(--ppt-good);">직접 만들고·운영하며 개선하는</strong> 차세대 비개발 IT 인재입니다.</p>
+    <p class="sub"><strong>빌더형 인재</strong>란? 현업 담당자가 차세대 웹 프레임워크와 MCP·챗봇 등 외부 AI를 연결해 <strong style="color:var(--ppt-good);">바이브 코딩</strong>으로 서비스를 직접 만들고 운영하는 인재입니다.</p>
     <div class="line"></div>
   </div>
 
@@ -35,15 +35,15 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         <div class="concept-title">직접 <em class="concept-kw">만들고·고치고·운영</em>하는 인력</div>
         <div class="concept-analogy">비유 — 설계도 보고 차를 직접 조립·정비하는 장인</div>
         <ul class="concept-list">
-          <li><strong style="color:var(--ppt-text-1);">Build</strong> — 요구사항을 코드·서비스로 직접 구현</li>
-          <li><strong style="color:var(--ppt-text-1);">Monitor</strong> — 배포·품질·AI를 스스로 관제·개선</li>
+          <li><strong style="color:var(--ppt-text-1);">Build</strong> — 요구사항을 AI 바이브 코딩으로 코드·서비스로 구현</li>
+          <li><strong style="color:var(--ppt-text-1);">Monitor</strong> — 배포·품질·외부 AI(MCP/챗봇) 연동 관제·개선</li>
           <li><strong style="color:var(--ppt-text-1);">Share</strong> — 표준·문서를 남겨 조직 역량을 축적</li>
         </ul>
       </div>
     </div>
 
     <div class="concept-oneline">
-      <em>한 줄 정의</em> — 빌더형 인재 = AI 협업 위에서 <strong>Build · Monitor · Share</strong>를 실전에서 연마하는 인재 &nbsp;|&nbsp; 훈련장 = <strong>SiteFramework</strong>
+      현업 담당자가 AI 협업(Vibe Coding·MCP) 위에서 <strong>Build · Monitor · Share</strong>를 실전 연마하는 인재 &nbsp;|&nbsp; 훈련장 = <strong>차세대 웹 프레임워크 테스트 사이트</strong>
     </div>
 
     <div class="hub-row">
@@ -51,24 +51,24 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         <div class="role-card role-card--learn">
           <div class="role-icon cyan"><i class="fas fa-graduation-cap"></i></div>
           <div class="role-body">
-            <h3>① 표준 아키텍처 학습장</h3>
-            <p>SiteFramework·API-First·모듈 경계를 실제 코드로 익히며, 신입·전환 인력의 온보딩 시간을 단축합니다.</p>
+            <h3>① 차세대 웹 프레임워크 &amp; MCP 아키텍처 학습</h3>
+            <p>SiteFramework·MCP 연결 아키텍처를 이해하고, 마이크로서비스·API 기반 설계 코드를 학습합니다.</p>
           </div>
         </div>
         <div class="role-card role-card--monitor">
           <div class="role-icon purple"><i class="fas fa-satellite-dish"></i></div>
           <div class="role-body">
-            <h3>② Monitor 역량 실습</h3>
-            <p>CI/CD·Quality Gate·AI 에이전트 로그를 관제하며, 운영 이상 징후 대응 역량을 키웁니다.</p>
+            <h3>② 외부 AI(챗봇·MCP) 연결 모니터링</h3>
+            <p>외부 AI 챗봇·MCP 에이전트 연동 상태·품질·보안을 실시간 관제하고, 로그 분석·이슈 대응을 수행합니다.</p>
           </div>
         </div>
       </div>
 
       <div class="hub-center hub-center--hi">
-        <span class="hub-ribbon"><i class="fas fa-star"></i> 실전 훈련장 HUB</span>
+        <span class="hub-ribbon"><i class="fas fa-star"></i> Live Connect Core</span>
         <i class="fas fa-cubes hub-icon"></i>
-        <div class="hub-title">실전 훈련장<br/>SiteFramework</div>
-        <div class="hub-sub">이론 교육이 아닌<br/>실제 코드·배포·관제 실습</div>
+        <div class="hub-title">SiteFramework<br/>차세대 웹 프레임워크</div>
+        <div class="hub-sub">현업 기반 실전 훈련<br/>외부 AI(MCP·챗봇) 연결</div>
         <div class="hub-tags">
           <span class="hub-tag">S04</span><span class="hub-tag">S09</span><span class="hub-tag">S18</span>
         </div>
@@ -78,15 +78,15 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
         <div class="role-card role-card--build">
           <div class="role-icon green"><i class="fas fa-hammer"></i></div>
           <div class="role-body">
-            <h3>③ Build 역량 실습</h3>
-            <p>수주·발주 모듈 PoC를 직접 설계·구현·배포하며, 요구사항→MR→운영까지 풀사이클을 경험합니다.</p>
+            <h3>③ 현업 기반 바이브 코딩(Build) 실습</h3>
+            <p>현업 요구사항을 AI와 협업(Vibe Coding)해 신속하게 코드·서비스로 직접 구현·배포합니다.</p>
           </div>
         </div>
         <div class="role-card role-card--doc">
           <div class="role-icon gold"><i class="fas fa-book"></i></div>
           <div class="role-body">
-            <h3>④ AI-Ready 문서 기여</h3>
-            <p>README·위키·OpenAPI를 마크다운으로 기여해 RAG 컨텍스트를 쌓고, AI 협업 문화를 체득합니다.</p>
+            <h3>④ AI/MCP-Ready 문서 기여</h3>
+            <p>README·OpenAPI 등 마크다운을 기여해 RAG·MCP 컨텍스트를 구축하고 AI 협업을 최적화합니다.</p>
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide">
 
   <div class="bottom-bar">
     <i class="fas fa-link"></i>
-    <p><strong>왜 지금인가:</strong> AI가 코딩·문서·테스트를 돕는 시대 — "요청만 하는" 사용자형에서 "직접 만드는" 빌더형으로 전환해야 속도·품질·내재화를 동시에 확보합니다.</p>
+    <p><strong>왜 지금인가:</strong> AI가 바이브 코딩을 돕고 외부 AI(MCP)가 연결되는 시대 — 현업이 "직접 만드는" 빌더형으로 전환해 비즈니스 속도와 내재화를 달성해야 할 때입니다.</p>
   </div>
 </div>`;
 

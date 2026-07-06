@@ -9,7 +9,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide proto-slide">
       <div class="bar"></div>
       <h1 class="title-main">비즈니스 혁신4: 프로토타입 엔진을 통한 아키텍처 내재화</h1>
     </div>
-    <p class="sub">철저한 사전 기술 검증으로 혁신 리스크를 차단하고, 기술 내재화의 속도를 가속화 추진</p>
+    <p class="sub">철저한 사전 기술 검증으로 혁신 리스크를 차단하고, 기술 내재화의 속도를 가속화 추진 (프로토타입 = 차세대 웹프레임워크)</p>
     <div class="line"></div>
   </div>
 

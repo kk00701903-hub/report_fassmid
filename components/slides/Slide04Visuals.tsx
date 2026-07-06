@@ -6,6 +6,31 @@ import { useSlideDiagramMotion } from "@/components/slides/motion/SlideMotionRea
 
 const CONTAINER_COLORS = ["#e74c3c", "#2563eb", "#f59e0b"] as const;
 
+const LOGISTICS_HERO_CONTAINERS = [
+  { x: 168, color: CONTAINER_COLORS[0], label: "쌀" },
+  { x: 228, color: CONTAINER_COLORS[1], label: "냉동" },
+  { x: 288, color: CONTAINER_COLORS[2], label: "부품" },
+  { x: 348, color: "#10b981", label: "TV" },
+] as const;
+
+function shipSwayTransition(index: number, animating: boolean) {
+  return {
+    duration: 2.6 + index * 0.15,
+    delay: index * 0.18,
+    repeat: animating ? Infinity : 0,
+    ease: "easeInOut" as const,
+  };
+}
+
+function containerBobTransition(index: number, animating: boolean) {
+  return {
+    duration: 1.5,
+    delay: index * 0.22,
+    repeat: animating ? Infinity : 0,
+    ease: "easeInOut" as const,
+  };
+}
+
 type ShippingContainerProps = {
   color: string;
   label?: string;
@@ -200,7 +225,14 @@ export function MiniShipScene({ variant }: { variant: "standard" | "port" | "iso
       >
         <ShippingContainer color="#8b5cf6" x={8} y={24} width={38} height={28} label="냉동" />
       </motion.g>
-      <ShippingContainer color="#06b6d4" x={68} y={24} width={38} height={28} label="일반" />
+      <motion.g
+        initial={false}
+        animate={animating ? { scale: [1, 1.03, 1], opacity: [0.92, 1, 0.92] } : undefined}
+        transition={{ duration: 2.2, repeat: animating ? Infinity : 0, ease: "easeInOut" }}
+        style={{ transformOrigin: "87px 38px" }}
+      >
+        <ShippingContainer color="#06b6d4" x={68} y={24} width={38} height={28} label="일반" />
+      </motion.g>
       <motion.line
         x1={52}
         y1={16}
@@ -300,14 +332,41 @@ export function Slide04LogisticsHero() {
           부산항
         </text>
         <rect x={24} y={54} width={48} height={6} rx={1} fill="#94a3b8" />
+      <motion.g
+        initial={false}
+        animate={animating ? { y: [0, -1, 0, 0.8, 0] } : undefined}
+        transition={{ duration: 3.2, repeat: animating ? Infinity : 0, ease: "easeInOut" }}
+      >
         <path d="M120 58 L320 34 L520 58 L508 64 L132 64 Z" fill="#475569" />
         <path d="M132 64 L508 64 L498 68 L142 68 Z" fill="#334155" />
         <rect x={488} y={26} width={8} height={36} fill="#64748b" />
         <rect x={478} y={22} width={28} height={5} rx={1} fill="#94a3b8" />
-        <ShippingContainer color={CONTAINER_COLORS[0]} x={168} y={36} width={48} height={28} label="쌀" />
-        <ShippingContainer color={CONTAINER_COLORS[1]} x={228} y={36} width={48} height={28} label="냉동" />
-        <ShippingContainer color={CONTAINER_COLORS[2]} x={288} y={36} width={48} height={28} label="부품" />
-        <ShippingContainer color="#10b981" x={348} y={36} width={48} height={28} label="TV" />
+      </motion.g>
+      {LOGISTICS_HERO_CONTAINERS.map((container, i) => (
+        <motion.g
+          key={container.label}
+          initial={false}
+          animate={
+            animating
+              ? {
+                  y: [0, -2.5, 0, 1.8, 0],
+                  rotate: [0, -0.5, 0, 0.4, 0],
+                }
+              : undefined
+          }
+          transition={shipSwayTransition(i, animating)}
+          style={{ transformOrigin: `${container.x + 24}px 50px` }}
+        >
+          <ShippingContainer
+            color={container.color}
+            x={container.x}
+            y={36}
+            width={48}
+            height={28}
+            label={container.label}
+          />
+        </motion.g>
+      ))}
         <text x={420} y={48} fontSize={9} fill="#64748b">
           컨테이너선
         </text>
@@ -345,13 +404,16 @@ export function Slide04SystemHero() {
           <motion.g
             key={x}
             initial={false}
-            animate={animating ? { y: [0, -3, 0] } : undefined}
-            transition={{
-              duration: 1.6,
-              delay: i * 0.2,
-              repeat: animating ? Infinity : 0,
-              ease: "easeInOut",
-            }}
+            animate={
+              animating
+                ? {
+                    y: [0, -4, 0, -2, 0],
+                    scale: [1, 1.03, 1, 1.015, 1],
+                  }
+                : undefined
+            }
+            transition={containerBobTransition(i, animating)}
+            style={{ transformOrigin: `${x + containerW / 2}px ${containerY + containerH / 2}px` }}
           >
             <DockerContainer
               color={i < 3 ? CONTAINER_COLORS[i] : "#10b981"}
