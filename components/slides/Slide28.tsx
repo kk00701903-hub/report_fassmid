@@ -9,7 +9,7 @@ const SLIDE_HTML = `<div class="engine-slide-root fluent-slide">
       <div class="bar"></div>
       <h1 class="title-main">비즈니스 혁신1: 차세대 영업 핵심 IT 엔진 보유</h1>
     </div>
-    <p class="sub">차세대 웹 아키텍처 기반 — 영업 경쟁력 · 운영 효율 · 데이터 의사결정 · 안정성 · Cloud-Ready 5대 전략</p>
+    <p class="sub">당사 IT 기술을 영업의 새로운 승부수로 장착하여 고부가가치 비지니스를 견인하겠습니다.</p>
     <div class="line"></div>
   </div>
 

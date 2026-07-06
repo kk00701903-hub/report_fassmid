@@ -10,46 +10,22 @@ const PHASES = [
     phase: "PHASE 1",
     badge: "검증",
     icon: "fa-building-user",
-    title: "사내 검증",
-    subtitle: "Internal Validation",
-    audience: "자사 · 사내 팀",
-    desc: (
-      <>
-        사내 업무에 먼저 도입해
-        <br />— <strong>효과를 검증하는 단계</strong>.
-      </>
-    ),
-    featured: false,
+    title: "내부 성공 모델 구축",
+    highlight: "효과 입증",
   },
   {
     phase: "PHASE 2",
     badge: "확장",
     icon: "fa-cloud",
-    title: "SaaS 제공",
-    subtitle: "Cloud SaaS",
-    audience: "스타트업 · SMB",
-    desc: (
-      <>
-        구독형 클라우드로 시장 진입
-        <br />— <strong>LLM API 키·락인 없음</strong>, REST API 발행.
-      </>
-    ),
-    featured: false,
+    title: "클라우드 기반 서비스(SaaS) 출시",
+    highlight: "시장 침투",
   },
   {
     phase: "PHASE 3",
-    badge: "엔터프라이즈",
-    icon: "fa-server",
-    title: "온프렘 구축",
-    subtitle: "On-prem · Air-gap",
-    audience: "중견기업↑ · 규제 산업",
-    desc: (
-      <>
-        자체 구축·에어갭으로 <strong>데이터 레지던시</strong> 충족
-        <br />— 금융·의료·국방.
-      </>
-    ),
-    featured: true,
+    badge: "도약",
+    icon: "fa-shield-halved",
+    title: "대형 엔터프라이즈 전용 환경 구축",
+    highlight: "보안/신뢰성 확보",
   },
 ] as const;
 
@@ -60,11 +36,11 @@ export default function Slide43() {
         <div className="title-r">
           <div className="title-row">
             <div className="bar" />
-            <span className="badge">GO-TO-MARKET</span>
-            <h1>사내 도구를 넘어, 상용 플랫폼으로</h1>
+            <span className="badge">비즈니스 성장</span>
+            <h1>비즈니스 성장 전략: 내부 검증에서 상용 플랫폼으로</h1>
           </div>
           <p className="sub">
-            당사의 IT 기술력을 통한 고객사 제공 (SaaS) 및 고부가 가치 (&amp; Lock In) 물류/유통전략 추진.
+            당사의 IT 기술력을 바탕으로 독자적인 사업 운영을 위한 클라우드 독립 기반 마련.
           </p>
           <div className="line" />
         </div>
@@ -72,7 +48,7 @@ export default function Slide43() {
         <div className="ax-gtm-phases">
           {PHASES.map((item, index) => (
             <Fragment key={item.phase}>
-              <div className={`ax-gtm-phase-card${item.featured ? " is-featured" : ""}`}>
+              <div className="ax-gtm-phase-card">
                 <div className="ax-gtm-phase-card__head">
                   <span className="ax-gtm-phase-card__phase">{item.phase}</span>
                   <span className="ax-gtm-phase-card__badge">{item.badge}</span>
@@ -81,13 +57,9 @@ export default function Slide43() {
                   <div className="ax-gtm-phase-card__icon">
                     <i className={`fas ${item.icon}`} />
                   </div>
-                  <div>
-                    <div className="ax-gtm-phase-card__title">{item.title}</div>
-                    <div className="ax-gtm-phase-card__subtitle">{item.subtitle}</div>
-                  </div>
-                  <span className="ax-gtm-phase-card__audience">{item.audience}</span>
+                  <div className="ax-gtm-phase-card__title">{item.title}</div>
                 </div>
-                <p className="ax-gtm-phase-card__desc">{item.desc}</p>
+                <div className="ax-gtm-phase-card__highlight">{item.highlight}</div>
               </div>
               {index < PHASES.length - 1 ? (
                 <div key={`${item.phase}-chevron`} className="ax-gtm-chevron" aria-hidden="true">
@@ -104,9 +76,7 @@ export default function Slide43() {
               <i className="fas fa-diagram-project" />
               <span>AGENT STUDIO</span>
             </div>
-            <p>
-              코드 없이 워크플로우를 <strong>설계·실행·배포</strong>하는 빌더
-            </p>
+            <p>코드 없는 워크플로우 빌더</p>
           </div>
           <div className="ax-gtm-footer__divider" />
           <div className="ax-gtm-footer__item">
@@ -114,9 +84,7 @@ export default function Slide43() {
               <i className="fas fa-book-open" />
               <span>LLM WIKI</span>
             </div>
-            <p>
-              리소스에서 자동 갱신되는 <strong>&apos;AI 팀용 Knowledge Hub&apos;</strong>
-            </p>
+            <p>지식 허브</p>
           </div>
         </div>
       </div>

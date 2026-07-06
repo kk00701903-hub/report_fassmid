@@ -16,7 +16,7 @@ export default function Slide29() {
             <span className="badge">BUSINESS INNOVATION</span>
             <h1 className="title-main">비즈니스 혁신2: AI 지능형 물류 플랫폼으로의 전환</h1>
           </div>
-          <p className="sub">단순 기록/조회에서 데이터 기반 예측·자동화 시스템으로의 전환</p>
+          <p className="sub">수동 관리 중심의 시스템에서 AI 기반의 예측·자동화 체계로 전환하여, 물류 운영 효율과 관리 생산성을 극대화합니다.</p>
           <div className="line" />
         </div>
 

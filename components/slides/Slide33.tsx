@@ -10,7 +10,7 @@ const SLIDE_HTML = `<div class="slide fluent-slide" style="overflow: hidden;">
 <div class="bar"></div>
 <h1 class="title-main">비즈니스 혁신6: 클라우드 전환을 위한 교두보</h1>
 </div>
-<p class="sub">클라우드 비용 최적화가 목적이 아닙니다. 차세대 FaSS 플랫폼은 앞으로 클라우드로 가기 위한 전략적 교두보가 됩니다.</p>
+<p class="sub">제때의 독자적인 ASP 사업 환경 구축과 클라우드 네이티브 전환을 위한 전략적 교두보가 될 것입니다.</p>
 <div class="line"></div>
 </div>
 <!-- Main Content -->
