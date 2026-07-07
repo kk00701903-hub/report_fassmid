@@ -30,19 +30,19 @@
 
 /* Projector — large red pointer, always visible */
 .custom-cursor-root--projector .custom-cursor-ring {
-  width: 56px;
-  height: 56px;
-  border: 3px solid rgba(255, 30, 30, 0.55);
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(255, 30, 30, 0.55);
   background: rgba(255, 30, 30, 0.12);
-  box-shadow: 0 0 18px rgba(255, 30, 30, 0.45);
+  box-shadow: 0 0 9px rgba(255, 30, 30, 0.45);
 }
 
 .custom-cursor-root--projector .custom-cursor-dot {
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   background: #ff1e1e;
-  border: 3px solid #ffffff;
+  border: 2px solid #ffffff;
   box-shadow:
-    0 0 0 2px rgba(0, 0, 0, 0.35),
-    0 0 24px rgba(255, 30, 30, 0.85);
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 0 12px rgba(255, 30, 30, 0.85);
 }
