@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import {
   getCursorPosition,
@@ -12,43 +12,43 @@ import "./CustomCursor.css";
 
 const SPRING_MAIN = { stiffness: 700, damping: 32, mass: 0.35 };
 
-function useProjectorMode(): boolean {
-  const [active, setActive] = useState(false);
+function useCursorEnabled(): boolean {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    setEnabled(!reduceMotion && !coarsePointer);
+  }, []);
+
+  return enabled;
+}
+
+function usePresentationFullscreen(): boolean {
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     function sync() {
-      const shell = document.getElementById("presentation-shell");
-      setActive(Boolean(shell?.classList.contains("presentation-shell--projector")));
+      setIsFullscreen(document.fullscreenElement?.id === "presentation-shell");
     }
 
     sync();
-    const observer = new MutationObserver(sync);
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
+    document.addEventListener("fullscreenchange", sync);
+    return () => document.removeEventListener("fullscreenchange", sync);
   }, []);
 
-  return active;
-}
-
-function getViewportCenter(): { x: number; y: number } {
-  return {
-    x: Math.round(window.innerWidth / 2),
-    y: Math.round(window.innerHeight / 2),
-  };
+  return isFullscreen;
 }
 
 export default function CustomCursor() {
-  const isProjector = useProjectorMode();
+  const deviceEnabled = useCursorEnabled();
+  const isPresentationFullscreen = usePresentationFullscreen();
+  const enabled = deviceEnabled && isPresentationFullscreen;
   const [mounted, setMounted] = useState(false);
   const cursor = useSyncExternalStore(subscribeCursorPosition, getCursorPosition, () => ({
     x: 0,
     y: 0,
-    visible: true,
+    visible: false,
   }));
 
   const x = useMotionValue(0);
@@ -62,43 +62,46 @@ export default function CustomCursor() {
   }, []);
 
   useEffect(() => {
-    if (!isProjector || !mounted) return;
+    if (!enabled || !mounted) return;
 
     document.documentElement.classList.add("custom-cursor-active");
 
-    const center = getViewportCenter();
-    updateCursorPosition(center.x, center.y);
-    x.set(center.x);
-    y.set(center.y);
-
-    const onMove = (event: MouseEvent | PointerEvent) => {
+    const onPointerMove = (event: PointerEvent) => {
       updateCursorPosition(event.clientX, event.clientY);
     };
 
-    window.addEventListener("pointermove", onMove, { passive: true });
-    window.addEventListener("mousemove", onMove, { passive: true });
+    const onPointerLeave = () => {
+      hideCursorPosition();
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    document.documentElement.addEventListener("pointerleave", onPointerLeave);
 
     return () => {
       document.documentElement.classList.remove("custom-cursor-active");
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("pointermove", onPointerMove);
+      document.documentElement.removeEventListener("pointerleave", onPointerLeave);
       hideCursorPosition();
     };
-  }, [isProjector, mounted, x, y]);
+  }, [enabled, mounted]);
 
   useEffect(() => {
+    if (!cursor.visible) return;
     x.set(cursor.x);
     y.set(cursor.y);
-  }, [cursor.x, cursor.y, x, y]);
+  }, [cursor.visible, cursor.x, cursor.y, x, y]);
 
-  if (!isProjector || !mounted) return null;
+  const rootClassName = useMemo(
+    () =>
+      `custom-cursor-root custom-cursor-root--presentation${cursor.visible ? "" : " is-hidden"}`,
+    [cursor.visible],
+  );
+
+  if (!enabled || !mounted) return null;
 
   return (
-    <div className="custom-cursor-root custom-cursor-root--projector" aria-hidden="true">
-      <motion.div className="custom-cursor-marker" style={{ x: xMain, y: yMain }} aria-hidden="true">
-        <span className="custom-cursor-ring" />
-        <span className="custom-cursor-dot" />
-      </motion.div>
+    <div className={rootClassName} aria-hidden="true">
+      <motion.span className="custom-cursor-dot" style={{ x: xMain, y: yMain }} aria-hidden="true" />
     </div>
   );
 }
