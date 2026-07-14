@@ -133,23 +133,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 3,
-    topics: [
-      {
-        id: "web-stack-primer",
-        title: "핵심 기술 방향성 ① — 3Tier 구조 (Web-WAS-DB)",
-        category: "process",
-        summary:
-          "웹(프론트엔드)·WAS(백엔드 업무 처리)·DB(데이터 저장) 3층 구조로 IT 시스템을 이해합니다. 이후 아키텍처·기술 스택 장표의 기본 틀입니다.",
-        process: [
-          { step: 1, title: "웹 · 프론트엔드", description: "사용자가 보는 화면·메뉴·입력 UI (브라우저)" },
-          { step: 2, title: "WAS", description: "수주·발주·정산 등 비즈니스 규칙 실행 (백엔드 응용 서버)" },
-          { step: 3, title: "DB", description: "거래·재고·정산 데이터 영구 저장·조회" },
-        ],
-      },
-    ],
-  },
-  {
     slideId: 4,
     topics: [
       {
@@ -279,22 +262,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 11,
-    topics: [
-      {
-        id: "digital-worker",
-        title: "디지털 트렌드 — AI 디지털 워커 (AI Digital Worker)",
-        category: "process",
-        summary: "출근·퇴근하는 AI 디지털 워커 — 스크립트 복사 채용·KPI 평가·IT 관제 조직 모델입니다.",
-        process: [
-          { step: 1, title: "출퇴근", description: "09:00 태스크 할당 · 18:00 리포트 · 팀 단위 편성" },
-          { step: 2, title: "채용·평가", description: "스크립트 복사 투입 · KPI 평가 · 저성과 버전 교체" },
-          { step: 3, title: "IT 관제", description: "실시간 대시보드 · 이상 알림 · 감사 로그 거버넌스" },
-        ],
-      },
-    ],
-  },
-  {
     slideId: 12,
     topics: [
       {
@@ -350,23 +317,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
     ],
   },
   {
-    slideId: 15,
-    topics: [
-      {
-        id: "peer-benchmark",
-        title: "타사 프로젝트 비교",
-        category: "process",
-        summary:
-          "삼성E&A 70명·2년(1,680 M/M) 대비 당사 핵심 7명(+ AI 8)·1.5년(108 M/M) TFT의 규모·효율 벤치마크입니다. 내부 전략 수립용 참고 자료입니다.",
-        process: [
-          { step: 1, title: "타사 사례", description: "70명 규모·2년 진행 대규모 엔지니어링·플랫폼 프로젝트" },
-          { step: 2, title: "당사 TFT", description: "핵심 7명 + AI 8명 협업, 1.5년·108 M/M" },
-          { step: 3, title: "시사점", description: "동일 산출물 대비 M/M·일정 효율 극대화" },
-        ],
-      },
-    ],
-  },
-  {
     slideId: 16,
     topics: [
       {
@@ -400,41 +350,6 @@ export const SLIDE_DETAILS: SlideDetailSet[] = [
           { step: 2, title: "AI 개발", description: "Claude Code·Cursor·DGX Spark — 코드·테스트·문서 생성" },
           { step: 3, title: "통합·배포", description: "GitLab CI/CD — MR·Quality Gate·스테이징·운영 반영" },
           { step: 4, title: "검증", description: "Human-in-the-loop 품질 검수·회귀 테스트" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 18,
-    topics: [
-      {
-        id: "project-schedule",
-        title: "프로젝트 진행경과 마일스톤",
-        category: "process",
-        summary:
-          "7단계 마일스톤으로 요약한 FaSS 차세대 플랫폼 구축 로드맵입니다. 현재 3단계(공통 아키텍처·프레임워크 PoC) 진행 중이며, JTGS → 프로토타입 → 3PL·유통물류로 단계적 전환합니다.",
-        process: [
-          { step: 1, title: "1~2단계", description: "AS-IS 분석·TO-BE 모델 정립 (26.01~05)" },
-          { step: 2, title: "3단계", description: "공통 아키텍처·프레임워크 PoC (26.05~09)" },
-          { step: 3, title: "4단계", description: "주요소관리 프로토타입 (26.10~27.03)" },
-          { step: 4, title: "5~7단계", description: "안정화 → 전환 준비 → 3PL·유통물류 본 전환" },
-        ],
-      },
-    ],
-  },
-  {
-    slideId: 19,
-    topics: [
-      {
-        id: "ai-digital-worker",
-        title: "최적화 방안 1. AI 디지털 워커 활용 (당사 자체개발)",
-        category: "process",
-        summary:
-          "인간 핵심 7명과 AI 보조 인력 8명이 협업합니다. 총 15명 규모 TFT와 동등한 추진력으로 코드·문서·테스트는 AI가 24/7 지원하고, 설계·의사결정·품질 검수는 Human-in-the-loop로 통제합니다.",
-        process: [
-          { step: 1, title: "인간 7명", description: "TFT 핵심 — 아키텍처·설계·의사결정·품질 검수" },
-          { step: 2, title: "AI 보조 8명", description: "디지털 워커 — 코드·문서·테스트 등 표준 업무 24/7 지원" },
-          { step: 3, title: "15명 TFT급", description: "인간+AI 15명 체제로 대규모 TFT와 동등한 프로젝트 추진 효과" },
         ],
       },
     ],
