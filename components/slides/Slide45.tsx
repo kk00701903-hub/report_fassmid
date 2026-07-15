@@ -11,7 +11,6 @@ const SEATS = [
   { role: "시스템 사업부장", accent: "left" },
   { role: "경영기획팀장", accent: "right" },
   { role: "영업지원팀장", accent: "right" },
-  { role: "기충영 프로", accent: "left" },
   { role: "김희찬 프로", accent: "left" },
   { role: "송민준 프로", accent: "left" },
   { role: "발표자 (정보전략팀장)", accent: "speaker" },
