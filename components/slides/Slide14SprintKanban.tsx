@@ -107,6 +107,7 @@ export default function Slide14SprintKanban() {
           FaSS Platform v3.0 — {SPRINT_BOARD_STATS.total}개 Mega-Sprint · ACTIVE{" "}
           {SPRINT_BOARD_STATS.active} · 종료 {SPRINT_BOARD_STATS.closed} · 예정{" "}
           {SPRINT_BOARD_STATS.future}
+          <span className="s14-sub-highlight">19개 프로젝트 병렬 수행 진행 중</span>
         </p>
         <div className="line" />
       </header>
