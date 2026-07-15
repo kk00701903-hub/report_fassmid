@@ -114,7 +114,6 @@ export const DECK_MANIFEST: DeckSlideEntry[] = [
   { slideId: 26, title: "#. 별첨 아키텍처 원칙 3: CI/CD 자동화 (DevOps · GitOps)", role: "appendix", defaultVisible: true },
   { slideId: 38, title: "#. 별첨 중장기 목표 1: Kubernetes 운영", role: "appendix", defaultVisible: true },
   { slideId: 39, title: "#. 별첨 중장기 목표 2: MSA 전환", role: "appendix", defaultVisible: true },
-  { slideId: 45, title: "#. 별첨 회의 좌석 배치도", role: "appendix", defaultVisible: true },
 ];
 
 const TOPIC_ROLES: ReadonlySet<DeckSlideRole> = new Set(["content", "closing", "glossary"]);
